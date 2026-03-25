@@ -8,8 +8,6 @@ import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } fro
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
-import melittaImg from "@/assets/melitta-portrait.jpg";
-import heroImg from "@/assets/hero-dance.jpg";
 
 const team = [
   { name: "Melitta Siomos", role: "Founder & Lead Instructor", specialties: ["Salsa On1", "Bachata Sensual", "Latin Styling", "Wedding Dance"], bio: "International award-winning Salsa & Bachata instructor with 15+ years of experience. Founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. Bachata UK Champion and coach to hundreds of dancers across London and Europe." },
