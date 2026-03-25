@@ -1,22 +1,18 @@
-import { ReactNode, useEffect, useState, useRef } from "react";
-import { motion, useInView, useAnimation, type Variant } from "framer-motion";
+import { ReactNode, useEffect, useState, useRef, forwardRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 // Fade-in-up section wrapper
-export const FadeInUp = ({
-  children,
-  className = "",
-  delay = 0,
-}: {
+export const FadeInUp = forwardRef<HTMLDivElement, {
   children: ReactNode;
   className?: string;
   delay?: number;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+}>(({ children, className = "", delay = 0 }, _ref) => {
+  const internalRef = useRef(null);
+  const isInView = useInView(internalRef, { once: true, margin: "-60px" });
 
   return (
     <motion.div
-      ref={ref}
+      ref={internalRef}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
@@ -25,24 +21,21 @@ export const FadeInUp = ({
       {children}
     </motion.div>
   );
-};
+});
+FadeInUp.displayName = "FadeInUp";
 
 // Staggered children container
-export const StaggerContainer = ({
-  children,
-  className = "",
-  staggerDelay = 0.1,
-}: {
+export const StaggerContainer = forwardRef<HTMLDivElement, {
   children: ReactNode;
   className?: string;
   staggerDelay?: number;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+}>(({ children, className = "", staggerDelay = 0.1 }, _ref) => {
+  const internalRef = useRef(null);
+  const isInView = useInView(internalRef, { once: true, margin: "-60px" });
 
   return (
     <motion.div
-      ref={ref}
+      ref={internalRef}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
@@ -54,16 +47,14 @@ export const StaggerContainer = ({
       {children}
     </motion.div>
   );
-};
+});
+StaggerContainer.displayName = "StaggerContainer";
 
 // Individual stagger child
-export const StaggerItem = ({
-  children,
-  className = "",
-}: {
+export const StaggerItem = forwardRef<HTMLDivElement, {
   children: ReactNode;
   className?: string;
-}) => (
+}>(({ children, className = "" }, _ref) => (
   <motion.div
     variants={{
       hidden: { opacity: 0, y: 30 },
@@ -73,7 +64,8 @@ export const StaggerItem = ({
   >
     {children}
   </motion.div>
-);
+));
+StaggerItem.displayName = "StaggerItem";
 
 // Animated counter
 export const AnimatedCounter = ({
@@ -115,21 +107,17 @@ export const AnimatedCounter = ({
 };
 
 // Scale-in on view
-export const ScaleIn = ({
-  children,
-  className = "",
-  delay = 0,
-}: {
+export const ScaleIn = forwardRef<HTMLDivElement, {
   children: ReactNode;
   className?: string;
   delay?: number;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+}>(({ children, className = "", delay = 0 }, _ref) => {
+  const internalRef = useRef(null);
+  const isInView = useInView(internalRef, { once: true, margin: "-60px" });
 
   return (
     <motion.div
-      ref={ref}
+      ref={internalRef}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
@@ -138,4 +126,5 @@ export const ScaleIn = ({
       {children}
     </motion.div>
   );
-};
+});
+ScaleIn.displayName = "ScaleIn";
