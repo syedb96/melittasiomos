@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
+import RelatedPages from "@/components/RelatedPages";
 
 const faqCategories = [
   {
@@ -107,6 +108,15 @@ const FAQ = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <RelatedPages title="Helpful Pages" links={[
+      { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata?" },
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Mon Chiswick · Tue Ealing" },
+      { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
+      { to: "/locations", label: "Locations", desc: "Venue details & directions" },
+      { to: "/blog/salsa-vs-bachata", label: "Salsa vs Bachata", desc: "Which should you learn?" },
+      { to: "/contact", label: "Contact Melitta", desc: "Get in touch anytime" },
+    ]} />
   </Layout>
 );
 

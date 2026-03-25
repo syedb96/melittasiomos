@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import RelatedPages from "@/components/RelatedPages";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
@@ -129,6 +130,15 @@ const PuraLadies = () => (
         </div>
       </div>
     </section>
+
+    <RelatedPages title="Explore More" links={[
+      { to: "/blog/pura-ladies-story", label: "The Pura Ladies Story", desc: "How one dream became a global community" },
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Build your foundation at Pura Nights" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "Fast-track your technique" },
+      { to: "/gallery", label: "Gallery & Videos", desc: "See Pura Ladies in action" },
+      { to: "/about", label: "About Melitta", desc: "Meet the founder" },
+      { to: "/testimonials", label: "Member Stories", desc: "Hear from the team" },
+    ]} />
   </Layout>
 );
 

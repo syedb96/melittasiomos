@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
+import RelatedPages from "@/components/RelatedPages";
 
 const tiers = [
   { tier: "🥉", name: "Bronze Monthly", price: "£45", period: "/month", desc: "4 classes per month", features: ["Valid one month", "Sundays included", "Perfect for occasional dancers"] },
@@ -49,6 +50,15 @@ const Prices = () => (
         </div>
       </div>
     </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & venue info" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching pricing" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "Wedding package pricing" },
+      { to: "/gift-vouchers", label: "Gift Vouchers", desc: "Give the gift of dance" },
+      { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata?" },
+      { to: "/bookings", label: "Book Now", desc: "Secure your spot" },
+    ]} />
   </Layout>
 );
 
