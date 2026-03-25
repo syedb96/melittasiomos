@@ -44,18 +44,27 @@ const Footer = () => (
             ))}
           </ul>
 
-          <h4 className="font-heading font-semibold text-primary-foreground text-sm tracking-wider mt-6 mb-3">LOCAL PAGES</h4>
+          <h4 className="font-heading font-semibold text-primary-foreground text-sm tracking-wider mt-6 mb-3">FIND CLASSES NEAR YOU</h4>
           <ul className="space-y-2 text-sm">
             {[
               { to: "/salsa-classes-london", label: "Salsa Classes London" },
               { to: "/bachata-classes-london", label: "Bachata Classes London" },
-              { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
-              { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
-              { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
-              { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+              { to: "/salsa-classes-chiswick", label: "Salsa in Chiswick" },
+              { to: "/bachata-classes-chiswick", label: "Bachata in Chiswick" },
+              { to: "/salsa-classes-ealing", label: "Salsa in Ealing" },
+              { to: "/bachata-classes-ealing", label: "Bachata in Ealing" },
+              { to: "/salsa-classes-acton", label: "Salsa Near Acton" },
+              { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
+              { to: "/dance-classes-chiswick", label: "Dance Classes Chiswick" },
               { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+              { to: "/bachata-classes-west-london", label: "Bachata West London" },
+              { to: "/latin-dance-classes-london", label: "Latin Dance London" },
               { to: "/wedding-dance-west-london", label: "Wedding Dance West London" },
+              { to: "/wedding-dance-lessons-london", label: "Wedding Dance London" },
               { to: "/private-dance-lessons-west-london", label: "Private Lessons West London" },
+              { to: "/private-salsa-lessons-london", label: "Private Salsa London" },
+              { to: "/ladies-styling-london", label: "Ladies Styling London" },
+              { to: "/bachata-performance-team-london", label: "Performance Team London" },
             ].map(l => (
               <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors">{l.label}</Link></li>
             ))}
