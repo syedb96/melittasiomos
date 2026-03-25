@@ -18,7 +18,7 @@ const SalsaOn1VsOn2 = () => (
             <span className="inline-block bg-primary/20 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
             <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Salsa On1 vs On2 for Beginners — What's the Difference?</h1>
             <div className="flex items-center gap-4 text-sm text-primary-foreground/50 font-heading mb-4"><span>By Melitta Siomos</span><span>·</span><span>Jun 2025</span><span>·</span><span>6 min read</span></div>
-            <SocialShareButtons title="Salsa On1 vs On2 for Beginners" url="https://www.melittasiomos.com/blog/salsa-on1-vs-on2" />
+            <SocialShareButtons title="Salsa On1 vs On2 for Beginners" path="/blog/salsa-on1-vs-on2" />
           </FadeInUp>
         </div>
       </section>

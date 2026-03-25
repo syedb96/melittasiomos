@@ -18,7 +18,7 @@ const BachataForBeginners = () => (
             <span className="inline-block bg-primary/20 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
             <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Bachata for Complete Beginners in London</h1>
             <div className="flex items-center gap-4 text-sm text-primary-foreground/50 font-heading mb-4"><span>By Melitta Siomos</span><span>·</span><span>Jun 2025</span><span>·</span><span>7 min read</span></div>
-            <SocialShareButtons title="Bachata for Complete Beginners in London" url="https://www.melittasiomos.com/blog/bachata-for-beginners-london" />
+            <SocialShareButtons title="Bachata for Complete Beginners in London" path="/blog/bachata-for-beginners-london" />
           </FadeInUp>
         </div>
       </section>

@@ -18,7 +18,7 @@ const WhatToWear = () => (
             <span className="inline-block bg-primary/20 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
             <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">What to Wear to Salsa and Bachata Class</h1>
             <div className="flex items-center gap-4 text-sm text-primary-foreground/50 font-heading mb-4"><span>By Melitta Siomos</span><span>·</span><span>Jun 2025</span><span>·</span><span>5 min read</span></div>
-            <SocialShareButtons title="What to Wear to Salsa and Bachata Class" url="https://www.melittasiomos.com/blog/what-to-wear-salsa-bachata" />
+            <SocialShareButtons title="What to Wear to Salsa and Bachata Class" path="/blog/what-to-wear-salsa-bachata" />
           </FadeInUp>
         </div>
       </section>
