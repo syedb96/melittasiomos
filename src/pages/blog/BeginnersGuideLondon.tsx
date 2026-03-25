@@ -2,101 +2,56 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import AuthorCard from "@/components/AuthorCard";
+import SocialShareButtons from "@/components/SocialShareButtons";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const BeginnersGuideLondon = () => (
   <Layout>
-    <SeoHead title="Beginner's Guide to Salsa Classes in London | What to Expect | Pura Nights" description="New to salsa? Here's everything you need to know before your first class in London — what to wear, how to book, and why Pura Nights is the perfect start." path="/blog/beginners-guide-salsa-london" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "The Beginner's Complete Guide to Salsa Classes in London", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2025-02-10" }} />
-
+    <SeoHead title="Beginner's Guide to Salsa Classes in London | Pura Nights" description="Everything you need to know before your first salsa class in London — what to wear, how it works, pricing. From Melitta Siomos." path="/blog/beginners-guide-salsa-london" schema={{ "@context": "https://schema.org", "@type": ["Article", "FAQPage"], headline: "The Complete Beginner's Guide to Salsa Classes in London", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-04-01" }} />
+    <ReadingProgressBar />
     <article className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <FadeInUp>
-          <nav className="text-xs text-muted-foreground mb-8 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/blog" className="hover:text-primary">Blog</Link> / <span className="text-primary">Beginner's Guide</span></nav>
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">The Beginner's Complete Guide to Salsa Classes in London</h1>
-          <p className="text-muted-foreground text-sm mb-8 font-heading">By Melitta Siomos · 10 February 2025 · 7 min read</p>
-          <div className="h-1 w-20 bg-primary rounded-full mb-10" />
+          <nav className="text-sm text-muted-foreground mb-6 font-heading"><Link to="/" className="hover:text-primary">Home</Link> → <Link to="/blog" className="hover:text-primary">Blog</Link> → <span className="text-foreground">Beginners</span></nav>
+          <span className="inline-block bg-primary/10 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
+          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">The Complete Beginner's Guide to Salsa Classes in London</h1>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-heading mb-8"><span>By Melitta Siomos</span><span>·</span><span>Apr 2025</span><span>·</span><span>6 min read</span></div>
+          <SocialShareButtons title="Beginner's Guide to Salsa in London" path="/blog/beginners-guide-salsa-london" />
         </FadeInUp>
-
         <FadeInUp delay={0.1}>
-          <div className="prose prose-lg max-w-none text-foreground">
-            <p className="text-muted-foreground leading-relaxed mb-6">Thinking about trying a Salsa class in London but not sure what to expect? You're not alone. Walking into your first dance class can feel daunting — but it's also one of the most rewarding decisions you'll ever make. This guide covers everything a complete beginner needs to know, from what to wear to how fast you'll progress.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Why London is One of the Best Cities to Learn Salsa</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">London has one of the most vibrant and diverse Latin dance scenes in the world. On any given night, you can find Salsa and Bachata socials across the city — from Central London to Chiswick, Ealing to Brixton. The community is welcoming, international, and incredibly supportive of beginners.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">Unlike many cities where Latin dance is niche, London's scene is thriving. There are international congresses, weekly socials, monthly events, and dance holidays — all accessible from your very first month of dancing.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">What to Expect at Your Very First Class</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Here's a typical first class at Pura Nights:</p>
-            <ol className="list-decimal pl-6 text-muted-foreground space-y-2 mb-6">
-              <li><strong>Arrival (7:15 PM):</strong> Arrive early, pay at the door or show your bundle, find a spot, and say hello. Everyone remembers being new — people are genuinely friendly.</li>
-              <li><strong>Warm-up (7:30 PM):</strong> The class starts with a group warm-up to the music. This gets your body moving and your mind into the rhythm.</li>
-              <li><strong>Technique (7:35 PM):</strong> The teacher breaks down the basic steps slowly and clearly. You'll practice on your own first, then with a partner.</li>
-              <li><strong>Partner rotation:</strong> Every few minutes, partners rotate. This means you'll dance with many different people — it's the fastest way to learn and the best way to make friends.</li>
-              <li><strong>Practice time:</strong> At the end, you'll get free practice time to consolidate what you've learned.</li>
-              <li><strong>Social dancing (9 PM):</strong> The floor opens up, the DJ plays, and everyone dances together. Staying for the social is optional but highly recommended.</li>
-            </ol>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">What to Wear and Bring</h2>
-            <p className="text-muted-foreground leading-relaxed mb-2">Keep it simple:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li><strong>Clothes:</strong> Anything comfortable that you can move in. T-shirt, jeans, leggings, a dress — whatever makes you feel good. You will get warm, so layers help.</li>
-              <li><strong>Shoes:</strong> Flat-soled shoes or trainers with a smooth bottom. Avoid chunky running shoes — you need to be able to pivot. As you progress, Latin dance shoes are a game-changer.</li>
-              <li><strong>Water:</strong> Bring a water bottle. Dancing is a workout!</li>
-              <li><strong>Towel:</strong> Optional but useful if you tend to warm up quickly.</li>
-              <li><strong>Cash or card:</strong> For door entry if you don't have a bundle.</li>
-            </ul>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">How Partner Rotation Works (And Why It's Not Scary)</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Partner rotation is one of the things beginners worry about most — and it's also one of the things they end up loving most. Here's how it works:</p>
-            <p className="text-muted-foreground leading-relaxed mb-4">The teacher calls "rotate!" and one line of dancers moves along, so everyone gets a new partner. This means you learn to adapt to different styles, heights, and energy levels — which is exactly what social dancing demands.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">There's no awkwardness involved. It's built into the structure. Nobody is rejected. Everyone rotates. It's the single fastest way to improve and the best way to meet new people.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Understanding the Class Structure at Pura Nights</h2>
-            <p className="text-muted-foreground leading-relaxed mb-2">Every Pura Nights evening runs three levels:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li><strong>🟢 Beginners (7:30 PM):</strong> Starting from absolute zero. No experience needed whatsoever.</li>
-              <li><strong>🟡 Improvers (8:00 PM):</strong> You know the basics and want to build confidence and technique.</li>
-              <li><strong>🔴 Intermediate (8:30 PM):</strong> Complex patterns, musicality, and social floor readiness.</li>
-            </ul>
-            <p className="text-muted-foreground leading-relaxed mb-6">You start in Beginners and progress when you're ready. Melitta personally monitors student progression and will invite you to try the next level when she thinks you're ready.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">The Social After Class — Should You Stay?</h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">Absolutely yes, if you can. The social is where everything clicks. You get to practice what you've learned in a relaxed, fun environment. Nobody expects perfection — it's about enjoying the music and connecting with people. Many of our students' best friendships started during the social.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">How Fast Will You Progress?</h2>
-            <p className="text-muted-foreground leading-relaxed mb-2">With consistent weekly attendance:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li><strong>Weeks 1–2:</strong> Basic step, timing, first turns. You'll feel the rhythm.</li>
-              <li><strong>Weeks 3–6:</strong> Cross-body leads, multiple turns, partner connection. You'll start enjoying socials.</li>
-              <li><strong>Weeks 6–12:</strong> Improvers-level patterns, styling, musicality. You'll feel like a dancer.</li>
-              <li><strong>3–6 months:</strong> Intermediate patterns, shines, floor craft. You'll love every social.</li>
-            </ul>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Chiswick vs Ealing — Which Should You Choose?</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4"><strong>Monday — Chiswick (The George IV):</strong> Our original night. Compact, lively, community-driven. Great for your first class. Located on Chiswick High Road, near Turnham Green tube.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6"><strong>Tuesday — Ealing (Drayton Court Hotel):</strong> Our bigger night with an extra bonus — a free Ladies Styling warm-up at 6:50 PM. Beautiful venue, spacious floor, and a vibrant crowd. Near West Ealing station on the Elizabeth Line.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">Both nights teach the same curriculum, and all bundles work at both venues. So you can attend both!</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Pricing — Drop-In vs Bundle</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Drop-in from £10 per class. But if you're serious about learning (and saving money), a bundle is the way to go:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li><strong>5-class bundle:</strong> From £42 (saves up to £33 vs drop-in)</li>
-              <li><strong>10-class bundle:</strong> From £78 (saves up to £72 vs drop-in)</li>
-              <li>Valid at both venues for 3 months</li>
-            </ul>
-
-            <div className="bg-card rounded-2xl p-8 card-hover text-center mt-10">
-              <h2 className="font-display text-2xl font-bold mb-3">Ready to Start?</h2>
-              <p className="text-muted-foreground mb-6">Your first class is waiting. No partner needed, no experience required.</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/prices" className="btn-cta-primary text-sm">See Pricing & Bundles</Link>
-                <Link to="/pura-nights" className="btn-cta-dark text-sm">View Full Schedule</Link>
-              </div>
+          <div className="prose prose-lg max-w-none mt-10 font-body text-foreground [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_p]:mb-5 [&_p]:leading-relaxed [&_ul]:mb-5 [&_li]:mb-2">
+            <p>Walking into your first dance class as an adult is one of the bravest and most exciting things you can do. This guide walks you through exactly what to expect at Pura Nights.</p>
+            <h2>Why London is Amazing for Salsa</h2>
+            <p>London has one of the most vibrant Latin dance scenes on the planet. West London — Chiswick, Ealing, Acton — has a thriving community centred around Pura Nights.</p>
+            <h2>What to Wear and Bring</h2>
+            <p><strong>Shoes:</strong> Flat-soled trainers work for beginners. Avoid thick running shoes. <strong>Clothes:</strong> Comfortable, breathable. <strong>Water:</strong> Bring a bottle. <strong>Attitude:</strong> Leave perfection at the door.</p>
+            <h2>What Happens in a Beginners Class</h2>
+            <p><strong>0–10 min:</strong> Warm-up, finding the rhythm. <strong>10–25 min:</strong> The basic step, solo then with partner. <strong>25–40 min:</strong> First partner move (crossbody lead), rotating partners. <strong>40–50 min:</strong> Combination linking everything together. <strong>50–55 min:</strong> Demo at social speed.</p>
+            <h2>Partner Rotation — Why It Works</h2>
+            <p>You dance with 8–15 different people per class. You adapt to different styles, make friends naturally, and improve faster than dancing with just one person. The nerves disappear within the first rotation.</p>
+            <h2>The Social — Should You Stay?</h2>
+            <p><strong>Yes.</strong> The social is where everything clicks. The DJ plays, the floor opens, and you practise with real partners. You don't need to be good — you need to be willing to try.</p>
+            <h2>Pricing</h2>
+            <ul><li><strong>Drop-in:</strong> £10–15</li><li><strong>5-class bundle:</strong> from £42</li><li><strong>10-class bundle:</strong> from £78</li><li><strong>Monthly unlimited:</strong> from £85</li></ul>
+            <div className="not-prose my-12 bg-primary rounded-2xl p-8 text-center">
+              <h3 className="font-display text-2xl font-bold text-primary-foreground mb-2">Ready to Try a Class?</h3>
+              <p className="text-primary-foreground/80 font-heading text-sm mb-5">No booking required — just turn up</p>
+              <Link to="/pura-nights" className="btn-cta-dark inline-block">See Class Schedule</Link>
             </div>
+            <h2>FAQ — Beginners</h2>
           </div>
+        </FadeInUp>
+        <FadeInUp delay={0.2}>
+          <Accordion type="multiple" className="mb-10">
+            {[{q:"What if I have no rhythm?",a:"Rhythm is a skill, not a gift. Melitta teaches it explicitly."},{q:"I'm shy. Will I feel awkward?",a:"Within 15 minutes the self-consciousness fades. Movement and music are natural social lubricants."},{q:"Is dance for all body types?",a:"Dance is for every body. Students aged 18–65+, all fitness levels."},{q:"How do I find the venue?",a:"Mondays: The George IV, 185 Chiswick High Rd, W4 2DR. Tuesdays: Drayton Court Hotel, 2 The Avenue, Ealing, W13 8PH."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
+          </Accordion>
+          <AuthorCard />
+          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-salsa",title:"What is Salsa?",cat:"Salsa"},{slug:"what-is-bachata",title:"What is Bachata?",cat:"Bachata"},{slug:"salsa-vs-bachata",title:"Salsa vs Bachata",cat:"Beginners"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
         </FadeInUp>
       </div>
     </article>
   </Layout>
 );
-
 export default BeginnersGuideLondon;
