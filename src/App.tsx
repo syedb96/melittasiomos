@@ -67,7 +67,6 @@ import WeddingDanceLessonsLondon from "./pages/WeddingDanceLessonsLondon";
 import PrivateSalsaLessonsLondon from "./pages/PrivateSalsaLessonsLondon";
 import LadiesStylingLondon from "./pages/LadiesStylingLondon";
 import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
-import DanceClassesChiswick from "./pages/DanceClassesChiswick";
 import BestSalsaNightsWestLondon from "./pages/blog/BestSalsaNightsWestLondon";
 import SalsaClassesNearTurnhamGreen from "./pages/blog/SalsaClassesNearTurnhamGreen";
 import LatinDanceEventsEaling2026 from "./pages/blog/LatinDanceEventsEaling2026";
