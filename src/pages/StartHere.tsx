@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ChevronRight, MapPin, Clock, CheckCircle } from "lucide-react";
 import heroImg from "@/assets/hero-dance.jpg";
@@ -139,6 +140,16 @@ const StartHere = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Next Steps" links={[
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Mon Chiswick · Tue Ealing" },
+      { to: "/prices", label: "Prices & Bundles", desc: "From £5.50 per class" },
+      { to: "/locations", label: "Locations", desc: "Venue details & directions" },
+      { to: "/blog/salsa-vs-bachata", label: "Salsa vs Bachata", desc: "Which to learn first?" },
+      { to: "/blog/what-to-wear-salsa-bachata", label: "What to Wear", desc: "Dress code guide" },
+      { to: "/faq", label: "FAQ", desc: "Common questions answered" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
+      { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
+    ]} />
   </Layout>
 );
 

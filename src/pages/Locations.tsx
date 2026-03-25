@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Clock, Train, Bus, Car, ChevronRight, ExternalLink } from "lucide-react";
 
@@ -134,6 +135,14 @@ const Locations = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+      { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/pura-nights", label: "Weekly Schedule" },
+      { to: "/prices", label: "Prices & Bundles" },
+      { to: "/contact", label: "Contact" },
+    ]} />
   </Layout>
 );
 

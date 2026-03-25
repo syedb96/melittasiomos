@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const services = [
@@ -54,6 +55,13 @@ const Bookings = () => (
         <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">💬 WhatsApp Melitta</a>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule" },
+      { to: "/prices", label: "Prices", desc: "All pricing options" },
+      { to: "/start-here", label: "Start Here", desc: "New to dancing?" },
+      { to: "/locations", label: "Locations", desc: "Venue details" },
+      { to: "/faq", label: "FAQ", desc: "Common questions" },
+    ]} />
   </Layout>
 );
 

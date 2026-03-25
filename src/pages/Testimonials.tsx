@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import testimonials, { type Testimonial } from "@/data/testimonials";
 
@@ -73,6 +74,14 @@ const Testimonials = () => {
           </FadeInUp>
         </div>
       </section>
+      <RelatedPages title="Explore" links={[
+        { to: "/pura-nights", label: "Weekly Classes", desc: "Join Salsa & Bachata" },
+        { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
+        { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance coaching" },
+        { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
+        { to: "/start-here", label: "Start Here", desc: "New to dancing?" },
+        { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
+      ]} />
     </Layout>
   );
 };
