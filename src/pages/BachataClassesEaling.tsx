@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, Star, Trophy } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const schema = {
   "@context": "https://schema.org",

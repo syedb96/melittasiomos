@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const SalsaClassesEaling = () => (
   <Layout>
