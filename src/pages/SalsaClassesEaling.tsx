@@ -81,6 +81,14 @@ const SalsaClassesEaling = () => (
         <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+      { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
+      { to: "/salsa-classes-london", label: "Salsa Classes London" },
+      { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+      { to: "/blog/what-is-salsa", label: "What is Salsa?" },
+      { to: "/pura-nights", label: "Full Schedule" },
+    ]} />
   </Layout>
 );
 

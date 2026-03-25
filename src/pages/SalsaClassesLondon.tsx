@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Star, Trophy, Users, MapPin, Clock, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const schema = {
   "@context": "https://schema.org",
@@ -139,6 +140,17 @@ const SalsaClassesLondon = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/bachata-classes-london", label: "Bachata Classes London" },
+      { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+      { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
+      { to: "/salsa-classes-acton", label: "Salsa Classes Acton" },
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/blog/what-is-salsa", label: "What is Salsa?" },
+      { to: "/blog/first-salsa-class-london", label: "Your First Salsa Class" },
+      { to: "/blog/salsa-no-partner", label: "No Partner Needed" },
+      { to: "/pura-nights", label: "Weekly Classes" },
+    ]} />
   </Layout>
 );
 
