@@ -16,8 +16,8 @@ const schema = {
 const SalsaClassesLondon = () => (
   <Layout>
     <SeoHead
-      title="Salsa Classes London | Weekly Lessons from £5.50 | Melitta Siomos"
-      description="Learn salsa in London with award-winning instructor Melitta Siomos. Weekly salsa classes in Chiswick & Ealing for all levels. No partner needed. Book from £5.50."
+      title="Salsa Classes London | Weekly Lessons from £5 | Melitta Siomos"
+      description="Learn salsa in London with award-winning instructor Melitta Siomos. Weekly salsa classes in Chiswick & Ealing for all levels. No partner needed. Book from £5."
       path="/salsa-classes-london"
       schema={schema}
     />
@@ -118,7 +118,7 @@ const SalsaClassesLondon = () => (
             { q: "Do I need a partner to attend salsa classes?", a: "No! Most of our students come solo. We rotate partners throughout the class so you'll dance with different people and build confidence quickly." },
             { q: "I've never danced before — is it okay to come?", a: "Absolutely. Every class starts with a structured warm-up, and we split into beginner, improver, and intermediate groups. Many of our most passionate dancers started with zero experience." },
             { q: "What's the difference between salsa and bachata?", a: "Salsa is faster, more energetic, and rhythmically complex. Bachata is slower, more romantic, and danced to guitar-driven music. We teach both every week — it's the perfect combination." },
-            { q: "How much do salsa classes cost?", a: "Drop-in classes start from just £5.50. We also offer monthly packages: Bronze (£45/month for 4 classes), Silver (£75/month for 8 classes), and Gold Unlimited (£110/month). See our full pricing page for details." },
+            { q: "How much do salsa classes cost?", a: "Drop-in classes start from just £5. We also offer monthly packages: Bronze (£45/month for 4 classes), Silver (£75/month for 8 classes), and Gold Unlimited (£110/month). See our full pricing page for details." },
           ].map((faq, i) => (
             <div key={i} className="bg-card rounded-lg p-6">
               <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
@@ -133,7 +133,7 @@ const SalsaClassesLondon = () => (
     <section className="section-padding bg-primary text-center">
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Ready to Start Your Salsa Journey?</h2>
-        <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Join Pura Nights this week — no partner needed, all levels welcome, from just £5.50.</p>
+        <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Join Pura Nights this week — no partner needed, all levels welcome, from just £5.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Salsa Class Now</a>
           <Link to="/contact" className="btn-cta-outline">Contact Melitta <ArrowRight size={16} className="ml-2" /></Link>

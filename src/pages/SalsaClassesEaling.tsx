@@ -8,7 +8,7 @@ const SalsaClassesEaling = () => (
   <Layout>
     <SeoHead
       title="Salsa Classes Ealing | Every Tuesday | Pura Nights by Melitta Siomos"
-      description="Learn salsa every Tuesday in Ealing at Drayton Court Hotel with Melitta Siomos. Beginner to advanced. No partner needed. From £5.50."
+      description="Learn salsa every Tuesday in Ealing at Drayton Court Hotel with Melitta Siomos. Beginner to advanced. No partner needed. From £5."
       path="/salsa-classes-ealing"
     />
 
@@ -45,7 +45,7 @@ const SalsaClassesEaling = () => (
             <div className="flex items-center gap-3"><Clock size={16} className="text-secondary" /><span className="font-heading font-semibold">8:15–9:00 PM</span> — Bachata Class</div>
             <div className="flex items-center gap-3"><Clock size={16} className="text-secondary" /><span className="font-heading font-semibold">9:00–11:00 PM</span> — Social Dancing</div>
           </div>
-          <div className="mt-6 pt-6 border-t border-border"><p className="text-sm text-muted-foreground">💷 From £5.50 · Cash at the door accepted</p></div>
+          <div className="mt-6 pt-6 border-t border-border"><p className="text-sm text-muted-foreground">💷 From £5 · Cash at the door accepted</p></div>
         </div>
 
         <h2 className="font-display text-3xl font-bold mb-6">Learn Salsa in the Heart of West London</h2>

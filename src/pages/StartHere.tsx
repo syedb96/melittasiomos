@@ -142,7 +142,7 @@ const StartHere = () => (
     </section>
     <RelatedPages title="Next Steps" links={[
       { to: "/pura-nights", label: "Weekly Classes", desc: "Mon Chiswick · Tue Ealing" },
-      { to: "/prices", label: "Prices & Bundles", desc: "From £5.50 per class" },
+      { to: "/prices", label: "Prices & Bundles", desc: "From £5 per class" },
       { to: "/locations", label: "Locations", desc: "Venue details & directions" },
       { to: "/blog/salsa-vs-bachata", label: "Salsa vs Bachata", desc: "Which to learn first?" },
       { to: "/blog/what-to-wear-salsa-bachata", label: "What to Wear", desc: "Dress code guide" },

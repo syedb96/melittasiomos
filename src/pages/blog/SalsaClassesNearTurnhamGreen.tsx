@@ -44,7 +44,7 @@ const SalsaClassesNearTurnhamGreen = () => (
 
             <h2 className="font-display text-2xl font-bold mt-10 mb-4">Who These Classes Are For</h2>
             <p className="text-muted-foreground mb-4">Pura Nights classes attract a wonderfully diverse crowd — ages 20 to 60+, all backgrounds, all body types. You don't need a partner (we rotate during class), you don't need dance experience, and you don't need to be fit. Many of our most dedicated dancers started with absolutely zero experience and are now performing at international festivals with <Link to="/pura-ladies" className="text-primary hover:underline">Pura Ladies</Link>.</p>
-            <p className="text-muted-foreground mb-4">The only thing you need to bring is an open mind and comfortable shoes. Pricing starts from just £5.50 per person — one of the most affordable class-and-social packages in London.</p>
+            <p className="text-muted-foreground mb-4">The only thing you need to bring is an open mind and comfortable shoes. Pricing starts from just £5 per person — one of the most affordable class-and-social packages in London.</p>
 
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-8">
               <h3 className="font-heading font-bold mb-2">Just 5 Minutes From Turnham Green</h3>
