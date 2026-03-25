@@ -2,59 +2,137 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
-
-const tiers = [
-  { tier: "🥉", name: "Bronze Monthly", price: "£45", period: "/month", desc: "4 classes per month", features: ["Valid one month", "Sundays included", "Perfect for occasional dancers"] },
-  { tier: "🥈", name: "Silver Monthly", price: "£75", period: "/month", desc: "8 classes per month", features: ["Unlimited standard + dedicated bachata", "Both venues included", "1-2 nights per week"], popular: true },
-  { tier: "🥇", name: "Gold Unlimited", price: "£110", period: "/month", desc: "Unlimited classes", features: ["Priority booking & early access", "Cancel anytime (7-day notice)", "Full immersion experience"] },
-];
+import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { CheckCircle } from "lucide-react";
 
 const Prices = () => (
   <Layout>
-    <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights Packages | Melitta Siomos" description="View all Salsa & Bachata class prices at Pura Nights. Pay-as-you-go from £5.50, monthly subscriptions from £45. Private lessons and wedding dance packages also available." path="/prices" />
+    <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights | Melitta Siomos" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
 
     <section className="section-padding section-warm">
       <div className="container-main text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Dance More, Feel Better & Save Money</h1>
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-4" />
-        <p className="text-muted-foreground max-w-xl mx-auto mb-12">With Melitta Siomos & Pura Nights, the more you dance the cheaper it is.</p>
+        <FadeInUp>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Dance More, Feel Better & Save Money</h1>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-4" />
+          <p className="text-muted-foreground max-w-xl mx-auto mb-14">With Melitta Siomos & Pura Nights, the more you dance the cheaper it gets.</p>
+        </FadeInUp>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-          {tiers.map((p, i) => (
-            <div key={i} className={`rounded-lg p-8 card-hover relative ${p.popular ? "bg-primary text-primary-foreground ring-2 ring-secondary scale-105" : "bg-card"}`}>
-              {p.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-secondary-foreground text-xs font-heading font-bold px-4 py-1 rounded-full">Most Popular</span>}
-              <div className="text-3xl mb-2">{p.tier}</div>
-              <h2 className="font-heading font-bold text-lg mb-1">{p.name}</h2>
-              <p className="text-4xl font-display font-bold">{p.price}<span className="text-sm font-normal">{p.period}</span></p>
-              <p className={`text-sm mb-6 ${p.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{p.desc}</p>
-              <ul className={`text-sm space-y-2 mb-8 text-left ${p.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                {p.features.map((f, j) => <li key={j}>✅ {f}</li>)}
-              </ul>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className={p.popular ? "btn-cta bg-secondary text-secondary-foreground text-xs py-2 px-6 hover:opacity-90 w-full" : "btn-cta-primary text-xs py-2 px-6 w-full"}>Select</a>
+        {/* Drop-in Pricing */}
+        <FadeInUp delay={0.1}>
+          <h2 className="font-display text-2xl font-bold mb-8">Drop-In Pricing (Both Venues)</h2>
+          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
+            {[
+              { price: "£15", label: "2 classes + social", note: "Best value" },
+              { price: "£10", label: "1 class + social", note: "Popular choice" },
+              { price: "£5", label: "Social only", note: "Party only, no class" },
+            ].map((p, i) => (
+              <div key={i} className={`bg-card rounded-2xl p-6 card-hover ${i === 0 ? "ring-2 ring-primary" : ""}`}>
+                <p className="font-display text-3xl font-bold text-foreground mb-1">{p.price}</p>
+                <p className="font-heading font-semibold text-sm mb-1">{p.label}</p>
+                <p className="text-muted-foreground text-xs">{p.note}</p>
+              </div>
+            ))}
+          </div>
+        </FadeInUp>
+
+        {/* Bundles */}
+        <FadeInUp delay={0.2}>
+          <h2 className="font-display text-2xl font-bold mb-8">Class Bundles — Save More</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            {/* Chiswick Bundles */}
+            <div className="bg-card rounded-2xl p-8 card-hover text-left">
+              <h3 className="font-heading font-bold text-lg mb-1 text-primary">Chiswick (Monday)</h3>
+              <p className="text-muted-foreground text-xs mb-4">The George IV, 185 Chiswick High Rd, W4 2DR</p>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>5-Class Bundle</span>
+                  <span className="font-display font-bold">£55</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>10-Class Bundle</span>
+                  <span className="font-display font-bold">£99</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span>Monthly Unlimited</span>
+                  <span className="font-display font-bold">£120</span>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Pay as you go */}
-        <div className="bg-card rounded-lg p-8 max-w-2xl mx-auto card-hover mb-12">
-          <h2 className="font-display text-2xl font-bold mb-2">Pay As You Go</h2>
-          <p className="text-muted-foreground mb-4">Drop-in class: <strong className="text-foreground">From £5.50</strong> per class (cash at door)</p>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-6">Book Now</a>
-        </div>
+            {/* Ealing Bundles */}
+            <div className="bg-card rounded-2xl p-8 card-hover text-left">
+              <h3 className="font-heading font-bold text-lg mb-1 text-secondary">Ealing (Tuesday)</h3>
+              <p className="text-muted-foreground text-xs mb-4">Drayton Court Hotel, 2 The Avenue, W13 8PH</p>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>5-Class Bundle</span>
+                  <span className="font-display font-bold">£42</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-border">
+                  <span>10-Class Bundle</span>
+                  <span className="font-display font-bold">£78</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span>Monthly Unlimited</span>
+                  <span className="font-display font-bold">£85</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </FadeInUp>
+
+        {/* Latin Friday Pricing */}
+        <FadeInUp delay={0.3}>
+          <h2 className="font-display text-2xl font-bold mb-8">🔥 Monthly Latin Friday</h2>
+          <div className="bg-charcoal rounded-2xl p-8 max-w-3xl mx-auto mb-16 text-left">
+            <p className="text-primary-foreground/60 text-sm mb-4">2nd Friday of every month · Drayton Court Hotel, Ealing</p>
+            <div className="grid sm:grid-cols-3 gap-4 text-sm">
+              <div className="bg-charcoal-light rounded-xl p-4 text-center">
+                <p className="text-green-400 font-heading font-semibold text-xs uppercase tracking-wider mb-2">Early Bird</p>
+                <p className="text-primary-foreground font-display font-bold text-xl">£15</p>
+                <p className="text-primary-foreground/50 text-xs">class + party</p>
+                <p className="text-primary-foreground/40 text-xs mt-1">£10 party only</p>
+              </div>
+              <div className="bg-charcoal-light rounded-xl p-4 text-center">
+                <p className="text-yellow-400 font-heading font-semibold text-xs uppercase tracking-wider mb-2">Standard</p>
+                <p className="text-primary-foreground font-display font-bold text-xl">£17</p>
+                <p className="text-primary-foreground/50 text-xs">class + party</p>
+                <p className="text-primary-foreground/40 text-xs mt-1">£12 party only</p>
+              </div>
+              <div className="bg-charcoal-light rounded-xl p-4 text-center">
+                <p className="text-red-400 font-heading font-semibold text-xs uppercase tracking-wider mb-2">On the Door</p>
+                <p className="text-primary-foreground font-display font-bold text-xl">£20</p>
+                <p className="text-primary-foreground/50 text-xs">class + party</p>
+                <p className="text-primary-foreground/40 text-xs mt-1">£15 party only</p>
+              </div>
+            </div>
+          </div>
+        </FadeInUp>
+
+        {/* Private Lessons */}
+        <FadeInUp delay={0.35}>
+          <div className="bg-card rounded-2xl p-8 max-w-2xl mx-auto card-hover mb-12 text-center">
+            <h2 className="font-display text-2xl font-bold mb-2">Private Lessons</h2>
+            <p className="text-muted-foreground text-sm mb-4">Private lesson rates are tailored to your goals and schedule. Contact Melitta directly to discuss.</p>
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-6">💬 Enquire via WhatsApp</a>
+          </div>
+        </FadeInUp>
 
         {/* Gift Vouchers */}
-        <div className="bg-card rounded-lg p-8 max-w-2xl mx-auto card-hover">
-          <h2 className="font-display text-2xl font-bold mb-2">🎁 Gift Vouchers</h2>
-          <p className="text-muted-foreground mb-4">Give the gift of dance! Choose from £25, £50, £75, £100, £150, or £200.</p>
-          <Link to="/gift-vouchers" className="btn-cta-primary text-xs py-2 px-6">Buy a Gift Voucher</Link>
-        </div>
+        <FadeInUp delay={0.4}>
+          <div className="bg-card rounded-2xl p-8 max-w-2xl mx-auto card-hover">
+            <h2 className="font-display text-2xl font-bold mb-2">🎁 Gift Vouchers</h2>
+            <p className="text-muted-foreground mb-4">Give the gift of dance! Choose from £25, £50, £75, £100, £150, or £200.</p>
+            <Link to="/gift-vouchers" className="btn-cta-primary text-xs py-2 px-6">Buy a Gift Voucher</Link>
+          </div>
+        </FadeInUp>
       </div>
     </section>
 
     <RelatedPages title="Related Pages" links={[
       { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & venue info" },
-      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching pricing" },
-      { to: "/wedding-dance", label: "Wedding Dance", desc: "Wedding package pricing" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "Enquire about 1-to-1 coaching" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance packages" },
       { to: "/gift-vouchers", label: "Gift Vouchers", desc: "Give the gift of dance" },
       { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata?" },
       { to: "/bookings", label: "Book Now", desc: "Secure your spot" },
