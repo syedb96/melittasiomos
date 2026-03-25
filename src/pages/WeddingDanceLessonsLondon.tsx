@@ -1,0 +1,144 @@
+import { Link } from "react-router-dom";
+import { Heart, Clock, Star, Music, MapPin, Calendar } from "lucide-react";
+import Layout from "@/components/Layout";
+import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
+import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Wedding Dance Lessons London",
+  description: "Private wedding first dance lessons in London. Learn a beautiful choreographed routine with award-winning instructor Melitta Siomos.",
+  provider: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Wedding Dance Choreographer" },
+  areaServed: { "@type": "City", name: "London" },
+  offers: { "@type": "Offer", price: "85", priceCurrency: "GBP", description: "Per session (1 hour)" },
+};
+
+const packages = [
+  { title: "The Essentials", sessions: "3 sessions", price: "£240", desc: "Perfect for couples who want to feel confident and natural. Learn a simple, elegant routine to your chosen song.", best: "Short timeline" },
+  { title: "The Classic", sessions: "5 sessions", price: "£395", desc: "Our most popular package. Build a polished routine with lifts, dips, and smooth transitions that wow your guests.", best: "Most couples" },
+  { title: "The Showstopper", sessions: "8+ sessions", price: "From £640", desc: "For couples who want a jaw-dropping performance. Full choreography with advanced moves, formations, and a dramatic finish.", best: "Maximum wow factor" },
+];
+
+const faqs = [
+  { q: "When should we start lessons?", a: "Ideally 2–3 months before your wedding, but we've created beautiful routines in as little as 2 weeks. The earlier you start, the more relaxed and confident you'll feel." },
+  { q: "We have two left feet — is that OK?", a: "Absolutely! Most couples who come to us have never danced before. Melitta specialises in making non-dancers look and feel amazing on the dance floor." },
+  { q: "Can we learn a specific style?", a: "Yes — Salsa, Bachata, Waltz, Foxtrot, or a fusion of styles. We choreograph to YOUR song, whatever the genre." },
+  { q: "Where do lessons take place?", a: "At our private studio in Acton, West London, or online via Zoom for couples outside London. Home visits can be arranged." },
+];
+
+const WeddingDanceLessonsLondon = () => (
+  <Layout>
+    <SeoHead
+      title="Wedding Dance Lessons London | First Dance Choreography"
+      description="Private wedding first dance lessons in London with award-winning choreographer Melitta Siomos. Packages from £240. Salsa, Bachata, Waltz or any style. All abilities."
+      path="/wedding-dance-lessons-london"
+      schema={schema}
+    />
+
+    <section className="bg-charcoal text-primary-foreground section-padding">
+      <div className="container-main max-w-4xl">
+        <nav className="text-xs text-primary-foreground/50 mb-8 font-heading">
+          <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/wedding-dance" className="hover:text-primary">Wedding Dance</Link> / <span className="text-primary">London</span>
+        </nav>
+        <FadeInUp>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Wedding Dance Lessons in London</h1>
+          <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
+            Your first dance should be one of the most magical moments of your wedding day. With Melitta Siomos — Bachata UK Champion and experienced wedding choreographer — you'll learn a routine that feels natural, looks stunning, and creates memories that last a lifetime.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book a Consultation</a>
+            <Link to="/wedding-dance" className="btn-cta-dark">Learn More</Link>
+          </div>
+        </FadeInUp>
+      </div>
+    </section>
+
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-4xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold mb-2">Wedding Dance Packages</h2>
+          <div className="h-1 w-20 bg-primary rounded-full mb-8" />
+        </FadeInUp>
+        <StaggerContainer className="grid md:grid-cols-3 gap-6">
+          {packages.map((pkg) => (
+            <StaggerItem key={pkg.title}>
+              <div className="bg-card rounded-2xl p-6 card-hover h-full flex flex-col border border-primary/20">
+                <h3 className="font-heading font-bold text-lg mb-1">{pkg.title}</h3>
+                <p className="text-primary font-display text-2xl font-bold mb-1">{pkg.price}</p>
+                <p className="text-muted-foreground text-xs mb-3">{pkg.sessions}</p>
+                <p className="text-muted-foreground text-sm flex-1 mb-4">{pkg.desc}</p>
+                <span className="inline-block bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-heading">Best for: {pkg.best}</span>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    <section className="section-padding bg-card">
+      <div className="container-main max-w-3xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold mb-2">How It Works</h2>
+          <div className="h-1 w-20 bg-primary rounded-full mb-8" />
+        </FadeInUp>
+        <StaggerContainer className="space-y-6">
+          {[
+            { step: "1", title: "Free Consultation", desc: "Tell us about your wedding, your song, and your vision. We'll recommend the perfect package and style." },
+            { step: "2", title: "Choreography", desc: "Melitta creates a bespoke routine tailored to your song, ability level, and venue space." },
+            { step: "3", title: "Practice & Polish", desc: "Weekly sessions build your confidence. We film each lesson so you can practise at home." },
+            { step: "4", title: "Wedding Day Magic", desc: "Step onto the dance floor with confidence and give your guests a moment they'll never forget." },
+          ].map((s) => (
+            <StaggerItem key={s.step}>
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold flex-shrink-0">{s.step}</div>
+                <div>
+                  <h3 className="font-heading font-bold mb-1">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold mb-8 text-center">Wedding Dance FAQs</h2>
+        </FadeInUp>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <FadeInUp key={i} delay={i * 0.05}>
+              <div className="bg-card rounded-xl p-6">
+                <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm">{faq.a}</p>
+              </div>
+            </FadeInUp>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section-padding bg-primary text-center">
+      <div className="container-main">
+        <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Make Your First Dance Unforgettable</h2>
+        <p className="text-primary-foreground/80 mb-8">Book your free consultation today. Packages from £240.</p>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Consultation</a>
+      </div>
+    </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/wedding-dance", label: "Wedding Dance Info" },
+      { to: "/wedding-dance-west-london", label: "Wedding Dance West London" },
+      { to: "/blog/wedding-first-dance-tips", label: "First Dance Tips" },
+      { to: "/blog/choose-wedding-first-dance-song", label: "Choosing Your Song" },
+      { to: "/blog/how-many-wedding-dance-lessons", label: "How Many Lessons?" },
+      { to: "/private-lessons", label: "Private Lessons" },
+    ]} />
+  </Layout>
+);
+
+export default WeddingDanceLessonsLondon;
