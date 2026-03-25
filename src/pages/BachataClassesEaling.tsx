@@ -35,7 +35,7 @@ const BachataClassesEaling = () => (
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos and the Pura Nights team bring Tuesday evenings to life at the Drayton Court Hotel in West Ealing. Learn bachata and salsa in a stunning venue with one of London's most passionate Latin dance communities. All levels welcome — no partner needed.
         </p>
-        <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Tuesday Ealing Class</a>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Tuesday Ealing Class</a>
       </div>
     </section>
 
@@ -97,7 +97,7 @@ const BachataClassesEaling = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Join Us This Tuesday in Ealing!</h2>
         <p className="text-primary-foreground/80 mb-8">Doors open at 7:15 PM at Drayton Court Hotel. All levels. No partner needed.</p>
-        <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
       </div>
     </section>
   </Layout>

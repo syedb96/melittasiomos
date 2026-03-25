@@ -4,9 +4,9 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const services = [
-  { emoji: "💃", title: "Salsa & Bachata — Chiswick (Mon)", desc: "The George IV, 185 Chiswick High Rd", cta: "Book Now", href: "https://www.tickettailor.com" },
-  { emoji: "💃", title: "Salsa & Bachata — Ealing (Tue)", desc: "Drayton Court Hotel, 2 The Avenue", cta: "Book Now", href: "https://www.tickettailor.com" },
-  { emoji: "🌙", title: "Monthly Latin Fridays", desc: "2nd Friday of every month, Ealing", cta: "Get Tickets", href: "https://www.tickettailor.com" },
+  { emoji: "💃", title: "Salsa & Bachata — Chiswick (Mon)", desc: "The George IV, 185 Chiswick High Rd", cta: "Book Now", href: "https://linktr.ee/pura.nights" },
+  { emoji: "💃", title: "Salsa & Bachata — Ealing (Tue)", desc: "Drayton Court Hotel, 2 The Avenue", cta: "Book Now", href: "https://linktr.ee/pura.nights" },
+  { emoji: "🌙", title: "Monthly Latin Fridays", desc: "2nd Friday of every month, Ealing", cta: "Get Tickets", href: "https://linktr.ee/pura.nights" },
   { emoji: "🎓", title: "Private 1-to-1 Lessons", desc: "Tailored coaching at your pace", cta: "Enquire", link: "/private-lessons" },
   { emoji: "💍", title: "Wedding Dance", desc: "Bespoke first dance choreography", cta: "Enquire", link: "/wedding-dance" },
   { emoji: "🎂", title: "Birthday Parties", desc: "Fun Latin party packages", cta: "Enquire", link: "/contact" },

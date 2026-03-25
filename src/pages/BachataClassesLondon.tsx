@@ -33,7 +33,7 @@ const BachataClassesLondon = () => (
           Melitta Siomos, Bachata UK Champion, runs London's most vibrant weekly bachata classes. From your very first step to advanced sensual styling, Pura Nights is where London falls in love with bachata — every Monday in Chiswick and every Tuesday in Ealing.
         </p>
         <div className="flex flex-wrap gap-4">
-          <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Bachata Class</a>
+          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Bachata Class</a>
           <Link to="/prices" className="btn-cta-outline">View Pricing →</Link>
         </div>
       </div>
@@ -63,7 +63,7 @@ const BachataClassesLondon = () => (
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />8:15–9:00 PM — Bachata Class (all levels)</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />9:00–11:00 PM — Social Dancing (50% Bachata)</div>
             </div>
-            <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-6 py-2 px-6">Book Monday</a>
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-6 py-2 px-6">Book Monday</a>
           </div>
           <div className="bg-charcoal-light rounded-lg p-8 border border-secondary/20">
             <h3 className="font-display text-2xl font-bold text-secondary mb-2">Tuesday — Ealing</h3>
@@ -72,7 +72,7 @@ const BachataClassesLondon = () => (
               <div className="flex items-center gap-3"><Clock size={14} className="text-secondary" />8:15–9:00 PM — Bachata Class (all levels)</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-secondary" />9:00–11:00 PM — Social Dancing (50% Bachata)</div>
             </div>
-            <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta bg-secondary text-secondary-foreground text-xs mt-6 py-2 px-6 hover:opacity-90">Book Tuesday</a>
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-secondary text-secondary-foreground text-xs mt-6 py-2 px-6 hover:opacity-90">Book Tuesday</a>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@ const BachataClassesLondon = () => (
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Start Your Bachata Journey This Week</h2>
         <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Learn from a UK Champion in London's most welcoming bachata classes. No partner needed, all levels welcome.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Bachata Class</a>
+          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Bachata Class</a>
           <Link to="/pura-ladies" className="btn-cta-outline">Explore Pura Ladies <ArrowRight size={16} className="ml-2" /></Link>
         </div>
       </div>

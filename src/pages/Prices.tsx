@@ -29,7 +29,7 @@ const Prices = () => (
               <ul className={`text-sm space-y-2 mb-8 text-left ${p.popular ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                 {p.features.map((f, j) => <li key={j}>✅ {f}</li>)}
               </ul>
-              <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className={p.popular ? "btn-cta bg-secondary text-secondary-foreground text-xs py-2 px-6 hover:opacity-90 w-full" : "btn-cta-primary text-xs py-2 px-6 w-full"}>Select</a>
+              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className={p.popular ? "btn-cta bg-secondary text-secondary-foreground text-xs py-2 px-6 hover:opacity-90 w-full" : "btn-cta-primary text-xs py-2 px-6 w-full"}>Select</a>
             </div>
           ))}
         </div>
@@ -38,7 +38,7 @@ const Prices = () => (
         <div className="bg-card rounded-lg p-8 max-w-2xl mx-auto card-hover mb-12">
           <h2 className="font-display text-2xl font-bold mb-2">Pay As You Go</h2>
           <p className="text-muted-foreground mb-4">Drop-in class: <strong className="text-foreground">From £5.50</strong> per class (cash at door)</p>
-          <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-6">Book on Ticket Tailor</a>
+          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-6">Book on Ticket Tailor</a>
         </div>
 
         {/* Gift Vouchers */}
