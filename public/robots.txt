@@ -10,5 +10,13 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://www.melittasiomos.com/sitemap.xml
