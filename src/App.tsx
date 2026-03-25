@@ -67,6 +67,24 @@ import WeddingDanceLessonsLondon from "./pages/WeddingDanceLessonsLondon";
 import PrivateSalsaLessonsLondon from "./pages/PrivateSalsaLessonsLondon";
 import LadiesStylingLondon from "./pages/LadiesStylingLondon";
 import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
+import BestSalsaNightsWestLondon from "./pages/blog/BestSalsaNightsWestLondon";
+import SalsaClassesNearTurnhamGreen from "./pages/blog/SalsaClassesNearTurnhamGreen";
+import LatinDanceEventsEaling2026 from "./pages/blog/LatinDanceEventsEaling2026";
+import BachataSensualGuide from "./pages/blog/BachataSensualGuide";
+import LadiesStylingBachata from "./pages/blog/LadiesStylingBachata";
+import LeadFollowSalsaBachata from "./pages/blog/LeadFollowSalsaBachata";
+import ImproveSocialDancing from "./pages/blog/ImproveSocialDancing";
+import SalsaMusicality from "./pages/blog/SalsaMusicality";
+import HenPartyDanceIdeas from "./pages/blog/HenPartyDanceIdeas";
+import CorporateTeamBuildingDance from "./pages/blog/CorporateTeamBuildingDance";
+import GiftVoucherDanceClass from "./pages/blog/GiftVoucherDanceClass";
+import NewYearStartSalsa from "./pages/blog/NewYearStartSalsa";
+import LatinDanceFitnessBenefits from "./pages/blog/LatinDanceFitnessBenefits";
+import JoiningDanceClassAlone from "./pages/blog/JoiningDanceClassAlone";
+import SalsaShoesGuide from "./pages/blog/SalsaShoesGuide";
+import HowToPracticeSalsaAtHome from "./pages/blog/HowToPracticeSalsaAtHome";
+import PuraNightsLatinFridayGuide from "./pages/blog/PuraNightsLatinFridayGuide";
+import DanceClassesWestLondonGuide from "./pages/blog/DanceClassesWestLondonGuide";
 
 const queryClient = new QueryClient();
 
@@ -140,7 +158,25 @@ const App = () => (
           <Route path="/private-salsa-lessons-london" element={<PrivateSalsaLessonsLondon />} />
           <Route path="/ladies-styling-london" element={<LadiesStylingLondon />} />
           <Route path="/bachata-performance-team-london" element={<BachataPerformanceTeamLondon />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/dance-classes-chiswick" element={<DanceClassesChiswick />} />
+          <Route path="/blog/best-salsa-nights-west-london" element={<BestSalsaNightsWestLondon />} />
+          <Route path="/blog/salsa-classes-near-turnham-green" element={<SalsaClassesNearTurnhamGreen />} />
+          <Route path="/blog/latin-dance-events-ealing-2026" element={<LatinDanceEventsEaling2026 />} />
+          <Route path="/blog/bachata-sensual-guide" element={<BachataSensualGuide />} />
+          <Route path="/blog/ladies-styling-bachata" element={<LadiesStylingBachata />} />
+          <Route path="/blog/lead-follow-salsa-bachata" element={<LeadFollowSalsaBachata />} />
+          <Route path="/blog/improve-social-dancing" element={<ImproveSocialDancing />} />
+          <Route path="/blog/salsa-musicality-guide" element={<SalsaMusicality />} />
+          <Route path="/blog/hen-party-dance-ideas-london" element={<HenPartyDanceIdeas />} />
+          <Route path="/blog/corporate-team-building-dance-london" element={<CorporateTeamBuildingDance />} />
+          <Route path="/blog/gift-voucher-dance-class-london" element={<GiftVoucherDanceClass />} />
+          <Route path="/blog/new-year-start-salsa-london" element={<NewYearStartSalsa />} />
+          <Route path="/blog/latin-dance-fitness-benefits" element={<LatinDanceFitnessBenefits />} />
+          <Route path="/blog/joining-dance-class-alone" element={<JoiningDanceClassAlone />} />
+          <Route path="/blog/salsa-shoes-guide" element={<SalsaShoesGuide />} />
+          <Route path="/blog/how-to-practice-salsa-at-home" element={<HowToPracticeSalsaAtHome />} />
+          <Route path="/blog/pura-nights-latin-friday-guide" element={<PuraNightsLatinFridayGuide />} />
+          <Route path="/blog/dance-classes-west-london-guide" element={<DanceClassesWestLondonGuide />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
