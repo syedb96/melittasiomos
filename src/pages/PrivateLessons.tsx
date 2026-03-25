@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MapPin, Users, Target, Heart, Sparkles } from "lucide-react";
+import RelatedPages from "@/components/RelatedPages";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -170,6 +171,15 @@ const PrivateLessons = () => (
         ))}
       </div>
     </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
+      { to: "/online-classes", label: "Online Classes", desc: "Learn via Zoom" },
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Group classes Mon & Tue" },
+      { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
+      { to: "/testimonials", label: "Student Reviews", desc: "What students say" },
+    ]} />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
