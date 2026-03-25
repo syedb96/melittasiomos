@@ -2,33 +2,55 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown } from "lucide-react";
 
-const navLinks = [
-  { label: "HOME", path: "/" },
-  { label: "ABOUT MELITTA", path: "/about" },
+const navGroups = [
+  { label: "HOME", path: "/", dropdown: null },
   {
-    label: "CLASSES",
+    label: "CLASSES & EVENTS",
     path: "/pura-nights",
     dropdown: [
-      { label: "Pura Nights Weekly Classes", path: "/pura-nights" },
-      { label: "Private 1-on-1 Lessons", path: "/private-lessons" },
+      { label: "Weekly Classes", path: "/pura-nights" },
+      { label: "Monthly Latin Fridays", path: "/events" },
+      { label: "Pura Ladies", path: "/pura-ladies" },
       { label: "Online Classes", path: "/online-classes" },
     ],
   },
-  { label: "PURA LADIES", path: "/pura-ladies" },
-  { label: "WEDDING DANCE", path: "/wedding-dance" },
-  { label: "PRICES", path: "/prices" },
-  { label: "GIFT VOUCHERS", path: "/gift-vouchers" },
-  { label: "BLOG", path: "/blog" },
-  { label: "CONTACT", path: "/contact" },
+  {
+    label: "PRICES & BOOKING",
+    path: "/prices",
+    dropdown: [
+      { label: "Pricing", path: "/prices" },
+      { label: "Book a Class", path: "https://linktr.ee/pura.nights", external: true },
+      { label: "Gift Vouchers", path: "/gift-vouchers" },
+    ],
+  },
+  {
+    label: "ABOUT & SERVICES",
+    path: "/about",
+    dropdown: [
+      { label: "About Melitta", path: "/about" },
+      { label: "Wedding Dance", path: "/wedding-dance" },
+      { label: "Private Lessons", path: "/private-lessons" },
+      { label: "Testimonials", path: "/testimonials" },
+    ],
+  },
+  {
+    label: "LEARN",
+    path: "/blog",
+    dropdown: [
+      { label: "Blog", path: "/blog" },
+      { label: "FAQs", path: "/faq" },
+      { label: "Find a Class", path: "/locations" },
+      { label: "Start Here", path: "/start-here" },
+    ],
+  },
 ];
 
-const dropdownPaths = ["/pura-nights", "/private-lessons", "/online-classes", "/bookings"];
+const allDropdownPaths = navGroups.flatMap(g => g.dropdown?.map(d => d.path) ?? [g.path]);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openDropdownIdx, setOpenDropdownIdx] = useState<number | null>(null);
   const hoverTimeout = useRef<ReturnType<typeof setTimeout>>();
   const location = useLocation();
 
@@ -40,15 +62,15 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobileOpen(false);
-    setDropdownOpen(false);
+    setOpenDropdownIdx(null);
   }, [location]);
 
-  const openDropdown = () => {
+  const openDropdown = (idx: number) => {
     clearTimeout(hoverTimeout.current);
-    setDropdownOpen(true);
+    setOpenDropdownIdx(idx);
   };
   const closeDropdown = () => {
-    hoverTimeout.current = setTimeout(() => setDropdownOpen(false), 200);
+    hoverTimeout.current = setTimeout(() => setOpenDropdownIdx(null), 200);
   };
 
   return (
@@ -82,51 +104,62 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center gap-0.5">
-            {navLinks.map(link =>
-              link.dropdown ? (
+            {navGroups.map((group, idx) =>
+              group.dropdown ? (
                 <div
-                  key={link.path}
+                  key={idx}
                   className="relative"
-                  ref={dropdownRef}
-                  onMouseEnter={openDropdown}
+                  onMouseEnter={() => openDropdown(idx)}
                   onMouseLeave={closeDropdown}
                 >
                   <button
                     className={`flex items-center gap-1 px-3 py-2 text-[11px] font-heading font-semibold tracking-wider transition-colors ${
-                      dropdownPaths.includes(location.pathname)
+                      group.dropdown.some(d => d.path === location.pathname)
                         ? "text-primary"
                         : "text-primary-foreground/70 hover:text-primary"
                     }`}
                   >
-                    {link.label} <ChevronDown size={11} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    {group.label} <ChevronDown size={11} className={`transition-transform ${openDropdownIdx === idx ? "rotate-180" : ""}`} />
                   </button>
-                  {dropdownOpen && (
+                  {openDropdownIdx === idx && (
                     <div className="absolute top-full left-0 mt-0 bg-charcoal-light border border-primary-foreground/5 rounded-xl shadow-xl min-w-[220px] py-2 z-50">
-                      {link.dropdown.map(sub => (
-                        <Link
-                          key={sub.path}
-                          to={sub.path}
-                          className={`block px-5 py-2.5 text-[11px] font-heading transition-colors ${
-                            location.pathname === sub.path ? "text-primary bg-primary/5" : "text-primary-foreground/60 hover:text-primary hover:bg-primary/5"
-                          }`}
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
+                      {group.dropdown.map((sub) =>
+                        (sub as any).external ? (
+                          <a
+                            key={sub.path}
+                            href={sub.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-5 py-2.5 text-[11px] font-heading text-primary-foreground/60 hover:text-primary hover:bg-primary/5 transition-colors"
+                          >
+                            {sub.label} ↗
+                          </a>
+                        ) : (
+                          <Link
+                            key={sub.path}
+                            to={sub.path}
+                            className={`block px-5 py-2.5 text-[11px] font-heading transition-colors ${
+                              location.pathname === sub.path ? "text-primary bg-primary/5" : "text-primary-foreground/60 hover:text-primary hover:bg-primary/5"
+                            }`}
+                          >
+                            {sub.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
               ) : (
                 <Link
-                  key={link.path}
-                  to={link.path}
+                  key={idx}
+                  to={group.path}
                   className={`px-3 py-2 text-[11px] font-heading font-semibold tracking-wider transition-colors ${
-                    location.pathname === link.path
+                    location.pathname === group.path
                       ? "text-primary"
                       : "text-primary-foreground/70 hover:text-primary"
                   }`}
                 >
-                  {link.label}
+                  {group.label}
                 </Link>
               )
             )}
@@ -146,33 +179,56 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu — flat list with section headers */}
         {isMobileOpen && (
-          <div className="xl:hidden bg-charcoal fixed inset-0 top-[88px] z-50 flex flex-col items-center justify-start pt-10 gap-3 overflow-y-auto pb-20 animate-fade-in-up">
-            {navLinks.map(link =>
-              link.dropdown ? (
-                <div key={link.path} className="flex flex-col items-center gap-2">
-                  <span className="text-sm font-heading font-bold tracking-wider text-primary uppercase">{link.label}</span>
-                  {link.dropdown.map(sub => (
-                    <Link key={sub.path} to={sub.path} className="text-sm font-heading text-primary-foreground/60 hover:text-primary transition-colors">
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-lg font-heading font-bold tracking-wider ${
-                    location.pathname === link.path ? "text-primary" : "text-primary-foreground/80"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+          <div className="xl:hidden bg-charcoal fixed inset-0 top-[88px] z-50 flex flex-col items-center justify-start pt-8 gap-1 overflow-y-auto pb-24 animate-fade-in-up">
+            {navGroups.map((group, idx) => (
+              <div key={idx} className="w-full max-w-xs">
+                {group.dropdown ? (
+                  <>
+                    <p className="text-primary font-heading font-bold text-xs tracking-wider uppercase text-center mt-4 mb-2">{group.label}</p>
+                    {group.dropdown.map((sub) =>
+                      (sub as any).external ? (
+                        <a
+                          key={sub.path}
+                          href={sub.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-center py-2 text-sm font-heading text-primary-foreground/70 hover:text-primary transition-colors"
+                        >
+                          {sub.label} ↗
+                        </a>
+                      ) : (
+                        <Link
+                          key={sub.path}
+                          to={sub.path}
+                          className={`block text-center py-2 text-sm font-heading transition-colors ${
+                            location.pathname === sub.path ? "text-primary" : "text-primary-foreground/70 hover:text-primary"
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      )
+                    )}
+                    <div className="h-px bg-primary-foreground/10 my-2 mx-8" />
+                  </>
+                ) : (
+                  <Link
+                    to={group.path}
+                    className={`block text-center py-2.5 text-lg font-heading font-bold tracking-wider ${
+                      location.pathname === group.path ? "text-primary" : "text-primary-foreground/80"
+                    }`}
+                  >
+                    {group.label}
+                  </Link>
+                )}
+              </div>
+            ))}
             <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="mt-4 btn-cta-primary text-sm">
               BOOK NOW
+            </a>
+            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="mt-2 btn-cta text-sm text-white py-2.5 px-6 rounded-lg" style={{ backgroundColor: "#25D366" }}>
+              💬 WhatsApp Melitta
             </a>
           </div>
         )}

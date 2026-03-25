@@ -25,7 +25,7 @@ const DanceClassesChiswick = () => (
   <Layout>
     <SeoHead
       title="Dance Classes Chiswick | Salsa & Bachata Every Monday"
-      description="Join Salsa and Bachata dance classes every Monday in Chiswick at The George IV. Beginner to intermediate levels, no partner needed. From £5.50 per class."
+      description="Join Salsa and Bachata dance classes every Monday in Chiswick at The George IV. Beginner to intermediate levels, no partner needed. From £5 per class."
       path="/dance-classes-chiswick"
       schema={schema}
     />
@@ -65,7 +65,7 @@ const DanceClassesChiswick = () => (
             <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span><strong>8:15–9:00 PM</strong> — Bachata (Beginner / Improver / Intermediate)</span></div>
             <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span><strong>9:00–11:00 PM</strong> — Open Social Dancing</span></div>
           </div>
-          <div className="mt-6 pt-4 border-t border-border text-sm text-muted-foreground">💷 From £5.50 · No partner needed · Pre-book online or pay at the door</div>
+          <div className="mt-6 pt-4 border-t border-border text-sm text-muted-foreground">💷 From £5 · No partner needed · Pre-book online or pay at the door</div>
         </div>
       </div>
     </section>

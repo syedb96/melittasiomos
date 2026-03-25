@@ -20,7 +20,7 @@ const SalsaClassesChiswick = () => (
   <Layout>
     <SeoHead
       title="Salsa Classes Chiswick | Every Monday | Pura Nights by Melitta Siomos"
-      description="Join salsa and bachata classes every Monday in Chiswick at The George IV Pub. All levels welcome, no partner needed. From £5.50. Taught by Bachata UK Champion Melitta Siomos."
+      description="Join salsa and bachata classes every Monday in Chiswick at The George IV Pub. All levels welcome, no partner needed. From £5. Taught by Bachata UK Champion Melitta Siomos."
       path="/salsa-classes-chiswick"
       schema={schema}
     />
@@ -59,7 +59,7 @@ const SalsaClassesChiswick = () => (
             <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span className="font-heading font-semibold">9:00–11:00 PM</span> — Open Social Dancing (50% Salsa, 50% Bachata)</div>
           </div>
           <div className="mt-6 pt-6 border-t border-border">
-            <p className="text-sm text-muted-foreground">💷 From £5.50 per person · Cash at the door accepted · Pre-book online for guaranteed entry</p>
+            <p className="text-sm text-muted-foreground">💷 From £5 per person · Cash at the door accepted · Pre-book online for guaranteed entry</p>
           </div>
         </div>
       </div>

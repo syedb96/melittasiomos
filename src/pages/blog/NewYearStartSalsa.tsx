@@ -9,7 +9,7 @@ import RelatedPages from "@/components/RelatedPages";
 
 const NewYearStartSalsa = () => (
   <Layout>
-    <SeoHead title="Start Salsa in London This New Year | Pura Nights" description="New Year's resolution to learn to dance? Here's how to start Salsa in London and actually stick to it. Beginner-friendly classes from £5.50." path="/blog/new-year-start-salsa-london" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "New Year, New Move: How to Start Salsa in London and Actually Stick to It", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-01-05" }} />
+    <SeoHead title="Start Salsa in London This New Year | Pura Nights" description="New Year's resolution to learn to dance? Here's how to start Salsa in London and actually stick to it. Beginner-friendly classes from £5." path="/blog/new-year-start-salsa-london" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "New Year, New Move: How to Start Salsa in London and Actually Stick to It", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-01-05" }} />
     <ReadingProgressBar />
     <article>
       <section className="section-padding section-dark">

@@ -26,7 +26,7 @@ const reasons = [
   { emoji: "🏆", text: "Taught by Bachata UK Champion Melitta Siomos" },
   { emoji: "📍", text: "Two convenient West London venues — Chiswick & Ealing" },
   { emoji: "👥", text: "No partner needed — we rotate so everyone dances" },
-  { emoji: "💷", text: "Classes from just £5.50 per person" },
+  { emoji: "💷", text: "Classes from just £5 per person" },
   { emoji: "🎉", text: "Free social dancing after every class" },
   { emoji: "🌍", text: "Warm, diverse community aged 20–60+" },
 ];
@@ -35,7 +35,7 @@ const LatinDanceClassesLondon = () => (
   <Layout>
     <SeoHead
       title="Latin Dance Classes London | Salsa & Bachata | Pura Nights"
-      description="Join London's best Latin dance classes — Salsa and Bachata every Monday and Tuesday in West London. All levels, no partner needed. From £5.50. Award-winning instruction."
+      description="Join London's best Latin dance classes — Salsa and Bachata every Monday and Tuesday in West London. All levels, no partner needed. From £5. Award-winning instruction."
       path="/latin-dance-classes-london"
       schema={schema}
     />

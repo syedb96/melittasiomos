@@ -60,7 +60,7 @@ const BestSalsaNightsWestLondon = () => (
               {[
                 { q: "Do I need a partner for a salsa night?", a: "No — most people come solo. We rotate partners during classes so everyone dances with everyone." },
                 { q: "What should I wear?", a: "Comfortable clothes and smooth-soled shoes. Avoid trainers with heavy grip. Many dancers start in socks and upgrade to dance shoes later." },
-                { q: "How much does it cost?", a: "Classes start from £5.50 per person. You can pay at the door or pre-book online for guaranteed entry." },
+                { q: "How much does it cost?", a: "Classes start from £5 per person. You can pay at the door or pre-book online for guaranteed entry." },
                 { q: "Can I just come for the social?", a: "Experienced dancers are welcome to join the social from 9 PM. We recommend taking classes first to build your skills." },
               ].map((faq, i) => (
                 <div key={i} className="bg-card rounded-xl p-5">
