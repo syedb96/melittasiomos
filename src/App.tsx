@@ -134,6 +134,13 @@ const App = () => (
           <Route path="/locations" element={<Locations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/latin-dance-classes-london" element={<LatinDanceClassesLondon />} />
+          <Route path="/dance-classes-chiswick" element={<DanceClassesChiswick />} />
+          <Route path="/wedding-dance-lessons-london" element={<WeddingDanceLessonsLondon />} />
+          <Route path="/private-salsa-lessons-london" element={<PrivateSalsaLessonsLondon />} />
+          <Route path="/ladies-styling-london" element={<LadiesStylingLondon />} />
+          <Route path="/bachata-performance-team-london" element={<BachataPerformanceTeamLondon />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
