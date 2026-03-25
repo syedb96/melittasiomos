@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/hero-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
@@ -121,6 +122,13 @@ const Gallery = () => {
           <img src={filtered[lightbox].src} alt={filtered[lightbox].alt} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg" onClick={(e) => e.stopPropagation()} />
         </div>
       )}
+      <RelatedPages title="Related Pages" links={[
+        { to: "/pura-nights", label: "Weekly Classes" },
+        { to: "/pura-ladies", label: "Pura Ladies" },
+        { to: "/events", label: "Events" },
+        { to: "/wedding-dance", label: "Wedding Dance" },
+        { to: "/testimonials", label: "Testimonials" },
+      ]} />
     </Layout>
   );
 };

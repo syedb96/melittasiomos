@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Heart, CheckCircle, ChevronRight, Star, Music, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const WeddingDanceWestLondon = () => (
@@ -134,6 +135,15 @@ const WeddingDanceWestLondon = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/wedding-dance", label: "Wedding Dance Main Page" },
+      { to: "/blog/wedding-first-dance-tips", label: "10 First Dance Tips" },
+      { to: "/blog/choose-wedding-first-dance-song", label: "Choose Your Song" },
+      { to: "/blog/how-many-wedding-dance-lessons", label: "How Many Lessons?" },
+      { to: "/blog/salsa-vs-waltz-wedding", label: "Salsa vs Waltz" },
+      { to: "/private-lessons", label: "Private Lessons" },
+      { to: "/gift-vouchers", label: "Gift Vouchers" },
+    ]} />
   </Layout>
 );
 

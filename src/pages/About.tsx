@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
+import RelatedPages from "@/components/RelatedPages";
 import { Trophy, Star, Users, MapPin, GraduationCap, Globe } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
@@ -145,6 +146,17 @@ const About = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <RelatedPages title="Explore Melitta's World" links={[
+      { to: "/pura-nights", label: "Pura Nights Classes", desc: "Weekly Salsa & Bachata" },
+      { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance coaching" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
+      { to: "/testimonials", label: "Student Reviews", desc: "What dancers say" },
+      { to: "/blog", label: "Pura Stories Blog", desc: "Tips, guides & culture" },
+      { to: "/gallery", label: "Gallery", desc: "Photos & videos" },
+      { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
+    ]} />
   </Layout>
 );
 

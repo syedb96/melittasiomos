@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, Star, Trophy } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const schema = {
   "@context": "https://schema.org",
@@ -100,6 +101,14 @@ const BachataClassesEaling = () => (
         <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
+      { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
+      { to: "/bachata-classes-london", label: "Bachata Classes London" },
+      { to: "/blog/bachata-classes-near-ealing", label: "Bachata Near Ealing Guide" },
+      { to: "/blog/what-is-bachata", label: "What is Bachata?" },
+      { to: "/pura-nights", label: "Full Schedule" },
+    ]} />
   </Layout>
 );
 

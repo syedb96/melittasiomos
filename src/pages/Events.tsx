@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, Music, Users, Ticket } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const getNextLatinFriday = () => {
@@ -162,6 +163,13 @@ const Events = () => {
           </div>
         </div>
       </section>
+      <RelatedPages title="Related Pages" links={[
+        { to: "/pura-nights", label: "Weekly Classes", desc: "Mon Chiswick · Tue Ealing" },
+        { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
+        { to: "/gallery", label: "Gallery", desc: "Photos & videos" },
+        { to: "/prices", label: "Prices", desc: "All pricing" },
+        { to: "/locations", label: "Venues", desc: "Directions" },
+      ]} />
     </Layout>
   );
 };

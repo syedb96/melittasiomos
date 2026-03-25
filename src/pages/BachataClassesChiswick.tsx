@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp } from "@/components/animations";
 
 const BachataClassesChiswick = () => (
@@ -40,6 +41,13 @@ const BachataClassesChiswick = () => (
         <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your Class</a>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+      { to: "/bachata-classes-london", label: "Bachata Classes London" },
+      { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+      { to: "/blog/what-is-bachata", label: "What is Bachata?" },
+      { to: "/pura-nights", label: "Full Schedule" },
+    ]} />
   </Layout>
 );
 

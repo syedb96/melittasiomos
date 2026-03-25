@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Gift, Heart, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const amounts = [25, 50, 75, 100, 150, 200];
 
@@ -66,6 +67,14 @@ const GiftVouchers = () => (
         </div>
       </div>
     </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Salsa & Bachata every Mon & Tue" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching sessions" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
+      { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
+      { to: "/contact", label: "Contact Us", desc: "Get in touch with Melitta" },
+    ]} />
   </Layout>
 );
 

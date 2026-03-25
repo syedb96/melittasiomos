@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, CheckCircle, ChevronRight, Train, Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const DanceClassesEaling = () => (
@@ -152,6 +153,14 @@ const DanceClassesEaling = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
+      { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/blog/bachata-classes-near-ealing", label: "Bachata Near Ealing" },
+      { to: "/locations", label: "Venue Directions" },
+      { to: "/pura-nights", label: "Full Schedule" },
+    ]} />
   </Layout>
 );
 

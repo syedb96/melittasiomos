@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, ChevronRight, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const DanceClassesWestLondon = () => (
@@ -130,6 +131,17 @@ const DanceClassesWestLondon = () => (
         <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-london", label: "Salsa Classes London" },
+      { to: "/bachata-classes-london", label: "Bachata Classes London" },
+      { to: "/salsa-classes-chiswick", label: "Salsa in Chiswick" },
+      { to: "/salsa-classes-ealing", label: "Salsa in Ealing" },
+      { to: "/bachata-classes-west-london", label: "Bachata West London" },
+      { to: "/private-dance-lessons-west-london", label: "Private Lessons West London" },
+      { to: "/blog/best-areas-west-london", label: "Best Areas for Latin Dance" },
+      { to: "/blog/west-london-latin-dance-guide", label: "West London Dance Guide" },
+      { to: "/pura-nights", label: "Weekly Classes" },
+    ]} />
   </Layout>
 );
 

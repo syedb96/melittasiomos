@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Users, Star, CheckCircle, ChevronRight } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -232,6 +233,18 @@ const PuraNights = () => (
         </div>
       </div>
     </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/prices", label: "Prices & Bundles", desc: "View all class pricing options" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching with Melitta" },
+      { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata? Begin here" },
+      { to: "/salsa-classes-london", label: "Salsa Classes London", desc: "All about Salsa in London" },
+      { to: "/bachata-classes-london", label: "Bachata Classes London", desc: "All about Bachata in London" },
+      { to: "/blog/salsa-vs-bachata", label: "Salsa vs Bachata", desc: "Which should you learn first?" },
+      { to: "/locations", label: "Locations & Directions", desc: "Chiswick & Ealing venue details" },
+      { to: "/events", label: "Monthly Events", desc: "Latin Fridays & special nights" },
+      { to: "/testimonials", label: "Student Reviews", desc: "What our dancers say" },
+    ]} />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Monitor, Video, Globe, Clock, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const OnlineClasses = () => (
   <Layout>
@@ -92,6 +93,14 @@ const OnlineClasses = () => (
         </div>
       </div>
     </section>
+
+    <RelatedPages title="Related Pages" links={[
+      { to: "/private-lessons", label: "Private Lessons", desc: "In-person 1-to-1 coaching" },
+      { to: "/pura-nights", label: "Weekly Classes", desc: "Join in person in West London" },
+      { to: "/wedding-dance", label: "Wedding Dance", desc: "Online wedding dance coaching" },
+      { to: "/prices", label: "Prices", desc: "View all pricing options" },
+      { to: "/contact", label: "Contact", desc: "Get in touch with Melitta" },
+    ]} />
   </Layout>
 );
 

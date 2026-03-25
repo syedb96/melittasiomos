@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Send, Clock, Instagram } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
+import RelatedPages from "@/components/RelatedPages";
 
 const enquiryTypes = ["General Enquiry", "Book a Class", "Private Lessons", "Wedding Dance", "Pura Ladies", "Events & Tickets", "Gift Vouchers", "Other"];
 
@@ -135,6 +136,15 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      <RelatedPages title="Quick Links" links={[
+        { to: "/pura-nights", label: "Weekly Classes", desc: "Salsa & Bachata Mon & Tue" },
+        { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
+        { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance enquiries" },
+        { to: "/prices", label: "Prices", desc: "View all pricing" },
+        { to: "/locations", label: "Locations", desc: "Venues & directions" },
+        { to: "/faq", label: "FAQ", desc: "Common questions" },
+      ]} />
     </Layout>
   );
 };

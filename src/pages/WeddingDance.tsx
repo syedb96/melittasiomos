@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { Link } from "react-router-dom";
 import { Star, Heart, CheckCircle, ChevronRight } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -192,6 +193,18 @@ const WeddingDance = () => (
         <span>🎓 15+ Years Experience</span>
       </div>
     </section>
+
+    <RelatedPages title="Wedding Dance Resources" links={[
+      { to: "/blog/wedding-first-dance-tips", label: "10 First Dance Tips", desc: "Expert advice for your big day" },
+      { to: "/blog/choose-wedding-first-dance-song", label: "Choose Your Song", desc: "How to pick the perfect track" },
+      { to: "/blog/how-many-wedding-dance-lessons", label: "How Many Lessons?", desc: "A realistic guide for couples" },
+      { to: "/blog/salsa-vs-waltz-wedding", label: "Salsa vs Waltz", desc: "Compare styles for your dance" },
+      { to: "/blog/last-minute-wedding-dance", label: "Last-Minute Dance", desc: "Short on time? Here's what to do" },
+      { to: "/wedding-dance-west-london", label: "Wedding Dance West London", desc: "Local service info" },
+      { to: "/private-lessons", label: "Private Lessons", desc: "All 1-to-1 coaching options" },
+      { to: "/gift-vouchers", label: "Gift Vouchers", desc: "Give dance lessons as a gift" },
+      { to: "/testimonials", label: "Couple Testimonials", desc: "Hear from happy couples" },
+    ]} />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
