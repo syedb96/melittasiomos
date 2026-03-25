@@ -64,6 +64,8 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
     </div>
   );
-};
+});
+
+ExitIntentPopup.displayName = "ExitIntentPopup";
 
 export default ExitIntentPopup;
