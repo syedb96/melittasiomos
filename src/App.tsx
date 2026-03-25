@@ -38,6 +38,29 @@ import SalsaVsBachata from "./pages/blog/SalsaVsBachata";
 import BeginnersGuideLondon from "./pages/blog/BeginnersGuideLondon";
 import WeddingFirstDanceTips from "./pages/blog/WeddingFirstDanceTips";
 import PuraLadiesStory from "./pages/blog/PuraLadiesStory";
+import SalsaClassesActon from "./pages/SalsaClassesActon";
+import DanceClassesEaling from "./pages/DanceClassesEaling";
+import BachataClassesWestLondon from "./pages/BachataClassesWestLondon";
+import WeddingDanceWestLondon from "./pages/WeddingDanceWestLondon";
+import PrivateDanceLessonsWestLondon from "./pages/PrivateDanceLessonsWestLondon";
+import FirstSalsaClassLondon from "./pages/blog/FirstSalsaClassLondon";
+import SalsaNoPartner from "./pages/blog/SalsaNoPartner";
+import HowLongToLearnSalsa from "./pages/blog/HowLongToLearnSalsa";
+import BachataForBeginnersLondon from "./pages/blog/BachataForBeginnersLondon";
+import WhatToWearSalsaBachata from "./pages/blog/WhatToWearSalsaBachata";
+import SalsaOn1VsOn2 from "./pages/blog/SalsaOn1VsOn2";
+import BestAreasWestLondon from "./pages/blog/BestAreasWestLondon";
+import SalsaClassesNearChiswick from "./pages/blog/SalsaClassesNearChiswick";
+import BachataClassesNearEaling from "./pages/blog/BachataClassesNearEaling";
+import DanceClassesActonAdults from "./pages/blog/DanceClassesActonAdults";
+import WestLondonLatinDanceGuide from "./pages/blog/WestLondonLatinDanceGuide";
+import SalsaSouthWestLondon from "./pages/blog/SalsaSouthWestLondon";
+import ChooseWeddingSong from "./pages/blog/ChooseWeddingSong";
+import SalsaVsWaltzWedding from "./pages/blog/SalsaVsWaltzWedding";
+import HowManyWeddingLessons from "./pages/blog/HowManyWeddingLessons";
+import LastMinuteWeddingDance from "./pages/blog/LastMinuteWeddingDance";
+import HistoryOfSalsa from "./pages/blog/HistoryOfSalsa";
+import HistoryOfBachata from "./pages/blog/HistoryOfBachata";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +86,24 @@ const App = () => (
           <Route path="/blog/beginners-guide-salsa-london" element={<BeginnersGuideLondon />} />
           <Route path="/blog/wedding-first-dance-tips" element={<WeddingFirstDanceTips />} />
           <Route path="/blog/pura-ladies-story" element={<PuraLadiesStory />} />
+          <Route path="/blog/first-salsa-class-london" element={<FirstSalsaClassLondon />} />
+          <Route path="/blog/salsa-no-partner" element={<SalsaNoPartner />} />
+          <Route path="/blog/how-long-to-learn-salsa" element={<HowLongToLearnSalsa />} />
+          <Route path="/blog/bachata-for-beginners-london" element={<BachataForBeginnersLondon />} />
+          <Route path="/blog/what-to-wear-salsa-bachata" element={<WhatToWearSalsaBachata />} />
+          <Route path="/blog/salsa-on1-vs-on2" element={<SalsaOn1VsOn2 />} />
+          <Route path="/blog/best-areas-west-london" element={<BestAreasWestLondon />} />
+          <Route path="/blog/salsa-classes-near-chiswick" element={<SalsaClassesNearChiswick />} />
+          <Route path="/blog/bachata-classes-near-ealing" element={<BachataClassesNearEaling />} />
+          <Route path="/blog/dance-classes-acton-adults" element={<DanceClassesActonAdults />} />
+          <Route path="/blog/west-london-latin-dance-guide" element={<WestLondonLatinDanceGuide />} />
+          <Route path="/blog/salsa-south-west-london" element={<SalsaSouthWestLondon />} />
+          <Route path="/blog/choose-wedding-first-dance-song" element={<ChooseWeddingSong />} />
+          <Route path="/blog/salsa-vs-waltz-wedding" element={<SalsaVsWaltzWedding />} />
+          <Route path="/blog/how-many-wedding-dance-lessons" element={<HowManyWeddingLessons />} />
+          <Route path="/blog/last-minute-wedding-dance" element={<LastMinuteWeddingDance />} />
+          <Route path="/blog/history-of-salsa" element={<HistoryOfSalsa />} />
+          <Route path="/blog/history-of-bachata" element={<HistoryOfBachata />} />
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/wedding-dance" element={<WeddingDance />} />
@@ -76,6 +117,11 @@ const App = () => (
           <Route path="/bachata-classes-chiswick" element={<BachataClassesChiswick />} />
           <Route path="/bachata-classes-ealing" element={<BachataClassesEaling />} />
           <Route path="/salsa-classes-ealing" element={<SalsaClassesEaling />} />
+          <Route path="/salsa-classes-acton" element={<SalsaClassesActon />} />
+          <Route path="/dance-classes-ealing" element={<DanceClassesEaling />} />
+          <Route path="/bachata-classes-west-london" element={<BachataClassesWestLondon />} />
+          <Route path="/wedding-dance-west-london" element={<WeddingDanceWestLondon />} />
+          <Route path="/private-dance-lessons-west-london" element={<PrivateDanceLessonsWestLondon />} />
           <Route path="/dance-classes-south-west-london" element={<DanceClassesSouthWestLondon />} />
           <Route path="/dance-classes-west-london" element={<DanceClassesWestLondon />} />
           <Route path="/start-here" element={<StartHere />} />
