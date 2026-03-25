@@ -2,115 +2,62 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import AuthorCard from "@/components/AuthorCard";
+import SocialShareButtons from "@/components/SocialShareButtons";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const WhatIsBachata = () => (
   <Layout>
-    <SeoHead
-      title="What is Bachata Dance? History, Styles & How to Learn | London"
-      description="Explore Bachata dance — from its Dominican Republic origins to Bachata Sensual. Learn all styles at Pura Nights in London. All levels welcome."
-      path="/blog/what-is-bachata"
-      schema={{ "@context": "https://schema.org", "@type": "Article", headline: "What is Bachata Dance? From Dominican Roots to Bachata Sensual", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2025-01-20" }}
-    />
-
+    <SeoHead title="What is Bachata Dance? From Dominican Roots to Sensual Style | Pura Nights London" description="Discover Bachata — from its emotional Dominican Republic origins to Bachata Sensual. Learn all styles with Melitta Siomos at Pura Nights in West London." path="/blog/what-is-bachata" schema={{ "@context": "https://schema.org", "@type": ["Article", "FAQPage"], headline: "What is Bachata Dance? From Dominican Roots to Bachata Sensual", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-02-10" }} />
+    <ReadingProgressBar />
     <article className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <FadeInUp>
-          <nav className="text-xs text-muted-foreground mb-8 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/blog" className="hover:text-primary">Blog</Link> / <span className="text-primary">What is Bachata?</span></nav>
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">What is Bachata Dance? From Dominican Roots to Bachata Sensual</h1>
-          <p className="text-muted-foreground text-sm mb-8 font-heading">By Melitta Siomos · 20 January 2025 · 8 min read</p>
-          <div className="h-1 w-20 bg-primary rounded-full mb-10" />
+          <nav className="text-sm text-muted-foreground mb-6 font-heading"><Link to="/" className="hover:text-primary">Home</Link> → <Link to="/blog" className="hover:text-primary">Blog</Link> → <span className="text-foreground">Bachata</span></nav>
+          <span className="inline-block bg-primary/10 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Bachata</span>
+          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">What is Bachata Dance? From Dominican Roots to Bachata Sensual</h1>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-heading mb-8"><span>By Melitta Siomos</span><span>·</span><span>Feb 2025</span><span>·</span><span>7 min read</span></div>
+          <SocialShareButtons title="What is Bachata Dance?" path="/blog/what-is-bachata" />
         </FadeInUp>
-
         <FadeInUp delay={0.1}>
-          <div className="prose prose-lg max-w-none text-foreground">
-            <p className="text-muted-foreground leading-relaxed mb-6">Bachata is one of the most romantic, expressive, and rapidly growing social dances in the world. From its humble origins in the rural barrios of the Dominican Republic to the dance floors of London, Berlin, and Sydney, Bachata has evolved into a global phenomenon that captivates dancers of every level. But where did it come from, how has it changed, and what makes it so special?</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Bachata's Origins in the Dominican Republic</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Bachata was born in the rural areas and shanty towns of the Dominican Republic in the 1960s. Initially dismissed by the elite as "música de amargue" (music of bitterness), it was raw, emotional, and deeply personal — characterised by acoustic guitar, bongo, and heartfelt vocals about love, heartbreak, and longing.</p>
-            <p className="text-muted-foreground leading-relaxed mb-4">The music was considered lower-class and was banned from radio stations for decades. Artists like José Manuel Calderón, Leonardo Paniagua, and later Luis Vargas and Antony Santos kept the genre alive in rural communities and urban barrios, performing at informal gatherings and street parties.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">Everything changed in the 1990s when Juan Luis Guerra's album "Bachata Rosa" brought the genre international recognition and mainstream acceptance. Suddenly, Bachata was no longer marginalised — it was celebrated, and its evolution as a dance form accelerated dramatically.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">The Evolution of Bachata Styles</h2>
-
-            <h3 className="font-heading font-bold text-lg mt-6 mb-2">Traditional Bachata (Dominican)</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">The original form — tight, close embrace, small steps, deeply rooted in the Dominican street dance tradition. Characterised by hip movements, subtle footwork, and a raw, unpolished authenticity. The connection between partners is intimate and the movements are compact.</p>
-
-            <h3 className="font-heading font-bold text-lg mt-6 mb-2">Bachata Moderna</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">Developed primarily in Europe (Spain and Italy), Moderna blends traditional Dominican footwork with influences from salsa, tango, and contemporary dance. Partners dance in a more open frame, execute cleaner lines, and incorporate cross-body leads and turn patterns borrowed from salsa. This is the bridge between traditional and sensual styles.</p>
-
-            <h3 className="font-heading font-bold text-lg mt-6 mb-2">Bachata Sensual</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">Created by Korke & Judith in Cádiz, Spain, Bachata Sensual is characterised by fluid body waves, dramatic dips, sensual connection, and a slower, more cinematic musicality. It's the most expressive and body-aware of all Bachata styles, requiring strong body isolation, trust between partners, and musical interpretation. At its best, Bachata Sensual feels like a conversation between two bodies and the music.</p>
-
-            <h3 className="font-heading font-bold text-lg mt-6 mb-2">Urban Bachata</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">A contemporary fusion incorporating hip-hop, R&B, and urban music influences. It brings a harder, edgier flavour to Bachata dancing with more groove-based movements and less traditional structure.</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">At Pura Nights, we teach all core styles with particular emphasis on <strong>Moderna</strong> and <strong>Bachata Sensual</strong> — the two styles most requested at London socials.</p>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">What Makes Bachata Unique</h2>
-            <p className="text-muted-foreground leading-relaxed mb-2">Bachata stands apart from other Latin dances for several reasons:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li>The side-step basic with a distinctive hip tap on beat 4</li>
-              <li>Close partner connection and body awareness from the first lesson</li>
-              <li>Emotional expression through movement — Bachata tells a story</li>
-              <li>The sensual "wave" — a body roll shared between partners that creates flow</li>
-              <li>Turn patterns at beats 5–8 that allow creative expression</li>
-              <li>Musical interpretation — dancing to the lyrics, the guitar, and the emotion</li>
-            </ul>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Bachata vs Salsa: Key Differences</h2>
-            <div className="overflow-x-auto mb-8">
-              <table className="w-full text-sm text-left border border-border rounded-xl overflow-hidden">
-                <thead className="bg-primary/10"><tr><th className="p-3 font-heading"></th><th className="p-3 font-heading">Bachata</th><th className="p-3 font-heading">Salsa</th></tr></thead>
-                <tbody className="text-muted-foreground">
-                  <tr className="border-t border-border"><td className="p-3 font-semibold">Basic step</td><td className="p-3">Side-to-side</td><td className="p-3">Forward-back slot</td></tr>
-                  <tr className="border-t border-border"><td className="p-3 font-semibold">Connection</td><td className="p-3">Close embrace</td><td className="p-3">Open/closed frame</td></tr>
-                  <tr className="border-t border-border"><td className="p-3 font-semibold">Tempo</td><td className="p-3">Generally slower</td><td className="p-3">Generally faster</td></tr>
-                  <tr className="border-t border-border"><td className="p-3 font-semibold">Origin</td><td className="p-3">Dominican Republic</td><td className="p-3">Cuba / Puerto Rico / NY</td></tr>
-                  <tr className="border-t border-border"><td className="p-3 font-semibold">Mood</td><td className="p-3">Romantic, sensual</td><td className="p-3">Energetic, social</td></tr>
-                </tbody>
-              </table>
+          <div className="prose prose-lg max-w-none mt-10 font-body text-foreground [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_p]:mb-5 [&_p]:leading-relaxed [&_ul]:mb-5 [&_li]:mb-2">
+            <p>Bachata is, at its core, a love song in movement. It was born in the mountains and backstreets of the Dominican Republic — raw, heartfelt, and deeply emotional. Today it has evolved into one of the fastest-growing social dances in the world, and at Pura Nights' classes in Chiswick and Ealing, you can learn every style from Traditional to Bachata Sensual.</p>
+            <h2>The History of Bachata — Born in the Dominican Republic</h2>
+            <p>Bachata emerged in the Dominican Republic during the 1960s, originally called "amargue" (meaning bitter or bittersweet), a name that reflected the heartbreak and longing that characterised its lyrics. It was music of the poor and working class — played on acoustic guitar with bongo, maracas, and bass — and for years it was actively dismissed by the Dominican establishment as lower-class or vulgar.</p>
+            <p>By the 1980s, artists like Juan Luis Guerra (who won a Grammy for his 1990 album "Bachata Rosa") began bringing Bachata to mainstream audiences. The 1990s saw the genre and dance spread internationally, particularly to Spanish-speaking communities in New York, Miami, and Europe.</p>
+            <h2>The Three Core Styles of Bachata</h2>
+            <p><strong>TRADITIONAL BACHATA</strong><br/>The original form, danced in close embrace with small, intimate steps. Subtle hip movement, gentle body rock, deep partner connection. Still popular at Dominican social nights.</p>
+            <p><strong>BACHATA MODERNA (European Style)</strong><br/>Developed primarily in Spain during the 2000s, blending traditional footwork with influences from Salsa, Argentine Tango, and contemporary dance. More open partner work, cleaner lines, more theatrical styling. The most widely taught style in London.</p>
+            <p><strong>BACHATA SENSUAL</strong><br/>Created by Spanish dancers Korke & Judith in Cádiz. Characterised by fluid body waves, dramatic dips, deeply connective embrace, and slower, cinematic musicality. The most expressive of all Bachata styles.</p>
+            <p><strong>URBAN BACHATA</strong><br/>Contemporary fusion with hip-hop, R&B, and urban music influences. Popular with younger audiences at urban dance events.</p>
+            <p>At Pura Nights, all core styles are taught, with emphasis on <strong>Moderna</strong> and <strong>Sensual</strong>.</p>
+            <h2>The Bachata Basic Step</h2>
+            <p>Side step LEFT (beat 1), together (beat 2), side step LEFT (beat 3), hip tap RIGHT (beat 4). Then reverse. The tap on beat 4 is the signature of Bachata — that punctuation that gives the dance its characteristic rhythm.</p>
+            <p>From this foundation: forward/back steps, turns, body waves, dips, and linked turn combinations across 4 or 8 beats.</p>
+            <h2>Bachata vs Salsa — Key Differences</h2>
+            <div className="not-prose overflow-x-auto mb-8">
+              <table className="w-full text-sm border-collapse"><thead><tr className="bg-secondary"><th className="p-3 text-left font-heading">Factor</th><th className="p-3 text-left font-heading">Bachata</th><th className="p-3 text-left font-heading">Salsa On1</th></tr></thead><tbody>
+                {[["Basic step","Side to side","Forward/back slot"],["Connection","Close embrace","Open/closed frame"],["Tempo","110–130 BPM","150–200 BPM"],["Mood","Romantic, sensual","Energetic, playful"],["Easier?","Generally yes","Steeper curve"],["Origin","Dominican Republic","Cuba / Puerto Rico / NY"]].map(([f,b,s],i)=><tr key={i} className="border-b border-border"><td className="p-3 font-heading font-semibold">{f}</td><td className="p-3">{b}</td><td className="p-3">{s}</td></tr>)}
+              </tbody></table>
             </div>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">How to Learn Bachata as a Beginner</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Bachata is widely considered easier to pick up than Salsa for most beginners. The basic step is intuitive, the tempo is forgiving, and the music is incredibly accessible. Many students find themselves falling in love with the dance within their very first class.</p>
-            <p className="text-muted-foreground leading-relaxed mb-2">At Pura Nights, our beginners Bachata class covers:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li>The 4-beat basic step with tap — your rhythmic foundation</li>
-              <li>Weight transfer and body movement — the key to looking natural</li>
-              <li>First turns and travelling patterns</li>
-              <li>Basic partner connection and lead/follow communication</li>
-              <li>Introduction to body waves and musicality</li>
-            </ul>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">Where to Learn Bachata in London</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">London has one of the most vibrant Bachata scenes in Europe, and Pura Nights is at its heart. Led by award-winning instructor Melitta Siomos, our weekly classes offer three levels of Bachata instruction at two West London venues:</p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-1 mb-6">
-              <li><strong>Mondays:</strong> The George IV, 185 Chiswick High Rd, W4 2DR</li>
-              <li><strong>Tuesdays:</strong> Drayton Court Hotel, 2 The Avenue, Ealing, W13 8PH</li>
-            </ul>
-
-            <h2 className="font-display text-2xl font-bold mt-10 mb-4">FAQs</h2>
-            <div className="space-y-4 mb-8">
-              {[
-                { q: "Do I need to be flexible or fit to learn bachata?", a: "Not at all. Bachata is accessible to all body types and fitness levels. The movement develops naturally over time." },
-                { q: "Is bachata sensual appropriate for beginners?", a: "We introduce sensual elements gradually. The focus is always on connection, communication, and comfort — not performance." },
-              ].map((f) => (
-                <details key={f.q} className="border-b border-border py-4">
-                  <summary className="font-heading font-semibold cursor-pointer hover:text-primary">{f.q}</summary>
-                  <p className="text-muted-foreground text-sm mt-2">{f.a}</p>
-                </details>
-              ))}
+            <div className="not-prose my-12 bg-primary rounded-2xl p-8 text-center">
+              <h3 className="font-display text-2xl font-bold text-primary-foreground mb-2">Ready to Try Bachata?</h3>
+              <p className="text-primary-foreground/80 font-heading text-sm mb-5">Mondays in Chiswick · Tuesdays in Ealing · No partner needed</p>
+              <Link to="/pura-nights" className="btn-cta-dark inline-block">View Class Schedule</Link>
             </div>
-
-            <div className="bg-card rounded-2xl p-8 card-hover text-center mt-10">
-              <h2 className="font-display text-2xl font-bold mb-3">Join a Bachata Class in London</h2>
-              <p className="text-muted-foreground mb-6">All levels welcome. No partner needed.</p>
-              <Link to="/pura-nights" className="btn-cta-primary text-sm">Book Your First Class</Link>
-            </div>
+            <h2>FAQ — Bachata Classes in London</h2>
           </div>
+        </FadeInUp>
+        <FadeInUp delay={0.2}>
+          <Accordion type="multiple" className="mb-10">
+            {[{q:"Do I need to be flexible or fit to learn bachata?",a:"Not at all. Bachata is accessible to all body types, ages, and fitness levels."},{q:"Is Bachata Sensual appropriate for beginners?",a:"We introduce sensual elements gradually. The focus is always on communication, comfort, and connection."},{q:"How long does it take to learn bachata?",a:"Most people feel comfortable socially within 6–8 weeks. The basic step can be learned in one class."},{q:"What's the difference between Sensual and regular Bachata?",a:"Bachata Sensual features more body waves, closer connection, and slower musicality."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
+          </Accordion>
+          <AuthorCard />
+          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-salsa",title:"What is Salsa Dance?",cat:"Salsa"},{slug:"salsa-vs-bachata",title:"Salsa vs Bachata",cat:"Beginners"},{slug:"beginners-guide-salsa-london",title:"Beginner's Guide",cat:"Beginners"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
         </FadeInUp>
       </div>
     </article>
   </Layout>
 );
-
 export default WhatIsBachata;
