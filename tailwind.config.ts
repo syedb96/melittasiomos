@@ -15,8 +15,9 @@ export default {
     extend: {
       fontFamily: {
         display: ['Playfair Display', 'serif'],
-        heading: ['Montserrat', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
+        accent: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,17 +53,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        coral: {
-          DEFAULT: "hsl(var(--coral))",
-          dark: "hsl(var(--coral-dark))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          dark: "hsl(var(--gold-dark))",
+          tint: "hsl(var(--gold-tint))",
         },
-        amber: "hsl(var(--amber))",
+        peach: "hsl(var(--peach))",
         charcoal: {
           DEFAULT: "hsl(var(--charcoal))",
           light: "hsl(var(--charcoal-light))",
         },
-        blush: "hsl(var(--blush))",
-        gold: "hsl(var(--gold))",
+        "soft-white": "hsl(var(--soft-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -95,5 +96,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
