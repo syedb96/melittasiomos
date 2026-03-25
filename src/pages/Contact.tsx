@@ -5,7 +5,16 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import RelatedPages from "@/components/RelatedPages";
 
-const enquiryTypes = ["General Enquiry", "Book a Class", "Private Lessons", "Wedding Dance", "Pura Ladies", "Events & Tickets", "Gift Vouchers", "Other"];
+const enquiryTypes = [
+  "Group Classes — Chiswick or Ealing",
+  "Monthly Latin Friday — Tickets & Info",
+  "Wedding Dance — Consultation Request",
+  "Private Lessons — Enquiry",
+  "Pura Ladies — Audition / Membership",
+  "Corporate / Hen Party Event",
+  "Gift Vouchers",
+  "General Enquiry",
+];
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);

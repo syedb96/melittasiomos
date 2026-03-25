@@ -90,31 +90,15 @@ const PrivateDanceLessonsWestLondon = () => (
       </div>
     </section>
 
-    {/* Pricing */}
+    {/* Enquiry CTA */}
     <section className="section-padding section-warm">
-      <div className="container-main max-w-3xl">
+      <div className="container-main max-w-3xl text-center">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold mb-6">Private Lesson Pricing</h2>
-          <div className="bg-card rounded-2xl p-6 card-hover">
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-heading font-semibold">Single Session (60 min)</span>
-                <span className="font-display font-bold text-foreground">From £75</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-heading font-semibold">4-Lesson Package</span>
-                <span className="font-display font-bold text-foreground">From £260</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-heading font-semibold">8-Lesson Package</span>
-                <span className="font-display font-bold text-foreground">From £480</span>
-              </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="font-heading font-semibold">Online Session (Zoom)</span>
-                <span className="font-display font-bold text-foreground">From £55</span>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground mt-4">Prices may vary for travel to your venue. Contact Melitta for a personalised quote.</p>
+          <h2 className="font-display text-3xl font-bold mb-4">Interested in Private Lessons?</h2>
+          <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Private lesson rates are tailored to your goals and schedule. Contact Melitta directly for a free consultation and personalised quote.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons%20in%20West%20London" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💬 Enquire on WhatsApp</a>
+            <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-dark">📧 Email Melitta</a>
           </div>
         </FadeInUp>
       </div>

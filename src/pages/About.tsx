@@ -9,14 +9,14 @@ import melittaImg from "@/assets/melitta-portrait.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
 
 const team = [
-  { name: "Melitta Siomos", role: "Lead Instructor & Founder", specialties: "Salsa On1, Bachata Sensual, Ladies Styling, Wedding Choreography" },
-  { name: "Tiffany", role: "Assistant Instructor", specialties: "Beginners Salsa, Ladies Styling" },
-  { name: "Roger Cracco", role: "Guest Teacher", specialties: "Bachata Sensual, Musicality, Advanced Footwork" },
-  { name: "Eva", role: "Instructor", specialties: "Salsa On1, Improvers & Intermediate" },
-  { name: "Edi", role: "Instructor", specialties: "Bachata Moderna, Social Dancing" },
-  { name: "Ezgi", role: "Instructor", specialties: "Ladies Styling, Beginners" },
-  { name: "Luis", role: "Instructor", specialties: "Salsa, Partner Work" },
-  { name: "Kevin", role: "Instructor", specialties: "Bachata, Footwork & Shines" },
+  { name: "Melitta Siomos", role: "Founder & Lead Instructor", specialties: ["Salsa On1", "Bachata Sensual", "Latin Styling", "Wedding Dance"], bio: "International award-winning Salsa & Bachata instructor with 15+ years of experience. Founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. Bachata UK Champion and coach to hundreds of dancers across London and Europe." },
+  { name: "Roger Cracco", role: "Guest Teacher & Choreographer", specialties: ["Salsa", "Bachata", "Performance Coaching"], bio: "Renowned choreographer and guest teacher at Pura Nights. Roger brings a wealth of competition and performance experience, helping students develop advanced technique and artistry." },
+  { name: "Tiffany", role: "Assistant Instructor", specialties: ["Beginner Classes", "Ladies Styling"], bio: "A Pura Ladies team member turned instructor, Tiffany is passionate about welcoming new students and making everyone feel comfortable from their very first class." },
+  { name: "Eva", role: "Instructor", specialties: ["Bachata", "Latin Styling"], bio: "Eva specialises in Bachata and Latin styling, bringing grace and expressiveness to every session. She helps students unlock their personal movement style." },
+  { name: "Edi", role: "Instructor", specialties: ["Salsa", "Intermediate Training"], bio: "Edi's energy and precision make him a favourite among improver and intermediate students. His focus on clean technique and musicality helps dancers level up quickly." },
+  { name: "Ezgi", role: "Instructor", specialties: ["Bachata Sensual", "Ladies Styling"], bio: "Ezgi's passion for Bachata Sensual and body movement brings a unique dimension to Pura Nights. She leads popular styling warm-ups at the Ealing venue." },
+  { name: "Luis", role: "Instructor", specialties: ["Salsa On1", "Advanced Footwork"], bio: "Luis brings rhythm, flair, and technical depth to every class. His footwork and shines sessions are among the most popular at Pura Nights socials." },
+  { name: "Kevin", role: "Instructor", specialties: ["Salsa", "Social Dancing"], bio: "Kevin's calm teaching style and focus on lead technique makes him an excellent instructor for students looking to improve their social dancing confidence." },
 ];
 
 const About = () => (
