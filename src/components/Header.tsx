@@ -131,7 +131,7 @@ const Header = () => {
               )
             )}
             <a
-              href="https://www.tickettailor.com"
+              href="https://linktr.ee/pura.nights"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 btn-cta-primary text-[10px] py-2.5 px-5 rounded-lg"
@@ -171,7 +171,7 @@ const Header = () => {
                 </Link>
               )
             )}
-            <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="mt-4 btn-cta-primary text-sm">
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="mt-4 btn-cta-primary text-sm">
               BOOK NOW
             </a>
           </div>

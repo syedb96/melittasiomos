@@ -22,7 +22,7 @@ const SalsaClassesEaling = () => (
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos and the Pura Nights team run weekly salsa classes every Tuesday evening at the Drayton Court Hotel in West Ealing. Whether you're taking your first salsa step or looking to perfect your spins, turns and partnerwork, this is the place to be.
         </p>
-        <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Tuesday Salsa Class</a>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Tuesday Salsa Class</a>
       </div>
     </section>
 
@@ -78,7 +78,7 @@ const SalsaClassesEaling = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Dance Salsa in Ealing This Tuesday</h2>
         <p className="text-primary-foreground/80 mb-8">Doors open 7:15 PM at Drayton Court Hotel. All levels. No partner needed.</p>
-        <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
       </div>
     </section>
   </Layout>

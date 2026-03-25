@@ -120,7 +120,7 @@ const Events = () => {
               <Countdown target={nextFriday} />
 
               <div className="text-center mt-8">
-                <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Get Tickets</a>
+                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Get Tickets</a>
               </div>
             </div>
           </FadeInUp>

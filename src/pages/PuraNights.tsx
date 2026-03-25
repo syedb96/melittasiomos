@@ -39,7 +39,7 @@ const PuraNights = () => (
                 <p><Clock size={12} className="inline mr-1" />9:00–11:00 PM → Dance Social (50:50 Bachata & Salsa)</p>
               </div>
               <p className="text-muted-foreground text-xs mt-4">💷 From £5.50 | Cash at door accepted</p>
-              <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-4 py-2 px-6">Book {v.day} Class</a>
+              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-4 py-2 px-6">Book {v.day} Class</a>
             </div>
           ))}
         </div>
@@ -92,7 +92,7 @@ const PuraNights = () => (
     <section className="section-padding bg-primary text-center">
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Ready to Start Dancing?</h2>
-        <a href="https://www.tickettailor.com" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground text-sm hover:bg-charcoal-light">Book Your First Class Now →</a>
+        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground text-sm hover:bg-charcoal-light">Book Your First Class Now →</a>
       </div>
     </section>
   </Layout>

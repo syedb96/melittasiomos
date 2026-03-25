@@ -59,10 +59,13 @@ export default {
           tint: "hsl(var(--gold-tint))",
         },
         peach: "hsl(var(--peach))",
+        terracotta: "hsl(var(--terracotta))",
+        bronze: "hsl(var(--bronze))",
         charcoal: {
           DEFAULT: "hsl(var(--charcoal))",
           light: "hsl(var(--charcoal-light))",
         },
+        ivory: "hsl(var(--ivory))",
         "soft-white": "hsl(var(--soft-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

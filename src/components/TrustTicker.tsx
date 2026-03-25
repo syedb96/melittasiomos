@@ -1,17 +1,21 @@
 const items = [
-  "⭐ 5-Star Google Rated",
+  "⭐ 5.0 Google Rating",
+  "💃 500+ Students Taught",
   "🏆 Bachata UK Champion",
-  "💃 15+ Years Teaching",
-  "🌍 500+ Students Taught",
-  "❤️ All Levels Welcome",
-  "🎉 No Partner Needed",
+  "🌍 7 Pura Ladies Teams, 4 Countries",
+  "📍 Classes in Chiswick & Ealing",
+  "🎓 15+ Years Teaching & Performing",
+  "💑 Wedding Dance Specialists",
+  "🔥 Monthly Latin Fridays",
+  "✅ No Partner Needed",
+  "📱 5★ on Google",
 ];
 
 const TrustTicker = () => (
-  <div className="bg-secondary overflow-hidden py-3">
-    <div className="animate-ticker flex whitespace-nowrap">
+  <div className="bg-charcoal-light overflow-hidden py-2.5">
+    <div className="animate-ticker flex whitespace-nowrap" style={{ willChange: 'transform' }}>
       {[...items, ...items].map((item, i) => (
-        <span key={i} className="mx-8 text-sm font-heading font-semibold text-secondary-foreground">
+        <span key={i} className="mx-8 text-xs font-accent font-semibold tracking-wide text-primary">
           {item}
         </span>
       ))}
