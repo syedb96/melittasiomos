@@ -158,7 +158,6 @@ const App = () => (
           <Route path="/private-salsa-lessons-london" element={<PrivateSalsaLessonsLondon />} />
           <Route path="/ladies-styling-london" element={<LadiesStylingLondon />} />
           <Route path="/bachata-performance-team-london" element={<BachataPerformanceTeamLondon />} />
-          <Route path="/dance-classes-chiswick" element={<DanceClassesChiswick />} />
           <Route path="/blog/best-salsa-nights-west-london" element={<BestSalsaNightsWestLondon />} />
           <Route path="/blog/salsa-classes-near-turnham-green" element={<SalsaClassesNearTurnhamGreen />} />
           <Route path="/blog/latin-dance-events-ealing-2026" element={<LatinDanceEventsEaling2026 />} />
