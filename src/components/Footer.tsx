@@ -37,6 +37,25 @@ const Footer = () => (
               { to: "/blog", label: "Blog" },
               { to: "/faq", label: "FAQ" },
               { to: "/contact", label: "Contact" },
+              { to: "/start-here", label: "Start Here" },
+              { to: "/locations", label: "Locations" },
+            ].map(l => (
+              <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors">{l.label}</Link></li>
+            ))}
+          </ul>
+
+          <h4 className="font-heading font-semibold text-primary-foreground text-sm tracking-wider mt-6 mb-3">LOCAL PAGES</h4>
+          <ul className="space-y-2 text-sm">
+            {[
+              { to: "/salsa-classes-london", label: "Salsa Classes London" },
+              { to: "/bachata-classes-london", label: "Bachata Classes London" },
+              { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+              { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
+              { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
+              { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
+              { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+              { to: "/wedding-dance-west-london", label: "Wedding Dance West London" },
+              { to: "/private-dance-lessons-west-london", label: "Private Lessons West London" },
             ].map(l => (
               <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors">{l.label}</Link></li>
             ))}
