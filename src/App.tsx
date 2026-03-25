@@ -19,6 +19,7 @@ import OnlineClasses from "./pages/OnlineClasses";
 import SalsaClassesLondon from "./pages/SalsaClassesLondon";
 import BachataClassesLondon from "./pages/BachataClassesLondon";
 import SalsaClassesChiswick from "./pages/SalsaClassesChiswick";
+import BachataClassesChiswick from "./pages/BachataClassesChiswick";
 import BachataClassesEaling from "./pages/BachataClassesEaling";
 import SalsaClassesEaling from "./pages/SalsaClassesEaling";
 import DanceClassesSouthWestLondon from "./pages/DanceClassesSouthWestLondon";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/salsa-classes-london" element={<SalsaClassesLondon />} />
           <Route path="/bachata-classes-london" element={<BachataClassesLondon />} />
           <Route path="/salsa-classes-chiswick" element={<SalsaClassesChiswick />} />
+          <Route path="/bachata-classes-chiswick" element={<BachataClassesChiswick />} />
           <Route path="/bachata-classes-ealing" element={<BachataClassesEaling />} />
           <Route path="/salsa-classes-ealing" element={<SalsaClassesEaling />} />
           <Route path="/dance-classes-south-west-london" element={<DanceClassesSouthWestLondon />} />
