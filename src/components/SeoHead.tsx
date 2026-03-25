@@ -13,7 +13,7 @@ const globalSchema = {
   name: "Pura Nights — Melitta Siomos Dance Academy",
   alternateName: ["Pura Nights", "Pura Nights London", "Pura Ladies", "Wedding Dance Made Easy"],
   description: "Award-winning Salsa and Bachata dance school in West London. Weekly classes in Chiswick and Ealing. Private lessons, wedding dance, and Pura Ladies performance team.",
-  url: "https://www.melittasiomos.com",
+  url: "https://www.puranights.com",
   telephone: "+447449482343",
   email: "siomosmelitta@gmail.com",
   address: [
@@ -51,7 +51,7 @@ const SeoHead = ({ title, description, path, schema }: SeoHeadProps) => {
     setMeta("description", description);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
-    setMeta("og:url", `https://www.melittasiomos.com${path}`, "property");
+    setMeta("og:url", `https://www.puranights.com${path}`, "property");
     setMeta("og:type", "website", "property");
 
     // Inject JSON-LD
@@ -62,7 +62,7 @@ const SeoHead = ({ title, description, path, schema }: SeoHeadProps) => {
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.setAttribute("rel", "canonical"); document.head.appendChild(canonical); }
-    canonical.setAttribute("href", `https://www.melittasiomos.com${path}`);
+    canonical.setAttribute("href", `https://www.puranights.com${path}`);
   }, [title, description, path, schema]);
 
   return null;

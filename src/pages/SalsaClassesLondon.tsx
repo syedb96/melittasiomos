@@ -9,7 +9,7 @@ const schema = {
   "@type": "Course",
   name: "Salsa Classes London",
   description: "Weekly salsa dance classes in London with Melitta Siomos. Beginner to advanced levels in Chiswick and Ealing, West London.",
-  provider: { "@type": "Organization", name: "Melitta Siomos Dance Academy", url: "https://www.melittasiomos.com" },
+  provider: { "@type": "Organization", name: "Melitta Siomos Dance Academy", url: "https://www.puranights.com" },
   areaServed: { "@type": "City", name: "London" },
 };
 

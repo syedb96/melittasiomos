@@ -18,7 +18,7 @@ const WhatIsSalsa = () => (
         "@type": ["Article", "FAQPage"],
         headline: "What is Salsa Dance? The Complete Guide to On1 Crossbody Style",
         description: "Discover the history, music, and technique of Salsa dance.",
-        author: { "@type": "Person", name: "Melitta Siomos", url: "https://www.melittasiomos.com/about" },
+        author: { "@type": "Person", name: "Melitta Siomos", url: "https://www.puranights.com/about" },
         publisher: { "@type": "Organization", name: "Pura Nights" },
         datePublished: "2025-01-15",
         dateModified: "2025-06-01",
@@ -191,7 +191,7 @@ const WhatIsSalsa = () => (
 
           <div className="mt-10 bg-primary rounded-2xl p-6 text-center">
             <p className="text-primary-foreground font-heading font-semibold mb-3">Loved this? Share it on WhatsApp</p>
-            <a href={`https://wa.me/?text=${encodeURIComponent("What is Salsa Dance? https://www.melittasiomos.com/blog/what-is-salsa")}`} target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Share on WhatsApp 💬</a>
+            <a href={`https://wa.me/?text=${encodeURIComponent("What is Salsa Dance? https://www.puranights.com/blog/what-is-salsa")}`} target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Share on WhatsApp 💬</a>
           </div>
         </FadeInUp>
       </div>

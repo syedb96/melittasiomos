@@ -16,7 +16,7 @@ const SalsaClassesActon = () => (
         "@type": "Course",
         name: "Salsa & Bachata Classes Near Acton",
         description: "Weekly Salsa and Bachata dance classes accessible from Acton, W3. Held at venues in Chiswick and Ealing by award-winning instructor Melitta Siomos.",
-        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.melittasiomos.com" },
+        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
         areaServed: ["Acton", "East Acton", "West Acton", "North Acton", "Acton Central", "South Acton", "Chiswick", "Ealing"],
       }}
     />
