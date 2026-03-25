@@ -26,6 +26,9 @@ import BachataClassesChiswick from "./pages/BachataClassesChiswick";
 import BachataClassesEaling from "./pages/BachataClassesEaling";
 import SalsaClassesEaling from "./pages/SalsaClassesEaling";
 import DanceClassesSouthWestLondon from "./pages/DanceClassesSouthWestLondon";
+import DanceClassesWestLondon from "./pages/DanceClassesWestLondon";
+import StartHere from "./pages/StartHere";
+import Locations from "./pages/Locations";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -74,6 +77,9 @@ const App = () => (
           <Route path="/bachata-classes-ealing" element={<BachataClassesEaling />} />
           <Route path="/salsa-classes-ealing" element={<SalsaClassesEaling />} />
           <Route path="/dance-classes-south-west-london" element={<DanceClassesSouthWestLondon />} />
+          <Route path="/dance-classes-west-london" element={<DanceClassesWestLondon />} />
+          <Route path="/start-here" element={<StartHere />} />
+          <Route path="/locations" element={<Locations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
