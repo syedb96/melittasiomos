@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, forwardRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { X } from "lucide-react";
 
-const ExitIntentPopup = () => {
+const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
   const [show, setShow] = useState(false);
   const { pathname } = useLocation();
 
