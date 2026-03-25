@@ -16,7 +16,7 @@ const DanceClassesEaling = () => (
         "@type": "Course",
         name: "Dance Classes in Ealing — Salsa & Bachata",
         description: "Weekly Salsa and Bachata dance classes every Tuesday in Ealing, West London. All levels welcome.",
-        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.melittasiomos.com" },
+        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
         areaServed: ["Ealing", "West Ealing", "Ealing Broadway", "South Ealing", "North Ealing", "Hanwell", "Greenford", "Northolt"],
       }}
     />

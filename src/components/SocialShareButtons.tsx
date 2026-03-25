@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const SocialShareButtons = ({ title, path }: { title: string; path: string }) => {
   const [copied, setCopied] = useState(false);
-  const url = `https://www.melittasiomos.com${path}`;
+  const url = `https://www.puranights.com${path}`;
   const encoded = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 

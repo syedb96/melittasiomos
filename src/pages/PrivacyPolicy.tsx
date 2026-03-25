@@ -9,7 +9,7 @@ const PrivacyPolicy = () => (
         <h1 className="font-display text-4xl font-bold mb-8">Privacy Policy</h1>
         <div className="prose max-w-none text-muted-foreground space-y-6 text-sm">
           <p><strong>Last updated:</strong> January 2025</p>
-          <p>Melitta Siomos Dance Academy ("we", "us", "our") operates the website melittasiomos.com and provides dance classes, events, and related services under the brands Pura Nights, Pura Ladies, and Wedding Dance Made Easy.</p>
+          <p>Melitta Siomos Dance Academy ("we", "us", "our") operates the website puranights.com and provides dance classes, events, and related services under the brands Pura Nights, Pura Ladies, and Wedding Dance Made Easy.</p>
 
           <h2 className="font-display text-xl font-bold text-foreground">Information We Collect</h2>
           <p>We may collect the following personal data: your name, email address, phone number, and any information you provide when submitting enquiry forms, booking classes, or contacting us via WhatsApp or email.</p>

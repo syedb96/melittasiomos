@@ -16,7 +16,7 @@ const BachataClassesWestLondon = () => (
         "@type": "Course",
         name: "Bachata Classes in West London",
         description: "Weekly Bachata Moderna and Bachata Sensual classes in Chiswick and Ealing, West London. Taught by Bachata UK Champion Melitta Siomos.",
-        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.melittasiomos.com" },
+        provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
         areaServed: ["West London", "Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond"],
       }}
     />

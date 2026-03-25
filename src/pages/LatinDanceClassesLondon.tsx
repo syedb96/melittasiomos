@@ -10,7 +10,7 @@ const schema = {
   "@type": "LocalBusiness",
   name: "Pura Nights — Latin Dance Classes London",
   description: "Weekly Latin dance classes in London including Salsa, Bachata, and social dancing. Beginner to advanced levels in West London.",
-  url: "https://www.melittasiomos.com/latin-dance-classes-london",
+  url: "https://www.puranights.com/latin-dance-classes-london",
   telephone: "+447449482343",
   address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", addressRegion: "London", postalCode: "W4 2DR", addressCountry: "GB" },
   areaServed: ["London", "West London", "Central London", "South West London"],

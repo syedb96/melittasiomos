@@ -16,7 +16,7 @@ const WeddingDanceWestLondon = () => (
         "@type": "Service",
         name: "Wedding Dance Lessons — West London",
         description: "Bespoke wedding first dance choreography and coaching in Chiswick, Ealing, and across West London.",
-        provider: { "@type": "Person", name: "Melitta Siomos", url: "https://www.melittasiomos.com/about" },
+        provider: { "@type": "Person", name: "Melitta Siomos", url: "https://www.puranights.com/about" },
         areaServed: ["West London", "Chiswick", "Ealing", "Richmond", "Kew", "Hammersmith", "Brentford"],
       }}
     />
