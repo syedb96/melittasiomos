@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
@@ -9,42 +9,60 @@ import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 
-type Category = "All" | "Classes" | "Events" | "Pura Ladies" | "Wedding Dance";
+type Tab = "Classes & Socials" | "Pura Ladies Performances" | "Events & Latin Fridays";
 
-const photos: { src: string; alt: string; cat: Category[] }[] = [
-  { src: heroImg, alt: "Pura Nights salsa class in action", cat: ["Classes"] },
-  { src: puraLadiesImg, alt: "Pura Ladies performance team", cat: ["Pura Ladies", "Events"] },
-  { src: weddingImg, alt: "Wedding first dance coaching", cat: ["Wedding Dance"] },
-  { src: melittaImg, alt: "Melitta Siomos teaching", cat: ["Classes"] },
-  { src: heroImg, alt: "Social dancing at Pura Nights", cat: ["Events", "Classes"] },
-  { src: puraLadiesImg, alt: "Pura Ladies rehearsal", cat: ["Pura Ladies"] },
-  { src: weddingImg, alt: "Couple practicing their first dance", cat: ["Wedding Dance"] },
-  { src: melittaImg, alt: "Melitta performing at Latin Friday", cat: ["Events"] },
-  { src: heroImg, alt: "Bachata class at The George IV", cat: ["Classes"] },
-];
+const galleryData: Record<Tab, { src: string; alt: string; placeholder: string }[]> = {
+  "Classes & Socials": [
+    { src: heroImg, alt: "Students dancing salsa at Chiswick social", placeholder: "Students dancing salsa at Chiswick social" },
+    { src: melittaImg, alt: "Melitta teaching bachata technique", placeholder: "Melitta teaching bachata technique" },
+    { src: heroImg, alt: "Partner rotation during Monday class", placeholder: "Partner rotation during Monday class" },
+    { src: melittaImg, alt: "Social dancing at Pura Nights Ealing", placeholder: "Social dancing at Pura Nights Ealing" },
+    { src: heroImg, alt: "Beginners learning basic steps", placeholder: "Beginners learning basic steps" },
+    { src: melittaImg, alt: "Bachata class at The George IV", placeholder: "Bachata class at The George IV" },
+    { src: heroImg, alt: "Tuesday night salsa class Ealing", placeholder: "Tuesday night salsa class Ealing" },
+    { src: melittaImg, alt: "Group photo after Monday class", placeholder: "Group photo after Monday class" },
+  ],
+  "Pura Ladies Performances": [
+    { src: puraLadiesImg, alt: "Pura Ladies London team performing", placeholder: "Pura Ladies London team performing" },
+    { src: puraLadiesImg, alt: "Pura Ladies at international festival", placeholder: "Pura Ladies at international festival" },
+    { src: puraLadiesImg, alt: "Bachata ladies styling routine", placeholder: "Bachata ladies styling routine" },
+    { src: puraLadiesImg, alt: "Pura Ladies rehearsal session", placeholder: "Pura Ladies rehearsal session" },
+    { src: puraLadiesImg, alt: "Team photo at competition", placeholder: "Team photo at competition" },
+    { src: puraLadiesImg, alt: "Pura Ladies Munich team", placeholder: "Pura Ladies Munich team" },
+  ],
+  "Events & Latin Fridays": [
+    { src: heroImg, alt: "Monthly Latin Friday atmosphere", placeholder: "Monthly Latin Friday atmosphere" },
+    { src: weddingImg, alt: "Wedding couple first dance", placeholder: "Wedding couple first dance" },
+    { src: heroImg, alt: "DJ playing at Latin Friday", placeholder: "DJ playing at Latin Friday" },
+    { src: weddingImg, alt: "Wedding dance rehearsal", placeholder: "Wedding dance rehearsal" },
+    { src: heroImg, alt: "Social dancing at Latin Friday", placeholder: "Social dancing at Latin Friday" },
+    { src: heroImg, alt: "Latin Friday crowd shot", placeholder: "Latin Friday crowd shot" },
+  ],
+};
 
-const categories: Category[] = ["All", "Classes", "Events", "Pura Ladies", "Wedding Dance"];
+const tabs: Tab[] = ["Classes & Socials", "Pura Ladies Performances", "Events & Latin Fridays"];
 
 const youtubeVideos = [
-  { id: "dQw4w9WgXcQ", title: "Pura Ladies Performance — London Bachata Festival" },
-  { id: "dQw4w9WgXcQ", title: "Pura Nights Monday Class Highlights" },
-  { id: "dQw4w9WgXcQ", title: "Wedding Dance Choreography Showcase" },
+  { id: "placeholder", title: "Pura Ladies Performance Video", desc: "Watch the Pura Ladies perform at international festivals" },
+  { id: "placeholder", title: "Melitta Siomos Teaching Demo", desc: "See Melitta's teaching style and class atmosphere" },
+  { id: "placeholder", title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials" },
 ];
 
 const Gallery = () => {
-  const [filter, setFilter] = useState<Category>("All");
+  const [activeTab, setActiveTab] = useState<Tab>("Classes & Socials");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = filter === "All" ? photos : photos.filter((p) => p.cat.includes(filter));
+  const photos = galleryData[activeTab];
 
   const navigate = (dir: -1 | 1) => {
     if (lightbox === null) return;
-    setLightbox((lightbox + dir + filtered.length) % filtered.length);
+    setLightbox((lightbox + dir + photos.length) % photos.length);
   };
 
   return (
     <Layout>
       <SeoHead title="Gallery — Salsa & Bachata Photos & Videos | Pura Nights London" description="Photos and videos from Pura Nights classes, events, Pura Ladies performances, and wedding dance coaching. See life at London's best Latin dance community." path="/gallery" />
+      {/* <!-- WIX: Use Wix Pro Gallery with 3 category albums --> */}
 
       <section className="section-padding section-warm">
         <div className="container-main">
@@ -54,25 +72,28 @@ const Gallery = () => {
             <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8">Classes, events, performances, and the community behind the dance</p>
           </FadeInUp>
 
-          {/* Filter */}
+          {/* Tab Filter */}
           <div className="flex flex-wrap gap-2 justify-center mb-10">
-            {categories.map((c) => (
+            {tabs.map((tab) => (
               <button
-                key={c}
-                onClick={() => setFilter(c)}
-                className={`px-4 py-2 rounded-full text-sm font-heading font-semibold transition-all ${filter === c ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-primary/10"}`}
+                key={tab}
+                onClick={() => { setActiveTab(tab); setLightbox(null); }}
+                className={`px-5 py-2.5 rounded-full text-sm font-heading font-semibold transition-all ${activeTab === tab ? "bg-primary text-primary-foreground shadow-md" : "bg-card text-muted-foreground hover:bg-primary/10 border border-border"}`}
               >
-                {c}
+                {tab}
               </button>
             ))}
           </div>
 
-          {/* Masonry Grid */}
-          <StaggerContainer className="columns-2 md:columns-3 gap-4 space-y-4">
-            {filtered.map((photo, i) => (
-              <StaggerItem key={i}>
-                <button onClick={() => setLightbox(i)} className="w-full block overflow-hidden rounded-2xl card-hover cursor-pointer">
-                  <img src={photo.src} alt={photo.alt} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          {/* Photo Grid */}
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {photos.map((photo, i) => (
+              <StaggerItem key={`${activeTab}-${i}`}>
+                <button onClick={() => setLightbox(i)} className="w-full block overflow-hidden rounded-2xl card-hover cursor-pointer group relative aspect-square">
+                  <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+                    <p className="text-primary-foreground text-xs font-heading">{photo.placeholder}</p>
+                  </div>
                 </button>
               </StaggerItem>
             ))}
@@ -91,17 +112,15 @@ const Gallery = () => {
             {youtubeVideos.map((v, i) => (
               <StaggerItem key={i}>
                 <div className="rounded-2xl overflow-hidden card-hover">
-                  <div className="aspect-video">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${v.id}`}
-                      title={v.title}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
+                  <div className="aspect-video bg-charcoal-light flex items-center justify-center relative">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Play size={28} className="text-primary ml-1" />
+                    </div>
+                    <p className="absolute bottom-3 left-3 right-3 text-primary-foreground/40 text-[10px] font-heading">[Replace with YouTube embed]</p>
                   </div>
-                  <div className="bg-charcoal-light p-3">
-                    <p className="text-primary-foreground/80 text-sm font-heading">{v.title}</p>
+                  <div className="bg-charcoal-light p-4 border-t border-primary-foreground/5">
+                    <p className="text-primary-foreground/90 text-sm font-heading font-semibold mb-1">{v.title}</p>
+                    <p className="text-primary-foreground/50 text-xs">{v.desc}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -119,9 +138,10 @@ const Gallery = () => {
           <button className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary" onClick={() => setLightbox(null)}><X size={28} /></button>
           <button className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary" onClick={(e) => { e.stopPropagation(); navigate(-1); }}><ChevronLeft size={36} /></button>
           <button className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary" onClick={(e) => { e.stopPropagation(); navigate(1); }}><ChevronRight size={36} /></button>
-          <img src={filtered[lightbox].src} alt={filtered[lightbox].alt} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg" onClick={(e) => e.stopPropagation()} />
+          <img src={photos[lightbox].src} alt={photos[lightbox].alt} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg" onClick={(e) => e.stopPropagation()} />
         </div>
       )}
+
       <RelatedPages title="Related Pages" links={[
         { to: "/pura-nights", label: "Weekly Classes" },
         { to: "/pura-ladies", label: "Pura Ladies" },

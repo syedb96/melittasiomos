@@ -192,6 +192,7 @@ const About = () => {
       { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
     ]} />
   </Layout>
-);
+  );
+};
 
 export default About;
