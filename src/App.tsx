@@ -12,6 +12,8 @@ import Bookings from "./pages/Bookings";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
 import WeddingDance from "./pages/WeddingDance";
 import PrivateLessons from "./pages/PrivateLessons";
 import GiftVouchers from "./pages/GiftVouchers";
@@ -26,6 +28,12 @@ import DanceClassesSouthWestLondon from "./pages/DanceClassesSouthWestLondon";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
+import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
+import WhatIsBachata from "./pages/blog/WhatIsBachata";
+import SalsaVsBachata from "./pages/blog/SalsaVsBachata";
+import BeginnersGuideLondon from "./pages/blog/BeginnersGuideLondon";
+import WeddingFirstDanceTips from "./pages/blog/WeddingFirstDanceTips";
+import PuraLadiesStory from "./pages/blog/PuraLadiesStory";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +53,14 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/what-is-salsa" element={<WhatIsSalsa />} />
+          <Route path="/blog/what-is-bachata" element={<WhatIsBachata />} />
+          <Route path="/blog/salsa-vs-bachata" element={<SalsaVsBachata />} />
+          <Route path="/blog/beginners-guide-salsa-london" element={<BeginnersGuideLondon />} />
+          <Route path="/blog/wedding-first-dance-tips" element={<WeddingFirstDanceTips />} />
+          <Route path="/blog/pura-ladies-story" element={<PuraLadiesStory />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/wedding-dance" element={<WeddingDance />} />
           <Route path="/private-lessons" element={<PrivateLessons />} />
           <Route path="/gift-vouchers" element={<GiftVouchers />} />

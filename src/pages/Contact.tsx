@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Phone, Mail, MapPin, Send, Clock, Instagram } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { FadeInUp } from "@/components/animations";
 
-const enquiryTypes = ["Pura Nights Class", "Private Lessons", "Wedding Dance", "Pura Ladies", "Birthday/Hen Party", "Corporate Event", "General"];
+const enquiryTypes = ["General Enquiry", "Book a Class", "Private Lessons", "Wedding Dance", "Pura Ladies", "Events & Tickets", "Gift Vouchers", "Other"];
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,93 +15,123 @@ const Contact = () => {
 
       <section className="section-padding section-warm">
         <div className="container-main">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-3">Have Questions? Ready to Dance with Melitta?</h1>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-12" />
+          <FadeInUp>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-3">Get in Touch with Melitta</h1>
+            <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-12" />
+          </FadeInUp>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Contact Info */}
-            <div>
-              <h2 className="font-display text-2xl font-bold mb-6">Why Dance with Melitta?</h2>
-              <ul className="space-y-4 mb-8">
-                {[
-                  { emoji: "🏆", title: "Award-Winning Coach", desc: "Bachata UK Champion with 15 years teaching experience" },
-                  { emoji: "👋", title: "All Levels Welcome", desc: "Absolute beginners to advanced, no partner needed" },
-                  { emoji: "📍", title: "West London Hotspots", desc: "Chiswick (Mon), Ealing (Tue), Covent Garden (Pura Ladies)" },
-                  { emoji: "💬", title: "Fast Replies", desc: "Enquiries answered within 24 hrs" },
-                  { emoji: "🎉", title: "Fun, Inclusive Vibe", desc: "Learn technique AND make friends" },
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="text-xl">{item.emoji}</span>
-                    <div>
-                      <strong className="font-heading text-sm">{item.title}</strong>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+            {/* Left — Contact Info */}
+            <FadeInUp delay={0.1}>
+              <div>
+                <blockquote className="font-display text-xl italic text-primary mb-8 border-l-4 border-primary pl-4">"Every great dancer started exactly where you are. Let's get you on the floor."</blockquote>
 
-              <div className="bg-card rounded-lg p-6 card-hover space-y-3">
-                <h3 className="font-heading font-bold text-sm mb-3">Prefer email? Reach Melitta at:</h3>
-                <a href="mailto:siomosmelitta@gmail.com" className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"><Mail size={16} /> siomosmelitta@gmail.com</a>
-                <a href="tel:+447449482343" className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"><Phone size={16} /> +44 7449 482 343</a>
-                <div className="flex items-start gap-2 text-sm text-muted-foreground"><MapPin size={16} className="mt-0.5 text-primary" /> Acton, West London & Online</div>
-              </div>
-            </div>
+                <h2 className="font-display text-2xl font-bold mb-6">Why Dance with Melitta?</h2>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    { emoji: "🏆", title: "Award-Winning Coach", desc: "International award-winning instructor with 15+ years experience" },
+                    { emoji: "👋", title: "All Levels Welcome", desc: "Absolute beginners to advanced, no partner needed" },
+                    { emoji: "📍", title: "West London Hotspots", desc: "Chiswick (Mon), Ealing (Tue), Monthly Latin Fridays" },
+                    { emoji: "💬", title: "Fast Replies", desc: "Enquiries answered within 24 hours" },
+                    { emoji: "🎉", title: "Fun, Inclusive Vibe", desc: "Learn technique AND make lifelong friends" },
+                  ].map((item, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="text-xl">{item.emoji}</span>
+                      <div>
+                        <strong className="font-heading text-sm">{item.title}</strong>
+                        <p className="text-muted-foreground text-sm">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
-            {/* Form */}
-            <div className="bg-card rounded-lg p-8 card-hover">
-              <h2 className="font-heading font-semibold text-lg mb-6 text-muted-foreground">Get in Touch & We'll help answer any questions you have</h2>
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div className="text-4xl mb-4">🎉</div>
-                  <h3 className="font-display text-2xl font-bold mb-2">Thank You!</h3>
-                  <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-heading font-semibold mb-1 block">Name *</label>
-                      <input type="text" required className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-heading font-semibold mb-1 block">Phone *</label>
-                      <input type="tel" required className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" placeholder="+44" />
-                    </div>
+                <div className="bg-card rounded-2xl p-6 card-hover space-y-3">
+                  <h3 className="font-heading font-bold text-sm mb-3">Contact Details</h3>
+                  <a href="mailto:siomosmelitta@gmail.com" className="flex items-center gap-2 text-sm text-primary hover:underline"><Mail size={16} /> siomosmelitta@gmail.com</a>
+                  <a href="tel:+447449482343" className="flex items-center gap-2 text-sm text-primary hover:underline"><Phone size={16} /> +44 7449 482 343</a>
+                  <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-primary hover:underline"><Send size={16} /> WhatsApp Chat</a>
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground"><MapPin size={16} className="mt-0.5 text-primary" /> West London & Online</div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground"><Clock size={16} className="text-primary" /> Response time: Within 24 hours</div>
+                  <div className="flex gap-3 mt-4">
+                    {[
+                      { href: "https://www.instagram.com/melittasiomos/", label: "@melittasiomos" },
+                      { href: "https://www.instagram.com/puranights.salsabachata/", label: "@puranights" },
+                      { href: "https://www.instagram.com/puraladies/", label: "@puraladies" },
+                      { href: "https://www.instagram.com/wedding_dance_made_easy/", label: "@weddingdance" },
+                    ].map((s) => (
+                      <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-foreground transition-colors" title={s.label}>
+                        <Instagram size={18} />
+                      </a>
+                    ))}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                </div>
+              </div>
+            </FadeInUp>
+
+            {/* Right — Form */}
+            <FadeInUp delay={0.2}>
+              <div className="bg-card rounded-2xl p-8 card-hover">
+                <h2 className="font-heading font-semibold text-lg mb-6">Send a Message</h2>
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <div className="text-4xl mb-4">🎉</div>
+                    <h3 className="font-display text-2xl font-bold mb-2">Thank You!</h3>
+                    <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-heading font-semibold mb-1 block">Name *</label>
+                        <input type="text" required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
+                      </div>
+                      <div>
+                        <label className="text-sm font-heading font-semibold mb-1 block">Phone</label>
+                        <input type="tel" className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" placeholder="+44" />
+                      </div>
+                    </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1 block">Email *</label>
-                      <input type="email" required className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
+                      <input type="email" required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
                     </div>
                     <div>
-                      <label className="text-sm font-heading font-semibold mb-1 block">Enquiry Type</label>
-                      <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
+                      <label className="text-sm font-heading font-semibold mb-1 block">Enquiry Type *</label>
+                      <select required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm">
+                        <option value="">Select…</option>
                         {enquiryTypes.map(t => <option key={t}>{t}</option>)}
                       </select>
                     </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-heading font-semibold mb-1 block">Message *</label>
-                    <textarea required rows={4} className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
-                  </div>
-                  <button type="submit" className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2">
-                    <Send size={16} /> Submit Enquiry
-                  </button>
-                </form>
-              )}
-            </div>
+                    <div>
+                      <label className="text-sm font-heading font-semibold mb-1 block">Message *</label>
+                      <textarea required rows={4} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
+                    </div>
+                    <button type="submit" className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2">
+                      <Send size={16} /> Send Message
+                    </button>
+                  </form>
+                )}
+              </div>
+            </FadeInUp>
           </div>
         </div>
       </section>
 
-      {/* Community CTA */}
+      {/* WhatsApp CTA */}
       <section className="section-padding bg-primary text-center">
+        <div className="container-main">
+          <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Prefer an Instant Reply?</h2>
+          <p className="text-primary-foreground/80 mb-6">Chat with Melitta directly on WhatsApp</p>
+          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">💬 Chat on WhatsApp</a>
+        </div>
+      </section>
+
+      {/* Community CTA */}
+      <section className="section-padding section-dark text-center">
         <div className="container-main">
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-6">Stay Connected</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground text-sm hover:bg-charcoal-light">💬 Join Free WhatsApp Group</a>
-            <a href="https://www.instagram.com/PuraNights" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-sm">📲 Stay Connected for Offers</a>
+            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta bg-green-600 text-white text-sm hover:bg-green-700">💬 Join Free WhatsApp Group</a>
+            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-sm">📲 Follow on Instagram</a>
           </div>
         </div>
       </section>
