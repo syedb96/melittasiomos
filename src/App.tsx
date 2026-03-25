@@ -61,6 +61,12 @@ import HowManyWeddingLessons from "./pages/blog/HowManyWeddingLessons";
 import LastMinuteWeddingDance from "./pages/blog/LastMinuteWeddingDance";
 import HistoryOfSalsa from "./pages/blog/HistoryOfSalsa";
 import HistoryOfBachata from "./pages/blog/HistoryOfBachata";
+import LatinDanceClassesLondon from "./pages/LatinDanceClassesLondon";
+import DanceClassesChiswick from "./pages/DanceClassesChiswick";
+import WeddingDanceLessonsLondon from "./pages/WeddingDanceLessonsLondon";
+import PrivateSalsaLessonsLondon from "./pages/PrivateSalsaLessonsLondon";
+import LadiesStylingLondon from "./pages/LadiesStylingLondon";
+import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
 
 const queryClient = new QueryClient();
 
