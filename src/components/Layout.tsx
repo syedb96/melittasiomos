@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import CookieConsent from "./CookieConsent";
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <div className="min-h-screen flex flex-col">
@@ -9,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => (
     <main className="flex-1">{children}</main>
     <Footer />
     <WhatsAppButton />
+    <CookieConsent />
   </div>
 );
 
