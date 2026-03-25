@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, CheckCircle, ChevronRight, Train } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const SalsaClassesActon = () => (
@@ -152,6 +153,14 @@ const SalsaClassesActon = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/salsa-classes-london", label: "Salsa Classes London" },
+      { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
+      { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/blog/dance-classes-acton-adults", label: "Dance Classes Acton Guide" },
+      { to: "/pura-nights", label: "Full Schedule" },
+    ]} />
   </Layout>
 );
 

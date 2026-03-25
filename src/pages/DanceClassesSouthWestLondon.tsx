@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, Star, Trophy, Users, Heart, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 
 const DanceClassesSouthWestLondon = () => (
   <Layout>
@@ -106,6 +107,14 @@ const DanceClassesSouthWestLondon = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/salsa-classes-london", label: "Salsa Classes London" },
+      { to: "/bachata-classes-london", label: "Bachata Classes London" },
+      { to: "/blog/salsa-south-west-london", label: "Salsa in South West London" },
+      { to: "/locations", label: "Venue Directions" },
+      { to: "/pura-nights", label: "Weekly Classes" },
+    ]} />
   </Layout>
 );
 

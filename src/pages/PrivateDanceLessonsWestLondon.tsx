@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, ChevronRight, User, Target, Sparkles, GraduationCap, Heart, Award } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const PrivateDanceLessonsWestLondon = () => (
@@ -149,6 +150,14 @@ const PrivateDanceLessonsWestLondon = () => (
         </div>
       </div>
     </section>
+    <RelatedPages title="Related Pages" links={[
+      { to: "/private-lessons", label: "Private Lessons Main Page" },
+      { to: "/wedding-dance", label: "Wedding Dance" },
+      { to: "/online-classes", label: "Online Classes" },
+      { to: "/pura-nights", label: "Weekly Classes" },
+      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
+      { to: "/prices", label: "Prices & Bundles" },
+    ]} />
   </Layout>
 );
 
