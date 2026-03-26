@@ -18,7 +18,17 @@ const enquiryTypes = [
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // Reset after 5 seconds so user can send another
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
+    }, 8000);
+  };
   return (
     <Layout>
       <SeoHead title="Contact Melitta Siomos | Salsa & Bachata Classes London" description="Get in touch with Melitta Siomos about Salsa & Bachata classes, private lessons, wedding dance, or events in London. Call, WhatsApp, or use our enquiry form." path="/contact" />
@@ -89,31 +99,31 @@ const Contact = () => {
                     <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1 block">Name *</label>
-                        <input type="text" required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
+                        <input type="text" required value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" />
                       </div>
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1 block">Phone</label>
-                        <input type="tel" className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" placeholder="+44" />
+                        <input type="tel" value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="+44" />
                       </div>
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1 block">Email *</label>
-                      <input type="email" required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
+                      <input type="email" required value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" />
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1 block">Enquiry Type *</label>
-                      <select required className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm">
-                        <option value="">Select…</option>
-                        {enquiryTypes.map(t => <option key={t}>{t}</option>)}
+                      <select required value={formData.enquiry} onChange={e => setFormData(p => ({ ...p, enquiry: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                        <option value="">Select enquiry type…</option>
+                        {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1 block">Message *</label>
-                      <textarea required rows={4} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm" />
+                      <textarea required rows={4} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Tell us what you're looking for…" />
                     </div>
                     <button type="submit" className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2">
                       <Send size={16} /> Send Message
