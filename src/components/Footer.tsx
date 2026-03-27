@@ -15,6 +15,8 @@ const quickLinks = [
   { to: "/blog", label: "Blog" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
+  { to: "/community", label: "Community" },
+  { to: "/schedule", label: "Schedule" },
   { to: "/start-here", label: "Start Here" },
   { to: "/locations", label: "Locations" },
 ];
@@ -24,8 +26,10 @@ const findClasses = [
   { to: "/bachata-classes-london", label: "Bachata Classes London" },
   { to: "/salsa-classes-chiswick", label: "Salsa in Chiswick" },
   { to: "/bachata-classes-ealing", label: "Bachata in Ealing" },
-  { to: "/salsa-classes-acton", label: "Salsa Near Acton" },
+  { to: "/salsa-classes-south-west-london", label: "Salsa SW London" },
+  { to: "/bachata-classes-south-west-london", label: "Bachata SW London" },
   { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
+  { to: "/salsa-classes-acton", label: "Salsa Near Acton" },
 ];
 
 const moreAreas = [

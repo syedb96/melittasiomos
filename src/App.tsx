@@ -28,6 +28,10 @@ import BachataClassesEaling from "./pages/BachataClassesEaling";
 import SalsaClassesEaling from "./pages/SalsaClassesEaling";
 import DanceClassesSouthWestLondon from "./pages/DanceClassesSouthWestLondon";
 import DanceClassesWestLondon from "./pages/DanceClassesWestLondon";
+import Community from "./pages/Community";
+import Schedule from "./pages/Schedule";
+import SalsaClassesSouthWestLondon from "./pages/SalsaClassesSouthWestLondon";
+import BachataClassesSouthWestLondon from "./pages/BachataClassesSouthWestLondon";
 import StartHere from "./pages/StartHere";
 import Locations from "./pages/Locations";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -150,6 +154,10 @@ const App = () => (
           <Route path="/private-dance-lessons-west-london" element={<PrivateDanceLessonsWestLondon />} />
           <Route path="/dance-classes-south-west-london" element={<DanceClassesSouthWestLondon />} />
           <Route path="/dance-classes-west-london" element={<DanceClassesWestLondon />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/salsa-classes-south-west-london" element={<SalsaClassesSouthWestLondon />} />
+          <Route path="/bachata-classes-south-west-london" element={<BachataClassesSouthWestLondon />} />
           <Route path="/start-here" element={<StartHere />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
