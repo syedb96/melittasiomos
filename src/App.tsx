@@ -90,6 +90,7 @@ import SalsaShoesGuide from "./pages/blog/SalsaShoesGuide";
 import HowToPracticeSalsaAtHome from "./pages/blog/HowToPracticeSalsaAtHome";
 import PuraNightsLatinFridayGuide from "./pages/blog/PuraNightsLatinFridayGuide";
 import DanceClassesWestLondonGuide from "./pages/blog/DanceClassesWestLondonGuide";
+import Beginners from "./pages/Beginners";
 
 const queryClient = new QueryClient();
 
