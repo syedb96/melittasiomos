@@ -41,6 +41,8 @@ const navGroups = [
       { label: "FAQs", path: "/faq" },
       { label: "Find a Class", path: "/locations" },
       { label: "Start Here", path: "/start-here" },
+      { label: "Gallery", path: "/gallery" },
+      { label: "Contact", path: "/contact" },
     ],
   },
 ];
