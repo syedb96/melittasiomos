@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, forwardRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { X } from "lucide-react";
 
-const ExitIntentPopup = () => {
+const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
   const [show, setShow] = useState(false);
   const { pathname } = useLocation();
 
@@ -22,7 +22,6 @@ const ExitIntentPopup = () => {
 
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Mobile: 30s inactivity
     const timer = setTimeout(() => {
       if (!sessionStorage.getItem("exitShown")) {
         sessionStorage.setItem("exitShown", "1");
@@ -39,7 +38,7 @@ const ExitIntentPopup = () => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShow(false)}>
+    <div ref={ref} className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShow(false)}>
       <div className="absolute inset-0 bg-foreground/85" />
       <div className="relative bg-background rounded-2xl max-w-md w-full p-8 border-t-4 border-primary shadow-elevated" onClick={e => e.stopPropagation()}>
         <button onClick={() => setShow(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground" aria-label="Close">
@@ -64,6 +63,8 @@ const ExitIntentPopup = () => {
       </div>
     </div>
   );
-};
+});
+
+ExitIntentPopup.displayName = "ExitIntentPopup";
 
 export default ExitIntentPopup;

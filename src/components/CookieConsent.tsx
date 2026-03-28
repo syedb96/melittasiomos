@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
-const CookieConsent = () => {
+const CookieConsent = forwardRef<HTMLDivElement>((_, ref) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const CookieConsent = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] p-4 animate-fade-in-up">
+    <div ref={ref} className="fixed bottom-0 left-0 right-0 z-[60] p-4 animate-fade-in-up">
       <div className="container-main">
         <div className="bg-charcoal text-primary-foreground rounded-lg p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 shadow-lg max-w-4xl mx-auto">
           <p className="text-sm flex-1">
@@ -44,6 +44,8 @@ const CookieConsent = () => {
       </div>
     </div>
   );
-};
+});
+
+CookieConsent.displayName = "CookieConsent";
 
 export default CookieConsent;

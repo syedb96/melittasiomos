@@ -1,45 +1,33 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Star } from "lucide-react";
 
-const quickLinks = [
+const siteLinks = [
   { to: "/about", label: "About Melitta" },
   { to: "/pura-nights", label: "Weekly Classes" },
+  { to: "/pura-ladies", label: "Pura Ladies" },
+  { to: "/events", label: "Events" },
+  { to: "/prices", label: "Prices" },
   { to: "/private-lessons", label: "Private Lessons" },
   { to: "/wedding-dance", label: "Wedding Dance" },
-  { to: "/pura-ladies", label: "Pura Ladies" },
-  { to: "/prices", label: "Prices & Bundles" },
   { to: "/gift-vouchers", label: "Gift Vouchers" },
-  { to: "/events", label: "Events" },
   { to: "/gallery", label: "Gallery" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/blog", label: "Blog" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
-  { to: "/community", label: "Community" },
-  { to: "/schedule", label: "Schedule" },
-  { to: "/start-here", label: "Start Here" },
-  { to: "/locations", label: "Locations" },
 ];
 
-const findClasses = [
-  { to: "/salsa-classes-london", label: "Salsa Classes London" },
-  { to: "/bachata-classes-london", label: "Bachata Classes London" },
-  { to: "/salsa-classes-chiswick", label: "Salsa in Chiswick" },
-  { to: "/bachata-classes-ealing", label: "Bachata in Ealing" },
+const localPages = [
+  { to: "/salsa-classes-london", label: "Salsa London" },
+  { to: "/bachata-classes-london", label: "Bachata London" },
+  { to: "/salsa-classes-chiswick", label: "Salsa Chiswick" },
+  { to: "/bachata-classes-ealing", label: "Bachata Ealing" },
+  { to: "/dance-classes-west-london", label: "West London" },
   { to: "/salsa-classes-south-west-london", label: "Salsa SW London" },
   { to: "/bachata-classes-south-west-london", label: "Bachata SW London" },
-  { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
-  { to: "/salsa-classes-acton", label: "Salsa Near Acton" },
-];
-
-const moreAreas = [
-  { to: "/dance-classes-west-london", label: "West London Classes" },
-  { to: "/bachata-classes-west-london", label: "Bachata West London" },
   { to: "/latin-dance-classes-london", label: "Latin Dance London" },
-  { to: "/wedding-dance-west-london", label: "Wedding Dance W. London" },
-  { to: "/private-dance-lessons-west-london", label: "Private Lessons W. London" },
-  { to: "/ladies-styling-london", label: "Ladies Styling London" },
-  { to: "/bachata-performance-team-london", label: "Performance Team" },
+  { to: "/wedding-dance-lessons-london", label: "Wedding Dance London" },
+  { to: "/ladies-styling-london", label: "Ladies Styling" },
 ];
 
 const socials = [
@@ -52,7 +40,6 @@ const socials = [
 
 const Footer = () => (
   <footer className="bg-charcoal text-primary-foreground/60">
-    {/* Gold accent line */}
     <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg, hsl(43 48% 54%), hsl(20 75% 66%), hsl(43 48% 54%))" }} />
 
     <div className="container-main pt-14 pb-10">
@@ -75,8 +62,8 @@ const Footer = () => (
         </div>
       </div>
 
-      {/* Main grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-8 text-[13px]">
+      {/* Main grid — clean 4-column layout */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 text-[13px]">
         {/* Col 1 — Brand */}
         <div className="col-span-2 md:col-span-1">
           <p className="text-sm leading-relaxed mb-4 text-primary-foreground/50">Award-winning Salsa & Bachata instructor. Founder of Pura Nights, Pura Ladies & Wedding Dance Made Easy.</p>
@@ -94,37 +81,27 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Col 2 — Quick Links */}
+        {/* Col 2 — Site Links */}
         <div>
-          <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Quick Links</h5>
+          <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Explore</h5>
           <ul className="space-y-1">
-            {quickLinks.map(l => (
+            {siteLinks.map(l => (
               <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors leading-snug">{l.label}</Link></li>
             ))}
           </ul>
         </div>
 
-        {/* Col 3 — Find Classes */}
+        {/* Col 3 — Local SEO Pages */}
         <div>
           <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Find Classes</h5>
           <ul className="space-y-1">
-            {findClasses.map(l => (
+            {localPages.map(l => (
               <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors leading-snug">{l.label}</Link></li>
             ))}
           </ul>
         </div>
 
-        {/* Col 4 — More Areas */}
-        <div>
-          <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">More Areas</h5>
-          <ul className="space-y-1">
-            {moreAreas.map(l => (
-              <li key={l.to}><Link to={l.to} className="hover:text-primary transition-colors leading-snug">{l.label}</Link></li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Col 5 — Locations + Contact */}
+        {/* Col 4 — Locations + Contact */}
         <div>
           <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Class Locations</h5>
           <div className="space-y-3 text-xs mb-5">
