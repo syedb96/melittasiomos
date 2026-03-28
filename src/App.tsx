@@ -187,6 +187,7 @@ const App = () => (
           <Route path="/blog/how-to-practice-salsa-at-home" element={<HowToPracticeSalsaAtHome />} />
           <Route path="/blog/pura-nights-latin-friday-guide" element={<PuraNightsLatinFridayGuide />} />
           <Route path="/blog/dance-classes-west-london-guide" element={<DanceClassesWestLondonGuide />} />
+          <Route path="/beginners" element={<Beginners />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
