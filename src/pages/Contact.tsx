@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send, Clock, Instagram } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
