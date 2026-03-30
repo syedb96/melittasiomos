@@ -6,62 +6,43 @@ import RelatedPages from "@/components/RelatedPages";
 
 const faqCategories = [
   {
-    title: "About Classes",
+    title: "Getting Started",
     items: [
-      { q: "Do I need a partner?", a: "No. Many of our students come solo. We rotate partners throughout each class, so you'll dance with lots of different people — it's one of the best ways to improve." },
-      { q: "Do I need to book in advance?", a: "No booking required for weekly group classes. Just turn up. Monthly Latin Friday events require tickets, available via our booking link." },
-      { q: "Can I come as a complete beginner?", a: "Absolutely. Our Beginners class starts from zero every week. No experience, no partner, no problem." },
-      { q: "What should I wear?", a: "Comfortable clothes you can move in. For shoes, flat-soled or heeled dance shoes are ideal. Trainers with a flat sole work well for beginners. Avoid thick-soled running shoes as they make pivoting difficult." },
-      { q: "What level should I join?", a: "If you've never danced before, start in Beginners. If you have some experience but are unsure, message Melitta on WhatsApp and she'll advise." },
-      { q: "Do you teach Salsa On1 or On2?", a: "We primarily teach Salsa On1 (Crossbody/LA style) — the most widely danced style at social events worldwide." },
-      { q: "What Bachata styles do you teach?", a: "We teach Traditional, Bachata Moderna, and Bachata Sensual." },
-      { q: "What's the difference between Salsa and Bachata?", a: "Salsa is generally faster, more energetic and rhythmically complex. Bachata has a more romantic, sensual feel and is danced to a slower, guitar-driven rhythm. We teach both every week!" },
+      { q: "Do I need a partner to join?", a: "No. We rotate partners throughout every class. Many of our most dedicated students come alone every week and dance with everyone." },
+      { q: "I've never danced before. Can I really join as a complete beginner?", a: "Yes — the Beginners class starts from zero every single week. No prior experience is assumed. Melitta builds from the very first step." },
+      { q: "How do I know which level to join?", a: "If you've never danced before or only danced once or twice, join Beginners. If you've had classes before, join Beginners to warm up and Melitta will advise on the right level for you." },
+      { q: "Do I need to book in advance?", a: "No booking is required for weekly classes — just turn up on the night. For Monthly Latin Friday events, tickets are available in advance via our Linktree (early bird pricing available) or on the door." },
+      { q: "What should I wear?", a: "Comfortable, breathable clothing you can move in. For shoes — flat trainers with a smooth sole are perfect for beginners. Avoid thick-soled running shoes as they make turning difficult." },
+      { q: "Is there a minimum age requirement?", a: "Our regular classes welcome adults of all ages (18+). If you're enquiring about younger students, contact Melitta directly." },
     ],
   },
   {
-    title: "About Venues",
+    title: "The Classes",
     items: [
-      { q: "Where are the classes held?", a: "We teach at two venues:\n• Mondays: The George IV, 185 Chiswick High Rd, London W4 2DR\n• Tuesdays: The Drayton Court Hotel, 2 The Avenue, Ealing, W13 8PH" },
-      { q: "How do I get to The George IV, Chiswick?", a: "Nearest tube: Turnham Green (District Line). The pub is a 5-minute walk from the station on Chiswick High Road. Buses: 190, 237, 267." },
-      { q: "How do I get to Drayton Court Hotel, Ealing?", a: "Nearest stations: West Ealing (Elizabeth Line) or Drayton Green Overground. Bus: 83, 207, E1." },
-      { q: "Is there parking available?", a: "Street parking is available near both venues after 6:30 PM. Check local signage for restrictions." },
-      { q: "What time should I arrive?", a: "Doors open at 7:15 PM. Classes start at 7:30 PM sharp. Arriving at 7:15 gives you time to settle in and meet people." },
+      { q: "What's the difference between Salsa and Bachata?", a: "Salsa is faster, more energetic, and footwork-driven (150–200 BPM). Bachata is slower, more romantic and expressive, with a characteristic hip tap on beat 4 (110–130 BPM). We teach both every week.", link: { to: "/blog/salsa-vs-bachata", label: "Read full comparison →" } },
+      { q: "What exactly happens in a class?", a: "Classes run for 30 minutes each. You start solo (warm-up and basic footwork), then move into partner work with rotation. By the end of each class you'll have a mini combination to practice at the social." },
+      { q: "What's the social? Do I have to stay?", a: "The social is an open dance floor period after classes, with a DJ playing Salsa and Bachata. It runs for 2 hours. You don't have to stay — but most students do, because it's where everything clicks." },
+      { q: "Can I come to the social without taking a class?", a: "Yes — £5 social-only entry at both venues." },
+      { q: "Are there any classes specifically for women?", a: "Yes — every Tuesday evening at Ealing begins with a FREE Ladies Styling warm-up from 6:50–7:20pm, open to all levels." },
     ],
   },
   {
-    title: "About Pricing",
+    title: "Pricing & Payment",
     items: [
-      { q: "How much does a class cost?", a: "Drop-in from £10. 5-class bundles from £42. See full pricing on our Prices page." },
-      { q: "What's included in a bundle?", a: "Class credits valid for 3 months at both Chiswick and Ealing venues." },
-      { q: "Do bundles expire?", a: "Bundles are valid for 3 months from purchase date. Non-refundable but transferable." },
-      { q: "Can I use my credits at both venues?", a: "Yes! All bundles and Silver/Gold subscriptions give access to both Monday (Chiswick) and Tuesday (Ealing) nights." },
-      { q: "Do you offer student or concession rates?", a: "Contact Melitta directly to discuss — siomosmelitta@gmail.com" },
-      { q: "How do I buy a gift voucher?", a: "Visit our Gift Vouchers page and select your preferred amount. Instant digital delivery." },
+      { q: "How much does it cost?", a: "Drop-in: £10 (1 class) or £15 (2 classes + social). Bundles available from £42 (5 classes). Full pricing on our Prices page.", link: { to: "/prices", label: "See full pricing →" } },
+      { q: "How do I pay?", a: "Cash on the night or card (SumUp card reader available at both venues)." },
+      { q: "Do bundle passes expire?", a: "5-class bundles: valid for 8 weeks. 10-class bundles: valid for 16 weeks. Monthly unlimited: rolling monthly. Contact Melitta if you need an extension." },
+      { q: "Do you offer gift vouchers?", a: "Yes — from £25 to £200, available as digital vouchers.", link: { to: "/gift-vouchers", label: "Buy a Gift Voucher →" } },
     ],
   },
   {
-    title: "Wedding Dance",
+    title: "Other Services",
     items: [
-      { q: "Do we need any dance experience?", a: "Not at all. Most couples Melitta works with are complete beginners." },
-      { q: "When should we start lessons?", a: "Ideally 8–12 weeks before your wedding, but last-minute options are possible depending on availability." },
-      { q: "Where do the lessons take place?", a: "At Melitta's private studio in West London, your home, or a hired studio." },
-      { q: "What style of dance can we do?", a: "Anything from a classic slow first dance to romantic Salsa/Bachata, a fun mash-up, or something more theatrical." },
-      { q: "How many lessons will we need?", a: "Most couples book 6–10 sessions. The exact number depends on your goals, song, and experience." },
-    ],
-  },
-  {
-    title: "Pura Ladies",
-    items: [
-      { q: "How do I join Pura Ladies?", a: "Pura Ladies holds auditions in February each year. Follow @puraladies on Instagram to be notified when auditions open." },
-      { q: "Is Pura Ladies only for experienced dancers?", a: "Auditions require at minimum improvers-level experience. Regular Pura Nights attendance is the perfect preparation." },
-      { q: "Are there Pura Ladies teams outside London?", a: "Yes — we have active teams in Plymouth, Munich, and Lisbon as well as multiple groups across London." },
-    ],
-  },
-  {
-    title: "Private Lessons",
-    items: [
-      { q: "Can I book a private lesson?", a: "Yes. Private lessons are inquiry-based. Contact Melitta directly via WhatsApp or email for availability and pricing." },
-      { q: "Where do private lessons take place?", a: "Flexible — Melitta can arrange a suitable studio location in central or west London. Discuss in your initial consultation." },
+      { q: "Do you offer private lessons?", a: "Yes — private 1-on-1 or couples lessons are available with Melitta. Pricing is tailored to your goals and schedule. Contact her directly.", link: { to: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons", label: "Enquire about Private Lessons →", external: true } },
+      { q: "Can you choreograph our wedding first dance?", a: "Yes — this is one of Melitta's specialities. She has helped dozens of couples create unforgettable first dances. Book a free consultation.", link: { to: "/wedding-dance", label: "Wedding Dance →" } },
+      { q: "Can I join Pura Ladies?", a: "Pura Ladies auditions are held annually, typically in February. Improvers-level social dancing is the minimum requirement. Follow @puraladies for audition announcements." },
+      { q: "Do you offer online classes?", a: "Yes — live Zoom classes and HD drill videos available.", link: { to: "/online-classes", label: "Online Classes →" } },
+      { q: "Can you run a class for a hen party or corporate event?", a: "Yes — contact Melitta to discuss group bookings and private events.", link: { to: "/contact", label: "Contact →" } },
     ],
   },
 ];
@@ -79,6 +60,7 @@ const FAQ = () => (
       <div className="container-main max-w-3xl">
         <FadeInUp>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-3">Frequently Asked Questions</h1>
+          <p className="text-muted-foreground text-center text-sm mb-2">20 answers to the questions we hear most</p>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-12" />
         </FadeInUp>
 
@@ -90,6 +72,13 @@ const FAQ = () => (
                 <details key={i} className="border-b border-border py-4 group">
                   <summary className="font-heading font-semibold cursor-pointer hover:text-primary transition-colors">{faq.q}</summary>
                   <p className="text-muted-foreground text-sm mt-2 leading-relaxed whitespace-pre-line">{faq.a}</p>
+                  {faq.link && (
+                    faq.link.external ? (
+                      <a href={faq.link.to} target="_blank" rel="noopener noreferrer" className="text-primary text-sm font-heading font-semibold mt-2 inline-block hover:underline">{faq.link.label}</a>
+                    ) : (
+                      <Link to={faq.link.to} className="text-primary text-sm font-heading font-semibold mt-2 inline-block hover:underline">{faq.link.label}</Link>
+                    )
+                  )}
                 </details>
               ))}
             </div>

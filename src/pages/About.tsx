@@ -3,21 +3,61 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
-import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X } from "lucide-react";
+import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
 
 const team = [
-  { name: "Melitta Siomos", role: "Founder & Lead Instructor", specialties: ["Salsa On1", "Bachata Sensual", "Latin Styling", "Wedding Dance"], bio: "International award-winning Salsa & Bachata instructor with 15+ years of experience. Founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. Bachata UK Champion and coach to hundreds of dancers across London and Europe." },
-  { name: "Roger Cracco", role: "Guest Teacher & Choreographer", specialties: ["Salsa", "Bachata", "Performance Coaching"], bio: "Renowned choreographer and guest teacher at Pura Nights. Roger brings a wealth of competition and performance experience, helping students develop advanced technique and artistry." },
-  { name: "Tiffany", role: "Assistant Instructor", specialties: ["Beginner Classes", "Ladies Styling"], bio: "A Pura Ladies team member turned instructor, Tiffany is passionate about welcoming new students and making everyone feel comfortable from their very first class." },
-  { name: "Eva", role: "Instructor", specialties: ["Bachata", "Latin Styling"], bio: "Eva specialises in Bachata and Latin styling, bringing grace and expressiveness to every session. She helps students unlock their personal movement style." },
-  { name: "Edi", role: "Instructor", specialties: ["Salsa", "Intermediate Training"], bio: "Edi's energy and precision make him a favourite among improver and intermediate students. His focus on clean technique and musicality helps dancers level up quickly." },
-  { name: "Ezgi", role: "Instructor", specialties: ["Bachata Sensual", "Ladies Styling"], bio: "Ezgi's passion for Bachata Sensual and body movement brings a unique dimension to Pura Nights. She leads popular styling warm-ups at the Ealing venue." },
-  { name: "Luis", role: "Instructor", specialties: ["Salsa On1", "Advanced Footwork"], bio: "Luis brings rhythm, flair, and technical depth to every class. His footwork and shines sessions are among the most popular at Pura Nights socials." },
-  { name: "Kevin", role: "Instructor", specialties: ["Salsa", "Social Dancing"], bio: "Kevin's calm teaching style and focus on lead technique makes him an excellent instructor for students looking to improve their social dancing confidence." },
+  {
+    name: "Melitta Siomos", role: "Founder & Lead Instructor",
+    specialties: ["Salsa On1", "Bachata Sensual", "Wedding Dance", "Latin Styling"],
+    bio: "Award-winning international dance instructor and performer with 15+ years of professional teaching experience. Founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. Trained and performed across Europe and internationally. Known for creating an inclusive, pressure-free learning environment where students of all ages and levels thrive. Based in West London.",
+    instagram: "https://www.instagram.com/melittasiomos/", handle: "@melittasiomos",
+  },
+  {
+    name: "Roger Cracco", role: "Guest Teacher & Choreographer",
+    specialties: ["Salsa", "Bachata", "Performance Choreography", "Workshops"],
+    bio: "International guest teacher and choreographer, regularly featured at Pura Nights events and Monthly Latin Fridays. Roger brings high-energy workshop content and specialist performance choreography, elevating every event he joins.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Tiffany", role: "Assistant Instructor",
+    specialties: ["Beginner Classes", "Ladies Styling", "Group Teaching"],
+    bio: "Tiffany has been part of the Pura Nights family for several years, working closely with Melitta to deliver the beginners and ladies styling programme. Her warm, encouraging approach makes first-time students feel immediately at ease.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Eva", role: "Instructor",
+    specialties: ["Bachata Sensual", "Latin Styling", "Intermediate Teaching"],
+    bio: "Eva's passion for Bachata Sensual shines through in every class she teaches. A skilled social dancer and instructor, she brings technical depth and genuine warmth to the Pura Nights team.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Edi", role: "Instructor",
+    specialties: ["Salsa On1", "Intermediate & Advanced Footwork"],
+    bio: "Edi is a dedicated Salsa technician known for his precise footwork and ability to break down advanced combinations into learnable progressions. A favourite instructor among improver and intermediate students.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Ezgi", role: "Instructor",
+    specialties: ["Bachata Sensual", "Ladies Styling", "Body Movement"],
+    bio: "Ezgi brings elegance and expressiveness to every session. Her speciality in Bachata Sensual body movement and ladies styling has made her an integral part of the Pura Nights Tuesday Ealing evening.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Luis", role: "Instructor",
+    specialties: ["Salsa On1", "Social Dancing", "Advanced Combinations"],
+    bio: "Luis is a natural social dancer who brings joy and energy to every class. His depth of Salsa knowledge — particularly in advanced combination work — makes him a valuable teacher across all levels at Pura Nights.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
+  {
+    name: "Kevin", role: "Instructor",
+    specialties: ["Salsa", "Footwork", "Social Floor Confidence"],
+    bio: "Kevin's teaching philosophy centres on social dance confidence — helping students bridge the gap between class and the social floor. His relaxed, encouraging style makes even the toughest combinations feel approachable.",
+    instagram: "https://www.instagram.com/puranights.salsabachata/", handle: "@puranights",
+  },
 ];
 
 const About = () => {
@@ -47,13 +87,13 @@ const About = () => {
             <img src={melittaImg} alt="Melitta Siomos" className="rounded-2xl w-full" width={800} height={1000} loading="lazy" style={{ boxShadow: 'var(--shadow-elevated)' }} />
           </ScaleIn>
           <FadeInUp className="md:col-span-3" delay={0.2}>
-            <h2 className="font-display text-3xl font-bold mb-3">Melitta's Story</h2>
+            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-3">Your Instructor</p>
+            <h2 className="font-display text-3xl font-bold mb-3">Melitta Siomos — Award-Winning Dance Instructor & Performer</h2>
             <div className="h-1 w-16 rounded-full mb-6" style={{ background: 'var(--gradient-gold)' }} />
             <div className="text-muted-foreground leading-relaxed space-y-4 text-sm">
-              <p>Melitta Siomos is one of London's most celebrated Salsa and Bachata instructors, bringing 15+ years of professional experience to every class she teaches. Born with a deep passion for Latin music and movement, Melitta has performed at international events across Europe, competed in prestigious Latin dance competitions, and built Pura Nights from the ground up into one of West London's most beloved dance communities.</p>
-              <p>Her teaching philosophy is rooted in inclusivity: no judgment, no pressure, just movement, music, and community. She believes dance is for everyone — regardless of age, background, fitness level, or prior experience — and she has helped hundreds of students discover confidence, fitness, creativity, and lifelong friendships through her weekly classes.</p>
-              <p>As the founder of Pura Ladies, Melitta has taken women's styling to an entirely new level, building 7 professional performance teams across London, Plymouth, Munich, and Lisbon. Her work has been recognised at international competition level, and her students go on to perform, compete, and teach across Europe.</p>
-              <p>Beyond the dance floor, Melitta is a dedicated teacher who adapts to every student's needs — whether you're booking a private wedding dance lesson, joining a weekly class for the first time, or auditioning to join the Pura Ladies performance team.</p>
+              <p>With over 15 years of professional teaching and performance experience across Europe and beyond, Melitta Siomos is one of West London's most respected and beloved Latin dance instructors.</p>
+              <p>She founded Pura Nights to create exactly the kind of dance community she wished had existed when she started — welcoming, technically rigorous, and built around real connection. Today it's home to hundreds of students at all levels, 8 instructors, and 7 Pura Ladies teams across 4 countries.</p>
+              <p>Whether you're stepping onto a dance floor for the first time or preparing for your wedding day, Melitta brings the same commitment: to help you dance with confidence, joy, and your own authentic style.</p>
             </div>
           </FadeInUp>
         </div>
@@ -84,13 +124,14 @@ const About = () => {
     <section className="section-padding bg-card" id="team">
       <div className="container-main">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold text-center mb-12">Meet the Team</h2>
+          <h2 className="font-display text-3xl font-bold text-center mb-3">Meet the Team</h2>
+          <p className="text-muted-foreground text-center text-sm mb-12 max-w-xl mx-auto">8 passionate instructors bringing world-class Latin dance to West London every week</p>
         </FadeInUp>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" staggerDelay={0.08}>
           {team.map((t, i) => (
             <StaggerItem key={i}>
               <div className="bg-background rounded-2xl p-6 card-hover text-center h-full flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-display font-bold text-primary border-2 border-primary" style={{ background: 'var(--gradient-warm)' }}>
+                <div className="w-[120px] h-[120px] rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-display font-bold text-primary border-[3px] border-primary" style={{ background: 'var(--gradient-warm)' }}>
                   {t.name.split(" ").map(n => n[0]).join("")}
                 </div>
                 <h3 className="font-heading font-semibold text-sm">{t.name}</h3>
@@ -100,7 +141,7 @@ const About = () => {
                     <span key={s} className="text-[10px] font-accent bg-primary/10 text-primary px-2 py-0.5 rounded-full">{s}</span>
                   ))}
                 </div>
-                <button onClick={() => setOpenBio(i)} className="text-xs font-heading font-semibold text-primary hover:underline mt-auto">Read Bio →</button>
+                <button onClick={() => setOpenBio(i)} className="text-xs font-heading font-semibold text-primary hover:underline mt-auto">Read Full Bio →</button>
               </div>
             </StaggerItem>
           ))}
@@ -113,7 +154,7 @@ const About = () => {
       <div className="fixed inset-0 z-50 bg-charcoal/90 flex items-center justify-center p-4" onClick={() => setOpenBio(null)}>
         <div className="bg-card rounded-2xl p-8 max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
           <button onClick={() => setOpenBio(null)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X size={20} /></button>
-          <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-display font-bold text-primary border-2 border-primary" style={{ background: 'var(--gradient-warm)' }}>
+          <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-display font-bold text-primary border-[3px] border-primary" style={{ background: 'var(--gradient-warm)' }}>
             {team[openBio].name.split(" ").map(n => n[0]).join("")}
           </div>
           <h3 className="font-display text-xl font-bold text-center mb-1">{team[openBio].name}</h3>
@@ -123,9 +164,11 @@ const About = () => {
               <span key={s} className="text-[10px] font-accent bg-primary/10 text-primary px-2 py-0.5 rounded-full">{s}</span>
             ))}
           </div>
-          <p className="text-muted-foreground text-sm leading-relaxed">{team[openBio].bio}</p>
-          <div className="text-center mt-4">
-            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">Follow @puranights.salsabachata →</a>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4">{team[openBio].bio}</p>
+          <div className="text-center">
+            <a href={team[openBio].instagram} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline inline-flex items-center gap-1">
+              <Instagram size={12} /> Follow {team[openBio].handle}
+            </a>
           </div>
         </div>
       </div>
@@ -186,8 +229,6 @@ const About = () => {
       { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
       { to: "/testimonials", label: "Student Reviews", desc: "What dancers say" },
       { to: "/blog", label: "Pura Stories Blog", desc: "Tips, guides & culture" },
-      { to: "/gallery", label: "Gallery", desc: "Photos & videos" },
-      { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
     ]} />
   </Layout>
   );
