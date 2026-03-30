@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send, Clock, Instagram } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
@@ -18,16 +19,32 @@ const enquiryTypes = [
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Reset after 5 seconds so user can send another
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
-    }, 8000);
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        enquiry_type: formData.enquiry,
+        message: formData.message,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
+      }, 8000);
+    } catch (err) {
+      console.error("Contact form error:", err);
+      alert("Something went wrong. Please try WhatsApp instead.");
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <Layout>
@@ -125,8 +142,8 @@ const Contact = () => {
                       <label className="text-sm font-heading font-semibold mb-1 block">Message *</label>
                       <textarea required rows={4} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Tell us what you're looking for…" />
                     </div>
-                    <button type="submit" className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2">
-                      <Send size={16} /> Send Message
+                    <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2 disabled:opacity-50">
+                      <Send size={16} /> {submitting ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 )}
