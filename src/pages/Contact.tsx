@@ -19,16 +19,32 @@ const enquiryTypes = [
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Reset after 5 seconds so user can send another
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
-    }, 8000);
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        enquiry_type: formData.enquiry,
+        message: formData.message,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
+      }, 8000);
+    } catch (err) {
+      console.error("Contact form error:", err);
+      alert("Something went wrong. Please try WhatsApp instead.");
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <Layout>
