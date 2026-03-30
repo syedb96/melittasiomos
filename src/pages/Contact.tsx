@@ -142,8 +142,8 @@ const Contact = () => {
                       <label className="text-sm font-heading font-semibold mb-1 block">Message *</label>
                       <textarea required rows={4} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Tell us what you're looking for…" />
                     </div>
-                    <button type="submit" className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2">
-                      <Send size={16} /> Send Message
+                    <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2 disabled:opacity-50">
+                      <Send size={16} /> {submitting ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 )}
