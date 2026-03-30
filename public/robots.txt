@@ -1,3 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
 User-agent: Googlebot
 Allow: /
 
@@ -14,9 +18,6 @@ User-agent: GPTBot
 Allow: /
 
 User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: *
 Allow: /
 
 Sitemap: https://www.puranights.com/sitemap.xml

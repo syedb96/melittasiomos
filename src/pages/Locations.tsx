@@ -113,13 +113,13 @@ const Locations = () => (
       </div>
     </section>
 
-    {/* Google Maps Placeholder */}
+    {/* Google Maps Links */}
     <section className="section-padding section-dark text-center">
       <div className="container-main">
-        <h2 className="font-display text-3xl font-bold text-primary-foreground mb-6">Find Us on Google Maps</h2>
+        <h2 className="font-display text-3xl font-bold text-primary-foreground mb-6">Get Directions</h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="[GBP_MAIN_URL]" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm inline-flex items-center gap-2"><MapPin size={16} /> Open in Google Maps</a>
-          <a href="[GBP_MAIN_URL]" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm inline-flex items-center gap-2"><ExternalLink size={16} /> Read Google Reviews</a>
+          <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm inline-flex items-center gap-2"><MapPin size={16} /> Chiswick — Google Maps</a>
+          <a href="https://maps.google.com/?q=Drayton+Court+Hotel+2+The+Avenue+Ealing+W13+8PH" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm inline-flex items-center gap-2"><MapPin size={16} /> Ealing — Google Maps</a>
         </div>
       </div>
     </section>
