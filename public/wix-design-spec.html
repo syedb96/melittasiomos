@@ -3,429 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wix Design Spec — Melitta Siomos Website</title>
+<title>Wix Design Specification — Melitta Siomos / Pura Nights</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Poppins',sans-serif;color:#1a1a1a;background:#fafaf7;line-height:1.7}
-  .container{max-width:1100px;margin:0 auto;padding:0 24px}
-  h1{font-family:'Playfair Display',serif;font-size:2.8rem;color:#151515;margin:60px 0 12px}
-  h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#151515;margin:48px 0 16px;border-bottom:2px solid #C9A84C;padding-bottom:8px}
-  h3{font-size:1.1rem;font-weight:600;margin:24px 0 8px;color:#333}
-  p,li{font-size:.95rem;color:#444}
-  table{width:100%;border-collapse:collapse;margin:16px 0 32px}
-  th,td{text-align:left;padding:10px 14px;border:1px solid #ddd;font-size:.88rem}
-  th{background:#151515;color:#fff;font-weight:500}
-  tr:nth-child(even){background:#f5f5f0}
-  .swatch{display:inline-block;width:28px;height:28px;border-radius:6px;vertical-align:middle;margin-right:8px;border:1px solid #ccc}
-  .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.75rem;font-weight:600;color:#fff;margin-right:6px}
-  .section-nav{background:#151515;padding:24px;border-radius:12px;margin:32px 0}
-  .section-nav a{color:#C9A84C;text-decoration:none;display:block;padding:4px 0;font-size:.9rem}
-  .section-nav a:hover{text-decoration:underline}
-  .component-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:20px;margin:16px 0}
-  .tag{background:#C9A84C;color:#fff;font-size:.7rem;padding:2px 8px;border-radius:4px;font-weight:600;text-transform:uppercase}
-  code{background:#f0f0ea;padding:2px 6px;border-radius:4px;font-size:.82rem;color:#333}
-  .priority-critical{color:#CF6A3D;font-weight:700}
-  .priority-important{color:#C9A84C;font-weight:600}
-  .priority-seo{color:#5BBCAD;font-weight:600}
-  header.hero{background:#151515;color:#fff;padding:80px 0 60px;text-align:center}
-  header.hero h1{color:#C9A84C;margin:0 0 8px}
-  header.hero p{color:#aaa;font-size:1rem}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#151515;color:#e0e0e0;line-height:1.7;padding:2rem}
+h1{font-size:2rem;color:#CF6A3D;margin-bottom:.5rem}
+h2{font-size:1.5rem;color:#CF6A3D;margin:2.5rem 0 1rem;border-bottom:2px solid #CF6A3D;padding-bottom:.5rem}
+h3{font-size:1.1rem;color:#fff;margin:1.5rem 0 .5rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0 2rem;font-size:.85rem}
+th{background:#1e1e1e;color:#CF6A3D;padding:.6rem .8rem;text-align:left;font-weight:600;border:1px solid #333}
+td{padding:.5rem .8rem;border:1px solid #333;vertical-align:top}
+tr:nth-child(even){background:#1a1a1a}
+code{background:#1e1e1e;padding:.15rem .4rem;border-radius:3px;font-size:.8rem;color:#CF6A3D}
+.container{max-width:1100px;margin:0 auto}
+p{margin:.5rem 0}
+ul{margin:.5rem 0 .5rem 1.5rem}
+.note{background:#1e1e1e;border-left:4px solid #CF6A3D;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
 </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="container">
-    <h1>Wix Design Specification</h1>
-    <p>Melitta Siomos | Pura Nights — Complete Replication Guide</p>
-    <p style="margin-top:8px;font-size:.85rem;color:#777">Last updated: March 2026</p>
-  </div>
-</header>
-
 <div class="container">
 
-<!-- NAV -->
-<div class="section-nav">
-  <strong style="color:#fff;font-size:1rem">Contents</strong>
-  <a href="#tokens">A — Brand Tokens</a>
-  <a href="#components">B — Component Library</a>
-  <a href="#pagemap">C — Page Map (60+ Pages)</a>
-  <a href="#wixnotes">D — Wix-Specific Notes</a>
-</div>
+<h1>Wix Design Specification</h1>
+<p>Melitta Siomos — Pura Nights · Pura Ladies · Wedding Dance Made Easy</p>
+<p style="color:#999;font-size:.85rem">Handoff document for Wix Editor implementation · Last updated: 30 March 2026</p>
 
-<!-- ==================== SECTION A ==================== -->
-<h2 id="tokens">A — Brand Tokens</h2>
+<h2>A — Brand Tokens</h2>
 
 <h3>Colour Palette</h3>
 <table>
-<tr><th>Name</th><th>Swatch</th><th>Hex</th><th>HSL</th><th>Usage</th></tr>
-<tr><td>Charcoal</td><td><span class="swatch" style="background:#151515"></span></td><td>#151515</td><td>0 0% 8%</td><td>Primary background, footer, headers</td></tr>
-<tr><td>Charcoal Light</td><td><span class="swatch" style="background:#1e1e1e"></span></td><td>#1E1E1E</td><td>0 0% 12%</td><td>Card backgrounds on dark sections</td></tr>
-<tr><td>Gold</td><td><span class="swatch" style="background:#C9A84C"></span></td><td>#C9A84C</td><td>43 53% 54%</td><td>Primary accent, CTAs, links, icons</td></tr>
-<tr><td>Gold Dark</td><td><span class="swatch" style="background:#B8963F"></span></td><td>#B8963F</td><td>43 49% 48%</td><td>Hover state for gold elements</td></tr>
-<tr><td>Gold Tint</td><td><span class="swatch" style="background:#F5EFD8"></span></td><td>#F5EFD8</td><td>43 60% 90%</td><td>Light gold backgrounds, badges</td></tr>
-<tr><td>Peach</td><td><span class="swatch" style="background:#F2A07B"></span></td><td>#F2A07B</td><td>20 84% 71%</td><td>Secondary accent, Bachata elements</td></tr>
-<tr><td>Terracotta</td><td><span class="swatch" style="background:#CF6A3D"></span></td><td>#CF6A3D</td><td>20 58% 52%</td><td>Warm accent, hover highlights</td></tr>
-<tr><td>Bronze</td><td><span class="swatch" style="background:#8B6914"></span></td><td>#8B6914</td><td>43 75% 31%</td><td>Decorative, premium elements</td></tr>
-<tr><td>Ivory</td><td><span class="swatch" style="background:#FDFBF5"></span></td><td>#FDFBF5</td><td>43 67% 97%</td><td>Page backgrounds, content areas</td></tr>
-<tr><td>Soft White</td><td><span class="swatch" style="background:#FAF8F2"></span></td><td>#FAF8F2</td><td>40 45% 96%</td><td>Alternating section backgrounds</td></tr>
-</table>
-
-<h3>Blog Category Badges</h3>
-<table>
-<tr><th>Category</th><th>Colour</th><th>Hex</th></tr>
-<tr><td>Salsa</td><td><span class="badge" style="background:#C9A84C">Salsa</span></td><td>#C9A84C</td></tr>
-<tr><td>Bachata</td><td><span class="badge" style="background:#F2A07B">Bachata</span></td><td>#F2A07B</td></tr>
-<tr><td>Beginners</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>#5BBCAD</td></tr>
-<tr><td>Technique</td><td><span class="badge" style="background:#6B7FD4">Technique</span></td><td>#6B7FD4</td></tr>
-<tr><td>Wedding Dance</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>#D4849A</td></tr>
-<tr><td>Events</td><td><span class="badge" style="background:#E07B39">Events</span></td><td>#E07B39</td></tr>
-<tr><td>Culture</td><td><span class="badge" style="background:#9B72CF">Culture</span></td><td>#9B72CF</td></tr>
-<tr><td>Lifestyle</td><td><span class="badge" style="background:#6BAF7A">Lifestyle</span></td><td>#6BAF7A</td></tr>
-<tr><td>Local</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>#3D3D3D</td></tr>
+<tr><th>Name</th><th>Hex</th><th>HSL</th><th>Usage</th></tr>
+<tr><td>Charcoal</td><td>#151515</td><td>0 0% 8%</td><td>Primary background, footer, nav</td></tr>
+<tr><td>Charcoal Light</td><td>#1E1E1E</td><td>0 0% 12%</td><td>Cards on dark bg, dropdown menus</td></tr>
+<tr><td>Burnt Terracotta</td><td>#CF6A3D</td><td>19 59% 52%</td><td>Primary CTA, accent, links, badges</td></tr>
+<tr><td>Peach</td><td>#E8A87C</td><td>25 68% 70%</td><td>Secondary accent (Ealing/Bachata)</td></tr>
+<tr><td>Muted Bronze</td><td>#9B7B5B</td><td>30 26% 48%</td><td>Subtle accents, borders</td></tr>
+<tr><td>Ivory</td><td>#FAF7F2</td><td>36 50% 96%</td><td>Light section backgrounds</td></tr>
+<tr><td>Soft White</td><td>#FFF9F5</td><td>27 100% 98%</td><td>Alternate light sections</td></tr>
+<tr><td>Foreground</td><td>#F5F0EB</td><td>30 33% 94%</td><td>Body text on dark backgrounds</td></tr>
 </table>
 
 <h3>Typography</h3>
 <table>
-<tr><th>Element</th><th>Font</th><th>Weight</th><th>Size (Desktop)</th><th>Size (Mobile)</th></tr>
-<tr><td>H1 — Page titles</td><td>Playfair Display</td><td>700 Bold</td><td>3rem (48px)</td><td>2rem (32px)</td></tr>
-<tr><td>H2 — Section headings</td><td>Playfair Display</td><td>600 Semi</td><td>2rem (32px)</td><td>1.5rem (24px)</td></tr>
-<tr><td>H3 — Sub-headings</td><td>Poppins</td><td>600 Semi</td><td>1.25rem (20px)</td><td>1.1rem (18px)</td></tr>
-<tr><td>H4 — Card titles</td><td>Poppins</td><td>600 Semi</td><td>1.1rem (18px)</td><td>1rem (16px)</td></tr>
-<tr><td>Body text</td><td>Poppins</td><td>400 Regular</td><td>1rem (16px)</td><td>0.95rem (15px)</td></tr>
-<tr><td>Small / Captions</td><td>Poppins</td><td>400 Regular</td><td>0.875rem (14px)</td><td>0.8rem (13px)</td></tr>
-<tr><td>Accent labels</td><td>Montserrat</td><td>500–600</td><td>0.65rem (10px)</td><td>0.6rem (10px)</td></tr>
-<tr><td>Nav links</td><td>Poppins</td><td>500 Medium</td><td>0.875rem (14px)</td><td>1rem (16px)</td></tr>
+<tr><th>Element</th><th>Font</th><th>Size / Line Height</th><th>Weight</th></tr>
+<tr><td>H1</td><td>Playfair Display</td><td>56px / 64px</td><td>700</td></tr>
+<tr><td>H2</td><td>Playfair Display</td><td>40px / 48px</td><td>700</td></tr>
+<tr><td>H3</td><td>Playfair Display</td><td>28px / 36px</td><td>600</td></tr>
+<tr><td>Body</td><td>Poppins</td><td>18px / 1.8</td><td>400</td></tr>
+<tr><td>Heading UI</td><td>Poppins</td><td>14–16px</td><td>600</td></tr>
+<tr><td>Accent / Label</td><td>Montserrat</td><td>10–12px</td><td>500</td></tr>
+<tr><td>Small / Caption</td><td>Poppins</td><td>14px</td><td>400</td></tr>
 </table>
 
 <h3>Spacing Scale</h3>
-<table>
-<tr><th>Token</th><th>Value</th><th>Usage</th></tr>
-<tr><td>xs</td><td>4px</td><td>Tight gaps, icon margins</td></tr>
-<tr><td>sm</td><td>8px</td><td>Between inline items</td></tr>
-<tr><td>md</td><td>16px</td><td>Card padding, form gaps</td></tr>
-<tr><td>lg</td><td>24px</td><td>Between content blocks</td></tr>
-<tr><td>xl</td><td>32px</td><td>Section inner padding</td></tr>
-<tr><td>2xl</td><td>48px</td><td>Between major sections</td></tr>
-<tr><td>3xl</td><td>64px</td><td>Hero padding, large gaps</td></tr>
-<tr><td>4xl</td><td>80px</td><td>Section top/bottom padding (desktop)</td></tr>
-<tr><td>5xl</td><td>96px</td><td>Major section separators</td></tr>
-</table>
+<p>4 · 8 · 16 · 24 · 32 · 48 · 64 · 80 · 96px</p>
 
 <h3>Border Radius &amp; Shadows</h3>
 <table>
 <tr><th>Element</th><th>Radius</th><th>Shadow</th></tr>
-<tr><td>Cards</td><td>16px</td><td>0 4px 20px rgba(0,0,0,0.06)</td></tr>
-<tr><td>Cards (hover)</td><td>16px</td><td>0 8px 30px rgba(0,0,0,0.12)</td></tr>
-<tr><td>Buttons</td><td>8px</td><td>none (flat)</td></tr>
-<tr><td>Badges / Pills</td><td>999px</td><td>none</td></tr>
-<tr><td>Input fields</td><td>8px</td><td>inset 0 1px 3px rgba(0,0,0,0.05)</td></tr>
-<tr><td>Images (hero)</td><td>0px (full bleed)</td><td>none</td></tr>
-<tr><td>Images (inline)</td><td>12px</td><td>0 4px 15px rgba(0,0,0,0.08)</td></tr>
+<tr><td>Card</td><td>16px</td><td>0 4px 24px rgba(0,0,0,0.12)</td></tr>
+<tr><td>Button</td><td>8px</td><td>hover: 0 8px 40px rgba(0,0,0,0.2)</td></tr>
+<tr><td>Badge / Pill</td><td>999px</td><td>none</td></tr>
 </table>
 
-<!-- ==================== SECTION B ==================== -->
-<h2 id="components">B — Component Library</h2>
-
-<div class="component-card">
-  <h3>HeroSection <span class="tag">Critical</span></h3>
-  <p><strong>Description:</strong> Full-width dark background with centered text overlay. Contains H1, subtitle, and 1–2 CTA buttons (gold primary + ghost outline).</p>
-  <p><strong>Wix equivalent:</strong> Strip section → add Box overlay (bg: #151515, opacity 85%) → heading + paragraph + button stack</p>
-  <p><strong>Key CSS:</strong> <code>min-height: 70vh; background-size: cover; background-position: center; text-align: center; padding: 96px 24px</code></p>
-</div>
-
-<div class="component-card">
-  <h3>TrustTicker <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Narrow horizontal bar scrolling trust signals: "⭐ 100+ 5-Star Google Reviews", "🏆 UK Champion", "📍 Chiswick & Ealing". Gold text on charcoal background, auto-scrolling marquee.</p>
-  <p><strong>Wix equivalent:</strong> Strip with narrow height (40px) → Marquee widget OR Repeater with horizontal scroll animation. Alternative: static text bar with gold text.</p>
-  <p><strong>Key CSS:</strong> <code>background: #151515; color: #C9A84C; font-size: 0.75rem; letter-spacing: 0.1em; overflow: hidden; white-space: nowrap</code></p>
-</div>
-
-<div class="component-card">
-  <h3>BrandCard (Our Brands Section) <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> 4-column grid of brand cards (Pura Nights, Pura Ladies, Wedding Dance, Private Lessons). Each: icon/emoji, H3, short description, "Learn More →" link.</p>
-  <p><strong>Wix equivalent:</strong> Repeater in 4-column grid → each item: icon image + heading + paragraph + link text</p>
-  <p><strong>Key CSS:</strong> <code>background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s</code></p>
-</div>
-
-<div class="component-card">
-  <h3>TestimonialCard <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Card with 5 gold stars, quote text in italics, student name, and "Google ⭐" badge. Used in carousel and grid layouts.</p>
-  <p><strong>Wix equivalent:</strong> Slider widget (for carousel) or Repeater (for grid). Each slide: stars image + text + name. OR install Elfsight Google Reviews widget.</p>
-  <p><strong>Key CSS:</strong> <code>background: #fff; border-left: 4px solid #C9A84C; padding: 24px; border-radius: 12px; font-style: italic</code></p>
-</div>
-
-<div class="component-card">
-  <h3>ClassScheduleTable <span class="tag">Critical</span></h3>
-  <p><strong>Description:</strong> Two side-by-side cards showing Monday (Chiswick) and Tuesday (Ealing) schedules. Each card: venue name, address, transport info, timetable rows with level + time.</p>
-  <p><strong>Wix equivalent:</strong> 2-column layout → each column: Box with heading + repeating text rows. OR use Wix Table element.</p>
-  <p><strong>Key CSS:</strong> <code>background: #1e1e1e; color: #fff; border-radius: 16px; padding: 32px</code>. Time text: <code>color: #C9A84C; font-weight: 600</code></p>
-</div>
-
-<div class="component-card">
-  <h3>PricingCard <span class="tag">Critical</span></h3>
-  <p><strong>Description:</strong> 3 pricing tiers (Bronze £40, Silver £55, Gold £70). "Most Popular" badge on Silver. Each card: price, feature list with checkmarks, CTA button.</p>
-  <p><strong>Wix equivalent:</strong> Wix Pricing Plans app OR manual 3-column Repeater. Highlight card: gold border + "Most Popular" ribbon.</p>
-  <p><strong>Key CSS:</strong> Popular card: <code>border: 2px solid #C9A84C; transform: scale(1.05)</code>. Button: <code>background: #C9A84C; color: #151515; border-radius: 8px</code></p>
-</div>
-
-<div class="component-card">
-  <h3>FAQAccordion <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Collapsible Q&A section. Question row with + icon, answer expands below. Used on nearly every page.</p>
-  <p><strong>Wix equivalent:</strong> Wix FAQ app (built-in) or Accordion widget. Configure: single-expand mode, gold accent on active question.</p>
-  <p><strong>Key CSS:</strong> <code>border-bottom: 1px solid #e5e5e5; padding: 16px 0</code>. Active question: <code>color: #C9A84C; font-weight: 600</code></p>
-</div>
-
-<div class="component-card">
-  <h3>BlogPostCard <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Card with category badge (coloured pill), H3 title, excerpt (2 lines), reading time, "Read →" link. Used in Blog index grid and Related Posts sections.</p>
-  <p><strong>Wix equivalent:</strong> Wix Blog app with custom layout. OR Repeater with: badge element + heading + paragraph + link.</p>
-  <p><strong>Key CSS:</strong> <code>background: #fff; border-radius: 16px; padding: 24px; border: 1px solid #eee</code>. Badge: <code>border-radius: 999px; padding: 2px 12px; font-size: 0.7rem</code></p>
-</div>
-
-<div class="component-card">
-  <h3>WhatsAppButton (Floating) <span class="tag">Critical</span></h3>
-  <p><strong>Description:</strong> Fixed-position green circle button at bottom-right with WhatsApp icon. Always visible. Links to <code>wa.me/447449482343</code>.</p>
-  <p><strong>Wix equivalent:</strong> Wix Chat widget (WhatsApp mode) OR custom button element with fixed position. Set in Wix: "Attach to screen" → bottom right.</p>
-  <p><strong>Key CSS:</strong> <code>position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; z-index: 50</code></p>
-</div>
-
-<div class="component-card">
-  <h3>StickyMobileCTA <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Fixed bottom bar on mobile only. Contains "Book a Class" and "WhatsApp" buttons side by side. Appears after scrolling past hero.</p>
-  <p><strong>Wix equivalent:</strong> Use Wix mobile editor → add fixed footer strip with two buttons. Only visible on mobile breakpoint.</p>
-  <p><strong>Key CSS:</strong> <code>position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: #151515; display: flex; gap: 8px; z-index: 40</code></p>
-</div>
-
-<div class="component-card">
-  <h3>ExitIntentPopup <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Lightbox popup triggered on exit intent (mouse leaving viewport). Contains offer text and CTA. Shows once per session.</p>
-  <p><strong>Wix equivalent:</strong> Wix Lightbox → trigger: "On mouse out" or timed trigger. Set frequency: once per session. Include heading + CTA button.</p>
-</div>
-
-<div class="component-card">
-  <h3>EventCountdown <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Countdown timer showing days/hours/minutes/seconds to next Latin Friday event. Gold numbers on dark background.</p>
-  <p><strong>Wix equivalent:</strong> Wix Countdown Clock widget. Set target date manually each month. Style: dark background, gold number text.</p>
-</div>
-
-<div class="component-card">
-  <h3>AuthorCard <span class="tag">SEO</span></h3>
-  <p><strong>Description:</strong> Inline card in blog posts showing author photo, name "Melitta Siomos", title, and link to /about. Supports E-E-A-T signals.</p>
-  <p><strong>Wix equivalent:</strong> Custom Box element with image + text stack. Reuse across all blog posts via Wix Blog author settings.</p>
-</div>
-
-<div class="component-card">
-  <h3>ReadingProgressBar <span class="tag">SEO</span></h3>
-  <p><strong>Description:</strong> Thin gold bar at very top of page that fills left-to-right as user scrolls through blog post.</p>
-  <p><strong>Wix equivalent:</strong> Requires Wix Velo (custom code). Add a thin div fixed to top, width driven by scroll percentage. OR skip — low priority for Wix.</p>
-</div>
-
-<div class="component-card">
-  <h3>RelatedPages <span class="tag">SEO</span></h3>
-  <p><strong>Description:</strong> Grid of 3–6 internal link cards at bottom of every page. Each card: title + short description + arrow. Drives internal linking.</p>
-  <p><strong>Wix equivalent:</strong> Repeater or manual Box grid. Each item: heading + paragraph + link. Update links per page.</p>
-</div>
-
-<div class="component-card">
-  <h3>CookieConsent <span class="tag">Important</span></h3>
-  <p><strong>Description:</strong> Bottom-anchored banner with "Accept" and "Manage" buttons. First visit only.</p>
-  <p><strong>Wix equivalent:</strong> Wix has built-in Cookie Consent Banner (Settings → Privacy & Cookies). Enable and customise text/colours.</p>
-</div>
-
-<!-- ==================== SECTION C ==================== -->
-<h2 id="pagemap">C — Page Map</h2>
-
-<h3>Core Pages</h3>
+<h2>B — Complete Page Map</h2>
 <table>
-<tr><th>URL</th><th>Purpose</th><th>Wix Template</th><th>Priority</th></tr>
-<tr><td>/</td><td>Homepage — hero, brands, schedule, testimonials</td><td>Blank page, custom sections</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/about</td><td>Melitta's bio, credentials, story</td><td>Blank page</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/pura-nights</td><td>Weekly classes — schedule, levels, venues</td><td>Blank page</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/pura-ladies</td><td>Performance company info</td><td>Blank page</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/wedding-dance</td><td>Wedding dance service page</td><td>Blank page</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/private-lessons</td><td>Private 1-on-1 coaching</td><td>Blank page</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/prices</td><td>Pricing tiers and bundles</td><td>Pricing Plans app</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/bookings</td><td>Booking hub — links to services</td><td>Wix Bookings app</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/contact</td><td>Contact info, form, map</td><td>Wix Forms</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/events</td><td>Latin Friday events + countdown</td><td>Wix Events app</td><td class="priority-important">Important</td></tr>
-<tr><td>/gallery</td><td>Photo grid + YouTube embeds</td><td>Wix Pro Gallery</td><td class="priority-important">Important</td></tr>
-<tr><td>/testimonials</td><td>Full testimonials with filters</td><td>Repeater + filter buttons</td><td class="priority-important">Important</td></tr>
-<tr><td>/faq</td><td>Comprehensive FAQ</td><td>Wix FAQ app</td><td class="priority-important">Important</td></tr>
-<tr><td>/gift-vouchers</td><td>Gift voucher options</td><td>Wix Gift Cards app</td><td class="priority-important">Important</td></tr>
-<tr><td>/online-classes</td><td>Online/Zoom lesson info</td><td>Blank page</td><td class="priority-important">Important</td></tr>
-<tr><td>/start-here</td><td>New visitor guide</td><td>Blank page</td><td class="priority-important">Important</td></tr>
-<tr><td>/locations</td><td>Venue details + maps</td><td>Blank page + Maps widget</td><td class="priority-important">Important</td></tr>
-<tr><td>/blog</td><td>Blog index — 42 articles</td><td>Wix Blog app</td><td class="priority-important">Important</td></tr>
-<tr><td>/privacy-policy</td><td>Privacy policy</td><td>Blank page</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/terms</td><td>Terms &amp; conditions</td><td>Blank page</td><td class="priority-seo">SEO</td></tr>
+<tr><th>URL</th><th>Page Name</th><th>Purpose</th><th>Priority</th></tr>
+<tr><td>/</td><td>Homepage</td><td>13-section premium landing</td><td>1.0</td></tr>
+<tr><td>/pura-nights</td><td>Weekly Classes</td><td>Schedule, venues, levels, FAQ</td><td>0.9</td></tr>
+<tr><td>/events</td><td>Events</td><td>Latin Fridays + countdown</td><td>0.9</td></tr>
+<tr><td>/pura-ladies</td><td>Pura Ladies</td><td>Performance team</td><td>0.9</td></tr>
+<tr><td>/online-classes</td><td>Online Classes</td><td>Zoom + video classes</td><td>0.8</td></tr>
+<tr><td>/prices</td><td>Pricing</td><td>Full pricing + comparison</td><td>0.9</td></tr>
+<tr><td>/gift-vouchers</td><td>Gift Vouchers</td><td>Voucher purchasing</td><td>0.8</td></tr>
+<tr><td>/about</td><td>About Melitta</td><td>Bio + 8 team members</td><td>0.9</td></tr>
+<tr><td>/wedding-dance</td><td>Wedding Dance</td><td>First dance coaching</td><td>0.9</td></tr>
+<tr><td>/private-lessons</td><td>Private Lessons</td><td>Enquiry only</td><td>0.8</td></tr>
+<tr><td>/testimonials</td><td>Testimonials</td><td>Student reviews</td><td>0.7</td></tr>
+<tr><td>/gallery</td><td>Gallery</td><td>Photos + videos</td><td>0.7</td></tr>
+<tr><td>/blog</td><td>Blog Index</td><td>Article listing</td><td>0.8</td></tr>
+<tr><td>/faq</td><td>FAQ</td><td>20 Q&amp;A, 4 categories</td><td>0.7</td></tr>
+<tr><td>/start-here</td><td>Start Here</td><td>Beginner hub</td><td>0.8</td></tr>
+<tr><td>/locations</td><td>Locations</td><td>Venue directory</td><td>0.8</td></tr>
+<tr><td>/contact</td><td>Contact</td><td>Form + info cards</td><td>0.7</td></tr>
+<tr><td>/schedule</td><td>Schedule</td><td>Quick timetable</td><td>0.7</td></tr>
+<tr><td>/beginners</td><td>Beginners</td><td>Beginner landing</td><td>0.7</td></tr>
+<tr><td>/privacy-policy</td><td>Privacy Policy</td><td>Legal</td><td>0.3</td></tr>
+<tr><td>/terms</td><td>Terms</td><td>Legal</td><td>0.3</td></tr>
+<tr><td colspan="4" style="color:#CF6A3D;font-weight:bold">Local SEO Pages (17)</td></tr>
+<tr><td>/salsa-classes-london</td><td>Salsa London</td><td>City-level SEO</td><td>0.8</td></tr>
+<tr><td>/bachata-classes-london</td><td>Bachata London</td><td>City-level SEO</td><td>0.8</td></tr>
+<tr><td>/salsa-classes-chiswick</td><td>Salsa Chiswick</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/salsa-classes-ealing</td><td>Salsa Ealing</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/salsa-classes-acton</td><td>Salsa Acton</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/bachata-classes-chiswick</td><td>Bachata Chiswick</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/bachata-classes-ealing</td><td>Bachata Ealing</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/bachata-classes-west-london</td><td>Bachata West London</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/bachata-classes-south-west-london</td><td>Bachata SW London</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/dance-classes-chiswick</td><td>Dance Chiswick</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/dance-classes-ealing</td><td>Dance Ealing</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/dance-classes-west-london</td><td>Dance West London</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/dance-classes-south-west-london</td><td>Dance SW London</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/latin-dance-classes-london</td><td>Latin Dance London</td><td>Local SEO</td><td>0.8</td></tr>
+<tr><td>/private-dance-lessons-west-london</td><td>Private West London</td><td>Local SEO</td><td>0.7</td></tr>
+<tr><td>/private-salsa-lessons-london</td><td>Private Salsa London</td><td>Local SEO</td><td>0.7</td></tr>
+<tr><td>/wedding-dance-lessons-london</td><td>Wedding London</td><td>Local SEO</td><td>0.7</td></tr>
+<tr><td colspan="4" style="color:#CF6A3D;font-weight:bold">Blog Posts (24+)</td></tr>
+<tr><td>/blog/what-is-salsa</td><td>What Is Salsa?</td><td>Pillar content</td><td>0.7</td></tr>
+<tr><td>/blog/what-is-bachata</td><td>What Is Bachata?</td><td>Pillar content</td><td>0.7</td></tr>
+<tr><td>/blog/salsa-vs-bachata</td><td>Salsa vs Bachata</td><td>Comparison</td><td>0.7</td></tr>
+<tr><td colspan="4">... 21+ additional blog posts</td></tr>
 </table>
 
-<h3>Local SEO Pages</h3>
+<h2>C — Component Guide</h2>
 <table>
-<tr><th>URL</th><th>H1 / Purpose</th><th>Priority</th></tr>
-<tr><td>/salsa-classes-london</td><td>Salsa Classes London</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/bachata-classes-london</td><td>Bachata Classes London</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/salsa-classes-chiswick</td><td>Salsa Classes Chiswick</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/bachata-classes-chiswick</td><td>Bachata Classes Chiswick</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/salsa-classes-ealing</td><td>Salsa Classes Ealing</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/bachata-classes-ealing</td><td>Bachata Classes Ealing</td><td class="priority-critical">Critical</td></tr>
-<tr><td>/salsa-classes-acton</td><td>Salsa Classes Near Acton</td><td class="priority-important">Important</td></tr>
-<tr><td>/dance-classes-ealing</td><td>Dance Classes Ealing</td><td class="priority-important">Important</td></tr>
-<tr><td>/dance-classes-west-london</td><td>Dance Classes West London</td><td class="priority-important">Important</td></tr>
-<tr><td>/dance-classes-chiswick</td><td>Dance Classes Chiswick</td><td class="priority-important">Important</td></tr>
-<tr><td>/dance-classes-south-west-london</td><td>Dance Classes South West London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/bachata-classes-west-london</td><td>Bachata Classes West London</td><td class="priority-important">Important</td></tr>
-<tr><td>/wedding-dance-west-london</td><td>Wedding Dance West London</td><td class="priority-important">Important</td></tr>
-<tr><td>/private-dance-lessons-west-london</td><td>Private Lessons West London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/latin-dance-classes-london</td><td>Latin Dance Classes London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/wedding-dance-lessons-london</td><td>Wedding Dance Lessons London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/private-salsa-lessons-london</td><td>Private Salsa Lessons London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/ladies-styling-london</td><td>Ladies Styling London</td><td class="priority-seo">SEO</td></tr>
-<tr><td>/bachata-performance-team-london</td><td>Bachata Performance Team London</td><td class="priority-seo">SEO</td></tr>
+<tr><th>Component</th><th>Description</th><th>Wix Equivalent</th><th>Key Styling</th></tr>
+<tr><td>Hero</td><td>Full-viewport hero with BG image, overlay, H1, CTAs</td><td>Wix Strip + BG Image + Buttons</td><td>min-h: 92vh; gradient overlay; Playfair H1</td></tr>
+<tr><td>TrustTicker</td><td>Auto-scrolling horizontal strip of trust badges</td><td>Wix Marquee / custom HTML</td><td>Dark bg; ticker animation; emoji + stat</td></tr>
+<tr><td>BrandCard</td><td>Image card with gradient overlay and CTA</td><td>Wix Column + BG Image + Overlay</td><td>h: 320px; rounded-2xl; hover scale</td></tr>
+<tr><td>TestimonialCard</td><td>Review card with stars and quote</td><td>Wix Repeater / Testimonials app</td><td>bg-card; rounded-2xl; gold stars</td></tr>
+<tr><td>ClassScheduleTable</td><td>2-row venue table</td><td>Wix Table element</td><td>Dark bg; gold/peach accents</td></tr>
+<tr><td>PricingAccordion</td><td>Collapsible pricing sections</td><td>Wix FAQ / Accordion</td><td>Venue-coloured headers</td></tr>
+<tr><td>FAQAccordion</td><td>Categorised Q&amp;A</td><td>Wix FAQ app</td><td>4 categories; border separators</td></tr>
+<tr><td>BlogCard</td><td>Article preview card</td><td>Wix Blog layout</td><td>Category badge; hover lift</td></tr>
+<tr><td>TeamCard</td><td>Circular photo + bio modal</td><td>Wix Repeater + Lightbox</td><td>180px circle; gold border</td></tr>
+<tr><td>EventCountdown</td><td>DD:HH:MM:SS tiles</td><td>Countdown app / custom HTML</td><td>Gold on dark; auto-advance</td></tr>
+<tr><td>WhatsAppButton</td><td>Floating chat button</td><td>Wix Chat / custom HTML</td><td>Fixed bottom-right; #25D366</td></tr>
+<tr><td>StickyMobileCTA</td><td>Context-aware mobile CTA bar</td><td>Wix Mobile Action Bar</td><td>Fixed bottom; dismissible</td></tr>
 </table>
 
-<h3>Blog Posts (42 Articles)</h3>
+<h2>D — Wix Apps to Install</h2>
 <table>
-<tr><th>URL</th><th>Category</th><th>H1</th></tr>
-<tr><td>/blog/what-is-salsa</td><td><span class="badge" style="background:#C9A84C">Salsa</span></td><td>What is Salsa?</td></tr>
-<tr><td>/blog/what-is-bachata</td><td><span class="badge" style="background:#F2A07B">Bachata</span></td><td>What is Bachata?</td></tr>
-<tr><td>/blog/salsa-vs-bachata</td><td><span class="badge" style="background:#C9A84C">Salsa</span></td><td>Salsa vs Bachata</td></tr>
-<tr><td>/blog/beginners-guide-salsa-london</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>Beginner's Guide to Salsa in London</td></tr>
-<tr><td>/blog/wedding-first-dance-tips</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>Wedding First Dance Tips</td></tr>
-<tr><td>/blog/pura-ladies-story</td><td><span class="badge" style="background:#9B72CF">Culture</span></td><td>The Pura Ladies Story</td></tr>
-<tr><td>/blog/first-salsa-class-london</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>Your First Salsa Class in London</td></tr>
-<tr><td>/blog/salsa-no-partner</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>Can You Do Salsa Without a Partner?</td></tr>
-<tr><td>/blog/how-long-to-learn-salsa</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>How Long Does It Take to Learn Salsa?</td></tr>
-<tr><td>/blog/bachata-for-beginners-london</td><td><span class="badge" style="background:#F2A07B">Bachata</span></td><td>Bachata for Beginners in London</td></tr>
-<tr><td>/blog/what-to-wear-salsa-bachata</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>What to Wear to Salsa &amp; Bachata</td></tr>
-<tr><td>/blog/salsa-on1-vs-on2</td><td><span class="badge" style="background:#C9A84C">Salsa</span></td><td>Salsa On1 vs On2</td></tr>
-<tr><td>/blog/best-areas-west-london</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Best Areas for Latin Dance in West London</td></tr>
-<tr><td>/blog/salsa-classes-near-chiswick</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Salsa Classes Near Chiswick</td></tr>
-<tr><td>/blog/bachata-classes-near-ealing</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Bachata Classes Near Ealing</td></tr>
-<tr><td>/blog/dance-classes-acton-adults</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Dance Classes in Acton for Adults</td></tr>
-<tr><td>/blog/west-london-latin-dance-guide</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>West London Latin Dance Guide</td></tr>
-<tr><td>/blog/salsa-south-west-london</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Salsa in South West London</td></tr>
-<tr><td>/blog/choose-wedding-first-dance-song</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>How to Choose Your First Dance Song</td></tr>
-<tr><td>/blog/salsa-vs-waltz-wedding</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>Salsa vs Waltz for Weddings</td></tr>
-<tr><td>/blog/how-many-wedding-dance-lessons</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>How Many Wedding Dance Lessons?</td></tr>
-<tr><td>/blog/last-minute-wedding-dance</td><td><span class="badge" style="background:#D4849A">Wedding</span></td><td>Last-Minute Wedding Dance</td></tr>
-<tr><td>/blog/history-of-salsa</td><td><span class="badge" style="background:#9B72CF">Culture</span></td><td>The History of Salsa</td></tr>
-<tr><td>/blog/history-of-bachata</td><td><span class="badge" style="background:#9B72CF">Culture</span></td><td>The History of Bachata</td></tr>
-<tr><td>/blog/best-salsa-nights-west-london</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Best Salsa Nights in West London</td></tr>
-<tr><td>/blog/salsa-classes-near-turnham-green</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Salsa Classes Near Turnham Green</td></tr>
-<tr><td>/blog/latin-dance-events-ealing-2026</td><td><span class="badge" style="background:#E07B39">Events</span></td><td>Latin Dance Events Ealing 2026</td></tr>
-<tr><td>/blog/bachata-sensual-guide</td><td><span class="badge" style="background:#F2A07B">Bachata</span></td><td>Bachata Sensual Complete Guide</td></tr>
-<tr><td>/blog/ladies-styling-bachata</td><td><span class="badge" style="background:#6B7FD4">Technique</span></td><td>Ladies Styling in Bachata</td></tr>
-<tr><td>/blog/lead-follow-salsa-bachata</td><td><span class="badge" style="background:#6B7FD4">Technique</span></td><td>Lead &amp; Follow Guide</td></tr>
-<tr><td>/blog/improve-social-dancing</td><td><span class="badge" style="background:#6B7FD4">Technique</span></td><td>How to Improve Social Dancing</td></tr>
-<tr><td>/blog/salsa-musicality-guide</td><td><span class="badge" style="background:#C9A84C">Salsa</span></td><td>Musicality in Salsa</td></tr>
-<tr><td>/blog/hen-party-dance-ideas-london</td><td><span class="badge" style="background:#E07B39">Events</span></td><td>Hen Party Dance Ideas London</td></tr>
-<tr><td>/blog/corporate-team-building-dance-london</td><td><span class="badge" style="background:#E07B39">Events</span></td><td>Corporate Team Building Dance</td></tr>
-<tr><td>/blog/gift-voucher-dance-class-london</td><td><span class="badge" style="background:#6BAF7A">Lifestyle</span></td><td>Dance Class Gift Vouchers</td></tr>
-<tr><td>/blog/new-year-start-salsa-london</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>New Year — Start Salsa in London</td></tr>
-<tr><td>/blog/latin-dance-fitness-benefits</td><td><span class="badge" style="background:#6BAF7A">Lifestyle</span></td><td>Latin Dance Fitness Benefits</td></tr>
-<tr><td>/blog/joining-dance-class-alone</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>Joining a Dance Class Alone</td></tr>
-<tr><td>/blog/salsa-shoes-guide</td><td><span class="badge" style="background:#5BBCAD">Beginners</span></td><td>Salsa Shoes Guide</td></tr>
-<tr><td>/blog/how-to-practice-salsa-at-home</td><td><span class="badge" style="background:#6B7FD4">Technique</span></td><td>How to Practice Salsa at Home</td></tr>
-<tr><td>/blog/pura-nights-latin-friday-guide</td><td><span class="badge" style="background:#E07B39">Events</span></td><td>Pura Nights Latin Friday Guide</td></tr>
-<tr><td>/blog/dance-classes-west-london-guide</td><td><span class="badge" style="background:#3D3D3D">Local</span></td><td>Dance Classes West London Guide</td></tr>
+<tr><th>#</th><th>App Name</th><th>Purpose</th><th>Wix Market Search</th></tr>
+<tr><td>1</td><td>Wix Blog</td><td>24+ article blog engine</td><td>"Wix Blog"</td></tr>
+<tr><td>2</td><td>Wix Forms</td><td>Contact form with subject dropdown</td><td>"Wix Forms"</td></tr>
+<tr><td>3</td><td>Wix Bookings</td><td>Class booking</td><td>"Wix Bookings"</td></tr>
+<tr><td>4</td><td>Wix Events</td><td>Latin Friday events</td><td>"Wix Events"</td></tr>
+<tr><td>5</td><td>Wix FAQ</td><td>FAQ accordions</td><td>"Wix FAQ"</td></tr>
+<tr><td>6</td><td>Wix Gift Cards</td><td>Gift voucher sales</td><td>"Wix Gift Cards"</td></tr>
+<tr><td>7</td><td>Wix Pricing Plans</td><td>Bundles &amp; memberships</td><td>"Wix Pricing Plans"</td></tr>
+<tr><td>8</td><td>Wix Members</td><td>Student accounts</td><td>"Wix Members Area"</td></tr>
+<tr><td>9</td><td>Wix Pro Gallery</td><td>Photo gallery with albums</td><td>"Wix Pro Gallery"</td></tr>
+<tr><td>10</td><td>Instagram Feed (Elfsight)</td><td>Live IG feed</td><td>"Elfsight Instagram Feed"</td></tr>
+<tr><td>11</td><td>Google Reviews (Elfsight)</td><td>Review widget</td><td>"Elfsight Google Reviews"</td></tr>
+<tr><td>12</td><td>Wix Video</td><td>YouTube embeds</td><td>"Wix Video"</td></tr>
 </table>
 
-<!-- ==================== SECTION D ==================== -->
-<h2 id="wixnotes">D — Wix-Specific Notes</h2>
+<h2>E — Wix Implementation Notes</h2>
 
-<h3>1. Use Wix Editor (Not Wix Studio)</h3>
-<p>Wix Editor provides maximum drag-and-drop flexibility and the widest app marketplace. Wix Studio is aimed at agencies and has a different workflow — avoid unless the developer specifically prefers it.</p>
+<h3>1. Use Standard Wix Editor (Not Wix Studio)</h3>
+<p>This spec is optimised for the standard Wix Editor.</p>
 
-<h3>2. Required Wix Apps to Install</h3>
-<table>
-<tr><th>App</th><th>Used For</th></tr>
-<tr><td>Wix Blog</td><td>All 42 blog articles — use categories matching the 9 defined above</td></tr>
-<tr><td>Wix Forms</td><td>Contact form, enquiry forms</td></tr>
-<tr><td>Wix Bookings</td><td>Class booking (or link to Linktree)</td></tr>
-<tr><td>Wix Events</td><td>Monthly Latin Friday events with ticket sales</td></tr>
-<tr><td>Wix FAQ</td><td>FAQ sections on all pages</td></tr>
-<tr><td>Wix Gift Cards</td><td>Gift voucher purchasing</td></tr>
-<tr><td>Wix Pricing Plans</td><td>Monthly class bundles (Bronze/Silver/Gold)</td></tr>
-<tr><td>Wix Chat</td><td>WhatsApp button (set to WhatsApp mode)</td></tr>
-<tr><td>Instagram Feed (FLAVOR)</td><td>Social media feed on homepage</td></tr>
-<tr><td>Elfsight Google Reviews</td><td>Live Google review widget</td></tr>
-<tr><td>POWR Countdown Timer</td><td>Event countdown on /events page</td></tr>
-<tr><td>Google Maps</td><td>Venue maps on /locations and local pages</td></tr>
-</table>
+<h3>2. Font Loading</h3>
+<p>Add Playfair Display, Poppins, and Montserrat via Site Design → Text Theme. All available in Wix's Google Fonts library.</p>
 
-<h3>3. Font Setup</h3>
-<p>Go to <strong>Site Design → Text Themes</strong> and set:</p>
+<h3>3. Mobile Editor</h3>
+<div class="note">
+<p><strong>Critical:</strong> After building each desktop page, switch to Mobile Editor and adjust:</p>
 <ul>
-  <li><strong>Heading 1–2:</strong> Playfair Display (upload via "Upload Fonts" if not in Wix library)</li>
-  <li><strong>Heading 3–6:</strong> Poppins 600</li>
-  <li><strong>Paragraph:</strong> Poppins 400</li>
-  <li><strong>Small / Labels:</strong> Montserrat 500</li>
+<li>Reduce font sizes by ~30%</li>
+<li>Reduce section padding (80px → 48px)</li>
+<li>Stack columns vertically</li>
+<li>Make CTA buttons full-width</li>
+<li>Hide decorative elements that clutter mobile</li>
 </ul>
+</div>
 
-<h3>4. Mobile Optimisation</h3>
-<p>After building each page on desktop, switch to <strong>Mobile Editor</strong> and:</p>
-<ul>
-  <li>Reduce heading sizes (H1: 32px, H2: 24px)</li>
-  <li>Stack columns vertically</li>
-  <li>Ensure buttons are full-width and touch-friendly (min 48px height)</li>
-  <li>Hide decorative elements that clutter mobile view</li>
-  <li>Test sticky mobile CTA bar positioning</li>
-</ul>
-
-<h3>5. SEO Setup (Per Page)</h3>
-<p>For every page, go to <strong>Page Settings → SEO</strong> and set:</p>
-<ul>
-  <li><strong>Page Title:</strong> Use the H1 + " | Melitta Siomos" (under 60 chars)</li>
-  <li><strong>Meta Description:</strong> Unique description per page (under 160 chars)</li>
-  <li><strong>URL Slug:</strong> Match exactly as listed in the page map above</li>
-  <li><strong>Schema Markup:</strong> Add LocalBusiness JSON-LD to local pages (use Wix SEO → Advanced → Custom Code)</li>
-</ul>
-
-<h3>6. Section-to-Wix Element Mapping</h3>
+<h3>4. SEO Setup Per Page</h3>
 <table>
-<tr><th>Prototype Section</th><th>Wix Element</th></tr>
-<tr><td>Full-bleed hero with dark overlay</td><td>Strip + Box overlay + background image/video</td></tr>
-<tr><td>Trust ticker (scrolling bar)</td><td>Narrow strip with marquee text or static text bar</td></tr>
-<tr><td>Card grid (3-col)</td><td>Repeater in 3-column grid layout</td></tr>
-<tr><td>Testimonial carousel</td><td>Slider widget or Repeater with scroll</td></tr>
-<tr><td>FAQ accordion</td><td>Wix FAQ app or Accordion widget</td></tr>
-<tr><td>WhatsApp float button</td><td>Wix Chat (WhatsApp mode) or fixed custom button</td></tr>
-<tr><td>Countdown timer</td><td>POWR Countdown Timer widget</td></tr>
-<tr><td>Contact form</td><td>Wix Forms app</td></tr>
-<tr><td>Blog grid</td><td>Wix Blog app with custom category layout</td></tr>
-<tr><td>Google Maps embed</td><td>Google Maps widget</td></tr>
-<tr><td>Instagram feed</td><td>Social Media Feed app (FLAVOR)</td></tr>
-<tr><td>Pricing table</td><td>Wix Pricing Plans or manual Repeater</td></tr>
+<tr><th>Field</th><th>Guidance</th></tr>
+<tr><td>Title Tag</td><td>&lt;60 chars with primary keyword + brand</td></tr>
+<tr><td>Meta Description</td><td>&lt;160 chars with CTA language</td></tr>
+<tr><td>H1</td><td>One per page, includes primary keyword</td></tr>
+<tr><td>URL Slug</td><td>Match page map paths exactly</td></tr>
+<tr><td>Alt Text</td><td>Every image needs descriptive alt text</td></tr>
+<tr><td>Canonical</td><td>https://www.puranights.com{path}</td></tr>
 </table>
 
-<h3>7. Colour Application in Wix</h3>
-<p>Go to <strong>Site Design → Colour Palette</strong> and set:</p>
+<h3>5. Domain Connection Checklist</h3>
+<div class="note">
 <ul>
-  <li>Colour 1 (Primary): #C9A84C (Gold)</li>
-  <li>Colour 2 (Secondary): #F2A07B (Peach)</li>
-  <li>Colour 3 (Dark): #151515 (Charcoal)</li>
-  <li>Colour 4 (Light): #FDFBF5 (Ivory)</li>
-  <li>Colour 5 (Accent): #CF6A3D (Terracotta)</li>
+<li>Connect <code>puranights.com</code> as primary domain</li>
+<li>SSL certificate (automatic with Wix)</li>
+<li>Set www redirect (be consistent)</li>
+<li>Submit sitemap to Google Search Console</li>
+<li>Set up Google Analytics 4</li>
+<li>Verify domain in Search Console</li>
 </ul>
-<p>Then use "Theme colours" throughout instead of custom hex codes for consistency.</p>
+</div>
 
-<h3>8. Performance</h3>
+<h3>6. Performance Tips</h3>
 <ul>
-  <li>Compress all images before upload (TinyPNG or Squoosh)</li>
-  <li>Use WebP format where possible</li>
-  <li>Limit custom fonts to the 3 specified (Playfair Display, Poppins, Montserrat)</li>
-  <li>Avoid excessive animations — use Wix built-in "Reveal" effects sparingly</li>
+<li>Compress images (WebP, max 200KB each)</li>
+<li>Use Wix's built-in lazy loading</li>
+<li>Limit custom HTML embeds</li>
+<li>Use Wix animations sparingly (1-2 per section)</li>
 </ul>
 
 </div>
-
-<div style="background:#151515;color:#777;text-align:center;padding:40px 24px;margin-top:60px">
-  <p style="color:#C9A84C;font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:8px">Melitta Siomos — Wix Design Specification</p>
-  <p>Prepared from Lovable prototype &bull; March 2026</p>
-</div>
-
 </body>
 </html>
