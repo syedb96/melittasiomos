@@ -8,44 +8,45 @@ import heroImg from "@/assets/hero-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
+import socialImg from "@/assets/social-dancing.jpg";
 
 type Tab = "Classes & Socials" | "Pura Ladies Performances" | "Events & Latin Fridays";
 
-const galleryData: Record<Tab, { src: string; alt: string; placeholder: string }[]> = {
+const galleryData: Record<Tab, { src: string; alt: string }[]> = {
   "Classes & Socials": [
-    { src: heroImg, alt: "Students dancing salsa at Chiswick social", placeholder: "Students dancing salsa at Chiswick social" },
-    { src: melittaImg, alt: "Melitta teaching bachata technique", placeholder: "Melitta teaching bachata technique" },
-    { src: heroImg, alt: "Partner rotation during Monday class", placeholder: "Partner rotation during Monday class" },
-    { src: melittaImg, alt: "Social dancing at Pura Nights Ealing", placeholder: "Social dancing at Pura Nights Ealing" },
-    { src: heroImg, alt: "Beginners learning basic steps", placeholder: "Beginners learning basic steps" },
-    { src: melittaImg, alt: "Bachata class at The George IV", placeholder: "Bachata class at The George IV" },
-    { src: heroImg, alt: "Tuesday night salsa class Ealing", placeholder: "Tuesday night salsa class Ealing" },
-    { src: melittaImg, alt: "Group photo after Monday class", placeholder: "Group photo after Monday class" },
+    { src: heroImg, alt: "Students dancing salsa at Chiswick Monday social" },
+    { src: melittaImg, alt: "Melitta teaching beginners at Ealing Tuesday" },
+    { src: socialImg, alt: "Ladies styling warm-up at Drayton Court" },
+    { src: heroImg, alt: "Chiswick social dancing — improvers level" },
+    { src: melittaImg, alt: "Students rotating partners during class" },
+    { src: socialImg, alt: "Ealing venue interior — Drayton Court dance floor" },
+    { src: heroImg, alt: "Melitta demonstrating bachata with Roger Cracco" },
+    { src: melittaImg, alt: "End of class group at The George IV Chiswick" },
   ],
   "Pura Ladies Performances": [
-    { src: puraLadiesImg, alt: "Pura Ladies London team performing", placeholder: "Pura Ladies London team performing" },
-    { src: puraLadiesImg, alt: "Pura Ladies at international festival", placeholder: "Pura Ladies at international festival" },
-    { src: puraLadiesImg, alt: "Bachata ladies styling routine", placeholder: "Bachata ladies styling routine" },
-    { src: puraLadiesImg, alt: "Pura Ladies rehearsal session", placeholder: "Pura Ladies rehearsal session" },
-    { src: puraLadiesImg, alt: "Team photo at competition", placeholder: "Team photo at competition" },
-    { src: puraLadiesImg, alt: "Pura Ladies Munich team", placeholder: "Pura Ladies Munich team" },
+    { src: puraLadiesImg, alt: "Pura Ladies London performing at Latin Friday 2025" },
+    { src: puraLadiesImg, alt: "Pura Ladies Munich — European performance" },
+    { src: puraLadiesImg, alt: "Pura Ladies Plymouth performance" },
+    { src: puraLadiesImg, alt: "Pura Ladies backstage pre-show" },
+    { src: puraLadiesImg, alt: "Choreography rehearsal — West London studio" },
+    { src: puraLadiesImg, alt: "Pura Ladies group photo 2025" },
   ],
   "Events & Latin Fridays": [
-    { src: heroImg, alt: "Monthly Latin Friday atmosphere", placeholder: "Monthly Latin Friday atmosphere" },
-    { src: weddingImg, alt: "Wedding couple first dance", placeholder: "Wedding couple first dance" },
-    { src: heroImg, alt: "DJ playing at Latin Friday", placeholder: "DJ playing at Latin Friday" },
-    { src: weddingImg, alt: "Wedding dance rehearsal", placeholder: "Wedding dance rehearsal" },
-    { src: heroImg, alt: "Social dancing at Latin Friday", placeholder: "Social dancing at Latin Friday" },
-    { src: heroImg, alt: "Latin Friday crowd shot", placeholder: "Latin Friday crowd shot" },
+    { src: heroImg, alt: "Monthly Latin Friday — packed dancefloor at Drayton Court" },
+    { src: socialImg, alt: "Roger Cracco guest workshop at Latin Friday" },
+    { src: puraLadiesImg, alt: "Pura Ladies show at Latin Friday" },
+    { src: heroImg, alt: "DJ set — Latin Friday 2025" },
+    { src: socialImg, alt: "Students socialising at Pura Nights event" },
+    { src: heroImg, alt: "Latin Friday crowd — all levels social dancing" },
   ],
 };
 
 const tabs: Tab[] = ["Classes & Socials", "Pura Ladies Performances", "Events & Latin Fridays"];
 
 const youtubeVideos = [
-  { id: "placeholder", title: "Pura Ladies Performance Video", desc: "Watch the Pura Ladies perform at international festivals" },
-  { id: "placeholder", title: "Melitta Siomos Teaching Demo", desc: "See Melitta's teaching style and class atmosphere" },
-  { id: "placeholder", title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials" },
+  { title: "Pura Ladies Performance — Latin Friday", desc: "Watch the Pura Ladies perform at our monthly socials" },
+  { title: "Melitta Siomos Teaching Demo", desc: "See Melitta's teaching style and class atmosphere" },
+  { title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials" },
 ];
 
 const Gallery = () => {
@@ -62,37 +63,39 @@ const Gallery = () => {
   return (
     <Layout>
       <SeoHead title="Gallery — Salsa & Bachata Photos & Videos | Pura Nights London" description="Photos and videos from Pura Nights classes, events, Pura Ladies performances, and wedding dance coaching. See life at London's best Latin dance community." path="/gallery" />
-      {/* <!-- WIX: Use Wix Pro Gallery with 3 category albums --> */}
 
+      {/* Hero */}
       <section className="section-padding section-warm">
         <div className="container-main">
           <FadeInUp>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-3">Gallery — Life at Pura Nights</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-center mb-3">Gallery — Pura Nights in Action</h1>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-4" />
-            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8">Classes, events, performances, and the community behind the dance</p>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8">Classes, performances, Latin Fridays, and the people who make it.</p>
           </FadeInUp>
 
-          {/* Tab Filter */}
-          <div className="flex flex-wrap gap-2 justify-center mb-10">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => { setActiveTab(tab); setLightbox(null); }}
-                className={`px-5 py-2.5 rounded-full text-sm font-heading font-semibold transition-all ${activeTab === tab ? "bg-primary text-primary-foreground shadow-md" : "bg-card text-muted-foreground hover:bg-primary/10 border border-border"}`}
-              >
-                {tab}
-              </button>
-            ))}
+          {/* Tab Filter — sticky */}
+          <div className="sticky top-16 z-30 bg-background/80 backdrop-blur-sm py-3 -mx-4 px-4 mb-8">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => { setActiveTab(tab); setLightbox(null); }}
+                  className={`px-5 py-2.5 rounded-full text-sm font-heading font-semibold transition-all ${activeTab === tab ? "bg-primary text-primary-foreground shadow-md" : "bg-card text-muted-foreground hover:bg-primary/10 border border-border"}`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Photo Grid */}
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {/* Photo Grid — 3-col masonry-style */}
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {photos.map((photo, i) => (
               <StaggerItem key={`${activeTab}-${i}`}>
                 <button onClick={() => setLightbox(i)} className="w-full block overflow-hidden rounded-2xl card-hover cursor-pointer group relative aspect-square">
                   <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
-                    <p className="text-primary-foreground text-xs font-heading">{photo.placeholder}</p>
+                    <p className="text-primary-foreground text-xs font-heading">{photo.alt}</p>
                   </div>
                 </button>
               </StaggerItem>
@@ -102,10 +105,11 @@ const Gallery = () => {
       </section>
 
       {/* YouTube Videos */}
+      {/* <!-- WIX: Use Wix Video widget or embed YouTube iframes --> */}
       <section className="section-padding section-dark">
         <div className="container-main max-w-4xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl font-bold text-primary-foreground text-center mb-2">Video Highlights</h2>
+            <h2 className="font-display text-3xl font-bold text-primary-foreground text-center mb-2">Watch Pura Nights in Action</h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-10" />
           </FadeInUp>
           <StaggerContainer className="grid md:grid-cols-3 gap-6">

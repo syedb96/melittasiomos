@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Users, Star, CheckCircle, ChevronRight } from "lucide-react";
+import { MapPin, Clock, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -37,118 +37,96 @@ const PuraNights = () => (
       <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
       <div className="absolute inset-0 flex items-center justify-center text-center px-4">
         <div>
-          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">Every Monday & Tuesday in West London</p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Pura Nights — Weekly Salsa & Bachata Classes</h1>
-          <p className="font-heading text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">Three levels every evening. Social dancing until 11 PM. No partner needed. All levels welcome.</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Pura Nights — Salsa & Bachata Every Week in West London</h1>
+          <p className="font-heading text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">Monday Chiswick · Tuesday Ealing · No partner needed · All levels</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
-            <Link to="/prices" className="btn-cta-ghost text-sm">View Pricing</Link>
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
+            <Link to="/prices" className="btn-cta-ghost text-sm">See Prices →</Link>
           </div>
         </div>
       </div>
     </section>
 
-    {/* Schedule Cards */}
+    {/* THE TWO VENUES */}
     <section className="section-padding section-warm">
       <div className="container-main">
         <FadeInUp>
-          <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">Two Venues, Two Nights</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">Weekly Class Schedule</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">The Two Venues</h2>
         </FadeInUp>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Monday */}
           <FadeInUp delay={0.1}>
-            <div className="bg-card rounded-2xl p-8 card-hover border-l-4 border-primary">
-              <h3 className="font-display text-2xl font-bold text-primary mb-2">Monday — Chiswick</h3>
-              <div className="flex items-start gap-2 mb-4">
+            <div className="bg-card rounded-2xl p-8 card-hover border-l-4 border-primary h-full">
+              <h3 className="font-display text-2xl font-bold text-primary mb-2">Chiswick — Monday Nights</h3>
+              <div className="flex items-start gap-2 mb-1">
                 <MapPin size={16} className="text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-heading font-semibold text-sm">The George IV</p>
-                  <p className="text-muted-foreground text-xs">185 Chiswick High Rd, London W4 2DR</p>
-                  <p className="text-muted-foreground text-xs mt-0.5">Nearest tube: Turnham Green (District Line) · Buses: 190, 237, 267</p>
+                  <p className="font-heading font-semibold text-sm">The George IV, 185 Chiswick High Rd, W4 2DR</p>
+                  <p className="text-muted-foreground text-xs mt-0.5">(5 min walk from Turnham Green Tube, District Line)</p>
                 </div>
               </div>
-              <div className="space-y-2.5 text-sm mb-5">
-                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>7:15 PM — Doors Open</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>7:30 PM — Beginners Salsa & Bachata</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>8:00 PM — Improvers</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>8:30 PM — Intermediate</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>9:00–11:00 PM — Social Dancing</span></div>
+              <div className="space-y-2 text-sm my-5">
+                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>7:30pm — Beginners Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>8:00pm — Improvers Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>8:30pm — Intermediate+ Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>9:00pm–11:00pm — Social Dancing</span></div>
               </div>
               <p className="text-muted-foreground text-xs mb-5">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2.5 px-6">Book Monday</a>
+              <div className="flex flex-wrap gap-3">
+                <a href="https://maps.google.com/?q=The+George+IV,+185+Chiswick+High+Rd,+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold inline-flex items-center gap-1 hover:underline">Get Directions <ExternalLink size={11} /></a>
+                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-5">Book Now →</a>
+              </div>
             </div>
           </FadeInUp>
-          {/* Tuesday */}
           <FadeInUp delay={0.2}>
-            <div className="bg-card rounded-2xl p-8 card-hover border-l-4 border-peach">
-              <h3 className="font-display text-2xl font-bold text-peach mb-2">Tuesday — Ealing</h3>
-              <div className="flex items-start gap-2 mb-4">
+            <div className="bg-card rounded-2xl p-8 card-hover border-l-4 border-peach h-full">
+              <h3 className="font-display text-2xl font-bold text-peach mb-2">Ealing — Tuesday Nights</h3>
+              <div className="flex items-start gap-2 mb-1">
                 <MapPin size={16} className="text-peach flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-heading font-semibold text-sm">Drayton Court Hotel</p>
-                  <p className="text-muted-foreground text-xs">2 The Avenue, West Ealing, London W13 8PH</p>
-                  <p className="text-muted-foreground text-xs mt-0.5">Nearest station: West Ealing (Elizabeth Line) · Buses: 83, 207, E1</p>
+                  <p className="font-heading font-semibold text-sm">The Drayton Court Hotel, 2 The Avenue, W13 8PH</p>
+                  <p className="text-muted-foreground text-xs mt-0.5">(10 min walk from West Ealing Station, Elizabeth Line)</p>
                 </div>
               </div>
-              <div className="space-y-2.5 text-sm mb-5">
-                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>6:50–7:20 PM — Free Ladies Styling</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>7:30 PM — Beginners Salsa & Bachata</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>8:00 PM — Improvers</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>8:30 PM — Intermediate</span></div>
-                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>9:00–11:00 PM — Social Dancing</span></div>
+              <div className="space-y-2 text-sm my-5">
+                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span className="font-semibold">6:50pm — FREE Ladies Styling Warm-Up</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>7:30pm — Beginners Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>8:00pm — Improvers Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>8:30pm — Intermediate+ Salsa & Bachata</span></div>
+                <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>9:00pm–11:00pm — Social Dancing</span></div>
               </div>
               <p className="text-muted-foreground text-xs mb-5">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta text-xs py-2.5 px-6 bg-peach text-charcoal font-semibold hover:opacity-90 rounded-xl">Book Tuesday</a>
+              <div className="flex flex-wrap gap-3">
+                <a href="https://maps.google.com/?q=Drayton+Court+Hotel,+2+The+Avenue,+Ealing,+London+W13+8PH" target="_blank" rel="noopener noreferrer" className="text-peach text-xs font-heading font-semibold inline-flex items-center gap-1 hover:underline">Get Directions <ExternalLink size={11} /></a>
+                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta text-xs py-2 px-5 bg-peach text-charcoal font-semibold hover:opacity-90 rounded-xl">Book Now →</a>
+              </div>
             </div>
           </FadeInUp>
         </div>
       </div>
     </section>
 
-    {/* Which Level Are You? */}
-    <section className="section-padding bg-card">
-      <div className="container-main max-w-4xl">
-        <FadeInUp>
-          <h2 className="font-display text-3xl font-bold text-center mb-3">Which Level Are You?</h2>
-          <p className="text-muted-foreground text-center text-sm mb-10 max-w-xl mx-auto">Not sure where to start? Here's what each level covers. If in doubt, start with Beginners — Melitta will guide you up when you're ready.</p>
-        </FadeInUp>
-        <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
-          {[
-            { level: "Beginners", desc: "Never danced before? Start here. Learn the basic step, timing, partner connection and your first turns. Zero experience assumed.", colour: "text-green-600" },
-            { level: "Improvers", desc: "You know the basic step and a few turns. Now we build combinations, introduce styling, and develop your musicality and floor awareness.", colour: "text-primary" },
-            { level: "Intermediate", desc: "Confident social dancer looking to refine technique, learn advanced turn patterns, body movement, and performance-quality execution.", colour: "text-peach" },
-          ].map((l, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-background rounded-2xl p-6 card-hover h-full">
-                <h3 className={`font-heading font-bold mb-2 ${l.colour}`}>{l.level}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{l.desc}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
-
-    {/* What Happens at a Typical Class */}
+    {/* HOW THE EVENING WORKS */}
     <section className="section-padding section-dark">
-      <div className="container-main max-w-4xl">
+      <div className="container-main">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold text-center text-primary-foreground mb-3">What Happens at a Typical Pura Night</h2>
-          <p className="text-primary-foreground/50 text-center text-sm mb-12 max-w-xl mx-auto">Here's how a typical evening flows — whether you're a first-timer or a regular.</p>
+          <h2 className="font-display text-3xl font-bold text-center text-primary-foreground mb-3">How the Evening Works</h2>
+          <p className="text-primary-foreground/50 text-center text-sm mb-12 max-w-xl mx-auto">Five simple steps — no stress, no prep, no pressure.</p>
         </FadeInUp>
-        <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto" staggerDelay={0.1}>
           {[
-            { emoji: "🚪", title: "7:15 PM — Arrive", desc: "Doors open. Grab a drink, settle in, meet other dancers. No stress." },
-            { emoji: "🎓", title: "7:30 PM — Classes", desc: "Three levels run simultaneously. Melitta and team teach structured lessons with partner rotation." },
-            { emoji: "💃", title: "9:00 PM — Social", desc: "The DJ takes over. Practice what you learned, dance with everyone, enjoy the atmosphere." },
-            { emoji: "🌟", title: "11:00 PM — Home", desc: "Head home buzzing. Come back next week — that's when the magic compounds." },
+            { num: "1", title: "ARRIVE", desc: "Just turn up. No partner, no booking, no experience required." },
+            { num: "2", title: "WARM UP", desc: "Free ladies styling warm-up (Ealing) or hit the social floor early (Chiswick)." },
+            { num: "3", title: "LEARN", desc: "Choose your level: Beginners / Improvers / Intermediate." },
+            { num: "4", title: "SOCIAL", desc: "After classes, 2 hours of social dancing with everyone." },
+            { num: "5", title: "IMPROVE", desc: "Come back next week. Progress is fast when you're consistent." },
           ].map((s, i) => (
             <StaggerItem key={i}>
               <div className="text-center">
-                <div className="text-4xl mb-3">{s.emoji}</div>
-                <h3 className="font-heading font-bold text-sm text-primary-foreground mb-1">{s.title}</h3>
-                <p className="text-primary-foreground/60 text-xs leading-relaxed">{s.desc}</p>
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="font-display text-lg font-bold text-primary">{s.num}</span>
+                </div>
+                <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-primary-foreground mb-1">{s.title}</h3>
+                <p className="text-primary-foreground/50 text-xs leading-relaxed">{s.desc}</p>
               </div>
             </StaggerItem>
           ))}
@@ -156,76 +134,68 @@ const PuraNights = () => (
       </div>
     </section>
 
-    {/* What to Wear */}
-    <section className="section-padding section-warm">
-      <div className="container-main max-w-3xl">
-        <FadeInUp>
-          <h2 className="font-display text-3xl font-bold mb-6">What Should I Wear?</h2>
-          <div className="text-muted-foreground text-sm leading-relaxed space-y-3">
-            <p><strong className="text-foreground">Shoes:</strong> Flat-soled shoes that allow you to pivot easily. Clean trainers work well for beginners. Avoid thick-soled running shoes. As you progress, Latin dance shoes with a suede sole make turning dramatically easier.</p>
-            <p><strong className="text-foreground">Clothes:</strong> Comfortable, breathable clothing you can move in. Many regulars bring a spare top for the social — classes are active!</p>
-            <p><strong className="text-foreground">Water:</strong> Bring a water bottle. Both venues also have a bar.</p>
-          </div>
-        </FadeInUp>
-      </div>
-    </section>
-
-    {/* Can I Come Alone? */}
+    {/* THREE LEVELS EXPLAINED */}
     <section className="section-padding bg-card">
-      <div className="container-main max-w-3xl">
+      <div className="container-main max-w-4xl">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold mb-6">Can I Come Alone?</h2>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">Absolutely — and most of our students do! We rotate partners throughout every class, which means you'll dance with 8–15 different people in a single evening. This is deliberately designed to accelerate your learning and help you connect with the community naturally.</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">Many of our most dedicated regulars arrived solo and now consider Pura Nights their second family. The atmosphere is warm, inclusive, and actively welcoming of newcomers. You don't need to bring a partner — you just need to bring yourself.</p>
+          <h2 className="font-display text-3xl font-bold text-center mb-10">Three Levels Explained</h2>
         </FadeInUp>
+        <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {[
+            { level: "Beginners", desc: "From zero. Basic step, first partner moves, timing, frame.", quote: "Never danced before? This is where you start.", colour: "border-green-500" },
+            { level: "Improvers", desc: "You know the basics. Building combinations, turns, musicality.", quote: "Been a few times? This is where it starts to click.", colour: "border-primary" },
+            { level: "Intermediate+", desc: "Confident social dancer. Complex combinations, advanced styling.", quote: "Ready to push your dancing further.", colour: "border-peach" },
+          ].map((l, i) => (
+            <StaggerItem key={i}>
+              <div className={`bg-background rounded-2xl p-6 card-hover h-full border-l-4 ${l.colour}`}>
+                <h3 className="font-heading font-bold mb-2">{l.level}</h3>
+                <p className="text-muted-foreground text-sm mb-3">{l.desc}</p>
+                <p className="text-muted-foreground text-xs italic">"{l.quote}"</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+        <p className="text-center text-muted-foreground text-sm mt-6">Not sure which level? Come to Beginners — Melitta will guide you.</p>
       </div>
     </section>
 
-    {/* Why Chiswick & Ealing */}
-    <section className="section-padding section-warm">
-      <div className="container-main max-w-3xl">
+    {/* MONTHLY LATIN FRIDAYS */}
+    <section className="section-padding section-dark">
+      <div className="container-main max-w-3xl text-center">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold mb-6">Why Chiswick & Ealing?</h2>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">West London has always been one of the city's most culturally rich areas, and the Latin dance community here is thriving. Our two venues — The George IV in Chiswick and the Drayton Court Hotel in Ealing — were chosen for their accessibility, atmosphere, and capacity to hold our growing community.</p>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">Dancers travel from across London to Pura Nights: from Hammersmith, Acton, Shepherd's Bush, Brentford, Kew, Richmond, and even Central London. Both venues are well-connected by tube, bus, and rail, with street parking available after 6:30 PM.</p>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {["Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond", "West London"].map(area => (
-              <span key={area} className="text-xs font-accent bg-primary/10 text-primary px-3 py-1 rounded-full">{area}</span>
-            ))}
+          <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-3">Once a Month</p>
+          <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Monthly Latin Fridays</h2>
+          <p className="text-primary-foreground/60 mb-6 leading-relaxed">Once a month, Pura Nights goes all out. Live DJ, guest workshops, Pura Ladies performances, and a packed dance floor at the Drayton Court Hotel in Ealing.</p>
+          <div className="bg-charcoal-light rounded-2xl p-6 text-left mb-6 border border-primary-foreground/5">
+            <div className="grid grid-cols-3 gap-4 text-xs text-primary-foreground/70">
+              <div><p className="text-primary font-heading font-bold mb-1">Early Bird</p><p>£15 class+party</p><p>£10 party only</p></div>
+              <div><p className="text-primary font-heading font-bold mb-1">Standard</p><p>£17 class+party</p><p>£12 party only</p></div>
+              <div><p className="text-primary font-heading font-bold mb-1">Door</p><p>£20 class+party</p><p>£15 party only</p></div>
+            </div>
           </div>
-        </FadeInUp>
-      </div>
-    </section>
-
-    {/* Testimonials */}
-    <section className="section-padding bg-card">
-      <div className="container-main">
-        <FadeInUp>
-          <h2 className="font-display text-3xl font-bold text-center mb-8">What Our Students Say</h2>
-        </FadeInUp>
-        <TestimonialsCarousel />
-        <FadeInUp delay={0.2} className="text-center mt-6">
-          <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 transition-opacity inline-flex items-center gap-1">
-            Read All Testimonials <ChevronRight size={14} />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Get Tickets →</a>
+            <Link to="/events" className="btn-cta-ghost text-sm">See Upcoming Dates →</Link>
+          </div>
         </FadeInUp>
       </div>
     </section>
 
     {/* FAQ */}
-    <section className="section-padding section-dark">
+    <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
-        <h2 className="font-display text-3xl font-bold text-center text-primary-foreground mb-8">Class FAQs</h2>
+        <h2 className="font-display text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
         {[
-          { q: "Do I need to bring a partner?", a: "No! Many dancers come solo. We rotate partners throughout the class so you'll dance with lots of different people." },
-          { q: "Do I need to book in advance?", a: "No booking is required for weekly group classes — just turn up. You can also pre-book via our Linktree for guaranteed entry on busy weeks." },
-          { q: "What if I have two left feet?", a: "Perfect — that's exactly who Beginners class is designed for. Most of our students started with zero dance experience. Rhythm is a skill, not a gift." },
-          { q: "Can I just come for the social dancing?", a: "Experienced dancers are welcome to join the social from 9 PM (£5). We recommend taking the classes first to build your technique." },
-          { q: "How do I progress to the next level?", a: "Melitta and the team will invite you to move up when you're ready. There's no pressure — everyone progresses at their own pace." },
+          { q: "Do I need to book in advance?", a: "No — just turn up on the night. No booking required for weekly classes." },
+          { q: "Do I need to bring a partner?", a: "Absolutely not. We rotate partners throughout every class." },
+          { q: "I've never danced before. Can I really join?", a: "Yes. The Beginners class starts from zero every week." },
+          { q: "What should I wear?", a: "Comfortable clothes and flat-soled shoes. No high heels or open-toed shoes for your first class." },
+          { q: "Can I come to the social even if I don't take a class?", a: "Yes — £5 for social only at either venue." },
+          { q: "I took a class a couple of years ago. Which level should I join?", a: "Join Beginners to warm up and remind yourself of the basics, then see how you feel. Melitta will guide you to the right level." },
         ].map((faq, i) => (
-          <details key={i} className="border-b border-primary-foreground/10 py-4 group">
-            <summary className="font-heading font-semibold cursor-pointer text-primary-foreground/90 hover:text-primary transition-colors">{faq.q}</summary>
-            <p className="text-primary-foreground/60 text-sm mt-2 leading-relaxed">{faq.a}</p>
+          <details key={i} className="border-b border-border py-4 group">
+            <summary className="font-heading font-semibold cursor-pointer hover:text-primary transition-colors">{faq.q}</summary>
+            <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{faq.a}</p>
           </details>
         ))}
         <div className="text-center mt-8">
@@ -235,22 +205,17 @@ const PuraNights = () => (
     </section>
 
     <RelatedPages title="Related Pages" links={[
-      { to: "/prices", label: "Prices & Bundles", desc: "View all class pricing options" },
-      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching with Melitta" },
-      { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata? Begin here" },
-      { to: "/salsa-classes-london", label: "Salsa Classes London", desc: "All about Salsa in London" },
-      { to: "/bachata-classes-london", label: "Bachata Classes London", desc: "All about Bachata in London" },
-      { to: "/blog/salsa-vs-bachata", label: "Salsa vs Bachata", desc: "Which should you learn first?" },
-      { to: "/locations", label: "Locations & Directions", desc: "Chiswick & Ealing venue details" },
-      { to: "/events", label: "Monthly Events", desc: "Latin Fridays & special nights" },
-      { to: "/testimonials", label: "Student Reviews", desc: "What our dancers say" },
+      { to: "/prices", label: "Prices & Bundles" },
+      { to: "/events", label: "Monthly Events" },
+      { to: "/blog/beginners-guide-salsa-bachata-london", label: "Beginner's Guide" },
+      { to: "/locations", label: "Locations & Directions" },
     ]} />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Ready to Start Dancing?</h2>
-        <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">All levels welcome. No partner needed. Just turn up and let the music move you.</p>
+        <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">All levels welcome. No partner needed. Just turn up.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
           <Link to="/prices" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">View All Pricing</Link>
