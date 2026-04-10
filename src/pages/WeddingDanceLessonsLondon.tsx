@@ -12,13 +12,13 @@ const schema = {
   description: "Private wedding first dance lessons in London. Learn a beautiful choreographed routine with award-winning instructor Melitta Siomos.",
   provider: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Wedding Dance Choreographer" },
   areaServed: { "@type": "City", name: "London" },
-  offers: { "@type": "Offer", price: "85", priceCurrency: "GBP", description: "Per session (1 hour)" },
+  offers: { "@type": "Offer", availability: "https://schema.org/InStock", description: "Free consultation — bespoke pricing" },
 };
 
 const packages = [
-  { title: "The Essentials", sessions: "3 sessions", price: "£240", desc: "Perfect for couples who want to feel confident and natural. Learn a simple, elegant routine to your chosen song.", best: "Short timeline" },
-  { title: "The Classic", sessions: "5 sessions", price: "£395", desc: "Our most popular package. Build a polished routine with lifts, dips, and smooth transitions that wow your guests.", best: "Most couples" },
-  { title: "The Showstopper", sessions: "8+ sessions", price: "From £640", desc: "For couples who want a jaw-dropping performance. Full choreography with advanced moves, formations, and a dramatic finish.", best: "Maximum wow factor" },
+  { title: "The Essentials", sessions: "~3 sessions", desc: "Perfect for couples who want to feel confident and natural. Learn a simple, elegant routine to your chosen song.", best: "Short timeline" },
+  { title: "The Classic", sessions: "~5 sessions", desc: "Our most popular package. Build a polished routine with lifts, dips, and smooth transitions that wow your guests.", best: "Most couples" },
+  { title: "The Showstopper", sessions: "8+ sessions", desc: "For couples who want a jaw-dropping performance. Full choreography with advanced moves, formations, and a dramatic finish.", best: "Maximum wow factor" },
 ];
 
 const faqs = [
@@ -66,8 +66,7 @@ const WeddingDanceLessonsLondon = () => (
             <StaggerItem key={pkg.title}>
               <div className="bg-card rounded-2xl p-6 card-hover h-full flex flex-col border border-primary/20">
                 <h3 className="font-heading font-bold text-lg mb-1">{pkg.title}</h3>
-                <p className="text-primary font-display text-2xl font-bold mb-1">{pkg.price}</p>
-                <p className="text-muted-foreground text-xs mb-3">{pkg.sessions}</p>
+                <p className="text-primary font-heading text-sm font-semibold mb-1">{pkg.sessions}</p>
                 <p className="text-muted-foreground text-sm flex-1 mb-4">{pkg.desc}</p>
                 <span className="inline-block bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-heading">Best for: {pkg.best}</span>
               </div>

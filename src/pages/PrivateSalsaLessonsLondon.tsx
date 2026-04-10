@@ -34,7 +34,7 @@ const PrivateSalsaLessonsLondon = () => (
   <Layout>
     <SeoHead
       title="Private Salsa Lessons London | 1-to-1 with Melitta Siomos"
-      description="Book private Salsa lessons in London with Bachata UK Champion Melitta Siomos. Tailored 1-to-1 coaching at our Acton studio or online. £85/session. All levels."
+      description="Book private Salsa lessons in London with Bachata UK Champion Melitta Siomos. Tailored 1-to-1 coaching in West London or online. All levels welcome. Enquire for rates."
       path="/private-salsa-lessons-london"
       schema={schema}
     />
@@ -94,23 +94,20 @@ const PrivateSalsaLessonsLondon = () => (
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <FadeInUp>
-          <h2 className="font-display text-3xl font-bold mb-2">Pricing & Location</h2>
+          <h2 className="font-display text-3xl font-bold mb-2">Enquire About Rates</h2>
           <div className="h-1 w-20 bg-primary rounded-full mb-6" />
           <div className="bg-card rounded-2xl p-8 border border-primary/20">
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-heading font-bold mb-3">Rates</h3>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p>💷 <strong>£85</strong> per session (1 hour)</p>
-                  <p>💷 <strong>£395</strong> for 5-session bundle (save £30)</p>
-                  <p>💷 <strong>£640</strong> for 8-session bundle (save £40)</p>
-                </div>
+                <h3 className="font-heading font-bold mb-3">Pricing</h3>
+                <p className="text-sm text-muted-foreground mb-3">Private lesson rates are personalised to your goals, level, and schedule. Contact Melitta directly to discuss — she'll get back to you within 24 hours.</p>
+                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20Salsa%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs">💬 Enquire via WhatsApp</a>
               </div>
               <div>
                 <h3 className="font-heading font-bold mb-3">Location</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
-                  <p className="flex items-start gap-2"><MapPin size={14} className="text-primary mt-0.5" /> Private studio, Acton, West London</p>
-                  <p className="flex items-start gap-2"><Video size={14} className="text-primary mt-0.5" /> Online via Zoom (worldwide)</p>
+                  <p className="flex items-start gap-2"><MapPin size={14} className="text-primary mt-0.5" /> West London (flexible studio location)</p>
+                  <p className="flex items-start gap-2"><MapPin size={14} className="text-primary mt-0.5" /> Online via Zoom (worldwide)</p>
                 </div>
               </div>
             </div>
