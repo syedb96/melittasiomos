@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
-import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram } from "lucide-react";
+import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
