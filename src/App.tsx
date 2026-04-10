@@ -53,6 +53,8 @@ import PrivateSalsaLessonsLondon from "./pages/PrivateSalsaLessonsLondon";
 import LadiesStylingLondon from "./pages/LadiesStylingLondon";
 import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
 import Beginners from "./pages/Beginners";
+import TheGeorgeIVChiswick from "./pages/venue/TheGeorgeIVChiswick";
+import TheDraytonCourtEaling from "./pages/venue/TheDraytonCourtEaling";
 
 // Blog pages
 import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
@@ -206,6 +208,8 @@ const App = () => (
             <Route path="/ladies-styling-london" element={<LadiesStylingLondon />} />
             <Route path="/bachata-performance-team-london" element={<BachataPerformanceTeamLondon />} />
             <Route path="/beginners" element={<Beginners />} />
+            <Route path="/venue/the-george-iv-chiswick" element={<TheGeorgeIVChiswick />} />
+            <Route path="/venue/the-drayton-court-ealing" element={<TheDraytonCourtEaling />} />
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />
