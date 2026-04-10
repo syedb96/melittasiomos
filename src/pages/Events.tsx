@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import eventImg from "@/assets/latin-friday-event.jpg";
 
 const latinFridayDates2026 = [
   new Date(2026, 3, 10, 19, 15),  // April 10

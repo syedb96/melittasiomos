@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import communityImg from "@/assets/community-vibe.jpg";
 
 const vibeCards = [
   { icon: <Music size={28} />, title: "The Music", desc: "From classic salsa dura to modern bachata sensual — every night is curated for dancers who feel the rhythm in their bones." },

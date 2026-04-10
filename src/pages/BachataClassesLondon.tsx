@@ -3,6 +3,7 @@ import { Star, Trophy, Users, MapPin, Clock, ArrowRight, Heart } from "lucide-re
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import heroImg from "@/assets/bachata-close.jpg";
 
 const schema = {
   "@context": "https://schema.org",

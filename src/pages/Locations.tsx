@@ -4,6 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Clock, Train, Bus, Car, ChevronRight, ExternalLink } from "lucide-react";
+import venueImg from "@/assets/venue-exterior.jpg";
 
 const schema = {
   "@context": "https://schema.org",
