@@ -136,11 +136,14 @@ const Gallery = () => {
                       />
                     </div>
                   ) : (
-                    <div className="aspect-video bg-charcoal-light flex items-center justify-center relative">
-                      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                        <Play size={28} className="text-primary ml-1" />
-                      </div>
-                      <p className="absolute bottom-3 left-3 right-3 text-primary-foreground/40 text-[10px] font-heading">[Video coming soon]</p>
+                    <div className="aspect-video">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${v.videoId}`}
+                        title={v.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
                   )}
                   <div className="bg-charcoal-light p-4 border-t border-primary-foreground/5">
