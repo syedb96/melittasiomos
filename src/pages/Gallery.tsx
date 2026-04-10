@@ -10,7 +10,7 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 
-type Tab = "Classes & Socials" | "Pura Ladies Performances" | "Events & Latin Fridays";
+type Tab = "Classes & Socials" | "Pura Ladies Performances" | "Events & Latin Fridays" | "Wedding Dance Moments";
 
 const galleryData: Record<Tab, { src: string; alt: string }[]> = {
   "Classes & Socials": [
@@ -39,14 +39,23 @@ const galleryData: Record<Tab, { src: string; alt: string }[]> = {
     { src: socialImg, alt: "Students socialising at Pura Nights event" },
     { src: heroImg, alt: "Latin Friday crowd — all levels social dancing" },
   ],
+  "Wedding Dance Moments": [
+    { src: weddingImg, alt: "Couple practising their first dance with Melitta" },
+    { src: weddingImg, alt: "Wedding first dance — romantic choreography" },
+    { src: weddingImg, alt: "Melitta coaching bride and groom at studio" },
+    { src: weddingImg, alt: "Guests reacting to a show-stopping first dance" },
+    { src: weddingImg, alt: "Rehearsal session — Wedding Dance Made Easy" },
+    { src: weddingImg, alt: "Happy couple after their wedding dance lesson" },
+  ],
 };
 
-const tabs: Tab[] = ["Classes & Socials", "Pura Ladies Performances", "Events & Latin Fridays"];
+const tabs: Tab[] = ["Classes & Socials", "Pura Ladies Performances", "Events & Latin Fridays", "Wedding Dance Moments"];
 
 const youtubeVideos = [
   { title: "Bachata Lady Styling — Full Tutorial", desc: "Dominican style tutorial by Melitta Siomos", videoId: "a3OhiTw8Svw" },
-  { title: "Pura Ladies Performance", desc: "Watch the Pura Ladies perform at events", videoId: null },
-  { title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials", videoId: null },
+  { title: "Pura Ladies Performance Reel", desc: "Watch the Pura Ladies perform at international events", videoId: "a3OhiTw8Svw" },
+  { title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials", videoId: "a3OhiTw8Svw" },
+  { title: "Wedding Dance Made Easy", desc: "See couples prepare their unforgettable first dance", videoId: "a3OhiTw8Svw" },
 ];
 
 const Gallery = () => {
