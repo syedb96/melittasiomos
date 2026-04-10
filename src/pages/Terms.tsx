@@ -13,8 +13,8 @@ const Terms = () => (
           <h2 className="font-display text-xl font-bold text-foreground">Class Bookings</h2>
           <p>Classes can be booked via Ticket Tailor or paid in cash at the door. Pre-booked tickets are non-refundable but may be transferred to another date within 30 days, subject to availability.</p>
 
-          <h2 className="font-display text-xl font-bold text-foreground">Subscriptions & Packages</h2>
-          <p>Monthly subscriptions (Bronze, Silver, Gold) are valid for one calendar month from date of purchase. Gold Unlimited can be cancelled with 7 days' written notice. Class credits do not roll over between months.</p>
+          <h2 className="font-display text-xl font-bold text-foreground">Class Bundles & Monthly Passes</h2>
+          <p>5-class and 10-class bundles are valid for 8 weeks and 16 weeks respectively from date of purchase. Monthly unlimited passes run on a rolling monthly basis and can be cancelled with 7 days' written notice. Unused class credits do not roll over. Bundles are venue-specific unless otherwise agreed.</p>
 
           <h2 className="font-display text-xl font-bold text-foreground">Private Lessons</h2>
           <p>Private lesson cancellations require 48 hours' notice. Cancellations with less than 48 hours' notice may be charged in full. Packages are non-refundable but can be rescheduled.</p>
