@@ -19,21 +19,43 @@ const enquiryTypes = [
   "General Enquiry",
 ];
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200, "Name must be under 200 characters"),
+  email: z.string().trim().email("Please enter a valid email").max(255, "Email must be under 255 characters"),
+  phone: z.string().max(30, "Phone must be under 30 characters").optional().or(z.literal("")),
+  enquiry: z.string().refine((v) => enquiryTypes.includes(v), "Please select an enquiry type"),
+  message: z.string().trim().min(1, "Message is required").max(5000, "Message must be under 5000 characters"),
+});
+
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((issue) => {
+        const field = issue.path[0] as string;
+        if (!fieldErrors[field]) fieldErrors[field] = issue.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
     setSubmitting(true);
     try {
       const { error } = await supabase.from("contact_submissions").insert({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        enquiry_type: formData.enquiry,
-        message: formData.message,
+        name: result.data.name,
+        email: result.data.email,
+        phone: result.data.phone || null,
+        enquiry_type: result.data.enquiry,
+        message: result.data.message,
       });
       if (error) throw error;
       setSubmitted(true);
@@ -41,8 +63,7 @@ const Contact = () => {
         setSubmitted(false);
         setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
       }, 8000);
-    } catch (err) {
-      console.error("Contact form error:", err);
+    } catch {
       alert("Something went wrong. Please try WhatsApp instead.");
     } finally {
       setSubmitting(false);
