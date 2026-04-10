@@ -76,8 +76,8 @@ const PuraLadies = () => (
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-6">Watch Us Perform</h2>
           <div className="aspect-video rounded-2xl overflow-hidden">
             <iframe
-              src="https://www.youtube.com/embed/?listType=user_uploads&list=melittasiomos"
-              title="Pura Ladies performances"
+              src="https://www.youtube.com/embed/a3OhiTw8Svw"
+              title="Pura Ladies — Bachata Lady Styling by Melitta Siomos"
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

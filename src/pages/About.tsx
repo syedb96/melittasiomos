@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
-import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram } from "lucide-react";
+import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
@@ -219,6 +219,32 @@ const About = () => {
         <FadeInUp delay={0.3}>
           <Link to="/contact" className="btn-cta-primary text-sm mt-8 inline-block">Get in Touch</Link>
         </FadeInUp>
+      </div>
+    </section>
+
+    {/* Google Business Profiles */}
+    <section className="py-10 bg-card">
+      <div className="container-main max-w-4xl">
+        <FadeInUp>
+          <h2 className="font-display text-2xl font-bold text-center mb-2">Find Melitta's Brands on Google</h2>
+          <p className="text-muted-foreground text-center text-xs mb-8 font-heading">All verified · All 5-star rated</p>
+        </FadeInUp>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { name: "Pura Nights", sub: "Weekly Classes", url: "https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" },
+            { name: "Wedding Dance Made Easy", sub: "First Dance", url: "https://maps.google.com/?q=Wedding+Dance+Made+Easy+Melitta+Siomos+London" },
+            { name: "Pura Ladies", sub: "Performance", url: "https://maps.google.com/?q=Pura+Ladies+Dance+Company+London" },
+            { name: "Melitta Siomos", sub: "Academy", url: "https://maps.google.com/?q=Melitta+Siomos+Dance+Academy+London" },
+          ].map(p => (
+            <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" className="bg-background rounded-2xl p-4 card-hover text-center block group">
+              <p className="font-heading font-bold text-sm group-hover:text-primary transition-colors">{p.name}</p>
+              <p className="text-muted-foreground text-[10px] font-heading mb-1.5">{p.sub}</p>
+              <div className="flex justify-center gap-0.5">
+                {[...Array(5)].map((_, i) => <Star key={i} size={9} className="fill-primary text-primary" />)}
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 

@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { Link } from "react-router-dom";
-import { Star, Heart, CheckCircle, ChevronRight } from "lucide-react";
+import { Star, Heart, CheckCircle, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -186,11 +186,18 @@ const WeddingDance = () => (
 
     {/* Trust */}
     <section className="py-8 bg-charcoal">
-      <div className="container-main flex flex-wrap items-center justify-center gap-8 text-primary-foreground/60 text-xs font-accent">
-        <span>⭐ 5.0 Google Rating</span>
-        <span>🏆 Bachata UK Champion</span>
-        <span>💑 Dozens of Couples Coached</span>
-        <span>🎓 15+ Years Experience</span>
+      <div className="container-main">
+        <div className="flex flex-wrap items-center justify-center gap-8 text-primary-foreground/60 text-xs font-accent mb-4">
+          <span>⭐ 5.0 Google Rating</span>
+          <span>🏆 Bachata UK Champion</span>
+          <span>💑 Dozens of Couples Coached</span>
+          <span>🎓 15+ Years Experience</span>
+        </div>
+        <div className="text-center">
+          <a href="https://maps.google.com/?q=Wedding+Dance+Made+Easy+Melitta+Siomos+London" target="_blank" rel="noopener noreferrer" className="text-primary text-[10px] font-heading font-semibold hover:underline inline-flex items-center gap-1">
+            Find Wedding Dance Made Easy on Google <ExternalLink size={9} />
+          </a>
+        </div>
       </div>
     </section>
 

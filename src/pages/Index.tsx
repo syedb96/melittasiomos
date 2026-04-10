@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Star, Users, GraduationCap, Heart, Clock, MapPin, ArrowDown, Gift, ChevronRight, Award, Sparkles, Music, Instagram } from "lucide-react";
+import { Star, Users, GraduationCap, Heart, Clock, MapPin, ArrowDown, Gift, ChevronRight, Award, Sparkles, Music, Instagram, ExternalLink } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
@@ -408,7 +408,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 12 — GIFT VOUCHERS STRIP */}
+      {/* SECTION 12 — GOOGLE BUSINESS PROFILES */}
+      <section className="py-10 bg-card border-y border-border">
+        <div className="container-main">
+          <FadeInUp>
+            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">Trusted & Verified</p>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-2">Find Our Brands on Google</h2>
+            <p className="text-muted-foreground text-center text-xs mb-8 font-heading">4 brands · All 5-star rated · Verified on Google</p>
+          </FadeInUp>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto" staggerDelay={0.1}>
+            {[
+              { name: "Pura Nights", sub: "Weekly Classes", url: "https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London", emoji: "🎶" },
+              { name: "Wedding Dance Made Easy", sub: "First Dance Coaching", url: "https://maps.google.com/?q=Wedding+Dance+Made+Easy+Melitta+Siomos+London", emoji: "💑" },
+              { name: "Pura Ladies", sub: "Performance Company", url: "https://maps.google.com/?q=Pura+Ladies+Dance+Company+London", emoji: "👗" },
+              { name: "Melitta Siomos", sub: "Dance Academy", url: "https://maps.google.com/?q=Melitta+Siomos+Dance+Academy+London", emoji: "🏆" },
+            ].map((brand, i) => (
+              <StaggerItem key={i}>
+                <a href={brand.url} target="_blank" rel="noopener noreferrer" className="bg-background rounded-2xl p-5 card-hover text-center block h-full group">
+                  <span className="text-2xl block mb-2">{brand.emoji}</span>
+                  <h3 className="font-heading font-bold text-sm mb-0.5 group-hover:text-primary transition-colors">{brand.name}</h3>
+                  <p className="text-muted-foreground text-[10px] font-heading mb-2">{brand.sub}</p>
+                  <div className="flex justify-center gap-0.5 mb-1.5">
+                    {[...Array(5)].map((_, j) => <Star key={j} size={10} className="fill-primary text-primary" />)}
+                  </div>
+                  <span className="text-primary text-[10px] font-heading font-semibold inline-flex items-center gap-0.5">View on Google <ExternalLink size={8} /></span>
+                </a>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* SECTION 13 — GIFT VOUCHERS STRIP */}
       <section className="py-12" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main text-center">
           <h3 className="font-display text-2xl font-bold text-charcoal mb-2">🎁 Give the Gift of Dance</h3>

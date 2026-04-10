@@ -44,9 +44,9 @@ const galleryData: Record<Tab, { src: string; alt: string }[]> = {
 const tabs: Tab[] = ["Classes & Socials", "Pura Ladies Performances", "Events & Latin Fridays"];
 
 const youtubeVideos = [
-  { title: "Pura Ladies Performance — Latin Friday", desc: "Watch the Pura Ladies perform at our monthly socials" },
-  { title: "Melitta Siomos Teaching Demo", desc: "See Melitta's teaching style and class atmosphere" },
-  { title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials" },
+  { title: "Bachata Lady Styling — Full Tutorial", desc: "Dominican style tutorial by Melitta Siomos", videoId: "a3OhiTw8Svw" },
+  { title: "Pura Ladies Performance", desc: "Watch the Pura Ladies perform at events", videoId: null },
+  { title: "Monthly Latin Friday Highlights", desc: "Experience the energy of our Latin Friday socials", videoId: null },
 ];
 
 const Gallery = () => {
@@ -116,12 +116,24 @@ const Gallery = () => {
             {youtubeVideos.map((v, i) => (
               <StaggerItem key={i}>
                 <div className="rounded-2xl overflow-hidden card-hover">
-                  <div className="aspect-video bg-charcoal-light flex items-center justify-center relative">
-                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Play size={28} className="text-primary ml-1" />
+                  {v.videoId ? (
+                    <div className="aspect-video">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${v.videoId}`}
+                        title={v.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
-                    <p className="absolute bottom-3 left-3 right-3 text-primary-foreground/40 text-[10px] font-heading">[Replace with YouTube embed]</p>
-                  </div>
+                  ) : (
+                    <div className="aspect-video bg-charcoal-light flex items-center justify-center relative">
+                      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+                        <Play size={28} className="text-primary ml-1" />
+                      </div>
+                      <p className="absolute bottom-3 left-3 right-3 text-primary-foreground/40 text-[10px] font-heading">[Video coming soon]</p>
+                    </div>
+                  )}
                   <div className="bg-charcoal-light p-4 border-t border-primary-foreground/5">
                     <p className="text-primary-foreground/90 text-sm font-heading font-semibold mb-1">{v.title}</p>
                     <p className="text-primary-foreground/50 text-xs">{v.desc}</p>

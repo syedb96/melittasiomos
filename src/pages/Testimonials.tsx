@@ -69,7 +69,7 @@ const Testimonials = () => {
             <div className="bg-primary rounded-2xl p-8">
               <h2 className="font-display text-2xl font-bold text-primary-foreground mb-3">Love Your Experience?</h2>
               <p className="text-primary-foreground/80 mb-5 font-heading text-sm">Help other dancers discover Pura Nights by leaving a review</p>
-              <a href="https://g.page/r/puranights/review" target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Leave a Google Review ⭐</a>
+              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Leave a Google Review ⭐</a>
             </div>
           </FadeInUp>
         </div>
