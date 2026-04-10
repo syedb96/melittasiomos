@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { User, Clock, Star, Target, MapPin, Video } from "lucide-react";
+import { User, Clock, Star, Target, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
