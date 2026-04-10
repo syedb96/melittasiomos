@@ -162,7 +162,35 @@ const Community = () => (
       </div>
     </section>
 
-    {/* Connect */}
+    {/* Common Questions */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">You Might Be Wondering…</h2>
+          <p className="text-muted-foreground text-center max-w-lg mx-auto mb-10">Honest answers to the things people ask before their first class.</p>
+        </FadeInUp>
+        <div className="space-y-4">
+          {[
+            { q: "Can I come alone?", a: "Absolutely. Most of our students come solo. Partners rotate during class, so you'll dance with everyone and make friends fast." },
+            { q: "Will I fit in if I have no experience?", a: "Yes — over half our students started as complete beginners. Our classes are designed so you can walk in with zero experience and leave feeling great." },
+            { q: "Is it cliquey?", a: "Not at all. We actively build a culture of openness and warmth. Regulars go out of their way to welcome newcomers." },
+            { q: "What kind of people come?", a: "All kinds — ages 20s to 60s, all backgrounds, all professions. What everyone has in common is a love of music, movement, and good energy." },
+            { q: "What if I have two left feet?", a: "Then you're exactly who this is for. Everyone starts somewhere. Our instructors break everything down step by step." },
+          ].map((item, i) => (
+            <FadeInUp key={i} delay={i * 0.06}>
+              <details className="group bg-card rounded-xl border border-border">
+                <summary className="cursor-pointer p-5 font-heading font-semibold text-sm flex items-center justify-between">
+                  {item.q}
+                  <span className="text-primary group-open:rotate-45 transition-transform text-lg">+</span>
+                </summary>
+                <p className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+              </details>
+            </FadeInUp>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section className="section-padding bg-charcoal text-primary-foreground text-center">
       <div className="container-main max-w-3xl">
         <FadeInUp>

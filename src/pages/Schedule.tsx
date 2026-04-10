@@ -67,6 +67,10 @@ const Schedule = () => (
                   </div>
                 ))}
               </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
+                <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
+              </div>
             </div>
           </FadeInUp>
 
@@ -90,6 +94,7 @@ const Schedule = () => (
               </div>
               <div className="space-y-3">
                 {[
+                  { time: "6:50 – 7:20 PM", label: "🆓 Free Ladies Styling Warm-Up", color: "text-peach" },
                   { time: "6:50 – 7:35 PM", label: "Beginners Salsa", color: "text-secondary" },
                   { time: "7:35 – 8:20 PM", label: "Beginners Bachata", color: "text-secondary" },
                   { time: "8:20 – 9:05 PM", label: "Intermediate Salsa", color: "text-primary" },
@@ -104,6 +109,10 @@ const Schedule = () => (
                     <span className="text-xs text-muted-foreground font-accent">{slot.time}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
+                <a href="https://maps.google.com/?q=Drayton+Court+Hotel+2+The+Avenue+Ealing+W13+8PH" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
               </div>
             </div>
           </FadeInUp>

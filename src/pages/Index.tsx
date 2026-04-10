@@ -75,7 +75,7 @@ const Index = () => {
         <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="font-accent text-xs tracking-[0.3em] uppercase text-primary mb-6">
-            SALSA & BACHATA · WEST LONDON · ALL LEVELS WELCOME
+            SALSA & BACHATA · WEST / SOUTH WEST LONDON · ALL LEVELS WELCOME
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }} className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6">
             Dance Like You Mean It
@@ -321,6 +321,38 @@ const Index = () => {
           <TestimonialsCarousel />
           <FadeInUp delay={0.3} className="text-center mt-8">
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* SOCIAL VIBE SECTION */}
+      {/* <!-- WIX: Strip + Repeater grid --> */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-5xl">
+          <FadeInUp>
+            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">More Than Steps</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">Why People Keep Coming Back</h2>
+            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">It's not just a class — it's a mood reset, a social life upgrade, and the best midweek plan you'll ever make.</p>
+          </FadeInUp>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" staggerDelay={0.08}>
+            {[
+              { emoji: "🤝", title: "Make Real Friends", desc: "Not small talk — real friendships that extend beyond the dance floor" },
+              { emoji: "✨", title: "Feel Good After Work", desc: "Music, movement, and laughter — better than any gym session" },
+              { emoji: "💃", title: "Build Confidence", desc: "Every class leaves you standing taller and smiling wider" },
+              { emoji: "🎉", title: "Be Part of Something", desc: "A vibrant, stylish community that genuinely cares" },
+              { emoji: "🌍", title: "All Are Welcome", desc: "Every age, background, and ability. Come alone or with friends" },
+            ].map((v, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-card rounded-2xl p-6 text-center card-hover h-full">
+                  <span className="text-2xl block mb-3">{v.emoji}</span>
+                  <h3 className="font-heading font-bold text-sm mb-2">{v.title}</h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">{v.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <FadeInUp delay={0.3} className="text-center mt-8">
+            <Link to="/community" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Explore the Community <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
       </section>
