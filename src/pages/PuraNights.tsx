@@ -142,7 +142,7 @@ const PuraNights = () => (
         </FadeInUp>
         <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
           {[
-            { level: "Beginners", desc: "From zero. Basic step, first partner moves, timing, frame.", quote: "Never danced before? This is where you start.", colour: "border-green-500" },
+            { level: "Beginners", desc: "From zero. Basic step, first partner moves, timing, frame.", quote: "Never danced before? This is where you start.", colour: "border-secondary" },
             { level: "Improvers", desc: "You know the basics. Building combinations, turns, musicality.", quote: "Been a few times? This is where it starts to click.", colour: "border-primary" },
             { level: "Intermediate+", desc: "Confident social dancer. Complex combinations, advanced styling.", quote: "Ready to push your dancing further.", colour: "border-peach" },
           ].map((l, i) => (

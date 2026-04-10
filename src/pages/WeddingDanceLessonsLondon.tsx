@@ -124,8 +124,8 @@ const WeddingDanceLessonsLondon = () => (
     <section className="section-padding bg-primary text-center">
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Make Your First Dance Unforgettable</h2>
-        <p className="text-primary-foreground/80 mb-8">Book your free consultation today. Packages from £240.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Consultation</a>
+        <p className="text-primary-foreground/80 mb-8">Book your free consultation today — no obligation, just a friendly chat about your vision.</p>
+        <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Free Consultation</a>
       </div>
     </section>
 
