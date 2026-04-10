@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Star, ExternalLink } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-charcoal text-primary-foreground/60">
@@ -11,6 +11,16 @@ const Footer = () => (
       <h4 className="font-display text-2xl font-bold text-primary-foreground mb-1">Melitta Siomos Dance Academy</h4>
       <p className="text-primary-foreground/40 text-xs font-heading mb-2">Award-winning Salsa & Bachata instruction in West London since 2017</p>
       <p className="text-primary-foreground/30 text-[11px] font-heading max-w-md mx-auto mb-5">Weekly classes · Private coaching · Wedding dance · Performance teams · Monthly Latin socials</p>
+      
+      {/* Google Review Badge */}
+      <div className="flex justify-center mb-5">
+        <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground/5 rounded-full px-4 py-2 hover:bg-primary-foreground/10 transition-colors">
+          <span className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-primary text-primary" />)}</span>
+          <span className="text-primary-foreground text-xs font-heading font-semibold">5.0</span>
+          <span className="text-primary-foreground/40 text-[10px] font-heading">on Google</span>
+        </a>
+      </div>
+
       <div className="flex justify-center gap-4">
         {[
           { href: "https://www.instagram.com/melittasiomos/", label: "@melittasiomos" },
@@ -92,6 +102,27 @@ const Footer = () => (
           <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-heading font-semibold text-charcoal transition-all hover:opacity-90 mt-4" style={{ background: 'var(--gradient-gold)' }}>
             💬 WhatsApp Melitta
           </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Google Business Profiles */}
+    <div className="border-t border-primary-foreground/6">
+      <div className="container-main py-8">
+        <h5 className="font-heading font-semibold text-primary-foreground/40 text-[10px] tracking-wider uppercase text-center mb-5">Find Us on Google</h5>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          {[
+            { name: "Pura Nights", desc: "Weekly Classes", url: "https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" },
+            { name: "Wedding Dance Made Easy", desc: "First Dance Coaching", url: "https://maps.google.com/?q=Wedding+Dance+Made+Easy+Melitta+Siomos+London" },
+            { name: "Pura Ladies", desc: "Performance Company", url: "https://maps.google.com/?q=Pura+Ladies+Dance+Company+London" },
+            { name: "Melitta Siomos", desc: "Dance Academy", url: "https://maps.google.com/?q=Melitta+Siomos+Dance+Academy+London" },
+          ].map(p => (
+            <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" className="bg-primary-foreground/3 rounded-xl p-3 text-center hover:bg-primary-foreground/6 transition-colors group">
+              <p className="text-primary-foreground/70 text-xs font-heading font-semibold group-hover:text-primary transition-colors">{p.name}</p>
+              <p className="text-primary-foreground/30 text-[10px] font-heading">{p.desc}</p>
+              <span className="text-primary/60 text-[10px] font-heading inline-flex items-center gap-0.5 mt-1">View on Google <ExternalLink size={8} /></span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
