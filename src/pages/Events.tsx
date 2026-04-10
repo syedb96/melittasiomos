@@ -193,7 +193,7 @@ const Events = () => {
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Don't Miss Out</h2>
           <p className="text-primary-foreground/80 mb-8">Follow us for event announcements and last-minute deals.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">📲 Follow @puranights</a>
+            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">📲 Follow @puranights.salsabachata</a>
             <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-outline">💬 Join WhatsApp Group</a>
           </div>
         </div>
