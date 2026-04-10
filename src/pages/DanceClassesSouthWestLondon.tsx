@@ -4,12 +4,22 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Dance Classes South West London — Salsa & Bachata",
+  description: "Weekly salsa and bachata dance classes accessible from South West London. Venues in Chiswick and Ealing, West London.",
+  provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
+  areaServed: ["South West London", "Putney", "Richmond", "Barnes", "Fulham", "Hammersmith", "Chiswick", "Ealing"],
+};
+
 const DanceClassesSouthWestLondon = () => (
   <Layout>
     <SeoHead
       title="Dance Classes South West London | Salsa & Bachata | Melitta Siomos"
       description="Find the best salsa and bachata dance classes in South West London with Melitta Siomos. Weekly classes in Chiswick & Ealing, private lessons, wedding dance. All levels welcome."
       path="/dance-classes-south-west-london"
+      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">
@@ -39,7 +49,7 @@ const DanceClassesSouthWestLondon = () => (
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-card rounded-lg p-8 border border-primary/20">
             <h3 className="font-display text-xl font-bold text-primary mb-3">Monday — Chiswick</h3>
-            <p className="text-sm text-muted-foreground mb-2 flex items-center gap-1"><MapPin size={14} /> The George IV Pub, 85 Chiswick High Rd, W4 2DR</p>
+            <p className="text-sm text-muted-foreground mb-2 flex items-center gap-1"><MapPin size={14} /> The George IV, 185 Chiswick High Rd, W4 2DR</p>
             <div className="space-y-2 text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-2"><Clock size={14} className="text-primary" />7:30–8:15 PM — Salsa</div>
               <div className="flex items-center gap-2"><Clock size={14} className="text-primary" />8:15–9:00 PM — Bachata</div>

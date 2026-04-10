@@ -5,12 +5,28 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Clock, Train, Bus, Car, ChevronRight, ExternalLink } from "lucide-react";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Pura Nights by Melitta Siomos",
+  description: "Weekly Salsa and Bachata dance classes in Chiswick and Ealing, West London. Venues at The George IV and Drayton Court Hotel.",
+  url: "https://www.puranights.com",
+  telephone: "+447449482343",
+  email: "siomosmelitta@gmail.com",
+  areaServed: "West London",
+  location: [
+    { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
+    { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
+  ],
+};
+
 const Locations = () => (
   <Layout>
     <SeoHead
       title="Class Locations — Chiswick & Ealing | Pura Nights by Melitta Siomos"
       description="Find Pura Nights Salsa & Bachata classes at The George IV in Chiswick (Mondays) and Drayton Court Hotel in Ealing (Tuesdays). Directions, transport, and parking info."
       path="/locations"
+      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">

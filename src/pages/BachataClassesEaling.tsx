@@ -9,11 +9,11 @@ const schema = {
   "@type": "Event",
   name: "Pura Nights Bachata Classes Ealing",
   description: "Weekly bachata and salsa classes every Tuesday at Drayton Court Hotel, Ealing.",
-  startDate: "2025-01-07T19:30",
+  startDate: "2026-01-06T19:30",
   eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Tuesday", startTime: "19:30", endTime: "23:00" },
   location: { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-  offers: { "@type": "Offer", price: "5.50", priceCurrency: "GBP" },
+  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
 };
 
 const BachataClassesEaling = () => (

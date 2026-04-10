@@ -5,9 +5,21 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp } from "@/components/animations";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Bachata Classes Chiswick — Pura Nights",
+  description: "Weekly bachata classes every Monday at The George IV, Chiswick. All levels welcome.",
+  startDate: "2026-01-05T19:30",
+  eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
+  location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
+  organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
+  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
+};
+
 const BachataClassesChiswick = () => (
   <Layout>
-    <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" />
+    <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" schema={schema} />
     <section className="bg-charcoal text-primary-foreground section-padding">
       <div className="container-main max-w-4xl">
         <nav className="text-xs text-primary-foreground/40 mb-8 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/bachata-classes-london" className="hover:text-primary">Bachata London</Link> / <span className="text-primary">Chiswick</span></nav>

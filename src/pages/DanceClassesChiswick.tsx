@@ -10,11 +10,11 @@ const schema = {
   "@type": "Event",
   name: "Pura Nights Dance Classes Chiswick",
   description: "Weekly salsa and bachata dance classes every Monday at The George IV, Chiswick. All levels welcome.",
-  startDate: "2025-01-06T19:30",
+  startDate: "2026-01-05T19:30",
   eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
   location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-  offers: { "@type": "Offer", price: "5.50", priceCurrency: "GBP" },
+  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
 };
 
 const nearby = [

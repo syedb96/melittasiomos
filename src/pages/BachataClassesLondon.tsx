@@ -59,7 +59,7 @@ const BachataClassesLondon = () => (
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="bg-charcoal-light rounded-lg p-8 border border-primary/20">
             <h3 className="font-display text-2xl font-bold text-primary mb-2">Monday — Chiswick</h3>
-            <p className="text-primary-foreground/60 text-sm mb-4 flex items-center gap-1"><MapPin size={14} /> The George IV Pub, 85 Chiswick High Rd, W4 2DR</p>
+            <p className="text-primary-foreground/60 text-sm mb-4 flex items-center gap-1"><MapPin size={14} /> The George IV, 185 Chiswick High Rd, W4 2DR</p>
             <div className="space-y-3 text-sm text-primary-foreground/80">
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />8:15–9:00 PM — Bachata Class (all levels)</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />9:00–11:00 PM — Social Dancing (50% Bachata)</div>
