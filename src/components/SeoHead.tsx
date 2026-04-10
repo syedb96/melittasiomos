@@ -35,7 +35,6 @@ const globalSchema = {
     "https://www.youtube.com/@melittasiomos",
   ],
   founder: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Award-Winning Salsa & Bachata Dance Instructor" },
-  award: ["Bachata UK Champion"],
   areaServed: ["Chiswick", "Ealing", "Acton", "West Ealing", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond", "West London", "Central London", "London"],
   award: "Bachata UK Champion",
 };
