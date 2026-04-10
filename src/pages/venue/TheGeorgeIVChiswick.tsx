@@ -254,13 +254,13 @@ const TheGeorgeIVChiswick = () => (
       </div>
     </section>
 
-    <RelatedPages pages={[
-      { title: "Salsa Classes Chiswick", path: "/salsa-classes-chiswick" },
-      { title: "Dance Classes Chiswick", path: "/dance-classes-chiswick" },
-      { title: "Tuesday at The Drayton Court", path: "/venue/the-drayton-court-ealing" },
-      { title: "Full Schedule", path: "/schedule" },
-      { title: "Prices & Bundles", path: "/prices" },
-      { title: "Start Here", path: "/start-here" },
+    <RelatedPages links={[
+      { label: "Salsa Classes Chiswick", to: "/salsa-classes-chiswick" },
+      { label: "Dance Classes Chiswick", to: "/dance-classes-chiswick" },
+      { label: "Tuesday at The Drayton Court", to: "/venue/the-drayton-court-ealing" },
+      { label: "Full Schedule", to: "/schedule" },
+      { label: "Prices & Bundles", to: "/prices" },
+      { label: "Start Here", to: "/start-here" },
     ]} />
   </Layout>
 );

@@ -272,13 +272,13 @@ const TheDraytonCourtEaling = () => (
       </div>
     </section>
 
-    <RelatedPages pages={[
-      { title: "Bachata Classes Ealing", path: "/bachata-classes-ealing" },
-      { title: "Dance Classes Ealing", path: "/dance-classes-ealing" },
-      { title: "Monday at The George IV", path: "/venue/the-george-iv-chiswick" },
-      { title: "Full Schedule", path: "/schedule" },
-      { title: "Prices & Bundles", path: "/prices" },
-      { title: "Start Here", path: "/start-here" },
+    <RelatedPages links={[
+      { label: "Bachata Classes Ealing", to: "/bachata-classes-ealing" },
+      { label: "Dance Classes Ealing", to: "/dance-classes-ealing" },
+      { label: "Monday at The George IV", to: "/venue/the-george-iv-chiswick" },
+      { label: "Full Schedule", to: "/schedule" },
+      { label: "Prices & Bundles", to: "/prices" },
+      { label: "Start Here", to: "/start-here" },
     ]} />
   </Layout>
 );
