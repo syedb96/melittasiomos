@@ -7,14 +7,16 @@ const quickLinks = [
   { to: "/", label: "Home", emoji: "🏠" },
   { to: "/pura-nights", label: "Weekly Classes", emoji: "💃" },
   { to: "/prices", label: "Prices", emoji: "💷" },
-  { to: "/blog", label: "Blog", emoji: "📖" },
+  { to: "/blog", label: "Blog & Guides", emoji: "📖" },
   { to: "/events", label: "Events", emoji: "🔥" },
   { to: "/contact", label: "Contact", emoji: "📬" },
+  { to: "/wedding-dance", label: "Wedding Dance", emoji: "💑" },
+  { to: "/start-here", label: "Start Here", emoji: "🌟" },
 ];
 
 const NotFound = () => (
   <Layout>
-    <SeoHead title="Page Not Found | Pura Nights" description="The page you're looking for doesn't exist. Browse our salsa and bachata classes, wedding dance lessons, and more." path="/404" />
+    <SeoHead title="Page Not Found | Melitta Siomos Dance Academy" description="The page you're looking for doesn't exist. Browse our salsa and bachata classes, wedding dance lessons, and more in West London." path="/404" />
     <section className="section-padding section-dark text-center min-h-[70vh] flex items-center justify-center">
       <div className="max-w-2xl mx-auto">
         <motion.h1
@@ -31,7 +33,7 @@ const NotFound = () => (
           transition={{ delay: 0.2, duration: 0.5 }}
           className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-3"
         >
-          Looks like this page took a wrong turn on the dance floor.
+          This page doesn't exist — but the music's still playing.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -39,14 +41,14 @@ const NotFound = () => (
           transition={{ delay: 0.4 }}
           className="text-primary-foreground/60 mb-10 font-heading"
         >
-          Don't worry — the music's still playing. Find what you need below:
+          Let's get you back on the dance floor. Here are some helpful links:
         </motion.p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
           {quickLinks.map((page) => (
             <Link key={page.to} to={page.to} className="bg-charcoal-light rounded-xl p-4 card-hover flex flex-col items-center gap-1.5 text-center">
               <span className="text-2xl">{page.emoji}</span>
-              <span className="font-heading font-semibold text-sm text-primary-foreground">{page.label}</span>
+              <span className="font-heading font-semibold text-xs text-primary-foreground">{page.label}</span>
             </Link>
           ))}
         </div>
