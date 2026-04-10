@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { Link } from "react-router-dom";
-import { Star, Heart, CheckCircle, ChevronRight } from "lucide-react";
+import { Star, Heart, CheckCircle, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
