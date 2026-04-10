@@ -32,7 +32,7 @@ const WeddingDanceLessonsLondon = () => (
   <Layout>
     <SeoHead
       title="Wedding Dance Lessons London | First Dance Choreography"
-      description="Private wedding first dance lessons in London with award-winning choreographer Melitta Siomos. Packages from £240. Salsa, Bachata, Waltz or any style. All abilities."
+      description="Private wedding first dance lessons in London with award-winning choreographer Melitta Siomos. Salsa, Bachata, Waltz or any style. All abilities. Book a free consultation."
       path="/wedding-dance-lessons-london"
       schema={schema}
     />
