@@ -186,23 +186,27 @@ const Contact = () => {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1.5 block">Your Name *</label>
-                        <input type="text" required value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Jane Smith" />
+                        <input type="text" maxLength={200} value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} className={`w-full rounded-xl border ${errors.name ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="Jane Smith" />
+                        {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1.5 block">Phone <span className="text-muted-foreground font-normal">(optional)</span></label>
-                        <input type="tel" value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="+44 7..." />
+                        <input type="tel" maxLength={30} value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} className={`w-full rounded-xl border ${errors.phone ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="+44 7..." />
+                        {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
                       </div>
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">Email Address *</label>
-                      <input type="email" required value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="jane@example.com" />
+                      <input type="email" maxLength={255} value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} className={`w-full rounded-xl border ${errors.email ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="jane@example.com" />
+                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">What's This About? *</label>
-                      <select required value={formData.enquiry} onChange={e => setFormData(p => ({ ...p, enquiry: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                      <select value={formData.enquiry} onChange={e => setFormData(p => ({ ...p, enquiry: e.target.value }))} className={`w-full rounded-xl border ${errors.enquiry ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`}>
                         <option value="">Select enquiry type…</option>
                         {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
+                      {errors.enquiry && <p className="text-destructive text-xs mt-1">{errors.enquiry}</p>}
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">Your Message *</label>
