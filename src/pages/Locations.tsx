@@ -30,8 +30,12 @@ const Locations = () => (
       schema={schema}
     />
 
-    <section className="bg-charcoal text-primary-foreground section-padding">
-      <div className="container-main text-center max-w-3xl">
+    <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={venueImg} alt="London pub venue for Pura Nights dance classes" className="w-full h-full object-cover opacity-20" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60" />
+      </div>
+      <div className="container-main text-center max-w-3xl relative z-10">
         <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">Find Us</p>
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Our Class Locations</h1>
         <p className="text-primary-foreground/70 text-lg">Two venues. Two nights. One amazing Latin dance community across West London.</p>

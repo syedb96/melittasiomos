@@ -26,8 +26,12 @@ const SalsaClassesEaling = () => (
       schema={schema}
     />
 
-    <section className="bg-charcoal text-primary-foreground section-padding">
-      <div className="container-main max-w-4xl">
+    <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={heroImg} alt="Salsa social dancing at Drayton Court Ealing" className="w-full h-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60" />
+      </div>
+      <div className="container-main max-w-4xl relative z-10">
         <nav className="text-xs text-primary-foreground/50 mb-8 font-heading">
           <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/salsa-classes-london" className="hover:text-primary">Salsa Classes London</Link> / <span className="text-primary">Ealing</span>
         </nav>
