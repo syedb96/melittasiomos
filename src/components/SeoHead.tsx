@@ -25,7 +25,7 @@ const globalSchema = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "19:30", closes: "23:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "18:50", closes: "23:00" },
   ],
-  priceRange: "£10–£120",
+  priceRange: "£5–£120",
   sameAs: [
     "https://www.instagram.com/melittasiomos/",
     "https://www.instagram.com/puranights.salsabachata/",
@@ -35,7 +35,7 @@ const globalSchema = {
     "https://www.youtube.com/@melittasiomos",
   ],
   founder: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Award-Winning Salsa & Bachata Dance Instructor" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", bestRating: "5", ratingCount: "47" },
+  award: ["Bachata UK Champion"],
   areaServed: ["Chiswick", "Ealing", "Acton", "West Ealing", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond", "West London", "Central London", "London"],
   award: "Bachata UK Champion",
 };
