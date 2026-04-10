@@ -8,7 +8,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Event",
   name: "Salsa Classes Chiswick — Pura Nights",
-  description: "Weekly salsa and bachata classes every Monday at The George IV Pub, Chiswick.",
+  description: "Weekly salsa and bachata classes every Monday at The George IV, Chiswick.",
   startDate: "2026-01-05T19:30",
   eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
   location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },

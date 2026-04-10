@@ -62,7 +62,7 @@ const SalsaClassesLondon = () => (
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="bg-charcoal-light rounded-lg p-8 border border-primary/20">
             <h3 className="font-display text-2xl font-bold text-primary mb-2">Monday — Chiswick</h3>
-            <p className="text-primary-foreground/60 text-sm mb-4 flex items-center gap-1"><MapPin size={14} /> The George IV Pub, 85 Chiswick High Rd, W4 2DR</p>
+            <p className="text-primary-foreground/60 text-sm mb-4 flex items-center gap-1"><MapPin size={14} /> The George IV, 185 Chiswick High Rd, W4 2DR</p>
             <div className="space-y-3 text-sm text-primary-foreground/80">
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />Doors open: 7:15 PM</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />7:30–8:15 PM — Salsa Class (all levels)</div>
