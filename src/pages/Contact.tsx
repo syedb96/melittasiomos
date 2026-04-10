@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send, Clock, Instagram, MessageCircle } from "lucide-react";
+import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
@@ -18,21 +19,43 @@ const enquiryTypes = [
   "General Enquiry",
 ];
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200, "Name must be under 200 characters"),
+  email: z.string().trim().email("Please enter a valid email").max(255, "Email must be under 255 characters"),
+  phone: z.string().max(30, "Phone must be under 30 characters").optional().or(z.literal("")),
+  enquiry: z.string().refine((v) => enquiryTypes.includes(v), "Please select an enquiry type"),
+  message: z.string().trim().min(1, "Message is required").max(5000, "Message must be under 5000 characters"),
+});
+
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((issue) => {
+        const field = issue.path[0] as string;
+        if (!fieldErrors[field]) fieldErrors[field] = issue.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
     setSubmitting(true);
     try {
       const { error } = await supabase.from("contact_submissions").insert({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        enquiry_type: formData.enquiry,
-        message: formData.message,
+        name: result.data.name,
+        email: result.data.email,
+        phone: result.data.phone || null,
+        enquiry_type: result.data.enquiry,
+        message: result.data.message,
       });
       if (error) throw error;
       setSubmitted(true);
@@ -40,8 +63,7 @@ const Contact = () => {
         setSubmitted(false);
         setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
       }, 8000);
-    } catch (err) {
-      console.error("Contact form error:", err);
+    } catch {
       alert("Something went wrong. Please try WhatsApp instead.");
     } finally {
       setSubmitting(false);
@@ -164,27 +186,32 @@ const Contact = () => {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1.5 block">Your Name *</label>
-                        <input type="text" required value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Jane Smith" />
+                        <input type="text" maxLength={200} value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} className={`w-full rounded-xl border ${errors.name ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="Jane Smith" />
+                        {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1.5 block">Phone <span className="text-muted-foreground font-normal">(optional)</span></label>
-                        <input type="tel" value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="+44 7..." />
+                        <input type="tel" maxLength={30} value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} className={`w-full rounded-xl border ${errors.phone ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="+44 7..." />
+                        {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
                       </div>
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">Email Address *</label>
-                      <input type="email" required value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="jane@example.com" />
+                      <input type="email" maxLength={255} value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} className={`w-full rounded-xl border ${errors.email ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="jane@example.com" />
+                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">What's This About? *</label>
-                      <select required value={formData.enquiry} onChange={e => setFormData(p => ({ ...p, enquiry: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all">
+                      <select value={formData.enquiry} onChange={e => setFormData(p => ({ ...p, enquiry: e.target.value }))} className={`w-full rounded-xl border ${errors.enquiry ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`}>
                         <option value="">Select enquiry type…</option>
                         {enquiryTypes.map(t => <option key={t} value={t}>{t}</option>)}
                       </select>
+                      {errors.enquiry && <p className="text-destructive text-xs mt-1">{errors.enquiry}</p>}
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">Your Message *</label>
-                      <textarea required rows={5} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Tell us what you're looking for — the more detail the better." />
+                      <textarea maxLength={5000} rows={5} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className={`w-full rounded-xl border ${errors.message ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="Tell us what you're looking for — the more detail the better." />
+                      {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                     </div>
                     <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2 disabled:opacity-50 py-3.5">
                       <Send size={16} /> {submitting ? "Sending…" : "Send Message"}
