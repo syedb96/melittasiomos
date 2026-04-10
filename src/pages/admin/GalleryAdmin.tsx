@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";
-import { Plus, Eye, EyeOff, Star, Trash2, Upload } from "lucide-react";
+import { Plus, Eye, EyeOff, Star, Trash2, Upload, ImageIcon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
