@@ -4,12 +4,25 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Salsa Classes Ealing — Pura Nights",
+  description: "Weekly salsa and bachata classes every Tuesday at Drayton Court Hotel, Ealing.",
+  startDate: "2026-01-06T19:30",
+  eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Tuesday", startTime: "19:30", endTime: "23:00" },
+  location: { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
+  organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
+  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
+};
+
 const SalsaClassesEaling = () => (
   <Layout>
     <SeoHead
       title="Salsa Classes Ealing | Every Tuesday | Pura Nights by Melitta Siomos"
       description="Learn salsa every Tuesday in Ealing at Drayton Court Hotel with Melitta Siomos. Beginner to advanced. No partner needed. From £5."
       path="/salsa-classes-ealing"
+      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">

@@ -4,12 +4,22 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Dance Classes South West London — Salsa & Bachata",
+  description: "Weekly salsa and bachata dance classes accessible from South West London. Venues in Chiswick and Ealing, West London.",
+  provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
+  areaServed: ["South West London", "Putney", "Richmond", "Barnes", "Fulham", "Hammersmith", "Chiswick", "Ealing"],
+};
+
 const DanceClassesSouthWestLondon = () => (
   <Layout>
     <SeoHead
       title="Dance Classes South West London | Salsa & Bachata | Melitta Siomos"
       description="Find the best salsa and bachata dance classes in South West London with Melitta Siomos. Weekly classes in Chiswick & Ealing, private lessons, wedding dance. All levels welcome."
       path="/dance-classes-south-west-london"
+      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">

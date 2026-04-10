@@ -5,12 +5,22 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Dance Classes in West London — Salsa & Bachata",
+  description: "Weekly Salsa and Bachata dance classes in West London at venues in Chiswick and Ealing. All levels, no partner needed.",
+  provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
+  areaServed: ["West London", "Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond"],
+};
+
 const DanceClassesWestLondon = () => (
   <Layout>
     <SeoHead
       title="Dance Classes West London | Salsa & Bachata | Pura Nights by Melitta Siomos"
       description="Looking for dance classes in West London? Join Pura Nights for weekly Salsa & Bachata in Chiswick and Ealing. All levels, no partner needed. Award-winning instruction."
       path="/dance-classes-west-london"
+      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">
