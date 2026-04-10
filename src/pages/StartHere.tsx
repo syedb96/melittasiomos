@@ -95,7 +95,7 @@ const StartHere = () => (
             { q: "Do I need a partner?", a: "No — we rotate partners in every class." },
             { q: "Do I need experience?", a: "No — Beginners starts from zero every week." },
             { q: "Do I need to book?", a: "No — just turn up on the night." },
-            { q: "How much is it?", a: "From £10 per class. See full pricing." },
+            { q: "How much is it?", a: "From £5 (social only) or £10 per class. See full pricing." },
           ].map((qa, i) => (
             <FadeInUp key={i} delay={i * 0.08}>
               <div className="bg-card rounded-2xl p-6 card-hover h-full">
