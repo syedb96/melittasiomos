@@ -7,13 +7,13 @@ import RelatedPages from "@/components/RelatedPages";
 const schema = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: "Pura Nights Salsa Classes Chiswick",
+  name: "Salsa Classes Chiswick — Pura Nights",
   description: "Weekly salsa and bachata classes every Monday at The George IV Pub, Chiswick.",
-  startDate: "2025-01-06T19:30",
+  startDate: "2026-01-05T19:30",
   eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
-  location: { "@type": "Place", name: "The George IV Pub", address: { "@type": "PostalAddress", streetAddress: "85 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
+  location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-  offers: { "@type": "Offer", price: "5.50", priceCurrency: "GBP" },
+  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
 };
 
 const SalsaClassesChiswick = () => (
@@ -47,9 +47,9 @@ const SalsaClassesChiswick = () => (
           <div className="flex items-start gap-3 mb-6">
             <MapPin size={20} className="text-primary flex-shrink-0 mt-1" />
             <div>
-              <p className="font-heading font-bold">The George IV Pub</p>
-              <p className="text-muted-foreground text-sm">85 Chiswick High Rd, London W4 2DR</p>
-              <p className="text-muted-foreground text-xs mt-1">Nearest tube: Gunnersbury or Turnham Green (District Line) · Buses: 190, 237, 267</p>
+              <p className="font-heading font-bold">The George IV</p>
+              <p className="text-muted-foreground text-sm">185 Chiswick High Rd, London W4 2DR</p>
+              <p className="text-muted-foreground text-xs mt-1">Nearest tube: Turnham Green (District Line, 5-min walk) · Buses: 190, 237, 267</p>
             </div>
           </div>
           <div className="space-y-4 text-sm">
@@ -80,7 +80,7 @@ const SalsaClassesChiswick = () => (
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Chiswick Salsa Class FAQs</h2>
         <div className="space-y-6">
           {[
-            { q: "How do I get to The George IV Pub?", a: "85 Chiswick High Rd, London W4 2DR. Nearest tube: Gunnersbury or Turnham Green (District Line). Buses: 190, 237, 267. Limited on-street parking is available." },
+            { q: "How do I get to The George IV?", a: "185 Chiswick High Rd, London W4 2DR. Nearest tube: Turnham Green (District Line, 5-min walk). Buses: 190, 237, 267. On-street parking available after 6:30 PM." },
             { q: "Is there parking near the venue?", a: "Yes, there's on-street parking along Chiswick High Road and surrounding residential streets. After 6:30 PM, most restrictions are lifted." },
             { q: "Can I just come for the social dancing?", a: "Experienced dancers are welcome to join the social from 9 PM. We recommend taking the classes first to build your technique and confidence." },
           ].map((faq, i) => (

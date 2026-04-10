@@ -39,7 +39,7 @@ const DanceClassesSouthWestLondon = () => (
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-card rounded-lg p-8 border border-primary/20">
             <h3 className="font-display text-xl font-bold text-primary mb-3">Monday — Chiswick</h3>
-            <p className="text-sm text-muted-foreground mb-2 flex items-center gap-1"><MapPin size={14} /> The George IV Pub, 85 Chiswick High Rd, W4 2DR</p>
+            <p className="text-sm text-muted-foreground mb-2 flex items-center gap-1"><MapPin size={14} /> The George IV, 185 Chiswick High Rd, W4 2DR</p>
             <div className="space-y-2 text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-2"><Clock size={14} className="text-primary" />7:30–8:15 PM — Salsa</div>
               <div className="flex items-center gap-2"><Clock size={14} className="text-primary" />8:15–9:00 PM — Bachata</div>
