@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { User, Clock, Star, Target, MapPin } from "lucide-react";
+import { User, Clock, Star, Target, MapPin, Globe } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
@@ -18,7 +18,7 @@ const schema = {
 const benefits = [
   { icon: Target, title: "Personalised Curriculum", desc: "Every lesson is tailored to your goals — whether that's nailing your cross-body lead, improving musicality, or preparing for a performance." },
   { icon: Clock, title: "Flexible Scheduling", desc: "Book at times that suit your lifestyle. Weekday evenings, weekends, or even lunchtime sessions available." },
-  { icon: Video, title: "In-Person or Online", desc: "Train at the Acton studio, or join via Zoom from anywhere in the world. All sessions are recorded for home practice." },
+  { icon: Globe, title: "In-Person or Online", desc: "Train at a West London studio, or join via Zoom from anywhere in the world. All sessions are recorded for home practice." },
   { icon: Star, title: "Award-Winning Coaching", desc: "Learn from Bachata UK Champion Melitta Siomos with 15+ years of teaching and performing experience across Europe." },
 ];
 
