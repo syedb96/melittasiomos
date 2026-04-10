@@ -210,7 +210,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="text-sm font-heading font-semibold mb-1.5 block">Your Message *</label>
-                      <textarea required rows={5} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Tell us what you're looking for — the more detail the better." />
+                      <textarea maxLength={5000} rows={5} value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} className={`w-full rounded-xl border ${errors.message ? 'border-destructive' : 'border-input'} bg-background px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all`} placeholder="Tell us what you're looking for — the more detail the better." />
+                      {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                     </div>
                     <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full flex items-center justify-center gap-2 disabled:opacity-50 py-3.5">
                       <Send size={16} /> {submitting ? "Sending…" : "Send Message"}
