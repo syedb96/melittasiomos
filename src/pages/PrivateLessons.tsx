@@ -4,7 +4,7 @@ import RelatedPages from "@/components/RelatedPages";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import heroImg from "@/assets/hero-dance.jpg";
+import heroImg from "@/assets/private-lesson.jpg";
 
 const goals = [
   { icon: Users, title: "Complete Beginners", desc: "Never danced? Start with 1-on-1 guidance in a private, judgement-free environment." },

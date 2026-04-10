@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import eventImg from "@/assets/latin-friday-event.jpg";
 
 const latinFridayDates2026 = [
   new Date(2026, 3, 10, 19, 15),  // April 10
@@ -66,9 +67,12 @@ const Events = () => {
     <Layout>
       <SeoHead title="Events — Salsa & Bachata Events London | Pura Nights" description="Monthly Latin Fridays, weekly classes, workshops, and special performances by Pura Nights in London. Get tickets and join the dance community." path="/events" />
 
-      {/* Hero */}
-      <section className="section-padding section-dark text-center">
-        <div className="container-main">
+      <section className="relative section-padding section-dark text-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={eventImg} alt="Latin Friday dance event at Pura Nights" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50" />
+        </div>
+        <div className="container-main relative z-10">
           <FadeInUp>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-3">Upcoming Events</h1>
             <p className="text-primary-foreground/70 font-heading text-lg">Monthly Latin Fridays · Weekly Classes · Workshops · Special Performances</p>

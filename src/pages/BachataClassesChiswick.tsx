@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp } from "@/components/animations";
+import heroImg from "@/assets/bachata-close.jpg";
 
 const schema = {
   "@context": "https://schema.org",
@@ -20,8 +21,12 @@ const schema = {
 const BachataClassesChiswick = () => (
   <Layout>
     <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" schema={schema} />
-    <section className="bg-charcoal text-primary-foreground section-padding">
-      <div className="container-main max-w-4xl">
+    <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={heroImg} alt="Bachata dancing at Chiswick" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60" />
+      </div>
+      <div className="container-main max-w-4xl relative z-10">
         <nav className="text-xs text-primary-foreground/40 mb-8 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/bachata-classes-london" className="hover:text-primary">Bachata London</Link> / <span className="text-primary">Chiswick</span></nav>
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Bachata Classes in Chiswick — Every Monday at Pura Nights</h1>
         <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Learn Bachata every Monday evening at The George IV in Chiswick with Melitta Siomos. Three levels — Beginners, Improvers, and Intermediate — followed by social dancing until 11 PM.</p>

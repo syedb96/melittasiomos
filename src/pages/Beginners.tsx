@@ -5,9 +5,9 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-dance.jpg";
+import heroImg from "@/assets/beginner-welcome.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
-import socialImg from "@/assets/social-dancing.jpg";
+import socialImg from "@/assets/community-vibe.jpg";
 
 const schema = {
   "@context": "https://schema.org",
