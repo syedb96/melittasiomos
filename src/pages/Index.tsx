@@ -96,7 +96,26 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* SECTION 2 — TRUST TICKER */}
+      {/* SECTION 2 — 3 BENEFIT PILLARS */}
+      <section className="py-10 section-warm border-b border-border">
+        <div className="container-main">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+            {[
+              { icon: Award, title: "Award-Winning Instruction", desc: "International award-winning instructor with 15+ years experience across Europe" },
+              { icon: Clock, title: "Flexible Weekly Classes", desc: "Monday Chiswick & Tuesday Ealing — drop in anytime, no booking needed" },
+              { icon: Heart, title: "Welcoming Community", desc: "500+ students, all levels welcome, no partner needed — come as you are" },
+            ].map((b, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex flex-col items-center">
+                <b.icon size={28} className="text-primary mb-3" />
+                <h3 className="font-heading font-bold text-sm mb-1">{b.title}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">{b.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 — TRUST STATS */}
       <section className="py-8 bg-charcoal border-y border-primary/10">
         <div className="container-main">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
@@ -111,7 +130,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 3 — NEXT CLASS COUNTDOWN */}
+      {/* SECTION 4 — NEXT CLASS COUNTDOWN */}
       <section className="section-padding section-dark">
         <div className="container-main text-center">
           <FadeInUp>
