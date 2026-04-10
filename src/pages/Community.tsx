@@ -39,7 +39,10 @@ const Community = () => (
 
     {/* Hero */}
     <section className="relative bg-charcoal text-primary-foreground overflow-hidden">
-      <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(circle at 30% 50%, hsl(20 75% 66% / 0.4), transparent 60%), radial-gradient(circle at 70% 80%, hsl(43 48% 54% / 0.3), transparent 50%)" }} />
+      <div className="absolute inset-0">
+        <img src={communityImg} alt="Pura Nights dance community socializing" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50" />
+      </div>
       <div className="container-main relative z-10 py-24 md:py-32 lg:py-40 text-center">
         <FadeInUp>
           <span className="inline-block font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">More Than a Dance Class</span>
