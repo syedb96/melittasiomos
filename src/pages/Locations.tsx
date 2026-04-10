@@ -72,7 +72,10 @@ const Locations = () => (
                 </div>
               </div>
             </div>
-            <p className="text-muted-foreground text-xs">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-muted-foreground text-xs">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+              <Link to="/venue/the-george-iv-chiswick" className="text-primary font-heading text-xs font-semibold inline-flex items-center gap-1 ml-auto">Full venue guide <ChevronRight size={12} /></Link>
+            </div>
           </div>
         </FadeInUp>
 
@@ -104,7 +107,10 @@ const Locations = () => (
                 </div>
               </div>
             </div>
-            <p className="text-muted-foreground text-xs">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-muted-foreground text-xs">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+              <Link to="/venue/the-drayton-court-ealing" className="text-peach font-heading text-xs font-semibold inline-flex items-center gap-1 ml-auto">Full venue guide <ChevronRight size={12} /></Link>
+            </div>
           </div>
         </FadeInUp>
 
@@ -157,10 +163,10 @@ const Locations = () => (
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[
+      { to: "/venue/the-george-iv-chiswick", label: "The George IV — Chiswick" },
+      { to: "/venue/the-drayton-court-ealing", label: "Drayton Court — Ealing" },
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
       { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
-      { to: "/dance-classes-west-london", label: "Dance Classes West London" },
-      { to: "/pura-nights", label: "Weekly Schedule" },
       { to: "/prices", label: "Prices & Bundles" },
       { to: "/contact", label: "Contact" },
     ]} />
