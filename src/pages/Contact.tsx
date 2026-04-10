@@ -71,14 +71,14 @@ const Contact = () => {
             <div className="lg:col-span-2 space-y-5">
               <FadeInUp>
                 {/* WhatsApp — Primary */}
-                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="block bg-card rounded-2xl p-6 card-hover border-2 border-green-500/20 hover:border-green-500/40 transition-all group">
+                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="block bg-card rounded-2xl p-6 card-hover border-2 border-secondary/20 hover:border-secondary/40 transition-all group">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                      <MessageCircle size={20} className="text-green-500" />
+                    <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                      <MessageCircle size={20} className="text-secondary" />
                     </div>
                     <div>
                       <h3 className="font-heading font-bold text-sm">WhatsApp Melitta</h3>
-                      <p className="text-xs text-green-600 font-heading">Fastest reply — usually within hours</p>
+                      <p className="text-xs text-secondary font-heading">Fastest reply — usually within hours</p>
                     </div>
                   </div>
                   <p className="text-muted-foreground text-xs">Tap to open a chat with Melitta directly</p>
