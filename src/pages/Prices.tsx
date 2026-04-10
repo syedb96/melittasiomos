@@ -68,9 +68,9 @@ const Prices = () => (
             <p className="text-primary-foreground/60 text-sm mb-4">2nd Friday of every month · Drayton Court Hotel, Ealing</p>
             <div className="grid sm:grid-cols-3 gap-4 text-sm">
               {[
-                { tier: "Early Bird", color: "text-green-400", price: "£15", party: "£10" },
-                { tier: "Standard", color: "text-yellow-400", price: "£17", party: "£12" },
-                { tier: "On the Door", color: "text-red-400", price: "£20", party: "£15" },
+                { tier: "Early Bird", color: "text-primary", price: "£15", party: "£10" },
+                { tier: "Standard", color: "text-peach", price: "£17", party: "£12" },
+                { tier: "On the Door", color: "text-secondary", price: "£20", party: "£15" },
               ].map(t => (
                 <div key={t.tier} className="bg-charcoal-light rounded-xl p-4 text-center">
                   <p className={`${t.color} font-heading font-semibold text-xs uppercase tracking-wider mb-2`}>{t.tier}</p>
