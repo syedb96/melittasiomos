@@ -21,6 +21,7 @@ interface Asset {
   title: string | null;
   alt_text: string | null;
   image_url: string;
+  file_path: string | null;
   is_featured: boolean;
   is_published: boolean;
   created_at: string;
@@ -164,7 +165,7 @@ const GalleryAdmin = () => {
         ))}
         {assets.length === 0 && (
           <div className="col-span-full text-center py-16 text-muted-foreground">
-            <Image size={48} className="mx-auto mb-3 opacity-30" />
+            <ImageIcon size={48} className="mx-auto mb-3 opacity-30" />
             <p className="text-sm font-heading">No media yet. Upload images to get started.</p>
           </div>
         )}
