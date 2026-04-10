@@ -119,8 +119,8 @@ const Events = () => {
                 </>
               ) : (
                 <div className="text-center py-8">
-                  <p className="text-primary-foreground/60 text-lg mb-4">New dates coming soon — follow @puranights for announcements</p>
-                  <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Follow @puranights</a>
+                  <p className="text-primary-foreground/60 text-lg mb-4">New dates coming soon — follow @puranights.salsabachata for announcements</p>
+                  <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Follow @puranights.salsabachata</a>
                 </div>
               )}
             </div>
