@@ -7,6 +7,16 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
+/* <!-- WIX PAGE: /pura-nights -->
+   <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
+   <!-- WIX SECTION: Venue Cards — use 2-column Card grid with venue details -->
+   <!-- WIX SECTION: How the Evening Works — use Steps/Timeline Strip -->
+   <!-- WIX SECTION: Three Levels — use 3-column Card grid or comparison table -->
+   <!-- WIX SECTION: Latin Fridays — use CTA Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app -->
+   <!-- WIX SECTION: Testimonials — use Slider connected to Testimonials collection -->
+   <!-- WIX SECTION: CTA Band — use Full-width Strip -->
+*/
 const PuraNights = () => (
   <Layout>
     <SeoHead

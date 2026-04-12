@@ -9,6 +9,16 @@ import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
 
+/* <!-- WIX PAGE: /about -->
+   <!-- WIX SECTION: Hero — Full-width Strip with founder image + dark overlay -->
+   <!-- WIX SECTION: Melitta Story — Strip with image left, text right -->
+   <!-- WIX SECTION: Stats — use Counter animation strip or Repeater -->
+   <!-- WIX SECTION: Meet the Team — use Repeater connected to Team Members CMS collection -->
+   <!-- WIX SECTION: Bio Modal — use Lightbox triggered from team card clicks -->
+   <!-- WIX SECTION: Salsa & Bachata explainers — 2-column Strip -->
+   <!-- WIX SECTION: Locations — use Strip with icon list -->
+   <!-- WIX SECTION: Google Business Profiles — use Card grid with links -->
+*/
 const team = [
   {
     name: "Melitta Siomos", role: "Founder & Lead Instructor",

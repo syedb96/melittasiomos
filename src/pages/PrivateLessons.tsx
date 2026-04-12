@@ -6,6 +6,17 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/private-lesson.jpg";
 
+/* <!-- WIX PAGE: /private-lessons -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay -->
+   <!-- WIX SECTION: Who It's For — use Card grid or Repeater -->
+   <!-- WIX SECTION: Why Private — use Icon list or Card grid -->
+   <!-- WIX SECTION: How It Works — use Steps/Timeline Strip -->
+   <!-- WIX SECTION: What's Included — use Checklist strip -->
+   <!-- WIX SECTION: Locations — use Card grid -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app -->
+   <!-- WIX SECTION: CTA Band — use Full-width Strip -->
+   <!-- IMPORTANT: No public pricing anywhere on this page — enquiry only -->
+*/
 const goals = [
   { icon: Users, title: "Complete Beginners", desc: "Never danced? Start with 1-on-1 guidance in a private, judgement-free environment." },
   { icon: Heart, title: "Wedding Couples", desc: "Create a beautiful first dance routine tailored to your song and style." },

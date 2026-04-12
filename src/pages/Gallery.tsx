@@ -10,6 +10,13 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 
+/* <!-- WIX PAGE: /gallery -->
+   <!-- WIX: Use Wix Pro Gallery with category tabs/albums -->
+   <!-- WIX SECTION: Hero — use Strip -->
+   <!-- WIX SECTION: Category Tabs — use Tab element connected to Gallery Albums collection -->
+   <!-- WIX SECTION: Photo Grid — use Wix Pro Gallery with masonry layout + lightbox -->
+   <!-- WIX SECTION: YouTube Videos — use Wix Video or embed widgets -->
+*/
 type Tab = "Classes & Socials" | "Pura Ladies Performances" | "Events & Latin Fridays" | "Wedding Dance Moments";
 
 const galleryData: Record<Tab, { src: string; alt: string }[]> = {

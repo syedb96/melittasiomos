@@ -6,6 +6,15 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { BookOpen, MapPin, Music, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-dance.jpg";
 
+/* <!-- WIX PAGE: /start-here -->
+   <!-- WIX SECTION: Hero — Full-width Strip with welcoming image -->
+   <!-- WIX SECTION: 3-Step Guide — use 3-column Card grid -->
+   <!-- WIX SECTION: What to Expect Timeline — use Steps strip -->
+   <!-- WIX SECTION: Quick Answers — use 2x2 Card grid -->
+   <!-- WIX SECTION: Choose Your Style — use 2-column comparison cards -->
+   <!-- WIX SECTION: Pick Your Venue — use 2-column venue cards -->
+   <!-- WIX SECTION: Still Have Questions — use CTA Strip with FAQ + WhatsApp links -->
+*/
 const StartHere = () => (
   <Layout>
     <SeoHead
