@@ -1,3 +1,5 @@
+/* <!-- WIX: PROTOTYPE ONLY — This settings page is a Lovable prototype for displaying account info.
+   In Wix, site settings are managed via the Wix Dashboard. Do NOT replicate this page. --> */
 import AdminLayout from "@/components/admin/AdminLayout";
 import { useAuth } from "@/contexts/AuthContext";
 

@@ -1,3 +1,5 @@
+/* <!-- WIX: PROTOTYPE ONLY — This protected route wrapper is a Lovable prototype for role-based
+   access control. In Wix, use Wix Members Area roles and permissions. Do NOT replicate. --> */
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";

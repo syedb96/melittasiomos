@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This events admin is a Lovable prototype for managing event listings.
+   In Wix, use Wix Events app or a CMS collection called "Events" connected to a dynamic page
+   template. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";

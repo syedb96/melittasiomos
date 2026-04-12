@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This admin layout (sidebar, nav, auth) is a Lovable prototype.
+   In Wix, all content management happens via the native Wix Dashboard. Do NOT replicate
+   this layout or navigation in Wix Editor. --> */
 import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
