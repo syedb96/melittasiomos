@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/history-of-bachata -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const HistoryOfBachata = () => (
   <Layout>
     <SeoHead title="The History of Bachata — From the Dominican Republic to London | Pura Nights" description="How Bachata evolved from marginalised Dominican guitar music to one of the world's most popular social dances. The full story, told accessibly." path="/blog/history-of-bachata" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "The History of Bachata from the Dominican Republic to London", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-09-05" }} />

@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/bachata-classes-near-ealing -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const BachataClassesNearEaling = () => (
   <Layout>
     <SeoHead title="Bachata Classes Near Ealing Broadway | Every Tuesday | Pura Nights" description="Weekly Bachata classes near Ealing Broadway every Tuesday at the Drayton Court Hotel. Beginners to intermediate, free ladies styling, and social dancing." path="/blog/bachata-classes-near-ealing" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Bachata Classes Near Ealing Broadway", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-07-10" }} />

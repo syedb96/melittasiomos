@@ -31,6 +31,14 @@ const reasons = [
   { emoji: "🌍", text: "Warm, diverse community aged 20–60+" },
 ];
 
+/* <!-- WIX PAGE: latin-dance-classes-london -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const LatinDanceClassesLondon = () => (
   <Layout>
     <SeoHead

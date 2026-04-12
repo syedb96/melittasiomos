@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/salsa-classes-near-chiswick -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const SalsaClassesNearChiswick = () => (
   <Layout>
     <SeoHead title="Salsa Classes Near Chiswick High Road | Every Monday | Pura Nights" description="Looking for salsa classes near Chiswick? Pura Nights runs weekly Salsa & Bachata every Monday at The George IV on Chiswick High Road. Beginners welcome." path="/blog/salsa-classes-near-chiswick" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa Classes Near Chiswick High Road", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-07-05" }} />

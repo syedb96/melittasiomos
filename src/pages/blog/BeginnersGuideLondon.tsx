@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+/* <!-- WIX PAGE: /blog/beginners-guide-london -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const BeginnersGuideLondon = () => (
   <Layout>
     <SeoHead title="Beginner's Guide to Salsa Classes in London | Pura Nights" description="Everything you need to know before your first salsa class in London — what to wear, how it works, pricing. From Melitta Siomos." path="/blog/beginners-guide-salsa-london" schema={{ "@context": "https://schema.org", "@type": ["Article", "FAQPage"], headline: "The Complete Beginner's Guide to Salsa Classes in London", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-04-01" }} />

@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/salsa-classes-near-turnham-green -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const SalsaClassesNearTurnhamGreen = () => (
   <Layout>
     <SeoHead title="Salsa Classes Near Turnham Green | Pura Nights Chiswick" description="Find salsa classes near Turnham Green station. Weekly classes every Monday at The George IV, just 5 minutes walk from Turnham Green tube. All levels welcome." path="/blog/salsa-classes-near-turnham-green" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa Classes Near Turnham Green — Everything You Need to Know", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-01-20" }} />

@@ -21,6 +21,13 @@ const schema = {
   ],
 };
 
+/* <!-- WIX PAGE: /locations -->
+   <!-- WIX SECTION: Hero — Full-width Strip with venue image -->
+   <!-- WIX SECTION: Venue Cards — use Repeater connected to Venues collection -->
+   <!-- WIX SECTION: Areas Served — Tag cloud Strip -->
+   <!-- WIX SECTION: Directions — CTA Strip with Google Maps links -->
+   <!-- WIX: Link to dynamic venue pages /venue/locations -->
+*/
 const Locations = () => (
   <Layout>
     <SeoHead

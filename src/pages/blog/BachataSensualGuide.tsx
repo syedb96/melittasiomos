@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/bachata-sensual-guide -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const BachataSensualGuide = () => (
   <Layout>
     <SeoHead title="Bachata Sensual: Complete Beginner's Guide | Pura Nights" description="What is Bachata Sensual? Learn about body waves, connection, and how this expressive dance style differs from traditional Bachata. Beginner-friendly guide." path="/blog/bachata-sensual-guide" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Bachata Sensual: The Complete Guide for Beginners", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-02-01" }} />

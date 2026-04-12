@@ -14,6 +14,10 @@ const quickLinks = [
   { to: "/start-here", label: "Start Here", emoji: "🌟" },
 ];
 
+/* <!-- WIX PAGE: Custom 404 -->
+   <!-- WIX: Set as custom 404 page in Wix Settings > Custom Error Page -->
+   <!-- WIX SECTION: Quick Links — Card grid with internal navigation -->
+*/
 const NotFound = () => (
   <Layout>
     <SeoHead title="Page Not Found | Melitta Siomos Dance Academy" description="The page you're looking for doesn't exist. Browse our salsa and bachata classes, wedding dance lessons, and more in West London." path="/404" />

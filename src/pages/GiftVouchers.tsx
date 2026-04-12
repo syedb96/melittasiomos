@@ -6,6 +6,13 @@ import RelatedPages from "@/components/RelatedPages";
 
 const amounts = [25, 50, 75, 100, 150, 200];
 
+/* <!-- WIX PAGE: /gift-vouchers -->
+   <!-- WIX SECTION: Hero — Full-width dark Strip -->
+   <!-- WIX SECTION: Amounts — Card grid (3-col) -->
+   <!-- WIX SECTION: How It Works — info Strip -->
+   <!-- WIX SECTION: FAQ — Wix FAQ app or Accordions -->
+   <!-- WIX: Gift voucher purchase via email link or Wix eCommerce -->
+*/
 const GiftVouchers = () => (
   <Layout>
     <SeoHead

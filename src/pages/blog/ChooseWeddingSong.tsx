@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/choose-wedding-song -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const ChooseWeddingSong = () => (
   <Layout>
     <SeoHead title="How to Choose Your Wedding First Dance Song | Expert Guide | Melitta Siomos" description="Struggling to pick your first dance song? Award-winning dance instructor Melitta Siomos shares her top tips for choosing the perfect wedding song." path="/blog/choose-wedding-first-dance-song" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "How to Choose Your Wedding First Dance Song", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-08-01" }} />

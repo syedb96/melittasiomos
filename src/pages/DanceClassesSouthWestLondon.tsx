@@ -13,6 +13,14 @@ const schema = {
   areaServed: ["South West London", "Putney", "Richmond", "Barnes", "Fulham", "Hammersmith", "Chiswick", "Ealing"],
 };
 
+/* <!-- WIX PAGE: dance-classes-south-west-london -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const DanceClassesSouthWestLondon = () => (
   <Layout>
     <SeoHead

@@ -18,6 +18,14 @@ const schema = {
   offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
 };
 
+/* <!-- WIX PAGE: bachata-classes-chiswick -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const BachataClassesChiswick = () => (
   <Layout>
     <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" schema={schema} />

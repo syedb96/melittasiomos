@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/ladies-styling-bachata -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const LadiesStylingBachata = () => (
   <Layout>
     <SeoHead title="Ladies Styling in Bachata: Develop Your Expression | Pura Nights" description="Learn how to develop your own ladies styling in Bachata. Arms, head movements, body rolls, and the confidence to express yourself on the dance floor." path="/blog/ladies-styling-bachata" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Ladies Styling in Bachata: How to Develop Your Own Expression", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-02-10" }} />

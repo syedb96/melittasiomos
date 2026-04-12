@@ -27,6 +27,14 @@ const festivals = [
   "European Latin Dance events", "Charity gala performances"
 ];
 
+/* <!-- WIX PAGE: bachata-performance-team-london -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const BachataPerformanceTeamLondon = () => (
   <Layout>
     <SeoHead

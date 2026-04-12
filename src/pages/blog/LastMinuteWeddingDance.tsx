@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/last-minute-wedding-dance -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const LastMinuteWeddingDance = () => (
   <Layout>
     <SeoHead title="Last-Minute Wedding Dance Lessons London | Melitta Siomos" description="Wedding coming up fast? It's not too late. Last-minute wedding dance lessons in London with Melitta Siomos. Even one session can make a huge difference." path="/blog/last-minute-wedding-dance" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Last-Minute Wedding Dance Lessons London", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-08-15" }} />

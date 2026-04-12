@@ -1,6 +1,9 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 
+/* <!-- WIX PAGE: /terms -->
+   <!-- WIX: Use Wix Terms generator or paste custom terms text -->
+*/
 const Terms = () => (
   <Layout>
     <SeoHead title="Terms & Conditions | Melitta Siomos Dance Academy" description="Terms and conditions for Melitta Siomos Dance Academy, Pura Nights classes, private lessons, and related services." path="/terms" />

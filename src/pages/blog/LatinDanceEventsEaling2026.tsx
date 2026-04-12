@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/latin-dance-events-ealing2026 -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const LatinDanceEventsEaling2026 = () => (
   <Layout>
     <SeoHead title="Latin Dance Events in Ealing 2026 | Pura Nights" description="Discover Latin dance events in Ealing for 2026. Monthly Latin Fridays, weekly classes, and special workshops at the Drayton Court Hotel." path="/blog/latin-dance-events-ealing-2026" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Latin Dance Events in Ealing 2026 — What's On This Year", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-01-10" }} />

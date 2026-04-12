@@ -16,6 +16,9 @@ const services = [
   { emoji: "🏢", title: "Corporate & Team Building", desc: "Energise your team with dance", cta: "Enquire", link: "/contact" },
 ];
 
+/* <!-- WIX PAGE: /bookings -->
+   <!-- WIX: Redirect to Linktree or use Wix Bookings app -->
+*/
 const Bookings = () => (
   <Layout>
     <SeoHead title="Book Salsa & Bachata Classes London | Pura Nights by Melitta Siomos" description="Book your Salsa & Bachata class with Pura Nights London. Monday in Chiswick, Tuesday in Ealing. Also book private lessons, wedding dance, and events." path="/bookings" />

@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/joining-dance-class-alone -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const JoiningDanceClassAlone = () => (
   <Layout>
     <SeoHead title="Joining a Dance Class Alone? Why It's the Best Decision | Pura Nights" description="Nervous about going to a dance class alone? Here's why solo students improve faster, make friends quicker, and have more fun. No partner needed at Pura Nights." path="/blog/joining-dance-class-alone" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Joining a Dance Class Alone? Here's Why It's the Best Decision You'll Make", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-02-05" }} />

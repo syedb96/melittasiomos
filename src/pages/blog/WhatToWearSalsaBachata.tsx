@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/what-to-wear-salsa-bachata -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const WhatToWear = () => (
   <Layout>
     <SeoHead title="What to Wear to Salsa and Bachata Class | Beginner's Guide | Pura Nights" description="Not sure what to wear to your first salsa or bachata class? Here's a practical guide covering shoes, clothes, and what to avoid." path="/blog/what-to-wear-salsa-bachata" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "What to Wear to Salsa and Bachata Class", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-20" }} />

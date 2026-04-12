@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/best-areas-west-london -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const BestAreasWestLondon = () => (
   <Layout>
     <SeoHead title="Best Areas in West London for Salsa and Bachata | Pura Nights" description="Discover the best neighbourhoods in West London for Salsa and Bachata — from Chiswick to Ealing, Acton to Richmond. Your guide to the local Latin dance scene." path="/blog/best-areas-west-london-salsa-bachata" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Best Areas in West London for Salsa and Bachata", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-07-01" }} />
