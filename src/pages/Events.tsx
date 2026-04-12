@@ -5,6 +5,13 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+/* <!-- WIX PAGE: /events -->
+   <!-- WIX: Use dynamic page template connected to Events CMS collection -->
+   <!-- WIX SECTION: Hero — use Strip with event image -->
+   <!-- WIX SECTION: Next Event Countdown — use custom code or Wix countdown widget -->
+   <!-- WIX SECTION: Event Cards — use Repeater connected to Events collection -->
+   <!-- WIX SECTION: Calendar — link to external calendar or Wix Events app -->
+*/
 import eventImg from "@/assets/latin-friday-event.jpg";
 
 const latinFridayDates2026 = [
