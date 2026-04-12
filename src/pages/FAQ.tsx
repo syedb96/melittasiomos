@@ -4,6 +4,10 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /faq -->
+   <!-- WIX: Use Wix FAQ app with categories, or custom Accordions grouped by section -->
+   <!-- WIX: Add FAQPage JSON-LD schema -->
+*/
 const faqCategories = [
   {
     title: "Getting Started",

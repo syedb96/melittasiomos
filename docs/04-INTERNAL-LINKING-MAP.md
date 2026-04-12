@@ -87,12 +87,9 @@ The footer contains the site's primary crawl architecture:
 
 | Nav Item | Dropdown Contents |
 |----------|------------------|
-| Classes | Pura Nights, Schedule, Beginners, Locations, Pura Ladies |
-| Prices | Prices, Gift Vouchers |
-| About | About, Community, Testimonials, Gallery |
-| Wedding | Wedding Dance |
-| Private | Private Lessons |
-| Events | Events |
-| Blog | Blog |
-| Contact | Contact |
-| **CTA Button** | Book a Class → Linktree |
+| HOME | — |
+| CLASSES & EVENTS | Weekly Classes, Monthly Latin Fridays, Pura Ladies, Online Coaching |
+| PRICES & BOOKING | Class Pricing, Book a Class ↗, Gift Vouchers |
+| ABOUT & SERVICES | About Melitta, Meet the Team, Wedding Dance, Private Lessons |
+| LEARN | Blog & Guides, FAQs, Start Here (Beginners), Community, Schedule, Gallery, Find a Class Near You |
+| **CTA Buttons** | WhatsApp + Book Now → Linktree |

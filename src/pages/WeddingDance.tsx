@@ -7,6 +7,15 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import weddingImg from "@/assets/wedding-dance.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
+/* <!-- WIX PAGE: /wedding-dance -->
+   <!-- WIX SECTION: Hero — use Full-width Strip with dark overlay -->
+   <!-- WIX SECTION: Why Choose Melitta — use Repeater or Card grid -->
+   <!-- WIX SECTION: How It Works — use Steps/Timeline Strip -->
+   <!-- WIX SECTION: Testimonials — use Slider connected to Testimonials collection (wedding category) -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app -->
+   <!-- WIX SECTION: CTA Band — use Full-width Strip -->
+   <!-- IMPORTANT: No public pricing anywhere on this page — enquiry only -->
+*/
 const WeddingDance = () => (
   <Layout>
     <SeoHead
