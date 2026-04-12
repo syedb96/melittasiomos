@@ -14,6 +14,14 @@ const schema = {
   areaServed: ["West London", "Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond"],
 };
 
+/* <!-- WIX PAGE: dance-classes-west-london -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const DanceClassesWestLondon = () => (
   <Layout>
     <SeoHead

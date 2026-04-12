@@ -19,6 +19,13 @@ const lookFor = [
   { emoji: "⏰", text: "Availability for weekly rehearsals" },
 ];
 
+/* <!-- WIX PAGE: /pura-ladies -->
+   <!-- WIX SECTION: Hero — Full-width Strip with performance image -->
+   <!-- WIX SECTION: Teams — Card grid connected to Team Members collection -->
+   <!-- WIX SECTION: What We Look For — icon list Strip -->
+   <!-- WIX SECTION: Audition CTA — CTA Strip -->
+   <!-- WIX: Use Repeater connected to Team Members collection (filter: Pura Ladies) -->
+*/
 const PuraLadies = () => (
   <Layout>
     <SeoHead title="Pura Ladies | Bachata Performance Team London | Melitta Siomos" description="Join Pura Ladies — the all-female Bachata performance team founded by Melitta Siomos in 2017. Teams in London, Plymouth, Munich & Lisbon. Perform at festivals worldwide." path="/pura-ladies" />

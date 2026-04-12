@@ -1,6 +1,9 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 
+/* <!-- WIX PAGE: /privacy-policy -->
+   <!-- WIX: Use Wix Privacy Policy generator or paste custom policy text -->
+*/
 const PrivacyPolicy = () => (
   <Layout>
     <SeoHead title="Privacy Policy | Melitta Siomos Dance Academy" description="Privacy policy for Melitta Siomos Dance Academy, Pura Nights, and related services." path="/privacy-policy" />

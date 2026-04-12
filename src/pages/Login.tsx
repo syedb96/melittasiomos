@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 
+/* <!-- WIX: Admin login — NOT for Wix production. Wix has its own member/admin system. -->
+*/
 const Login = () => {
   const { user, loading, signInWithGoogle, signInWithApple } = useAuth();
   const navigate = useNavigate();

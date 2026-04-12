@@ -29,6 +29,14 @@ const faqs = [
   { q: "Where do lessons take place?", a: "At our private studio in Acton, West London, or online via Zoom for couples outside London. Home visits can be arranged." },
 ];
 
+/* <!-- WIX PAGE: wedding-dance-lessons-london -->
+   <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
+   <!-- WIX SECTION: Schedule/Details — Card grid or info Strip -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid on warm Strip -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: CTA Band — Full-width Strip with booking buttons -->
+   <!-- WIX: Use RelatedPages as internal link Strip -->
+*/
 const WeddingDanceLessonsLondon = () => (
   <Layout>
     <SeoHead

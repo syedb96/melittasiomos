@@ -4,6 +4,9 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /online-classes (legacy redirect) -->
+   <!-- WIX: Set up 301 redirect from /online-classes to /online-salsa-bachata-coaching -->
+*/
 const OnlineClasses = () => (
   <Layout>
     <SeoHead
