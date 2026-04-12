@@ -45,7 +45,7 @@ const Footer = () => (
             <li><Link to="/pura-nights" className="hover:text-primary transition-colors">Weekly Classes</Link></li>
             <li><Link to="/events" className="hover:text-primary transition-colors">Monthly Latin Fridays</Link></li>
             <li><Link to="/pura-ladies" className="hover:text-primary transition-colors">Pura Ladies</Link></li>
-            <li><Link to="/online-classes" className="hover:text-primary transition-colors">Online Classes</Link></li>
+            <li><Link to="/online-salsa-bachata-coaching" className="hover:text-primary transition-colors">Online Coaching</Link></li>
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/schedule" className="hover:text-primary transition-colors">Full Schedule</Link></li>
           </ul>

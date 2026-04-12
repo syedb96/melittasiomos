@@ -23,6 +23,7 @@ import WeddingDance from "./pages/WeddingDance";
 import PrivateLessons from "./pages/PrivateLessons";
 import GiftVouchers from "./pages/GiftVouchers";
 import OnlineClasses from "./pages/OnlineClasses";
+import OnlineCoaching from "./pages/OnlineCoaching";
 import Testimonials from "./pages/Testimonials";
 import SalsaClassesLondon from "./pages/SalsaClassesLondon";
 import BachataClassesLondon from "./pages/BachataClassesLondon";
@@ -179,6 +180,7 @@ const App = () => (
             <Route path="/private-lessons" element={<PrivateLessons />} />
             <Route path="/gift-vouchers" element={<GiftVouchers />} />
             <Route path="/online-classes" element={<OnlineClasses />} />
+            <Route path="/online-salsa-bachata-coaching" element={<OnlineCoaching />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/salsa-classes-london" element={<SalsaClassesLondon />} />
             <Route path="/bachata-classes-london" element={<BachataClassesLondon />} />
