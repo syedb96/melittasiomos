@@ -6,6 +6,15 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import communityImg from "@/assets/community-vibe.jpg";
 
+/* <!-- WIX PAGE: /community -->
+   <!-- WIX SECTION: Hero — Full-width Strip with community image + dark overlay -->
+   <!-- WIX SECTION: The Vibe — use Card grid (4 columns) -->
+   <!-- WIX SECTION: Community Values — use numbered Card grid on dark Strip -->
+   <!-- WIX SECTION: A Typical Night — use Timeline/Steps Strip -->
+   <!-- WIX SECTION: Student Voices — use Repeater connected to Testimonials collection (community category) -->
+   <!-- WIX SECTION: Common Questions — use Wix FAQ app or Accordions -->
+   <!-- WIX SECTION: Stay Connected — use CTA Strip with social buttons -->
+*/
 const vibeCards = [
   { icon: <Music size={28} />, title: "The Music", desc: "From classic salsa dura to modern bachata sensual — every night is curated for dancers who feel the rhythm in their bones." },
   { icon: <Users size={28} />, title: "The People", desc: "A beautifully diverse community of creatives, professionals, students and free spirits united by a love of Latin dance." },

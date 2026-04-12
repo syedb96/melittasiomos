@@ -6,6 +6,13 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import testimonials, { type Testimonial } from "@/data/testimonials";
 
+/* <!-- WIX PAGE: /testimonials -->
+   <!-- WIX: Use Repeater connected to Testimonials CMS collection -->
+   <!-- WIX: Filter by category using dataset filters -->
+   <!-- WIX SECTION: Hero — use Strip -->
+   <!-- WIX SECTION: Category Filter — use Tab element or custom buttons -->
+   <!-- WIX SECTION: Testimonial Grid — use Repeater with masonry layout -->
+*/
 const categories = [
   { key: "all", label: "All" },
   { key: "group", label: "Group Classes" },

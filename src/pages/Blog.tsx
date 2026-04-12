@@ -4,6 +4,14 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
+/* <!-- WIX PAGE: /blog -->
+   <!-- WIX: Use Wix Blog app with categories matching: Salsa, Bachata, Beginners, Wedding Dance, Local, Culture, Technique, Events, Lifestyle -->
+   <!-- WIX SECTION: Hero — use Strip -->
+   <!-- WIX SECTION: Category Filter — use Blog category navigation -->
+   <!-- WIX SECTION: Featured Post — use Blog featured post widget -->
+   <!-- WIX SECTION: Post Grid — use Blog post list/grid widget -->
+   <!-- WIX SECTION: Sidebar — use Blog sidebar with custom widgets -->
+*/
 const blogPosts = [
   { slug: "what-is-salsa", title: "What is Salsa Dance? The Complete Guide to On1 Crossbody Style", date: "Jan 2025", excerpt: "Discover the history, music, and technique of Salsa dance. Learn On1 Crossbody Salsa in London at Pura Nights.", category: "Salsa", readTime: "8 min", featured: true },
   { slug: "what-is-bachata", title: "What is Bachata Dance? From Dominican Roots to Bachata Sensual", date: "Feb 2025", excerpt: "Explore Bachata — from its emotional Dominican Republic origins to Bachata Sensual. Learn all styles at Pura Nights.", category: "Bachata", readTime: "7 min" },

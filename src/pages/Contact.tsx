@@ -7,6 +7,13 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /contact -->
+   <!-- WIX: Use Wix Forms connected to Enquiries CMS collection -->
+   <!-- WIX: Set up Wix Automations for email notifications on submission -->
+   <!-- WIX SECTION: Hero — use Strip -->
+   <!-- WIX SECTION: Contact Form — use Wix Form element -->
+   <!-- WIX SECTION: Contact Info Cards — use Card grid -->
+*/
 const enquiryTypes = [
   "Group Classes — Chiswick or Ealing",
   "Monthly Latin Friday — Tickets & Info",

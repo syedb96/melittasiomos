@@ -14,7 +14,8 @@
 | Pura Ladies | `/pura-ladies` | **KEEP** | Good authority page. |
 | Wedding Dance | `/wedding-dance` | **KEEP** | Remove any public pricing. Enquiry-only. |
 | Private Lessons | `/private-lessons` | **KEEP** | Remove any public pricing. Enquiry-only. |
-| Online Classes | `/online-classes` | **KEEP** | Confirm "from £12" pricing. |
+| Online Coaching | `/online-salsa-bachata-coaching` | **NEW** | Premium coaching page with Wix Online Programs integration notes. |
+| Online Classes (legacy) | `/online-classes` | **KEEP** | Backward-compatible redirect. Original basic page. |
 | Prices | `/prices` | **POLISH** | ⚠️ Remove legacy Bronze/Silver/Gold package names. Remove "1-2-1 prices" if public. Standardise to current pricing. |
 | Schedule | `/schedule` | **KEEP** | Venue names verified. |
 | Events | `/events` | **KEEP** | Move to Wix CMS dynamic page. |
@@ -94,8 +95,8 @@ All 42 blog posts: **KEEP**. See `docs/05-BLOG-INVENTORY.md` for individual post
 |--------|-------|
 | KEEP | 61 |
 | POLISH | 3 (Prices, About, Blog index) |
-| NEW | 2 (Venue pages) |
+| NEW | 3 (Venue pages × 2, Online Coaching) |
 | MERGE | 0 |
 | NOINDEX/REMOVE | 0 |
 
-**Total pages**: ~68 public routes
+**Total pages**: ~69 public routes

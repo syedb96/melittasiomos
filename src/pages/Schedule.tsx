@@ -5,6 +5,15 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp } from "@/components/animations";
 
+/* <!-- WIX PAGE: /schedule -->
+   <!-- WIX: Use Repeater or Table connected to Classes/Schedule CMS collection -->
+   <!-- WIX SECTION: Hero — use Strip -->
+   <!-- WIX SECTION: Monday Schedule — use Table or styled Repeater grouped by day -->
+   <!-- WIX SECTION: Tuesday Schedule — same pattern -->
+   <!-- WIX SECTION: Pricing Quick Ref — use Card grid -->
+   <!-- WIX SECTION: Latin Friday — use CTA Strip -->
+   <!-- WIX SECTION: CTA Band — use Full-width Strip -->
+*/
 const Schedule = () => (
   <Layout>
     <SeoHead

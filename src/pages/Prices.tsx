@@ -5,6 +5,15 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { CheckCircle } from "lucide-react";
 
+/* <!-- WIX PAGE: /prices -->
+   <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
+   <!-- WIX SECTION: Class Bundles — use 2-column Card grid -->
+   <!-- WIX SECTION: Latin Friday — use styled Strip -->
+   <!-- WIX SECTION: Competitor Comparison — use Table element -->
+   <!-- WIX SECTION: Private + Wedding Enquiry — use 2-column Cards -->
+   <!-- WIX SECTION: Gift Vouchers — use CTA Strip -->
+   <!-- WIX SECTION: Pricing FAQs — use Wix FAQ app or Accordions -->
+*/
 const Prices = () => (
   <Layout>
     <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights | Melitta Siomos" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />

@@ -7,6 +7,16 @@ import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lu
 import { motion } from "framer-motion";
 import heroImg from "@/assets/beginner-welcome.jpg";
 import melittaImg from "@/assets/melitta-portrait.jpg";
+
+/* <!-- WIX PAGE: /beginners -->
+   <!-- WIX SECTION: Hero — Full-width Strip with welcoming beginner image -->
+   <!-- WIX SECTION: Reassurance Grid — use Icon/Card grid -->
+   <!-- WIX SECTION: What to Expect — use Timeline strip -->
+   <!-- WIX SECTION: Which Class — use comparison Card grid -->
+   <!-- WIX SECTION: FAQ — use Wix FAQ app -->
+   <!-- WIX SECTION: Testimonials — use Slider connected to Testimonials collection (beginner category) -->
+   <!-- WIX SECTION: CTA Band — use Full-width Strip -->
+*/
 import socialImg from "@/assets/community-vibe.jpg";
 
 const schema = {

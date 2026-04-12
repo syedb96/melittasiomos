@@ -26,7 +26,8 @@
 | 4 | `/pura-ladies` | Pura Ladies — Latin Performance Team London | KEEP | `src/pages/PuraLadies.tsx` |
 | 5 | `/wedding-dance` | Wedding Dance Lessons London — First Dance Made Easy | KEEP | `src/pages/WeddingDance.tsx` |
 | 6 | `/private-lessons` | Private Salsa & Bachata Lessons — Enquire Now | KEEP | `src/pages/PrivateLessons.tsx` |
-| 7 | `/online-classes` | Online Salsa & Bachata Classes — Live & On Demand | KEEP | `src/pages/OnlineClasses.tsx` |
+| 7 | `/online-salsa-bachata-coaching` | Online Salsa & Bachata Coaching — Learn with Melitta | NEW | `src/pages/OnlineCoaching.tsx` |
+| 7b | `/online-classes` | _(legacy redirect — kept for backward compat)_ | KEEP | `src/pages/OnlineClasses.tsx` |
 | 8 | `/prices` | Class Prices & Bundles — Pura Nights London | POLISH | `src/pages/Prices.tsx` |
 | 9 | `/schedule` | Weekly Class Schedule — Monday & Tuesday | KEEP | `src/pages/Schedule.tsx` |
 | 10 | `/events` | Latin Dance Events London — Pura Nights | KEEP | `src/pages/Events.tsx` |

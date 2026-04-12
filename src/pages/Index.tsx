@@ -12,6 +12,22 @@ import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
+/* <!-- WIX PAGE: Homepage / -->
+   <!-- WIX SECTION: Hero — Full-width Strip with cinematic image/video background + dark overlay -->
+   <!-- WIX SECTION: Trust Ticker — use Wix marquee/ticker strip -->
+   <!-- WIX SECTION: Next Class Countdown — custom code or countdown widget -->
+   <!-- WIX SECTION: 4 Brand Pillars — use Card grid (Nights, Ladies, Wedding, Online) -->
+   <!-- WIX SECTION: Weekly Schedule Table — use Table or styled Repeater -->
+   <!-- WIX SECTION: Salsa vs Bachata — use 2-column Strip -->
+   <!-- WIX SECTION: Meet Melitta — use Strip with image + text -->
+   <!-- WIX SECTION: Social Vibe — use Strip with icons/cards -->
+   <!-- WIX SECTION: Testimonials Carousel — use Wix Slider connected to Testimonials collection -->
+   <!-- WIX SECTION: Pricing Snapshot — use Card grid -->
+   <!-- WIX SECTION: Wedding Dance Teaser — use Strip with CTA -->
+   <!-- WIX SECTION: Blog Preview — use Repeater connected to Blog collection (3 featured) -->
+   <!-- WIX SECTION: Gift Vouchers Strip — use CTA Strip -->
+   <!-- WIX SECTION: Instagram Grid — use Wix Instagram Feed widget -->
+*/
 const trustStats = [
   { icon: GraduationCap, value: "15+", label: "Years Teaching" },
   { icon: Users, value: "500+", label: "Students Taught" },
