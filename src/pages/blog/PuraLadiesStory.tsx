@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/pura-ladies-story -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const PuraLadiesStory = () => (
   <Layout>
     <SeoHead title="Pura Ladies Dance Company — Our Story | 7 Teams, 4 Countries" description="How Pura Ladies grew from one London team to 7 groups across London, Plymouth, Munich, and Lisbon." path="/blog/pura-ladies-story" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "The Story of Pura Ladies", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-05-01" }} />

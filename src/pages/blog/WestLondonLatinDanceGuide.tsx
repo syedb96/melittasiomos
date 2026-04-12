@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/west-london-latin-dance-guide -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const WestLondonLatinDanceGuide = () => (
   <Layout>
     <SeoHead title="West London Latin Dance Guide — Classes, Socials & Community | Pura Nights" description="The definitive guide to Latin dance in West London. Find the best Salsa and Bachata classes, social events, and community in Chiswick, Ealing, Acton and beyond." path="/blog/west-london-latin-dance-guide" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "West London Latin Dance Guide", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-07-20" }} />

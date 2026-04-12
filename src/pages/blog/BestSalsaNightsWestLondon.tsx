@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/best-salsa-nights-west-london -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const BestSalsaNightsWestLondon = () => (
   <Layout>
     <SeoHead title="Best Salsa Nights in West London — 2026 Guide | Pura Nights" description="Discover the best salsa nights in West London for 2026. Weekly classes, monthly Latin Fridays, and social dancing at Pura Nights in Chiswick and Ealing." path="/blog/best-salsa-nights-west-london" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "The Best Salsa Nights in West London — 2026 Guide", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2026-01-15" }} />

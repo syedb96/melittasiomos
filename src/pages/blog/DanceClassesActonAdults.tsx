@@ -6,6 +6,13 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 
+/* <!-- WIX PAGE: /blog/dance-classes-acton-adults -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const DanceClassesActonAdults = () => (
   <Layout>
     <SeoHead title="Dance Classes in Acton for Adults | Salsa & Bachata Near W3 | Pura Nights" description="Adult dance classes near Acton. Weekly Salsa & Bachata in nearby Chiswick and Ealing — easily accessible from all Acton stations. All levels, no partner needed." path="/blog/dance-classes-acton-adults" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Dance Classes in Acton for Adults", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-07-15" }} />

@@ -7,6 +7,13 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
+/* <!-- WIX PAGE: /blog/new-year-start-salsa -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const NewYearStartSalsa = () => (
   <Layout>
     <SeoHead title="Start Salsa in London This New Year | Pura Nights" description="New Year's resolution to learn to dance? Here's how to start Salsa in London and actually stick to it. Beginner-friendly classes from £5." path="/blog/new-year-start-salsa-london" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "New Year, New Move: How to Start Salsa in London and Actually Stick to It", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-01-05" }} />

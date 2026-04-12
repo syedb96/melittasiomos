@@ -19,6 +19,13 @@ const tips = [
   { n: 10, title: "Trust the Process", text: "Every couple says the same: they couldn't believe how quickly it came together with regular sessions." },
 ];
 
+/* <!-- WIX PAGE: /blog/wedding-first-dance-tips -->
+   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
+   <!-- WIX SECTION: Article Header — title, category, author, date -->
+   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
+   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
+   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
+*/
 const WeddingFirstDanceTips = () => (
   <Layout>
     <SeoHead title="10 Tips for the Perfect Wedding First Dance | Melitta Siomos London" description="Expert advice from Melitta Siomos on preparing a show-stopping wedding first dance." path="/blog/wedding-first-dance-tips" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "10 Tips for the Perfect Wedding First Dance", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-03-15" }} />
