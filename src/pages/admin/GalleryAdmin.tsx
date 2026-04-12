@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This gallery admin is a Lovable prototype for managing photo albums
+   and uploads. In Wix, use Wix Pro Gallery with CMS-connected albums, or Wix Media Manager for
+   uploads. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";

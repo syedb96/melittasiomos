@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This team admin is a Lovable prototype for managing team member
+   profiles. In Wix, use a CMS collection called "Team Members" connected to a repeater on the
+   About page. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";

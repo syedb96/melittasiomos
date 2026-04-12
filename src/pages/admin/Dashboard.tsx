@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This admin dashboard is a Lovable prototype for content management.
+   It is NOT intended for Wix migration. In Wix, use the built-in CMS dashboard, Wix Analytics,
+   and native content management tools instead. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";

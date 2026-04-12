@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This testimonials admin is a Lovable prototype for managing student
+   reviews. In Wix, use a CMS collection called "Testimonials" connected to repeaters across
+   relevant pages. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";

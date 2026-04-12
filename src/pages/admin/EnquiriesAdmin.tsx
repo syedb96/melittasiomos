@@ -1,3 +1,6 @@
+/* <!-- WIX: PROTOTYPE ONLY — This enquiries admin is a Lovable prototype for triaging contact form
+   submissions. In Wix, use Wix Forms submissions dashboard, Wix CRM, or Wix Automations to manage
+   enquiries. Do NOT replicate this page in Wix Editor. --> */
 import { useEffect, useState } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";
