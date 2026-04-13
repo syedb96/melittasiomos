@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogCTA from "@/components/BlogCTA";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /* <!-- WIX PAGE: /blog/what-is-salsa -->
@@ -83,6 +84,8 @@ const WhatIsSalsa = () => (
             <p><strong>RUEDA DE CASINO</strong><br/>A group format of Cuban Salsa — a circle of couples who all rotate partners and perform the same moves simultaneously, called out by a "caller" (cantante). Spectacular at social events.</p>
 
             <p>At Pura Nights, we focus on <strong>ON1 CROSSBODY SALSA</strong> — the most versatile style that allows you to dance at any social in the world.</p>
+
+            <BlogCTA variant="classes" />
 
             <h2>Understanding Salsa Music — The Clave</h2>
 

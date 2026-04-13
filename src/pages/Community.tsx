@@ -49,7 +49,7 @@ const Community = () => (
     {/* Hero */}
     <section className="relative bg-charcoal text-primary-foreground overflow-hidden">
       <div className="absolute inset-0">
-        <img src={communityImg} alt="Pura Nights dance community socializing" className="w-full h-full object-cover opacity-20" />
+        <img src={communityImg} alt="Pura Nights dance community socializing" className="w-full h-full object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50" />
       </div>
       <div className="container-main relative z-10 py-24 md:py-32 lg:py-40 text-center">

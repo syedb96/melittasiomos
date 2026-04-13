@@ -11,6 +11,27 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import LastUpdated from "@/components/LastUpdated";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const homeFaqs = [
+  { q: "Do I need a partner to join?", a: "No — we rotate partners throughout every class. Many of our students come solo." },
+  { q: "I've never danced before. Can I join?", a: "Yes! Our Beginners class starts from zero every week. No experience needed." },
+  { q: "How much does it cost?", a: "From £5 (social only) or £10 per class. Bundles start at £42 for 5 classes." },
+  { q: "Where are the classes?", a: "Monday: The George IV, Chiswick (W4 2DR). Tuesday: Drayton Court Hotel, Ealing (W13 8PH)." },
+  { q: "Do I need to book?", a: "No booking required for weekly classes — just turn up on the night." },
+  { q: "What should I wear?", a: "Comfortable clothing and flat-soled shoes. Avoid thick running shoes." },
+];
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map(f => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 /* <!-- WIX PAGE: Homepage / -->
    <!-- WIX SECTION: Hero — Full-width Strip with cinematic image/video background + dark overlay -->
@@ -82,6 +103,7 @@ const Index = () => {
         title="Salsa & Bachata Classes London | Pura Nights by Melitta Siomos"
         description="Join London's award-winning Salsa & Bachata dance school. Weekly classes in Chiswick & Ealing, private lessons, wedding dance & performance teams. All levels welcome. Book today!"
         path="/"
+        dateModified="2026-04-13"
       />
 
       {/* SECTION 1 — HERO */}
@@ -527,6 +549,32 @@ const Index = () => {
           </FadeInUp>
         </div>
       </section>
+
+      {/* SECTION — HOMEPAGE FAQ */}
+      {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-3xl">
+          <FadeInUp>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-center text-sm mb-8 font-heading">Quick answers for first-timers</p>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <Accordion type="multiple" className="mb-6">
+              {homeFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            <div className="text-center">
+              <Link to="/faq" className="text-primary font-heading text-sm font-semibold hover:underline inline-flex items-center gap-1">See All 20+ FAQs <ChevronRight size={14} /></Link>
+            </div>
+          </FadeInUp>
+          <LastUpdated date="2026-04-13" />
+        </div>
+      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
       {/* COMMUNITY CTA */}
       <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
