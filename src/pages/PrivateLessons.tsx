@@ -185,11 +185,11 @@ const PrivateLessons = () => (
 
     <RelatedPages title="Related Pages" links={[
       { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },
+      { to: "/proof-centre", label: "Proof Centre", desc: "Reviews, awards & credentials" },
       { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
-      { to: "/online-classes", label: "Online Classes", desc: "Learn via Zoom" },
       { to: "/pura-nights", label: "Weekly Classes", desc: "Group classes Mon & Tue" },
       { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
-      { to: "/testimonials", label: "Student Reviews", desc: "What students say" },
+      { to: "/meet-the-team", label: "Meet the Team", desc: "8 professional instructors" },
     ]} />
 
     {/* CTA */}
