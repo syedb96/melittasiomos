@@ -550,6 +550,32 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION — HOMEPAGE FAQ */}
+      {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-3xl">
+          <FadeInUp>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-center text-sm mb-8 font-heading">Quick answers for first-timers</p>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <Accordion type="multiple" className="mb-6">
+              {homeFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            <div className="text-center">
+              <Link to="/faq" className="text-primary font-heading text-sm font-semibold hover:underline inline-flex items-center gap-1">See All 20+ FAQs <ChevronRight size={14} /></Link>
+            </div>
+          </FadeInUp>
+          <LastUpdated date="2026-04-13" />
+        </div>
+      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
+
       {/* COMMUNITY CTA */}
       <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main">
