@@ -217,9 +217,10 @@ const WeddingDance = () => (
       { to: "/blog/salsa-vs-waltz-wedding", label: "Salsa vs Waltz", desc: "Compare styles for your dance" },
       { to: "/blog/last-minute-wedding-dance", label: "Last-Minute Dance", desc: "Short on time? Here's what to do" },
       { to: "/wedding-dance-west-london", label: "Wedding Dance West London", desc: "Local service info" },
+      { to: "/proof-centre", label: "Proof Centre", desc: "Read real couple reviews & awards" },
       { to: "/private-lessons", label: "Private Lessons", desc: "All 1-to-1 coaching options" },
       { to: "/gift-vouchers", label: "Gift Vouchers", desc: "Give dance lessons as a gift" },
-      { to: "/testimonials", label: "Couple Testimonials", desc: "Hear from happy couples" },
+      { to: "/meet-the-team", label: "Meet the Team", desc: "8 professional instructors" },
     ]} />
 
     {/* CTA */}
