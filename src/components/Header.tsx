@@ -43,6 +43,7 @@ const navGroups = [
       { label: "Community", path: "/community" },
       { label: "Schedule", path: "/schedule" },
       { label: "Gallery", path: "/gallery" },
+      { label: "Proof Centre", path: "/proof-centre" },
       { label: "Find a Class Near You", path: "/locations" },
     ],
   },

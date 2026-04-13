@@ -456,7 +456,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 12 — GOOGLE BUSINESS PROFILES */}
+      {/* SECTION 12 — PROOF CENTRE TEASER */}
       <section className="py-10 bg-card border-y border-border">
         <div className="container-main">
           <FadeInUp>
@@ -484,6 +484,9 @@ const Index = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <FadeInUp delay={0.2} className="text-center mt-6">
+            <Link to="/proof-centre" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">See All Reviews & Awards <ChevronRight size={14} /></Link>
+          </FadeInUp>
         </div>
       </section>
 
