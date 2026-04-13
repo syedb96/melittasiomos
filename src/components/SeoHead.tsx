@@ -1,10 +1,16 @@
 import { useEffect } from "react";
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SeoHeadProps {
   title: string;
   description: string;
   path: string;
   schema?: object;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const globalSchema = {
@@ -39,7 +45,46 @@ const globalSchema = {
   award: "Bachata UK Champion",
 };
 
-const SeoHead = ({ title, description, path, schema }: SeoHeadProps) => {
+function buildBreadcrumbSchema(breadcrumbs: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `https://www.puranights.com${item.path}`,
+    })),
+  };
+}
+
+function getAutoBreadcrumbs(path: string, title: string): BreadcrumbItem[] {
+  const crumbs: BreadcrumbItem[] = [{ name: "Home", path: "/" }];
+  if (path === "/") return crumbs;
+
+  // Blog posts
+  if (path.startsWith("/blog/")) {
+    crumbs.push({ name: "Blog", path: "/blog" });
+    crumbs.push({ name: title.split(" | ")[0].split(" — ")[0], path });
+    return crumbs;
+  }
+
+  // Venue pages
+  if (path.startsWith("/venue/")) {
+    crumbs.push({ name: "Locations", path: "/locations" });
+    crumbs.push({ name: title.split(" | ")[0].split(" — ")[0], path });
+    return crumbs;
+  }
+
+  // Admin pages — skip breadcrumbs
+  if (path.startsWith("/admin")) return crumbs;
+
+  // All other pages
+  crumbs.push({ name: title.split(" | ")[0].split(" — ")[0], path });
+  return crumbs;
+}
+
+const SeoHead = ({ title, description, path, schema, breadcrumbs }: SeoHeadProps) => {
   useEffect(() => {
     document.title = title;
     const setMeta = (name: string, content: string, prop = "name") => {
@@ -53,16 +98,24 @@ const SeoHead = ({ title, description, path, schema }: SeoHeadProps) => {
     setMeta("og:url", `https://www.puranights.com${path}`, "property");
     setMeta("og:type", "website", "property");
 
-    // Inject JSON-LD
+    // Inject primary JSON-LD
     let scriptEl = document.getElementById("schema-global");
     if (!scriptEl) { scriptEl = document.createElement("script"); scriptEl.id = "schema-global"; scriptEl.setAttribute("type", "application/ld+json"); document.head.appendChild(scriptEl); }
     scriptEl.textContent = JSON.stringify(schema || globalSchema);
+
+    // Inject BreadcrumbList JSON-LD
+    const bc = breadcrumbs || getAutoBreadcrumbs(path, title);
+    if (bc.length > 1) {
+      let bcScript = document.getElementById("schema-breadcrumb");
+      if (!bcScript) { bcScript = document.createElement("script"); bcScript.id = "schema-breadcrumb"; bcScript.setAttribute("type", "application/ld+json"); document.head.appendChild(bcScript); }
+      bcScript.textContent = JSON.stringify(buildBreadcrumbSchema(bc));
+    }
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.setAttribute("rel", "canonical"); document.head.appendChild(canonical); }
     canonical.setAttribute("href", `https://www.puranights.com${path}`);
-  }, [title, description, path, schema]);
+  }, [title, description, path, schema, breadcrumbs]);
 
   return null;
 };
