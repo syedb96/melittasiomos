@@ -32,6 +32,7 @@ const sections = [
       { to: "/gift-vouchers", label: "Dance Gift Vouchers" },
       { to: "/blog", label: "Blog & Guides" },
       { to: "/proof-centre", label: "Proof Centre — Reviews & Awards" },
+      { to: "/meet-the-team", label: "Meet the Teaching Team" },
     ],
   },
   {
