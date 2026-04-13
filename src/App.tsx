@@ -56,6 +56,7 @@ import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
 import Beginners from "./pages/Beginners";
 import AllPagesMaster from "./pages/AllPagesMaster";
 import ProofCentre from "./pages/ProofCentre";
+import MeetTheTeam from "./pages/MeetTheTeam";
 import TheGeorgeIVChiswick from "./pages/venue/TheGeorgeIVChiswick";
 import TheDraytonCourtEaling from "./pages/venue/TheDraytonCourtEaling";
 
@@ -214,6 +215,7 @@ const App = () => (
             <Route path="/beginners" element={<Beginners />} />
             <Route path="/all-pages-master" element={<AllPagesMaster />} />
             <Route path="/proof-centre" element={<ProofCentre />} />
+            <Route path="/meet-the-team" element={<MeetTheTeam />} />
             <Route path="/venue/the-george-iv-chiswick" element={<TheGeorgeIVChiswick />} />
             <Route path="/venue/the-drayton-court-ealing" element={<TheDraytonCourtEaling />} />
             <Route path="/venue/the-drayton-court-ealing" element={<TheDraytonCourtEaling />} />

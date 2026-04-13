@@ -248,6 +248,31 @@ const ProofCentre = () => (
       </div>
     </section>
 
+    {/* RELATED SERVICES */}
+    <section className="px-4 py-12 md:px-8 lg:px-16 lg:py-16 section-warm">
+      <div className="container-main max-w-4xl">
+        <h2 className="font-display text-xl md:text-2xl font-bold mb-5 text-center">Explore Our Services</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {[
+            { to: "/wedding-dance", label: "Wedding Dance", desc: "See why couples trust Melitta for their first dance" },
+            { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching tailored to your goals" },
+            { to: "/pura-ladies", label: "Pura Ladies", desc: "7 teams, 4 countries — join the movement" },
+            { to: "/meet-the-team", label: "Meet the Team", desc: "8 professional instructors behind the magic" },
+            { to: "/pura-nights", label: "Weekly Classes", desc: "Mon Chiswick · Tue Ealing · All levels" },
+            { to: "/start-here", label: "New? Start Here", desc: "First-timer guide and reassurance" },
+          ].map((link) => (
+            <Link key={link.to} to={link.to} className="group bg-card rounded-xl px-4 py-3.5 card-hover flex items-start gap-2.5 border border-border hover:border-primary transition-colors">
+              <span className="text-primary mt-0.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform">→</span>
+              <div>
+                <span className="font-heading font-semibold text-sm leading-snug group-hover:text-primary transition-colors">{link.label}</span>
+                <p className="text-muted-foreground text-xs mt-0.5 leading-snug">{link.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* CTA */}
     <section className="py-12 text-center" style={{ background: "var(--gradient-gold)" }}>
       <div className="container-main">
