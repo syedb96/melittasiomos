@@ -70,12 +70,37 @@ const team = [
   },
 ];
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Pura Nights — Melitta Siomos Dance Academy",
+  alternateName: ["Pura Nights", "Pura Ladies", "Wedding Dance Made Easy"],
+  url: "https://www.puranights.com",
+  logo: "https://www.puranights.com/logo.png",
+  foundingDate: "2010",
+  founder: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Award-Winning Salsa & Bachata Dance Instructor" },
+  description: "Award-winning Salsa and Bachata dance school in West London. Weekly classes, private lessons, wedding dance, and performance teams.",
+  address: [
+    { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", addressRegion: "London", postalCode: "W4 2DR", addressCountry: "GB" },
+    { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", addressRegion: "London", postalCode: "W13 8PH", addressCountry: "GB" },
+  ],
+  sameAs: [
+    "https://www.instagram.com/melittasiomos/",
+    "https://www.instagram.com/puranights.salsabachata/",
+    "https://www.instagram.com/puraladies/",
+    "https://www.instagram.com/wedding_dance_made_easy/",
+    "https://www.facebook.com/puranights/",
+    "https://www.youtube.com/@melittasiomos",
+  ],
+  areaServed: ["Chiswick", "Ealing", "Acton", "West London", "South West London", "London"],
+};
+
 const About = () => {
   const [openBio, setOpenBio] = useState<number | null>(null);
 
   return (
   <Layout>
-    <SeoHead title="About Melitta Siomos | Award-Winning Dance Instructor | Pura Nights London" description="Meet Melitta Siomos — international award-winning Salsa & Bachata instructor, founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. 15+ years of experience across London and Europe." path="/about" />
+    <SeoHead title="About Melitta Siomos | Award-Winning Dance Instructor | Pura Nights London" description="Meet Melitta Siomos — international award-winning Salsa & Bachata instructor, founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. 15+ years of experience across London and Europe." path="/about" schema={orgSchema} dateModified="2026-04-13" />
 
     {/* Hero */}
     <section className="relative h-72 md:h-[26rem] overflow-hidden">
