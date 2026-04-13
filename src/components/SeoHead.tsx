@@ -11,6 +11,7 @@ interface SeoHeadProps {
   path: string;
   schema?: object;
   breadcrumbs?: BreadcrumbItem[];
+  dateModified?: string; // ISO date e.g. "2026-04-13"
 }
 
 const globalSchema = {
@@ -84,7 +85,7 @@ function getAutoBreadcrumbs(path: string, title: string): BreadcrumbItem[] {
   return crumbs;
 }
 
-const SeoHead = ({ title, description, path, schema, breadcrumbs }: SeoHeadProps) => {
+const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified }: SeoHeadProps) => {
   useEffect(() => {
     document.title = title;
     const setMeta = (name: string, content: string, prop = "name") => {
@@ -97,6 +98,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs }: SeoHeadProps
     setMeta("og:description", description, "property");
     setMeta("og:url", `https://www.puranights.com${path}`, "property");
     setMeta("og:type", "website", "property");
+    if (dateModified) setMeta("article:modified_time", dateModified, "property");
 
     // Inject primary JSON-LD
     let scriptEl = document.getElementById("schema-global");
@@ -115,7 +117,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs }: SeoHeadProps
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement("link"); canonical.setAttribute("rel", "canonical"); document.head.appendChild(canonical); }
     canonical.setAttribute("href", `https://www.puranights.com${path}`);
-  }, [title, description, path, schema, breadcrumbs]);
+  }, [title, description, path, schema, breadcrumbs, dateModified]);
 
   return null;
 };
