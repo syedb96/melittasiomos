@@ -76,7 +76,7 @@ const Events = () => {
 
       <section className="relative section-padding section-dark text-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={eventImg} alt="Latin Friday dance event at Pura Nights" className="w-full h-full object-cover opacity-20" />
+          <img src={eventImg} alt="Latin Friday dance event at Pura Nights" className="w-full h-full object-cover opacity-20" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/50" />
         </div>
         <div className="container-main relative z-10">

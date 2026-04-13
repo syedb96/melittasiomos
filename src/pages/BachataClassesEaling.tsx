@@ -36,7 +36,7 @@ const BachataClassesEaling = () => (
 
     <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Bachata social dancing at Drayton Court Ealing" className="w-full h-full object-cover opacity-20" />
+        <img src={heroImg} alt="Bachata social dancing at Drayton Court Ealing" className="w-full h-full object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/60" />
       </div>
       <div className="container-main max-w-4xl relative z-10">
