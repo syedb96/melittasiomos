@@ -28,7 +28,7 @@ const navGroups = [
     path: "/about",
     dropdown: [
       { label: "About Melitta", path: "/about" },
-      { label: "Meet the Team", path: "/about#team" },
+      { label: "Meet the Team", path: "/meet-the-team" },
       { label: "Wedding Dance", path: "/wedding-dance" },
       { label: "Private Lessons", path: "/private-lessons" },
     ],
