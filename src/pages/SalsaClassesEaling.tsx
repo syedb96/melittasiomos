@@ -3,11 +3,18 @@ import { MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import LastUpdated from "@/components/LastUpdated";
 import heroImg from "@/assets/salsa-ealing.jpg";
+
+const ealingFaqs = [
+  { q: "Is the Drayton Court easy to get to by public transport?", a: "Yes! West Ealing station is a 3-minute walk and is on the Elizabeth Line and Great Western Railway. Bus routes 83, 207, and E1 stop nearby." },
+  { q: "Do I need to book in advance?", a: "You can pay cash at the door, but we recommend booking via Ticket Tailor for guaranteed entry — especially on busy weeks." },
+  { q: "What style of salsa do you teach?", a: "We teach cross-body (LA/NY) style salsa, which is the most widely danced style at social events across London and Europe." },
+];
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": ["Event", "FAQPage"],
   name: "Salsa Classes Ealing — Pura Nights",
   description: "Weekly salsa and bachata classes every Tuesday at Drayton Court Hotel, Ealing.",
   startDate: "2026-01-06T19:30",
@@ -15,6 +22,9 @@ const schema = {
   location: { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
   offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
+  mainEntity: ealingFaqs.map(f => ({
+    "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 /* <!-- WIX PAGE: salsa-classes-ealing -->
@@ -32,6 +42,7 @@ const SalsaClassesEaling = () => (
       description="Learn salsa every Tuesday in Ealing at Drayton Court Hotel with Melitta Siomos. Beginner to advanced. No partner needed. From £5."
       path="/salsa-classes-ealing"
       schema={schema}
+      dateModified="2026-04-14"
     />
 
     <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
@@ -43,9 +54,10 @@ const SalsaClassesEaling = () => (
         <nav className="text-xs text-primary-foreground/50 mb-8 font-heading">
           <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/salsa-classes-london" className="hover:text-primary">Salsa Classes London</Link> / <span className="text-primary">Ealing</span>
         </nav>
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Salsa Classes in Ealing — Every Tuesday at Pura Nights
         </h1>
+        <LastUpdated date="2026-04-14" />
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos and the Pura Nights team run weekly salsa classes every Tuesday evening at the Drayton Court Hotel in West Ealing. Whether you're taking your first salsa step or looking to perfect your spins, turns and partnerwork, this is the place to be.
         </p>
@@ -87,11 +99,7 @@ const SalsaClassesEaling = () => (
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Ealing Salsa Class FAQs</h2>
         <div className="space-y-6">
-          {[
-            { q: "Is the Drayton Court easy to get to by public transport?", a: "Yes! West Ealing station is a 3-minute walk and is on the Elizabeth Line and Great Western Railway. Bus routes 83, 207, and E1 stop nearby." },
-            { q: "Do I need to book in advance?", a: "You can pay cash at the door, but we recommend booking via Ticket Tailor for guaranteed entry — especially on busy weeks." },
-            { q: "What style of salsa do you teach?", a: "We teach cross-body (LA/NY) style salsa, which is the most widely danced style at social events across London and Europe." },
-          ].map((faq, i) => (
+          {ealingFaqs.map((faq, i) => (
             <div key={i} className="bg-background rounded-lg p-6">
               <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
               <p className="text-muted-foreground text-sm">{faq.a}</p>

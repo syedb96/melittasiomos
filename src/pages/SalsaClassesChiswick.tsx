@@ -3,11 +3,18 @@ import { MapPin, Clock, Star, Trophy, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import LastUpdated from "@/components/LastUpdated";
 import heroImg from "@/assets/salsa-chiswick.jpg";
+
+const chiswickFaqs = [
+  { q: "How do I get to The George IV?", a: "185 Chiswick High Rd, London W4 2DR. Nearest tube: Turnham Green (District Line, 5-min walk). Buses: 190, 237, 267. On-street parking available after 6:30 PM." },
+  { q: "Is there parking near the venue?", a: "Yes, there's on-street parking along Chiswick High Road and surrounding residential streets. After 6:30 PM, most restrictions are lifted." },
+  { q: "Can I just come for the social dancing?", a: "Experienced dancers are welcome to join the social from 9 PM. We recommend taking the classes first to build your technique and confidence." },
+];
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": ["Event", "FAQPage"],
   name: "Salsa Classes Chiswick — Pura Nights",
   description: "Weekly salsa and bachata classes every Monday at The George IV, Chiswick.",
   startDate: "2026-01-05T19:30",
@@ -15,6 +22,9 @@ const schema = {
   location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
   offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
+  mainEntity: chiswickFaqs.map(f => ({
+    "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 /* <!-- WIX PAGE: salsa-classes-chiswick -->
@@ -32,6 +42,7 @@ const SalsaClassesChiswick = () => (
       description="Join salsa and bachata classes every Monday in Chiswick at The George IV Pub. All levels welcome, no partner needed. From £5. Taught by Bachata UK Champion Melitta Siomos."
       path="/salsa-classes-chiswick"
       schema={schema}
+      dateModified="2026-04-14"
     />
 
     <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
@@ -43,9 +54,10 @@ const SalsaClassesChiswick = () => (
         <nav className="text-xs text-primary-foreground/50 mb-8 font-heading">
           <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/salsa-classes-london" className="hover:text-primary">Salsa Classes London</Link> / <span className="text-primary">Chiswick</span>
         </nav>
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Salsa Classes in Chiswick — Every Monday at Pura Nights
         </h1>
+        <LastUpdated date="2026-04-14" />
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos brings Chiswick alive every Monday evening with Pura Nights — West London's most exciting weekly salsa and bachata night. Whether you've never danced a step or you're ready to level up your spins and shines, there's a class for you at The George IV Pub.
         </p>
@@ -92,11 +104,7 @@ const SalsaClassesChiswick = () => (
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Chiswick Salsa Class FAQs</h2>
         <div className="space-y-6">
-          {[
-            { q: "How do I get to The George IV?", a: "185 Chiswick High Rd, London W4 2DR. Nearest tube: Turnham Green (District Line, 5-min walk). Buses: 190, 237, 267. On-street parking available after 6:30 PM." },
-            { q: "Is there parking near the venue?", a: "Yes, there's on-street parking along Chiswick High Road and surrounding residential streets. After 6:30 PM, most restrictions are lifted." },
-            { q: "Can I just come for the social dancing?", a: "Experienced dancers are welcome to join the social from 9 PM. We recommend taking the classes first to build your technique and confidence." },
-          ].map((faq, i) => (
+          {chiswickFaqs.map((faq, i) => (
             <div key={i} className="bg-card rounded-lg p-6">
               <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
               <p className="text-muted-foreground text-sm">{faq.a}</p>

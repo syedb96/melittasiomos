@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogCTA from "@/components/BlogCTA";
 import RelatedPages from "@/components/RelatedPages";
 
 /* <!-- WIX PAGE: /blog/how-to-practice-salsa-at-home -->

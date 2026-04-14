@@ -33,6 +33,13 @@ const globalSchema = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "18:50", closes: "23:00" },
   ],
   priceRange: "£5–£120",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "127",
+    bestRating: "5",
+    worstRating: "1",
+  },
   sameAs: [
     "https://www.instagram.com/melittasiomos/",
     "https://www.instagram.com/puranights.salsabachata/",

@@ -22,13 +22,22 @@ const WeddingDance = () => (
       title="Wedding Dance Lessons London | First Dance Choreography | Melitta Siomos"
       description="Make your first dance unforgettable. Private wedding dance lessons with Melitta Siomos in West London — Salsa, Bachata, Waltz or bespoke. Book a free consultation."
       path="/wedding-dance"
+      dateModified="2026-04-14"
       schema={{
         "@context": "https://schema.org",
-        "@type": "Service",
+        "@type": ["Service", "FAQPage"],
         name: "Wedding First Dance Lessons",
         provider: { "@type": "Person", name: "Melitta Siomos" },
         areaServed: { "@type": "Place", name: "London" },
         description: "Bespoke wedding first dance choreography and private lessons for couples in London.",
+        mainEntity: [
+          { "@type": "Question", name: "Do we need any dance experience?", acceptedAnswer: { "@type": "Answer", text: "Not at all. Most couples Melitta works with are complete beginners." } },
+          { "@type": "Question", name: "When should we start lessons?", acceptedAnswer: { "@type": "Answer", text: "Ideally 8–12 weeks before your wedding." } },
+          { "@type": "Question", name: "Can you work around my dress / shoes / veil?", acceptedAnswer: { "@type": "Answer", text: "Yes. Melitta will discuss outfit details so the choreography feels comfortable." } },
+          { "@type": "Question", name: "Where do the lessons take place?", acceptedAnswer: { "@type": "Answer", text: "At Melitta's private studio in West London, your home, a hired studio, or even your wedding venue." } },
+          { "@type": "Question", name: "What style of dance can we do?", acceptedAnswer: { "@type": "Answer", text: "Anything — from a classic slow waltz to romantic Salsa/Bachata, a fun mash-up, or something theatrical." } },
+          { "@type": "Question", name: "Can we involve our bridal party?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. Group choreography with bridesmaids, groomsmen, or parents can be incorporated." } },
+        ],
       }}
     />
 
