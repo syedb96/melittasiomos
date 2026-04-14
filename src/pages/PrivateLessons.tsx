@@ -30,13 +30,15 @@ const PrivateLessons = () => (
       title="Private Salsa & Bachata Lessons London | 1-to-1 with Melitta Siomos"
       description="Fast-track your Salsa & Bachata with private 1-to-1 coaching from award-winning instructor Melitta Siomos in West London. Tailored plans for all levels. Book a free consultation."
       path="/private-lessons"
+      dateModified="2026-04-14"
       schema={{
         "@context": "https://schema.org",
-        "@type": "Service",
+        "@type": ["Service", "Course"],
         name: "Private Salsa & Bachata Lessons",
         provider: { "@type": "Person", name: "Melitta Siomos" },
         areaServed: { "@type": "Place", name: "West London" },
         description: "Private 1-to-1 salsa and bachata coaching sessions tailored to individual goals.",
+        hasCourseInstance: { "@type": "CourseInstance", courseMode: "onsite", instructor: { "@type": "Person", name: "Melitta Siomos" } },
       }}
     />
 

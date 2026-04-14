@@ -3,11 +3,18 @@ import { MapPin, Clock, Star, Trophy } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import LastUpdated from "@/components/LastUpdated";
 import heroImg from "@/assets/salsa-ealing.jpg";
+
+const ealingBachataFaqs = [
+  { q: "How do I get to Drayton Court Hotel?", a: "2 The Avenue, West Ealing, W13 8PH. Nearest station: West Ealing (Elizabeth Line / GWR). Bus routes: 83, 207, E1. There's also a car park behind the hotel." },
+  { q: "Is there food and drink available?", a: "Yes! The Drayton Court Hotel has a full bar and food menu. Many dancers arrive early for dinner before the classes begin." },
+  { q: "What level is the bachata class?", a: "We run multi-level classes with splits for beginners, improvers, and intermediate dancers. Our teachers assess your progress and invite you to move up when ready." },
+];
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Event",
+  "@type": ["Event", "FAQPage"],
   name: "Pura Nights Bachata Classes Ealing",
   description: "Weekly bachata and salsa classes every Tuesday at Drayton Court Hotel, Ealing.",
   startDate: "2026-01-06T19:30",
@@ -15,6 +22,9 @@ const schema = {
   location: { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
   organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
   offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
+  mainEntity: ealingBachataFaqs.map(f => ({
+    "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 /* <!-- WIX PAGE: bachata-classes-ealing -->
@@ -32,6 +42,7 @@ const BachataClassesEaling = () => (
       description="Join bachata and salsa classes every Tuesday in Ealing at Drayton Court Hotel. All levels welcome, no partner needed. From £5. Taught by Bachata UK Champion Melitta Siomos."
       path="/bachata-classes-ealing"
       schema={schema}
+      dateModified="2026-04-14"
     />
 
     <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
@@ -43,9 +54,10 @@ const BachataClassesEaling = () => (
         <nav className="text-xs text-primary-foreground/50 mb-8 font-heading">
           <Link to="/" className="hover:text-primary">Home</Link> / <Link to="/bachata-classes-london" className="hover:text-primary">Bachata Classes London</Link> / <span className="text-primary">Ealing</span>
         </nav>
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Bachata Classes in Ealing — Every Tuesday at Pura Nights
         </h1>
+        <LastUpdated date="2026-04-14" />
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos and the Pura Nights team bring Tuesday evenings to life at the Drayton Court Hotel in West Ealing. Learn bachata and salsa in a stunning venue with one of London's most passionate Latin dance communities. All levels welcome — no partner needed.
         </p>
@@ -93,11 +105,7 @@ const BachataClassesEaling = () => (
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Ealing Bachata Class FAQs</h2>
         <div className="space-y-6">
-          {[
-            { q: "How do I get to Drayton Court Hotel?", a: "2 The Avenue, West Ealing, W13 8PH. Nearest station: West Ealing (Elizabeth Line / GWR). Bus routes: 83, 207, E1. There's also a car park behind the hotel." },
-            { q: "Is there food and drink available?", a: "Yes! The Drayton Court Hotel has a full bar and food menu. Many dancers arrive early for dinner before the classes begin." },
-            { q: "What level is the bachata class?", a: "We run multi-level classes with splits for beginners, improvers, and intermediate dancers. Our teachers assess your progress and invite you to move up when ready." },
-          ].map((faq, i) => (
+          {ealingBachataFaqs.map((faq, i) => (
             <div key={i} className="bg-card rounded-lg p-6">
               <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
               <p className="text-muted-foreground text-sm">{faq.a}</p>

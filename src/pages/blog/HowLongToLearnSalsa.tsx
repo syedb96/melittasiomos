@@ -5,7 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
-
+import BlogCTA from "@/components/BlogCTA";
 /* <!-- WIX PAGE: /blog/how-long-to-learn-salsa -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
    <!-- WIX SECTION: Article Header — title, category, author, date -->
