@@ -12,6 +12,7 @@ import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import LastUpdated from "@/components/LastUpdated";
+import LiveStudentCounter from "@/components/LiveStudentCounter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -125,7 +126,10 @@ const Index = () => {
             <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
             <Link to="/pura-nights" className="btn-cta-ghost text-sm">See Class Schedule</Link>
           </motion.div>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="text-primary-foreground/50 text-xs mt-8 font-heading">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex justify-center">
+            <LiveStudentCounter target={500} label="dancers in West London" />
+          </motion.div>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="text-primary-foreground/50 text-xs mt-4 font-heading">
             ⭐⭐⭐⭐⭐ 5.0 Google Rating · 500+ Students · 15+ Years Teaching
           </motion.p>
         </div>

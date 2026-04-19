@@ -88,6 +88,9 @@ const Footer = () => (
             <li><Link to="/salsa-classes-ealing" className="hover:text-primary transition-colors">Ealing</Link></li>
             <li><Link to="/dance-classes-west-london" className="hover:text-primary transition-colors">West London</Link></li>
             <li><Link to="/dance-classes-south-west-london" className="hover:text-primary transition-colors">South West London</Link></li>
+            <li><Link to="/salsa-classes-richmond" className="hover:text-primary transition-colors">Richmond</Link></li>
+            <li><Link to="/salsa-classes-hammersmith" className="hover:text-primary transition-colors">Hammersmith</Link></li>
+            <li><Link to="/dance-classes-hounslow" className="hover:text-primary transition-colors">Hounslow</Link></li>
             <li><Link to="/venue/the-george-iv-chiswick" className="hover:text-primary transition-colors">The George IV Venue</Link></li>
             <li><Link to="/venue/the-drayton-court-ealing" className="hover:text-primary transition-colors">Drayton Court Venue</Link></li>
             <li><Link to="/locations" className="hover:text-primary transition-colors">All Locations</Link></li>

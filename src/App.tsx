@@ -59,6 +59,11 @@ import ProofCentre from "./pages/ProofCentre";
 import MeetTheTeam from "./pages/MeetTheTeam";
 import TheGeorgeIVChiswick from "./pages/venue/TheGeorgeIVChiswick";
 import TheDraytonCourtEaling from "./pages/venue/TheDraytonCourtEaling";
+import SalsaClassesRichmond from "./pages/SalsaClassesRichmond";
+import SalsaClassesHammersmith from "./pages/SalsaClassesHammersmith";
+import DanceClassesHounslow from "./pages/DanceClassesHounslow";
+import LatinDanceEaling from "./pages/LatinDanceEaling";
+import LatinDanceChiswick from "./pages/LatinDanceChiswick";
 
 // Blog pages
 import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
@@ -218,7 +223,11 @@ const App = () => (
             <Route path="/meet-the-team" element={<MeetTheTeam />} />
             <Route path="/venue/the-george-iv-chiswick" element={<TheGeorgeIVChiswick />} />
             <Route path="/venue/the-drayton-court-ealing" element={<TheDraytonCourtEaling />} />
-            <Route path="/venue/the-drayton-court-ealing" element={<TheDraytonCourtEaling />} />
+            <Route path="/salsa-classes-richmond" element={<SalsaClassesRichmond />} />
+            <Route path="/salsa-classes-hammersmith" element={<SalsaClassesHammersmith />} />
+            <Route path="/dance-classes-hounslow" element={<DanceClassesHounslow />} />
+            <Route path="/latin-dance-ealing" element={<LatinDanceEaling />} />
+            <Route path="/latin-dance-chiswick" element={<LatinDanceChiswick />} />
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />

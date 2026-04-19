@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 /* <!-- WIX PAGE: /proof-centre -->
    <!-- WIX SECTION: Hero — Strip with cinematic dark background -->
@@ -222,31 +223,7 @@ const ProofCentre = () => (
       </div>
     </section>
 
-    {/* VIDEO TESTIMONIALS PLACEHOLDER */}
-    <section className="section-padding section-warm">
-      <div className="container-main max-w-4xl">
-        <FadeInUp>
-          <div className="text-center mb-8">
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-2">Video Stories</p>
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">See It in Action</h2>
-            <p className="text-muted-foreground text-sm font-heading">Performance highlights, class atmosphere, and wedding dance moments</p>
-          </div>
-        </FadeInUp>
-        {/* <!-- WIX: Replace with embedded YouTube/Vimeo videos or Wix Video player --> */}
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            "Pura Ladies Performance Highlight",
-            "Melitta Teaching Demo Reel",
-            "Latin Friday Atmosphere Reel",
-            "Wedding Dance — Real Couple Story",
-          ].map((v) => (
-            <div key={v} className="aspect-video bg-charcoal rounded-xl flex items-center justify-center border border-border">
-              <p className="text-primary-foreground/30 text-xs font-heading text-center px-4">[{v}]</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <VideoTestimonials />
 
     {/* RELATED SERVICES */}
     <section className="px-4 py-12 md:px-8 lg:px-16 lg:py-16 section-warm">
