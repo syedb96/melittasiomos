@@ -168,7 +168,7 @@ const SalsaVsBachataPillar = () => {
                 <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">🎟 Book Your First Class — From £10 →</a>
               </div>
             )}
-            {!result && allAnswered === false && (
+            {!result && (
               <p className="text-muted-foreground text-xs text-center italic">Pick an answer for each question to see your recommendation.</p>
             )}
           </div>
