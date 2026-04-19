@@ -17,7 +17,9 @@ import BundleCalculator from "@/components/BundleCalculator";
    <!-- WIX SECTION: Gift Vouchers — use CTA Strip -->
    <!-- WIX SECTION: Pricing FAQs — use Wix FAQ app or Accordions -->
 */
-const Prices = () => (
+const Prices = () => {
+  const [selected, setSelected] = useState<"try" | "commit" | "weekly" | null>(null);
+  return (
   <Layout>
     <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights | Melitta Siomos" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
 
@@ -26,7 +28,53 @@ const Prices = () => (
         <FadeInUp>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-3">Flexible Pricing for Every Dancer</h1>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-4" />
-          <p className="text-muted-foreground max-w-xl mx-auto mb-14">Drop in when you can. Or commit to a bundle and save.</p>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-3">Drop in when you can. Or commit to a bundle and save.</p>
+          <p className="text-muted-foreground/80 text-xs italic max-w-xl mx-auto mb-8">
+            We teach <Link to="/learn/salsa-vs-bachata" className="text-primary hover:underline">On2 Crossbody Salsa</Link> and Dominican / Modern Bachata — the internationally recognised social dance styles. Not Cuban Salsa or Rueda.
+          </p>
+        </FadeInUp>
+
+        {/* Trust bar — 5.0 across all 4 brands */}
+        <FadeInUp delay={0.05}>
+          <div className="bg-card rounded-2xl p-6 mb-12 max-w-4xl mx-auto border border-primary/15">
+            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-4">Rated 5.0 Stars Across All 4 Brands</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { name: "Pura Nights" },
+                { name: "Wedding Dance Made Easy" },
+                { name: "Pura Ladies" },
+                { name: "Melitta Siomos" },
+              ].map((b) => (
+                <div key={b.name} className="bg-background rounded-xl p-3">
+                  <div className="flex justify-center gap-0.5 text-primary mb-1">
+                    {Array(5).fill(0).map((_, j) => <Star key={j} size={11} fill="currentColor" />)}
+                  </div>
+                  <p className="font-heading font-semibold text-xs">{b.name}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground text-xs mt-3 italic">Verified Google reviews — we never ask for reviews in class.</p>
+          </div>
+        </FadeInUp>
+
+        {/* Package selector */}
+        <FadeInUp delay={0.08}>
+          <div className="max-w-3xl mx-auto mb-12 bg-card rounded-2xl p-6 border border-border">
+            <h2 className="font-heading font-bold text-lg mb-4">Which Package Is Right For You?</h2>
+            <div className="grid sm:grid-cols-3 gap-3 text-left">
+              {[
+                { key: "try" as const, label: "I want to try it first", target: "Drop-In (£10–£15)" },
+                { key: "commit" as const, label: "I'm committing to learning", target: "5 or 10-class bundle" },
+                { key: "weekly" as const, label: "I want to dance every week", target: "Monthly Membership" },
+              ].map((opt) => (
+                <label key={opt.key} className={`flex flex-col gap-1 p-4 rounded-xl border-2 cursor-pointer transition-all ${selected === opt.key ? "border-primary bg-primary/5" : "border-border hover:border-primary/30"}`}>
+                  <input type="radio" name="package-selector" className="sr-only" checked={selected === opt.key} onChange={() => setSelected(opt.key)} />
+                  <span className="font-heading font-semibold text-sm">{opt.label}</span>
+                  <span className="text-primary text-xs">→ {opt.target}</span>
+                </label>
+              ))}
+            </div>
+          </div>
         </FadeInUp>
 
         {/* Drop-in Pricing */}
