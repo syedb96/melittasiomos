@@ -107,8 +107,55 @@ const Community = () => (
       </div>
     </section>
 
-    {/* Community Values */}
+    {/* Why Students Stay — social proof grid */}
+    <section className="section-padding section-ivory">
+      <div className="container-main max-w-6xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary text-center mb-3">Why Students Stay</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">Five Reasons They Keep Coming Back</h2>
+        </FadeInUp>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {whyStay.map((card, i) => (
+            <StaggerItem key={i}>
+              <div className="bg-card rounded-2xl p-6 text-center card-hover h-full border border-border">
+                <span className="text-3xl block mb-3">{card.emoji}</span>
+                <h3 className="font-heading font-bold text-sm mb-2">{card.title}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">{card.desc}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    {/* A Night at Pura Nights — horizontal timeline */}
     <section className="section-padding bg-charcoal text-primary-foreground">
+      <div className="container-main max-w-6xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary text-center mb-3">Your First Night</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">A Night at Pura Nights</h2>
+        </FadeInUp>
+        <div className="relative">
+          <div className="hidden md:block absolute top-7 left-[8%] right-[8%] h-px bg-primary/30" />
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 relative">
+            {nightTimeline.map((step, i) => (
+              <FadeInUp key={i} delay={i * 0.08}>
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center font-display font-bold text-charcoal mb-3 relative z-10" style={{ background: 'var(--gradient-gold)' }}>
+                    {i + 1}
+                  </div>
+                  <p className="font-heading font-bold text-primary text-sm mb-1">{step.time}</p>
+                  <p className="text-primary-foreground/60 text-xs leading-relaxed">{step.label}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Community Values */}
+    <section className="section-padding bg-charcoal-light text-primary-foreground">
       <div className="container-main max-w-4xl">
         <FadeInUp>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">What We Stand For</h2>
