@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/salsa-on1-vs-on2 -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -71,15 +72,12 @@ const SalsaOn1VsOn2 = () => (
               <Link to="/blog/what-is-salsa" className="text-primary font-heading font-semibold text-sm">Full Salsa Guide →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/what-is-salsa" className="text-primary hover:underline font-heading">What is Salsa Dance? →</Link></li>
-                <li><Link to="/blog/history-of-salsa" className="text-primary hover:underline font-heading">The History of Salsa →</Link></li>
-                <li><Link to="/blog/how-long-to-learn-salsa" className="text-primary hover:underline font-heading">How Long Does It Take to Learn Salsa? →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-salsa", title: "What is Salsa Dance?", category: "Salsa", readTime: "6 min" },
+            { to: "/blog/history-of-salsa", title: "The History of Salsa", category: "Culture", readTime: "7 min" },
+            { to: "/blog/how-long-to-learn-salsa", title: "How Long Does It Take to Learn Salsa?", category: "Beginners", readTime: "6 min" },
+          ]} />
         </div>
       </section>
     </article>

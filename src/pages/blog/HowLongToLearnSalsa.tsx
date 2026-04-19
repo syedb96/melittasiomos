@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
+import BlogPostFooter from "@/components/BlogPostFooter";
 /* <!-- WIX PAGE: /blog/how-long-to-learn-salsa -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
    <!-- WIX SECTION: Article Header — title, category, author, date -->
@@ -77,15 +78,12 @@ const HowLongToLearnSalsa = () => (
               <Link to="/pura-nights" className="text-primary font-heading font-semibold text-sm">See Class Schedule →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/first-salsa-class-london" className="text-primary hover:underline font-heading">Your First Salsa Class: What to Expect →</Link></li>
-                <li><Link to="/blog/salsa-vs-bachata" className="text-primary hover:underline font-heading">Salsa vs Bachata — Which First? →</Link></li>
-                <li><Link to="/blog/salsa-on1-vs-on2" className="text-primary hover:underline font-heading">Salsa On1 vs On2 for Beginners →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/first-salsa-class-london", title: "Your First Salsa Class: What to Expect", category: "Beginners", readTime: "6 min" },
+            { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata — Which First?", category: "Salsa", readTime: "5 min" },
+            { to: "/blog/salsa-on1-vs-on2", title: "Salsa On1 vs On2 for Beginners", category: "Beginners", readTime: "6 min" },
+          ]} />
         </div>
       </section>
     </article>

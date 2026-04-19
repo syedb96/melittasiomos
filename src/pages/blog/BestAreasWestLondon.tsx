@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/best-areas-west-london -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -56,15 +57,12 @@ const BestAreasWestLondon = () => (
               <Link to="/locations" className="text-primary font-heading font-semibold text-sm">View Our Venues →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/salsa-classes-near-chiswick" className="text-primary hover:underline font-heading">Salsa Classes Near Chiswick High Road →</Link></li>
-                <li><Link to="/blog/bachata-classes-near-ealing" className="text-primary hover:underline font-heading">Bachata Classes Near Ealing Broadway →</Link></li>
-                <li><Link to="/blog/west-london-latin-dance-guide" className="text-primary hover:underline font-heading">West London Latin Dance Guide →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/salsa-classes-near-chiswick", title: "Salsa Classes Near Chiswick High Road", category: "Local", readTime: "6 min" },
+            { to: "/blog/bachata-classes-near-ealing", title: "Bachata Classes Near Ealing Broadway", category: "Local", readTime: "6 min" },
+            { to: "/blog/west-london-latin-dance-guide", title: "West London Latin Dance Guide", category: "Local", readTime: "8 min" },
+          ]} />
         </div>
       </section>
     </article>

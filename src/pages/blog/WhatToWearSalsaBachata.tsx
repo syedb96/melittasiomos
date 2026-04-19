@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/what-to-wear-salsa-bachata -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -81,15 +82,12 @@ const WhatToWear = () => (
               <Link to="/start-here" className="text-primary font-heading font-semibold text-sm">Full Start Here Guide →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/first-salsa-class-london" className="text-primary hover:underline font-heading">Your First Salsa Class: What to Expect →</Link></li>
-                <li><Link to="/blog/salsa-no-partner" className="text-primary hover:underline font-heading">Can You Learn Salsa Without a Partner? →</Link></li>
-                <li><Link to="/blog/beginners-guide-salsa-london" className="text-primary hover:underline font-heading">Beginner's Guide to Salsa in London →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/first-salsa-class-london", title: "Your First Salsa Class: What to Expect", category: "Beginners", readTime: "6 min" },
+            { to: "/blog/salsa-no-partner", title: "Can You Learn Salsa Without a Partner?", category: "Beginners", readTime: "5 min" },
+            { to: "/blog/beginners-guide-salsa-london", title: "Beginner's Guide to Salsa in London", category: "Beginners", readTime: "7 min" },
+          ]} />
         </div>
       </section>
     </article>

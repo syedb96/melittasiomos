@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/bachata-for-beginners-london -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -64,15 +65,12 @@ const BachataForBeginners = () => (
               <Link to="/blog/what-is-bachata" className="text-primary font-heading font-semibold text-sm">Full Bachata Guide →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/what-is-bachata" className="text-primary hover:underline font-heading">What is Bachata Dance? →</Link></li>
-                <li><Link to="/blog/salsa-vs-bachata" className="text-primary hover:underline font-heading">Salsa vs Bachata — Which First? →</Link></li>
-                <li><Link to="/blog/what-to-wear-salsa-bachata" className="text-primary hover:underline font-heading">What to Wear to Class →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-bachata", title: "What is Bachata Dance?", category: "Bachata", readTime: "6 min" },
+            { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata — Which First?", category: "Beginners", readTime: "5 min" },
+            { to: "/blog/what-to-wear-salsa-bachata", title: "What to Wear to Class", category: "Beginners", readTime: "5 min" },
+          ]} />
         </div>
       </section>
     </article>

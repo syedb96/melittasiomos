@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
+import BlogPostFooter from "@/components/BlogPostFooter";
 /* <!-- WIX PAGE: /blog/choose-wedding-song -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
    <!-- WIX SECTION: Article Header — title, category, author, date -->
@@ -55,15 +56,12 @@ const ChooseWeddingSong = () => (
               <Link to="/wedding-dance" className="text-primary font-heading font-semibold text-sm">Wedding Dance Info →</Link>
             </div>
             <AuthorCard />
-            <div className="mt-10 pt-8 border-t border-border">
-              <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/blog/wedding-first-dance-tips" className="text-primary hover:underline font-heading">10 Tips for the Perfect First Dance →</Link></li>
-                <li><Link to="/blog/salsa-vs-waltz-wedding" className="text-primary hover:underline font-heading">Salsa vs Waltz for Your Wedding →</Link></li>
-                <li><Link to="/blog/how-many-wedding-dance-lessons" className="text-primary hover:underline font-heading">How Many Lessons Do We Need? →</Link></li>
-              </ul>
-            </div>
           </FadeInUp>
+          <BlogPostFooter related={[
+            { to: "/blog/wedding-first-dance-tips", title: "10 Tips for the Perfect First Dance", category: "Wedding", readTime: "5 min" },
+            { to: "/blog/salsa-vs-waltz-wedding", title: "Salsa vs Waltz for Your Wedding", category: "Wedding", readTime: "5 min" },
+            { to: "/blog/how-many-wedding-dance-lessons", title: "How Many Lessons Do We Need?", category: "Wedding", readTime: "5 min" },
+          ]} />
         </div>
       </section>
     </article>
