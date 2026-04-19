@@ -294,7 +294,7 @@ const Index = () => {
                   <li>✅ Builds confidence, coordination & musicality</li>
                   <li>✅ The ultimate social dance — dance with anyone, anywhere</li>
                 </ul>
-                <Link to="/blog/what-is-salsa" className="text-primary font-heading text-sm font-semibold inline-flex items-center gap-1">Read the Full Guide <ChevronRight size={12} /></Link>
+                <Link to="/learn/salsa-vs-bachata" className="text-primary font-heading text-sm font-semibold inline-flex items-center gap-1">Read the Full Guide <ChevronRight size={12} /></Link>
               </div>
             </StaggerItem>
             <StaggerItem>
@@ -307,10 +307,13 @@ const Index = () => {
                   <li>✅ Body movement, waves, and partner connection</li>
                   <li>✅ One of the fastest-growing social dances worldwide</li>
                 </ul>
-                <Link to="/blog/what-is-bachata" className="text-peach font-heading text-sm font-semibold inline-flex items-center gap-1">Read the Full Guide <ChevronRight size={12} /></Link>
+                <Link to="/learn/salsa-vs-bachata" className="text-peach font-heading text-sm font-semibold inline-flex items-center gap-1">Read the Full Guide <ChevronRight size={12} /></Link>
               </div>
             </StaggerItem>
           </StaggerContainer>
+          <FadeInUp delay={0.4} className="text-center mt-8">
+            <Link to="/learn/salsa-vs-bachata" className="text-primary font-heading text-sm font-semibold hover:underline inline-flex items-center gap-1">Not sure which to start with? <ChevronRight size={14} /></Link>
+          </FadeInUp>
         </div>
       </section>
 
