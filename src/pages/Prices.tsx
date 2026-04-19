@@ -1,9 +1,11 @@
+// CTA audit v7.1 - verified
+import { useState } from "react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Star } from "lucide-react";
 import BundleCalculator from "@/components/BundleCalculator";
 
 /* <!-- WIX PAGE: /prices -->
