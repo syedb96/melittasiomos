@@ -73,7 +73,7 @@ const HowLongToLearnSalsa = () => (
             </div>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Start Learning Salsa</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Start Learning Salsa</a>
               <Link to="/pura-nights" className="text-primary font-heading font-semibold text-sm">See Class Schedule →</Link>
             </div>
             <AuthorCard />

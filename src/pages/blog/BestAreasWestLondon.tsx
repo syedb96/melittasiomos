@@ -52,7 +52,7 @@ const BestAreasWestLondon = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">West London offers the perfect combination of quality instruction, accessible venues, and a warm, welcoming community. Whether you're in W3, W4, W5, W6, W12, or the TW postcodes, you're never more than 15–20 minutes from a Pura Nights class.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
               <Link to="/locations" className="text-primary font-heading font-semibold text-sm">View Our Venues →</Link>
             </div>
             <AuthorCard />

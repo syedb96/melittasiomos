@@ -46,7 +46,7 @@ const HistoryOfBachata = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">At Pura Nights, Bachata sits at the heart of everything we do. Melitta Siomos — a Bachata UK Champion — teaches all three styles and helps students understand not just the steps, but the emotion, music, and culture behind the dance. Understanding Bachata's history enriches every dance you take.</p>
             <div className="flex flex-wrap gap-4 mb-10">
               <Link to="/blog/what-is-bachata" className="btn-cta-primary text-sm">Read: What is Bachata Dance?</Link>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-sm">Try a Bachata Class →</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-sm">Try a Bachata Class →</a>
             </div>
             <AuthorCard />
             <div className="mt-10 pt-8 border-t border-border">

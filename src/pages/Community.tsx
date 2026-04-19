@@ -62,7 +62,7 @@ const Community = () => (
             Pura Nights isn't just about learning steps — it's about finding your people. A place where music, movement and connection collide in the most beautiful way.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">🎟 Join Us This Week</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">🎟 Join Us This Week</a>
             <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-base px-8 py-3">💬 Say Hello</a>
           </div>
         </FadeInUp>
@@ -220,7 +220,7 @@ const Community = () => (
               <Instagram size={18} /> @melittasiomos
             </a>
           </div>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
             🎟 Book Your First Class <ArrowRight size={16} className="ml-2 inline" />
           </a>
         </FadeInUp>

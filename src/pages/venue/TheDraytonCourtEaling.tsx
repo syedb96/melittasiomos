@@ -41,7 +41,7 @@ const TheDraytonCourtEaling = () => (
             Your Tuesday night destination for salsa, bachata, and free ladies styling. A grand Edwardian hotel with a stunning ballroom, welcoming bar, and the best Latin dance community in West London.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Tuesday Class
             </a>
             <a href="https://maps.google.com/?q=The+Drayton+Court+Hotel+2+The+Avenue+Ealing+London+W13+8PH" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
@@ -261,7 +261,7 @@ const TheDraytonCourtEaling = () => (
             Free styling warm-up from 6:50pm. No booking. No partner. Just you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
             </a>
             <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">

@@ -165,7 +165,7 @@ const Locations = () => (
         <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">Just turn up — no booking required for weekly classes. All levels welcome, no partner needed.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/start-here" className="btn-cta-dark text-sm">New? Start Here</Link>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">Book a Class</a>
         </div>
       </div>
     </section>

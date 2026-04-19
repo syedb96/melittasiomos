@@ -56,7 +56,7 @@ const BachataClassesNearEaling = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">What makes Ealing special isn't just the venue or the classes — it's the community. Tuesday regulars often stay past 11 PM chatting and planning weekend socials. Several of our Pura Ladies team members were first discovered on the Ealing dance floor. It's a place where friendships, creative partnerships, and genuine connections form naturally.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Tuesday in Ealing</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Tuesday in Ealing</a>
               <Link to="/bachata-classes-ealing" className="text-primary font-heading font-semibold text-sm">Full Ealing Page →</Link>
             </div>
             <AuthorCard />

@@ -48,7 +48,7 @@ const DanceClassesChiswick = () => (
           <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
             Chiswick's favourite Monday night out. Learn Salsa and Bachata at The George IV with Bachata UK Champion Melitta Siomos, then stay for two hours of social dancing. All levels welcome, no partner needed.
           </p>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Class</a>
         </FadeInUp>
       </div>
     </section>
@@ -135,7 +135,7 @@ const DanceClassesChiswick = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">See You This Monday in Chiswick!</h2>
         <p className="text-primary-foreground/80 mb-8">Doors open 7:15 PM. No partner needed. All levels welcome.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Now</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Now</a>
       </div>
     </section>
 

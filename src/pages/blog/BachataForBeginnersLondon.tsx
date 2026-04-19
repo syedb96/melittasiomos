@@ -60,7 +60,7 @@ const BachataForBeginners = () => (
             </ul>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Bachata Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Bachata Class</a>
               <Link to="/blog/what-is-bachata" className="text-primary font-heading font-semibold text-sm">Full Bachata Guide →</Link>
             </div>
             <AuthorCard />

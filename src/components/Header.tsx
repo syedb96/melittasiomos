@@ -19,7 +19,7 @@ const navGroups = [
     path: "/prices",
     dropdown: [
       { label: "Class Pricing", path: "/prices" },
-      { label: "Book a Class", path: "https://linktr.ee/pura.nights", external: true },
+      { label: "Book a Class", path: "https://www.tickettailor.com/events/puranights", external: true },
       { label: "Gift Vouchers", path: "/gift-vouchers" },
     ],
   },
@@ -112,7 +112,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-3">
             <a href="https://www.instagram.com/melittasiomos/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram size={13} /></a>
-            <a href="https://www.facebook.com/puranights/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook size={13} /></a>
+            <a href="https://www.facebook.com/puranightslondon/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook size={13} /></a>
             <a href="https://www.youtube.com/@melittasiomos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-primary transition-colors"><Youtube size={13} /></a>
           </div>
         </div>
@@ -171,7 +171,7 @@ const Header = () => {
               <MessageCircle size={12} /> WhatsApp
             </a>
             {/* Book Now solid */}
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="ml-2 btn-cta-primary text-[10px] py-2.5 px-5 rounded-lg">
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="ml-2 btn-cta-primary text-[10px] py-2.5 px-5 rounded-lg">
               BOOK NOW →
             </a>
           </nav>
@@ -200,7 +200,7 @@ const Header = () => {
               <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm text-center w-full">
                 💬 WhatsApp Melitta
               </a>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm text-center w-full">
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm text-center w-full">
                 Book a Class →
               </a>
             </div>

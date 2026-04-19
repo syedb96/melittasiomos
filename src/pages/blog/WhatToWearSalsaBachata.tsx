@@ -77,7 +77,7 @@ const WhatToWear = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">As you fall in love with dancing (and you will), you might want to dress up a bit more for socials. Many of our regular students change into dance shoes and a slightly more dressed-up outfit for the social floor. It's not required — but it's part of the fun. Latin dance is about expression, and what you wear is part of that expression.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
               <Link to="/start-here" className="text-primary font-heading font-semibold text-sm">Full Start Here Guide →</Link>
             </div>
             <AuthorCard />

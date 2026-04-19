@@ -59,7 +59,7 @@ const BestSalsaNightsWestLondon = () => (
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-8">
               <h3 className="font-heading font-bold mb-2">Ready to Experience the Best Salsa Night in West London?</h3>
               <p className="text-muted-foreground text-sm mb-4">Join us this Monday in Chiswick or Tuesday in Ealing. No partner needed, all levels welcome.</p>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">🎟 Book Your Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">🎟 Book Your Class</a>
             </div>
 
             <h2 className="font-display text-2xl font-bold mt-10 mb-4">Frequently Asked Questions</h2>

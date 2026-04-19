@@ -39,7 +39,7 @@ const DanceClassesWestLondon = () => (
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Dance Classes in West London — Salsa & Bachata with Melitta Siomos</h1>
         <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">West London is home to one of the city's most vibrant Latin dance communities. Pura Nights by Melitta Siomos runs weekly Salsa and Bachata classes every Monday in Chiswick and every Tuesday in Ealing — all levels welcome, no partner needed.</p>
         <div className="flex flex-wrap gap-4">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
           <Link to="/prices" className="btn-cta-ghost">View Pricing</Link>
         </div>
       </div>
@@ -146,7 +146,7 @@ const DanceClassesWestLondon = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Join West London's Latin Dance Community</h2>
         <p className="text-charcoal/70 mb-8">No partner needed. All levels. Just turn up.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[

@@ -59,7 +59,7 @@ const WestLondonLatinDanceGuide = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">The best way to enter the West London Latin dance world is simply to show up to a Monday or Tuesday class. No booking required for your first visit, no partner needed, and complete beginners are welcomed every week. Within a few weeks, you'll have a new hobby, a new community, and a new reason to look forward to Monday evenings.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
               <Link to="/start-here" className="text-primary font-heading font-semibold text-sm">Start Here Guide →</Link>
             </div>
             <AuthorCard />

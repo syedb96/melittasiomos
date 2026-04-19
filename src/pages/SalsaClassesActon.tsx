@@ -44,7 +44,7 @@ const SalsaClassesActon = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Salsa Classes Near Acton — Weekly Salsa & Bachata in W3</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Acton sits right between our two weekly venues — Chiswick on Mondays and Ealing on Tuesdays. Whether you're in East Acton, West Acton, Acton Central, or South Acton, you're just minutes away from London's most welcoming Latin dance classes. No partner needed, all levels welcome.</p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
             <Link to="/start-here" className="btn-cta-ghost">New to Dancing?</Link>
           </div>
         </FadeInUp>
@@ -161,7 +161,7 @@ const SalsaClassesActon = () => (
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Ready to Dance?</h2>
         <p className="text-charcoal/70 mb-6 max-w-lg mx-auto">Join hundreds of Acton residents who've found their rhythm at Pura Nights. No experience needed — just turn up.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
           <Link to="/prices" className="text-charcoal font-heading font-semibold text-sm hover:opacity-70 transition-opacity">View Pricing →</Link>
         </div>
       </div>

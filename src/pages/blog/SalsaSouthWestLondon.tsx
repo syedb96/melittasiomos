@@ -52,7 +52,7 @@ const SalsaSouthWestLondon = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">For South West London residents, Tuesday in Ealing is also reachable via the South Western Railway to Brentford, then bus or cycle to West Ealing. Many of our dedicated students attend both nights, and the cross-pollination between the two communities adds richness to both.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
               <Link to="/dance-classes-south-west-london" className="text-primary font-heading font-semibold text-sm">Full SW London Page →</Link>
             </div>
             <AuthorCard />

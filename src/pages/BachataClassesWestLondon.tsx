@@ -39,7 +39,7 @@ const BachataClassesWestLondon = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Bachata Classes in West London — Moderna, Sensual & Traditional</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">West London is home to one of the UK's strongest Bachata communities. Led by Bachata UK Champion Melitta Siomos, Pura Nights offers weekly Bachata classes every Monday in Chiswick and every Tuesday in Ealing — covering Bachata Moderna, Bachata Sensual, and traditional Dominican-rooted Bachata for all levels.</p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book a Class</a>
             <Link to="/blog/what-is-bachata" className="btn-cta-ghost">What Is Bachata?</Link>
           </div>
         </FadeInUp>
@@ -157,7 +157,7 @@ const BachataClassesWestLondon = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Start Your Bachata Journey</h2>
         <p className="text-charcoal/70 mb-6">No partner needed. No experience required. Just bring yourself.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Bachata Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Bachata Class</a>
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[
