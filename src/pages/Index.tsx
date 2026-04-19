@@ -13,6 +13,7 @@ import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import LastUpdated from "@/components/LastUpdated";
 import LiveStudentCounter from "@/components/LiveStudentCounter";
+import SocialProofBar from "@/components/SocialProofBar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -157,20 +158,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 3 — TRUST STATS */}
-      <section className="py-8 bg-charcoal border-y border-primary/10">
-        <div className="container-main">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
-            {trustStats.map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="text-center">
-                <stat.icon size={20} className="text-primary mx-auto mb-1.5" />
-                <p className="font-display text-lg font-bold text-primary-foreground">{stat.value}</p>
-                <p className="text-[10px] font-accent uppercase tracking-wider text-primary-foreground/50">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECTION 3 — ANIMATED SOCIAL PROOF BAR */}
+      <SocialProofBar />
 
       {/* SECTION 4 — NEXT CLASS COUNTDOWN */}
       <section className="section-padding section-dark">

@@ -41,6 +41,11 @@ const sections = [
       { to: "/wedding-dance", label: "Wedding Dance Lessons" },
       { to: "/private-lessons", label: "Private Salsa & Bachata Lessons" },
       { to: "/online-salsa-bachata-coaching", label: "Online Coaching" },
+      { to: "/learn/salsa-bachata-guide", label: "Pillar Guide — Salsa & Bachata" },
+      { to: "/learn/salsa-vs-bachata", label: "Salsa vs Bachata Quiz" },
+      { to: "/salsa-classes-fulham", label: "Salsa Classes Near Fulham" },
+      { to: "/salsa-classes-acton-local", label: "Salsa Classes Near Acton" },
+      { to: "/thank-you", label: "Thank You (form success)" },
     ],
   },
   {

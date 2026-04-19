@@ -15,6 +15,8 @@ const navGroups = [
       { label: "Dance Classes West London", path: "/dance-classes-west-london" },
       { label: "Salsa Classes Richmond", path: "/salsa-classes-richmond" },
       { label: "Salsa Classes Hammersmith", path: "/salsa-classes-hammersmith" },
+      { label: "Salsa Classes Fulham", path: "/salsa-classes-fulham" },
+      { label: "Salsa Classes Acton", path: "/salsa-classes-acton-local" },
       { label: "Wedding Dance Lessons London", path: "/wedding-dance-lessons-london" },
     ],
   },
@@ -42,6 +44,8 @@ const navGroups = [
     path: "/blog",
     dropdown: [
       { label: "Blog & Guides", path: "/blog" },
+      { label: "Salsa vs Bachata Quiz", path: "/learn/salsa-vs-bachata" },
+      { label: "Pillar Guide", path: "/learn/salsa-bachata-guide" },
       { label: "FAQs", path: "/faq" },
       { label: "Start Here (Beginners)", path: "/start-here" },
       { label: "Community", path: "/community" },

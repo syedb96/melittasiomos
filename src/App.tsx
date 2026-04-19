@@ -65,6 +65,9 @@ import SalsaClassesHammersmith from "./pages/SalsaClassesHammersmith";
 import DanceClassesHounslow from "./pages/DanceClassesHounslow";
 import LatinDanceEaling from "./pages/LatinDanceEaling";
 import LatinDanceChiswick from "./pages/LatinDanceChiswick";
+import SalsaClassesFulham from "./pages/SalsaClassesFulham";
+import SalsaClassesActonLocal from "./pages/SalsaClassesActonLocal";
+import ThankYou from "./pages/ThankYou";
 
 // Blog pages
 import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
@@ -112,6 +115,7 @@ import DanceClassesWestLondonGuide from "./pages/blog/DanceClassesWestLondonGuid
 
 // Pillar pages
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
+import SalsaVsBachataPillar from "./pages/learn/SalsaVsBachataPillar";
 
 // Auth & Admin pages
 import Login from "./pages/Login";
@@ -235,6 +239,9 @@ const App = () => (
             <Route path="/dance-classes-hounslow" element={<DanceClassesHounslow />} />
             <Route path="/latin-dance-ealing" element={<LatinDanceEaling />} />
             <Route path="/latin-dance-chiswick" element={<LatinDanceChiswick />} />
+            <Route path="/salsa-classes-fulham" element={<SalsaClassesFulham />} />
+            <Route path="/salsa-classes-acton-local" element={<SalsaClassesActonLocal />} />
+            <Route path="/thank-you" element={<ThankYou />} />
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />
@@ -253,6 +260,7 @@ const App = () => (
 
             {/* Pillar */}
             <Route path="/learn/salsa-bachata-guide" element={<SalsaBachataGuide />} />
+            <Route path="/learn/salsa-vs-bachata" element={<SalsaVsBachataPillar />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
