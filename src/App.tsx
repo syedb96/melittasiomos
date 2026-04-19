@@ -109,6 +109,9 @@ import HowToPracticeSalsaAtHome from "./pages/blog/HowToPracticeSalsaAtHome";
 import PuraNightsLatinFridayGuide from "./pages/blog/PuraNightsLatinFridayGuide";
 import DanceClassesWestLondonGuide from "./pages/blog/DanceClassesWestLondonGuide";
 
+// Pillar pages
+import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
+
 // Auth & Admin pages
 import Login from "./pages/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -118,6 +121,8 @@ import EventsAdmin from "./pages/admin/EventsAdmin";
 import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin";
 import EnquiriesAdmin from "./pages/admin/EnquiriesAdmin";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
+import Blueprint from "./pages/admin/Blueprint";
+import SiteDocs from "./pages/admin/SiteDocs";
 
 const queryClient = new QueryClient();
 
@@ -241,6 +246,11 @@ const App = () => (
             <Route path="/admin/testimonials" element={<ProtectedRoute><TestimonialsAdmin /></ProtectedRoute>} />
             <Route path="/admin/enquiries" element={<ProtectedRoute requireAdmin><EnquiriesAdmin /></ProtectedRoute>} />
             <Route path="/admin/settings" element={<ProtectedRoute><SettingsAdmin /></ProtectedRoute>} />
+            <Route path="/admin/blueprint" element={<ProtectedRoute><Blueprint /></ProtectedRoute>} />
+            <Route path="/admin/site-docs" element={<ProtectedRoute><SiteDocs /></ProtectedRoute>} />
+
+            {/* Pillar */}
+            <Route path="/learn/salsa-bachata-guide" element={<SalsaBachataGuide />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

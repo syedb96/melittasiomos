@@ -7,17 +7,26 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
 import RelatedPages from "@/components/RelatedPages";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
-/* <!-- WIX PAGE: /blog/how-to-practice-salsa-at-home -->
-   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
-   <!-- WIX SECTION: Article Header — title, category, author, date -->
-   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
-   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
-   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
-*/
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Practice Salsa at Home Between Classes",
+  description: "A simple home practice routine for Salsa students.",
+  totalTime: "PT15M",
+  step: [
+    { "@type": "HowToStep", name: "Warm up with the basic step", text: "Spend 3-5 minutes on the basic step (1-2-3 pause, 5-6-7 pause) focusing on weight transfer." },
+    { "@type": "HowToStep", name: "Drill specific footwork", text: "Practise crossover steps, suzy-Q, and spot turns slowly, then build speed." },
+    { "@type": "HowToStep", name: "Train your ear", text: "Listen for the clave, conga, piano tumbao, and breaks without dancing." },
+    { "@type": "HowToStep", name: "Watch videos intentionally", text: "Follow only the leader's feet for one song, then rewatch following the follower." },
+    { "@type": "HowToStep", name: "Apply at the next social", text: "Use what you practised at your next class or social." },
+  ],
+};
+
 const HowToPracticeSalsaAtHome = () => (
   <Layout>
-    <SeoHead title="How to Practice Salsa at Home Between Classes | Pura Nights" description="Simple solo practice routines to improve your Salsa between classes. Footwork drills, musicality exercises, and video practice tips." path="/blog/how-to-practice-salsa-at-home" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "How to Practice Salsa at Home Between Classes", author: { "@type": "Person", name: "Melitta Siomos" }, datePublished: "2026-03-01" }} />
+    <SeoHead title="How to Practice Salsa at Home Between Classes | Pura Nights" description="Simple solo practice routines to improve your Salsa between classes. Footwork drills, musicality exercises, and video practice tips." path="/blog/how-to-practice-salsa-at-home" schema={howToSchema} />
     <ReadingProgressBar />
     <article>
       <section className="section-padding section-dark">
@@ -75,6 +84,13 @@ const HowToPracticeSalsaAtHome = () => (
             <SocialShareButtons title="Practice Salsa at Home" path="/blog/how-to-practice-salsa-at-home" />
           </FadeInUp>
         </div>
+      </section>
+      <section className="section-padding section-warm pt-0">
+        <BlogPostFooter related={[
+          { to: "/online-classes", title: "Online Classes", category: "Service", readTime: "3 min" },
+          { to: "/blog/improve-social-dancing", title: "Improve Your Social Dancing", category: "Technique", readTime: "7 min" },
+          { to: "/blog/salsa-musicality-guide", title: "Salsa Musicality Guide", category: "Technique", readTime: "8 min" },
+        ]} />
       </section>
     </article>
     <RelatedPages title="Related" links={[
