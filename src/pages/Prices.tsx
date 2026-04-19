@@ -238,6 +238,7 @@ const Prices = () => {
       { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata?" },
     ]} />
   </Layout>
-);
+  );
+};
 
 export default Prices;
