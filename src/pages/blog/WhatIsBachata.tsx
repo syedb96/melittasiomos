@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/what-is-bachata -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -61,7 +62,11 @@ const WhatIsBachata = () => (
             {[{q:"Do I need to be flexible or fit to learn bachata?",a:"Not at all. Bachata is accessible to all body types, ages, and fitness levels."},{q:"Is Bachata Sensual appropriate for beginners?",a:"We introduce sensual elements gradually. The focus is always on communication, comfort, and connection."},{q:"How long does it take to learn bachata?",a:"Most people feel comfortable socially within 6–8 weeks. The basic step can be learned in one class."},{q:"What's the difference between Sensual and regular Bachata?",a:"Bachata Sensual features more body waves, closer connection, and slower musicality."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
           </Accordion>
           <AuthorCard />
-          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-salsa",title:"What is Salsa Dance?",cat:"Salsa"},{slug:"salsa-vs-bachata",title:"Salsa vs Bachata",cat:"Beginners"},{slug:"beginners-guide-salsa-london",title:"Beginner's Guide",cat:"Beginners"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-salsa", title: "What is Salsa Dance?", category: "Salsa", readTime: "8 min" },
+            { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata", category: "Beginners", readTime: "5 min" },
+            { to: "/blog/bachata-for-beginners-london", title: "Bachata for Beginners in London", category: "Bachata", readTime: "7 min" },
+          ]} />
         </FadeInUp>
       </div>
     </article>

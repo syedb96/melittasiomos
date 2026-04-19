@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 const tips = [
   { n: 1, title: "Start Earlier Than You Think", text: "Aim for 8–12 weeks before your wedding. Starting early reduces pressure and lets you enjoy the process." },
@@ -58,7 +59,11 @@ const WeddingFirstDanceTips = () => (
         </FadeInUp>
         <FadeInUp delay={0.2}>
           <AuthorCard />
-          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"choose-wedding-song",title:"How to Choose Your Song",cat:"Wedding"},{slug:"how-many-wedding-lessons",title:"How Many Lessons?",cat:"Wedding"},{slug:"last-minute-wedding-dance",title:"Last-Minute Tips",cat:"Wedding"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
+          <BlogPostFooter related={[
+            { to: "/blog/choose-wedding-first-dance-song", title: "How to Choose Your Song", category: "Wedding Dance", readTime: "5 min" },
+            { to: "/blog/how-many-wedding-dance-lessons", title: "How Many Lessons?", category: "Wedding Dance", readTime: "5 min" },
+            { to: "/blog/last-minute-wedding-dance", title: "Last-Minute Tips", category: "Wedding Dance", readTime: "5 min" },
+          ]} />
           <div className="mt-4 text-center"><Link to="/proof-centre" className="text-primary font-heading text-sm font-semibold hover:underline">See What Real Couples Say →</Link></div>
         </FadeInUp>
       </div>
