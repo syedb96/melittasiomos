@@ -13,6 +13,7 @@ import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import LastUpdated from "@/components/LastUpdated";
 import LiveStudentCounter from "@/components/LiveStudentCounter";
+import SocialProofBar from "@/components/SocialProofBar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
