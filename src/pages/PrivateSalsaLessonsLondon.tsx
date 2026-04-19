@@ -57,7 +57,7 @@ const PrivateSalsaLessonsLondon = () => (
           <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
             Accelerate your Salsa journey with personalised one-to-one coaching from Melitta Siomos. Whether you're starting from zero or preparing for a performance, private lessons give you the focused attention and tailored feedback that group classes can't match.
           </p>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">📞 Book a Private Lesson</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">📞 Book a Private Lesson</a>
         </FadeInUp>
       </div>
     </section>
@@ -128,7 +128,7 @@ const PrivateSalsaLessonsLondon = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Ready to Fast-Track Your Salsa?</h2>
         <p className="text-primary-foreground/80 mb-8">Book your first private lesson today.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">📞 Book Now</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">📞 Book Now</a>
       </div>
     </section>
 

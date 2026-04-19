@@ -86,7 +86,7 @@ const BundleCalculator = () => {
         </div>
 
         <a
-          href="https://linktr.ee/pura.nights"
+          href="https://www.tickettailor.com/events/puranights"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-cta-primary w-full text-center block text-sm"

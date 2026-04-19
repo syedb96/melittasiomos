@@ -122,7 +122,7 @@ const Events = () => {
                   </div>
                   <Countdown target={nextEvent} />
                   <div className="text-center mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Get Tickets</a>
+                    <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Get Tickets</a>
                     <a href={getGoogleCalendarUrl(nextEvent)} target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm inline-flex items-center gap-2">
                       <Calendar size={14} /> Add to Google Calendar
                     </a>
@@ -156,7 +156,7 @@ const Events = () => {
                     <p className="font-heading font-bold text-sm mb-1">{dateLabel}</p>
                     <p className="text-muted-foreground text-xs mb-2">7:15 PM – 11:45 PM · Drayton Court Hotel</p>
                     <div className="flex gap-2">
-                      <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold hover:underline inline-flex items-center gap-1">
+                      <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold hover:underline inline-flex items-center gap-1">
                         <ExternalLink size={10} /> Tickets
                       </a>
                       <a href={getGoogleCalendarUrl(date)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-xs font-heading hover:text-primary inline-flex items-center gap-1">

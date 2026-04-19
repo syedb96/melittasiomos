@@ -45,7 +45,7 @@ const BachataClassesSouthWestLondon = () => (
             Fall in love with bachata — South West London's fastest-growing social dance. Pura Nights runs weekly bachata classes every Monday in Chiswick and every Tuesday in Ealing, covering sensual, moderna and Dominican styles. Perfect for dancers from Putney, Richmond, Barnes, Fulham and beyond.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Bachata Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Bachata Class</a>
             <Link to="/schedule" className="btn-cta-outline">View Full Schedule →</Link>
           </div>
         </FadeInUp>
@@ -177,7 +177,7 @@ const BachataClassesSouthWestLondon = () => (
         <h2 className="font-display text-3xl font-bold text-secondary-foreground mb-4">Try Bachata This Week</h2>
         <p className="text-secondary-foreground/80 mb-8 max-w-md mx-auto">No partner needed, no experience required. Just bring your curiosity.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
           <Link to="/contact" className="btn-cta-outline border-secondary-foreground/30 text-secondary-foreground">Contact Melitta <ArrowRight size={16} className="ml-2" /></Link>
         </div>
       </div>

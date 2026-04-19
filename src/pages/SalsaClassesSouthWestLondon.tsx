@@ -45,7 +45,7 @@ const SalsaClassesSouthWestLondon = () => (
             South West London's best weekly salsa classes — every Monday in Chiswick and every Tuesday in Ealing. Whether you're from Putney, Richmond, Barnes, Fulham or Hammersmith, Pura Nights is your home for authentic Cuban-style and cross-body salsa. Led by Bachata UK Champion Melitta Siomos.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Class</a>
             <Link to="/schedule" className="btn-cta-outline">View Full Schedule →</Link>
           </div>
         </FadeInUp>
@@ -156,7 +156,7 @@ const SalsaClassesSouthWestLondon = () => (
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Start Salsa This Week</h2>
         <p className="text-primary-foreground/80 mb-8 max-w-md mx-auto">Join South West London's favourite salsa community. No experience needed.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
           <Link to="/contact" className="btn-cta-outline border-primary-foreground/30 text-primary-foreground">Contact Melitta <ArrowRight size={16} className="ml-2" /></Link>
         </div>
       </div>

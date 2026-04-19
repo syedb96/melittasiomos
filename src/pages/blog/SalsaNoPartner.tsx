@@ -59,7 +59,7 @@ const SalsaNoPartner = () => (
             </div>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class (Solo Welcome!)</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class (Solo Welcome!)</a>
               <Link to="/start-here" className="text-primary font-heading font-semibold text-sm">Start Here Guide →</Link>
             </div>
             <AuthorCard />

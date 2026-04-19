@@ -123,8 +123,8 @@ const Index = () => {
             West London's most vibrant Salsa & Bachata community. Weekly classes in Chiswick & Ealing — no partner, no experience needed.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
-            <Link to="/pura-nights" className="btn-cta-ghost text-sm">See Class Schedule</Link>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class — From £10 →</a>
+            <Link to="/schedule" className="btn-cta-ghost text-sm">See Class Schedule →</Link>
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex justify-center">
             <LiveStudentCounter target={500} label="dancers in West London" />
@@ -204,7 +204,7 @@ const Index = () => {
             ))}
           </div>
           <FadeInUp delay={0.3} className="mt-8">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Now →</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Now →</a>
           </FadeInUp>
         </div>
       </section>
@@ -266,7 +266,7 @@ const Index = () => {
                     <td className="py-4 px-4">7:30–11pm</td>
                     <td className="py-4 px-4">3 levels Salsa & Bachata + social</td>
                     <td className="py-4 px-4 font-semibold">From £10</td>
-                    <td className="py-4 px-4"><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-xs hover:underline">Book →</a></td>
+                    <td className="py-4 px-4"><a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-xs hover:underline">Book →</a></td>
                   </tr>
                   <tr>
                     <td className="py-4 px-4 font-heading font-bold text-peach">Tuesday</td>
@@ -274,7 +274,7 @@ const Index = () => {
                     <td className="py-4 px-4">6:50–11pm</td>
                     <td className="py-4 px-4">Free styling warm-up + 3 levels + social</td>
                     <td className="py-4 px-4 font-semibold">From £10</td>
-                    <td className="py-4 px-4"><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="text-peach font-heading font-semibold text-xs hover:underline">Book →</a></td>
+                    <td className="py-4 px-4"><a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="text-peach font-heading font-semibold text-xs hover:underline">Book →</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -597,13 +597,32 @@ const Index = () => {
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
+      {/* FOLLOW US MINI */}
+      <section className="py-10 bg-charcoal border-t border-primary/10">
+        <div className="container-main text-center">
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">Follow Us</p>
+          <h3 className="font-display text-xl md:text-2xl font-bold text-primary-foreground mb-5">Join the community on Instagram</h3>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {[
+              { handle: "puranights.salsabachata", url: "https://www.instagram.com/puranights.salsabachata" },
+              { handle: "melittasiomos", url: "https://www.instagram.com/melittasiomos" },
+              { handle: "puraladies", url: "https://www.instagram.com/puraladies" },
+            ].map(s => (
+              <a key={s.handle} href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-charcoal-light hover:bg-primary/15 border border-primary/20 hover:border-primary text-primary-foreground/80 hover:text-primary px-5 py-2.5 rounded-full text-xs font-heading font-semibold transition-all">
+                <Instagram size={14} /> @{s.handle}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* COMMUNITY CTA */}
       <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Start Dancing?</h2>
           <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">All levels welcome. No partner needed. Just turn up and let the music move you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
             <Link to="/prices" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">View All Pricing</Link>
           </div>
         </div>

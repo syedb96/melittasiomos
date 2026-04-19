@@ -54,7 +54,7 @@ const DanceClassesActonAdults = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">Many of our Acton students say the same thing: they were looking for something to do on weekday evenings that wasn't the pub, the gym, or Netflix. Latin dance gave them a community, a physical outlet, and a creative hobby — all in one. Several attend both Monday and Tuesday, maximising their progress and social connections.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class</a>
               <Link to="/salsa-classes-acton" className="text-primary font-heading font-semibold text-sm">Full Acton Info →</Link>
             </div>
             <AuthorCard />

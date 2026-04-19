@@ -45,7 +45,7 @@ const HistoryOfSalsa = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">Today, millions of people dance Salsa socially every week across the world. London has one of the strongest scenes in Europe, with weekly classes, monthly socials, and annual congresses. At its core, Salsa remains what it's always been: a celebration of rhythm, connection, and community.</p>
             <div className="flex flex-wrap gap-4 mb-10">
               <Link to="/blog/what-is-salsa" className="btn-cta-primary text-sm">Read: What is Salsa Dance?</Link>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-sm">Try a Salsa Class →</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-semibold text-sm">Try a Salsa Class →</a>
             </div>
             <AuthorCard />
             <div className="mt-10 pt-8 border-t border-border">

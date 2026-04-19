@@ -80,7 +80,7 @@ const FirstSalsaClass = () => (
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Ready to Try?</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">Your first class costs just £10 (single class) or £15 (two classes plus social). No advance booking required for your first visit — just turn up. But if you'd like to reserve your spot, you can book through our Linktree.</p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
               <Link to="/start-here" className="text-primary font-heading font-semibold text-sm">Read the Full Start Here Guide →</Link>
             </div>
 

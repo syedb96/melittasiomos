@@ -30,7 +30,7 @@ const Footer = () => (
         ].map(s => (
           <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="text-primary-foreground/30 hover:text-primary transition-colors"><Instagram size={16} /></a>
         ))}
-        <a href="https://www.facebook.com/puranights/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/30 hover:text-primary transition-colors"><Facebook size={16} /></a>
+        <a href="https://www.facebook.com/puranightslondon/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/30 hover:text-primary transition-colors"><Facebook size={16} /></a>
         <a href="https://www.youtube.com/@melittasiomos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-primary-foreground/30 hover:text-primary transition-colors"><Youtube size={16} /></a>
       </div>
     </div>
@@ -56,7 +56,7 @@ const Footer = () => (
           <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Prices & Booking</h5>
           <ul className="space-y-1.5">
             <li><Link to="/prices" className="hover:text-primary transition-colors">Class Pricing</Link></li>
-            <li><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Book a Class ↗</a></li>
+            <li><a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Book a Class ↗</a></li>
             <li><Link to="/gift-vouchers" className="hover:text-primary transition-colors">Gift Vouchers</Link></li>
             <li><Link to="/testimonials" className="hover:text-primary transition-colors">Student Reviews</Link></li>
             <li><Link to="/bookings" className="hover:text-primary transition-colors">All Booking Options</Link></li>

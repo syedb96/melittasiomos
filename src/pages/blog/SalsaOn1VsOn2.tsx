@@ -67,7 +67,7 @@ const SalsaOn1VsOn2 = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">If you're a beginner in London, start with On1. It's easier to pick up, it gives you access to the largest social dance community, and it builds a strong foundation that makes learning On2 later much easier. At Pura Nights, we teach On1 Crossbody Salsa, which is the most versatile style for social dancing worldwide.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Learn On1 Salsa at Pura Nights</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Learn On1 Salsa at Pura Nights</a>
               <Link to="/blog/what-is-salsa" className="text-primary font-heading font-semibold text-sm">Full Salsa Guide →</Link>
             </div>
             <AuthorCard />

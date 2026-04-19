@@ -22,7 +22,7 @@ interface EventRow {
   is_published: boolean;
 }
 
-const empty: EventRow = { id: "", title: "", slug: "", event_type: "latin-friday", venue_name: "Drayton Court Hotel", venue_address: "2 The Avenue, Ealing, W13 8PH", start_datetime: "", end_datetime: null, summary: "", ticket_url: "https://linktr.ee/pura.nights", is_featured: false, is_published: false };
+const empty: EventRow = { id: "", title: "", slug: "", event_type: "latin-friday", venue_name: "Drayton Court Hotel", venue_address: "2 The Avenue, Ealing, W13 8PH", start_datetime: "", end_datetime: null, summary: "", ticket_url: "https://www.tickettailor.com/events/puranights", is_featured: false, is_published: false };
 
 const EventsAdmin = () => {
   const [events, setEvents] = useState<EventRow[]>([]);

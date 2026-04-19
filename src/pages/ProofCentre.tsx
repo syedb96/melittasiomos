@@ -256,7 +256,7 @@ const ProofCentre = () => (
         <h2 className="font-display text-2xl md:text-3xl font-bold text-charcoal mb-2">Ready to Experience It Yourself?</h2>
         <p className="text-charcoal/70 text-sm font-heading mb-6 max-w-lg mx-auto">All levels welcome. No partner needed. Join 500+ students who already love it.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
           <Link to="/start-here" className="btn-cta-dark text-sm">New? Start Here</Link>
         </div>
       </div>

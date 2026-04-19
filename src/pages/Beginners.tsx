@@ -88,7 +88,7 @@ const Beginners = () => (
           No partner needed · Complete beginners welcome every week · Rated 5.0 on Google
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
           <Link to="/start-here" className="btn-cta-ghost text-sm">What to Expect →</Link>
         </motion.div>
       </div>
@@ -168,7 +168,7 @@ const Beginners = () => (
                 <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />9:00–11:00 PM — Social Dancing</div>
               </div>
               <p className="text-primary-foreground/40 text-xs mt-4">💷 £10 drop-in · £15 two classes · £5 social only</p>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-[11px] mt-5 py-2 px-5 rounded-lg">Book Monday</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-[11px] mt-5 py-2 px-5 rounded-lg">Book Monday</a>
             </div>
           </StaggerItem>
           <StaggerItem>
@@ -181,7 +181,7 @@ const Beginners = () => (
                 <div className="flex items-center gap-3"><Clock size={14} className="text-peach" />9:00–11:00 PM — Social Dancing</div>
               </div>
               <p className="text-primary-foreground/40 text-xs mt-4">💷 £10 drop-in · £15 two classes · £5 social only</p>
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta text-[11px] mt-5 py-2 px-5 rounded-lg bg-peach text-charcoal font-semibold hover:opacity-90">Book Tuesday</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta text-[11px] mt-5 py-2 px-5 rounded-lg bg-peach text-charcoal font-semibold hover:opacity-90">Book Tuesday</a>
             </div>
           </StaggerItem>
         </StaggerContainer>
@@ -243,7 +243,7 @@ const Beginners = () => (
         <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Start?</h2>
         <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">Your first class is just a click away. No booking required for drop-ins — just turn up at 7:15 PM and join the Beginners class.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
           <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20trying%20a%20beginner%20class" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">💬 Ask Melitta a Question</a>
         </div>
       </div>

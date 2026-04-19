@@ -61,7 +61,7 @@ const SalsaClassesChiswick = () => (
         <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
           Melitta Siomos brings Chiswick alive every Monday evening with Pura Nights — West London's most exciting weekly salsa and bachata night. Whether you've never danced a step or you're ready to level up your spins and shines, there's a class for you at The George IV Pub.
         </p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Chiswick Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Chiswick Class</a>
       </div>
     </section>
 
@@ -118,7 +118,7 @@ const SalsaClassesChiswick = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">See You This Monday in Chiswick!</h2>
         <p className="text-primary-foreground/80 mb-8">Doors open at 7:15 PM. No partner needed. All levels welcome.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Chiswick Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Chiswick Class</a>
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[

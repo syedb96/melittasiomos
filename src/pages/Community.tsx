@@ -22,6 +22,23 @@ const vibeCards = [
   { icon: <Sparkles size={28} />, title: "The Culture", desc: "We celebrate Latin culture with intention and respect. From Afro-Cuban roots to Dominican bachata, every dance tells a story." },
 ];
 
+const whyStay = [
+  { emoji: "🎵", title: "The Music", desc: "High-energy salsa + sensual bachata, carefully curated every week" },
+  { emoji: "👫", title: "No Partner Needed", desc: "Come solo, leave with dance partners and lifelong friends" },
+  { emoji: "🏆", title: "Award-Winning Teaching", desc: "Learn from a Bachata UK Champion with 15+ years experience" },
+  { emoji: "💃", title: "All Levels Welcome", desc: "Beginners to advanced — 3 class levels every single night" },
+  { emoji: "🔥", title: "Monthly Latin Fridays", desc: "DJ sets, performances, workshops and social dancing till late" },
+];
+
+const nightTimeline = [
+  { time: "7:00pm", label: "Arrive" },
+  { time: "7:15pm", label: "Ladies Styling Warm-Up (Ealing only)" },
+  { time: "7:30pm", label: "Beginners Class" },
+  { time: "8:15pm", label: "Improvers Class" },
+  { time: "9:00pm", label: "Social Dancing" },
+  { time: "10:00pm", label: "Head home smiling" },
+];
+
 const communityValues = [
   { title: "Everyone Belongs", desc: "Solo dancers, couples, complete beginners — you're welcome exactly as you are. No partner needed, ever." },
   { title: "Growth Over Perfection", desc: "We celebrate progress, not perfection. Your first step matters as much as your thousandth." },
@@ -62,7 +79,7 @@ const Community = () => (
             Pura Nights isn't just about learning steps — it's about finding your people. A place where music, movement and connection collide in the most beautiful way.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">🎟 Join Us This Week</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">🎟 Join Us This Week</a>
             <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-base px-8 py-3">💬 Say Hello</a>
           </div>
         </FadeInUp>
@@ -90,8 +107,55 @@ const Community = () => (
       </div>
     </section>
 
-    {/* Community Values */}
+    {/* Why Students Stay — social proof grid */}
+    <section className="section-padding section-ivory">
+      <div className="container-main max-w-6xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary text-center mb-3">Why Students Stay</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">Five Reasons They Keep Coming Back</h2>
+        </FadeInUp>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {whyStay.map((card, i) => (
+            <StaggerItem key={i}>
+              <div className="bg-card rounded-2xl p-6 text-center card-hover h-full border border-border">
+                <span className="text-3xl block mb-3">{card.emoji}</span>
+                <h3 className="font-heading font-bold text-sm mb-2">{card.title}</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">{card.desc}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    {/* A Night at Pura Nights — horizontal timeline */}
     <section className="section-padding bg-charcoal text-primary-foreground">
+      <div className="container-main max-w-6xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary text-center mb-3">Your First Night</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">A Night at Pura Nights</h2>
+        </FadeInUp>
+        <div className="relative">
+          <div className="hidden md:block absolute top-7 left-[8%] right-[8%] h-px bg-primary/30" />
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 relative">
+            {nightTimeline.map((step, i) => (
+              <FadeInUp key={i} delay={i * 0.08}>
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center font-display font-bold text-charcoal mb-3 relative z-10" style={{ background: 'var(--gradient-gold)' }}>
+                    {i + 1}
+                  </div>
+                  <p className="font-heading font-bold text-primary text-sm mb-1">{step.time}</p>
+                  <p className="text-primary-foreground/60 text-xs leading-relaxed">{step.label}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Community Values */}
+    <section className="section-padding bg-charcoal-light text-primary-foreground">
       <div className="container-main max-w-4xl">
         <FadeInUp>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">What We Stand For</h2>
@@ -220,7 +284,7 @@ const Community = () => (
               <Instagram size={18} /> @melittasiomos
             </a>
           </div>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
             🎟 Book Your First Class <ArrowRight size={16} className="ml-2 inline" />
           </a>
         </FadeInUp>

@@ -40,7 +40,7 @@ const BachataClassesChiswick = () => (
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Bachata Classes in Chiswick — Every Monday at Pura Nights</h1>
         <LastUpdated date="2026-04-14" />
         <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Learn Bachata every Monday evening at The George IV in Chiswick with Melitta Siomos. Three levels — Beginners, Improvers, and Intermediate — followed by social dancing until 11 PM.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Monday Class</a>
       </div>
     </section>
     <section className="section-padding section-warm">
@@ -65,7 +65,7 @@ const BachataClassesChiswick = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">See You This Monday!</h2>
         <p className="text-primary-foreground/70 mb-8">No booking required. All levels. No partner needed.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your Class</a>
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[

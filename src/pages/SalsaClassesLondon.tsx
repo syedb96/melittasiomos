@@ -48,7 +48,7 @@ const SalsaClassesLondon = () => (
           Melitta Siomos runs London's most welcoming weekly salsa classes across West London. Whether you're a complete beginner or an experienced dancer looking to sharpen your technique, Pura Nights has a class for you every Monday in Chiswick and every Tuesday in Ealing.
         </p>
         <div className="flex flex-wrap gap-4">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Salsa Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Salsa Class</a>
           <Link to="/prices" className="btn-cta-outline">View Pricing →</Link>
         </div>
       </div>
@@ -82,7 +82,7 @@ const SalsaClassesLondon = () => (
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />8:15–9:00 PM — Bachata Class</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-primary" />9:00–11:00 PM — Social Dancing</div>
             </div>
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-6 py-2 px-6">Book Monday Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs mt-6 py-2 px-6">Book Monday Class</a>
           </div>
           <div className="bg-charcoal-light rounded-lg p-8 border border-secondary/20">
             <h3 className="font-display text-2xl font-bold text-secondary mb-2">Tuesday — Ealing</h3>
@@ -93,7 +93,7 @@ const SalsaClassesLondon = () => (
               <div className="flex items-center gap-3"><Clock size={14} className="text-secondary" />8:15–9:00 PM — Bachata Class</div>
               <div className="flex items-center gap-3"><Clock size={14} className="text-secondary" />9:00–11:00 PM — Social Dancing</div>
             </div>
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-secondary text-secondary-foreground text-xs mt-6 py-2 px-6 hover:opacity-90">Book Tuesday Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-secondary text-secondary-foreground text-xs mt-6 py-2 px-6 hover:opacity-90">Book Tuesday Class</a>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@ const SalsaClassesLondon = () => (
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Ready to Start Your Salsa Journey?</h2>
         <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Join Pura Nights this week — no partner needed, all levels welcome, from just £5.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Salsa Class Now</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Salsa Class Now</a>
           <Link to="/contact" className="btn-cta-outline">Contact Melitta <ArrowRight size={16} className="ml-2" /></Link>
         </div>
       </div>

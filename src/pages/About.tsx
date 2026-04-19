@@ -90,7 +90,7 @@ const orgSchema = {
     "https://www.instagram.com/puranights.salsabachata/",
     "https://www.instagram.com/puraladies/",
     "https://www.instagram.com/wedding_dance_made_easy/",
-    "https://www.facebook.com/puranights/",
+    "https://www.facebook.com/puranightslondon/",
     "https://www.youtube.com/@melittasiomos",
   ],
   areaServed: ["Chiswick", "Ealing", "Acton", "West London", "South West London", "London"],

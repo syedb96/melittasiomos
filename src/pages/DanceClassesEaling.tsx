@@ -39,7 +39,7 @@ const DanceClassesEaling = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Dance Classes in Ealing — Salsa & Bachata Every Tuesday</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Every Tuesday evening, the Drayton Court Hotel in West Ealing comes alive with Latin music, laughter, and dancing. Whether you've never danced before or you're looking to refine your technique, Pura Nights offers three class levels plus two hours of social dancing — all in one evening.</p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book Tuesday Class</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">Book Tuesday Class</a>
             <Link to="/prices" className="btn-cta-ghost">View Pricing</Link>
           </div>
         </FadeInUp>
@@ -156,7 +156,7 @@ const DanceClassesEaling = () => (
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Join Ealing's Latin Dance Night</h2>
         <p className="text-charcoal/70 mb-6">Every Tuesday · No partner needed · All levels · Just turn up.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Tuesday Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Tuesday Class</a>
           <Link to="/contact" className="text-charcoal font-heading font-semibold text-sm hover:opacity-70 transition-opacity">Ask a Question →</Link>
         </div>
       </div>

@@ -61,7 +61,7 @@ const WeddingDanceLessonsLondon = () => (
             Your first dance should be one of the most magical moments of your wedding day. With Melitta Siomos — Bachata UK Champion and experienced wedding choreographer — you'll learn a routine that feels natural, looks stunning, and creates memories that last a lifetime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book a Consultation</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book a Consultation</a>
             <Link to="/wedding-dance" className="btn-cta-dark">Learn More</Link>
           </div>
         </FadeInUp>

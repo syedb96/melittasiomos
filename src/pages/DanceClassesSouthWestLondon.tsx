@@ -42,7 +42,7 @@ const DanceClassesSouthWestLondon = () => (
           Looking for dance classes in South West London? Melitta Siomos and Pura Nights run the region's most popular weekly salsa and bachata classes, with venues in Chiswick and Ealing that are easily accessible from across South West and West London. All levels welcome — from absolute beginners to advanced dancers.
         </p>
         <div className="flex flex-wrap gap-4">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book a Class Now</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book a Class Now</a>
           <Link to="/prices" className="btn-cta-outline">View Pricing →</Link>
         </div>
       </div>
@@ -120,7 +120,7 @@ const DanceClassesSouthWestLondon = () => (
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Start Dancing This Week</h2>
         <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Join hundreds of dancers across South West London. No partner needed, all levels welcome.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book a Class</a>
           <Link to="/contact" className="btn-cta-outline">Contact Melitta <ArrowRight size={16} className="ml-2" /></Link>
         </div>
       </div>

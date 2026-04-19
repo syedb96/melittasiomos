@@ -77,7 +77,7 @@ const Schedule = () => (
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
-                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
+                <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
                 <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
               </div>
             </div>
@@ -120,7 +120,7 @@ const Schedule = () => (
                 ))}
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
-                <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
+                <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
                 <a href="https://maps.google.com/?q=Drayton+Court+Hotel+2+The+Avenue+Ealing+W13+8PH" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
               </div>
             </div>
@@ -179,7 +179,7 @@ const Schedule = () => (
           <Users size={32} className="text-primary-foreground mx-auto mb-4" />
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Ready to Dance?</h2>
           <p className="text-primary-foreground/80 mb-8 max-w-md mx-auto">No partner needed. No experience required. Just you and the music.</p>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light text-base px-10 py-3.5">
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light text-base px-10 py-3.5">
             🎟 Book Your First Class
           </a>
         </FadeInUp>

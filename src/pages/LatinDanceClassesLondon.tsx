@@ -58,7 +58,7 @@ const LatinDanceClassesLondon = () => (
           <p className="text-primary-foreground/80 text-lg max-w-2xl mb-8">
             Whether you're stepping onto the dance floor for the first time or looking to refine your technique, Pura Nights offers London's most welcoming Latin dance experience. Learn Salsa and Bachata in West London with award-winning instructor Melitta Siomos.
           </p>
-          <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Class</a>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">🎟 Book Your First Class</a>
         </FadeInUp>
       </div>
     </section>
@@ -153,7 +153,7 @@ const LatinDanceClassesLondon = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Start Your Latin Dance Journey</h2>
         <p className="text-primary-foreground/80 mb-8">No partner needed. No experience required. Just bring yourself.</p>
-        <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your First Class</a>
+        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your First Class</a>
       </div>
     </section>
 

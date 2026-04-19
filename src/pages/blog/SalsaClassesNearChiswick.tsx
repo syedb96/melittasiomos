@@ -55,7 +55,7 @@ const SalsaClassesNearChiswick = () => (
             <p className="text-muted-foreground leading-relaxed mb-6">Our Monday students come from Chiswick, Turnham Green, Gunnersbury, Acton, Hammersmith, Brentford, Kew, and even as far as Shepherd's Bush and Fulham. Ages range from early 20s to late 60s, and the gender balance is consistently good. Most people come solo — partner rotation means you'll dance with everyone.</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Monday in Chiswick</a>
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Monday in Chiswick</a>
               <Link to="/salsa-classes-chiswick" className="text-primary font-heading font-semibold text-sm">Full Chiswick Page →</Link>
             </div>
             <AuthorCard />

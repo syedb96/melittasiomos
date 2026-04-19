@@ -26,7 +26,7 @@ const SettingsAdmin = () => {
           <h3 className="font-heading font-semibold mb-4">Quick Links</h3>
           <div className="space-y-2 text-sm">
             <a href="/" className="block text-primary hover:underline font-heading">← Back to Public Website</a>
-            <a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="block text-primary hover:underline font-heading">Linktree Booking Hub ↗</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="block text-primary hover:underline font-heading">Linktree Booking Hub ↗</a>
             <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="block text-primary hover:underline font-heading">Instagram @puranights ↗</a>
           </div>
         </div>
