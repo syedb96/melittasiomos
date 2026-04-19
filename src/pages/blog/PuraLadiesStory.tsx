@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/pura-ladies-story -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -50,8 +51,12 @@ const PuraLadiesStory = () => (
         </FadeInUp>
         <FadeInUp delay={0.2}>
           <AuthorCard />
-          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-bachata",title:"What is Bachata?",cat:"Bachata"},{slug:"what-is-salsa",title:"What is Salsa?",cat:"Salsa"},{slug:"wedding-first-dance-tips",title:"Wedding Dance Tips",cat:"Wedding"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
         </FadeInUp>
+        <BlogPostFooter related={[
+          { to: "/blog/what-is-bachata", title: "What is Bachata?", category: "Bachata", readTime: "6 min" },
+          { to: "/blog/what-is-salsa", title: "What is Salsa?", category: "Salsa", readTime: "6 min" },
+          { to: "/blog/wedding-first-dance-tips", title: "Wedding Dance Tips", category: "Wedding", readTime: "5 min" },
+        ]} />
       </div>
     </article>
   </Layout>

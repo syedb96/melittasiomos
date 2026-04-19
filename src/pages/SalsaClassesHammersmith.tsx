@@ -13,14 +13,25 @@ const faqs = [
   { q: "Can I drop in without booking?", a: "Yes. No booking needed for weekly classes — just turn up and pay at the door (from £5)." },
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": ["Service", "FAQPage"],
-  name: "Salsa Classes for Hammersmith Residents",
-  provider: { "@type": "DanceSchool", name: "Pura Nights" },
-  areaServed: [{ "@type": "Place", name: "Hammersmith, London" }, { "@type": "Place", name: "Shepherd's Bush" }, { "@type": "Place", name: "Fulham" }],
-  mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["Service", "FAQPage"],
+    name: "Salsa Classes for Hammersmith Residents",
+    provider: { "@type": "DanceSchool", name: "Pura Nights" },
+    areaServed: [{ "@type": "Place", name: "Hammersmith, London" }, { "@type": "Place", name: "Shepherd's Bush" }, { "@type": "Place", name: "Fulham" }],
+    mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.puranights.com/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.puranights.com/locations" },
+      { "@type": "ListItem", position: 3, name: "Salsa Classes Hammersmith", item: "https://www.puranights.com/salsa-classes-hammersmith" },
+    ],
+  },
+];
 
 const SalsaClassesHammersmith = () => (
   <Layout>
@@ -86,6 +97,17 @@ const SalsaClassesHammersmith = () => (
               <p className="text-muted-foreground text-sm">{f.a}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-12 text-center bg-primary">
+      <div className="container-main">
+        <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-3">Ready to Try a Class?</h2>
+        <p className="text-primary-foreground/80 text-sm mb-6">Hammersmith → Chiswick is just 10 minutes. From £10.</p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
+          <Link to="/start-here" className="btn-cta-dark text-sm">Start Here</Link>
         </div>
       </div>
     </section>

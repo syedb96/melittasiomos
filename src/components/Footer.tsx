@@ -145,9 +145,10 @@ const Footer = () => (
     <div className="border-t border-primary-foreground/6">
       <div className="container-main flex flex-col md:flex-row items-center justify-between gap-2 py-4 text-[11px] text-primary-foreground/25">
         <p>© {new Date().getFullYear()} Melitta Siomos Dance Academy · Pura Nights</p>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap justify-center">
           <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
+          <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
         </div>
         <p>Built with ♥ in West London</p>

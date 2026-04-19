@@ -6,15 +6,36 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Wedding Dance Lessons London",
-  description: "Private wedding first dance lessons in London. Learn a beautiful choreographed routine with award-winning instructor Melitta Siomos.",
-  provider: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Wedding Dance Choreographer" },
-  areaServed: { "@type": "City", name: "London" },
-  offers: { "@type": "Offer", availability: "https://schema.org/InStock", description: "Free consultation — bespoke pricing" },
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Wedding Dance Lessons London",
+    description: "Private wedding first dance lessons in London. Learn a beautiful choreographed routine with award-winning instructor Melitta Siomos.",
+    provider: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Wedding Dance Choreographer" },
+    areaServed: { "@type": "City", name: "London" },
+    offers: { "@type": "Offer", availability: "https://schema.org/InStock", description: "Free consultation — bespoke pricing" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.puranights.com/" },
+      { "@type": "ListItem", position: 2, name: "Wedding Dance", item: "https://www.puranights.com/wedding-dance" },
+      { "@type": "ListItem", position: 3, name: "Wedding Dance Lessons London", item: "https://www.puranights.com/wedding-dance-lessons-london" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "When should we start lessons?", acceptedAnswer: { "@type": "Answer", text: "Ideally 2–3 months before your wedding, but we've created beautiful routines in as little as 2 weeks." } },
+      { "@type": "Question", name: "We have two left feet — is that OK?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. Most couples who come to us have never danced before. Melitta specialises in making non-dancers look and feel amazing." } },
+      { "@type": "Question", name: "Can we learn a specific style?", acceptedAnswer: { "@type": "Answer", text: "Yes — Salsa, Bachata, Waltz, Foxtrot, or a fusion. We choreograph to your song." } },
+      { "@type": "Question", name: "Where do lessons take place?", acceptedAnswer: { "@type": "Answer", text: "At our private studio in Acton, West London, or online via Zoom for couples outside London. Home visits can be arranged." } },
+    ],
+  },
+];
 
 const packages = [
   { title: "The Essentials", sessions: "~3 sessions", desc: "Perfect for couples who want to feel confident and natural. Learn a simple, elegant routine to your chosen song.", best: "Short timeline" },
@@ -61,7 +82,7 @@ const WeddingDanceLessonsLondon = () => (
             Your first dance should be one of the most magical moments of your wedding day. With Melitta Siomos — Bachata UK Champion and experienced wedding choreographer — you'll learn a routine that feels natural, looks stunning, and creates memories that last a lifetime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book a Consultation</a>
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book Free Consultation</a>
             <Link to="/wedding-dance" className="btn-cta-dark">Learn More</Link>
           </div>
         </FadeInUp>

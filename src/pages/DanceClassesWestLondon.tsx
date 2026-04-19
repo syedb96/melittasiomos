@@ -5,14 +5,43 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  name: "Dance Classes in West London — Salsa & Bachata",
-  description: "Weekly Salsa and Bachata dance classes in West London at venues in Chiswick and Ealing. All levels, no partner needed.",
-  provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
-  areaServed: ["West London", "Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond"],
-};
+const faqs = [
+  { q: "Are these the only Latin dance classes in West London?", a: "There are other classes around, but Pura Nights is the only weekly school in West London offering three levels every evening with an award-winning instructor and a built-in social dance floor." },
+  { q: "Can I attend both Monday and Tuesday?", a: "Absolutely — and many of our students do. Dancing twice a week significantly accelerates your progress." },
+  { q: "Do I need a partner?", a: "Never. We rotate partners every class and most of our students arrive solo." },
+  { q: "What postcodes do you cover?", a: "We draw students from across W1–W14 and the TW postcodes — Chiswick, Ealing, Acton, Hammersmith, Shepherd's Bush, Brentford, Kew, Richmond, Hounslow and more." },
+  { q: "How much does a class cost?", a: "From £10 per class, with bundles and monthly unlimited passes for regular dancers. See /prices for full details." },
+  { q: "Is there a student or concession rate?", a: "Contact Melitta directly to discuss — siomosmelitta@gmail.com" },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "Dance Classes in West London — Salsa & Bachata",
+    description: "Weekly Salsa and Bachata dance classes in West London at venues in Chiswick and Ealing. All levels, no partner needed.",
+    provider: { "@type": "Organization", name: "Pura Nights by Melitta Siomos", url: "https://www.puranights.com" },
+    areaServed: ["West London", "Chiswick", "Ealing", "Acton", "Hammersmith", "Shepherd's Bush", "Brentford", "Kew", "Richmond"],
+    hasCourseInstance: [
+      { "@type": "CourseInstance", name: "Monday Chiswick", courseMode: "Onsite", location: { "@type": "Place", name: "The George IV", address: "185 Chiswick High Rd, W4 2DR" } },
+      { "@type": "CourseInstance", name: "Tuesday Ealing", courseMode: "Onsite", location: { "@type": "Place", name: "Drayton Court Hotel", address: "2 The Avenue, W13 8PH" } },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.puranights.com/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.puranights.com/locations" },
+      { "@type": "ListItem", position: 3, name: "Dance Classes West London", item: "https://www.puranights.com/dance-classes-west-london" },
+    ],
+  },
+];
 
 /* <!-- WIX PAGE: dance-classes-west-london -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -129,11 +158,7 @@ const DanceClassesWestLondon = () => (
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8">West London Dance Class FAQs</h2>
-        {[
-          { q: "Are these the only Latin dance classes in West London?", a: "There are other classes around, but Pura Nights is the only weekly school in West London offering three levels every evening with an award-winning instructor and a built-in social dance floor." },
-          { q: "Can I attend both Monday and Tuesday?", a: "Absolutely — and many of our students do. Dancing twice a week significantly accelerates your progress." },
-          { q: "Is there a student or concession rate?", a: "Contact Melitta directly to discuss — siomosmelitta@gmail.com" },
-        ].map((faq, i) => (
+        {faqs.map((faq, i) => (
           <details key={i} className="border-b border-border py-4">
             <summary className="font-heading font-semibold cursor-pointer hover:text-primary transition-colors">{faq.q}</summary>
             <p className="text-muted-foreground text-sm mt-2">{faq.a}</p>
