@@ -106,25 +106,37 @@ const Prices = () => {
         <FadeInUp delay={0.2}>
           <h2 className="font-display text-2xl font-bold mb-8">Class Bundles — Save More</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-            <div className="bg-card rounded-2xl p-8 card-hover text-left">
+            <div className={`bg-card rounded-2xl p-8 card-hover text-left transition-all ${selected === "commit" || selected === "weekly" ? "ring-2 ring-primary shadow-[0_0_30px_hsl(var(--primary)/0.4)]" : ""}`}>
               <h3 className="font-heading font-bold text-lg mb-1 text-primary">Chiswick (Monday)</h3>
               <p className="text-muted-foreground text-xs mb-4">The George IV, 185 Chiswick High Rd, W4 2DR</p>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold">£55</span></div>
                 <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold">£99</span></div>
-                <div className="flex justify-between items-center py-2"><span>Monthly Unlimited</span><span className="font-display font-bold">£120</span></div>
+                <div className="pt-2">
+                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold">£120</span></div>
+                  <p className="text-muted-foreground text-xs italic mt-1 mb-2">The most popular option — serious dancers and social regulars choose this.</p>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>✓ Unlimited classes at both Chiswick and Ealing</li>
+                    <li>✓ Priority access to Latin Friday early bird tickets</li>
+                    <li>✓ Join a community of 500+ dancers</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div className="bg-card rounded-2xl p-8 card-hover text-left">
+            <div className={`bg-card rounded-2xl p-8 card-hover text-left transition-all ${selected === "commit" || selected === "weekly" ? "ring-2 ring-primary shadow-[0_0_30px_hsl(var(--primary)/0.4)]" : ""}`}>
               <h3 className="font-heading font-bold text-lg mb-1 text-secondary">Ealing (Tuesday)</h3>
               <p className="text-muted-foreground text-xs mb-2">Drayton Court Hotel, 2 The Avenue, W13 8PH</p>
               <p className="text-xs text-primary mb-4">+ FREE Ladies Styling warm-up every Tuesday</p>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold">£42</span></div>
                 <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold">£78</span></div>
-                <div className="flex justify-between items-center py-2"><span>Monthly Unlimited</span><span className="font-display font-bold">£85</span></div>
+                <div className="pt-2">
+                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold">£85</span></div>
+                  <p className="text-muted-foreground text-xs italic mt-1">The most popular option — serious dancers and social regulars choose this.</p>
+                </div>
               </div>
             </div>
+
           </div>
         </FadeInUp>
 
