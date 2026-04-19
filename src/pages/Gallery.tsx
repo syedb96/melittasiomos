@@ -246,11 +246,29 @@ const Gallery = () => {
 
       {/* Lightbox */}
       {lightbox !== null && (
-        <div className="fixed inset-0 z-50 bg-charcoal/95 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
-          <button className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary" onClick={() => setLightbox(null)}><X size={28} /></button>
-          <button className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary" onClick={(e) => { e.stopPropagation(); navigate(-1); }}><ChevronLeft size={36} /></button>
-          <button className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary" onClick={(e) => { e.stopPropagation(); navigate(1); }}><ChevronRight size={36} /></button>
-          <img src={photos[lightbox].src} alt={photos[lightbox].alt} className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg" onClick={(e) => e.stopPropagation()} />
+        <div
+          className="fixed inset-0 z-50 bg-charcoal/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={photos[lightbox].alt}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setLightbox(null);
+            if (e.key === "ArrowLeft") navigate(-1);
+            if (e.key === "ArrowRight") navigate(1);
+          }}
+          tabIndex={-1}
+          ref={(el) => el?.focus()}
+        >
+          <button aria-label="Close" className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary p-2 rounded-full bg-charcoal/60 hover:bg-charcoal" onClick={() => setLightbox(null)}><X size={24} /></button>
+          <button aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary p-2 rounded-full bg-charcoal/60 hover:bg-charcoal" onClick={(e) => { e.stopPropagation(); navigate(-1); }}><ChevronLeft size={28} /></button>
+          <button aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary p-2 rounded-full bg-charcoal/60 hover:bg-charcoal" onClick={(e) => { e.stopPropagation(); navigate(1); }}><ChevronRight size={28} /></button>
+          <figure className="flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
+            <img src={photos[lightbox].src} alt={photos[lightbox].alt} className="max-h-[80vh] max-w-[90vw] object-contain rounded-lg shadow-2xl" />
+            <figcaption className="text-primary-foreground/70 text-xs font-heading text-center max-w-xl">
+              {photos[lightbox].alt} · <span className="text-primary">{lightbox + 1} / {photos.length}</span>
+            </figcaption>
+          </figure>
         </div>
       )}
 
