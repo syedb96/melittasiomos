@@ -8,6 +8,7 @@ import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } fro
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
+import PressLogos from "@/components/PressLogos";
 
 /* <!-- WIX PAGE: /about -->
    <!-- WIX SECTION: Hero — Full-width Strip with founder image + dark overlay -->
@@ -154,6 +155,8 @@ const About = () => {
         </StaggerContainer>
       </div>
     </section>
+
+    <PressLogos />
 
     {/* Meet the Team */}
     <section className="section-padding bg-card" id="team">

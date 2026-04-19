@@ -74,6 +74,11 @@ const sections = [
       { to: "/private-salsa-lessons-london", label: "Private Salsa Lessons London" },
       { to: "/ladies-styling-london", label: "Ladies Styling London" },
       { to: "/bachata-performance-team-london", label: "Bachata Performance Team London" },
+      { to: "/salsa-classes-richmond", label: "Salsa Classes Richmond" },
+      { to: "/salsa-classes-hammersmith", label: "Salsa Classes Hammersmith" },
+      { to: "/dance-classes-hounslow", label: "Dance Classes Hounslow" },
+      { to: "/latin-dance-ealing", label: "Latin Dance Ealing" },
+      { to: "/latin-dance-chiswick", label: "Latin Dance Chiswick" },
     ],
   },
   {

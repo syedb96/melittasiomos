@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { CheckCircle } from "lucide-react";
+import BundleCalculator from "@/components/BundleCalculator";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
@@ -41,6 +42,13 @@ const Prices = () => (
                 <p className="text-muted-foreground text-xs">{p.note}</p>
               </div>
             ))}
+          </div>
+        </FadeInUp>
+
+        {/* Bundle Calculator */}
+        <FadeInUp delay={0.15}>
+          <div className="mb-16">
+            <BundleCalculator />
           </div>
         </FadeInUp>
 
