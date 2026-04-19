@@ -41,6 +41,7 @@ import StartHere from "./pages/StartHere";
 import Locations from "./pages/Locations";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 import SalsaClassesActon from "./pages/SalsaClassesActon";
 import DanceClassesEaling from "./pages/DanceClassesEaling";
@@ -216,6 +217,7 @@ const App = () => (
             <Route path="/locations" element={<Locations />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/latin-dance-classes-london" element={<LatinDanceClassesLondon />} />
             <Route path="/dance-classes-chiswick" element={<DanceClassesChiswick />} />
             <Route path="/wedding-dance-lessons-london" element={<WeddingDanceLessonsLondon />} />

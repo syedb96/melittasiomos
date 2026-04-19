@@ -16,14 +16,25 @@ const faqs = [
   { q: "How much does the first class cost?", a: "From £10 for one class plus the social. Bundles save further — see /prices." },
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": ["Service", "FAQPage"],
-  name: "Salsa Classes for Richmond Residents",
-  provider: { "@type": "DanceSchool", name: "Pura Nights — Melitta Siomos Dance Academy" },
-  areaServed: [{ "@type": "Place", name: "Richmond, London" }, { "@type": "Place", name: "Kew" }, { "@type": "Place", name: "Twickenham" }],
-  mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["Service", "FAQPage"],
+    name: "Salsa Classes for Richmond Residents",
+    provider: { "@type": "DanceSchool", name: "Pura Nights — Melitta Siomos Dance Academy" },
+    areaServed: [{ "@type": "Place", name: "Richmond, London" }, { "@type": "Place", name: "Kew" }, { "@type": "Place", name: "Twickenham" }],
+    mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.puranights.com/" },
+      { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.puranights.com/locations" },
+      { "@type": "ListItem", position: 3, name: "Salsa Classes Richmond", item: "https://www.puranights.com/salsa-classes-richmond" },
+    ],
+  },
+];
 
 const SalsaClassesRichmond = () => (
   <Layout>
@@ -104,7 +115,7 @@ const SalsaClassesRichmond = () => (
         <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-3">Ready to Try a Class?</h2>
         <p className="text-primary-foreground/80 text-sm mb-6">Drop in this Monday in Chiswick or Tuesday in Ealing. From £10.</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link to="/prices" className="btn-cta-dark text-sm">See Prices</Link>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
           <Link to="/start-here" className="btn-cta-dark text-sm">New to Dancing?</Link>
         </div>
       </div>

@@ -12,6 +12,10 @@ const navGroups = [
       { label: "Monthly Latin Fridays", path: "/events" },
       { label: "Pura Ladies Performance Team", path: "/pura-ladies" },
       { label: "Online Coaching", path: "/online-salsa-bachata-coaching" },
+      { label: "Dance Classes West London", path: "/dance-classes-west-london" },
+      { label: "Salsa Classes Richmond", path: "/salsa-classes-richmond" },
+      { label: "Salsa Classes Hammersmith", path: "/salsa-classes-hammersmith" },
+      { label: "Wedding Dance Lessons London", path: "/wedding-dance-lessons-london" },
     ],
   },
   {
