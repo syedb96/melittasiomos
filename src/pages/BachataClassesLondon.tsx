@@ -5,14 +5,41 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import heroImg from "@/assets/bachata-close.jpg";
 
-const schema = {
+const faqItems = [
+  { q: "Is bachata easier than salsa for beginners?", a: "Many beginners find bachata slightly more accessible due to the slower tempo (120–145 BPM) and a simpler 4-step basic. Both dances are taught at beginner level every week at Pura Nights." },
+  { q: "What should I wear to a bachata class?", a: "Comfortable clothes you can move in. Smooth-soled shoes are recommended — avoid trainers with rubber soles. Ladies may prefer a small heel for styling practice." },
+  { q: "Do you teach sensual bachata?", a: "Yes. Melitta teaches both traditional Dominican and modern sensual bachata. As a UK Champion she brings world-class technique to body movement, waves, and musical interpretation." },
+  { q: "Can I join the Pura Ladies bachata team?", a: "Yes — attend regular classes to build your foundation, then speak to Melitta about auditions. Pura Ladies has teams in London, Plymouth, Munich, and Lisbon." },
+  { q: "Where in London do you teach bachata?", a: "Two West London venues: The George IV (Chiswick W4 2DR) on Mondays and Drayton Court Hotel (Ealing W13 8PH) on Tuesdays. Both are easily reached from across London." },
+  { q: "How much do bachata classes cost?", a: "Drop-in classes start from £10, with course bundles and student rates available. Full pricing on the Prices page." },
+  { q: "Do I need a partner to attend?", a: "Never. Partners rotate every few minutes during class so you'll dance with everyone — most students arrive solo." },
+];
+
+const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
   name: "Bachata Classes London",
-  description: "Weekly bachata dance classes in London with Bachata UK Champion Melitta Siomos. Beginner to advanced in Chiswick and Ealing.",
-  provider: { "@type": "Organization", name: "Melitta Siomos Dance Academy", url: "https://www.puranights.com" },
+  description: "Weekly bachata dance classes in London with Bachata UK Champion Melitta Siomos. Beginner to advanced in Chiswick and Ealing — sensual, traditional Dominican, and modern bachata styles.",
+  provider: { "@type": "Organization", name: "Melitta Siomos Dance Academy", url: "https://www.puranights.com", sameAs: ["https://www.instagram.com/melittasiomos/"] },
+  educationalLevel: "Beginner to Advanced",
+  inLanguage: "en-GB",
+  teaches: ["Traditional Dominican Bachata", "Sensual Bachata", "Modern/Urban Bachata", "Lady Styling", "Musicality"],
+  offers: { "@type": "Offer", price: "10", priceCurrency: "GBP", availability: "https://schema.org/InStock", url: "https://www.tickettailor.com/events/puranights" },
+  hasCourseInstance: [
+    { "@type": "CourseInstance", courseMode: "Onsite", location: { "@type": "Place", name: "The George IV", address: "185 Chiswick High Rd, London W4 2DR" }, courseSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "20:15", endTime: "21:00" } },
+    { "@type": "CourseInstance", courseMode: "Onsite", location: { "@type": "Place", name: "Drayton Court Hotel", address: "2 The Avenue, London W13 8PH" }, courseSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Tuesday", startTime: "20:15", endTime: "21:00" } },
+  ],
   areaServed: { "@type": "City", name: "London" },
+  instructor: { "@type": "Person", name: "Melitta Siomos", jobTitle: "Bachata UK Champion", award: "Bachata UK Champion" },
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+
+const schema = { "@context": "https://schema.org", "@graph": [courseSchema, faqSchema] };
 
 /* <!-- WIX PAGE: bachata-classes-london -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -118,12 +145,7 @@ const BachataClassesLondon = () => (
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Bachata Classes London — FAQs</h2>
         <div className="space-y-6">
-          {[
-            { q: "Is bachata easier than salsa for beginners?", a: "Many beginners find bachata slightly more accessible due to the slower tempo and simpler basic step. However, both dances are taught at beginner level every week at Pura Nights." },
-            { q: "What should I wear to a bachata class?", a: "Comfortable clothes you can move in. Smooth-soled shoes are recommended — avoid trainers with rubber soles. Ladies may prefer a small heel for styling practice." },
-            { q: "Do you teach sensual bachata?", a: "Yes! Melitta teaches both traditional and sensual bachata styles. As a UK Champion, she brings world-class technique to body movement, waves, and musical interpretation." },
-            { q: "Can I join the Pura Ladies bachata team?", a: "Absolutely. Attend regular classes to build your foundation, then speak to Melitta about auditions for the next intake. Pura Ladies has teams in London, Plymouth, Munich, and Lisbon." },
-          ].map((faq, i) => (
+          {faqItems.map((faq, i) => (
             <div key={i} className="bg-card rounded-lg p-6">
               <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
               <p className="text-muted-foreground text-sm">{faq.a}</p>

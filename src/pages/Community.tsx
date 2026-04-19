@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, Music, Users, Sparkles, Star, ArrowRight, Instagram, MessageCircle } from "lucide-react";
+import { Heart, Music, Users, Sparkles, Star, ArrowRight, Instagram, MessageCircle, Award, Layers, Calendar } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
@@ -23,11 +23,11 @@ const vibeCards = [
 ];
 
 const whyStay = [
-  { emoji: "🎵", title: "The Music", desc: "High-energy salsa + sensual bachata, carefully curated every week" },
-  { emoji: "👫", title: "No Partner Needed", desc: "Come solo, leave with dance partners and lifelong friends" },
-  { emoji: "🏆", title: "Award-Winning Teaching", desc: "Learn from a Bachata UK Champion with 15+ years experience" },
-  { emoji: "💃", title: "All Levels Welcome", desc: "Beginners to advanced — 3 class levels every single night" },
-  { emoji: "🔥", title: "Monthly Latin Fridays", desc: "DJ sets, performances, workshops and social dancing till late" },
+  { icon: <Music size={26} />, title: "The Music", desc: "High-energy salsa + sensual bachata, carefully curated every week" },
+  { icon: <Users size={26} />, title: "No Partner Needed", desc: "Come solo, leave with dance partners and lifelong friends" },
+  { icon: <Award size={26} />, title: "Award-Winning Teaching", desc: "Learn from a Bachata UK Champion with 15+ years experience" },
+  { icon: <Layers size={26} />, title: "All Levels Welcome", desc: "Beginners to advanced — 3 class levels every single night" },
+  { icon: <Calendar size={26} />, title: "Monthly Latin Fridays", desc: "DJ sets, performances, workshops and social dancing till late" },
 ];
 
 const nightTimeline = [
@@ -118,7 +118,7 @@ const Community = () => (
           {whyStay.map((card, i) => (
             <StaggerItem key={i}>
               <div className="bg-card rounded-2xl p-6 text-center card-hover h-full border border-border">
-                <span className="text-3xl block mb-3">{card.emoji}</span>
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-3">{card.icon}</div>
                 <h3 className="font-heading font-bold text-sm mb-2">{card.title}</h3>
                 <p className="text-muted-foreground text-xs leading-relaxed">{card.desc}</p>
               </div>
