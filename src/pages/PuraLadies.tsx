@@ -95,7 +95,41 @@ const PuraLadies = () => (
       </div>
     </section>
 
-    {/* How to Join */}
+    {/* v7.1 audit — Your Dance Journey progression pathway */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-5xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold text-center mb-2">Your Dance Journey with Pura Nights</h2>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-10" />
+        </FadeInUp>
+        <div className="relative">
+          <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-px bg-primary/30" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            {[
+              { step: "1", title: "ARRIVE", desc: "Join Pura Nights — any Monday or Tuesday, any level" },
+              { step: "2", title: "LEARN", desc: "Build foundations in Beginners, grow through Improvers and Intermediate classes" },
+              { step: "3", title: "STYLE", desc: "Join the free Ladies Styling Warm-Up every Tuesday in Ealing" },
+              { step: "4", title: "PERFORM", desc: "Audition for Pura Ladies — perform at events across London and Europe" },
+            ].map((s, i) => (
+              <FadeInUp key={s.step} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center font-display font-bold text-charcoal mb-3 relative z-10" style={{ background: 'var(--gradient-gold)' }}>
+                    {s.step}
+                  </div>
+                  <h3 className="font-heading font-bold text-sm mb-2 text-primary tracking-wider">{s.title}</h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </div>
+        <FadeInUp delay={0.5} className="text-center mt-10">
+          <p className="text-muted-foreground text-sm italic mb-6">Most Pura Ladies members started as complete beginners. This is your path.</p>
+          <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Start Your Journey →</a>
+        </FadeInUp>
+      </div>
+    </section>
+
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <FadeInUp>

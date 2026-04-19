@@ -128,6 +128,22 @@ const Community = () => (
       </div>
     </section>
 
+    {/* v7.1 audit — Why We Keep It Small (intimacy advantage) */}
+    <section className="section-padding bg-charcoal text-primary-foreground">
+      <div className="container-main max-w-2xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">Our Intimacy Advantage</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-8 leading-tight">We Only Dance on Monday and Tuesday. Here's Why.</h2>
+          <p className="text-primary-foreground/80 text-base leading-relaxed mb-5 italic">
+            "Salsateca runs 9 locations. Incognito has 5 venues. We have two — and that's entirely intentional. Every class Melitta teaches personally. Every student gets seen, corrected, and remembered. When you walk into The George IV on a Monday, Melitta knows your name and your level. That doesn't happen at a 200-person dance factory."
+          </p>
+          <p className="text-primary-foreground/80 text-base leading-relaxed italic">
+            "This is why 500+ students travel from Richmond, Hammersmith, Fulham, Hounslow and beyond to come to Chiswick and Ealing every week. The teaching is better. The community is tighter. The progress is faster."
+          </p>
+        </FadeInUp>
+      </div>
+    </section>
+
     {/* A Night at Pura Nights — horizontal timeline */}
     <section className="section-padding bg-charcoal text-primary-foreground">
       <div className="container-main max-w-6xl">
