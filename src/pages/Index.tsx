@@ -123,8 +123,8 @@ const Index = () => {
             West London's most vibrant Salsa & Bachata community. Weekly classes in Chiswick & Ealing — no partner, no experience needed.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
-            <Link to="/pura-nights" className="btn-cta-ghost text-sm">See Class Schedule</Link>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class — From £10 →</a>
+            <Link to="/schedule" className="btn-cta-ghost text-sm">See Class Schedule →</Link>
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex justify-center">
             <LiveStudentCounter target={500} label="dancers in West London" />

@@ -111,8 +111,8 @@ const Header = () => {
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://www.instagram.com/melittasiomos/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram size={13} /></a>
-            <a href="https://www.facebook.com/puranightslondon/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook size={13} /></a>
+            <a href="https://www.instagram.com/puranights.salsabachata" target="_blank" rel="noopener noreferrer" aria-label="Instagram Pura Nights" className="hover:text-primary transition-colors"><Instagram size={13} /></a>
+            <a href="https://www.facebook.com/puranightslondon" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook size={13} /></a>
             <a href="https://www.youtube.com/@melittasiomos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-primary transition-colors"><Youtube size={13} /></a>
           </div>
         </div>
