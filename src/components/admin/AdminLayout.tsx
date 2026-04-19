@@ -4,7 +4,7 @@
 import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, ChevronRight } from "lucide-react";
+import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, ChevronRight, FileText, BookOpen } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
@@ -14,6 +14,8 @@ const navItems = [
   { label: "Testimonials", path: "/admin/testimonials", icon: Star },
   { label: "Enquiries", path: "/admin/enquiries", icon: MessageSquare },
   { label: "Settings", path: "/admin/settings", icon: Settings },
+  { label: "Wix Blueprint", path: "/admin/blueprint", icon: BookOpen },
+  { label: "Site Docs", path: "/admin/site-docs", icon: FileText },
 ];
 
 const AdminLayout = ({ children }: { children: ReactNode }) => {
