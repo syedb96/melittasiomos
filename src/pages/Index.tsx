@@ -455,6 +455,23 @@ const Index = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Learn Something New</h2>
             <p className="text-muted-foreground text-center text-sm mb-10 font-heading">Guides, tips, and stories from the Pura Nights dancefloor</p>
           </FadeInUp>
+
+          {/* Featured Pillar Guide Card */}
+          <FadeInUp>
+            <Link
+              to="/learn/salsa-bachata-guide"
+              className="block max-w-5xl mx-auto mb-10 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-10 text-primary-foreground card-hover group"
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
+                <div>
+                  <span className="inline-block text-[10px] font-accent tracking-[0.25em] uppercase bg-primary-foreground/15 px-3 py-1 rounded-full mb-3">⭐ Featured Pillar Guide · 2,000+ words</span>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold mb-2 leading-tight">The Complete West London Guide to Salsa & Bachata</h3>
+                  <p className="text-primary-foreground/85 font-heading text-sm md:text-base max-w-2xl">Styles, music, classes, venues, pricing, etiquette and FAQs — everything you need before your first class, in one in-depth guide.</p>
+                </div>
+                <span className="inline-flex items-center gap-2 font-heading font-semibold text-sm shrink-0 group-hover:translate-x-1 transition-transform">Read the Guide <ChevronRight size={16} /></span>
+              </div>
+            </Link>
+          </FadeInUp>
           <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" staggerDelay={0.12}>
             {[
               { cat: "Guide", slug: "/blog/what-is-salsa", title: "What Is Salsa? A Complete Guide", excerpt: "From Cuba to New York to your local dance floor — everything you need to know about Salsa On1." },

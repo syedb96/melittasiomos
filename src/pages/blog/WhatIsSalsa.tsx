@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/what-is-salsa -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -183,21 +184,11 @@ const WhatIsSalsa = () => (
 
           <AuthorCard />
 
-          <div className="mt-10">
-            <h3 className="font-display text-xl font-bold mb-4">Related Posts</h3>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {[
-                { slug: "what-is-bachata", title: "What is Bachata Dance?", cat: "Bachata" },
-                { slug: "salsa-vs-bachata", title: "Salsa vs Bachata — Which First?", cat: "Beginners" },
-                { slug: "beginners-guide-salsa-london", title: "Beginner's Guide to Salsa in London", cat: "Beginners" },
-              ].map(p => (
-                <Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover">
-                  <span className="text-primary text-xs font-heading font-bold">{p.cat}</span>
-                  <p className="font-heading font-semibold text-sm mt-1">{p.title}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-bachata", title: "What is Bachata Dance?", category: "Bachata", readTime: "7 min" },
+            { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata — Which First?", category: "Beginners", readTime: "5 min" },
+            { to: "/blog/beginners-guide-salsa-london", title: "Beginner's Guide to Salsa in London", category: "Beginners", readTime: "6 min" },
+          ]} />
 
           <div className="mt-10 bg-primary rounded-2xl p-6 text-center">
             <p className="text-primary-foreground font-heading font-semibold mb-3">Loved this? Share it on WhatsApp</p>

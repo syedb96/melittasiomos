@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/beginners-guide-london -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -55,7 +56,11 @@ const BeginnersGuideLondon = () => (
             {[{q:"What if I have no rhythm?",a:"Rhythm is a skill, not a gift. Melitta teaches it explicitly."},{q:"I'm shy. Will I feel awkward?",a:"Within 15 minutes the self-consciousness fades. Movement and music are natural social lubricants."},{q:"Is dance for all body types?",a:"Dance is for every body. Students aged 18–65+, all fitness levels."},{q:"How do I find the venue?",a:"Mondays: The George IV, 185 Chiswick High Rd, W4 2DR. Tuesdays: Drayton Court Hotel, 2 The Avenue, Ealing, W13 8PH."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
           </Accordion>
           <AuthorCard />
-          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-salsa",title:"What is Salsa?",cat:"Salsa"},{slug:"what-is-bachata",title:"What is Bachata?",cat:"Bachata"},{slug:"salsa-vs-bachata",title:"Salsa vs Bachata",cat:"Beginners"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-salsa", title: "What is Salsa?", category: "Salsa", readTime: "8 min" },
+            { to: "/blog/first-salsa-class-london", title: "Your First Salsa Class", category: "Beginners", readTime: "6 min" },
+            { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata", category: "Beginners", readTime: "5 min" },
+          ]} />
         </FadeInUp>
       </div>
     </article>

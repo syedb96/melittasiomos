@@ -72,6 +72,9 @@ const Blog = () => {
         <FadeInUp>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">Pura Stories Blog</h1>
           <p className="text-peach font-heading">Life on the Dancefloor · Salsa & Bachata · London · Tips & Culture</p>
+          <Link to="/learn/salsa-bachata-guide" className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-heading text-sm font-semibold hover:opacity-90 transition-opacity">
+            ⭐ New Pillar Guide: The Complete West London Salsa & Bachata Guide →
+          </Link>
         </FadeInUp>
       </section>
 

@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
+import BlogPostFooter from "@/components/BlogPostFooter";
 
 /* <!-- WIX PAGE: /blog/salsa-vs-bachata -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -55,7 +56,11 @@ const SalsaVsBachata = () => (
         </FadeInUp>
         <FadeInUp delay={0.2}>
           <AuthorCard />
-          <div className="mt-10"><h3 className="font-display text-xl font-bold mb-4">Related Posts</h3><div className="grid sm:grid-cols-3 gap-4">{[{slug:"what-is-salsa",title:"What is Salsa?",cat:"Salsa"},{slug:"what-is-bachata",title:"What is Bachata?",cat:"Bachata"},{slug:"beginners-guide-salsa-london",title:"Beginner's Guide",cat:"Beginners"}].map(p=><Link key={p.slug} to={`/blog/${p.slug}`} className="bg-card rounded-xl p-4 card-hover"><span className="text-primary text-xs font-heading font-bold">{p.cat}</span><p className="font-heading font-semibold text-sm mt-1">{p.title}</p></Link>)}</div></div>
+          <BlogPostFooter related={[
+            { to: "/blog/what-is-salsa", title: "What is Salsa?", category: "Salsa", readTime: "8 min" },
+            { to: "/blog/what-is-bachata", title: "What is Bachata?", category: "Bachata", readTime: "7 min" },
+            { to: "/blog/beginners-guide-salsa-london", title: "Beginner's Guide", category: "Beginners", readTime: "6 min" },
+          ]} />
           <div className="mt-4 text-center"><Link to="/proof-centre" className="text-primary font-heading text-sm font-semibold hover:underline">See 500+ Student Reviews →</Link></div>
         </FadeInUp>
       </div>
