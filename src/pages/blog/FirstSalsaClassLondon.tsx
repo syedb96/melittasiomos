@@ -6,20 +6,30 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
-/* <!-- WIX PAGE: /blog/first-salsa-class-london -->
-   <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
-   <!-- WIX SECTION: Article Header — title, category, author, date -->
-   <!-- WIX SECTION: Article Body — Rich Text with CTA after 3rd H2 -->
-   <!-- WIX SECTION: Author Card — connected to Team Members collection -->
-   <!-- WIX SECTION: Related Posts — Repeater filtered by category -->
-*/
+import BlogPostFooter from "@/components/BlogPostFooter";
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Survive (and Enjoy) Your First Salsa Class in London",
+  description: "Step-by-step guide to attending your first beginner salsa class in London with zero experience.",
+  totalTime: "PT2H30M",
+  step: [
+    { "@type": "HowToStep", name: "Wear comfortable clothes", text: "Wear something you can move in. Bring clean indoor shoes with a smooth sole." },
+    { "@type": "HowToStep", name: "Arrive 10 minutes early", text: "Get to the venue 10 minutes before class starts so you can settle in." },
+    { "@type": "HowToStep", name: "Pay £10 on the door", text: "Your first beginners class is £10. No advance booking needed." },
+    { "@type": "HowToStep", name: "Join the 30-minute beginners class", text: "Learn the basic step, timing, and your first partner moves. Partners rotate." },
+    { "@type": "HowToStep", name: "Stay for social dancing", text: "From 9–11 PM the floor opens for relaxed social dancing." },
+  ],
+};
+
 const FirstSalsaClass = () => (
   <Layout>
     <SeoHead
       title="Your First Salsa Class in London: What to Expect | Pura Nights"
       description="Nervous about your first salsa class? Here's exactly what happens at a beginner salsa class in London — from walking in to dancing your first steps."
       path="/blog/first-salsa-class-london"
-      schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Your First Salsa Class in London: What to Expect", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-01" }}
+      schema={howToSchema}
     />
     <ReadingProgressBar />
     <article>
@@ -86,6 +96,13 @@ const FirstSalsaClass = () => (
             </div>
           </FadeInUp>
         </div>
+      </section>
+      <section className="section-padding section-warm pt-0">
+        <BlogPostFooter related={[
+          { to: "/blog/what-is-salsa", title: "What is Salsa Dance?", category: "Beginners", readTime: "6 min" },
+          { to: "/blog/what-to-wear-salsa-bachata", title: "What to Wear to Salsa & Bachata", category: "Beginners", readTime: "5 min" },
+          { to: "/blog/salsa-no-partner", title: "Can You Learn Salsa Without a Partner?", category: "Beginners", readTime: "5 min" },
+        ]} />
       </section>
     </article>
   </Layout>
