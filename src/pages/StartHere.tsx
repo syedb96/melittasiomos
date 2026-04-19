@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import { BookOpen, MapPin, Music, ChevronRight } from "lucide-react";
+import { BookOpen, MapPin, Music, ChevronRight, Shield, Users, Star, Heart } from "lucide-react";
 import heroImg from "@/assets/hero-dance.jpg";
 
 /* <!-- WIX PAGE: /start-here -->
@@ -63,6 +63,34 @@ const StartHere = () => (
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </div>
+    </section>
+
+    {/* v7.1 audit — Why Choose Pura Nights competitive differentiator */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-4xl">
+        <FadeInUp>
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary text-center mb-3">The Pura Nights Difference</p>
+          <h2 className="font-display text-3xl font-bold text-center mb-10">Why Choose Pura Nights?</h2>
+        </FadeInUp>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {[
+            { icon: Shield, title: "Taught by a Champion", desc: "Not a rotating roster of freelancers. Melitta teaches every class personally." },
+            { icon: Users, title: "Maximum 30 Students Per Class", desc: "You get real feedback, real correction, real progress. Not lost in a crowd." },
+            { icon: Star, title: "5.0 Google Rating Across 4 Brands", desc: "Hundreds of real reviews, never incentivised." },
+            { icon: Heart, title: "A Real Community", desc: "Students come for the dancing, stay for the people. Monthly socials, WhatsApp groups, lifelong friendships." },
+          ].map((c, i) => (
+            <FadeInUp key={c.title} delay={i * 0.08}>
+              <div className="bg-card rounded-2xl p-6 border border-border h-full flex gap-4">
+                <c.icon size={28} className="text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-heading font-bold text-base mb-2">{c.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{c.desc}</p>
+                </div>
+              </div>
+            </FadeInUp>
+          ))}
+        </div>
       </div>
     </section>
 
