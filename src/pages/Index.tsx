@@ -597,6 +597,25 @@ const Index = () => {
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
+      {/* FOLLOW US MINI */}
+      <section className="py-10 bg-charcoal border-t border-primary/10">
+        <div className="container-main text-center">
+          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">Follow Us</p>
+          <h3 className="font-display text-xl md:text-2xl font-bold text-primary-foreground mb-5">Join the community on Instagram</h3>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {[
+              { handle: "puranights.salsabachata", url: "https://www.instagram.com/puranights.salsabachata" },
+              { handle: "melittasiomos", url: "https://www.instagram.com/melittasiomos" },
+              { handle: "puraladies", url: "https://www.instagram.com/puraladies" },
+            ].map(s => (
+              <a key={s.handle} href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-charcoal-light hover:bg-primary/15 border border-primary/20 hover:border-primary text-primary-foreground/80 hover:text-primary px-5 py-2.5 rounded-full text-xs font-heading font-semibold transition-all">
+                <Instagram size={14} /> @{s.handle}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* COMMUNITY CTA */}
       <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main">
