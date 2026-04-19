@@ -9,6 +9,7 @@ const items = [
   "🔥 Monthly Latin Fridays",
   "✅ No Partner Needed",
   "📱 5★ on Google",
+  "🎟️ Book Online via Ticket Tailor — Instant Confirmation",
 ];
 
 const TrustTicker = () => (

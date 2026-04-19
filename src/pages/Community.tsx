@@ -22,6 +22,23 @@ const vibeCards = [
   { icon: <Sparkles size={28} />, title: "The Culture", desc: "We celebrate Latin culture with intention and respect. From Afro-Cuban roots to Dominican bachata, every dance tells a story." },
 ];
 
+const whyStay = [
+  { emoji: "🎵", title: "The Music", desc: "High-energy salsa + sensual bachata, carefully curated every week" },
+  { emoji: "👫", title: "No Partner Needed", desc: "Come solo, leave with dance partners and lifelong friends" },
+  { emoji: "🏆", title: "Award-Winning Teaching", desc: "Learn from a Bachata UK Champion with 15+ years experience" },
+  { emoji: "💃", title: "All Levels Welcome", desc: "Beginners to advanced — 3 class levels every single night" },
+  { emoji: "🔥", title: "Monthly Latin Fridays", desc: "DJ sets, performances, workshops and social dancing till late" },
+];
+
+const nightTimeline = [
+  { time: "7:00pm", label: "Arrive" },
+  { time: "7:15pm", label: "Ladies Styling Warm-Up (Ealing only)" },
+  { time: "7:30pm", label: "Beginners Class" },
+  { time: "8:15pm", label: "Improvers Class" },
+  { time: "9:00pm", label: "Social Dancing" },
+  { time: "10:00pm", label: "Head home smiling" },
+];
+
 const communityValues = [
   { title: "Everyone Belongs", desc: "Solo dancers, couples, complete beginners — you're welcome exactly as you are. No partner needed, ever." },
   { title: "Growth Over Perfection", desc: "We celebrate progress, not perfection. Your first step matters as much as your thousandth." },
