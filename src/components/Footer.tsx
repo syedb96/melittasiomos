@@ -134,6 +134,21 @@ const Footer = () => (
       </div>
     </div>
 
+    {/* Trust Badges */}
+    <div className="border-t border-primary-foreground/6">
+      <div className="container-main py-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-primary-foreground/50 font-heading">
+          <span className="inline-flex items-center gap-1.5"><Star size={11} className="fill-primary text-primary" /> 5.0 Google Rating</span>
+          <span className="text-primary-foreground/20">·</span>
+          <span>🏆 Bachata UK Champion</span>
+          <span className="text-primary-foreground/20">·</span>
+          <span>✅ 500+ Students</span>
+          <span className="text-primary-foreground/20">·</span>
+          <span>📅 Since 2017</span>
+        </div>
+      </div>
+    </div>
+
     {/* Newsletter hint */}
     <div className="border-t border-primary-foreground/6">
       <div className="container-main py-6 text-center">
