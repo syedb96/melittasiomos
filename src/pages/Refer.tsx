@@ -47,6 +47,16 @@ const tiers = [
   },
 ];
 
+// Public Pura Ambassador wall — replace photos/names as new ambassadors are crowned
+const ambassadors = [
+  { name: "Sofia R.", referrals: 12, since: "2024", tagline: "Brought half her office to Latin Fridays", initials: "SR", accent: "from-primary/30 to-primary/10" },
+  { name: "James K.", referrals: 9, since: "2024", tagline: "Wedding-dance graduate turned super-connector", initials: "JK", accent: "from-peach/30 to-peach/10" },
+  { name: "Aisha M.", referrals: 8, since: "2025", tagline: "Pura Ladies team · Chiswick regular", initials: "AM", accent: "from-charcoal/20 to-charcoal/5" },
+  { name: "Daniel P.", referrals: 7, since: "2024", tagline: "Bachata beginner → social-floor regular in 6 months", initials: "DP", accent: "from-primary/30 to-primary/10" },
+  { name: "Priya S.", referrals: 6, since: "2025", tagline: "Hen-party host · now a Tuesday fixture", initials: "PS", accent: "from-peach/30 to-peach/10" },
+  { name: "Marco L.", referrals: 5, since: "2025", tagline: "Italian crew leader at Pura Nights", initials: "ML", accent: "from-charcoal/20 to-charcoal/5" },
+];
+
 const Refer = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
