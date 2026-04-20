@@ -173,6 +173,37 @@ const OnlineAcademy = () => (
       </div>
     </section>
 
+    {/* PREVIEW REEL — 60-sec unlisted YouTube teaser */}
+    <section className="section-padding bg-card">
+      <div className="container-main max-w-4xl">
+        <div className="text-center mb-8">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-heading font-semibold tracking-wider uppercase mb-4">
+            🎬 60-Second Preview
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">See Melitta Teach Before You Sign Up</h2>
+          <GoldDivider />
+          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">A one-minute taste of the teaching style, the camera angles, and the music you'll be dancing to.</p>
+        </div>
+        <FadeInUp>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/20 bg-charcoal" style={{ aspectRatio: "16/9" }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${PREVIEW_REEL_ID}?rel=0&modestbranding=1`}
+              title="Pura Academy — 60 Second Preview Reel"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <div className="text-center mt-6">
+            <a href={TEACHABLE_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-primary inline-flex items-center justify-center gap-2">
+              <Play size={16} /> Start Your 7-Day Free Trial
+            </a>
+          </div>
+        </FadeInUp>
+      </div>
+    </section>
+
     {/* FEATURES */}
     <section className="section-padding section-warm">
       <div className="container-main max-w-6xl">
