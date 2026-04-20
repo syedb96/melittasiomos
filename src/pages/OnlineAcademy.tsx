@@ -8,8 +8,11 @@ import GoldDivider from "@/components/GoldDivider";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 // v8.0 Online Academy — Soft launch landing page (Teachable-powered)
-// All "Start Learning" CTAs link to Teachable academy URL (replace TEACHABLE_URL when live)
+// === SETUP: Replace these two constants once Melitta's school is live ===
+// 1) TEACHABLE_URL  — full URL to her Teachable subdomain (e.g. https://pura-academy.teachable.com)
+// 2) PREVIEW_REEL_ID — YouTube video ID of the 60-sec unlisted teaser (the part after v=)
 const TEACHABLE_URL = "https://melittasiomos.teachable.com";
+const PREVIEW_REEL_ID = "dQw4w9WgXcQ"; // TODO: swap for Melitta's unlisted teaser video ID
 const WAITLIST_MAILTO = "mailto:siomosmelitta@gmail.com?subject=Online%20Academy%20Waitlist&body=Hi%20Melitta%2C%20please%20add%20me%20to%20the%20Pura%20Academy%20early%20access%20waitlist.";
 
 const courses = [
