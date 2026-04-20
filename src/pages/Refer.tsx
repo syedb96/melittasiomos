@@ -154,6 +154,50 @@ const Refer = () => {
         </div>
       </section>
 
+      {/* AMBASSADOR WALL — public leaderboard */}
+      <section className="section-padding bg-card">
+        <div className="container-main max-w-6xl">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-heading font-semibold tracking-wider uppercase mb-4">
+              <Award size={11} className="inline mr-1" /> Hall of Pura
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Meet Our Pura Ambassadors</h2>
+            <GoldDivider />
+            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">The people who built this community by sharing it. Get on this wall — we'll celebrate you properly.</p>
+          </div>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ambassadors.map((a, i) => (
+              <StaggerItem key={i}>
+                <div className="relative bg-background rounded-2xl p-6 border border-border/60 card-hover h-full">
+                  {i < 3 && (
+                    <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center font-display text-sm font-bold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-gold)" }}>
+                      #{i + 1}
+                    </span>
+                  )}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${a.accent} flex items-center justify-center font-display text-lg font-bold text-charcoal flex-shrink-0`}>
+                      {a.initials}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-heading font-bold text-base truncate">{a.name}</h3>
+                      <p className="text-muted-foreground text-xs">Ambassador since {a.since}</p>
+                    </div>
+                  </div>
+                  <p className="text-foreground/80 text-sm italic mb-4 leading-relaxed">"{a.tagline}"</p>
+                  <div className="flex items-center justify-between pt-3 border-t border-border/60">
+                    <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">Friends Brought</span>
+                    <span className="font-display text-2xl font-bold text-primary">{a.referrals}</span>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <p className="text-center text-muted-foreground text-xs font-heading mt-8">
+            ⭐ Want your face here? Refer 5+ friends and Melitta will personally invite you into the Hall of Pura.
+          </p>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section className="section-padding bg-card">
         <div className="container-main max-w-4xl">
