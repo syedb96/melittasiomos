@@ -525,6 +525,32 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 12.5 — PURA ACADEMY + REFERRAL DUAL STRIP (v8.0) */}
+      <section className="section-padding bg-charcoal text-primary-foreground">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <FadeInUp>
+              <Link to="/online-academy" className="group relative block rounded-2xl overflow-hidden p-8 h-full border border-primary/30 hover:border-primary transition-all" style={{ background: "linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 14%))" }}>
+                <div className="absolute top-0 right-0 w-40 h-40 opacity-20 blur-3xl rounded-full" style={{ background: "var(--gradient-gold)" }} />
+                <span className="relative inline-block px-2.5 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-heading font-bold tracking-wider uppercase mb-4">✨ NEW · SOFT LAUNCH</span>
+                <h3 className="relative font-display text-2xl md:text-3xl font-bold mb-3 text-primary-foreground">Pura Academy — Online Courses</h3>
+                <p className="relative text-primary-foreground/70 text-sm mb-5 leading-relaxed">Pre-recorded HD Salsa & Bachata courses you can stream anywhere. Founding members lock in 30% off for life.</p>
+                <span className="relative inline-flex items-center gap-2 text-primary font-heading font-semibold text-sm group-hover:gap-3 transition-all">Explore the Academy →</span>
+              </Link>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <Link to="/refer" className="group relative block rounded-2xl overflow-hidden p-8 h-full border border-peach/30 hover:border-peach transition-all" style={{ background: "linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 14%))" }}>
+                <div className="absolute top-0 right-0 w-40 h-40 opacity-20 blur-3xl rounded-full bg-peach" />
+                <span className="relative inline-block px-2.5 py-1 rounded-full bg-peach/20 text-peach text-[10px] font-heading font-bold tracking-wider uppercase mb-4">🎁 Pura Rewards</span>
+                <h3 className="relative font-display text-2xl md:text-3xl font-bold mb-3 text-primary-foreground">Refer a Friend, Earn Rewards</h3>
+                <p className="relative text-primary-foreground/70 text-sm mb-5 leading-relaxed">Friend dances free · You get £10 off · Refer 5+ and become a Pura Ambassador with free unlimited classes.</p>
+                <span className="relative inline-flex items-center gap-2 text-peach font-heading font-semibold text-sm group-hover:gap-3 transition-all">Start Referring →</span>
+              </Link>
+            </FadeInUp>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 13 — GIFT VOUCHERS STRIP */}
       <section className="py-12" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main text-center">
