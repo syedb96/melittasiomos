@@ -220,36 +220,53 @@ const Refer = () => {
             <GoldDivider />
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">The people who built this community by sharing it. Get on this wall — we'll celebrate you properly.</p>
           </div>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {ambassadors.map((a, i) => (
-              <StaggerItem key={i}>
-                <div className="relative bg-background rounded-2xl p-6 border border-border/60 card-hover h-full">
-                  {i < 3 && (
-                    <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center font-display text-sm font-bold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-gold)" }}>
-                      #{i + 1}
-                    </span>
-                  )}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${a.accent} flex items-center justify-center font-display text-lg font-bold text-charcoal flex-shrink-0`}>
-                      {a.initials}
+          {ambassadors.length === 0 ? (
+            <p className="text-center text-muted-foreground text-sm font-heading py-8">Hall of Pura coming soon — be one of the first names on this wall.</p>
+          ) : (
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {ambassadors.map((a, i) => (
+                <StaggerItem key={a.id}>
+                  <div className="relative bg-background rounded-2xl p-6 border border-border/60 card-hover h-full">
+                    {i < 3 && (
+                      <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center font-display text-sm font-bold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-gold)" }}>
+                        #{i + 1}
+                      </span>
+                    )}
+                    <div className="flex items-center gap-4 mb-4">
+                      {a.photo_url ? (
+                        <img src={a.photo_url} alt={a.name} loading="lazy" className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
+                      ) : (
+                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${a.accent_from ?? "from-primary"} ${a.accent_to ?? "to-secondary"} flex items-center justify-center font-display text-lg font-bold text-primary-foreground flex-shrink-0`}>
+                          {initialsFrom(a.name)}
+                        </div>
+                      )}
+                      <div className="min-w-0">
+                        <h3 className="font-heading font-bold text-base truncate">{a.name}</h3>
+                        {a.instagram_url && (
+                          <a href={a.instagram_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-xs hover:text-primary inline-flex items-center gap-1">
+                            <Instagram size={11} /> Instagram
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="font-heading font-bold text-base truncate">{a.name}</h3>
-                      <p className="text-muted-foreground text-xs">Ambassador since {a.since}</p>
+                    {a.tagline && <p className="text-foreground/80 text-sm italic mb-4 leading-relaxed">"{a.tagline}"</p>}
+                    <div className="flex items-center justify-between pt-3 border-t border-border/60">
+                      <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">Friends Brought</span>
+                      <span className="font-display text-2xl font-bold text-primary">{a.referral_count}</span>
                     </div>
                   </div>
-                  <p className="text-foreground/80 text-sm italic mb-4 leading-relaxed">"{a.tagline}"</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-border/60">
-                    <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">Friends Brought</span>
-                    <span className="font-display text-2xl font-bold text-primary">{a.referrals}</span>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <p className="text-center text-muted-foreground text-xs font-heading mt-8">
-            ⭐ Want your face here? Refer 5+ friends and Melitta will personally invite you into the Hall of Pura.
-          </p>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          )}
+          <div className="text-center mt-10">
+            <button onClick={() => { setAppSubmitted(false); setAppOpen(true); }} className="btn-cta-primary inline-flex items-center gap-2">
+              <Sparkles size={16} /> Apply to be an Ambassador
+            </button>
+            <p className="text-muted-foreground text-xs font-heading mt-3">
+              ⭐ Refer 5+ friends or share a story that inspires us — we'll add you to the Hall of Pura.
+            </p>
+          </div>
         </div>
       </section>
 
