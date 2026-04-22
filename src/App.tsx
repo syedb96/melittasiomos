@@ -129,6 +129,7 @@ import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin";
 import EnquiriesAdmin from "./pages/admin/EnquiriesAdmin";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
 import Blueprint from "./pages/admin/Blueprint";
+import AmbassadorsAdmin from "./pages/admin/AmbassadorsAdmin";
 import SiteDocs from "./pages/admin/SiteDocs";
 
 const queryClient = new QueryClient();
@@ -258,6 +259,7 @@ const App = () => (
             <Route path="/admin/events" element={<ProtectedRoute><EventsAdmin /></ProtectedRoute>} />
             <Route path="/admin/testimonials" element={<ProtectedRoute><TestimonialsAdmin /></ProtectedRoute>} />
             <Route path="/admin/enquiries" element={<ProtectedRoute requireAdmin><EnquiriesAdmin /></ProtectedRoute>} />
+            <Route path="/admin/ambassadors" element={<ProtectedRoute><AmbassadorsAdmin /></ProtectedRoute>} />
             <Route path="/admin/settings" element={<ProtectedRoute><SettingsAdmin /></ProtectedRoute>} />
             <Route path="/admin/blueprint" element={<ProtectedRoute><Blueprint /></ProtectedRoute>} />
             <Route path="/admin/site-docs" element={<ProtectedRoute><SiteDocs /></ProtectedRoute>} />

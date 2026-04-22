@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { Gift, Users, Award, Sparkles, Send, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Gift, Users, Award, Sparkles, Send, CheckCircle2, Instagram, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import GoldDivider from "@/components/GoldDivider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
@@ -19,6 +20,24 @@ const referralSchema = z.object({
   friend_contact: z.string().trim().min(3, "Friend's email or phone required").max(255),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
+
+const ambassadorAppSchema = z.object({
+  name: z.string().trim().min(2, "Name required").max(100),
+  email: z.string().trim().email("Valid email required").max(255),
+  instagram: z.string().trim().min(2, "Instagram handle required").max(60),
+  pitch: z.string().trim().min(20, "Tell us a bit more (20+ chars)").max(800),
+});
+
+interface AmbassadorRow {
+  id: string;
+  name: string;
+  tagline: string | null;
+  referral_count: number;
+  photo_url: string | null;
+  instagram_url: string | null;
+  accent_from: string | null;
+  accent_to: string | null;
+}
 
 const tiers = [
   {
@@ -47,20 +66,56 @@ const tiers = [
   },
 ];
 
-// Public Pura Ambassador wall — replace photos/names as new ambassadors are crowned
-const ambassadors = [
-  { name: "Sofia R.", referrals: 12, since: "2024", tagline: "Brought half her office to Latin Fridays", initials: "SR", accent: "from-primary/30 to-primary/10" },
-  { name: "James K.", referrals: 9, since: "2024", tagline: "Wedding-dance graduate turned super-connector", initials: "JK", accent: "from-peach/30 to-peach/10" },
-  { name: "Aisha M.", referrals: 8, since: "2025", tagline: "Pura Ladies team · Chiswick regular", initials: "AM", accent: "from-charcoal/20 to-charcoal/5" },
-  { name: "Daniel P.", referrals: 7, since: "2024", tagline: "Bachata beginner → social-floor regular in 6 months", initials: "DP", accent: "from-primary/30 to-primary/10" },
-  { name: "Priya S.", referrals: 6, since: "2025", tagline: "Hen-party host · now a Tuesday fixture", initials: "PS", accent: "from-peach/30 to-peach/10" },
-  { name: "Marco L.", referrals: 5, since: "2025", tagline: "Italian crew leader at Pura Nights", initials: "ML", accent: "from-charcoal/20 to-charcoal/5" },
-];
+const initialsFrom = (name: string) =>
+  name.split(/\s+/).map(p => p[0]).filter(Boolean).slice(0, 2).join("").toUpperCase();
 
 const Refer = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", friend_name: "", friend_contact: "", message: "" });
+
+  // Ambassadors loaded from Supabase
+  const [ambassadors, setAmbassadors] = useState<AmbassadorRow[]>([]);
+
+  // Ambassador application modal
+  const [appOpen, setAppOpen] = useState(false);
+  const [appLoading, setAppLoading] = useState(false);
+  const [appSubmitted, setAppSubmitted] = useState(false);
+  const [appForm, setAppForm] = useState({ name: "", email: "", instagram: "", pitch: "" });
+
+  useEffect(() => {
+    supabase
+      .from("ambassadors")
+      .select("id,name,tagline,referral_count,photo_url,instagram_url,accent_from,accent_to")
+      .eq("is_published", true)
+      .order("sort_order", { ascending: true })
+      .order("referral_count", { ascending: false })
+      .then(({ data }) => setAmbassadors((data as AmbassadorRow[]) ?? []));
+  }, []);
+
+  const submitAmbassadorApp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = ambassadorAppSchema.safeParse(appForm);
+    if (!parsed.success) {
+      toast({ title: "Please check the form", description: parsed.error.issues[0].message, variant: "destructive" });
+      return;
+    }
+    setAppLoading(true);
+    const { error } = await supabase.from("enquiries").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      subject: "Ambassador Application",
+      message: `AMBASSADOR APPLICATION\n\nInstagram: @${parsed.data.instagram.replace(/^@/, "")}\n\nPitch:\n${parsed.data.pitch}`,
+      source_page: "/refer",
+    });
+    setAppLoading(false);
+    if (error) {
+      toast({ title: "Something went wrong", description: "Please try again or WhatsApp Melitta directly.", variant: "destructive" });
+      return;
+    }
+    setAppSubmitted(true);
+    toast({ title: "Application sent! ✨", description: "Melitta will be in touch within 48 hours." });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -165,36 +220,53 @@ const Refer = () => {
             <GoldDivider />
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">The people who built this community by sharing it. Get on this wall — we'll celebrate you properly.</p>
           </div>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {ambassadors.map((a, i) => (
-              <StaggerItem key={i}>
-                <div className="relative bg-background rounded-2xl p-6 border border-border/60 card-hover h-full">
-                  {i < 3 && (
-                    <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center font-display text-sm font-bold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-gold)" }}>
-                      #{i + 1}
-                    </span>
-                  )}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${a.accent} flex items-center justify-center font-display text-lg font-bold text-charcoal flex-shrink-0`}>
-                      {a.initials}
+          {ambassadors.length === 0 ? (
+            <p className="text-center text-muted-foreground text-sm font-heading py-8">Hall of Pura coming soon — be one of the first names on this wall.</p>
+          ) : (
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {ambassadors.map((a, i) => (
+                <StaggerItem key={a.id}>
+                  <div className="relative bg-background rounded-2xl p-6 border border-border/60 card-hover h-full">
+                    {i < 3 && (
+                      <span className="absolute -top-2 -right-2 w-9 h-9 rounded-full flex items-center justify-center font-display text-sm font-bold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-gold)" }}>
+                        #{i + 1}
+                      </span>
+                    )}
+                    <div className="flex items-center gap-4 mb-4">
+                      {a.photo_url ? (
+                        <img src={a.photo_url} alt={a.name} loading="lazy" className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
+                      ) : (
+                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${a.accent_from ?? "from-primary"} ${a.accent_to ?? "to-secondary"} flex items-center justify-center font-display text-lg font-bold text-primary-foreground flex-shrink-0`}>
+                          {initialsFrom(a.name)}
+                        </div>
+                      )}
+                      <div className="min-w-0">
+                        <h3 className="font-heading font-bold text-base truncate">{a.name}</h3>
+                        {a.instagram_url && (
+                          <a href={a.instagram_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-xs hover:text-primary inline-flex items-center gap-1">
+                            <Instagram size={11} /> Instagram
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="font-heading font-bold text-base truncate">{a.name}</h3>
-                      <p className="text-muted-foreground text-xs">Ambassador since {a.since}</p>
+                    {a.tagline && <p className="text-foreground/80 text-sm italic mb-4 leading-relaxed">"{a.tagline}"</p>}
+                    <div className="flex items-center justify-between pt-3 border-t border-border/60">
+                      <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">Friends Brought</span>
+                      <span className="font-display text-2xl font-bold text-primary">{a.referral_count}</span>
                     </div>
                   </div>
-                  <p className="text-foreground/80 text-sm italic mb-4 leading-relaxed">"{a.tagline}"</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-border/60">
-                    <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">Friends Brought</span>
-                    <span className="font-display text-2xl font-bold text-primary">{a.referrals}</span>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <p className="text-center text-muted-foreground text-xs font-heading mt-8">
-            ⭐ Want your face here? Refer 5+ friends and Melitta will personally invite you into the Hall of Pura.
-          </p>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          )}
+          <div className="text-center mt-10">
+            <button onClick={() => { setAppSubmitted(false); setAppOpen(true); }} className="btn-cta-primary inline-flex items-center gap-2">
+              <Sparkles size={16} /> Apply to be an Ambassador
+            </button>
+            <p className="text-muted-foreground text-xs font-heading mt-3">
+              ⭐ Refer 5+ friends or share a story that inspires us — we'll add you to the Hall of Pura.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -307,6 +379,54 @@ const Refer = () => {
           { to: "/contact", label: "Contact", desc: "Questions? Ask Melitta" },
         ]}
       />
+
+      {/* AMBASSADOR APPLICATION MODAL */}
+      <Dialog open={appOpen} onOpenChange={setAppOpen}>
+        <DialogContent className="max-w-md">
+          {appSubmitted ? (
+            <div className="text-center py-6">
+              <CheckCircle2 size={48} className="text-primary mx-auto mb-3" />
+              <DialogTitle className="font-display text-2xl font-bold mb-2">Application Sent!</DialogTitle>
+              <DialogDescription>Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
+            </div>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-display text-2xl font-bold flex items-center gap-2">
+                  <Sparkles size={20} className="text-primary" /> Apply to be a Pura Ambassador
+                </DialogTitle>
+                <DialogDescription>
+                  Tell us a bit about you and why you'd love to be part of the Hall of Pura.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={submitAmbassadorApp} className="space-y-3 mt-2">
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Name *</label>
+                  <input type="text" required value={appForm.name} onChange={e => setAppForm({ ...appForm, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Email *</label>
+                  <input type="email" required value={appForm.email} onChange={e => setAppForm({ ...appForm, email: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Instagram Handle *</label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
+                    <input type="text" required value={appForm.instagram} onChange={e => setAppForm({ ...appForm, instagram: e.target.value.replace(/^@/, "") })} placeholder="yourhandle" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Pitch *</label>
+                  <textarea required rows={4} value={appForm.pitch} onChange={e => setAppForm({ ...appForm, pitch: e.target.value })} placeholder="Why you? Friends you've already brought, your community, the energy you bring…" className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" />
+                </div>
+                <button type="submit" disabled={appLoading} className="btn-cta-primary w-full justify-center inline-flex items-center gap-2 disabled:opacity-60">
+                  <Send size={14} /> {appLoading ? "Sending…" : "Send Application"}
+                </button>
+              </form>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

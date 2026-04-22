@@ -14,6 +14,7 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import LastUpdated from "@/components/LastUpdated";
 import LiveStudentCounter from "@/components/LiveStudentCounter";
 import SocialProofBar from "@/components/SocialProofBar";
+import YouTubeStrip from "@/components/YouTubeStrip";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -550,6 +551,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* SECTION 12.5 — YOUTUBE LATEST UPLOADS */}
+      {/* <!-- WIX: Replace with Wix YouTube Channel widget --> */}
+      <YouTubeStrip />
 
       {/* SECTION 13 — GIFT VOUCHERS STRIP */}
       <section className="py-12" style={{ background: 'var(--gradient-gold)' }}>

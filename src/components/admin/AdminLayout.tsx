@@ -4,7 +4,7 @@
 import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, ChevronRight, FileText, BookOpen } from "lucide-react";
+import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, ChevronRight, FileText, BookOpen, Award } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
@@ -12,6 +12,7 @@ const navItems = [
   { label: "Team", path: "/admin/team", icon: Users },
   { label: "Events", path: "/admin/events", icon: Calendar },
   { label: "Testimonials", path: "/admin/testimonials", icon: Star },
+  { label: "Ambassadors", path: "/admin/ambassadors", icon: Award },
   { label: "Enquiries", path: "/admin/enquiries", icon: MessageSquare },
   { label: "Settings", path: "/admin/settings", icon: Settings },
   { label: "Wix Blueprint", path: "/admin/blueprint", icon: BookOpen },
