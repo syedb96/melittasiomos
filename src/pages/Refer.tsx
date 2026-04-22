@@ -379,6 +379,54 @@ const Refer = () => {
           { to: "/contact", label: "Contact", desc: "Questions? Ask Melitta" },
         ]}
       />
+
+      {/* AMBASSADOR APPLICATION MODAL */}
+      <Dialog open={appOpen} onOpenChange={setAppOpen}>
+        <DialogContent className="max-w-md">
+          {appSubmitted ? (
+            <div className="text-center py-6">
+              <CheckCircle2 size={48} className="text-primary mx-auto mb-3" />
+              <DialogTitle className="font-display text-2xl font-bold mb-2">Application Sent!</DialogTitle>
+              <DialogDescription>Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
+            </div>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-display text-2xl font-bold flex items-center gap-2">
+                  <Sparkles size={20} className="text-primary" /> Apply to be a Pura Ambassador
+                </DialogTitle>
+                <DialogDescription>
+                  Tell us a bit about you and why you'd love to be part of the Hall of Pura.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={submitAmbassadorApp} className="space-y-3 mt-2">
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Name *</label>
+                  <input type="text" required value={appForm.name} onChange={e => setAppForm({ ...appForm, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Email *</label>
+                  <input type="email" required value={appForm.email} onChange={e => setAppForm({ ...appForm, email: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Instagram Handle *</label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
+                    <input type="text" required value={appForm.instagram} onChange={e => setAppForm({ ...appForm, instagram: e.target.value.replace(/^@/, "") })} placeholder="yourhandle" className="w-full pl-7 pr-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-heading font-semibold mb-1.5">Your Pitch *</label>
+                  <textarea required rows={4} value={appForm.pitch} onChange={e => setAppForm({ ...appForm, pitch: e.target.value })} placeholder="Why you? Friends you've already brought, your community, the energy you bring…" className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none" />
+                </div>
+                <button type="submit" disabled={appLoading} className="btn-cta-primary w-full justify-center inline-flex items-center gap-2 disabled:opacity-60">
+                  <Send size={14} /> {appLoading ? "Sending…" : "Send Application"}
+                </button>
+              </form>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };
