@@ -3,6 +3,7 @@
 import { Youtube, Play, ChevronRight } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import GoldDivider from "@/components/GoldDivider";
+import { trackCtaClick } from "@/lib/analytics";
 
 // 👉 Replace these 3 IDs with Melitta's most recent YouTube uploads.
 // Find the ID after "v=" in the YouTube URL — e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -62,9 +63,10 @@ const YouTubeStrip = () => {
               href={CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCtaClick({ ctaLabel: "Subscribe to Melitta on YouTube", ctaType: "youtube_subscribe", destination: CHANNEL_URL })}
               className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
             >
-              <Youtube size={16} /> Subscribe on YouTube <ChevronRight size={14} />
+              <Youtube size={16} /> Subscribe to Melitta on YouTube <ChevronRight size={14} />
             </a>
             <p className="text-muted-foreground text-[11px] font-heading mt-3">
               Join thousands of dancers learning with Melitta — new tutorials every month.
