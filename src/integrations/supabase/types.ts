@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      ambassadors: {
+        Row: {
+          accent_from: string | null
+          accent_to: string | null
+          created_at: string
+          id: string
+          instagram_url: string | null
+          is_published: boolean
+          name: string
+          photo_url: string | null
+          referral_count: number
+          sort_order: number
+          tagline: string | null
+          updated_at: string
+        }
+        Insert: {
+          accent_from?: string | null
+          accent_to?: string | null
+          created_at?: string
+          id?: string
+          instagram_url?: string | null
+          is_published?: boolean
+          name: string
+          photo_url?: string | null
+          referral_count?: number
+          sort_order?: number
+          tagline?: string | null
+          updated_at?: string
+        }
+        Update: {
+          accent_from?: string | null
+          accent_to?: string | null
+          created_at?: string
+          id?: string
+          instagram_url?: string | null
+          is_published?: boolean
+          name?: string
+          photo_url?: string | null
+          referral_count?: number
+          sort_order?: number
+          tagline?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       approved_admin_emails: {
         Row: {
           created_at: string
