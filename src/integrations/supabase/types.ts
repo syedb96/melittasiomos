@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           accent_from: string | null
           accent_to: string | null
+          application_status: string
           created_at: string
           id: string
           instagram_url: string | null
@@ -32,6 +33,7 @@ export type Database = {
         Insert: {
           accent_from?: string | null
           accent_to?: string | null
+          application_status?: string
           created_at?: string
           id?: string
           instagram_url?: string | null
@@ -46,6 +48,7 @@ export type Database = {
         Update: {
           accent_from?: string | null
           accent_to?: string | null
+          application_status?: string
           created_at?: string
           id?: string
           instagram_url?: string | null

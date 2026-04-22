@@ -101,15 +101,25 @@ const Refer = () => {
       return;
     }
     setAppLoading(true);
-    const { error } = await supabase.from("enquiries").insert({
+    const igHandle = parsed.data.instagram.replace(/^@/, "");
+    // 1) Drop into enquiries inbox so Melitta gets the notification
+    const { error: enqErr } = await supabase.from("enquiries").insert({
       name: parsed.data.name,
       email: parsed.data.email,
       subject: "Ambassador Application",
-      message: `AMBASSADOR APPLICATION\n\nInstagram: @${parsed.data.instagram.replace(/^@/, "")}\n\nPitch:\n${parsed.data.pitch}`,
+      message: `AMBASSADOR APPLICATION\n\nInstagram: @${igHandle}\n\nPitch:\n${parsed.data.pitch}`,
       source_page: "/refer",
     });
+    // 2) Also drop a pending row into ambassadors so it shows in the admin queue
+    const { error: ambErr } = await supabase.from("ambassadors").insert({
+      name: parsed.data.name,
+      tagline: parsed.data.pitch.slice(0, 140),
+      instagram_url: `https://instagram.com/${igHandle}`,
+      application_status: "pending",
+      is_published: false,
+    });
     setAppLoading(false);
-    if (error) {
+    if (enqErr && ambErr) {
       toast({ title: "Something went wrong", description: "Please try again or WhatsApp Melitta directly.", variant: "destructive" });
       return;
     }
@@ -308,7 +318,12 @@ const Refer = () => {
                 <h3 className="font-display text-2xl font-bold mb-2">Referral Sent!</h3>
                 <p className="text-muted-foreground mb-6">Thank you. Melitta will personally reach out to your friend within 24 hours and credit your account once they attend.</p>
                 <a
-                  href={`https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I just referred ${form.friend_name || "a friend"} via the website — wanted to give you a heads-up!`)}`}
+                  href={`https://wa.me/447449482343?text=${encodeURIComponent(
+                    `Hi Melitta — just sent a referral via the website:\n\n` +
+                    `From: ${form.name} (${form.email}${form.phone ? `, ${form.phone}` : ""})\n` +
+                    `Friend: ${form.friend_name} — ${form.friend_contact}\n` +
+                    (form.message ? `Note: ${form.message}\n` : "")
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
@@ -403,12 +418,18 @@ const Refer = () => {
               <DialogTitle className="font-display text-2xl font-bold mb-2">Application Sent!</DialogTitle>
               <DialogDescription className="mb-5">Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
               <a
-                href={`https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I just applied to be a Pura Ambassador (@${appForm.instagram.replace(/^@/, "") || "instagram"}) — wanted to introduce myself!`)}`}
+                href={`https://wa.me/447449482343?text=${encodeURIComponent(
+                  `Hi Melitta — just submitted my Pura Ambassador application:\n\n` +
+                  `Name: ${appForm.name}\n` +
+                  `Email: ${appForm.email}\n` +
+                  `Instagram: @${appForm.instagram.replace(/^@/, "")}\n\n` +
+                  `Pitch:\n${appForm.pitch}`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
               >
-                💬 Say Hi on WhatsApp
+                💬 Send my application on WhatsApp too
               </a>
               <button
                 onClick={() => { setAppOpen(false); setTimeout(() => { setAppSubmitted(false); setAppForm({ name: "", email: "", instagram: "", pitch: "" }); }, 300); }}
