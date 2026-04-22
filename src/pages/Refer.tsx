@@ -66,20 +66,56 @@ const tiers = [
   },
 ];
 
-// Public Pura Ambassador wall — replace photos/names as new ambassadors are crowned
-const ambassadors = [
-  { name: "Sofia R.", referrals: 12, since: "2024", tagline: "Brought half her office to Latin Fridays", initials: "SR", accent: "from-primary/30 to-primary/10" },
-  { name: "James K.", referrals: 9, since: "2024", tagline: "Wedding-dance graduate turned super-connector", initials: "JK", accent: "from-peach/30 to-peach/10" },
-  { name: "Aisha M.", referrals: 8, since: "2025", tagline: "Pura Ladies team · Chiswick regular", initials: "AM", accent: "from-charcoal/20 to-charcoal/5" },
-  { name: "Daniel P.", referrals: 7, since: "2024", tagline: "Bachata beginner → social-floor regular in 6 months", initials: "DP", accent: "from-primary/30 to-primary/10" },
-  { name: "Priya S.", referrals: 6, since: "2025", tagline: "Hen-party host · now a Tuesday fixture", initials: "PS", accent: "from-peach/30 to-peach/10" },
-  { name: "Marco L.", referrals: 5, since: "2025", tagline: "Italian crew leader at Pura Nights", initials: "ML", accent: "from-charcoal/20 to-charcoal/5" },
-];
+const initialsFrom = (name: string) =>
+  name.split(/\s+/).map(p => p[0]).filter(Boolean).slice(0, 2).join("").toUpperCase();
 
 const Refer = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", friend_name: "", friend_contact: "", message: "" });
+
+  // Ambassadors loaded from Supabase
+  const [ambassadors, setAmbassadors] = useState<AmbassadorRow[]>([]);
+
+  // Ambassador application modal
+  const [appOpen, setAppOpen] = useState(false);
+  const [appLoading, setAppLoading] = useState(false);
+  const [appSubmitted, setAppSubmitted] = useState(false);
+  const [appForm, setAppForm] = useState({ name: "", email: "", instagram: "", pitch: "" });
+
+  useEffect(() => {
+    supabase
+      .from("ambassadors")
+      .select("id,name,tagline,referral_count,photo_url,instagram_url,accent_from,accent_to")
+      .eq("is_published", true)
+      .order("sort_order", { ascending: true })
+      .order("referral_count", { ascending: false })
+      .then(({ data }) => setAmbassadors((data as AmbassadorRow[]) ?? []));
+  }, []);
+
+  const submitAmbassadorApp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const parsed = ambassadorAppSchema.safeParse(appForm);
+    if (!parsed.success) {
+      toast({ title: "Please check the form", description: parsed.error.issues[0].message, variant: "destructive" });
+      return;
+    }
+    setAppLoading(true);
+    const { error } = await supabase.from("enquiries").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      subject: "Ambassador Application",
+      message: `AMBASSADOR APPLICATION\n\nInstagram: @${parsed.data.instagram.replace(/^@/, "")}\n\nPitch:\n${parsed.data.pitch}`,
+      source_page: "/refer",
+    });
+    setAppLoading(false);
+    if (error) {
+      toast({ title: "Something went wrong", description: "Please try again or WhatsApp Melitta directly.", variant: "destructive" });
+      return;
+    }
+    setAppSubmitted(true);
+    toast({ title: "Application sent! ✨", description: "Melitta will be in touch within 48 hours." });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
