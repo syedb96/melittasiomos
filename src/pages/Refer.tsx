@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { Gift, Users, Award, Sparkles, Send, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Gift, Users, Award, Sparkles, Send, CheckCircle2, Instagram, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import GoldDivider from "@/components/GoldDivider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
@@ -19,6 +20,24 @@ const referralSchema = z.object({
   friend_contact: z.string().trim().min(3, "Friend's email or phone required").max(255),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
+
+const ambassadorAppSchema = z.object({
+  name: z.string().trim().min(2, "Name required").max(100),
+  email: z.string().trim().email("Valid email required").max(255),
+  instagram: z.string().trim().min(2, "Instagram handle required").max(60),
+  pitch: z.string().trim().min(20, "Tell us a bit more (20+ chars)").max(800),
+});
+
+interface AmbassadorRow {
+  id: string;
+  name: string;
+  tagline: string | null;
+  referral_count: number;
+  photo_url: string | null;
+  instagram_url: string | null;
+  accent_from: string | null;
+  accent_to: string | null;
+}
 
 const tiers = [
   {
