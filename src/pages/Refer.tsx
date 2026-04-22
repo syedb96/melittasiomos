@@ -306,7 +306,21 @@ const Refer = () => {
               <div className="text-center py-8">
                 <CheckCircle2 size={56} className="text-primary mx-auto mb-4" />
                 <h3 className="font-display text-2xl font-bold mb-2">Referral Sent!</h3>
-                <p className="text-muted-foreground">Thank you. Melitta will personally reach out to your friend within 24 hours and credit your account once they attend.</p>
+                <p className="text-muted-foreground mb-6">Thank you. Melitta will personally reach out to your friend within 24 hours and credit your account once they attend.</p>
+                <a
+                  href={`https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I just referred ${form.friend_name || "a friend"} via the website — wanted to give you a heads-up!`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+                >
+                  💬 Message Melitta on WhatsApp
+                </a>
+                <button
+                  onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", friend_name: "", friend_contact: "", message: "" }); }}
+                  className="block mx-auto mt-4 text-muted-foreground text-xs font-heading underline hover:text-primary"
+                >
+                  Refer another friend
+                </button>
               </div>
             ) : (
               <>
@@ -387,7 +401,21 @@ const Refer = () => {
             <div className="text-center py-6">
               <CheckCircle2 size={48} className="text-primary mx-auto mb-3" />
               <DialogTitle className="font-display text-2xl font-bold mb-2">Application Sent!</DialogTitle>
-              <DialogDescription>Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
+              <DialogDescription className="mb-5">Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
+              <a
+                href={`https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I just applied to be a Pura Ambassador (@${appForm.instagram.replace(/^@/, "") || "instagram"}) — wanted to introduce myself!`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                💬 Say Hi on WhatsApp
+              </a>
+              <button
+                onClick={() => { setAppOpen(false); setTimeout(() => { setAppSubmitted(false); setAppForm({ name: "", email: "", instagram: "", pitch: "" }); }, 300); }}
+                className="block mx-auto mt-4 text-muted-foreground text-xs font-heading underline hover:text-primary"
+              >
+                Close
+              </button>
             </div>
           ) : (
             <>
