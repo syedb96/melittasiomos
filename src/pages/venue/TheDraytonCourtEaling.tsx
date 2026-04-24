@@ -224,6 +224,26 @@ const TheDraytonCourtEaling = () => (
       </div>
     </section>
 
+    {/* WIX SECTION: What to Wear */}
+    <section className="py-12 bg-muted/30">
+      <div className="max-w-4xl mx-auto px-4">
+        <FadeInUp>
+          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 flex flex-col md:flex-row items-start gap-5">
+            <div className="bg-primary/10 p-3 rounded-lg shrink-0">
+              <Shirt className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">What to wear</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Comfortable clothes you can move in. Clean shoes with a smooth sole make turns easier — avoid
+                heavy-grip trainers. Layers are useful: the ballroom can warm up once everyone's dancing. Bring water.
+              </p>
+            </div>
+          </div>
+        </FadeInUp>
+      </div>
+    </section>
+
     {/* WIX SECTION: FAQ */}
     <section className="py-16 bg-muted/30">
       <div className="max-w-3xl mx-auto px-4">
@@ -272,6 +292,13 @@ const TheDraytonCourtEaling = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["beginner", "community", "group"]}
+      eyebrow="Tuesday Nights"
+      title="What Ealing dancers say"
+      limit={3}
+    />
 
     <RelatedPages links={[
       { label: "Bachata Classes Ealing", to: "/bachata-classes-ealing" },

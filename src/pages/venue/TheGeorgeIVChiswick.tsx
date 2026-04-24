@@ -206,6 +206,27 @@ const TheGeorgeIVChiswick = () => (
       </div>
     </section>
 
+    {/* WIX SECTION: What to Wear */}
+    <section className="py-12 bg-background">
+      <div className="max-w-4xl mx-auto px-4">
+        <FadeInUp>
+          <div className="bg-card rounded-2xl border border-border p-6 md:p-8 flex flex-col md:flex-row items-start gap-5">
+            <div className="bg-primary/10 p-3 rounded-lg shrink-0">
+              <Shirt className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">What to wear</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Comfortable, breathable clothes you can move and turn in. Clean shoes with a smooth sole work best —
+                avoid heavy-grip trainers, they make turns hard. Bring a small water bottle. The room can warm up,
+                so layers are useful.
+              </p>
+            </div>
+          </div>
+        </FadeInUp>
+      </div>
+    </section>
+
     {/* WIX SECTION: FAQ */}
     <section className="py-16 bg-background">
       <div className="max-w-3xl mx-auto px-4">
@@ -254,6 +275,13 @@ const TheGeorgeIVChiswick = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["beginner", "community", "group"]}
+      eyebrow="Monday Nights"
+      title="What Chiswick regulars say"
+      limit={3}
+    />
 
     <RelatedPages links={[
       { label: "Salsa Classes Chiswick", to: "/salsa-classes-chiswick" },
