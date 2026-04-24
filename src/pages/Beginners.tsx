@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -248,6 +249,13 @@ const Beginners = () => (
         </div>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["beginner", "group"]}
+      eyebrow="Beginner Stories"
+      title="From zero to dancing — in weeks"
+      subtitle="Real reviews from people who walked in nervous and left smiling."
+    />
 
     <RelatedPages title="Helpful Links for Beginners" links={[
       { to: "/start-here", label: "Start Here Guide", desc: "Everything to know before class" },

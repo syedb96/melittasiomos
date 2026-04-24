@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { Link } from "react-router-dom";
 import { Star, Heart, CheckCircle, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -218,6 +219,14 @@ const WeddingDance = () => (
         </div>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["wedding"]}
+      eyebrow="Real Couples"
+      title="Couples who trusted Melitta with their first dance"
+      limit={3}
+      variant="dark"
+    />
 
     <RelatedPages title="Wedding Dance Resources" links={[
       { to: "/blog/wedding-first-dance-tips", label: "10 First Dance Tips", desc: "Expert advice for your big day" },

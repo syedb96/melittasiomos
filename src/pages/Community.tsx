@@ -3,6 +3,7 @@ import { Heart, Music, Users, Sparkles, Star, ArrowRight, Instagram, MessageCirc
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import communityImg from "@/assets/community-vibe.jpg";
 
@@ -306,6 +307,13 @@ const Community = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["community", "group", "beginner"]}
+      eyebrow="The People"
+      title="Why our community stays"
+      limit={3}
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/pura-nights", label: "Weekly Classes" },

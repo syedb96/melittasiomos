@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
@@ -171,6 +172,14 @@ const PuraLadies = () => (
         </div>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["pura-ladies"]}
+      eyebrow="Team Voices"
+      title="Why dancers stay with Pura Ladies"
+      limit={3}
+      variant="dark"
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/blog/pura-ladies-story", label: "The Pura Ladies Story", desc: "How one dream became a global community" },
