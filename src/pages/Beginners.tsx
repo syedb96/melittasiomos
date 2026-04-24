@@ -7,7 +7,7 @@ import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/a
 import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/beginner-welcome.jpg";
-import melittaImg from "@/assets/melitta-portrait.jpg";
+import melittaImg from "@/assets/melitta-candid-real.jpg";
 
 /* <!-- WIX PAGE: /beginners -->
    <!-- WIX SECTION: Hero — Full-width Strip with welcoming beginner image -->

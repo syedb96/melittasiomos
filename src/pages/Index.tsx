@@ -6,7 +6,7 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-dance.jpg";
-import melittaImg from "@/assets/melitta-portrait.jpg";
+import melittaImg from "@/assets/melitta-editorial-real.jpg";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
