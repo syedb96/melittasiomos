@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import { MapPin, Clock, Train, Car, Phone, ExternalLink, Music, Users, Wine } from "lucide-react";
+import { MapPin, Train, Car, Phone, Music, Users, Wine, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const schema = {
