@@ -141,6 +141,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
     const image = ogImage || DEFAULT_OG_IMAGE;
 
     setMeta("description", description);
+    setMeta("robots", noindex ? "noindex,follow" : "index,follow");
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:url", url, "property");
