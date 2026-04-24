@@ -176,7 +176,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
 
     // <html lang="en-GB">
     document.documentElement.setAttribute("lang", "en-GB");
-  }, [title, description, path, schema, breadcrumbs, dateModified, ogImage]);
+  }, [title, description, path, schema, breadcrumbs, dateModified, ogImage, noindex]);
 
   return null;
 };
