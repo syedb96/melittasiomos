@@ -85,6 +85,7 @@ const ProofCentre = () => (
       description="See why 500+ students trust Melitta Siomos for Salsa & Bachata in West London. 5-star Google reviews, UK Bachata Champion, verified credentials, and real student stories."
       path="/proof-centre"
       schema={proofSchema}
+      noindex
     />
 
     {/* HERO */}

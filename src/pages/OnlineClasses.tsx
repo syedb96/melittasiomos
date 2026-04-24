@@ -13,6 +13,7 @@ const OnlineClasses = () => (
       title="Online Salsa & Bachata Classes | Learn from Anywhere | Melitta Siomos"
       description="Take salsa and bachata classes online with Bachata UK Champion Melitta Siomos. Private Zoom lessons, HD drill videos, and personalised coaching from anywhere in the world."
       path="/online-classes"
+      noindex
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">

@@ -158,6 +158,7 @@ const Refer = () => {
         title="Refer a Friend & Earn Rewards | Pura Nights London"
         description="Bring a friend to Pura Nights — they get their first class free, you earn £10 off. Become a Pura Ambassador and unlock free unlimited classes."
         path="/refer"
+        noindex
       />
 
       {/* HERO */}
