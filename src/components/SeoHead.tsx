@@ -13,6 +13,7 @@ interface SeoHeadProps {
   breadcrumbs?: BreadcrumbItem[];
   dateModified?: string; // ISO date e.g. "2026-04-13"
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const DEFAULT_OG_IMAGE = "https://www.puranights.com/og-default.jpg";
