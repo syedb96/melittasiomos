@@ -117,7 +117,7 @@ function getAutoBreadcrumbs(path: string, title: string): BreadcrumbItem[] {
   return crumbs;
 }
 
-const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, ogImage }: SeoHeadProps) => {
+const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, ogImage, noindex }: SeoHeadProps) => {
   useEffect(() => {
     document.title = title;
     const setMeta = (name: string, content: string, prop = "name") => {
