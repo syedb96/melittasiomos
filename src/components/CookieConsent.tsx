@@ -1,6 +1,13 @@
 import { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
+/**
+ * Non-blocking cookie banner.
+ * - Slim bottom bar (does NOT overlay the page or stack with sticky CTAs)
+ * - Accept / Decline / Preferences (link to /cookie-policy)
+ * - Pinned above the mobile sticky CTA so they don't fight for space
+ */
 const CookieConsent = forwardRef<HTMLDivElement>((_, ref) => {
   const [visible, setVisible] = useState(false);
 
@@ -12,32 +19,48 @@ const CookieConsent = forwardRef<HTMLDivElement>((_, ref) => {
     }
   }, []);
 
-  const accept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    setVisible(false);
-  };
-
-  const decline = () => {
-    localStorage.setItem("cookie-consent", "declined");
+  const decide = (choice: "accepted" | "declined") => {
+    localStorage.setItem("cookie-consent", choice);
     setVisible(false);
   };
 
   if (!visible) return null;
 
   return (
-    <div ref={ref} className="fixed bottom-0 left-0 right-0 z-[60] p-4 animate-fade-in-up">
-      <div className="container-main">
-        <div className="bg-charcoal text-primary-foreground rounded-lg p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 shadow-lg max-w-4xl mx-auto">
-          <p className="text-sm flex-1">
-            We use cookies to improve your experience. By continuing to browse, you agree to our{" "}
-            <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.
+    <div
+      ref={ref}
+      role="region"
+      aria-label="Cookie consent"
+      className="fixed inset-x-0 bottom-0 z-[55] border-t border-border bg-background/95 backdrop-blur-sm shadow-[0_-4px_24px_-12px_hsl(var(--foreground)/0.18)]"
+    >
+      <div className="container-main py-3">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+          <p className="text-xs md:text-sm text-foreground/80 flex-1 leading-relaxed">
+            We use essential cookies to make this site work and a few analytics cookies to improve it. Read our{" "}
+            <Link to="/cookie-policy" className="text-primary hover:underline font-heading font-semibold">
+              cookie preferences
+            </Link>
+            .
           </p>
-          <div className="flex gap-3 flex-shrink-0">
-            <button onClick={decline} className="text-xs font-heading font-semibold text-primary-foreground/60 hover:text-primary-foreground transition-colors px-4 py-2">
+          <div className="flex items-center gap-2 self-end md:self-auto">
+            <button
+              onClick={() => decide("declined")}
+              className="text-xs font-heading font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 rounded-md"
+            >
               Decline
             </button>
-            <button onClick={accept} className="btn-cta-primary text-xs py-2 px-6">
+            <button
+              onClick={() => decide("accepted")}
+              className="text-xs font-heading font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors px-4 py-1.5 rounded-md"
+            >
               Accept
+            </button>
+            <button
+              onClick={() => decide("declined")}
+              aria-label="Dismiss cookie banner"
+              className="text-muted-foreground hover:text-foreground p-1 rounded-md md:ml-1"
+            >
+              <X size={16} />
             </button>
           </div>
         </div>

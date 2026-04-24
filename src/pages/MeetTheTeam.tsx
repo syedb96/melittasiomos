@@ -6,7 +6,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { motion } from "framer-motion";
-import melittaImg from "@/assets/melitta-portrait.jpg";
+import melittaImg from "@/assets/melitta-portrait-real.jpg";
 
 /* <!-- WIX PAGE: /meet-the-team -->
    <!-- WIX: Create as dynamic page connected to Team Members CMS collection -->

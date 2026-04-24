@@ -7,7 +7,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import heroImg from "@/assets/hero-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import weddingImg from "@/assets/wedding-dance.jpg";
-import melittaImg from "@/assets/melitta-portrait.jpg";
+import melittaImg from "@/assets/melitta-portrait-real.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 
 /* <!-- WIX PAGE: /gallery -->

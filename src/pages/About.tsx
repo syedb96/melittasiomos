@@ -6,7 +6,7 @@ import RelatedPages from "@/components/RelatedPages";
 import { Trophy, Star, Users, MapPin, GraduationCap, Globe, X, Instagram, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } from "@/components/animations";
 import { motion } from "framer-motion";
-import melittaImg from "@/assets/melitta-portrait.jpg";
+import melittaImg from "@/assets/melitta-portrait-real.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
 import PressLogos from "@/components/PressLogos";
 

@@ -19,6 +19,8 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
 
   useEffect(() => {
     if (isExcluded || sessionStorage.getItem("exitShown")) return;
+    // Avoid stacking with the cookie banner — wait until consent is resolved.
+    if (!localStorage.getItem("cookie-consent")) return;
 
     document.addEventListener("mouseleave", handleMouseLeave);
 
@@ -27,7 +29,7 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
         sessionStorage.setItem("exitShown", "1");
         setShow(true);
       }
-    }, 30000);
+    }, 45000);
 
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);

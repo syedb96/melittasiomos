@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MapPin, Users, Target, Heart, Sparkles } from "lucide-react";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -184,6 +185,13 @@ const PrivateLessons = () => (
         ))}
       </div>
     </section>
+
+    <ProofBlock
+      categories={["private"]}
+      eyebrow="1-to-1 Coaching"
+      title="What private students say"
+      limit={3}
+    />
 
     <RelatedPages title="Related Pages" links={[
       { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },

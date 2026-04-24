@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -213,6 +214,13 @@ const PuraNights = () => (
         </div>
       </div>
     </section>
+
+    <ProofBlock
+      categories={["beginner", "community", "group"]}
+      eyebrow="Real Reviews"
+      title="What students say about weekly classes"
+      limit={3}
+    />
 
     <RelatedPages title="Related Pages" links={[
       { to: "/prices", label: "Prices & Bundles" },
