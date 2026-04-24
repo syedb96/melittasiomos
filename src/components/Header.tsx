@@ -2,24 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle } from "lucide-react";
 
+// Premium, minimal nav — high-intent only.
+// Local SEO pages live in footer + /locations + contextual links, NOT here.
 const navGroups = [
   { label: "HOME", path: "/", dropdown: null },
   {
     label: "CLASSES & EVENTS",
     path: "/pura-nights",
     dropdown: [
-      { label: "Weekly Classes (Salsa & Bachata)", path: "/pura-nights" },
+      { label: "Weekly Classes", path: "/pura-nights" },
       { label: "Monthly Latin Fridays", path: "/events" },
-      { label: "Pura Ladies Performance Team", path: "/pura-ladies" },
-      { label: "Pura Academy (Online Courses) ✨", path: "/online-academy" },
-      { label: "1-to-1 Online Coaching", path: "/online-salsa-bachata-coaching" },
-      { label: "Refer a Friend — Earn Rewards", path: "/refer" },
-      { label: "Dance Classes West London", path: "/dance-classes-west-london" },
-      { label: "Salsa Classes Richmond", path: "/salsa-classes-richmond" },
-      { label: "Salsa Classes Hammersmith", path: "/salsa-classes-hammersmith" },
-      { label: "Salsa Classes Fulham", path: "/salsa-classes-fulham" },
-      { label: "Salsa Classes Acton", path: "/salsa-classes-acton-local" },
-      { label: "Wedding Dance Lessons London", path: "/wedding-dance-lessons-london" },
+      { label: "Pura Ladies", path: "/pura-ladies" },
+      { label: "Online Coaching", path: "/online-salsa-bachata-coaching" },
     ],
   },
   {
@@ -36,24 +30,22 @@ const navGroups = [
     path: "/about",
     dropdown: [
       { label: "About Melitta", path: "/about" },
-      { label: "Meet the Team", path: "/meet-the-team" },
       { label: "Wedding Dance", path: "/wedding-dance" },
       { label: "Private Lessons", path: "/private-lessons" },
+      { label: "Contact", path: "/contact" },
     ],
   },
   {
     label: "LEARN",
     path: "/blog",
     dropdown: [
-      { label: "Blog & Guides", path: "/blog" },
-      { label: "Salsa vs Bachata Quiz", path: "/learn/salsa-vs-bachata" },
-      { label: "Pillar Guide", path: "/learn/salsa-bachata-guide" },
-      { label: "FAQs", path: "/faq" },
-      { label: "Start Here (Beginners)", path: "/start-here" },
+      { label: "Start Here", path: "/start-here" },
       { label: "Community", path: "/community" },
       { label: "Schedule", path: "/schedule" },
       { label: "Gallery", path: "/gallery" },
-      { label: "Proof Centre", path: "/proof-centre" },
+      { label: "Testimonials", path: "/testimonials" },
+      { label: "FAQs", path: "/faq" },
+      { label: "Blog", path: "/blog" },
       { label: "Find a Class Near You", path: "/locations" },
     ],
   },
@@ -65,9 +57,7 @@ const mobileLinks = [
   { label: "Weekly Classes", path: "/pura-nights" },
   { label: "Monthly Latin Fridays", path: "/events" },
   { label: "Pura Ladies", path: "/pura-ladies" },
-  { label: "Pura Academy ✨", path: "/online-academy" },
   { label: "Online Coaching", path: "/online-salsa-bachata-coaching" },
-  { label: "Refer a Friend", path: "/refer" },
   { divider: true },
   { label: "Pricing", path: "/prices" },
   { label: "Gift Vouchers", path: "/gift-vouchers" },
@@ -76,10 +66,14 @@ const mobileLinks = [
   { label: "Wedding Dance", path: "/wedding-dance" },
   { label: "Private Lessons", path: "/private-lessons" },
   { divider: true },
-  { label: "Blog", path: "/blog" },
-  { label: "FAQs", path: "/faq" },
   { label: "Start Here", path: "/start-here" },
+  { label: "Community", path: "/community" },
+  { label: "Schedule", path: "/schedule" },
   { label: "Gallery", path: "/gallery" },
+  { label: "Testimonials", path: "/testimonials" },
+  { label: "FAQs", path: "/faq" },
+  { label: "Blog", path: "/blog" },
+  { label: "Find a Class Near You", path: "/locations" },
   { label: "Contact", path: "/contact" },
 ];
 

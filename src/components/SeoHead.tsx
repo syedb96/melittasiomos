@@ -13,6 +13,7 @@ interface SeoHeadProps {
   breadcrumbs?: BreadcrumbItem[];
   dateModified?: string; // ISO date e.g. "2026-04-13"
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const DEFAULT_OG_IMAGE = "https://www.puranights.com/og-default.jpg";
@@ -116,7 +117,7 @@ function getAutoBreadcrumbs(path: string, title: string): BreadcrumbItem[] {
   return crumbs;
 }
 
-const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, ogImage }: SeoHeadProps) => {
+const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, ogImage, noindex }: SeoHeadProps) => {
   useEffect(() => {
     document.title = title;
     const setMeta = (name: string, content: string, prop = "name") => {
@@ -140,6 +141,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
     const image = ogImage || DEFAULT_OG_IMAGE;
 
     setMeta("description", description);
+    setMeta("robots", noindex ? "noindex,follow" : "index,follow");
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:url", url, "property");
@@ -174,7 +176,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
 
     // <html lang="en-GB">
     document.documentElement.setAttribute("lang", "en-GB");
-  }, [title, description, path, schema, breadcrumbs, dateModified, ogImage]);
+  }, [title, description, path, schema, breadcrumbs, dateModified, ogImage, noindex]);
 
   return null;
 };

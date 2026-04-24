@@ -161,6 +161,7 @@ const AllPagesMaster = () => (
       title="All Pages — Pura Nights Salsa & Bachata London"
       description="Complete directory of every page on the Pura Nights website. Find classes, guides, venue information, blog posts, and more — all in one place."
       path="/all-pages-master"
+      noindex
     />
 
     <section className="section-padding section-dark">
