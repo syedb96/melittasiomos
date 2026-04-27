@@ -150,15 +150,26 @@ const MeetTheTeam = () => {
                   onClick={() => setOpenBio(i)}
                   className={`w-full text-left bg-card rounded-2xl overflow-hidden card-hover border transition-colors ${member.highlight ? 'border-primary shadow-lg' : 'border-border'}`}
                 >
-                  {/* <!-- WIX: Replace with dynamic image from Team Members collection --> */}
-                  <div className="aspect-[3/4] bg-charcoal-light flex items-center justify-center relative">
+                  {/* <!-- WIX: Replace with dynamic image from Team Members collection (3:4 crop) --> */}
+                  <div className="aspect-[3/4] relative overflow-hidden bg-charcoal">
                     {i === 0 && melittaImg ? (
                       <img src={melittaImg} alt={member.name} className="w-full h-full object-cover" loading={i === 0 ? "eager" : "lazy"} />
                     ) : (
-                      <p className="text-primary-foreground/20 text-xs font-heading">[{member.name} photo]</p>
+                      <>
+                        <div className="absolute inset-0" style={{ background: 'radial-gradient(120% 80% at 50% 0%, hsl(43 48% 54% / 0.18), transparent 60%), linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 6%))' }} />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="font-display text-6xl font-bold text-primary/85 tracking-tight">
+                            {member.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                          </span>
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                          <span className="font-accent text-[9px] tracking-[0.3em] uppercase text-primary-foreground/55">Pura Nights</span>
+                          <span className="font-accent text-[9px] tracking-[0.2em] uppercase text-primary-foreground/40">Portrait pending</span>
+                        </div>
+                      </>
                     )}
                     {member.highlight && (
-                      <span className="absolute top-3 right-3 bg-primary text-charcoal text-[9px] font-heading font-bold px-2 py-0.5 rounded-full">FOUNDER</span>
+                      <span className="absolute top-3 right-3 bg-primary text-charcoal text-[9px] font-heading font-bold px-2 py-0.5 rounded-full z-10">FOUNDER</span>
                     )}
                   </div>
                   <div className="p-4">

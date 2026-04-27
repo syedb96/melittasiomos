@@ -8,7 +8,7 @@ import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCounter, ScaleIn } fro
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait-real.jpg";
 import heroImg from "@/assets/hero-dance.jpg";
-import PressLogos from "@/components/PressLogos";
+
 
 /* <!-- WIX PAGE: /about -->
    <!-- WIX SECTION: Hero — Full-width Strip with founder image + dark overlay -->
@@ -156,7 +156,7 @@ const About = () => {
       </div>
     </section>
 
-    <PressLogos />
+    {/* Press strip removed — only verified press features should appear here. */}
 
     {/* Meet the Team */}
     <section className="section-padding bg-card" id="team">
@@ -168,18 +168,31 @@ const About = () => {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" staggerDelay={0.08}>
           {team.map((t, i) => (
             <StaggerItem key={i}>
-              <div className="bg-background rounded-2xl p-6 card-hover text-center h-full flex flex-col items-center">
-                <div className="w-[120px] h-[120px] rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-display font-bold text-primary border-[3px] border-primary" style={{ background: 'var(--gradient-warm)' }}>
-                  {t.name.split(" ").map(n => n[0]).join("")}
+              <div className="bg-background rounded-2xl overflow-hidden card-hover h-full flex flex-col border border-border">
+                {/* Premium portrait placeholder — editorial dark tile w/ monogram + brand mark.
+                    <!-- WIX: Replace with image from Team Members CMS collection (3:4 crop) --> */}
+                <div className="relative aspect-[3/4] bg-charcoal overflow-hidden">
+                  <div className="absolute inset-0" style={{ background: 'radial-gradient(120% 80% at 50% 0%, hsl(43 48% 54% / 0.18), transparent 60%), linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 6%))' }} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-display text-5xl font-bold text-primary/85 tracking-tight">
+                      {t.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="font-accent text-[9px] tracking-[0.3em] uppercase text-primary-foreground/55">Pura Nights</span>
+                    <span className="font-accent text-[9px] tracking-[0.2em] uppercase text-primary-foreground/40">Portrait pending</span>
+                  </div>
                 </div>
-                <h3 className="font-heading font-semibold text-sm">{t.name}</h3>
-                <p className="text-primary text-xs font-heading mb-3">{t.role}</p>
-                <div className="flex flex-wrap justify-center gap-1 mb-3">
-                  {t.specialties.map(s => (
-                    <span key={s} className="text-[10px] font-accent bg-primary/10 text-primary px-2 py-0.5 rounded-full">{s}</span>
-                  ))}
+                <div className="p-5 text-center flex-1 flex flex-col">
+                  <h3 className="font-heading font-semibold text-sm">{t.name}</h3>
+                  <p className="text-primary text-xs font-heading mb-3">{t.role}</p>
+                  <div className="flex flex-wrap justify-center gap-1 mb-3">
+                    {t.specialties.slice(0, 3).map(s => (
+                      <span key={s} className="text-[10px] font-accent bg-primary/10 text-primary px-2 py-0.5 rounded-full">{s}</span>
+                    ))}
+                  </div>
+                  <button onClick={() => setOpenBio(i)} className="text-xs font-heading font-semibold text-primary hover:underline mt-auto">Read Full Bio →</button>
                 </div>
-                <button onClick={() => setOpenBio(i)} className="text-xs font-heading font-semibold text-primary hover:underline mt-auto">Read Full Bio →</button>
               </div>
             </StaggerItem>
           ))}

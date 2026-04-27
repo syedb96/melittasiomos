@@ -201,12 +201,13 @@ const Index = () => {
 
       {/* SECTION 4 — 4 BRAND PILLARS */}
       <section className="section-padding section-ivory">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">What We Do</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">Our Brands</h2>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">What We Do</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Our Brands</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Four interconnected dance brands — one community, one founder, one standard of teaching.</p>
           </FadeInUp>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7" staggerDelay={0.12}>
             {[
               { img: socialImg, emoji: "🎶", title: "PURA NIGHTS", sub: "Weekly Classes", desc: "Salsa & Bachata every Monday & Tuesday. 3 levels. All welcome.", link: "/pura-nights", cta: "Find Out More →" },
               { img: puraLadiesImg, emoji: "👗", title: "PURA LADIES", sub: "Performance Team", desc: "7 international teams. London, Plymouth, Munich, Lisbon.", link: "/pura-ladies", cta: "Join Pura Ladies →" },
@@ -214,15 +215,15 @@ const Index = () => {
               { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-classes", cta: "Explore Online →" },
             ].map((card, i) => (
               <StaggerItem key={i}>
-                <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-80 card-hover">
+                <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-[420px] card-hover">
                   <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-2xl mb-1">{card.emoji}</p>
-                    <h3 className="font-display text-lg font-bold text-primary-foreground mb-0.5">{card.title}</h3>
-                    <p className="text-primary text-[10px] font-accent uppercase tracking-wider mb-2">{card.sub}</p>
-                    <p className="text-primary-foreground/70 text-xs leading-relaxed mb-3">{card.desc}</p>
-                    <span className="text-primary font-heading text-xs font-semibold">{card.cta}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-7">
+                    <p className="text-3xl mb-2">{card.emoji}</p>
+                    <h3 className="font-display text-xl font-bold text-primary-foreground mb-1">{card.title}</h3>
+                    <p className="text-primary text-[11px] font-accent uppercase tracking-wider mb-3">{card.sub}</p>
+                    <p className="text-primary-foreground/75 text-sm leading-relaxed mb-4">{card.desc}</p>
+                    <span className="text-primary font-heading text-sm font-semibold">{card.cta}</span>
                   </div>
                 </Link>
               </StaggerItem>
@@ -235,9 +236,9 @@ const Index = () => {
       <section className="section-padding section-dark">
         <div className="container-main">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">Every Week</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-primary-foreground mb-3">Join Us This Week</h2>
-            <p className="text-primary-foreground/50 text-center text-sm mb-10 font-heading">No booking required for weekly classes — just turn up.</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Every Week</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center text-primary-foreground mb-4">Join Us This Week</h2>
+            <p className="text-primary-foreground/60 text-center text-base mb-12 font-heading max-w-2xl mx-auto">No booking required for weekly classes — just turn up on the night.</p>
           </FadeInUp>
           <FadeInUp delay={0.1}>
             <div className="overflow-x-auto max-w-5xl mx-auto">
@@ -279,10 +280,10 @@ const Index = () => {
 
       {/* SECTION 6 — WHAT IS SALSA? WHAT IS BACHATA? */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">The Dances</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">What Will You Learn?</h2>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">The Dances</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-14">What Will You Learn?</h2>
           </FadeInUp>
           <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" staggerDelay={0.2}>
             <StaggerItem>
@@ -348,13 +349,14 @@ const Index = () => {
 
       {/* SECTION 8 — TESTIMONIALS CAROUSEL */}
       <section className="section-padding section-ivory-alt">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">What Our Students Say</h2>
-            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">Rated 5.0 on Google · Verified Student Reviews</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Real Words. Real Reviews.</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">What Our Students Say</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-xl mx-auto">Rated 5.0 on Google · Verified student reviews from Chiswick & Ealing.</p>
           </FadeInUp>
           <TestimonialsCarousel />
-          <FadeInUp delay={0.3} className="text-center mt-8">
+          <FadeInUp delay={0.3} className="text-center mt-10">
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
@@ -363,30 +365,30 @@ const Index = () => {
       {/* SOCIAL VIBE SECTION */}
       {/* <!-- WIX: Strip + Repeater grid --> */}
       <section className="section-padding section-warm">
-        <div className="container-main max-w-5xl">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">More Than Steps</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">Why People Keep Coming Back</h2>
-            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">It's not just a class — it's a mood reset, a social life upgrade, and the best midweek plan you'll ever make.</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">More Than Steps</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Why People Keep Coming Back</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">It's not just a class — it's a mood reset, a social life upgrade, and the best midweek plan you'll ever make.</p>
           </FadeInUp>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" staggerDelay={0.08}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5" staggerDelay={0.08}>
             {[
-              { emoji: "🤝", title: "Make Real Friends", desc: "Not small talk — real friendships that extend beyond the dance floor" },
-              { emoji: "✨", title: "Feel Good After Work", desc: "Music, movement, and laughter — better than any gym session" },
-              { emoji: "💃", title: "Build Confidence", desc: "Every class leaves you standing taller and smiling wider" },
-              { emoji: "🎉", title: "Be Part of Something", desc: "A vibrant, stylish community that genuinely cares" },
-              { emoji: "🌍", title: "All Are Welcome", desc: "Every age, background, and ability. Come alone or with friends" },
+              { emoji: "🤝", title: "Make Real Friends", desc: "Not small talk — real friendships that extend beyond the dance floor." },
+              { emoji: "✨", title: "Feel Good After Work", desc: "Music, movement, and laughter — better than any gym session." },
+              { emoji: "💃", title: "Build Confidence", desc: "Every class leaves you standing taller and smiling wider." },
+              { emoji: "🎉", title: "Be Part of Something", desc: "A vibrant, stylish community that genuinely cares." },
+              { emoji: "🌍", title: "All Are Welcome", desc: "Every age, background, and ability. Come alone or with friends." },
             ].map((v, i) => (
               <StaggerItem key={i}>
-                <div className="bg-card rounded-2xl p-6 text-center card-hover h-full">
-                  <span className="text-2xl block mb-3">{v.emoji}</span>
-                  <h3 className="font-heading font-bold text-sm mb-2">{v.title}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{v.desc}</p>
+                <div className="bg-card rounded-2xl p-7 text-center card-hover h-full">
+                  <span className="text-3xl block mb-4">{v.emoji}</span>
+                  <h3 className="font-heading font-bold text-base mb-2">{v.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
-          <FadeInUp delay={0.3} className="text-center mt-8">
+          <FadeInUp delay={0.3} className="text-center mt-10">
             <Link to="/community" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Explore the Community <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
@@ -394,24 +396,25 @@ const Index = () => {
 
       {/* SECTION 9 — PRICING OVERVIEW */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Simple, Flexible Pricing</h2>
-            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">Drop in for your first class or commit to a bundle and save</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Pricing</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Simple, Flexible Pricing</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Drop in for your first class or commit to a bundle and save — no hidden fees, no contracts.</p>
           </FadeInUp>
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" staggerDelay={0.12}>
+          <StaggerContainer className="grid md:grid-cols-3 gap-7 max-w-5xl mx-auto" staggerDelay={0.12}>
             {[
               { title: "DROP IN", price: "From £10", desc: "No commitment, no booking", fit: "First timers, occasional dancers", border: "border-border" },
               { title: "5-CLASS BUNDLE", price: "From £42", desc: "Save up to £8 vs drop-in", fit: "Finding your rhythm (5 weeks)", border: "border-primary", badge: "MOST POPULAR" },
               { title: "10-CLASS BUNDLE", price: "From £78", desc: "Save up to £22", fit: "Committed learners", border: "border-border" },
             ].map((p, i) => (
               <StaggerItem key={i}>
-                <div className={`bg-card rounded-2xl p-8 card-hover h-full border-2 ${p.border} relative`}>
+                <div className={`bg-card rounded-2xl p-10 card-hover h-full border-2 ${p.border} relative`}>
                   {p.badge && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-heading font-bold px-4 py-1 rounded-full">{p.badge}</span>}
-                  <h3 className="font-heading font-bold text-sm uppercase tracking-wider mb-2">{p.title}</h3>
-                  <p className="font-display text-2xl font-bold text-primary mb-2">{p.price}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{p.desc}</p>
-                  <p className="text-muted-foreground text-xs italic">Perfect for: {p.fit}</p>
+                  <h3 className="font-heading font-bold text-sm uppercase tracking-wider mb-3">{p.title}</h3>
+                  <p className="font-display text-4xl font-bold text-primary mb-3">{p.price}</p>
+                  <p className="text-muted-foreground text-base mb-5">{p.desc}</p>
+                  <p className="text-muted-foreground text-sm italic">Perfect for: {p.fit}</p>
                 </div>
               </StaggerItem>
             ))}
