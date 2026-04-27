@@ -71,6 +71,12 @@ import SalsaClassesFulham from "./pages/SalsaClassesFulham";
 import SalsaClassesActonLocal from "./pages/SalsaClassesActonLocal";
 import ThankYou from "./pages/ThankYou";
 
+// Shop shell (Wix Stores-ready)
+import Shop from "./pages/shop/Shop";
+import SizeGuide from "./pages/shop/SizeGuide";
+import ShippingReturns from "./pages/shop/ShippingReturns";
+import Lookbook from "./pages/shop/Lookbook";
+
 // Blog pages
 import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
 import WhatIsBachata from "./pages/blog/WhatIsBachata";
@@ -247,6 +253,12 @@ const App = () => (
             <Route path="/salsa-classes-fulham" element={<SalsaClassesFulham />} />
             <Route path="/salsa-classes-acton-local" element={<SalsaClassesActonLocal />} />
             <Route path="/thank-you" element={<ThankYou />} />
+
+            {/* Shop shell — Wix Stores-ready */}
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/size-guide" element={<SizeGuide />} />
+            <Route path="/shipping-returns" element={<ShippingReturns />} />
+            <Route path="/lookbook" element={<Lookbook />} />
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />

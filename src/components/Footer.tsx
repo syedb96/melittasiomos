@@ -59,6 +59,7 @@ const Footer = () => (
             <li><Link to="/online-salsa-bachata-coaching" className="hover:text-primary transition-colors">Online Coaching</Link></li>
             <li><Link to="/gift-vouchers" className="hover:text-primary transition-colors">Gift Vouchers</Link></li>
             <li><Link to="/prices" className="hover:text-primary transition-colors">Class Pricing</Link></li>
+            <li><Link to="/shop" className="hover:text-primary transition-colors">Shop · Dancewear</Link></li>
             <li><a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Book a Class ↗</a></li>
           </ul>
         </div>
