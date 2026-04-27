@@ -156,7 +156,7 @@ const About = () => {
       </div>
     </section>
 
-    <PressLogos />
+    {/* Press strip removed — only verified press features should appear here. */}
 
     {/* Meet the Team */}
     <section className="section-padding bg-card" id="team">
