@@ -24,7 +24,7 @@
   <url><loc>https://www.puranights.com/community</loc><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.puranights.com/bookings</loc><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.puranights.com/meet-the-team</loc><lastmod>2026-04-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <!-- Removed from index: /online-classes (301→/online-salsa-bachata-coaching), /refer, /all-pages-master, /proof-centre (merged into /testimonials) -->
+  <!-- Removed from index: /online-classes (301→/online-salsa-bachata-coaching), /refer, /all-pages-master, /proof-centre (merged into /testimonials), /shop /size-guide /shipping-returns /lookbook (noindex until launch) -->
 
   <!-- Local SEO Pages -->
   <url><loc>https://www.puranights.com/salsa-classes-london</loc><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

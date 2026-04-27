@@ -1,6 +1,17 @@
-# Page Status Matrix — v8.2 Governance Pass
+# Page Status Matrix — v9 Deployment Optimisation Pass
 
-Updated 2026-04-24. Principle: nav sells, footer catalogues, weak/duplicate pages noindexed.
+Updated 2026-04-27. Principle: nav sells, footer catalogues, weak/duplicate pages noindexed, shop shell soft-launched.
+
+## ADDED THIS PASS
+- `/shop`, `/size-guide`, `/shipping-returns`, `/lookbook` — Wix Stores-ready shell (noindex until launch). Linked from footer (Services column) only — not in top nav.
+- `docs/11-SEO-PAGE-MATRIX.md` — full per-page meta/H1/schema/index matrix.
+
+## REMOVED / DELETED
+- `src/components/PressLogos.tsx` — unsupported press strip removed from /about (no verified features).
+
+## POLISHED THIS PASS
+- Homepage scale + rhythm: bigger H2s (4xl→6xl), wider max-w (5xl→6xl), Why-People grid relaxed (lg:3 / xl:5), Pricing card padding bumped (p-8→p-10), brand cards taller (h-80→h-[420px]).
+- Team cards: replaced initials-only circles with editorial dark monogram tile + "Portrait pending" label across `/about` and `/meet-the-team`.
 
 ## KEEP (core money + trust)
 Home, /pura-nights, /pura-ladies, /events, /prices, /bookings, /about, /meet-the-team,
@@ -8,7 +19,8 @@ Home, /pura-nights, /pura-ladies, /events, /prices, /bookings, /about, /meet-the
 /community, /schedule, /gallery, /testimonials, /contact, /faq, /start-here,
 /locations, /gift-vouchers, /beginners, /blog,
 /venue/the-george-iv-chiswick, /venue/the-drayton-court-ealing,
-/learn/salsa-bachata-guide, /learn/salsa-vs-bachata.
+/learn/salsa-bachata-guide, /learn/salsa-vs-bachata,
+/shop, /size-guide, /shipping-returns, /lookbook (soft-launch, noindex).
 
 ## POLISH (next passes)
 - Homepage hero + proof flow (replace AI-looking imagery with real photos)
