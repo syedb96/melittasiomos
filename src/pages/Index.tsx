@@ -280,10 +280,10 @@ const Index = () => {
 
       {/* SECTION 6 — WHAT IS SALSA? WHAT IS BACHATA? */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">The Dances</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">What Will You Learn?</h2>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">The Dances</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-14">What Will You Learn?</h2>
           </FadeInUp>
           <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" staggerDelay={0.2}>
             <StaggerItem>
