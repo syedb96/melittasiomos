@@ -201,12 +201,13 @@ const Index = () => {
 
       {/* SECTION 4 — 4 BRAND PILLARS */}
       <section className="section-padding section-ivory">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">What We Do</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">Our Brands</h2>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">What We Do</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Our Brands</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Four interconnected dance brands — one community, one founder, one standard of teaching.</p>
           </FadeInUp>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7" staggerDelay={0.12}>
             {[
               { img: socialImg, emoji: "🎶", title: "PURA NIGHTS", sub: "Weekly Classes", desc: "Salsa & Bachata every Monday & Tuesday. 3 levels. All welcome.", link: "/pura-nights", cta: "Find Out More →" },
               { img: puraLadiesImg, emoji: "👗", title: "PURA LADIES", sub: "Performance Team", desc: "7 international teams. London, Plymouth, Munich, Lisbon.", link: "/pura-ladies", cta: "Join Pura Ladies →" },
@@ -214,15 +215,15 @@ const Index = () => {
               { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-classes", cta: "Explore Online →" },
             ].map((card, i) => (
               <StaggerItem key={i}>
-                <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-80 card-hover">
+                <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-[420px] card-hover">
                   <img src={card.img} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-2xl mb-1">{card.emoji}</p>
-                    <h3 className="font-display text-lg font-bold text-primary-foreground mb-0.5">{card.title}</h3>
-                    <p className="text-primary text-[10px] font-accent uppercase tracking-wider mb-2">{card.sub}</p>
-                    <p className="text-primary-foreground/70 text-xs leading-relaxed mb-3">{card.desc}</p>
-                    <span className="text-primary font-heading text-xs font-semibold">{card.cta}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-7">
+                    <p className="text-3xl mb-2">{card.emoji}</p>
+                    <h3 className="font-display text-xl font-bold text-primary-foreground mb-1">{card.title}</h3>
+                    <p className="text-primary text-[11px] font-accent uppercase tracking-wider mb-3">{card.sub}</p>
+                    <p className="text-primary-foreground/75 text-sm leading-relaxed mb-4">{card.desc}</p>
+                    <span className="text-primary font-heading text-sm font-semibold">{card.cta}</span>
                   </div>
                 </Link>
               </StaggerItem>
