@@ -236,9 +236,9 @@ const Index = () => {
       <section className="section-padding section-dark">
         <div className="container-main">
           <FadeInUp>
-            <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary text-center mb-3">Every Week</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-primary-foreground mb-3">Join Us This Week</h2>
-            <p className="text-primary-foreground/50 text-center text-sm mb-10 font-heading">No booking required for weekly classes — just turn up.</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Every Week</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center text-primary-foreground mb-4">Join Us This Week</h2>
+            <p className="text-primary-foreground/60 text-center text-base mb-12 font-heading max-w-2xl mx-auto">No booking required for weekly classes — just turn up on the night.</p>
           </FadeInUp>
           <FadeInUp delay={0.1}>
             <div className="overflow-x-auto max-w-5xl mx-auto">
