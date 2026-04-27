@@ -396,24 +396,25 @@ const Index = () => {
 
       {/* SECTION 9 — PRICING OVERVIEW */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Simple, Flexible Pricing</h2>
-            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">Drop in for your first class or commit to a bundle and save</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Pricing</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Simple, Flexible Pricing</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Drop in for your first class or commit to a bundle and save — no hidden fees, no contracts.</p>
           </FadeInUp>
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" staggerDelay={0.12}>
+          <StaggerContainer className="grid md:grid-cols-3 gap-7 max-w-5xl mx-auto" staggerDelay={0.12}>
             {[
               { title: "DROP IN", price: "From £10", desc: "No commitment, no booking", fit: "First timers, occasional dancers", border: "border-border" },
               { title: "5-CLASS BUNDLE", price: "From £42", desc: "Save up to £8 vs drop-in", fit: "Finding your rhythm (5 weeks)", border: "border-primary", badge: "MOST POPULAR" },
               { title: "10-CLASS BUNDLE", price: "From £78", desc: "Save up to £22", fit: "Committed learners", border: "border-border" },
             ].map((p, i) => (
               <StaggerItem key={i}>
-                <div className={`bg-card rounded-2xl p-8 card-hover h-full border-2 ${p.border} relative`}>
+                <div className={`bg-card rounded-2xl p-10 card-hover h-full border-2 ${p.border} relative`}>
                   {p.badge && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-heading font-bold px-4 py-1 rounded-full">{p.badge}</span>}
-                  <h3 className="font-heading font-bold text-sm uppercase tracking-wider mb-2">{p.title}</h3>
-                  <p className="font-display text-2xl font-bold text-primary mb-2">{p.price}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{p.desc}</p>
-                  <p className="text-muted-foreground text-xs italic">Perfect for: {p.fit}</p>
+                  <h3 className="font-heading font-bold text-sm uppercase tracking-wider mb-3">{p.title}</h3>
+                  <p className="font-display text-4xl font-bold text-primary mb-3">{p.price}</p>
+                  <p className="text-muted-foreground text-base mb-5">{p.desc}</p>
+                  <p className="text-muted-foreground text-sm italic">Perfect for: {p.fit}</p>
                 </div>
               </StaggerItem>
             ))}
