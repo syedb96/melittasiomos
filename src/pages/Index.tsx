@@ -349,13 +349,14 @@ const Index = () => {
 
       {/* SECTION 8 — TESTIMONIALS CAROUSEL */}
       <section className="section-padding section-ivory-alt">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">What Our Students Say</h2>
-            <p className="text-muted-foreground text-center text-sm mb-12 font-heading max-w-xl mx-auto">Rated 5.0 on Google · Verified Student Reviews</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Real Words. Real Reviews.</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">What Our Students Say</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-xl mx-auto">Rated 5.0 on Google · Verified student reviews from Chiswick & Ealing.</p>
           </FadeInUp>
           <TestimonialsCarousel />
-          <FadeInUp delay={0.3} className="text-center mt-8">
+          <FadeInUp delay={0.3} className="text-center mt-10">
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
