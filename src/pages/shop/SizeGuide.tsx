@@ -24,12 +24,24 @@ const unisexTees = [
   { size: "XXL", chest: "114–122 cm", length: "77 cm" },
 ];
 
+const sizeGuideFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What size am I in Pura Nights dancewear?", acceptedAnswer: { "@type": "Answer", text: "Pura Nights women's dancewear runs UK 6 (XS) to UK 14 (XL). Match your bust, waist and hip in cm to the chart on this page. If you're between sizes, size down for fitted dancewear." } },
+    { "@type": "Question", name: "What size am I in Pura Nights tees and hoodies?", acceptedAnswer: { "@type": "Answer", text: "Unisex tees and hoodies run XS–XXL. Match your chest measurement in cm to the chart. If you're between sizes, size up for a relaxed fit." } },
+    { "@type": "Question", name: "How do I measure myself for dancewear?", acceptedAnswer: { "@type": "Answer", text: "Measure bust around the fullest part, waist at the narrowest, and hip around the widest part. Keep the tape level and not too tight. All Pura Nights measurements are in centimetres." } },
+    { "@type": "Question", name: "Can I exchange a size after ordering?", acceptedAnswer: { "@type": "Answer", text: "Yes — free in-person size exchanges at any Monday or Tuesday class in Chiswick or Ealing. Postal returns within 14 days are also accepted on unworn items." } },
+  ],
+};
+
 const SizeGuide = () => (
   <Layout>
     <SeoHead
       title="Pura Nights Size Guide — Dancewear, Tees & Hoodies (cm) | London"
       description="Size charts in cm for Pura Nights dancewear, training tees, hoodies and teamwear. Women's, unisex, and Pura Ladies fits — designed in West London."
       path="/size-guide"
+      schema={sizeGuideFaqSchema}
       noindex
     />
 

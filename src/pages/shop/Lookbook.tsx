@@ -4,16 +4,18 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Link } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
+import { LOOKBOOK_CATEGORIES, LOOKBOOK_ITEMS, buildImageGallerySchema } from "./lookbookData";
 
 /* <!-- WIX PAGE: /lookbook -->
    <!-- WIX: Use Wix Pro Gallery in Masonry layout. Connect to a Lookbook collection. -->
-   <!-- WIX: Each "look" maps to a Pro Gallery item with title + description + tag -->
+   <!-- WIX: Each "look" maps to a Pro Gallery item with title + description + tag + category -->
    <!-- WIX: Filter pills below map to Pro Gallery category filter -->
+   <!-- WIX: Category cards link to /lookbook/{category-slug} dynamic pages -->
 */
 
-type Cat = "all" | "chiswick" | "ealing" | "latin-friday" | "performance" | "lifestyle";
+type Venue = "all" | "chiswick" | "ealing" | "latin-friday" | "performance" | "lifestyle";
 
-const filters: { slug: Cat; label: string }[] = [
+const venueFilters: { slug: Venue; label: string }[] = [
   { slug: "all", label: "All Looks" },
   { slug: "chiswick", label: "Chiswick · Mondays" },
   { slug: "ealing", label: "Ealing · Tuesdays" },
@@ -22,30 +24,25 @@ const filters: { slug: Cat; label: string }[] = [
   { slug: "lifestyle", label: "Lifestyle" },
 ];
 
-const looks: { title: string; desc: string; caption: string; tag: string; cat: Cat }[] = [
-  { title: "The Monday Look", desc: "Champagne crop top + high-waist leggings.", caption: "Photographed at The George IV — beginners-to-improvers warm-up.", tag: "Chiswick · Monday", cat: "chiswick" },
-  { title: "The Bachata Look", desc: "Wrap top + flow skirt for body movement and styling drills.", caption: "Photographed in studio — Tuesday Sensual class.", tag: "Sensual · Tuesday", cat: "ealing" },
-  { title: "The Latin Friday Look", desc: "Cream hoodie + branded tee. Pre-party warm-up to dancefloor.", caption: "Photographed at The Drayton Court — first Friday of the month.", tag: "Drayton Court", cat: "latin-friday" },
-  { title: "Founders Edit", desc: "Limited-run pieces designed by Melitta — only at launch events.", caption: "Editorial — limited founders' run.", tag: "Limited", cat: "lifestyle" },
-  { title: "Pura Ladies Performance", desc: "Stage-ready teamwear (members only). Custom fit and finish.", caption: "Photographed backstage — Pura Ladies showcase.", tag: "Members", cat: "performance" },
-  { title: "Off-Duty Lifestyle", desc: "Tote, water bottle, and 'Dance Like You Mean It' tee.", caption: "Photographed on Chiswick High Road.", tag: "Everyday", cat: "lifestyle" },
-  { title: "Beginner Confidence", desc: "Soft cream tee + dark leggings — easy first-night fit.", caption: "Photographed at George IV — first-timer welcome.", tag: "Chiswick · Monday", cat: "chiswick" },
-  { title: "Improver Power", desc: "Fitted black training top — for spins, footwork drills.", caption: "Photographed at Drayton Court — improvers progression.", tag: "Ealing · Tuesday", cat: "ealing" },
-  { title: "Friday Night Edit", desc: "Statement top + heels — straight from class to social.", caption: "Photographed at Latin Friday — monthly social.", tag: "Drayton Court", cat: "latin-friday" },
-];
-
 const WHATSAPP_LOOKBOOK = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20saw%20the%20Pura%20Nights%20lookbook%20and%20have%20a%20question";
 
 const Lookbook = () => {
-  const [active, setActive] = useState<Cat>("all");
-  const visible = active === "all" ? looks : looks.filter(l => l.cat === active);
+  const [active, setActive] = useState<Venue>("all");
+  const visible = active === "all" ? LOOKBOOK_ITEMS : LOOKBOOK_ITEMS.filter(l => l.venueTag === active);
+
+  const lookbookSchema = buildImageGallerySchema(
+    "Pura Nights Lookbook",
+    "https://www.puranights.com/lookbook",
+    LOOKBOOK_ITEMS,
+  );
 
   return (
     <Layout>
       <SeoHead
         title="Pura Nights Lookbook — Salsa & Bachata Dancewear in Action | London"
-        description="See Pura Nights dancewear on real dancers across Chiswick Mondays, Ealing Tuesdays and Latin Friday socials in West London."
+        description="See Pura Nights dancewear on real dancers across Chiswick Mondays, Ealing Tuesdays and Latin Friday socials in West London. Browse by dancewear, training tops, hoodies, accessories and teamwear."
         path="/lookbook"
+        schema={lookbookSchema}
         noindex
       />
 
@@ -59,11 +56,36 @@ const Lookbook = () => {
         </div>
       </section>
 
-      {/* Filter pills */}
+      {/* Category index — links to dedicated /lookbook/:category pages */}
+      {/* <!-- WIX: Replace with Wix Repeater bound to Lookbook Categories CMS collection --> */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-6xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Browse by category</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-10">Shop the Edit</h2>
+          </FadeInUp>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" staggerDelay={0.06}>
+            {LOOKBOOK_CATEGORIES.map(c => (
+              <StaggerItem key={c.slug}>
+                <Link
+                  to={`/lookbook/${c.slug}`}
+                  className="block bg-card rounded-2xl p-5 card-hover h-full border border-border hover:border-primary transition-colors"
+                >
+                  <h3 className="font-heading font-bold text-sm mb-2">{c.title.split(" — ")[0]}</h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-3">{c.intro}</p>
+                  <span className="text-primary text-xs font-heading font-semibold">View edit →</span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Venue filter pills */}
       <section className="bg-ivory pt-12">
         <div className="container-main max-w-6xl">
           <div className="flex flex-wrap justify-center gap-2">
-            {filters.map(f => (
+            {venueFilters.map(f => (
               <button
                 key={f.slug}
                 onClick={() => setActive(f.slug)}
@@ -99,14 +121,16 @@ const Lookbook = () => {
                   <figcaption className="p-6">
                     <h3 className="font-heading font-bold text-base mb-2">{l.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-2">{l.desc}</p>
-                    <p className="text-[11px] font-accent uppercase tracking-wider text-primary/80">{l.caption}</p>
+                    <p className="text-[11px] font-accent uppercase tracking-wider text-primary/80 mb-3">{l.caption}</p>
+                    <Link to={`/lookbook/${l.category}`} className="text-primary text-xs font-heading font-semibold hover:underline">
+                      View {l.category.replace("-", " & ")} edit →
+                    </Link>
                   </figcaption>
                 </figure>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
-          {/* WhatsApp CTA */}
           <div className="text-center mt-14 bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="font-display text-xl md:text-2xl font-bold mb-2">Want a piece you saw?</h3>
             <p className="text-muted-foreground text-sm mb-5">Pre-order, sizing, or custom team kit — message Melitta directly.</p>
