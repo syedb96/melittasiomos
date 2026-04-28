@@ -27,8 +27,8 @@ const unisexTees = [
 const SizeGuide = () => (
   <Layout>
     <SeoHead
-      title="Size Guide — Pura Nights Dancewear & Apparel"
-      description="Size charts for Pura Nights dancewear, training tops, hoodies and accessories. Women's, unisex, and teamwear measurements in cm."
+      title="Pura Nights Size Guide — Dancewear, Tees & Hoodies (cm) | London"
+      description="Size charts in cm for Pura Nights dancewear, training tees, hoodies and teamwear. Women's, unisex, and Pura Ladies fits — designed in West London."
       path="/size-guide"
       noindex
     />
@@ -37,8 +37,8 @@ const SizeGuide = () => (
       <div className="container-main max-w-3xl">
         <FadeInUp>
           <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-4">Pura Nights · Shop</p>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Size Guide</h1>
-          <p className="text-primary-foreground/60 text-base font-heading">All measurements in centimetres. If you're between sizes, size up for hoodies and tees, size down for fitted dancewear.</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Pura Nights Size Guide</h1>
+          <p className="text-primary-foreground/60 text-base font-heading">All measurements in centimetres. Between sizes? Size up for hoodies and tees, size down for fitted dancewear.</p>
         </FadeInUp>
       </div>
     </section>
