@@ -76,6 +76,7 @@ import Shop from "./pages/shop/Shop";
 import SizeGuide from "./pages/shop/SizeGuide";
 import ShippingReturns from "./pages/shop/ShippingReturns";
 import Lookbook from "./pages/shop/Lookbook";
+import LookbookCategory from "./pages/shop/LookbookCategory";
 
 // Blog pages
 import WhatIsSalsa from "./pages/blog/WhatIsSalsa";
@@ -259,6 +260,7 @@ const App = () => (
             <Route path="/size-guide" element={<SizeGuide />} />
             <Route path="/shipping-returns" element={<ShippingReturns />} />
             <Route path="/lookbook" element={<Lookbook />} />
+            <Route path="/lookbook/:category" element={<LookbookCategory />} />
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />

@@ -7,12 +7,25 @@ import { Link } from "react-router-dom";
    <!-- WIX: Standard Wix Page. Connect any policy text via Wix Editor. -->
 */
 
+const shippingFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "How much is UK shipping for Pura Nights orders?", acceptedAnswer: { "@type": "Answer", text: "UK standard shipping is £3.50 (3–5 working days). Tracked 24h delivery is £5.95. Free standard shipping on orders over £60." } },
+    { "@type": "Question", name: "Do you ship internationally?", acceptedAnswer: { "@type": "Answer", text: "Yes — EU and rest-of-world rates are calculated at checkout based on weight and destination. Customs and duties are the buyer's responsibility." } },
+    { "@type": "Question", name: "Can I collect my order at a class?", acceptedAnswer: { "@type": "Answer", text: "Yes — order online and collect free at any Monday class in Chiswick (The George IV) or Tuesday class in Ealing (The Drayton Court)." } },
+    { "@type": "Question", name: "What is your returns policy?", acceptedAnswer: { "@type": "Answer", text: "14-day returns on unworn items with original tags. Free in-person size exchanges at any class. Personalised Pura Ladies teamwear is final sale. Refunds issued within 5 working days of receipt." } },
+    { "@type": "Question", name: "How long does delivery take?", acceptedAnswer: { "@type": "Answer", text: "UK standard delivery takes 3–5 working days. Tracked 24h is next working day if ordered before 1pm." } },
+  ],
+};
+
 const ShippingReturns = () => (
   <Layout>
     <SeoHead
       title="Shipping & Returns — Pura Nights Dancewear Shop | UK Delivery from £3.50"
       description="Pura Nights UK shipping from £3.50, free over £60, plus free class collection in Chiswick & Ealing. 14-day returns on unworn dancewear."
       path="/shipping-returns"
+      schema={shippingFaqSchema}
       noindex
     />
 
