@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 const ShippingReturns = () => (
   <Layout>
     <SeoHead
-      title="Shipping & Returns — Pura Nights Shop"
-      description="UK shipping from £3.50, free over £60. 14-day returns on unworn dancewear and apparel from Pura Nights."
+      title="Shipping & Returns — Pura Nights Dancewear Shop | UK Delivery from £3.50"
+      description="Pura Nights UK shipping from £3.50, free over £60, plus free class collection in Chiswick & Ealing. 14-day returns on unworn dancewear."
       path="/shipping-returns"
       noindex
     />
@@ -20,8 +20,8 @@ const ShippingReturns = () => (
       <div className="container-main max-w-3xl">
         <FadeInUp>
           <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-4">Pura Nights · Shop</p>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Shipping & Returns</h1>
-          <p className="text-primary-foreground/60 text-base font-heading">Simple, transparent, and dancer-friendly.</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Pura Nights Shipping & Returns</h1>
+          <p className="text-primary-foreground/60 text-base font-heading">Simple, transparent, and dancer-friendly. UK shipping from £3.50 — free over £60.</p>
         </FadeInUp>
       </div>
     </section>
