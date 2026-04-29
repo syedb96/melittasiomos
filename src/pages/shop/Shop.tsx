@@ -206,18 +206,20 @@ const Shop = () => {
                 <StaggerItem key={i}>
                   {/* <!-- WIX: Replace with Wix Stores Product Card. Bind WhatsApp link to {product.name} + selected option --> */}
                   <article className="bg-card rounded-2xl overflow-hidden card-hover h-full flex flex-col border border-border" itemScope itemType="https://schema.org/Product">
-                    <div className="relative aspect-[4/5] bg-charcoal overflow-hidden">
+                    <Link to={`/shop/${p.slug}`} className="relative aspect-[4/5] bg-charcoal overflow-hidden block group" aria-label={`View ${p.name}`}>
                       <div className="absolute inset-0" style={{ background: 'radial-gradient(120% 80% at 50% 0%, hsl(43 48% 54% / 0.18), transparent 60%), linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 6%))' }} />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary-foreground/40">Product image</span>
+                        <span className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary-foreground/40 group-hover:text-primary transition-colors">View product</span>
                       </div>
                       {p.tag && (
                         <span className="absolute top-3 left-3 bg-primary text-charcoal text-[9px] font-heading font-bold px-2 py-0.5 rounded-full">{p.tag}</span>
                       )}
-                    </div>
+                    </Link>
                     <div className="p-5 flex-1 flex flex-col">
                       <p className="text-[10px] font-accent uppercase tracking-wider text-muted-foreground mb-1" itemProp="category">{p.category}</p>
-                      <h3 className="font-heading font-semibold text-sm mb-2 flex-1" itemProp="name">{p.name}</h3>
+                      <h3 className="font-heading font-semibold text-sm mb-2 flex-1" itemProp="name">
+                        <Link to={`/shop/${p.slug}`} className="hover:text-primary transition-colors">{p.name}</Link>
+                      </h3>
                       <div className="flex items-center justify-between mb-3">
                         <p className="font-display text-lg font-bold text-primary" itemProp="offers" itemScope itemType="https://schema.org/Offer">
                           <meta itemProp="priceCurrency" content="GBP" />
