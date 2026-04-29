@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
-import { MessageCircle, Truck, RotateCcw, Ruler, ArrowLeft } from "lucide-react";
+import { MessageCircle, Truck, RotateCcw, Ruler, ArrowLeft, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /* <!-- WIX PAGE: /shop/{product-slug} -->
    <!-- WIX: Replace this entire template with a Wix Stores Product Page template -->
