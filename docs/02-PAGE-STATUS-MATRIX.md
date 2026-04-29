@@ -12,7 +12,10 @@ Updated 2026-04-27. Principle: nav sells, footer catalogues, weak/duplicate page
 
 ## POLISHED THIS PASS
 - Homepage scale + rhythm: bigger H2s (4xl→6xl), wider max-w (5xl→6xl), Why-People grid relaxed (lg:3 / xl:5), Pricing card padding bumped (p-8→p-10), brand cards taller (h-80→h-[420px]).
+- Homepage **mid + bottom rhythm pass (v9.1)**: Wedding Teaser, Blog Preview, Gift Vouchers strip, Follow the Journey, FAQ, and final CTA all upgraded to luxury scale (py-20+, max-w-6xl, eyebrow + 4xl–6xl H2 + 2xl supporting copy).
+- **Proof rationalisation (v9.1)**: removed duplicated "5.0 Google Rating · 500+ Students · 15+ Years" line under hero (already covered by Trust Ticker + SocialProofBar); deleted "Follow Us mini" section that duplicated the Instagram grid; "Find Our Brands on Google" CTA now points to `/testimonials` (was dead `/proof-centre`); homepage `/online-classes` brand-card link now uses canonical `/online-salsa-bachata-coaching`.
 - Team cards: replaced initials-only circles with editorial dark monogram tile + "Portrait pending" label across `/about` and `/meet-the-team`.
+- **Product page (v9.1)**: added Product FAQ accordion (sizing / delivery / returns / WhatsApp enquiry) with FAQPage JSON-LD merged into existing Product+Offer schema via `@graph`.
 
 ## KEEP (core money + trust)
 Home, /pura-nights, /pura-ladies, /events, /prices, /bookings, /about, /meet-the-team,

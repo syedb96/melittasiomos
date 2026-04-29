@@ -131,9 +131,6 @@ const Index = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex justify-center">
             <LiveStudentCounter target={500} label="dancers in West London" />
           </motion.div>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="text-primary-foreground/50 text-xs mt-4 font-heading">
-            ⭐⭐⭐⭐⭐ 5.0 Google Rating · 500+ Students · 15+ Years Teaching
-          </motion.p>
         </div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.5 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-gentle text-primary/60">
           <ArrowDown size={28} />
@@ -212,7 +209,7 @@ const Index = () => {
               { img: socialImg, emoji: "🎶", title: "PURA NIGHTS", sub: "Weekly Classes", desc: "Salsa & Bachata every Monday & Tuesday. 3 levels. All welcome.", link: "/pura-nights", cta: "Find Out More →" },
               { img: puraLadiesImg, emoji: "👗", title: "PURA LADIES", sub: "Performance Team", desc: "7 international teams. London, Plymouth, Munich, Lisbon.", link: "/pura-ladies", cta: "Join Pura Ladies →" },
               { img: weddingImg, emoji: "💑", title: "WEDDING DANCE", sub: "First Dance Specialists", desc: "Melitta has choreographed dozens of unforgettable first dances.", link: "/wedding-dance", cta: "Book a Consultation →" },
-              { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-classes", cta: "Explore Online →" },
+              { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-salsa-bachata-coaching", cta: "Explore Online →" },
             ].map((card, i) => (
               <StaggerItem key={i}>
                 <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-[420px] card-hover">
@@ -428,13 +425,14 @@ const Index = () => {
 
       {/* SECTION 10 — WEDDING DANCE TEASER */}
       <section className="section-padding section-dark">
-        <div className="container-main max-w-4xl text-center">
+        <div className="container-main max-w-5xl text-center">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Planning Your Wedding First Dance?</h2>
-            <p className="text-primary-foreground/70 max-w-2xl mx-auto mb-8 leading-relaxed">Melitta has choreographed dozens of unforgettable first dances — from simple and heartfelt to show-stopping and theatrical. Whatever your vision, she'll make it happen.</p>
-            <blockquote className="border-l-4 border-primary pl-6 text-left max-w-xl mx-auto mb-8">
-              <p className="text-primary-foreground/80 italic leading-relaxed">"Melitta choreographed our wedding dance. Our guests loved our performance and we will never forget that moment."</p>
-              <cite className="text-primary text-sm font-heading not-italic mt-2 block">— Sofia & Patrizio, Wedding 2022</cite>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-4">Wedding Dance Made Easy</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">Planning Your Wedding First Dance?</h2>
+            <p className="text-primary-foreground/75 text-base md:text-lg max-w-3xl mx-auto mb-12 leading-relaxed font-heading">Melitta has choreographed dozens of unforgettable first dances — from simple and heartfelt to show-stopping and theatrical. Whatever your vision, she'll make it happen.</p>
+            <blockquote className="border-l-4 border-primary pl-8 text-left max-w-2xl mx-auto mb-12">
+              <p className="text-primary-foreground/85 italic leading-relaxed text-lg md:text-xl font-display">"Melitta choreographed our wedding dance. Our guests loved our performance and we will never forget that moment."</p>
+              <cite className="text-primary text-sm font-heading not-italic mt-3 block tracking-wide">— Sofia & Patrizio, Wedding 2022</cite>
             </blockquote>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/wedding-dance" className="btn-cta-primary text-sm">Explore Wedding Dance →</Link>
@@ -446,10 +444,11 @@ const Index = () => {
 
       {/* SECTION 11 — BLOG PREVIEW */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Learn Something New</h2>
-            <p className="text-muted-foreground text-center text-sm mb-10 font-heading">Guides, tips, and stories from the Pura Nights dancefloor</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Read · Watch · Learn</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Learn Something New</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Guides, tips, and stories from the Pura Nights dancefloor — written by Melitta and the team.</p>
           </FadeInUp>
 
           {/* Featured Pillar Guide Card */}
@@ -524,7 +523,7 @@ const Index = () => {
             ))}
           </StaggerContainer>
           <FadeInUp delay={0.2} className="text-center mt-6">
-            <Link to="/proof-centre" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">See All Reviews & Awards <ChevronRight size={14} /></Link>
+            <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">See All Reviews & Awards <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
       </section>
@@ -560,23 +559,30 @@ const Index = () => {
       <YouTubeStrip />
 
       {/* SECTION 13 — GIFT VOUCHERS STRIP */}
-      <section className="py-12" style={{ background: 'var(--gradient-gold)' }}>
-        <div className="container-main text-center">
-          <h3 className="font-display text-2xl font-bold text-charcoal mb-2">🎁 Give the Gift of Dance</h3>
-          <p className="text-charcoal/70 text-sm font-heading mb-6 max-w-lg mx-auto">Gift vouchers from £25 — perfect for birthdays, Valentine's, hen parties, or any occasion worth celebrating.</p>
-          <Link to="/gift-vouchers" className="btn-cta-dark text-sm">Buy a Gift Voucher →</Link>
+      <section className="py-20 md:py-24" style={{ background: 'var(--gradient-gold)' }}>
+        <div className="container-main max-w-4xl text-center">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-charcoal/70 mb-4">🎁 Pura Nights Gift Vouchers</p>
+            <h3 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-5 leading-tight">Give the Gift of Dance</h3>
+            <p className="text-charcoal/75 text-base md:text-lg font-heading mb-10 max-w-2xl mx-auto leading-relaxed">Vouchers from £25 to £200 — perfect for birthdays, Valentine's, hen parties, anniversaries, or any occasion worth celebrating. Instant email delivery, no expiry pressure.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/gift-vouchers" className="btn-cta-dark text-sm">Buy a Gift Voucher →</Link>
+              <span className="text-charcoal/60 text-xs font-heading">£25 · £50 · £75 · £100 · £150 · £200</span>
+            </div>
+          </FadeInUp>
         </div>
       </section>
 
       {/* SECTION 13 — INSTAGRAM FEED PLACEHOLDER */}
       {/* <!-- WIX: Replace with Wix Instagram Feed app --> */}
       <section className="section-padding section-dark">
-        <div className="container-main">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-primary-foreground mb-3">Follow the Journey</h2>
-            <p className="text-primary-foreground/50 text-center text-sm mb-10 font-heading">@puranights.salsabachata · @melittasiomos · @puraladies</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Follow the Journey</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center text-primary-foreground mb-4">See It on Instagram</h2>
+            <p className="text-primary-foreground/55 text-center text-base mb-12 font-heading max-w-xl mx-auto">@puranights.salsabachata · @melittasiomos · @puraladies · @wedding_dance_made_easy</p>
           </FadeInUp>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {[
               "Monday Chiswick vibes 🔥",
               "Pura Ladies in action 💃",
@@ -585,14 +591,16 @@ const Index = () => {
               "Beginners first class 🌟",
               "Wedding dance magic 💑",
             ].map((caption, i) => (
-              <div key={i} className="aspect-square bg-charcoal-light rounded-2xl flex flex-col items-center justify-center gap-2 border border-primary-foreground/5">
-                <Instagram size={24} className="text-primary-foreground/20" />
-                <p className="text-primary-foreground/30 text-xs font-heading text-center px-4">{caption}</p>
+              <div key={i} className="aspect-square bg-charcoal-light rounded-2xl flex flex-col items-center justify-center gap-3 border border-primary-foreground/5 hover:border-primary/30 transition-colors">
+                <Instagram size={28} className="text-primary-foreground/25" />
+                <p className="text-primary-foreground/35 text-sm font-heading text-center px-4">{caption}</p>
               </div>
             ))}
           </div>
-          <FadeInUp delay={0.2} className="text-center mt-8">
-            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Follow on Instagram <ChevronRight size={14} /></a>
+          <FadeInUp delay={0.2} className="text-center mt-12">
+            <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary text-primary px-7 py-3.5 rounded-full text-sm font-heading font-semibold transition-all">
+              <Instagram size={16} /> Follow on Instagram →
+            </a>
           </FadeInUp>
         </div>
       </section>
@@ -602,15 +610,16 @@ const Index = () => {
       <section className="section-padding section-warm">
         <div className="container-main max-w-3xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground text-center text-sm mb-8 font-heading">Quick answers for first-timers</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Before You Come</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-center text-base mb-12 font-heading">Quick answers for first-timers — partner, level, pricing, what to wear.</p>
           </FadeInUp>
           <FadeInUp delay={0.1}>
-            <Accordion type="multiple" className="mb-6">
+            <Accordion type="multiple" className="mb-8">
               {homeFaqs.map((faq, i) => (
                 <AccordionItem key={i} value={`faq-${i}`}>
-                  <AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                  <AccordionTrigger className="font-heading font-semibold text-left text-base">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">{faq.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -623,34 +632,18 @@ const Index = () => {
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
-      {/* FOLLOW US MINI */}
-      <section className="py-10 bg-charcoal border-t border-primary/10">
-        <div className="container-main text-center">
-          <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">Follow Us</p>
-          <h3 className="font-display text-xl md:text-2xl font-bold text-primary-foreground mb-5">Join the community on Instagram</h3>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {[
-              { handle: "puranights.salsabachata", url: "https://www.instagram.com/puranights.salsabachata" },
-              { handle: "melittasiomos", url: "https://www.instagram.com/melittasiomos" },
-              { handle: "puraladies", url: "https://www.instagram.com/puraladies" },
-            ].map(s => (
-              <a key={s.handle} href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-charcoal-light hover:bg-primary/15 border border-primary/20 hover:border-primary text-primary-foreground/80 hover:text-primary px-5 py-2.5 rounded-full text-xs font-heading font-semibold transition-all">
-                <Instagram size={14} /> @{s.handle}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* COMMUNITY CTA */}
-      <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
-        <div className="container-main">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Start Dancing?</h2>
-          <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">All levels welcome. No partner needed. Just turn up and let the music move you.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
-            <Link to="/prices" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">View All Pricing</Link>
-          </div>
+      <section className="py-24 md:py-28 text-center" style={{ background: 'var(--gradient-gold)' }}>
+        <div className="container-main max-w-4xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-charcoal/70 mb-5">Your Move</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6 leading-tight">Ready to Start Dancing?</h2>
+            <p className="text-charcoal/75 text-base md:text-lg mb-10 max-w-2xl mx-auto font-heading leading-relaxed">All levels welcome. No partner needed. Just turn up on Monday in Chiswick or Tuesday in Ealing — and let the music move you.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
+              <Link to="/start-here" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">New to Dance? Start Here →</Link>
+            </div>
+          </FadeInUp>
         </div>
       </section>
     </Layout>
