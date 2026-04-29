@@ -444,8 +444,7 @@ const Index = () => {
 
       {/* SECTION 11 — BLOG PREVIEW */}
       <section className="section-padding section-warm">
-        <div class
-Name="container-main max-w-6xl">
+        <div className="container-main max-w-6xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Read · Watch · Learn</p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Learn Something New</h2>
