@@ -448,6 +448,40 @@ const ProductTemplate = () => {
           </div>
         </section>
       )}
+
+      {/* Product FAQ — Wix: replace with Wix FAQ app bound to per-product Q&A field, or keep static block */}
+      {/* <!-- WIX: Bind to product.faqs (custom field) OR re-use shared FAQ collection filtered by category --> */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-3xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3 inline-flex items-center justify-center gap-2 w-full">
+              <HelpCircle size={12} /> Before You Order
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">Product FAQs</h2>
+            <p className="text-muted-foreground text-center text-base mb-10 font-heading">Sizing, delivery, returns, and how to enquire — answered for the {product.name}.</p>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <Accordion type="multiple" className="mb-8">
+              {productFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`pfaq-${i}`}>
+                  <AccordionTrigger className="font-heading font-semibold text-left text-base">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            <div className="text-center">
+              <a
+                href={buildWhatsAppLink(product.name, selectedSize)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary font-heading font-semibold hover:underline text-sm"
+              >
+                <MessageCircle size={14} /> Still unsure? Ask Melitta on WhatsApp →
+              </a>
+            </div>
+          </FadeInUp>
+        </div>
+      </section>
     </Layout>
   );
 };
