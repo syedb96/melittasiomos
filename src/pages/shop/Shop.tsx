@@ -37,6 +37,7 @@ const categories = [
 const sizes = ["XS", "S", "M", "L", "XL", "XXL", "One Size"] as const;
 
 interface Product {
+  slug: string;
   name: string;
   price: string;
   priceValue: number;
@@ -47,14 +48,14 @@ interface Product {
 }
 
 const featured: Product[] = [
-  { name: "Pura Nights Crop Top — Champagne", price: "£28", priceValue: 28, category: "Dancewear", catSlug: "dancewear", tag: "Best Seller", sizes: ["XS","S","M","L","XL"] },
-  { name: "Salsa Practice Tee — Charcoal", price: "£22", priceValue: 22, category: "Training Tops", catSlug: "training-tops", tag: "New", sizes: ["XS","S","M","L","XL","XXL"] },
-  { name: "Bachata Hoodie — Cream", price: "£48", priceValue: 48, category: "Hoodies & Layers", catSlug: "hoodies-layers", tag: null, sizes: ["S","M","L","XL","XXL"] },
-  { name: "Pura Ladies Warm-Up Jacket", price: "£62", priceValue: 62, category: "Pura Ladies Teamwear", catSlug: "teamwear", tag: "Members", sizes: ["XS","S","M","L"] },
-  { name: "Tote — 'Dance Like You Mean It'", price: "£14", priceValue: 14, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
-  { name: "Stainless Steel Water Bottle", price: "£18", priceValue: 18, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
-  { name: "Ladies Styling Wrap Top", price: "£32", priceValue: 32, category: "Dancewear", catSlug: "dancewear", tag: "New", sizes: ["XS","S","M","L"] },
-  { name: "Founders Tee — Limited", price: "£26", priceValue: 26, category: "Training Tops", catSlug: "training-tops", tag: "Limited", sizes: ["S","M","L","XL"] },
+  { slug: "pura-nights-crop-top-champagne", name: "Pura Nights Crop Top — Champagne", price: "£28", priceValue: 28, category: "Dancewear", catSlug: "dancewear", tag: "Best Seller", sizes: ["XS","S","M","L","XL"] },
+  { slug: "salsa-practice-tee-charcoal", name: "Salsa Practice Tee — Charcoal", price: "£22", priceValue: 22, category: "Training Tops", catSlug: "training-tops", tag: "New", sizes: ["XS","S","M","L","XL","XXL"] },
+  { slug: "bachata-hoodie-cream", name: "Bachata Hoodie — Cream", price: "£48", priceValue: 48, category: "Hoodies & Layers", catSlug: "hoodies-layers", tag: null, sizes: ["S","M","L","XL","XXL"] },
+  { slug: "pura-ladies-warm-up-jacket", name: "Pura Ladies Warm-Up Jacket", price: "£62", priceValue: 62, category: "Pura Ladies Teamwear", catSlug: "teamwear", tag: "Members", sizes: ["XS","S","M","L"] },
+  { slug: "tote-dance-like-you-mean-it", name: "Tote — 'Dance Like You Mean It'", price: "£14", priceValue: 14, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
+  { slug: "stainless-steel-water-bottle", name: "Stainless Steel Water Bottle", price: "£18", priceValue: 18, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
+  { slug: "ladies-styling-wrap-top", name: "Ladies Styling Wrap Top", price: "£32", priceValue: 32, category: "Dancewear", catSlug: "dancewear", tag: "New", sizes: ["XS","S","M","L"] },
+  { slug: "founders-tee-limited", name: "Founders Tee — Limited", price: "£26", priceValue: 26, category: "Training Tops", catSlug: "training-tops", tag: "Limited", sizes: ["S","M","L","XL"] },
 ];
 
 // JSON-LD: ItemList of Products + FAQPage in one @graph
