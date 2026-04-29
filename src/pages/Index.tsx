@@ -131,9 +131,6 @@ const Index = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex justify-center">
             <LiveStudentCounter target={500} label="dancers in West London" />
           </motion.div>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="text-primary-foreground/50 text-xs mt-4 font-heading">
-            ⭐⭐⭐⭐⭐ 5.0 Google Rating · 500+ Students · 15+ Years Teaching
-          </motion.p>
         </div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.5 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-gentle text-primary/60">
           <ArrowDown size={28} />
@@ -212,7 +209,7 @@ const Index = () => {
               { img: socialImg, emoji: "🎶", title: "PURA NIGHTS", sub: "Weekly Classes", desc: "Salsa & Bachata every Monday & Tuesday. 3 levels. All welcome.", link: "/pura-nights", cta: "Find Out More →" },
               { img: puraLadiesImg, emoji: "👗", title: "PURA LADIES", sub: "Performance Team", desc: "7 international teams. London, Plymouth, Munich, Lisbon.", link: "/pura-ladies", cta: "Join Pura Ladies →" },
               { img: weddingImg, emoji: "💑", title: "WEDDING DANCE", sub: "First Dance Specialists", desc: "Melitta has choreographed dozens of unforgettable first dances.", link: "/wedding-dance", cta: "Book a Consultation →" },
-              { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-classes", cta: "Explore Online →" },
+              { img: melittaImg, emoji: "💻", title: "ONLINE CLASSES", sub: "Dance From Home", desc: "Live Zoom classes + HD drill videos. Learn at your own pace.", link: "/online-salsa-bachata-coaching", cta: "Explore Online →" },
             ].map((card, i) => (
               <StaggerItem key={i}>
                 <Link to={card.link} className="relative group block rounded-2xl overflow-hidden h-[420px] card-hover">
@@ -524,7 +521,7 @@ const Index = () => {
             ))}
           </StaggerContainer>
           <FadeInUp delay={0.2} className="text-center mt-6">
-            <Link to="/proof-centre" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">See All Reviews & Awards <ChevronRight size={14} /></Link>
+            <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">See All Reviews & Awards <ChevronRight size={14} /></Link>
           </FadeInUp>
         </div>
       </section>
