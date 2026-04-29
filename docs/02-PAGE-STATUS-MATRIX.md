@@ -4,6 +4,7 @@ Updated 2026-04-27. Principle: nav sells, footer catalogues, weak/duplicate page
 
 ## ADDED THIS PASS
 - `/shop`, `/size-guide`, `/shipping-returns`, `/lookbook` — Wix Stores-ready shell (noindex until launch). Linked from footer (Services column) only — not in top nav.
+- `/shop/:slug` — Wix Stores-ready **single product page template** with gallery, size selector, details, styling notes, related products, JSON-LD Product schema, and dynamic WhatsApp CTA. Demo catalog of 8 products; replace with Wix Stores collection on migration.
 - `docs/11-SEO-PAGE-MATRIX.md` — full per-page meta/H1/schema/index matrix.
 
 ## REMOVED / DELETED
