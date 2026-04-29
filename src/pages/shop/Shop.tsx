@@ -37,6 +37,7 @@ const categories = [
 const sizes = ["XS", "S", "M", "L", "XL", "XXL", "One Size"] as const;
 
 interface Product {
+  slug: string;
   name: string;
   price: string;
   priceValue: number;
@@ -47,14 +48,14 @@ interface Product {
 }
 
 const featured: Product[] = [
-  { name: "Pura Nights Crop Top — Champagne", price: "£28", priceValue: 28, category: "Dancewear", catSlug: "dancewear", tag: "Best Seller", sizes: ["XS","S","M","L","XL"] },
-  { name: "Salsa Practice Tee — Charcoal", price: "£22", priceValue: 22, category: "Training Tops", catSlug: "training-tops", tag: "New", sizes: ["XS","S","M","L","XL","XXL"] },
-  { name: "Bachata Hoodie — Cream", price: "£48", priceValue: 48, category: "Hoodies & Layers", catSlug: "hoodies-layers", tag: null, sizes: ["S","M","L","XL","XXL"] },
-  { name: "Pura Ladies Warm-Up Jacket", price: "£62", priceValue: 62, category: "Pura Ladies Teamwear", catSlug: "teamwear", tag: "Members", sizes: ["XS","S","M","L"] },
-  { name: "Tote — 'Dance Like You Mean It'", price: "£14", priceValue: 14, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
-  { name: "Stainless Steel Water Bottle", price: "£18", priceValue: 18, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
-  { name: "Ladies Styling Wrap Top", price: "£32", priceValue: 32, category: "Dancewear", catSlug: "dancewear", tag: "New", sizes: ["XS","S","M","L"] },
-  { name: "Founders Tee — Limited", price: "£26", priceValue: 26, category: "Training Tops", catSlug: "training-tops", tag: "Limited", sizes: ["S","M","L","XL"] },
+  { slug: "pura-nights-crop-top-champagne", name: "Pura Nights Crop Top — Champagne", price: "£28", priceValue: 28, category: "Dancewear", catSlug: "dancewear", tag: "Best Seller", sizes: ["XS","S","M","L","XL"] },
+  { slug: "salsa-practice-tee-charcoal", name: "Salsa Practice Tee — Charcoal", price: "£22", priceValue: 22, category: "Training Tops", catSlug: "training-tops", tag: "New", sizes: ["XS","S","M","L","XL","XXL"] },
+  { slug: "bachata-hoodie-cream", name: "Bachata Hoodie — Cream", price: "£48", priceValue: 48, category: "Hoodies & Layers", catSlug: "hoodies-layers", tag: null, sizes: ["S","M","L","XL","XXL"] },
+  { slug: "pura-ladies-warm-up-jacket", name: "Pura Ladies Warm-Up Jacket", price: "£62", priceValue: 62, category: "Pura Ladies Teamwear", catSlug: "teamwear", tag: "Members", sizes: ["XS","S","M","L"] },
+  { slug: "tote-dance-like-you-mean-it", name: "Tote — 'Dance Like You Mean It'", price: "£14", priceValue: 14, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
+  { slug: "stainless-steel-water-bottle", name: "Stainless Steel Water Bottle", price: "£18", priceValue: 18, category: "Accessories", catSlug: "accessories", tag: null, sizes: ["One Size"] },
+  { slug: "ladies-styling-wrap-top", name: "Ladies Styling Wrap Top", price: "£32", priceValue: 32, category: "Dancewear", catSlug: "dancewear", tag: "New", sizes: ["XS","S","M","L"] },
+  { slug: "founders-tee-limited", name: "Founders Tee — Limited", price: "£26", priceValue: 26, category: "Training Tops", catSlug: "training-tops", tag: "Limited", sizes: ["S","M","L","XL"] },
 ];
 
 // JSON-LD: ItemList of Products + FAQPage in one @graph
@@ -205,18 +206,20 @@ const Shop = () => {
                 <StaggerItem key={i}>
                   {/* <!-- WIX: Replace with Wix Stores Product Card. Bind WhatsApp link to {product.name} + selected option --> */}
                   <article className="bg-card rounded-2xl overflow-hidden card-hover h-full flex flex-col border border-border" itemScope itemType="https://schema.org/Product">
-                    <div className="relative aspect-[4/5] bg-charcoal overflow-hidden">
+                    <Link to={`/shop/${p.slug}`} className="relative aspect-[4/5] bg-charcoal overflow-hidden block group" aria-label={`View ${p.name}`}>
                       <div className="absolute inset-0" style={{ background: 'radial-gradient(120% 80% at 50% 0%, hsl(43 48% 54% / 0.18), transparent 60%), linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 6%))' }} />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary-foreground/40">Product image</span>
+                        <span className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary-foreground/40 group-hover:text-primary transition-colors">View product</span>
                       </div>
                       {p.tag && (
                         <span className="absolute top-3 left-3 bg-primary text-charcoal text-[9px] font-heading font-bold px-2 py-0.5 rounded-full">{p.tag}</span>
                       )}
-                    </div>
+                    </Link>
                     <div className="p-5 flex-1 flex flex-col">
                       <p className="text-[10px] font-accent uppercase tracking-wider text-muted-foreground mb-1" itemProp="category">{p.category}</p>
-                      <h3 className="font-heading font-semibold text-sm mb-2 flex-1" itemProp="name">{p.name}</h3>
+                      <h3 className="font-heading font-semibold text-sm mb-2 flex-1" itemProp="name">
+                        <Link to={`/shop/${p.slug}`} className="hover:text-primary transition-colors">{p.name}</Link>
+                      </h3>
                       <div className="flex items-center justify-between mb-3">
                         <p className="font-display text-lg font-bold text-primary" itemProp="offers" itemScope itemType="https://schema.org/Offer">
                           <meta itemProp="priceCurrency" content="GBP" />
