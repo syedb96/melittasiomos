@@ -425,13 +425,14 @@ const Index = () => {
 
       {/* SECTION 10 — WEDDING DANCE TEASER */}
       <section className="section-padding section-dark">
-        <div className="container-main max-w-4xl text-center">
+        <div className="container-main max-w-5xl text-center">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Planning Your Wedding First Dance?</h2>
-            <p className="text-primary-foreground/70 max-w-2xl mx-auto mb-8 leading-relaxed">Melitta has choreographed dozens of unforgettable first dances — from simple and heartfelt to show-stopping and theatrical. Whatever your vision, she'll make it happen.</p>
-            <blockquote className="border-l-4 border-primary pl-6 text-left max-w-xl mx-auto mb-8">
-              <p className="text-primary-foreground/80 italic leading-relaxed">"Melitta choreographed our wedding dance. Our guests loved our performance and we will never forget that moment."</p>
-              <cite className="text-primary text-sm font-heading not-italic mt-2 block">— Sofia & Patrizio, Wedding 2022</cite>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-4">Wedding Dance Made Easy</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">Planning Your Wedding First Dance?</h2>
+            <p className="text-primary-foreground/75 text-base md:text-lg max-w-3xl mx-auto mb-12 leading-relaxed font-heading">Melitta has choreographed dozens of unforgettable first dances — from simple and heartfelt to show-stopping and theatrical. Whatever your vision, she'll make it happen.</p>
+            <blockquote className="border-l-4 border-primary pl-8 text-left max-w-2xl mx-auto mb-12">
+              <p className="text-primary-foreground/85 italic leading-relaxed text-lg md:text-xl font-display">"Melitta choreographed our wedding dance. Our guests loved our performance and we will never forget that moment."</p>
+              <cite className="text-primary text-sm font-heading not-italic mt-3 block tracking-wide">— Sofia & Patrizio, Wedding 2022</cite>
             </blockquote>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/wedding-dance" className="btn-cta-primary text-sm">Explore Wedding Dance →</Link>
@@ -443,10 +444,12 @@ const Index = () => {
 
       {/* SECTION 11 — BLOG PREVIEW */}
       <section className="section-padding section-warm">
-        <div className="container-main">
+        <div class
+Name="container-main max-w-6xl">
           <FadeInUp>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-3">Learn Something New</h2>
-            <p className="text-muted-foreground text-center text-sm mb-10 font-heading">Guides, tips, and stories from the Pura Nights dancefloor</p>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Read · Watch · Learn</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Learn Something New</h2>
+            <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-2xl mx-auto">Guides, tips, and stories from the Pura Nights dancefloor — written by Melitta and the team.</p>
           </FadeInUp>
 
           {/* Featured Pillar Guide Card */}
