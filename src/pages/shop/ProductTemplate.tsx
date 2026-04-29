@@ -194,26 +194,64 @@ const ProductTemplate = () => {
   const product = catalog[slug];
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
-  // JSON-LD Product schema (noindex during soft launch but ready for go-live)
+  // Product FAQs (rendered + emitted as FAQPage JSON-LD alongside Product schema)
+  const productFaqs = useMemo(() => {
+    if (!product) return [];
+    const isPersonalised = product.catSlug === "teamwear";
+    return [
+      {
+        q: "What size should I order?",
+        a: `For the ${product.name}, we recommend ${product.catSlug === "hoodies-layers" || product.catSlug === "training-tops" ? "your usual size for a relaxed fit, or size down for fitted" : "your usual UK size — between sizes? Size down for fitted dancewear"}. Full measurements are on the size guide. If in doubt, WhatsApp Melitta with your bust/chest measurement and she'll recommend.`,
+      },
+      {
+        q: "How long does delivery take?",
+        a: "UK standard shipping is 3–5 working days (£3.50). Tracked 24h is £5.95. Free over £60. Class collection in Chiswick (Mon) or Ealing (Tue) is free — choose at checkout and pick up in person.",
+      },
+      {
+        q: "Can I return or exchange this item?",
+        a: isPersonalised
+          ? "Personalised Pura Ladies teamwear is final sale and cannot be returned or exchanged once production starts. Please double-check sizing before you order — WhatsApp Melitta if unsure."
+          : "Yes — 14-day returns on unworn items with original tags. Free in-person exchanges at any Monday or Tuesday class. See the full policy at /shipping-returns.",
+      },
+      {
+        q: "How do I enquire on WhatsApp?",
+        a: `Tap the WhatsApp button above — it pre-fills your message with the product name and selected size, so Melitta can confirm stock and answer sizing questions in minutes. Direct line: 07449 482343.`,
+      },
+    ];
+  }, [product]);
+
+  // JSON-LD Product schema + FAQPage in one @graph
   const productSchema = useMemo(() => {
     if (!product) return undefined;
     return {
       "@context": "https://schema.org",
-      "@type": "Product",
-      name: product.name,
-      category: product.category,
-      description: product.shortDesc,
-      brand: { "@type": "Brand", name: "Pura Nights" },
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "GBP",
-        price: product.priceValue.toFixed(2),
-        availability: "https://schema.org/PreOrder",
-        url: `https://www.puranights.com/shop/${slug}`,
-        seller: { "@type": "Organization", name: "Pura Nights" },
-      },
+      "@graph": [
+        {
+          "@type": "Product",
+          name: product.name,
+          category: product.category,
+          description: product.shortDesc,
+          brand: { "@type": "Brand", name: "Pura Nights" },
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "GBP",
+            price: product.priceValue.toFixed(2),
+            availability: "https://schema.org/PreOrder",
+            url: `https://www.puranights.com/shop/${slug}`,
+            seller: { "@type": "Organization", name: "Pura Nights" },
+          },
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: productFaqs.map(f => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ],
     };
-  }, [product, slug]);
+  }, [product, slug, productFaqs]);
 
   if (!product) {
     return (
