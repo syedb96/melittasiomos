@@ -5,17 +5,8 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: "Pura Nights Dance Classes Chiswick",
-  description: "Weekly salsa and bachata dance classes every Monday at The George IV, Chiswick. All levels welcome.",
-  startDate: "2026-01-05T19:30",
-  eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
-  location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
-  organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
-};
+// NOTE: Event JSON-LD removed — recurring weekly class page, not a single-event page.
+// Falls back to global DanceSchool/LocalBusiness schema. See docs/09-REDIRECT-AND-CLEANUP-PLAN.md.
 
 const nearby = [
   "Turnham Green", "Bedford Park", "Gunnersbury", "Strand on the Green", "Grove Park", "Acton Green", "Brentford", "Kew Bridge"
@@ -35,7 +26,6 @@ const DanceClassesChiswick = () => (
       title="Dance Classes Chiswick | Salsa & Bachata Every Monday"
       description="Join Salsa and Bachata dance classes every Monday in Chiswick at The George IV. Beginner to intermediate levels, no partner needed. From £5 per class."
       path="/dance-classes-chiswick"
-      schema={schema}
     />
 
     <section className="bg-charcoal text-primary-foreground section-padding">

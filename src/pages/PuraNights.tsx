@@ -24,23 +24,11 @@ const PuraNights = () => (
       title="Pura Nights | Salsa & Bachata Classes Chiswick & Ealing | Every Monday & Tuesday"
       description="Pura Nights by Melitta Siomos — London's best weekly Salsa & Bachata classes in Chiswick (Mondays) and Ealing (Tuesdays). All levels welcome, no partner needed. From £10."
       path="/pura-nights"
-      schema={{
-        "@context": "https://schema.org",
-        "@type": "Event",
-        name: "Pura Nights Weekly Salsa & Bachata Classes",
-        description: "Weekly salsa and bachata classes in Chiswick and Ealing with award-winning instructor Melitta Siomos.",
-        eventSchedule: [
-          { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
-          { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Tuesday", startTime: "18:50", endTime: "23:00" },
-        ],
-        location: [
-          { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
-          { "@type": "Place", name: "Drayton Court Hotel", address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", postalCode: "W13 8PH", addressCountry: "GB" } },
-        ],
-        organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-        offers: { "@type": "Offer", price: "10", priceCurrency: "GBP", availability: "https://schema.org/InStock" },
-      }}
     />
+    {/* NOTE: Event JSON-LD intentionally removed. /pura-nights describes recurring weekly
+        classes across two venues — Google's Event rich result is intended for single-event
+        pages with a unique URL and ISO-8601 startDate. Keep Event schema only on
+        /events or specific event-instance pages. Falls back to global DanceSchool schema. */}
 
     {/* Hero */}
     <section className="relative h-80 md:h-[28rem] overflow-hidden">
