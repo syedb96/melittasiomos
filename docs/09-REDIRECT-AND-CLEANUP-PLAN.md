@@ -108,3 +108,22 @@ For each page in Wix Editor:
 - [ ] Schema markup added (via Wix SEO patterns or custom code)
 - [ ] H1 contains primary keyword
 - [ ] Index/noindex set correctly
+
+---
+
+## Sitemap & Indexing Governance (added v9.2)
+
+**Canonical host: `https://www.puranights.com` (www).**
+- All sitemap `<loc>` entries, `rel=canonical` tags, internal links, and OG URLs MUST use the `www` subdomain.
+- Apex `puranights.com` MUST 301-redirect to `www.puranights.com` at the host/DNS level (configure in Wix domain settings on migration).
+- Never mix www and apex across sitemap / canonical / internal-link signals — Google treats them as conflicting canonical hints.
+
+**Google Search Console submissions:**
+- Submit ONLY `https://www.puranights.com/sitemap.xml`.
+- Do NOT submit individual page URLs (e.g. `/about`, `/events`, `/prices`) as "sitemaps" — they are pages, not sitemap files. Delete any such legacy submissions in GSC → Sitemaps.
+- `robots.txt` already references the sitemap via `Sitemap: https://www.puranights.com/sitemap.xml`.
+
+**Event schema rule:**
+- `Event` JSON-LD is reserved for true single-event pages (a specific dated instance with its own URL).
+- Recurring weekly class/schedule pages (`/pura-nights`, `/schedule`, venue pages) MUST NOT emit `Event` schema — they fall back to the global `DanceSchool` / `LocalBusiness` schema.
+- Any future `Event` markup must include: `startDate` (ISO-8601), `endDate`, `location`, `organizer`, `offers.url`, `offers.price`, `offers.priceCurrency`, `offers.availability`, `image`, `eventStatus`.
