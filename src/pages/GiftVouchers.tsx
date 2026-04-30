@@ -1,88 +1,326 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Gift, Heart, Mail } from "lucide-react";
+import { Gift, Heart, Mail, MessageCircle, Sparkles, Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
-
-const amounts = [25, 50, 75, 100, 150, 200];
+import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
-   <!-- WIX SECTION: Hero — Full-width dark Strip -->
-   <!-- WIX SECTION: Amounts — Card grid (3-col) -->
-   <!-- WIX SECTION: How It Works — info Strip -->
-   <!-- WIX SECTION: FAQ — Wix FAQ app or Accordions -->
-   <!-- WIX: Gift voucher purchase via email link or Wix eCommerce -->
+   <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
+   <!-- WIX SECTION: Tier Grid — Repeater (3-col) of voucher tiers -->
+   <!-- WIX SECTION: How It Works — 4-step Strip -->
+   <!-- WIX SECTION: Best For — use-case cards -->
+   <!-- WIX SECTION: FAQ — Wix FAQ app, FAQPage JSON-LD via Custom Code -->
+   <!-- WIX SECTION: Final CTA — WhatsApp + Email pair -->
+   <!-- WIX: Wire each tier "Buy" button to mailto OR Wix eCommerce voucher product when live -->
 */
-const GiftVouchers = () => (
-  <Layout>
-    <SeoHead
-      title="Dance Gift Vouchers London | eGift Cards | Pura Nights by Melitta Siomos"
-      description="Give the gift of dance! Buy an eGift Card for Salsa & Bachata classes with Melitta Siomos in London. Choose your amount, personalise your message, deliver instantly."
-      path="/gift-vouchers"
-    />
 
-    <section className="bg-charcoal text-primary-foreground section-padding">
-      <div className="container-main text-center max-w-3xl">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Give the Gift of Dance 🎁</h1>
-        <p className="text-primary-foreground/80 text-lg mb-8">You can't go wrong with a Pura Nights Gift Card! Perfect for birthdays, anniversaries, Christmas, or just because. Choose an amount and let Melitta personalise your message.</p>
-      </div>
-    </section>
+const PHONE = "447449482343";
+const EMAIL = "siomosmelitta@gmail.com";
 
-    <section className="section-padding section-warm">
-      <div className="container-main max-w-4xl">
-        <h2 className="font-display text-3xl font-bold text-center mb-12">Choose Your Gift Card Amount</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {amounts.map((amount) => (
-            <div key={amount} className="bg-card rounded-lg p-8 card-hover text-center border border-border hover:border-primary transition-colors">
-              <Gift size={32} className="text-primary mx-auto mb-4" />
-              <p className="font-display text-3xl font-bold mb-2">£{amount}</p>
-              <p className="text-muted-foreground text-sm mb-4">Gift Voucher</p>
-              <a href="mailto:siomosmelitta@gmail.com?subject=Gift%20Voucher%20Request%20-%20%C2%A3{amount}" className="btn-cta-primary text-xs py-2 px-6">Buy Now</a>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 bg-card rounded-lg p-8 text-center max-w-2xl mx-auto">
-          <Heart size={28} className="text-primary mx-auto mb-4" />
-          <h3 className="font-display text-xl font-bold mb-3">How Gift Vouchers Work</h3>
-          <div className="text-muted-foreground text-sm space-y-2">
-            <p>1. Choose your amount and email Melitta to purchase</p>
-            <p>2. Personalise with a message for the recipient</p>
-            <p>3. Receive your beautifully designed eGift card by email</p>
-            <p>4. The recipient can use it towards any Pura Nights class, private lesson, or wedding dance package</p>
+interface Tier {
+  amount: number;
+  label: string;
+  bestFor: string;
+  perks: string[];
+  highlighted?: boolean;
+  badge?: string;
+}
+
+const tiers: Tier[] = [
+  {
+    amount: 25,
+    label: "Taster",
+    bestFor: "One drop-in class",
+    perks: ["1 group Salsa or Bachata class", "Use across Mon Chiswick or Tue Ealing", "Perfect Secret Santa or thank-you gift"],
+  },
+  {
+    amount: 50,
+    label: "Date Night",
+    bestFor: "Two classes for two people",
+    perks: ["2 group classes for 2 people", "Or 1 four-week beginner block for one", "Personalised eGift card"],
+  },
+  {
+    amount: 75,
+    label: "Beginner Block",
+    bestFor: "A full beginner journey",
+    perks: ["Full 4-week beginner course", "Salsa or Bachata, your choice", "Includes Latin Friday entry"],
+    highlighted: true,
+    badge: "Most popular",
+  },
+  {
+    amount: 100,
+    label: "Couple's Bundle",
+    bestFor: "A month of dancing for two",
+    perks: ["4-week beginner block × 2 people", "Or 1 private lesson for one", "Great anniversary or birthday gift"],
+  },
+  {
+    amount: 150,
+    label: "Private Lesson Pair",
+    bestFor: "Two private 1-to-1 sessions",
+    perks: ["2 × 60-min private lessons", "Choreography, technique or styling", "Wedding-dance prep available"],
+  },
+  {
+    amount: 200,
+    label: "First Dance",
+    bestFor: "Wedding-dance starter package",
+    perks: ["3 × 60-min private wedding lessons", "Song selection support included", "Choreography tailored to your music"],
+  },
+];
+
+const giftFaqs = [
+  {
+    q: "How is the gift voucher delivered?",
+    a: "As a beautifully designed eGift card by email, usually within 24 hours of purchase (often the same evening). Delivered directly to the recipient or to you to forward.",
+  },
+  {
+    q: "What can the voucher be used for?",
+    a: "Any Pura Nights group class, private 1-to-1 lesson, wedding-dance package, Latin Friday entry, or workshop. The recipient picks — vouchers are flexible across all our offerings.",
+  },
+  {
+    q: "Do gift vouchers expire?",
+    a: "Vouchers are valid for 12 months from the date of purchase. We'll send a friendly reminder a month before expiry.",
+  },
+  {
+    q: "Can I personalise the message?",
+    a: "Yes — when you email Melitta to purchase, just include the recipient's name and a short personal message. It will appear on the eGift card itself.",
+  },
+  {
+    q: "What if my recipient already dances elsewhere?",
+    a: "That's fine — they can still use the voucher towards Latin Friday, private lessons, wedding prep, or styling sessions. Most experienced dancers redeem against private coaching.",
+  },
+  {
+    q: "Can I top up an existing voucher amount?",
+    a: "Yes. Custom amounts above £200 (e.g. for full wedding-dance packages or longer private-lesson plans) are easy — just message Melitta on WhatsApp with the amount.",
+  },
+  {
+    q: "How do I pay?",
+    a: "Bank transfer or Stripe link emailed by Melitta. Once payment clears, the eGift card is sent to your chosen recipient. Wix Stores checkout will replace this flow at launch.",
+  },
+];
+
+const useCases = [
+  { icon: Heart, title: "Anniversary", copy: "Couples redeem against private wedding-style sessions or our Tuesday styling class." },
+  { icon: Sparkles, title: "Birthday", copy: "A grown-up gift that delivers a memory, not another candle." },
+  { icon: Gift, title: "Christmas", copy: "Pura Ladies and weekly classes are our December bestsellers — order by 22 Dec." },
+  { icon: Mail, title: "Thank You", copy: "Smaller £25–£50 vouchers are perfect for hosts, teachers and helpers." },
+];
+
+const buildMailto = (amount: number) => {
+  const subject = encodeURIComponent(`Gift Voucher — £${amount}`);
+  const body = encodeURIComponent(
+    `Hi Melitta,\n\nI'd like to buy a £${amount} Pura Nights gift voucher.\n\nRecipient name:\nMessage to include:\nDelivery date:\n\nThanks!`
+  );
+  return `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+};
+
+const buildWhatsAppLink = (amount: number) =>
+  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'd like to buy a £${amount} Pura Nights gift voucher. Can you send me the details?`)}`;
+
+const GiftVouchers = () => {
+  const schema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        name: "Pura Nights Dance Gift Voucher",
+        description: "eGift card for Salsa & Bachata classes, private lessons, wedding-dance coaching, and Latin Friday entry in West London.",
+        brand: { "@type": "Brand", name: "Pura Nights" },
+        category: "Gift Voucher",
+        offers: tiers.map(t => ({
+          "@type": "Offer",
+          name: `£${t.amount} ${t.label} Voucher`,
+          priceCurrency: "GBP",
+          price: t.amount.toFixed(2),
+          availability: "https://schema.org/InStock",
+          url: `https://www.puranights.com/gift-vouchers#tier-${t.amount}`,
+          seller: { "@type": "Organization", name: "Pura Nights" },
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: giftFaqs.map(f => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ],
+  }), []);
+
+  return (
+    <Layout>
+      <SeoHead
+        title="Dance Gift Vouchers London | eGift Cards | Pura Nights"
+        description="Give the gift of dance. Pura Nights eGift cards from £25 to £200 — Salsa, Bachata, private lessons, and wedding-dance packages in London. Delivered by email."
+        path="/gift-vouchers"
+        schema={schema}
+      />
+
+      {/* Hero */}
+      <section className="bg-charcoal text-primary-foreground section-padding">
+        <div className="container-main text-center max-w-3xl">
+          <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-4">Pura Nights Gift Card</p>
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-5 leading-tight">Give the Gift of Dance</h1>
+          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+            From a single class to a full wedding-dance package — Pura Nights eGift cards turn into evenings people remember. Personalised. Delivered by email. Valid for 12 months.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href="#tiers" className="btn-cta-primary">See voucher tiers</a>
+            <a href={buildWhatsAppLink(75)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-heading font-semibold">
+              <MessageCircle size={16} /> Ask Melitta
+            </a>
           </div>
-          <a href="mailto:siomosmelitta@gmail.com?subject=Gift%20Voucher%20Enquiry" className="inline-flex items-center gap-2 btn-cta-primary text-sm mt-6">
-            <Mail size={16} /> Email to Purchase
-          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="section-padding bg-card">
-      <div className="container-main max-w-3xl text-center">
-        <h2 className="font-display text-3xl font-bold mb-8">Gift Voucher FAQs</h2>
-        <div className="space-y-6 text-left">
-          {[
-            { q: "How is the gift voucher delivered?", a: "Gift vouchers are delivered as beautifully designed eGift cards via email. You can choose to have it sent directly to the recipient or to yourself." },
-            { q: "What can the voucher be used for?", a: "Vouchers can be redeemed against any Pura Nights group class, private 1-to-1 lesson, wedding dance package, or workshop." },
-            { q: "Do gift vouchers expire?", a: "Gift vouchers are valid for 12 months from the date of purchase." },
-          ].map((faq, i) => (
-            <div key={i} className="bg-background rounded-lg p-6">
-              <h3 className="font-heading font-bold mb-2">{faq.q}</h3>
-              <p className="text-muted-foreground text-sm">{faq.a}</p>
+      {/* Tiers */}
+      <section id="tiers" className="section-padding section-warm">
+        <div className="container-main max-w-6xl">
+          <FadeInUp className="text-center mb-12">
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">Choose An Amount</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Six tiers, one beautiful card</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto font-heading">Each tier maps to something specific in the studio — so the recipient knows exactly what they're getting.</p>
+          </FadeInUp>
+
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tiers.map(tier => (
+              <StaggerItem key={tier.amount}>
+                <div
+                  id={`tier-${tier.amount}`}
+                  className={`relative h-full flex flex-col rounded-2xl p-7 border transition-colors ${
+                    tier.highlighted ? "bg-charcoal text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"
+                  }`}
+                >
+                  {tier.badge && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-accent uppercase tracking-[0.2em] px-3 py-1 rounded-full">
+                      {tier.badge}
+                    </span>
+                  )}
+                  <Gift size={28} className={`mb-4 ${tier.highlighted ? "text-primary" : "text-primary"}`} />
+                  <p className={`font-accent text-[10px] uppercase tracking-[0.25em] mb-2 ${tier.highlighted ? "text-primary" : "text-primary"}`}>{tier.label}</p>
+                  <p className={`font-display text-4xl font-bold mb-1 ${tier.highlighted ? "text-primary-foreground" : ""}`}>£{tier.amount}</p>
+                  <p className={`text-sm font-heading mb-5 ${tier.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{tier.bestFor}</p>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {tier.perks.map((p, i) => (
+                      <li key={i} className={`flex gap-2 text-sm font-heading ${tier.highlighted ? "text-primary-foreground/85" : "text-foreground/80"}`}>
+                        <Check size={14} className="text-primary mt-1 shrink-0" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col gap-2">
+                    <a href={buildMailto(tier.amount)} className={`text-center px-5 py-3 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-colors ${
+                      tier.highlighted ? "bg-primary text-charcoal hover:bg-primary/90" : "bg-charcoal text-primary-foreground hover:bg-primary hover:text-charcoal"
+                    }`}>
+                      Buy by email
+                    </a>
+                    <a href={buildWhatsAppLink(tier.amount)} target="_blank" rel="noopener noreferrer" className={`text-center text-[11px] font-heading hover:underline ${tier.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                      or message on WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeInUp className="mt-10 text-center">
+            <p className="text-sm text-muted-foreground font-heading">
+              Need a custom amount above £200? <a href={buildWhatsAppLink(250)} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Message Melitta</a> — full wedding packages and Pura Ladies private blocks are easy to arrange.
+            </p>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* Best for / use cases */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-5xl">
+          <FadeInUp className="text-center mb-10">
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">Who It's For</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">A grown-up gift that lands</h2>
+          </FadeInUp>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {useCases.map(({ icon: Icon, title, copy }) => (
+              <div key={title} className="bg-card rounded-2xl p-6 text-center border border-border">
+                <Icon size={28} className="text-primary mx-auto mb-4" />
+                <h3 className="font-display text-lg font-bold mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground font-heading leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-4xl">
+          <FadeInUp className="text-center mb-10">
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">Simple Process</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">How it works</h2>
+          </FadeInUp>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { n: "1", t: "Pick an amount", d: "Choose a tier above or request a custom amount." },
+              { n: "2", t: "Email Melitta", d: "Send recipient name + your personal message." },
+              { n: "3", t: "Pay securely", d: "Bank transfer or Stripe link — same day." },
+              { n: "4", t: "Card delivered", d: "Beautifully designed eGift card in their inbox." },
+            ].map(s => (
+              <div key={s.n} className="bg-card rounded-2xl p-6 text-center">
+                <p className="font-display text-3xl font-bold text-primary mb-3">{s.n}</p>
+                <h3 className="font-heading font-semibold text-base mb-2">{s.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-3xl">
+          <FadeInUp className="text-center mb-10">
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">Before You Buy</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold">Gift Voucher FAQs</h2>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <Accordion type="multiple">
+              {giftFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`gv-${i}`}>
+                  <AccordionTrigger className="font-heading font-semibold text-left text-base">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeInUp>
+
+          <FadeInUp className="mt-12 text-center">
+            <div className="bg-charcoal rounded-2xl p-8">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-3">Ready to gift the dance floor?</h3>
+              <p className="text-primary-foreground/70 mb-6 font-heading text-sm">Email or WhatsApp Melitta — vouchers usually go out within 24 hours.</p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <a href={`mailto:${EMAIL}?subject=Gift%20Voucher%20Enquiry`} className="inline-flex items-center gap-2 btn-cta-primary text-sm">
+                  <Mail size={16} /> Email Melitta
+                </a>
+                <a href={buildWhatsAppLink(75)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-primary-foreground hover:bg-white/20 transition-colors text-sm font-heading font-semibold">
+                  <MessageCircle size={16} /> WhatsApp
+                </a>
+              </div>
             </div>
-          ))}
+          </FadeInUp>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <RelatedPages title="Related Pages" links={[
-      { to: "/pura-nights", label: "Weekly Classes", desc: "Salsa & Bachata every Mon & Tue" },
-      { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching sessions" },
-      { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
-      { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
-      { to: "/contact", label: "Contact Us", desc: "Get in touch with Melitta" },
-    ]} />
-  </Layout>
-);
+      <RelatedPages title="Related Pages" links={[
+        { to: "/pura-nights", label: "Weekly Classes", desc: "Salsa & Bachata every Mon & Tue" },
+        { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching sessions" },
+        { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
+        { to: "/prices", label: "Prices & Bundles", desc: "All pricing options" },
+        { to: "/contact", label: "Contact Us", desc: "Get in touch with Melitta" },
+      ]} />
+    </Layout>
+  );
+};
 
 export default GiftVouchers;

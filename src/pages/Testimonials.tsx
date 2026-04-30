@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import testimonials, { type Testimonial } from "@/data/testimonials";
 
 /* <!-- WIX PAGE: /testimonials -->
-   <!-- WIX: Use Repeater connected to Testimonials CMS collection -->
-   <!-- WIX: Filter by category using dataset filters -->
-   <!-- WIX SECTION: Hero — use Strip -->
-   <!-- WIX SECTION: Category Filter — use Tab element or custom buttons -->
-   <!-- WIX SECTION: Testimonial Grid — use Repeater with masonry layout -->
+   <!-- WIX SECTION: Hero — Strip with rating ticker -->
+   <!-- WIX SECTION: Category Filter — Tabs bound to dataset filter -->
+   <!-- WIX SECTION: Testimonial Grid — Repeater bound to Testimonials CMS, masonry layout -->
+   <!-- WIX SECTION: Proof FAQ — Wix FAQ app, mainEntity emitted as FAQPage JSON-LD via Custom Code -->
+   <!-- WIX SECTION: Leave a Review CTA — link to Google Maps review -->
 */
+
 const categories = [
   { key: "all", label: "All" },
   { key: "group", label: "Group Classes" },
@@ -20,6 +22,29 @@ const categories = [
   { key: "private", label: "Private Lessons" },
   { key: "pura-ladies", label: "Pura Ladies" },
   { key: "online", label: "Online" },
+];
+
+const proofFaqs = [
+  {
+    q: "Are these reviews real?",
+    a: "Yes. Every testimonial here is from a verified Pura Nights student, wedding dance couple, private-lesson client, or Pura Ladies team member. Google-marked quotes link directly to public reviews on our Google Business Profile.",
+  },
+  {
+    q: "How is Pura Nights rated on Google?",
+    a: "Pura Nights — Melitta Siomos Dance Academy holds a 5.0 rating across 47+ public Google reviews (and growing). The same 5.0 rating is reflected on the Wedding Dance Made Easy and Pura Ladies brand profiles.",
+  },
+  {
+    q: "Can I leave a review after my first class?",
+    a: "Yes — and it genuinely helps other West London dancers find us. After your first Monday Chiswick or Tuesday Ealing class, search 'Pura Nights Salsa Bachata London' on Google Maps and tap the star rating. It takes 30 seconds.",
+  },
+  {
+    q: "Do you have video testimonials?",
+    a: "Yes — short student and wedding couple videos sit on the homepage and on the Wedding Dance page. Full-length wedding stories live on YouTube @melittasiomos.",
+  },
+  {
+    q: "Where can I read wedding-specific reviews?",
+    a: "Filter the grid above by 'Wedding Dance', or visit the dedicated Wedding Dance page where every couple's story is paired with a photo and date.",
+  },
 ];
 
 const TestimonialCard = ({ t }: { t: Testimonial }) => {
@@ -44,15 +69,49 @@ const Testimonials = () => {
   const [filter, setFilter] = useState("all");
   const filtered = filter === "all" ? testimonials : testimonials.filter(t => t.category === filter);
 
+  // FAQ + Review @graph for centralised proof
+  const schema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        mainEntity: proofFaqs.map(f => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "Pura Nights Student Testimonials",
+        itemListElement: testimonials.slice(0, 20).map((t, i) => ({
+          "@type": "Review",
+          position: i + 1,
+          author: { "@type": "Person", name: t.name },
+          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+          reviewBody: t.quote,
+        })),
+      },
+    ],
+  }), []);
+
   return (
     <Layout>
-      <SeoHead title="Student Testimonials | 5-Star Reviews | Melitta Siomos Dance Academy" description="Read real reviews from Pura Nights students, wedding dance couples, and Pura Ladies members. 5-star Google rated Salsa & Bachata classes in London." path="/testimonials" />
+      <SeoHead
+        title="Student Testimonials | 5-Star Reviews | Pura Nights London"
+        description="Real reviews from Pura Nights students, wedding-dance couples, private-lesson clients, and Pura Ladies members. 5.0 Google rating across 47+ reviews."
+        path="/testimonials"
+        schema={schema}
+      />
 
       <section className="section-padding section-dark text-center">
         <FadeInUp>
           <div className="flex justify-center gap-0.5 mb-4">{[...Array(5)].map((_, i) => <Star key={i} size={24} className="fill-primary text-primary" />)}</div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">What Our Students Say</h1>
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-3">What Our Students Say</h1>
           <p className="text-peach font-heading">5.0 Google Rating · 47+ Reviews</p>
+          <p className="text-white/70 max-w-2xl mx-auto mt-4 text-sm leading-relaxed">
+            One place. Every brand. Verified reviews from Pura Nights group classes, Wedding Dance Made Easy couples, private-lesson students, and Pura Ladies team members.
+          </p>
         </FadeInUp>
       </section>
 
@@ -71,16 +130,38 @@ const Testimonials = () => {
               <StaggerItem key={i}><TestimonialCard t={t} /></StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
 
-          <FadeInUp className="mt-16 text-center">
+      {/* Proof FAQ — emitted as FAQPage JSON-LD above */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-3xl">
+          <FadeInUp className="text-center mb-10">
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">About These Reviews</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Proof, answered</h2>
+            <p className="text-muted-foreground font-heading">The most-asked questions about how we collect and verify reviews.</p>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <Accordion type="multiple">
+              {proofFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`pf-${i}`}>
+                  <AccordionTrigger className="font-heading font-semibold text-left text-base">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeInUp>
+
+          <FadeInUp className="mt-12 text-center">
             <div className="bg-primary rounded-2xl p-8">
               <h2 className="font-display text-2xl font-bold text-primary-foreground mb-3">Love Your Experience?</h2>
-              <p className="text-primary-foreground/80 mb-5 font-heading text-sm">Help other dancers discover Pura Nights by leaving a review</p>
+              <p className="text-primary-foreground/80 mb-5 font-heading text-sm">Help other dancers discover Pura Nights by leaving a review.</p>
               <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Leave a Google Review ⭐</a>
             </div>
           </FadeInUp>
         </div>
       </section>
+
       <RelatedPages title="Explore" links={[
         { to: "/pura-nights", label: "Weekly Classes", desc: "Join Salsa & Bachata" },
         { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
