@@ -7,17 +7,8 @@ import LastUpdated from "@/components/LastUpdated";
 import { FadeInUp } from "@/components/animations";
 import heroImg from "@/assets/bachata-close.jpg";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: "Bachata Classes Chiswick — Pura Nights",
-  description: "Weekly bachata classes every Monday at The George IV, Chiswick. All levels welcome.",
-  startDate: "2026-01-05T19:30",
-  eventSchedule: { "@type": "Schedule", repeatFrequency: "P1W", byDay: "Monday", startTime: "19:30", endTime: "23:00" },
-  location: { "@type": "Place", name: "The George IV", address: { "@type": "PostalAddress", streetAddress: "185 Chiswick High Rd", addressLocality: "Chiswick", postalCode: "W4 2DR", addressCountry: "GB" } },
-  organizer: { "@type": "Organization", name: "Melitta Siomos Dance Academy" },
-  offers: { "@type": "Offer", price: "5", priceCurrency: "GBP", description: "From £5 (social only) to £15 (2 classes + social)" },
-};
+// NOTE: Event JSON-LD removed — recurring weekly class page, not a single-event page.
+// Falls back to global DanceSchool/LocalBusiness schema. See docs/09-REDIRECT-AND-CLEANUP-PLAN.md.
 
 /* <!-- WIX PAGE: bachata-classes-chiswick -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -29,7 +20,7 @@ const schema = {
 */
 const BachataClassesChiswick = () => (
   <Layout>
-    <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" schema={schema} dateModified="2026-04-14" />
+    <SeoHead title="Bachata Classes Chiswick | Every Monday | Pura Nights" description="Join Bachata classes in Chiswick every Monday at The George IV. All levels welcome, no partner needed. From £10. Taught by Melitta Siomos." path="/bachata-classes-chiswick" dateModified="2026-04-14" />
     <section className="relative bg-charcoal text-primary-foreground section-padding overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroImg} alt="Bachata dancing at Chiswick" className="w-full h-full object-cover opacity-20" />
