@@ -418,6 +418,42 @@ const ProductTemplate = () => {
         </div>
       </section>
 
+      {/* Cross-links strip — drives navigation + internal SEO between shop pillars */}
+      <section className="py-12 section-warm border-t border-border">
+        <div className="container-main max-w-6xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link to="/size-guide" className="group flex items-start gap-3 p-5 bg-card rounded-2xl border border-border hover:border-primary transition-colors">
+              <Ruler size={20} className="text-primary mt-0.5 shrink-0" />
+              <div>
+                <p className="font-heading font-semibold text-sm group-hover:text-primary transition-colors">Size guide</p>
+                <p className="text-xs text-muted-foreground mt-1">Verified measurements for every fit.</p>
+              </div>
+            </Link>
+            <Link to="/shipping-returns" className="group flex items-start gap-3 p-5 bg-card rounded-2xl border border-border hover:border-primary transition-colors">
+              <Truck size={20} className="text-primary mt-0.5 shrink-0" />
+              <div>
+                <p className="font-heading font-semibold text-sm group-hover:text-primary transition-colors">Shipping & returns</p>
+                <p className="text-xs text-muted-foreground mt-1">UK from £3.50 · 14-day returns.</p>
+              </div>
+            </Link>
+            <Link to={`/lookbook/${product.catSlug}`} className="group flex items-start gap-3 p-5 bg-card rounded-2xl border border-border hover:border-primary transition-colors">
+              <span className="font-accent text-[10px] tracking-[0.25em] text-primary mt-1 shrink-0">LOOK</span>
+              <div>
+                <p className="font-heading font-semibold text-sm group-hover:text-primary transition-colors">{product.category} lookbook</p>
+                <p className="text-xs text-muted-foreground mt-1">See it on the dancefloor.</p>
+              </div>
+            </Link>
+            <Link to="/shop" className="group flex items-start gap-3 p-5 bg-card rounded-2xl border border-border hover:border-primary transition-colors">
+              <ArrowLeft size={20} className="text-primary mt-0.5 shrink-0" />
+              <div>
+                <p className="font-heading font-semibold text-sm group-hover:text-primary transition-colors">Browse all products</p>
+                <p className="text-xs text-muted-foreground mt-1">The full Pura Nights collection.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Related products — Wix: replace with Wix Stores "You might also like" widget */}
       {product.related.length > 0 && (
         <section className="section-padding section-dark" data-wix-widget="stores-related-products">
