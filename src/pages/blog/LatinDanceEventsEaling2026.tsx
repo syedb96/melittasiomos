@@ -4,6 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
+import NextEventCallout from "@/components/NextEventCallout";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
 
@@ -33,6 +34,7 @@ const LatinDanceEventsEaling2026 = () => (
       <section className="section-padding section-warm">
         <div className="container-main max-w-3xl prose-custom">
           <AuthorCard />
+          <NextEventCallout context="Next Ealing Latin Friday" />
           <FadeInUp>
             <h2 className="font-display text-2xl font-bold mt-10 mb-4">The Latin Dance Scene in Ealing</h2>
             <p className="text-muted-foreground mb-4">Ealing has established itself as one of West London's premier destinations for Latin dance. The Drayton Court Hotel, a stunning Edwardian building on The Avenue in West Ealing, serves as the home base for <Link to="/pura-nights" className="text-primary hover:underline">Pura Nights</Link> Tuesday classes and the monthly Latin Friday events that have become legendary in London's dance community.</p>
