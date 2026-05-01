@@ -33,7 +33,8 @@ const RECURRING_PAGES = [
 ];
 
 // ---------- Sitemap routes (single source of truth) ----------
-import { upcomingEvents } from "../src/data/events";
+import { upcomingEvents, buildEventSchema } from "../src/data/events";
+import { existsSync } from "fs";
 
 const STATIC_ROUTES: { path: string; priority?: number; changefreq?: string }[] = [
   { path: "/", priority: 1.0, changefreq: "weekly" },
@@ -115,13 +116,61 @@ function check() {
     }
   }
 
-  // Validate every single-event entry has required schema fields.
+  // Validate every single-event entry — schema fields, Offer hygiene, OG image, status rules.
+  const ALLOWED_AVAIL = new Set([
+    "https://schema.org/InStock",
+    "https://schema.org/SoldOut",
+    "https://schema.org/PreOrder",
+    "https://schema.org/Discontinued",
+    "https://schema.org/LimitedAvailability",
+  ]);
+  const ALLOWED_CONDITION = new Set([
+    "https://schema.org/NewCondition",
+    "https://schema.org/UsedCondition",
+    "https://schema.org/RefurbishedCondition",
+    "https://schema.org/DamagedCondition",
+  ]);
+  const ALLOWED_STATUS = new Set([
+    "EventScheduled", "EventPostponed", "EventCancelled", "EventRescheduled",
+  ]);
+
   for (const ev of upcomingEvents) {
-    if (!ev.startDate || !ev.endDate) {
-      errors.push(`[EVENT-DATA] ${ev.slug} missing startDate/endDate.`);
+    const tag = `[EVENT-DATA:${ev.slug}]`;
+    if (!ev.startDate || !ev.endDate) errors.push(`${tag} missing startDate/endDate.`);
+    const isoRe = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/;
+    if (!isoRe.test(ev.startDate)) errors.push(`${tag} startDate not ISO-8601 with offset: ${ev.startDate}`);
+    if (!isoRe.test(ev.endDate)) errors.push(`${tag} endDate not ISO-8601 with offset: ${ev.endDate}`);
+    if (new Date(ev.endDate) <= new Date(ev.startDate)) errors.push(`${tag} endDate must be after startDate.`);
+    if (!ALLOWED_STATUS.has(ev.status)) errors.push(`${tag} invalid status: ${ev.status}`);
+
+    // previousStartDate required when Postponed/Rescheduled.
+    if ((ev.status === "EventPostponed" || ev.status === "EventRescheduled") && !ev.previousStartDate) {
+      errors.push(`${tag} status=${ev.status} requires previousStartDate.`);
     }
-    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(ev.startDate)) {
-      errors.push(`[EVENT-DATA] ${ev.slug} startDate not ISO-8601 with offset: ${ev.startDate}`);
+
+    // Per-event OG image must exist on disk (under public/og/events/).
+    const ogPath = join(ROOT, "public/og/events", `${ev.slug}.jpg`);
+    if (!existsSync(ogPath)) {
+      warnings.push(`[OG-IMAGE] ${ev.slug}: missing per-event OG card at public/og/events/${ev.slug}.jpg`);
+    }
+
+    // Validate the produced JSON-LD object directly.
+    const schema = buildEventSchema(ev) as any;
+    const offer = schema.offers;
+    if (!offer) {
+      errors.push(`${tag} schema missing offers.`);
+    } else {
+      if (!ALLOWED_AVAIL.has(offer.availability)) errors.push(`${tag} offer.availability not allowed: ${offer.availability}`);
+      if (!ALLOWED_CONDITION.has(offer.itemCondition)) errors.push(`${tag} offer.itemCondition not allowed: ${offer.itemCondition}`);
+      if (!offer.category) errors.push(`${tag} offer.category missing.`);
+      if (!/^\d+(\.\d{2})?$/.test(offer.price)) errors.push(`${tag} offer.price must be decimal string e.g. "15.00" (got ${offer.price}).`);
+      if (offer.priceCurrency !== "GBP") errors.push(`${tag} offer.priceCurrency must be GBP.`);
+      if (!offer.validThrough || !isoRe.test(offer.validThrough)) errors.push(`${tag} offer.validThrough must equal endDate ISO.`);
+    }
+
+    // Cancelled events SHOULD NOT remain in active sitemap rotation.
+    if (ev.status === "EventCancelled" && new Date(ev.startDate).getTime() > Date.now()) {
+      warnings.push(`${tag} cancelled future event will be excluded from sitemap.`);
     }
   }
 }
@@ -136,9 +185,10 @@ function generateSitemap() {
 
   for (const r of STATIC_ROUTES) push(r.path, today, r.changefreq, r.priority);
 
-  // Single-event pages — only future events (rich-result safe).
+  // Single-event pages — only future, non-cancelled events (rich-result safe).
   const now = Date.now();
   for (const ev of upcomingEvents) {
+    if (ev.status === "EventCancelled") continue;
     if (new Date(ev.startDate).getTime() > now) {
       push(`/events/${ev.slug}`, ev.startDate.split("T")[0], "weekly", 0.7);
     }

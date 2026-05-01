@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 
 /* <!-- WIX PAGE: /blog/pura-nights-latin-friday-guide -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -33,6 +34,7 @@ const PuraNightsLatinFridayGuide = () => (
       <section className="section-padding section-warm">
         <div className="container-main max-w-3xl prose-custom">
           <AuthorCard />
+          <NextEventCallout context="Next Latin Friday" />
           <FadeInUp>
             <h2 className="font-display text-2xl font-bold mt-10 mb-4">What Is Pura Nights Latin Friday?</h2>
             <p className="text-muted-foreground mb-4">Pura Nights Latin Friday is the monthly social event that brings the entire Pura Nights community together for an evening of workshops, performance, and social dancing. Held on the last Friday of each month at the Drayton Court Hotel in Ealing, Latin Friday is bigger, bolder, and more electric than the weekly class nights — think of it as the monthly celebration of everything we love about Latin dance.</p>

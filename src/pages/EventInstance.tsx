@@ -34,12 +34,22 @@ const EventInstance = () => {
         description={description}
         path={`/events/${ev.slug}`}
         schema={schema}
+        ogImage={ev.image}
+        noindex={ev.status === "EventCancelled"}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Events", path: "/events" },
           { name: ev.name, path: `/events/${ev.slug}` },
         ]}
       />
+
+      {ev.status !== "EventScheduled" && (
+        <div className="bg-primary text-primary-foreground text-center py-3 px-4 font-heading font-semibold text-sm">
+          {ev.status === "EventCancelled" && "This event has been cancelled. Refunds will be processed automatically."}
+          {ev.status === "EventPostponed" && `Postponed from ${ev.previousStartDate ? new Date(ev.previousStartDate).toLocaleDateString("en-GB", { day: "numeric", month: "long" }) : "the original date"} — new date confirmed above.`}
+          {ev.status === "EventRescheduled" && `Rescheduled — please check the new date above.`}
+        </div>
+      )}
 
       <section className="section-padding section-dark text-center">
         <div className="container-main max-w-3xl">
