@@ -34,6 +34,8 @@ const EventInstance = () => {
         description={description}
         path={`/events/${ev.slug}`}
         schema={schema}
+        ogImage={ev.image}
+        noindex={ev.status === "EventCancelled"}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Events", path: "/events" },
