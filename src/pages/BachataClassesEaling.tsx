@@ -123,6 +123,7 @@ const BachataClassesEaling = () => (
         <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Ealing Class</a>
       </div>
     </section>
+    <div className="container-main max-w-3xl"><NextEventCallout context="Next Latin Friday in Ealing" /></div>
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
       { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },
