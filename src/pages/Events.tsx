@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { upcomingEvents } from "@/data/events";
 /* <!-- WIX PAGE: /events -->
    <!-- WIX: Use dynamic page template connected to Events CMS collection -->
    <!-- WIX SECTION: Hero — use Strip with event image -->
