@@ -70,6 +70,7 @@ import LatinDanceChiswick from "./pages/LatinDanceChiswick";
 import SalsaClassesFulham from "./pages/SalsaClassesFulham";
 import SalsaClassesActonLocal from "./pages/SalsaClassesActonLocal";
 import ThankYou from "./pages/ThankYou";
+import EventInstance from "./pages/EventInstance";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -205,6 +206,7 @@ const App = () => (
             <Route path="/blog/pura-nights-latin-friday-guide" element={<PuraNightsLatinFridayGuide />} />
             <Route path="/blog/dance-classes-west-london-guide" element={<DanceClassesWestLondonGuide />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/events/:slug" element={<EventInstance />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/wedding-dance" element={<WeddingDance />} />
             <Route path="/private-lessons" element={<PrivateLessons />} />
