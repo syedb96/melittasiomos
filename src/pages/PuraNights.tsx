@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 import ProofBlock from "@/components/ProofBlock";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, ChevronRight, ExternalLink } from "lucide-react";
@@ -209,6 +210,8 @@ const PuraNights = () => (
       title="What students say about weekly classes"
       limit={3}
     />
+
+    <div className="container-main max-w-3xl"><NextEventCallout context="Coming up at Pura Nights" /></div>
 
     <RelatedPages title="Related Pages" links={[
       { to: "/prices", label: "Prices & Bundles" },
