@@ -199,6 +199,25 @@ const Events = () => {
         </div>
       </section>
 
+      {/* Single-event instance pages — each has valid Event JSON-LD with startDate/endDate */}
+      <section className="section-padding bg-charcoal">
+        <div className="container-main max-w-4xl">
+          <FadeInUp>
+            <h2 className="font-display text-3xl font-bold text-center text-primary-foreground mb-2">Individual Event Pages</h2>
+            <p className="text-primary-foreground/60 text-center text-sm mb-10">Tap a date for full details, tickets and rich-result Event info.</p>
+          </FadeInUp>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {upcomingEvents.filter(e => new Date(e.startDate) > new Date()).map(e => (
+              <Link key={e.slug} to={`/events/${e.slug}`} className="bg-charcoal-light rounded-xl p-4 card-hover block">
+                <p className="font-heading font-bold text-sm text-primary-foreground mb-1">{e.name.replace("Pura Nights Latin Friday — ", "")}</p>
+                <p className="text-primary-foreground/50 text-xs">{new Date(e.startDate).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+                <p className="text-primary text-xs font-heading mt-2">View event →</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section-padding bg-primary text-center">
         <div className="container-main">
