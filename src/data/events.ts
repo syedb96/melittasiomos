@@ -16,6 +16,8 @@ export type EventStatus =
   | "EventCancelled"
   | "EventRescheduled";
 
+export type EventCategory = "Social" | "Workshop" | "Performance";
+
 export interface SingleEvent {
   slug: string;
   name: string;
@@ -33,9 +35,12 @@ export interface SingleEvent {
   };
   performer: string;
   status: EventStatus;
-  previousStartDate?: string; // required if status is Postponed/Rescheduled
-  soldOut?: boolean;          // forces availability=SoldOut
+  category: EventCategory;       // taxonomy for /events filtering
+  previousStartDate?: string;    // required if status is Postponed/Rescheduled
+  soldOut?: boolean;             // forces availability=SoldOut
 }
+
+export const EVENT_CATEGORIES: EventCategory[] = ["Social", "Workshop", "Performance"];
 
 const VENUE_DRAYTON = {
   name: "Drayton Court Hotel",
@@ -68,6 +73,7 @@ const e = (
   venue: VENUE_DRAYTON,
   performer: "Pura Nights — Melitta Siomos Dance Academy",
   status: "EventScheduled",
+  category: "Social",
   ...overrides,
 });
 
