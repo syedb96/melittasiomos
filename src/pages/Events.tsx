@@ -224,4 +224,58 @@ const Events = () => {
   );
 };
 
+/* <!-- WIX SECTION: Event Category Filter — use Wix Repeater + Filter (category=All|Social|Workshop|Performance) --> */
+const EventCategoryGrid = () => {
+  const [filter, setFilter] = useState<EventCategory | "All">("All");
+  const future = useMemo(
+    () =>
+      upcomingEvents
+        .filter(e => new Date(e.startDate) > new Date() && e.status !== "EventCancelled")
+        .sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate)),
+    []
+  );
+  const visible = filter === "All" ? future : future.filter(e => e.category === filter);
+
+  return (
+    <section className="section-padding bg-charcoal">
+      <div className="container-main max-w-4xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold text-center text-primary-foreground mb-2">Individual Event Pages</h2>
+          <p className="text-primary-foreground/60 text-center text-sm mb-6">Filter by type — each page has its own ticket link, schema, and OG card.</p>
+        </FadeInUp>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {(["All", ...EVENT_CATEGORIES] as const).map(cat => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-heading uppercase tracking-widest transition-colors ${
+                filter === cat
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-charcoal-light text-primary-foreground/60 hover:text-primary-foreground"
+              }`}
+              aria-pressed={filter === cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        {visible.length === 0 ? (
+          <p className="text-center text-primary-foreground/50 text-sm">No upcoming {filter.toLowerCase()} events — check back soon.</p>
+        ) : (
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {visible.map(e => (
+              <Link key={e.slug} to={`/events/${e.slug}`} className="bg-charcoal-light rounded-xl p-4 card-hover block">
+                <p className="text-primary text-[10px] font-heading uppercase tracking-widest mb-1">{e.category}</p>
+                <p className="font-heading font-bold text-sm text-primary-foreground mb-1">{e.name.replace("Pura Nights Latin Friday — ", "")}</p>
+                <p className="text-primary-foreground/50 text-xs">{new Date(e.startDate).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+                <p className="text-primary text-xs font-heading mt-2">View event →</p>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
 export default Events;
