@@ -3,6 +3,7 @@ import { MapPin, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import { FadeInUp } from "@/components/animations";
 import heroImg from "@/assets/bachata-close.jpg";

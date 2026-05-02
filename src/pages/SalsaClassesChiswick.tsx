@@ -3,6 +3,7 @@ import { MapPin, Clock, Star, Trophy, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import heroImg from "@/assets/salsa-chiswick.jpg";
 

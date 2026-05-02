@@ -3,6 +3,7 @@ import { MapPin, Clock, ArrowRight, Calendar, Music, Users } from "lucide-react"
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
 
 /* <!-- WIX PAGE: /schedule -->
@@ -184,6 +185,10 @@ const Schedule = () => (
           </a>
         </FadeInUp>
       </div>
+    </section>
+
+    <section className="bg-charcoal-light/30">
+      <div className="container-main max-w-4xl"><NextEventCallout context="Next Latin Friday Social" /></div>
     </section>
 
     <RelatedPages title="Related Pages" links={[
