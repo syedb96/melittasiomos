@@ -3,6 +3,7 @@ import { MapPin, Clock, Star, Trophy, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import heroImg from "@/assets/salsa-chiswick.jpg";
 
@@ -121,6 +122,7 @@ const SalsaClassesChiswick = () => (
         <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your Chiswick Class</a>
       </div>
     </section>
+    <section className="bg-card"><div className="container-main max-w-3xl"><NextEventCallout context="Coming Up at Drayton Court" /></div></section>
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
