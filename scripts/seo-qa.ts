@@ -205,8 +205,30 @@ ${urls.join("\n")}
   console.log(`✓ sitemap.xml regenerated with ${urls.length} URLs (host: ${HOST})`);
 }
 
+// ---------- Internal link / orphan validation (doc 18) ----------
+// For every indexable route in STATIC_ROUTES, count inbound link references
+// across all .tsx/.ts source files. Each route must have ≥2 inbound references.
+function checkOrphans() {
+  const allFiles = [
+    ...walk(join(ROOT, "src/pages")),
+    ...walk(join(ROOT, "src/components")),
+  ];
+  const sources = allFiles.map(f => readFileSync(f, "utf8")).join("\n\n");
+  for (const r of STATIC_ROUTES) {
+    if (r.path === "/") continue; // homepage is the root, skip
+    // match to="/path" or href="/path" or "/path" inside link arrays
+    const escaped = r.path.replace(/\//g, "\\/");
+    const re = new RegExp(`["'\`]${escaped}["'\`/?#]`, "g");
+    const inbound = (sources.match(re) || []).length;
+    if (inbound < 2) {
+      warnings.push(`[ORPHAN] ${r.path} has only ${inbound} inbound internal link(s); add at least 2 (header/footer/related).`);
+    }
+  }
+}
+
 // ---------- Run ----------
 check();
+checkOrphans();
 
 if (errors.length) {
   console.error("\n❌ SEO QA FAILED\n");
