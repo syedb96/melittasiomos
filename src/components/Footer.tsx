@@ -69,11 +69,14 @@ const Footer = () => (
           <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Learn</h5>
           <ul className="space-y-1.5">
             <li><Link to="/about" className="hover:text-primary transition-colors">About Melitta</Link></li>
+            <li><Link to="/meet-the-team" className="hover:text-primary transition-colors">Meet the Team</Link></li>
+            <li><Link to="/beginners" className="hover:text-primary transition-colors">Beginners</Link></li>
             <li><Link to="/testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
             <li><Link to="/community" className="hover:text-primary transition-colors">Community</Link></li>
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog & Guides</Link></li>
+            <li><Link to="/online-academy" className="hover:text-primary transition-colors">Pura Academy (Online)</Link></li>
           </ul>
         </div>
 
@@ -86,11 +89,20 @@ const Footer = () => (
             <li><Link to="/locations" className="hover:text-primary transition-colors">All Locations</Link></li>
             <li><Link to="/dance-classes-west-london" className="hover:text-primary transition-colors">West London</Link></li>
             <li><Link to="/dance-classes-south-west-london" className="hover:text-primary transition-colors">South West London</Link></li>
+            <li><Link to="/salsa-classes-london" className="hover:text-primary transition-colors">Salsa · London</Link></li>
+            <li><Link to="/bachata-classes-london" className="hover:text-primary transition-colors">Bachata · London</Link></li>
+            <li><Link to="/latin-dance-classes-london" className="hover:text-primary transition-colors">Latin Dance · London</Link></li>
             <li><Link to="/salsa-classes-chiswick" className="hover:text-primary transition-colors">Chiswick</Link></li>
+            <li><Link to="/bachata-classes-chiswick" className="hover:text-primary transition-colors">Bachata · Chiswick</Link></li>
+            <li><Link to="/dance-classes-chiswick" className="hover:text-primary transition-colors">Dance · Chiswick</Link></li>
             <li><Link to="/salsa-classes-ealing" className="hover:text-primary transition-colors">Ealing</Link></li>
-            <li><Link to="/salsa-classes-richmond" className="hover:text-primary transition-colors">Richmond</Link></li>
+            <li><Link to="/bachata-classes-ealing" className="hover:text-primary transition-colors">Bachata · Ealing</Link></li>
+            <li><Link to="/dance-classes-ealing" className="hover:text-primary transition-colors">Dance · Ealing</Link></li>
+            <li><Link to="/salsa-classes-acton" className="hover:text-primary transition-colors">Acton</Link></li>
             <li><Link to="/salsa-classes-hammersmith" className="hover:text-primary transition-colors">Hammersmith</Link></li>
+            <li><Link to="/salsa-classes-richmond" className="hover:text-primary transition-colors">Richmond</Link></li>
             <li><Link to="/salsa-classes-fulham" className="hover:text-primary transition-colors">Fulham</Link></li>
+            <li><Link to="/dance-classes-hounslow" className="hover:text-primary transition-colors">Hounslow</Link></li>
           </ul>
         </div>
 
