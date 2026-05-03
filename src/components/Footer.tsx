@@ -76,6 +76,7 @@ const Footer = () => (
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog & Guides</Link></li>
+            <li><Link to="/online-academy" className="hover:text-primary transition-colors">Pura Academy (Online)</Link></li>
           </ul>
         </div>
 
