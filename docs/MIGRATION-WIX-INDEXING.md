@@ -31,7 +31,7 @@ Routes (mirror `docs/19`): `/`, `/pura-nights`, `/prices`, `/events`, `/wedding-
 | Homepage hero strip | CTA buttons → `/pura-nights`, `/prices`. |
 | Homepage body | Mid-page modules link to `/wedding-dance`, `/private-lessons`. |
 | Locations grid (homepage + footer) | Three Tier 1 local pages featured, others below. |
-| Daily indexing queue | `bun scripts/gsc-indexing-queue.ts --submit` runs against these routes only. |
+| Daily indexing queue | `bun run seo:queue` (dry-run only). **Do NOT use the Google Indexing API for these pages** — Google supports it only for `JobPosting` and `BroadcastEvent` URLs. Use the dry-run output to decide which Tier 1 URLs to manually paste into GSC → URL Inspection → Request Indexing. See `docs/23-MANUAL-GSC-INDEXING-CONTROL-SHEET.md`. |
 
 ## D. Tier 2 — index naturally
 
