@@ -140,12 +140,29 @@ async function getAccessToken(saJson: string): Promise<string> {
   return j.access_token;
 }
 
+// Compliance guard: Google's Indexing API is officially supported ONLY for
+// JobPosting and BroadcastEvent (livestream) URLs. Pura Nights pages are
+// normal service / local / blog pages, so live submission is BLOCKED by default.
+// See docs/23-MANUAL-GSC-INDEXING-CONTROL-SHEET.md for the supported workflow.
+const ELIGIBLE_TYPES = (process.env.INDEXING_API_ELIGIBLE_TYPES || "")
+  .split(",").map(s => s.trim()).filter(Boolean);
+const HAS_ELIGIBLE = ELIGIBLE_TYPES.length > 0;
+
 if (!SUBMIT) {
-  console.log(`\nDry run. Re-run with --submit (and GSC_SERVICE_ACCOUNT_JSON set) to call the Indexing API.`);
+  console.log(`\nDry run only. This queue is documentation-only for Pura Nights.`);
+  console.log(`Use it to decide which Tier 1 URLs to MANUALLY paste into GSC → URL Inspection → Request Indexing.`);
+  console.log(`See docs/23-MANUAL-GSC-INDEXING-CONTROL-SHEET.md.`);
   process.exit(0);
 }
 
 (async () => {
+  if (!HAS_ELIGIBLE) {
+    console.error("\n❌ Indexing API submission is BLOCKED.");
+    console.error("Google's Indexing API is supported only for JobPosting and BroadcastEvent (livestream) URLs.");
+    console.error("Pura Nights has no eligible page types. Use GSC URL Inspection manually instead.");
+    console.error("If you knowingly add a JobPosting/BroadcastEvent page, set INDEXING_API_ELIGIBLE_TYPES=JobPosting,BroadcastEvent to override.");
+    process.exit(1);
+  }
   const sa = process.env.GSC_SERVICE_ACCOUNT_JSON;
   if (!sa) {
     console.error("\n❌ GSC_SERVICE_ACCOUNT_JSON not set. Aborting submit.");
