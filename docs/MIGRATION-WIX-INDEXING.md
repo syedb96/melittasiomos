@@ -104,5 +104,5 @@ After Wix is live:
 
 ## I. Operational tooling carried over
 
-- `scripts/gsc-indexing-queue.ts` — daily queue + Indexing API submission. Continues to work post-Wix; queue is computed from Tier 1 list, which is independent of the rendering platform.
+- `scripts/gsc-indexing-queue.ts` — dry-run change-detection queue. Live `--submit` is BLOCKED unless `INDEXING_API_ELIGIBLE_TYPES` is set, because Google's Indexing API is not for normal service/blog pages. Use the queue output as a manual GSC URL Inspection worklist.
 - `scripts/crawl-graph.ts` — depth + link-rule validator. Re-run before any Wix structural change (menu rewrite, footer change, redirect addition) by exporting the Wix sitemap to a temporary file and re-pointing the script's route list at it.
