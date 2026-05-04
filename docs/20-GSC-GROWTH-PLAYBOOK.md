@@ -1,6 +1,8 @@
 # 20 — Google Search Console Growth Playbook
 
 > The post-launch operating system for Pura Nights organic search. All URLs prefixed with `https://www.puranights.com`.
+>
+> ⚠️ **Do NOT use the Google Indexing API for normal Pura Nights pages.** Google supports it only for `JobPosting` and `BroadcastEvent` (livestream) URLs. Pura Nights uses **manual URL Inspection in GSC** (see `docs/23-MANUAL-GSC-INDEXING-CONTROL-SHEET.md`). The `bun run seo:queue` command is dry-run only and is used to decide which Tier 1 URLs to manually inspect.
 
 ## 1. Weekly routine (15 min, every Monday)
 
