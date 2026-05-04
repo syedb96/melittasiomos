@@ -16,7 +16,7 @@
     "seo:graph": "bun scripts/crawl-graph.ts",
     "seo:graph:json": "bun scripts/crawl-graph.ts --json",
     "seo:queue": "bun scripts/gsc-indexing-queue.ts",
-    "seo:queue:submit": "bun scripts/gsc-indexing-queue.ts --submit",
+    "seo:queue:submit:DISABLED": "bun scripts/gsc-indexing-queue.ts --submit",
     "og:events": "bun scripts/generate-event-og.ts"
   },
   "dependencies": {
