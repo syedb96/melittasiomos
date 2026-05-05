@@ -22,6 +22,7 @@
 | `/dancewear` | `/shop` | 301 | Wix Stores canonical |
 | `/merch` | `/shop` | 301 | Wix Stores canonical |
 | `/proof-centre` | `/testimonials` | 301 | Merged |
+| `/salsa-classes-acton-local` | `/salsa-classes-acton` | 301 | Duplicate-intent dedupe (docs/27) |
 | `/all-pages-master` | `/` | 301 | Internal-only page |
 
 ## Apex → www
