@@ -81,12 +81,12 @@ const DanceClassesHounslow = () => (
     </section>
 
     <RelatedPages title="Explore More" links={[
-      { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing", desc: "Tue · Drayton Court" },
-      { to: "/bachata-classes-ealing", label: "Bachata Ealing", desc: "Tuesday Bachata" },
-      { to: "/dance-classes-ealing", label: "Dance Ealing", desc: "Both Salsa & Bachata" },
-      { to: "/start-here", label: "Start Here", desc: "First-timer guide" },
+      { to: "/pura-nights", label: "Pura Nights", desc: "Weekly Latin nights" },
+      { to: "/schedule", label: "Schedule", desc: "Mon & Tue weekly" },
       { to: "/prices", label: "Prices", desc: "Drop-in & bundles" },
-      { to: "/contact", label: "Contact", desc: "Ask Melitta" },
+      { to: "/venue/the-drayton-court-ealing", label: "Drayton Court Ealing", desc: "Tuesday venue" },
+      { to: "/start-here", label: "Start Here", desc: "First-timer guide" },
+      { to: "/bachata-classes-ealing", label: "Bachata Ealing", desc: "Tuesday Bachata" },
     ]} />
   </Layout>
 );
