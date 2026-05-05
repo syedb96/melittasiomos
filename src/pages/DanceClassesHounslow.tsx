@@ -9,7 +9,8 @@ import LastUpdated from "@/components/LastUpdated";
 const faqs = [
   { q: "Are there dance classes in Hounslow?", a: "Hounslow's nearest weekly Salsa & Bachata classes are at our Tuesday venue in Ealing (Drayton Court Hotel) — easy 15-min Piccadilly Line trip." },
   { q: "Can I bring a friend?", a: "Yes. Many Hounslow regulars arrive in pairs or groups. The social atmosphere makes everyone welcome." },
-  { q: "What's the price?", a: "From £5 for the social only, £10 for class + social, £15 for two classes + social." },
+  { q: "What's the price?", a: "From £5 for the social only, £10 for class + social, £15 for two classes + social. Bundles bring it down to under £8 per class." },
+  { q: "Do I need a partner?", a: "No — partners rotate every few minutes during class. Most Hounslow regulars come solo." },
 ];
 
 const schema = {
