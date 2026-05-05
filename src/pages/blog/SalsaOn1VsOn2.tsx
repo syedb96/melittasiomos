@@ -73,7 +73,15 @@ const SalsaOn1VsOn2 = () => (
             </div>
 
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Which Should You Learn?</h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">If you're a beginner in London, start with On1. It's easier to pick up, it gives you access to the largest social dance community, and it builds a strong foundation that makes learning On2 later much easier. At Pura Nights, we teach On1 Crossbody Salsa, which is the most versatile style for social dancing worldwide.</p>
+            <p className="text-muted-foreground leading-relaxed mb-6">If you're a beginner in London, start with On1. It's easier to pick up, it gives you access to the largest social dance community (including <Link to="/salsa-classes-chiswick" className="text-primary underline">Chiswick Mondays</Link> and <Link to="/schedule" className="text-primary underline">Ealing Tuesdays</Link>), and it builds a strong foundation that makes learning On2 later much easier. At Pura Nights, we teach On1 Crossbody Salsa, which is the most versatile style for social dancing worldwide.</p>
+
+            <h2 className="font-display text-2xl font-bold mb-4 mt-10">FAQ</h2>
+            <div className="space-y-4 mb-8">
+              <div><h3 className="font-heading font-bold text-base mb-1">Is On1 easier than On2?</h3><p className="text-muted-foreground text-sm">Yes — beat 1 is the most obvious downbeat, so most beginners hear and step it more naturally.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">Which style is taught in London?</h3><p className="text-muted-foreground text-sm">On1 Crossbody is the dominant style across London socials, including Pura Nights Chiswick & Ealing.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">Can beginners learn On2?</h3><p className="text-muted-foreground text-sm">You can, but most teachers (and we) recommend a solid On1 foundation first — usually 6–12 months — before crossing over.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">What style should I start with?</h3><p className="text-muted-foreground text-sm">Start with On1. It will let you dance socially almost anywhere in London or abroad from your first few classes.</p></div>
+            </div>
 
             <div className="flex flex-wrap gap-4 mb-10">
               <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Learn On1 Salsa at Pura Nights</a>
