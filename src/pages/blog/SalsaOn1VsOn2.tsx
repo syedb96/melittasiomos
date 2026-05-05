@@ -16,7 +16,7 @@ import BlogPostFooter from "@/components/BlogPostFooter";
 */
 const SalsaOn1VsOn2 = () => (
   <Layout>
-    <SeoHead title="Salsa On1 vs On2 for Beginners — What's the Difference? | Pura Nights" description="Confused about Salsa On1 and On2? This beginner-friendly guide explains the difference, which is easier to learn, and which style is taught at Pura Nights London." path="/blog/salsa-on1-vs-on2" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa On1 vs On2 for Beginners", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-25" }} />
+    <SeoHead title="Salsa On1 vs On2 — What Beginners in London Actually Need to Know | Pura Nights" description="Confused about Salsa On1 vs On2? A London-focused beginner guide: which one is taught here, which is easier, and when to explore On2 later." path="/blog/salsa-on1-vs-on2" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa On1 vs On2 — What Beginners in London Actually Need to Know", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-25", dateModified: "2026-05-05" }} />
     <ReadingProgressBar />
     <article>
       <section className="section-padding section-dark">
@@ -24,7 +24,7 @@ const SalsaOn1VsOn2 = () => (
           <nav className="text-xs text-primary-foreground/40 mb-6 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/blog" className="hover:text-primary">Blog</Link> / <span className="text-primary">Beginners</span></nav>
           <FadeInUp>
             <span className="inline-block bg-primary/20 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Salsa On1 vs On2 for Beginners — What's the Difference?</h1>
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Salsa On1 vs On2 — What Beginners in London Actually Need to Know</h1>
             <div className="flex items-center gap-4 text-sm text-primary-foreground/50 font-heading mb-4"><span>By Melitta Siomos</span><span>·</span><span>Jun 2025</span><span>·</span><span>6 min read</span></div>
             <SocialShareButtons title="Salsa On1 vs On2 for Beginners" path="/blog/salsa-on1-vs-on2" />
           </FadeInUp>
@@ -50,6 +50,14 @@ const SalsaOn1VsOn2 = () => (
             <p className="text-muted-foreground leading-relaxed mb-4">On2 has a smoother, more grounded feel. Because you break on beat 2, you're dancing more closely to the conga drum pattern in the music, which gives On2 its distinctive flowing quality. It's deeply musical and has a strong following among advanced dancers.</p>
             <p className="text-muted-foreground leading-relaxed mb-6">However, On2 is harder to learn initially because beat 2 is less obvious to untrained ears. In London, On2 socials exist but they're much smaller than On1 events.</p>
 
+            <div className="my-8 p-6 bg-secondary border-l-4 border-primary rounded-r-lg">
+              <p className="font-heading font-semibold mb-3">Start with beginner-friendly Salsa On1 at Pura Nights</p>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/pura-nights" className="btn-cta-primary text-sm">See Weekly Classes</Link>
+                <Link to="/start-here" className="btn-cta-outline text-sm">Start Here Guide</Link>
+              </div>
+            </div>
+
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Comparison Table</h2>
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
@@ -65,7 +73,15 @@ const SalsaOn1VsOn2 = () => (
             </div>
 
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Which Should You Learn?</h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">If you're a beginner in London, start with On1. It's easier to pick up, it gives you access to the largest social dance community, and it builds a strong foundation that makes learning On2 later much easier. At Pura Nights, we teach On1 Crossbody Salsa, which is the most versatile style for social dancing worldwide.</p>
+            <p className="text-muted-foreground leading-relaxed mb-6">If you're a beginner in London, start with On1. It's easier to pick up, it gives you access to the largest social dance community (including <Link to="/salsa-classes-chiswick" className="text-primary underline">Chiswick Mondays</Link> and <Link to="/schedule" className="text-primary underline">Ealing Tuesdays</Link>), and it builds a strong foundation that makes learning On2 later much easier. At Pura Nights, we teach On1 Crossbody Salsa, which is the most versatile style for social dancing worldwide.</p>
+
+            <h2 className="font-display text-2xl font-bold mb-4 mt-10">FAQ</h2>
+            <div className="space-y-4 mb-8">
+              <div><h3 className="font-heading font-bold text-base mb-1">Is On1 easier than On2?</h3><p className="text-muted-foreground text-sm">Yes — beat 1 is the most obvious downbeat, so most beginners hear and step it more naturally.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">Which style is taught in London?</h3><p className="text-muted-foreground text-sm">On1 Crossbody is the dominant style across London socials, including Pura Nights Chiswick & Ealing.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">Can beginners learn On2?</h3><p className="text-muted-foreground text-sm">You can, but most teachers (and we) recommend a solid On1 foundation first — usually 6–12 months — before crossing over.</p></div>
+              <div><h3 className="font-heading font-bold text-base mb-1">What style should I start with?</h3><p className="text-muted-foreground text-sm">Start with On1. It will let you dance socially almost anywhere in London or abroad from your first few classes.</p></div>
+            </div>
 
             <div className="flex flex-wrap gap-4 mb-10">
               <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Learn On1 Salsa at Pura Nights</a>
