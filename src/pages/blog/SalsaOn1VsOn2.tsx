@@ -16,7 +16,7 @@ import BlogPostFooter from "@/components/BlogPostFooter";
 */
 const SalsaOn1VsOn2 = () => (
   <Layout>
-    <SeoHead title="Salsa On1 vs On2 for Beginners — What's the Difference? | Pura Nights" description="Confused about Salsa On1 and On2? This beginner-friendly guide explains the difference, which is easier to learn, and which style is taught at Pura Nights London." path="/blog/salsa-on1-vs-on2" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa On1 vs On2 for Beginners", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-25" }} />
+    <SeoHead title="Salsa On1 vs On2 — What Beginners in London Actually Need to Know | Pura Nights" description="Confused about Salsa On1 vs On2? A London-focused beginner guide: which one is taught here, which is easier, and when to explore On2 later." path="/blog/salsa-on1-vs-on2" schema={{ "@context": "https://schema.org", "@type": "Article", headline: "Salsa On1 vs On2 — What Beginners in London Actually Need to Know", author: { "@type": "Person", name: "Melitta Siomos" }, publisher: { "@type": "Organization", name: "Pura Nights" }, datePublished: "2025-06-25", dateModified: "2026-05-05" }} />
     <ReadingProgressBar />
     <article>
       <section className="section-padding section-dark">
@@ -24,7 +24,7 @@ const SalsaOn1VsOn2 = () => (
           <nav className="text-xs text-primary-foreground/40 mb-6 font-heading"><Link to="/" className="hover:text-primary">Home</Link> / <Link to="/blog" className="hover:text-primary">Blog</Link> / <span className="text-primary">Beginners</span></nav>
           <FadeInUp>
             <span className="inline-block bg-primary/20 text-primary text-xs font-heading font-bold px-3 py-1 rounded-full mb-4">Beginners</span>
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Salsa On1 vs On2 for Beginners — What's the Difference?</h1>
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">Salsa On1 vs On2 — What Beginners in London Actually Need to Know</h1>
             <div className="flex items-center gap-4 text-sm text-primary-foreground/50 font-heading mb-4"><span>By Melitta Siomos</span><span>·</span><span>Jun 2025</span><span>·</span><span>6 min read</span></div>
             <SocialShareButtons title="Salsa On1 vs On2 for Beginners" path="/blog/salsa-on1-vs-on2" />
           </FadeInUp>
