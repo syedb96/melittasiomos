@@ -50,6 +50,14 @@ const SalsaOn1VsOn2 = () => (
             <p className="text-muted-foreground leading-relaxed mb-4">On2 has a smoother, more grounded feel. Because you break on beat 2, you're dancing more closely to the conga drum pattern in the music, which gives On2 its distinctive flowing quality. It's deeply musical and has a strong following among advanced dancers.</p>
             <p className="text-muted-foreground leading-relaxed mb-6">However, On2 is harder to learn initially because beat 2 is less obvious to untrained ears. In London, On2 socials exist but they're much smaller than On1 events.</p>
 
+            <div className="my-8 p-6 bg-secondary border-l-4 border-primary rounded-r-lg">
+              <p className="font-heading font-semibold mb-3">Start with beginner-friendly Salsa On1 at Pura Nights</p>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/pura-nights" className="btn-cta-primary text-sm">See Weekly Classes</Link>
+                <Link to="/start-here" className="btn-cta-outline text-sm">Start Here Guide</Link>
+              </div>
+            </div>
+
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Comparison Table</h2>
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
