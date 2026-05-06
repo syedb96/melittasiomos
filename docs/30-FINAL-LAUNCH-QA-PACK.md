@@ -134,7 +134,61 @@ Run the checklist in `docs/28-CANONICAL-OG-SCHEMA-VERIFICATION-CHECKLIST.md` aga
 
 ---
 
-## F. Sign-off
+## E2. Post-launch 7-day monitoring (GSC + Bing)
+
+Run daily for 7 consecutive days starting the day after sitemap submission (A2).
+Capture each metric at roughly the same time each day. Trend = ↑ / → / ↓ vs previous day.
+
+### Indexing trend
+
+| Day | Date | GSC indexed pages | GSC discovered-not-indexed | Bing indexed pages | Trend | Notes |
+|---|---|---|---|---|---|---|
+| 1 | | | | | | |
+| 2 | | | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+
+### Event enhancements
+
+| Day | Date | Valid Event items | Errors | Warnings | New error types | Action |
+|---|---|---|---|---|---|---|
+| 1 | | | | | | |
+| 2 | | | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+
+### Breadcrumb + FAQ validity
+
+| Day | Date | Breadcrumb valid | Breadcrumb errors | FAQ valid | FAQ errors | Notes |
+|---|---|---|---|---|---|---|
+| 1 | | | | | | |
+| 2 | | | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+
+### 7-day rollup (fill on Day 7)
+
+```
+Indexing delta (Day 1 → Day 7): ____ pages
+Event errors burned down:        ____ → ____
+Breadcrumb valid items:          ____ → ____
+FAQ valid items:                 ____ → ____
+Outstanding issues:              ____
+Decision:                        ☐ healthy   ☐ extend monitoring   ☐ escalate
+```
+
+---
+
+
 
 | Role | Name | Signed | Date |
 |---|---|---|---|
@@ -153,6 +207,17 @@ Run the checklist in `docs/28-CANONICAL-OG-SCHEMA-VERIFICATION-CHECKLIST.md` aga
 | Submit sitemap to GSC / Bing | Requires authenticated session in those dashboards | search.google.com/search-console, bing.com/webmasters |
 | Run Rich Results Test | Google's tool, no public API for arbitrary URLs without auth | search.google.com/test/rich-results |
 | Import Wix redirects | Wix Dashboard, no Velo API for bulk redirect import on most plans | Wix → Marketing & SEO → URL Redirect Manager |
-| Confirm 301 status codes on the *live Wix site* | Site is still on Lovable preview today | After Wix cutover, run script in section C |
+| Confirm 301 status codes on the *live Wix site* | Site is still on Lovable preview today | After Wix cutover, run `bun run qa:redirects` |
+
+## Automated helpers (run from repo)
+
+| Command | What it does | Output |
+|---|---|---|
+| `bun run qa:redirects` | HEAD-checks every rule in docs/20 for 301 + exact target | `launch-evidence/redirects/redirect-audit-<DATE>.csv` |
+| `bun run qa:schema` | Fetches §B URLs, saves HTML + JSON-LD, diffs `@type` set vs last run | `launch-evidence/html/`, `launch-evidence/jsonld/`, `diff-<DATE>.md` |
+| `bun run seo:check` | Build-time canonical/event-guard validation | console |
+
+Screenshot capture protocol: see `docs/31-RICH-RESULTS-SCREENSHOT-PROTOCOL.md`.
 
 Everything in this pack is **ready to execute** — no further code changes are required from me to run it.
+
