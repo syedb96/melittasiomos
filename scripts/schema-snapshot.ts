@@ -1,39 +1,25 @@
 /**
- * Schema snapshot — fetches each test URL, saves rendered HTML and extracted
- * JSON-LD blocks, and diffs @type set vs the previous run.
+ * Schema snapshot — config-driven.
+ * Fetches each tracked URL, saves rendered HTML + JSON-LD, diffs @type set
+ * vs the previous run for the same env.
  *
  * Usage:
- *   bun scripts/schema-snapshot.ts                  # default host
- *   bun scripts/schema-snapshot.ts --host=…
+ *   bun scripts/schema-snapshot.ts                # production
+ *   bun scripts/schema-snapshot.ts --env=staging
+ *   bun scripts/schema-snapshot.ts --strict       # exit 1 on any change (CI mode)
  *
  * Writes:
- *   launch-evidence/html/<slug>-YYYY-MM-DD.html
- *   launch-evidence/jsonld/<slug>-YYYY-MM-DD.json
- *   launch-evidence/jsonld/<slug>-latest.json   (rolling pointer for diffing)
- *   launch-evidence/jsonld/diff-YYYY-MM-DD.md
- *
- * Exit code 1 if any tracked URL changes its @type set since last run.
+ *   launch-evidence/html/<env>__<slug>-<DATE>.html
+ *   launch-evidence/jsonld/<env>__<slug>-<DATE>.json
+ *   launch-evidence/jsonld/<env>__<slug>-latest.json
+ *   launch-evidence/jsonld/diff-<env>-<DATE>.md
  */
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
+import { loadConfig } from "./qa-config";
 
-const HOST =
-  process.argv.find((a) => a.startsWith("--host="))?.split("=")[1] ??
-  "https://www.puranights.com";
-
-// URLs from docs/30 §B.
-const URLS = [
-  "/",
-  "/about",
-  "/pura-nights",
-  "/schedule",
-  "/salsa-classes-chiswick",
-  "/bachata-classes-ealing",
-  "/faq",
-  "/blog/salsa-vs-bachata",
-  "/events/latin-friday-2026-05-08",
-  "/events/latin-friday-2026-06-12",
-];
+const cfg = loadConfig();
+const STRICT = process.argv.includes("--strict") || process.env.CI === "true";
 
 const slug = (p: string) => (p === "/" ? "home" : p.replace(/^\//, "").replace(/\//g, "_"));
 
@@ -72,12 +58,13 @@ function typesOf(blocks: unknown[]): string[] {
   mkdirSync(join(root, "html"), { recursive: true });
   mkdirSync(join(root, "jsonld"), { recursive: true });
 
-  const diffs: string[] = [`# Schema snapshot diff — ${date}`, `Host: ${HOST}`, ""];
+  const diffs: string[] = [`# Schema snapshot diff — ${cfg.env} — ${date}`, `Host: ${cfg.host}`, ""];
   let changed = 0;
+  const drift: { id: string; path: string; added: string[]; removed: string[] }[] = [];
 
-  for (const path of URLS) {
-    const url = `${HOST}${path}`;
-    const s = slug(path);
+  for (const u of cfg.schemaUrls) {
+    const url = `${cfg.host}${u.path}`;
+    const s = `${cfg.env}__${slug(u.path)}`;
     let html = "";
     let status: number | string = 0;
     try {
@@ -85,8 +72,7 @@ function typesOf(blocks: unknown[]): string[] {
       status = res.status;
       html = await res.text();
     } catch (e) {
-      console.error(`✗ ${url}: ${(e as Error).message}`);
-      diffs.push(`## ${path}\n- ❌ fetch error: ${(e as Error).message}`);
+      diffs.push(`## ${u.id} ${u.path}\n- ❌ fetch error: ${(e as Error).message}\n`);
       changed++;
       continue;
     }
@@ -94,7 +80,7 @@ function typesOf(blocks: unknown[]): string[] {
     writeFileSync(join(root, "html", `${s}-${date}.html`), html);
     const blocks = extractJsonLd(html);
     const types = typesOf(blocks);
-    const snapshot = { url, status, fetchedAt: new Date().toISOString(), types, blocks };
+    const snapshot = { id: u.id, url, status, fetchedAt: new Date().toISOString(), types, blocks };
     writeFileSync(join(root, "jsonld", `${s}-${date}.json`), JSON.stringify(snapshot, null, 2));
 
     const latestPath = join(root, "jsonld", `${s}-latest.json`);
@@ -107,25 +93,33 @@ function typesOf(blocks: unknown[]): string[] {
     const added = types.filter((t) => !prevTypes.includes(t));
     const removed = prevTypes.filter((t) => !types.includes(t));
     const isChanged = added.length || removed.length;
-    if (isChanged) changed++;
+    if (isChanged) {
+      changed++;
+      drift.push({ id: u.id, path: u.path, added, removed });
+    }
 
     diffs.push(
-      `## ${path}`,
+      `## ${u.id} ${u.path}`,
       `- status: ${status}`,
       `- @types: ${types.join(", ") || "(none)"}`,
       added.length ? `- ➕ added: ${added.join(", ")}` : "",
       removed.length ? `- ➖ removed: ${removed.join(", ")}` : "",
       "",
     );
-    console.log(`${isChanged ? "⚠" : "✓"} ${path.padEnd(40)} [${status}] ${types.join(",") || "—"}`);
-
+    console.log(`${isChanged ? "⚠" : "✓"} ${u.id} ${u.path.padEnd(40)} [${status}] ${types.join(",") || "—"}`);
     writeFileSync(latestPath, JSON.stringify(snapshot, null, 2));
   }
 
-  writeFileSync(join(root, "jsonld", `diff-${date}.md`), diffs.join("\n"));
-  console.log(`\n→ launch-evidence/jsonld/diff-${date}.md`);
+  writeFileSync(join(root, "jsonld", `diff-${cfg.env}-${date}.md`), diffs.join("\n"));
+  console.log(`\n→ launch-evidence/jsonld/diff-${cfg.env}-${date}.md`);
   if (changed > 0) {
-    console.log(`\n⚠ ${changed} URL(s) changed schema since last run.`);
-    process.exit(1);
+    console.log(`\n⚠ ${changed} URL(s) changed @type set since last run.`);
+    if (drift.length) {
+      for (const d of drift) console.log(`   ${d.id} ${d.path}: +[${d.added.join(",")}] -[${d.removed.join(",")}]`);
+    }
+    if (STRICT) {
+      console.error("\n❌ STRICT mode — failing build on schema drift.");
+      process.exit(1);
+    }
   }
 })();

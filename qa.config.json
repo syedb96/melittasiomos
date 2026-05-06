@@ -1,0 +1,51 @@
+{
+  "$schema": "./qa.config.schema.json",
+  "default": "production",
+  "environments": {
+    "production": {
+      "host": "https://www.puranights.com",
+      "apexHost": "https://puranights.com"
+    },
+    "staging": {
+      "host": "https://melittasiomos.lovable.app",
+      "apexHost": null
+    },
+    "preview": {
+      "host": "https://id-preview--e9db99e8-73f1-40ec-8bd3-67284b467f49.lovable.app",
+      "apexHost": null
+    }
+  },
+  "schemaUrls": [
+    { "id": "B10", "path": "/" },
+    { "id": "B8",  "path": "/about" },
+    { "id": "B3",  "path": "/pura-nights" },
+    { "id": "B4",  "path": "/schedule" },
+    { "id": "B5",  "path": "/salsa-classes-chiswick" },
+    { "id": "B6",  "path": "/bachata-classes-ealing" },
+    { "id": "B7",  "path": "/faq" },
+    { "id": "B9",  "path": "/blog/salsa-vs-bachata" },
+    { "id": "B1",  "path": "/events/latin-friday-2026-05-08" },
+    { "id": "B2",  "path": "/events/latin-friday-2026-06-12" }
+  ],
+  "redirectRules": [
+    { "id": "C1",  "from": "/online-classes",            "to": "/online-salsa-bachata-coaching" },
+    { "id": "C2",  "from": "/classes",                   "to": "/pura-nights" },
+    { "id": "C3",  "from": "/book-online",               "to": "/bookings" },
+    { "id": "C4",  "from": "/book-now",                  "to": "/bookings" },
+    { "id": "C5",  "from": "/teachers",                  "to": "/meet-the-team" },
+    { "id": "C6",  "from": "/team",                      "to": "/meet-the-team" },
+    { "id": "C7",  "from": "/pricing",                   "to": "/prices" },
+    { "id": "C8",  "from": "/class-schedule",            "to": "/schedule" },
+    { "id": "C9",  "from": "/wedding-first-dance",       "to": "/wedding-dance" },
+    { "id": "C10", "from": "/salsa-classes",             "to": "/salsa-classes-london" },
+    { "id": "C11", "from": "/bachata-classes",           "to": "/bachata-classes-london" },
+    { "id": "C12", "from": "/1-to-1",                    "to": "/private-lessons" },
+    { "id": "C13", "from": "/private-classes",           "to": "/private-lessons" },
+    { "id": "C14", "from": "/store",                     "to": "/shop" },
+    { "id": "C15", "from": "/dancewear",                 "to": "/shop" },
+    { "id": "C16", "from": "/merch",                     "to": "/shop" },
+    { "id": "C17", "from": "/proof-centre",              "to": "/testimonials" },
+    { "id": "C18", "from": "/salsa-classes-acton-local", "to": "/salsa-classes-acton" },
+    { "id": "C19", "from": "/all-pages-master",          "to": "/" }
+  ]
+}
