@@ -17,7 +17,9 @@
     "seo:graph:json": "bun scripts/crawl-graph.ts --json",
     "seo:queue": "bun scripts/gsc-indexing-queue.ts",
     "seo:queue:submit:DISABLED": "bun scripts/gsc-indexing-queue.ts --submit",
-    "og:events": "bun scripts/generate-event-og.ts"
+    "og:events": "bun scripts/generate-event-og.ts",
+    "qa:redirects": "bun scripts/redirect-audit.ts",
+    "qa:schema": "bun scripts/schema-snapshot.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
