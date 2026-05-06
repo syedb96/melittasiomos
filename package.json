@@ -19,7 +19,11 @@
     "seo:queue:submit:DISABLED": "bun scripts/gsc-indexing-queue.ts --submit",
     "og:events": "bun scripts/generate-event-og.ts",
     "qa:redirects": "bun scripts/redirect-audit.ts",
-    "qa:schema": "bun scripts/schema-snapshot.ts"
+    "qa:schema": "bun scripts/schema-snapshot.ts",
+    "qa:schema:strict": "bun scripts/schema-snapshot.ts --strict",
+    "qa:monitoring": "bun scripts/monitoring-import.ts",
+    "qa:manifest": "bun scripts/evidence-manifest.ts",
+    "qa:run": "bun scripts/launch-qa-run.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

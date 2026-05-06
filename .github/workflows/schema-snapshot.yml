@@ -1,0 +1,42 @@
+name: schema-snapshot
+
+# Catches @type drift on tracked URLs before launch.
+# Runs daily and on PR; CI=true triggers --strict mode in the script.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 06:00 UTC daily
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "qa.config.json"
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Target env (production/staging/preview)"
+        default: "production"
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Run redirect audit
+        run: bun scripts/redirect-audit.ts --env=${{ github.event.inputs.env || 'production' }}
+        continue-on-error: true
+      - name: Run schema snapshot (strict)
+        env:
+          CI: "true"
+        run: bun scripts/schema-snapshot.ts --env=${{ github.event.inputs.env || 'production' }} --strict
+      - name: Build evidence manifest
+        if: always()
+        run: bun scripts/evidence-manifest.ts --env=${{ github.event.inputs.env || 'production' }}
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: launch-evidence-${{ github.run_id }}
+          path: launch-evidence/
+          retention-days: 30
