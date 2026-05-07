@@ -17,40 +17,12 @@
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 import { loadConfig } from "./qa-config";
+import { extractJsonLd, typesOf, diffTypes } from "./schema-snapshot-lib";
 
 const cfg = loadConfig();
 const STRICT = process.argv.includes("--strict") || process.env.CI === "true";
 
 const slug = (p: string) => (p === "/" ? "home" : p.replace(/^\//, "").replace(/\//g, "_"));
-
-function extractJsonLd(html: string): unknown[] {
-  const out: unknown[] = [];
-  const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html))) {
-    try {
-      out.push(JSON.parse(m[1].trim()));
-    } catch {
-      out.push({ _parseError: true, raw: m[1].slice(0, 200) });
-    }
-  }
-  return out;
-}
-
-function typesOf(blocks: unknown[]): string[] {
-  const types: string[] = [];
-  const walk = (n: unknown) => {
-    if (Array.isArray(n)) n.forEach(walk);
-    else if (n && typeof n === "object") {
-      const t = (n as Record<string, unknown>)["@type"];
-      if (typeof t === "string") types.push(t);
-      else if (Array.isArray(t)) t.forEach((x) => typeof x === "string" && types.push(x));
-      Object.values(n as object).forEach(walk);
-    }
-  };
-  walk(blocks);
-  return [...new Set(types)].sort();
-}
 
 (async () => {
   const date = new Date().toISOString().split("T")[0];
@@ -90,9 +62,7 @@ function typesOf(blocks: unknown[]): string[] {
         prevTypes = (JSON.parse(readFileSync(latestPath, "utf8")).types ?? []) as string[];
       } catch { /* ignore */ }
     }
-    const added = types.filter((t) => !prevTypes.includes(t));
-    const removed = prevTypes.filter((t) => !types.includes(t));
-    const isChanged = added.length || removed.length;
+    const { added, removed, changed: isChanged } = diffTypes(prevTypes, types);
     if (isChanged) {
       changed++;
       drift.push({ id: u.id, path: u.path, added, removed });

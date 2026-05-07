@@ -4,6 +4,7 @@
 import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import SeoHead from "@/components/SeoHead";
 import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, ChevronRight, FileText, BookOpen, Award } from "lucide-react";
 
 const navItems = [
@@ -31,6 +32,12 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="min-h-screen flex bg-background">
+      <SeoHead
+        title="Admin — Pura Nights"
+        description="Internal admin area."
+        path={location.pathname}
+        noindex
+      />
       {/* Sidebar */}
       <aside className="w-64 bg-card border-r border-border flex flex-col">
         <div className="p-6 border-b border-border">
