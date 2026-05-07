@@ -12,54 +12,25 @@
 import { writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 import { loadConfig } from "./qa-config";
+import { evaluateRedirect, RedirectRow } from "./redirect-audit-lib";
 
 const cfg = loadConfig();
-
-type Row = {
-  id: string;
-  from: string;
-  expected_to: string;
-  status: number | string;
-  location: string;
-  pass: boolean;
-  note: string;
-};
 
 async function head(url: string) {
   try {
     const res = await fetch(url, { method: "HEAD", redirect: "manual" });
     return { status: res.status, location: res.headers.get("location") ?? "" };
   } catch (e) {
-    return { status: "ERR", location: String((e as Error).message) };
-  }
-}
-
-function normalise(loc: string): string {
-  if (!loc) return "";
-  try {
-    return new URL(loc, cfg.host).pathname.replace(/\/$/, "") || "/";
-  } catch {
-    return loc;
+    return { status: "ERR" as const, location: String((e as Error).message) };
   }
 }
 
 (async () => {
-  const rows: Row[] = [];
+  const rows: RedirectRow[] = [];
 
   for (const r of cfg.redirectRules) {
-    const { status, location } = await head(`${cfg.host}${r.from}`);
-    const got = normalise(String(location));
-    const expected = r.to.replace(/\/$/, "") || "/";
-    const pass = status === 301 && got === expected;
-    rows.push({
-      id: r.id,
-      from: r.from,
-      expected_to: r.to,
-      status,
-      location: String(location),
-      pass,
-      note: pass ? "ok" : status !== 301 ? `expected 301 got ${status}` : `target mismatch (got ${got})`,
-    });
+    const result = await head(`${cfg.host}${r.from}`);
+    rows.push(evaluateRedirect(r, result, cfg.host));
   }
 
   if (cfg.apexHost) {
