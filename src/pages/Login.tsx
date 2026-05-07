@@ -23,6 +23,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-charcoal px-4">
+      <SeoHead title="Sign in — Pura Nights Admin" description="Internal admin sign-in." path="/login" noindex />
       <div className="bg-card rounded-2xl p-8 max-w-sm w-full text-center" style={{ boxShadow: "var(--shadow-elevated)" }}>
         <h1 className="font-display text-2xl font-bold mb-1">Pura Nights Admin</h1>
         <p className="text-muted-foreground text-sm font-heading mb-8">Sign in to manage your website content</p>
