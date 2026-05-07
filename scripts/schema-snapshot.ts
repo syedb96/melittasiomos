@@ -62,9 +62,7 @@ const slug = (p: string) => (p === "/" ? "home" : p.replace(/^\//, "").replace(/
         prevTypes = (JSON.parse(readFileSync(latestPath, "utf8")).types ?? []) as string[];
       } catch { /* ignore */ }
     }
-    const added = types.filter((t) => !prevTypes.includes(t));
-    const removed = prevTypes.filter((t) => !types.includes(t));
-    const isChanged = added.length || removed.length;
+    const { added, removed, changed: isChanged } = diffTypes(prevTypes, types);
     if (isChanged) {
       changed++;
       drift.push({ id: u.id, path: u.path, added, removed });
