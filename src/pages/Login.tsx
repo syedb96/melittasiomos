@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import SeoHead from "@/components/SeoHead";
 
 /* <!-- WIX: Admin login — NOT for Wix production. Wix has its own member/admin system. -->
 */
