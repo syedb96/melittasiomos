@@ -160,3 +160,58 @@ Alt text must:
 - [ ] Write alt text in Media Manager (don't rely on per-page overrides).
 - [ ] Check OG/social preview for blog posts using 1200×630 versions.
 - [ ] Replace any remaining placeholder above before publishing the venue + wedding pages.
+
+---
+
+## FINAL PAGE-BY-PAGE PHOTO CHECKLIST (Wix-Ready)
+
+Each placeholder must include: image purpose · suggested crop ratio · ideal subject · alt text.
+
+### Homepage `/`
+- [ ] **Hero**: 16:9, 1920×1080. Subject: Pura Nights social-dance crowd, dancers' upper bodies & faces in upper third. Alt: "Pura Nights salsa and bachata social dancing in West London".
+- [ ] **4 Brand Pillar cards** (4 × 3:4): (1) social class wide shot, (2) Pura Ladies team line-up, (3) wedding couple first dance, (4) Melitta on Zoom / online.
+- [ ] **Meet Melitta strip**: 4:5 portrait, indoor warm light. Alt: "Melitta Siomos, founder of Pura Nights".
+
+### `/start-here`
+- [ ] **Hero**: 16:9 welcoming beginner class shot. Alt: "Beginner Salsa class welcoming new students in Chiswick".
+- [ ] **Shoes flat lay**: 1:1. Alt: "Comfortable flat-soled shoes suitable for first salsa class".
+
+### `/pura-nights`
+- [ ] **Hero**: 16:9 active class. Alt: "Melitta Siomos teaching Bachata at Pura Nights, Chiswick".
+- [ ] **Two venue tiles** (3:2 each): exterior shot of George IV (Chiswick) + Drayton Court (Ealing).
+
+### `/schedule` / `/locations`
+- [ ] **Stylised West London map**: 16:9. Alt: "Map of Pura Nights venues across West and South West London".
+- [ ] **Per-area card** (3:2, 7 cards): one indicative photo per area.
+
+### `/wedding-dance`
+- [ ] **Hero**: 16:9 first-dance moment. Alt: "Bride and groom performing their first dance choreographed by Melitta Siomos".
+- [ ] **Process strip** (3 × 4:3): consultation, rehearsal, big day.
+- [ ] **Couple proof cards** (3 × 1:1): 3 real wedding couples (with permission).
+
+### `/private-lessons`
+- [ ] **Hero**: 16:9 1-to-1 studio shot. Alt: "Private salsa lesson with Melitta Siomos in West London".
+- [ ] **Couple lesson** (3:2). Alt: "Private bachata lesson for a couple ahead of their wedding".
+
+### `/pura-ladies`
+- [ ] **Hero**: 21:9 team line-up on stage. Alt: "Pura Ladies bachata performance team London".
+- [ ] **Per-city card** (4 × 3:4): London, Plymouth, Munich, Lisbon.
+
+### `/events`
+- [ ] **Latin Friday hero**: 16:9 crowd shot, low light, atmosphere. Alt: "Latin Friday at Drayton Court Ealing — Pura Nights monthly social".
+- [ ] **Per-event poster** 4:5.
+
+### Venue pages `/venue/*`
+- [ ] **Exterior 16:9** + **Interior 16:9** + **Class in action 3:2** for each venue.
+
+### `/gallery`
+- [ ] Mixed library (real photos only). 6 priority shots: hero class, wedding, Pura Ladies stage, private lesson, Latin Friday, beginner class.
+
+### `/shop`
+- [ ] All product photography to be supplied at launch — page remains `noindex` until real photos exist.
+  - Flat lay 1:1
+  - Model wearing 4:5
+  - Detail close-up 1:1
+
+### Replacement instruction
+Every placeholder in the React build is annotated. When mirroring into Wix, swap each placeholder for the supplied real photo and copy the alt text into the Wix Media Manager (alt text on the asset, not the page) so it carries everywhere.
