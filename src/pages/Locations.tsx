@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -177,6 +178,7 @@ const Locations = () => (
       { to: "/prices", label: "Prices & Bundles" },
       { to: "/contact", label: "Contact" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
 );
 

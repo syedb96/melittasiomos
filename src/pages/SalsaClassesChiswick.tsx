@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Star, Trophy, Users } from "lucide-react";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
@@ -131,6 +132,7 @@ const SalsaClassesChiswick = () => (
       { to: "/locations", label: "Venue Directions" },
       { to: "/pura-nights", label: "Full Schedule" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
 );
 

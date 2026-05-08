@@ -1,6 +1,7 @@
 // CTA audit v7.1 - verified
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
@@ -249,6 +250,7 @@ const Prices = () => {
       { to: "/gift-vouchers", label: "Gift Vouchers", desc: "Give the gift of dance" },
       { to: "/start-here", label: "Start Here", desc: "New to Salsa & Bachata?" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
   );
 };

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
@@ -231,6 +232,7 @@ const PuraNights = () => (
         </div>
       </div>
     </section>
+    <FirstTimerCallout />
   </Layout>
 );
 

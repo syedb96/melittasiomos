@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Clock, ArrowRight, Calendar, Music, Users } from "lucide-react";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
@@ -199,6 +200,7 @@ const Schedule = () => (
       { to: "/salsa-classes-chiswick", label: "Salsa in Chiswick" },
       { to: "/bachata-classes-ealing", label: "Bachata in Ealing" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
 );
 
