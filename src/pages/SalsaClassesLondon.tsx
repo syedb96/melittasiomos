@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star, Trophy, Users, MapPin, Clock, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
@@ -164,6 +165,7 @@ const SalsaClassesLondon = () => (
       { to: "/blog/salsa-no-partner", label: "No Partner Needed" },
       { to: "/pura-nights", label: "Weekly Classes" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
 );
 

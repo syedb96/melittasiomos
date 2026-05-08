@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Star, Trophy, Users, MapPin, Clock, ArrowRight, Heart } from "lucide-react";
 import Layout from "@/components/Layout";
+import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import heroImg from "@/assets/bachata-close.jpg";
@@ -175,6 +176,7 @@ const BachataClassesLondon = () => (
       { to: "/pura-nights", label: "Weekly Classes" },
       { to: "/pura-ladies", label: "Pura Ladies Team" },
     ]} />
+    <FirstTimerCallout />
   </Layout>
 );
 
