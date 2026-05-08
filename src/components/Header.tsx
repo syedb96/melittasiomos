@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle } from "lucide-react";
+import {
+  Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle,
+  CalendarDays, Sparkles, Crown, Laptop, Tag, Gift, User, Heart, UserCheck,
+  BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin,
+} from "lucide-react";
 
 // Premium, minimal nav — high-intent only.
 // Local SEO pages live in footer + /locations + contextual links, NOT here.
@@ -10,43 +14,43 @@ const navGroups = [
     label: "CLASSES & EVENTS",
     path: "/pura-nights",
     dropdown: [
-      { label: "Weekly Classes", path: "/pura-nights" },
-      { label: "Monthly Latin Fridays", path: "/events" },
-      { label: "Pura Ladies", path: "/pura-ladies" },
-      { label: "Online Coaching", path: "/online-salsa-bachata-coaching" },
+      { label: "Weekly Classes", path: "/pura-nights", icon: CalendarDays },
+      { label: "Monthly Latin Fridays", path: "/events", icon: Sparkles },
+      { label: "Pura Ladies", path: "/pura-ladies", icon: Crown },
+      { label: "Online Coaching", path: "/online-salsa-bachata-coaching", icon: Laptop },
     ],
   },
   {
     label: "PRICES & BOOKING",
     path: "/prices",
     dropdown: [
-      { label: "Class Pricing", path: "/prices" },
-      { label: "Book a Class", path: "https://www.tickettailor.com/events/puranights", external: true },
-      { label: "Gift Vouchers", path: "/gift-vouchers" },
+      { label: "Class Pricing", path: "/prices", icon: Tag },
+      { label: "Book a Class", path: "https://www.tickettailor.com/events/puranights", external: true, icon: CalendarDays },
+      { label: "Gift Vouchers", path: "/gift-vouchers", icon: Gift },
     ],
   },
   {
     label: "ABOUT & SERVICES",
     path: "/about",
     dropdown: [
-      { label: "About Melitta", path: "/about" },
-      { label: "Wedding Dance", path: "/wedding-dance" },
-      { label: "Private Lessons", path: "/private-lessons" },
-      { label: "Contact", path: "/contact" },
+      { label: "About Melitta", path: "/about", icon: User },
+      { label: "Wedding Dance", path: "/wedding-dance", icon: Heart },
+      { label: "Private Lessons", path: "/private-lessons", icon: UserCheck },
+      { label: "Contact", path: "/contact", icon: Mail },
     ],
   },
   {
     label: "LEARN",
     path: "/blog",
     dropdown: [
-      { label: "Start Here", path: "/start-here" },
-      { label: "Community", path: "/community" },
-      { label: "Schedule", path: "/schedule" },
-      { label: "Gallery", path: "/gallery" },
-      { label: "Testimonials", path: "/testimonials" },
-      { label: "FAQs", path: "/faq" },
-      { label: "Blog", path: "/blog" },
-      { label: "Find a Class Near You", path: "/locations" },
+      { label: "Start Here", path: "/start-here", icon: BookOpen },
+      { label: "Community", path: "/community", icon: Users },
+      { label: "Schedule", path: "/schedule", icon: Clock },
+      { label: "Gallery", path: "/gallery", icon: ImageIcon },
+      { label: "Testimonials", path: "/testimonials", icon: Star },
+      { label: "FAQs", path: "/faq", icon: HelpCircle },
+      { label: "Blog", path: "/blog", icon: FileText },
+      { label: "Find a Class Near You", path: "/locations", icon: MapPin },
     ],
   },
 ];
