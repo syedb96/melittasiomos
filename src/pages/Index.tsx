@@ -138,6 +138,9 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* SECTION 1B — NEW HERE? CONVERSION STRIP */}
+      <NewHereStrip />
+
       {/* SECTION 2 — 3 BENEFIT PILLARS */}
       <section className="py-10 section-warm border-b border-border">
         <div className="container-main">
