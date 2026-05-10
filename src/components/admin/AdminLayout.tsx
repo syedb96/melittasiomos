@@ -70,7 +70,7 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
         <div className="p-4 border-t border-border">
           <div className="flex items-center gap-3 mb-3">
             {user?.user_metadata?.avatar_url ? (
-              <img src={user.user_metadata.avatar_url} alt="" className="w-8 h-8 rounded-full" />
+              <img src={user.user_metadata.avatar_url} alt="" aria-hidden="true" className="w-8 h-8 rounded-full" />
             ) : (
               <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">
                 {(user?.email?.[0] ?? "?").toUpperCase()}

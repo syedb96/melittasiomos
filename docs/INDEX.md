@@ -4,6 +4,19 @@ The single entry point for the Wix replication & launch effort. If you're handin
 
 ---
 
+## 🧭 Wix Migration Quick Nav
+
+The three documents below are the **only** ones you need open while rebuilding in Wix.
+Everything else is reference.
+
+| Open in this order | Document | What it gives you |
+|---|---|---|
+| 1️⃣ | **[Wix Page-by-Page Replication Checklist →](./32-WIX-PAGE-BY-PAGE-REPLICATION-CHECKLIST.md)** | Section-by-section blueprint for every page — the build order. |
+| 2️⃣ | **[Media & Photo Plan →](./06-MEDIA-AND-PHOTO-PLAN.md)** | Every image slot, crop ratio, ideal subject and alt text. |
+| 3️⃣ | **[Final Polish Report →](./33-FINAL-POLISH-REPORT.md)** | Last-sprint UX/conversion tweaks and the rationale behind them. |
+
+---
+
 ## 🎯 Top 3 — Must-Read for Wix Build
 
 | # | Doc | Purpose |
