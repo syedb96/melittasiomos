@@ -151,22 +151,34 @@ const Header = () => {
                     )}
                   </button>
                   {openDropdownIdx === idx && (
-                    <div className="absolute top-full left-0 mt-0 bg-charcoal-light border border-primary/15 rounded-xl shadow-2xl min-w-[260px] py-2 z-50">
+                    <div className="absolute top-full left-0 mt-0 bg-charcoal-light border border-primary/15 rounded-xl shadow-2xl min-w-[300px] py-2 z-50">
                       {group.dropdown.map((sub) => {
                         const Icon = (sub as any).icon;
+                        const description = (sub as any).description as string | undefined;
+                        const inner = (
+                          <>
+                            {Icon && <Icon size={14} className="text-primary/70 mt-0.5 shrink-0" />}
+                            <span className="flex flex-col leading-tight">
+                              <span className="text-[12px]">{sub.label}{(sub as any).external ? " ↗" : ""}</span>
+                              {description && (
+                                <span className="text-[10px] font-normal text-primary-foreground/45 mt-0.5">
+                                  {description}
+                                </span>
+                              )}
+                            </span>
+                          </>
+                        );
                         return (sub as any).external ? (
-                          <a key={sub.path} href={sub.path} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-5 py-2.5 text-[12px] font-heading text-primary-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors border-l-2 border-transparent hover:border-primary">
-                            {Icon && <Icon size={14} className="text-primary/70" />}
-                            <span>{sub.label} ↗</span>
+                          <a key={sub.path} href={sub.path} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 px-5 py-2.5 font-heading text-primary-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors border-l-2 border-transparent hover:border-primary">
+                            {inner}
                           </a>
                         ) : (
-                          <Link key={sub.path} to={sub.path} className={`flex items-center gap-3 px-5 py-2.5 text-[12px] font-heading transition-colors border-l-2 ${
+                          <Link key={sub.path} to={sub.path} className={`flex items-start gap-3 px-5 py-2.5 font-heading transition-colors border-l-2 ${
                             location.pathname === sub.path
                               ? "text-primary bg-primary/10 border-primary"
                               : "text-primary-foreground/70 hover:text-primary hover:bg-primary/10 border-transparent hover:border-primary"
                           }`}>
-                            {Icon && <Icon size={14} className="text-primary/70" />}
-                            <span>{sub.label}</span>
+                            {inner}
                           </Link>
                         );
                       })}
