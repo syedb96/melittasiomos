@@ -23,7 +23,9 @@
     "qa:schema:strict": "bun scripts/schema-snapshot.ts --strict",
     "qa:monitoring": "bun scripts/monitoring-import.ts",
     "qa:manifest": "bun scripts/evidence-manifest.ts",
-    "qa:run": "bun scripts/launch-qa-run.ts"
+    "qa:run": "bun scripts/launch-qa-run.ts",
+    "qa:alt-lint": "bun scripts/alt-text-lint.ts",
+    "prebuild": "bun scripts/alt-text-lint.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
