@@ -78,6 +78,11 @@ for (const file of walk(SRC)) {
     ALT_RE.lastIndex = 0;
 
     if (!altMatch) {
+      // Check whether alt= is present at all (e.g. dynamic alt={expr})
+      if (/\balt\s*=/.test(tag)) {
+        // Dynamic alt expression — trust it, skip duplicate tracking
+        continue;
+      }
       findings.push({ file: rel, line: lineNo, alt: "(missing)", reason: "missing alt attribute" });
       continue;
     }
