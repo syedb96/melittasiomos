@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MapPin, Users, Target, Heart, Sparkles } from "lucide-react";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
+import RealProofSlot from "@/components/RealProofSlot";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -192,6 +193,21 @@ const PrivateLessons = () => (
       title="What private students say"
       limit={3}
     />
+
+    {/* Real-proof visual slot — private student progress */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-md">
+        <RealProofSlot
+          variant="story"
+          purpose="Private Lesson Before / After Progress"
+          replacementLabel="To replace · real before/after clip thumbnail"
+          idealSubject="A consented progress visual from a private student — either a side-by-side before/after still (lesson 1 vs lesson 6) or a thumbnail from a short video clip. Same outfit / framing across both for clarity."
+          cropRatio="4:5"
+          altText="Private dance student progress — before and after six 1-to-1 lessons with Melitta Siomos"
+          caption="Honest placeholder · awaiting consented before/after from a recent private student."
+        />
+      </div>
+    </section>
 
     <RelatedPages title="Related Pages" links={[
       { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },

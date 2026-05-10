@@ -8,49 +8,50 @@ import {
 
 // Premium, minimal nav — high-intent only.
 // Local SEO pages live in footer + /locations + contextual links, NOT here.
+// Title Case for items, short descriptions for clarity. Wix mirrors this 1:1.
 const navGroups = [
-  { label: "HOME", path: "/", dropdown: null },
+  { label: "Home", path: "/", dropdown: null },
   {
-    label: "CLASSES & EVENTS",
+    label: "Classes & Events",
     path: "/pura-nights",
     dropdown: [
-      { label: "Weekly Classes", path: "/pura-nights", icon: CalendarDays },
-      { label: "Monthly Latin Fridays", path: "/events", icon: Sparkles },
-      { label: "Pura Ladies", path: "/pura-ladies", icon: Crown },
-      { label: "Online Coaching", path: "/online-salsa-bachata-coaching", icon: Laptop },
+      { label: "Weekly Classes", path: "/pura-nights", icon: CalendarDays, description: "Mondays in Chiswick, Tuesdays in Ealing" },
+      { label: "Monthly Latin Fridays", path: "/events", icon: Sparkles, description: "Our flagship Friday social" },
+      { label: "Pura Ladies", path: "/pura-ladies", icon: Crown, description: "Ladies styling team & auditions" },
+      { label: "Online Coaching", path: "/online-salsa-bachata-coaching", icon: Laptop, description: "1-to-1 video coaching, anywhere" },
     ],
   },
   {
-    label: "PRICES & BOOKING",
+    label: "Prices & Booking",
     path: "/prices",
     dropdown: [
-      { label: "Class Pricing", path: "/prices", icon: Tag },
-      { label: "Book a Class", path: "https://www.tickettailor.com/events/puranights", external: true, icon: CalendarDays },
-      { label: "Gift Vouchers", path: "/gift-vouchers", icon: Gift },
+      { label: "Class Pricing", path: "/prices", icon: Tag, description: "Drop-ins, bundles & student rates" },
+      { label: "Book a Class", path: "https://www.tickettailor.com/events/puranights", external: true, icon: CalendarDays, description: "Reserve your spot via Ticket Tailor" },
+      { label: "Gift Vouchers", path: "/gift-vouchers", icon: Gift, description: "The perfect Latin gift" },
     ],
   },
   {
-    label: "ABOUT & SERVICES",
+    label: "About & Services",
     path: "/about",
     dropdown: [
-      { label: "About Melitta", path: "/about", icon: User },
-      { label: "Wedding Dance", path: "/wedding-dance", icon: Heart },
-      { label: "Private Lessons", path: "/private-lessons", icon: UserCheck },
-      { label: "Contact", path: "/contact", icon: Mail },
+      { label: "About Melitta", path: "/about", icon: User, description: "Bachata UK Champion & founder" },
+      { label: "Wedding Dance", path: "/wedding-dance", icon: Heart, description: "Bespoke first-dance choreography" },
+      { label: "Private Lessons", path: "/private-lessons", icon: UserCheck, description: "1-to-1 or small group, by enquiry" },
+      { label: "Contact", path: "/contact", icon: Mail, description: "WhatsApp, email or enquiry form" },
     ],
   },
   {
-    label: "LEARN",
+    label: "Learn",
     path: "/blog",
     dropdown: [
-      { label: "Start Here", path: "/start-here", icon: BookOpen },
-      { label: "Community", path: "/community", icon: Users },
-      { label: "Schedule", path: "/schedule", icon: Clock },
-      { label: "Gallery", path: "/gallery", icon: ImageIcon },
-      { label: "Testimonials", path: "/testimonials", icon: Star },
-      { label: "FAQs", path: "/faq", icon: HelpCircle },
-      { label: "Blog", path: "/blog", icon: FileText },
-      { label: "Find a Class Near You", path: "/locations", icon: MapPin },
+      { label: "Start Here", path: "/start-here", icon: BookOpen, description: "New to Latin dance? Start here" },
+      { label: "Community", path: "/community", icon: Users, description: "Meet our regulars & ambassadors" },
+      { label: "Schedule", path: "/schedule", icon: Clock, description: "This week's class times" },
+      { label: "Gallery", path: "/gallery", icon: ImageIcon, description: "Photos & video from class & socials" },
+      { label: "Testimonials", path: "/testimonials", icon: Star, description: "Real student reviews" },
+      { label: "FAQs", path: "/faq", icon: HelpCircle, description: "Common questions, answered" },
+      { label: "Blog", path: "/blog", icon: FileText, description: "Guides, tips and London Latin scene" },
+      { label: "Find a Class Near You", path: "/locations", icon: MapPin, description: "Local class pages by area" },
     ],
   },
 ];
@@ -150,22 +151,34 @@ const Header = () => {
                     )}
                   </button>
                   {openDropdownIdx === idx && (
-                    <div className="absolute top-full left-0 mt-0 bg-charcoal-light border border-primary/15 rounded-xl shadow-2xl min-w-[260px] py-2 z-50">
+                    <div className="absolute top-full left-0 mt-0 bg-charcoal-light border border-primary/15 rounded-xl shadow-2xl min-w-[300px] py-2 z-50">
                       {group.dropdown.map((sub) => {
                         const Icon = (sub as any).icon;
+                        const description = (sub as any).description as string | undefined;
+                        const inner = (
+                          <>
+                            {Icon && <Icon size={14} className="text-primary/70 mt-0.5 shrink-0" />}
+                            <span className="flex flex-col leading-tight">
+                              <span className="text-[12px]">{sub.label}{(sub as any).external ? " ↗" : ""}</span>
+                              {description && (
+                                <span className="text-[10px] font-normal text-primary-foreground/45 mt-0.5">
+                                  {description}
+                                </span>
+                              )}
+                            </span>
+                          </>
+                        );
                         return (sub as any).external ? (
-                          <a key={sub.path} href={sub.path} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-5 py-2.5 text-[12px] font-heading text-primary-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors border-l-2 border-transparent hover:border-primary">
-                            {Icon && <Icon size={14} className="text-primary/70" />}
-                            <span>{sub.label} ↗</span>
+                          <a key={sub.path} href={sub.path} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 px-5 py-2.5 font-heading text-primary-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors border-l-2 border-transparent hover:border-primary">
+                            {inner}
                           </a>
                         ) : (
-                          <Link key={sub.path} to={sub.path} className={`flex items-center gap-3 px-5 py-2.5 text-[12px] font-heading transition-colors border-l-2 ${
+                          <Link key={sub.path} to={sub.path} className={`flex items-start gap-3 px-5 py-2.5 font-heading transition-colors border-l-2 ${
                             location.pathname === sub.path
                               ? "text-primary bg-primary/10 border-primary"
                               : "text-primary-foreground/70 hover:text-primary hover:bg-primary/10 border-transparent hover:border-primary"
                           }`}>
-                            {Icon && <Icon size={14} className="text-primary/70" />}
-                            <span>{sub.label}</span>
+                            {inner}
                           </Link>
                         );
                       })}

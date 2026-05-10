@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
+import RealProofSlot from "@/components/RealProofSlot";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -256,6 +257,21 @@ const Beginners = () => (
       title="From zero to dancing — in weeks"
       subtitle="Real reviews from people who walked in nervous and left smiling."
     />
+
+    {/* Real-proof visual slot — beginner student story */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-md">
+        <RealProofSlot
+          variant="story"
+          purpose="Beginner Student Story Photo"
+          replacementLabel="To replace · real beginner student photo"
+          idealSubject="A real beginner student smiling on the dance floor at The George IV or The Drayton Court — natural light, mid-class, with permission to publish. Caption with first name + 'started in [month]'."
+          cropRatio="4:5"
+          altText="Beginner student smiling during their first salsa class at Pura Nights London"
+          caption="Honest placeholder · awaiting consent + photo from a real beginner."
+        />
+      </div>
+    </section>
 
     <RelatedPages title="Helpful Links for Beginners" links={[
       { to: "/start-here", label: "Start Here Guide", desc: "Everything to know before class" },

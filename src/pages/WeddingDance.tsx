@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
+import RealProofSlot from "@/components/RealProofSlot";
 import { Link } from "react-router-dom";
 import { Star, Heart, CheckCircle, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -227,6 +228,21 @@ const WeddingDance = () => (
       limit={3}
       variant="dark"
     />
+
+    {/* Real-proof visual slot — wedding couple story */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-md">
+        <RealProofSlot
+          variant="story"
+          purpose="Wedding Couple First-Dance Photo"
+          replacementLabel="To replace · real couple photo + 1-line testimonial"
+          idealSubject="A past wedding couple in their first-dance moment — provided by the couple or their photographer, with written permission. Pair with a one-sentence quote ('We had 4 lessons with Melitta — best decision of the wedding')."
+          cropRatio="4:5"
+          altText="Real wedding couple performing their first dance after lessons with Melitta Siomos"
+          caption="Honest placeholder · awaiting couple's photo release."
+        />
+      </div>
+    </section>
 
     <RelatedPages title="Wedding Dance Resources" links={[
       { to: "/blog/wedding-first-dance-tips", label: "10 First Dance Tips", desc: "Expert advice for your big day" },
