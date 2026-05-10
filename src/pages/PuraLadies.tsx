@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
+import RealProofSlot from "@/components/RealProofSlot";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
@@ -180,6 +181,21 @@ const PuraLadies = () => (
       limit={3}
       variant="dark"
     />
+
+    {/* Real-proof visual slot — Pura Ladies team proof */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-md">
+        <RealProofSlot
+          variant="story"
+          purpose="Pura Ladies Performance / Rehearsal Proof"
+          replacementLabel="To replace · real team performance still"
+          idealSubject="A clean, well-lit performance still or polished rehearsal photo of the London Pura Ladies team in formation (matching outfits, sharp arms). Pull from existing performance footage or commission a 30-min photo session."
+          cropRatio="4:5"
+          altText="Pura Ladies bachata performance team in formation during a London showcase"
+          caption="Honest placeholder · awaiting performance still from latest London showcase."
+        />
+      </div>
+    </section>
 
     <RelatedPages title="Explore More" links={[
       { to: "/blog/pura-ladies-story", label: "The Pura Ladies Story", desc: "How one dream became a global community" },

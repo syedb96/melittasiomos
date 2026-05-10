@@ -11,6 +11,7 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import RealProofSlot from "@/components/RealProofSlot";
 import LastUpdated from "@/components/LastUpdated";
 import LiveStudentCounter from "@/components/LiveStudentCounter";
 import SocialProofBar from "@/components/SocialProofBar";
@@ -359,6 +360,19 @@ const Index = () => {
           <TestimonialsCarousel />
           <FadeInUp delay={0.3} className="text-center mt-10">
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
+          </FadeInUp>
+
+          {/* Real-proof visual slot — Google review screenshot */}
+          <FadeInUp delay={0.4} className="max-w-md mx-auto mt-12">
+            <RealProofSlot
+              variant="review"
+              purpose="Google 5★ Review Screenshot"
+              replacementLabel="To replace · Google Business Profile screenshot"
+              idealSubject="Crisp screenshot of a recent 5-star Google review for Pura Nights — name visible, full quote, star row, with the GBP header crop intact."
+              cropRatio="4:5"
+              altText="5-star Google review for Pura Nights salsa and bachata classes in London"
+              caption="Honest placeholder · swap for an actual Google review screenshot before launch."
+            />
           </FadeInUp>
         </div>
       </section>
