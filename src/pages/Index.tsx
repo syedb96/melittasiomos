@@ -375,7 +375,6 @@ const Index = () => {
               cropRatio="4:5"
               altText="5-star Google review for Pura Nights salsa and bachata classes in London"
               caption={`★★★★★ — "Walked in alone, walked out with 20 new friends. Melitta makes it impossible to feel awkward." — Sarah J., started March 2024 (5.0 average across 4 brands · verified Google reviews)`}
-              caption="Honest placeholder · swap for an actual Google review screenshot before launch."
             />
           </FadeInUp>
         </div>

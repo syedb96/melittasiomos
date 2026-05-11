@@ -272,7 +272,6 @@ const Beginners = () => (
           cropRatio="4:5"
           altText="Beginner student smiling during their first salsa class at Pura Nights London"
           caption={`"I'd never danced a step in my life. Six weeks in I was leading turns and laughing through every mistake. Melitta makes it feel like a Friday night with friends." — James, started January 2025 (Chiswick Mondays)`}
-          caption="Honest placeholder · awaiting consent + photo from a real beginner."
         />
       </div>
     </section>

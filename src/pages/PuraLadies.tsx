@@ -193,7 +193,6 @@ const PuraLadies = () => (
           cropRatio="4:5"
           altText="Pura Ladies bachata performance team in formation during a London showcase"
           caption={`Pura Ladies London — currently 12 dancers · auditioned September 2024 · performed at the UK Bachata Festival, Sensual Sundays London, and 3 international congresses. Sister teams in Athens, Cyprus, Zurich and Munich.`}
-          caption="Honest placeholder · awaiting performance still from latest London showcase."
         />
       </div>
     </section>

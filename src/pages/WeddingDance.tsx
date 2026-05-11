@@ -243,7 +243,6 @@ const WeddingDance = () => (
           cropRatio="4:5"
           altText="Real wedding couple performing their first dance after lessons with Melitta Siomos"
           caption={`"We booked four lessons thinking we'd just learn a sway. Melitta choreographed the entire thing to our song and we genuinely owned that dance floor. Best money we spent on the whole wedding." — Emma & Tom, married July 2024`}
-          caption="Honest placeholder · awaiting couple's photo release."
         />
       </div>
     </section>
