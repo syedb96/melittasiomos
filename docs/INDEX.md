@@ -13,7 +13,7 @@ Everything else is reference.
 |---|---|---|
 | 1️⃣ | **[Wix Page-by-Page Replication Checklist →](./32-WIX-PAGE-BY-PAGE-REPLICATION-CHECKLIST.md)** | Section-by-section blueprint for every page — the build order. |
 | 2️⃣ | **[Media & Photo Plan →](./06-MEDIA-AND-PHOTO-PLAN.md)** | Every image slot, crop ratio, ideal subject and alt text. |
-| 3️⃣ | **[Final Polish Report →](./33-FINAL-POLISH-REPORT.md)** | Last-sprint UX/conversion tweaks and the rationale behind them. |
+| 4️⃣ | **[Final Handoff Sign-Off →](./34-WIX-HANDOFF-SIGNOFF.md)** | Frozen scope, TonightBanner Velo snippet, one-command launch QA. |
 
 ---
 
