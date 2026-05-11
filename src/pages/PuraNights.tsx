@@ -44,6 +44,9 @@ const PuraNights = () => (
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
             <Link to="/prices" className="btn-cta-ghost text-sm">See Prices →</Link>
           </div>
+          <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
+            Drop in from £10 · 7:00pm Beginners · 8:00pm Improvers · Social dancing til late
+          </p>
         </div>
       </div>
     </section>

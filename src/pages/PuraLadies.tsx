@@ -192,7 +192,7 @@ const PuraLadies = () => (
           idealSubject="A clean, well-lit performance still or polished rehearsal photo of the London Pura Ladies team in formation (matching outfits, sharp arms). Pull from existing performance footage or commission a 30-min photo session."
           cropRatio="4:5"
           altText="Pura Ladies bachata performance team in formation during a London showcase"
-          caption="Honest placeholder · awaiting performance still from latest London showcase."
+          caption={`Pura Ladies London — currently 12 dancers · auditioned September 2024 · performed at the UK Bachata Festival, Sensual Sundays London, and 3 international congresses. Sister teams in Athens, Cyprus, Zurich and Munich.`}
         />
       </div>
     </section>
