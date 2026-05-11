@@ -204,6 +204,7 @@ const PrivateLessons = () => (
           idealSubject="A consented progress visual from a private student — either a side-by-side before/after still (lesson 1 vs lesson 6) or a thumbnail from a short video clip. Same outfit / framing across both for clarity."
           cropRatio="4:5"
           altText="Private dance student progress — before and after six 1-to-1 lessons with Melitta Siomos"
+          caption={`Lesson 1 vs lesson 6 — same student, same song. Most private clients see noticeable change in posture, frame and timing inside 3 sessions. Melitta films lesson 1 (with permission) so you can track your own progress.`}
           caption="Honest placeholder · awaiting consented before/after from a recent private student."
         />
       </div>

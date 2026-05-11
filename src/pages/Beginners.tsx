@@ -93,6 +93,9 @@ const Beginners = () => (
           <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class</a>
           <Link to="/start-here" className="btn-cta-ghost text-sm">What to Expect →</Link>
         </motion.div>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
+          Arrive 10 min early · Flat shoes only · We rotate partners — come solo or with a friend
+        </motion.p>
       </div>
     </section>
 
@@ -268,6 +271,7 @@ const Beginners = () => (
           idealSubject="A real beginner student smiling on the dance floor at The George IV or The Drayton Court — natural light, mid-class, with permission to publish. Caption with first name + 'started in [month]'."
           cropRatio="4:5"
           altText="Beginner student smiling during their first salsa class at Pura Nights London"
+          caption={`"I'd never danced a step in my life. Six weeks in I was leading turns and laughing through every mistake. Melitta makes it feel like a Friday night with friends." — James, started January 2025 (Chiswick Mondays)`}
           caption="Honest placeholder · awaiting consent + photo from a real beginner."
         />
       </div>

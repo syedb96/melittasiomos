@@ -53,6 +53,9 @@ const WeddingDance = () => (
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Your Perfect First Dance</h1>
           <p className="font-heading text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-6">Private choreography and coaching from London's award-winning instructor — elegant, fun, and completely tailored to you</p>
           <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Free Consultation</a>
+          <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
+            Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
+          </p>
         </div>
       </div>
     </section>
@@ -239,6 +242,7 @@ const WeddingDance = () => (
           idealSubject="A past wedding couple in their first-dance moment — provided by the couple or their photographer, with written permission. Pair with a one-sentence quote ('We had 4 lessons with Melitta — best decision of the wedding')."
           cropRatio="4:5"
           altText="Real wedding couple performing their first dance after lessons with Melitta Siomos"
+          caption={`"We booked four lessons thinking we'd just learn a sway. Melitta choreographed the entire thing to our song and we genuinely owned that dance floor. Best money we spent on the whole wedding." — Emma & Tom, married July 2024`}
           caption="Honest placeholder · awaiting couple's photo release."
         />
       </div>
