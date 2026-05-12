@@ -199,11 +199,24 @@ const Contact = () => {
                 <p className="text-muted-foreground text-sm mb-8">Fill in the form below and Melitta will get back to you as soon as possible.</p>
 
                 {submitted ? (
-                  <div className="text-center py-16">
-                    <div className="text-5xl mb-4">🎉</div>
-                    <h3 className="font-display text-2xl font-bold mb-2">Message Sent!</h3>
-                    <p className="text-muted-foreground mb-6">Thank you — Melitta will reply within 24 hours.</p>
-                    <p className="text-sm text-muted-foreground">Need a faster reply? <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">WhatsApp Melitta →</a></p>
+                  <div role="status" aria-live="polite" className="py-10">
+                    <div className="text-center mb-6">
+                      <div className="text-5xl mb-3">🎉</div>
+                      <h3 className="font-display text-2xl font-bold mb-2">Message Sent!</h3>
+                      <p className="text-muted-foreground text-sm">Thank you — Melitta will reply within 24 hours. Here's what we received:</p>
+                    </div>
+                    {submittedSnapshot && (
+                      <dl className="rounded-xl border border-border bg-background/60 p-5 text-sm space-y-2 mb-6">
+                        <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Name</dt><dd>{submittedSnapshot.name}</dd></div>
+                        <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Email</dt><dd className="break-all">{submittedSnapshot.email}</dd></div>
+                        {submittedSnapshot.phone && (
+                          <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Phone</dt><dd>{submittedSnapshot.phone}</dd></div>
+                        )}
+                        <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Enquiry</dt><dd>{submittedSnapshot.enquiry}</dd></div>
+                        <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Message</dt><dd className="whitespace-pre-wrap">{submittedSnapshot.message}</dd></div>
+                      </dl>
+                    )}
+                    <p className="text-sm text-muted-foreground text-center">Need a faster reply? <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">WhatsApp Melitta →</a></p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5" noValidate>
