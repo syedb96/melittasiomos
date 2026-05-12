@@ -200,7 +200,7 @@ const PrivateLessons = () => (
         <RealProofSlot
           variant="story"
           purpose="Private Lesson Before / After Progress"
-          replacementLabel="To replace · real before/after clip thumbnail"
+          replacementLabel="Image to add · progress caption is final"
           idealSubject="A consented progress visual from a private student — either a side-by-side before/after still (lesson 1 vs lesson 6) or a thumbnail from a short video clip. Same outfit / framing across both for clarity."
           cropRatio="4:5"
           altText="Private dance student progress — before and after six 1-to-1 lessons with Melitta Siomos"
