@@ -116,7 +116,7 @@ async function probe(c: Check) {
 
   const dir = join("launch-evidence", "cta-smoke");
   mkdirSync(dir, { recursive: true });
-  const file = join(dir, `cta-smoke-${cfg.envName}-${new Date().toISOString().slice(0, 10)}.csv`);
+  const file = join(dir, `cta-smoke-${cfg.env}-${new Date().toISOString().slice(0, 10)}.csv`);
   writeFileSync(file, rows.join("\n"));
   console.log(`\n${failures === 0 ? "✓ ALL PASS" : `✗ ${failures} FAILURE(S)`} — report: ${file}\n`);
   process.exit(failures === 0 ? 0 : 1);
