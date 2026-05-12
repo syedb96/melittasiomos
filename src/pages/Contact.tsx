@@ -36,6 +36,7 @@ const contactSchema = z.object({
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submittedSnapshot, setSubmittedSnapshot] = useState<typeof formData | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
