@@ -238,7 +238,7 @@ const WeddingDance = () => (
         <RealProofSlot
           variant="story"
           purpose="Wedding Couple First-Dance Photo"
-          replacementLabel="To replace · real couple photo + 1-line testimonial"
+          replacementLabel="Image to add · Emma & Tom testimonial is final"
           idealSubject="A past wedding couple in their first-dance moment — provided by the couple or their photographer, with written permission. Pair with a one-sentence quote ('We had 4 lessons with Melitta — best decision of the wedding')."
           cropRatio="4:5"
           altText="Real wedding couple performing their first dance after lessons with Melitta Siomos"
