@@ -77,11 +77,13 @@ const Contact = () => {
         message: result.data.message,
       });
       if (error) throw error;
+      setSubmittedSnapshot({ ...formData });
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
+        setSubmittedSnapshot(null);
         setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
-      }, 8000);
+      }, 12000);
     } catch (err) {
       console.error("Contact form submission failed", err);
       setSubmitError(
