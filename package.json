@@ -25,6 +25,7 @@
     "qa:manifest": "bun scripts/evidence-manifest.ts",
     "qa:run": "bun scripts/launch-qa-run.ts",
     "qa:alt-lint": "bun scripts/alt-text-lint.ts",
+    "qa:cta-smoke": "bun scripts/cta-smoke-test.ts",
     "prebuild": "bun scripts/alt-text-lint.ts"
   },
   "dependencies": {
