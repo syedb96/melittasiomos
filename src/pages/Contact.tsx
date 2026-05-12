@@ -37,12 +37,23 @@ const contactSchema = z.object({
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", enquiry: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Spam protection: honeypot field (must stay empty) + render timestamp (humans take >2s)
+  const [honeypot, setHoneypot] = useState("");
+  const [renderedAt] = useState(() => Date.now());
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setSubmitError(null);
+
+    // Spam traps — silently succeed so bots don't learn
+    if (honeypot.trim() !== "" || Date.now() - renderedAt < 2000) {
+      setSubmitted(true);
+      return;
+    }
 
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
@@ -70,8 +81,11 @@ const Contact = () => {
         setSubmitted(false);
         setFormData({ name: "", phone: "", email: "", enquiry: "", message: "" });
       }, 8000);
-    } catch {
-      alert("Something went wrong. Please try WhatsApp instead.");
+    } catch (err) {
+      console.error("Contact form submission failed", err);
+      setSubmitError(
+        "We couldn't send your message right now. Please try again in a moment, or WhatsApp Melitta directly on +44 7449 482 343 — she replies within hours."
+      );
     } finally {
       setSubmitting(false);
     }
