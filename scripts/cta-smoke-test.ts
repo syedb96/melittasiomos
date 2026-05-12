@@ -83,7 +83,15 @@ async function probe(c: Check) {
     let url = c.url;
     let redirects = 0;
     for (let i = 0; i < 5; i++) {
-      const res = await fetch(url, { method: "HEAD", redirect: "manual" });
+      let res = await fetch(url, { method: "HEAD", redirect: "manual" });
+      // Some hosts (Ticket Tailor, anti-bot CDNs) reject HEAD. Retry with GET.
+      if (c.kind === "external" && (res.status === 403 || res.status === 405 || res.status === 400)) {
+        res = await fetch(url, {
+          method: "GET",
+          redirect: "manual",
+          headers: { "User-Agent": "Mozilla/5.0 (compatible; PuraNightsCTASmoke/1.0)" },
+        });
+      }
       if ([301, 302, 303, 307, 308].includes(res.status)) {
         const loc = res.headers.get("location");
         if (!loc) return { status: `${res.status}-no-location`, finalUrl: url, redirects };
