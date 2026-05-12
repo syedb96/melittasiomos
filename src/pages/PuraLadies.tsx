@@ -188,7 +188,7 @@ const PuraLadies = () => (
         <RealProofSlot
           variant="story"
           purpose="Pura Ladies Performance / Rehearsal Proof"
-          replacementLabel="To replace · real team performance still"
+          replacementLabel="Image to add · team caption + credits are final"
           idealSubject="A clean, well-lit performance still or polished rehearsal photo of the London Pura Ladies team in formation (matching outfits, sharp arms). Pull from existing performance footage or commission a 30-min photo session."
           cropRatio="4:5"
           altText="Pura Ladies bachata performance team in formation during a London showcase"
