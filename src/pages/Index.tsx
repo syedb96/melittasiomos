@@ -370,7 +370,7 @@ const Index = () => {
             <RealProofSlot
               variant="review"
               purpose="Google 5★ Review Screenshot"
-              replacementLabel="To replace · Google Business Profile screenshot"
+              replacementLabel="Image to add · caption + reviewer name are final"
               idealSubject="Crisp screenshot of a recent 5-star Google review for Pura Nights — name visible, full quote, star row, with the GBP header crop intact."
               cropRatio="4:5"
               altText="5-star Google review for Pura Nights salsa and bachata classes in London"
