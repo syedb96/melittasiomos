@@ -203,7 +203,17 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Need a faster reply? <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">WhatsApp Melitta →</a></p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                    {/* Honeypot — hidden from humans, irresistible to bots. WIX: replicate as hidden text input named "website". */}
+                    <div aria-hidden="true" className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden">
+                      <label htmlFor="website-url">Leave this field empty</label>
+                      <input id="website-url" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={e => setHoneypot(e.target.value)} />
+                    </div>
+                    {submitError && (
+                      <div role="alert" className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                        {submitError}
+                      </div>
+                    )}
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="text-sm font-heading font-semibold mb-1.5 block">Your Name *</label>
