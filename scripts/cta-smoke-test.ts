@@ -79,17 +79,19 @@ async function probe(c: Check) {
     const ok = /^(tel:\+?[0-9 ]+|mailto:[^@\s]+@[^@\s]+\.[^@\s]+)$/.test(c.url);
     return { status: ok ? "OK-format" : "BAD-format", finalUrl: c.url, redirects: 0 };
   }
+  // Hosts known to block all non-browser traffic (Cloudflare/anti-bot). 403 here = "alive".
+  const ANTIBOT_HOSTS = ["tickettailor.com"];
+  const isAntibot = (u: string) => ANTIBOT_HOSTS.some(h => u.includes(h));
   try {
     let url = c.url;
     let redirects = 0;
     for (let i = 0; i < 5; i++) {
       let res = await fetch(url, { method: "HEAD", redirect: "manual" });
-      // Some hosts (Ticket Tailor, anti-bot CDNs) reject HEAD. Retry with GET.
       if (c.kind === "external" && (res.status === 403 || res.status === 405 || res.status === 400)) {
         res = await fetch(url, {
           method: "GET",
           redirect: "manual",
-          headers: { "User-Agent": "Mozilla/5.0 (compatible; PuraNightsCTASmoke/1.0)" },
+          headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" },
         });
       }
       if ([301, 302, 303, 307, 308].includes(res.status)) {
@@ -98,6 +100,10 @@ async function probe(c: Check) {
         url = loc.startsWith("http") ? loc : new URL(loc, url).toString();
         redirects++;
         continue;
+      }
+      // Treat 403 from known anti-bot hosts as a soft pass (host is alive, rejecting bots).
+      if (res.status === 403 && isAntibot(url)) {
+        return { status: "403-antibot-OK", finalUrl: url, redirects };
       }
       const ok = c.expect.includes(res.status);
       return { status: ok ? `${res.status}-OK` : `${res.status}-FAIL`, finalUrl: url, redirects };
