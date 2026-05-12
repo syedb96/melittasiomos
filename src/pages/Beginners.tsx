@@ -267,7 +267,7 @@ const Beginners = () => (
         <RealProofSlot
           variant="story"
           purpose="Beginner Student Story Photo"
-          replacementLabel="To replace · real beginner student photo"
+          replacementLabel="Image to add · James's story copy is final"
           idealSubject="A real beginner student smiling on the dance floor at The George IV or The Drayton Court — natural light, mid-class, with permission to publish. Caption with first name + 'started in [month]'."
           cropRatio="4:5"
           altText="Beginner student smiling during their first salsa class at Pura Nights London"
