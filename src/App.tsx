@@ -140,6 +140,7 @@ import SettingsAdmin from "./pages/admin/SettingsAdmin";
 import Blueprint from "./pages/admin/Blueprint";
 import AmbassadorsAdmin from "./pages/admin/AmbassadorsAdmin";
 import SiteDocs from "./pages/admin/SiteDocs";
+import SeoDashboard from "./pages/admin/SeoDashboard";
 import ShopPhotoTracker from "./pages/admin/ShopPhotoTracker";
 
 const queryClient = new QueryClient();
@@ -282,6 +283,7 @@ const App = () => (
             <Route path="/admin/settings" element={<ProtectedRoute><SettingsAdmin /></ProtectedRoute>} />
             <Route path="/admin/blueprint" element={<ProtectedRoute><Blueprint /></ProtectedRoute>} />
             <Route path="/admin/site-docs" element={<ProtectedRoute><SiteDocs /></ProtectedRoute>} />
+            <Route path="/admin/seo" element={<ProtectedRoute><SeoDashboard /></ProtectedRoute>} />
             <Route path="/admin/shop-photo-tracker" element={<ProtectedRoute><ShopPhotoTracker /></ProtectedRoute>} />
 
             {/* Pillar */}
