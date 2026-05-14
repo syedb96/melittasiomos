@@ -1,0 +1,42 @@
+# Pura Nights — Melitta Siomos Dance Academy
+
+> Award-winning Salsa & Bachata dance school in West London. Weekly classes in Chiswick (Mondays) and Ealing (Tuesdays), private lessons, wedding dance choreography, and the international Pura Ladies performance team.
+
+Founded by international award-winning instructor Melitta Siomos. Beginner-friendly, no partner required. Drop-in from £5; class bundles and monthly Latin Friday socials available.
+
+## Pages
+
+- [Home](/): Overview of classes, venues, and what makes Pura Nights different.
+- [About](/about): Melitta Siomos's story, the team, and the four brands.
+- [Pura Nights](/pura-nights): Weekly Salsa & Bachata classes plus social dancing.
+- [Schedule](/schedule): Full weekly timetable for Chiswick and Ealing.
+- [Prices](/prices): Drop-in rates, bundles, and Latin Friday tickets.
+- [Beginners](/beginners): What to expect at your first class.
+- [Start Here](/start-here): The 3-step path for total beginners.
+- [Locations](/locations): Chiswick (W4) and Ealing (W13) venue details.
+- [Pura Ladies](/pura-ladies): International women's performance team (London, Munich, Plymouth, Lisbon).
+- [Wedding Dance](/wedding-dance): Bespoke first-dance choreography.
+- [Private Lessons](/private-lessons): 1-to-1 coaching with Melitta.
+- [Online Coaching](/online-salsa-bachata-coaching): Personalised online video sessions.
+- [Online Academy](/online-academy): Self-paced video courses.
+- [Events](/events): Upcoming Latin Friday socials and workshops.
+- [Gallery](/gallery): Photos and videos from classes and events.
+- [Testimonials](/testimonials): Real reviews from students and couples.
+- [Meet the Team](/meet-the-team): Instructors and assistants.
+- [Gift Vouchers](/gift-vouchers): Class vouchers for any occasion.
+- [FAQ](/faq): Common questions about classes, pricing, and policies.
+- [Contact](/contact): Enquiries, WhatsApp, and email.
+
+## Blog
+
+- [What is Salsa?](/blog/what-is-salsa): Complete guide to On1 Crossbody Salsa.
+- [What is Bachata?](/blog/what-is-bachata): From Dominican roots to Bachata Sensual.
+- [Salsa vs Bachata](/blog/salsa-vs-bachata): Which to learn first.
+- [Beginner's Guide to Salsa in London](/blog/beginners-guide-salsa-london): What to wear, how it works.
+- [Wedding First Dance Tips](/blog/wedding-first-dance-tips): Expert advice from Melitta.
+
+## Optional
+
+- [Blog index](/blog): Full library of 40+ articles on Salsa, Bachata, wedding dance, and West London local guides.
+- [Venue: The George IV, Chiswick](/venue/the-george-iv-chiswick)
+- [Venue: The Drayton Court, Ealing](/venue/the-drayton-court-ealing)
