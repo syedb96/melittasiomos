@@ -1,16 +1,14 @@
-// SEO monitoring edge function — proxies Google Search Console.
-// Returns last-28-day Search Analytics + sitemap status for puranights.com.
+// SEO monitoring edge function — proxies Google Search Console and joins
+// with stored snapshots / alerts.
 // Admin-only: requires a logged-in user with role 'admin' or 'editor'.
 
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 
 const GATEWAY = "https://connector-gateway.lovable.dev/google_search_console";
-const SITE = "sc-domain:puranights.com"; // domain property
+const SITE = "sc-domain:puranights.com";
 
-function isoDay(d: Date) {
-  return d.toISOString().split("T")[0];
-}
+function isoDay(d: Date) { return d.toISOString().split("T")[0]; }
 
 async function gsc(path: string, init: RequestInit = {}) {
   const LK = Deno.env.get("LOVABLE_API_KEY");
@@ -37,7 +35,6 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
   try {
-    // ----- Auth: admin/editor only -----
     const auth = req.headers.get("Authorization") ?? "";
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -52,58 +49,69 @@ Deno.serve(async (req) => {
     }
     const { data: roles } = await supabase
       .from("user_roles").select("role").eq("user_id", user.id);
-    const allowed = (roles ?? []).some((r: any) => r.role === "admin" || r.role === "editor");
+    const allowed = (roles ?? []).some((r: any) => r.role === "admin" || r.role === "editor" || r.role === "owner");
     if (!allowed) {
       return new Response(JSON.stringify({ error: "Forbidden" }),
         { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    // ----- Date windows -----
-    const today = new Date();
-    today.setUTCHours(0, 0, 0, 0);
-    const end = new Date(today.getTime() - 2 * 86400000);   // GSC has ~2-day lag
-    const start = new Date(end.getTime() - 27 * 86400000);  // 28 day window
+    const url = new URL(req.url);
+    const detailPath = url.searchParams.get("sitemap");
 
+    // ---- Sitemap detail mode: return latest two snapshots for diffing ----
+    if (detailPath) {
+      const { data: snaps } = await supabase
+        .from("seo_sitemap_snapshot")
+        .select("*")
+        .eq("site", SITE).eq("sitemap_path", detailPath)
+        .order("captured_at", { ascending: false })
+        .limit(30);
+      return new Response(JSON.stringify({ site: SITE, sitemap_path: detailPath, history: snaps ?? [] }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+
+    // ---- Default: live GSC + DB enrichment ----
+    const today = new Date(); today.setUTCHours(0, 0, 0, 0);
+    const end = new Date(today.getTime() - 2 * 86400000);
+    const start = new Date(end.getTime() - 27 * 86400000);
     const siteParam = encodeURIComponent(SITE);
 
-    // 1) Daily totals (clicks/impressions/ctr/position) for last 28d
-    const daily = await gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
-      method: "POST",
-      body: JSON.stringify({
-        startDate: isoDay(start),
-        endDate: isoDay(end),
-        dimensions: ["date"],
-        rowLimit: 1000,
+    const [daily, queries, pages] = await Promise.all([
+      gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
+        method: "POST",
+        body: JSON.stringify({ startDate: isoDay(start), endDate: isoDay(end), dimensions: ["date"], rowLimit: 1000 }),
       }),
-    });
-
-    // 2) Top queries
-    const queries = await gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
-      method: "POST",
-      body: JSON.stringify({
-        startDate: isoDay(start),
-        endDate: isoDay(end),
-        dimensions: ["query"],
-        rowLimit: 25,
+      gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
+        method: "POST",
+        body: JSON.stringify({ startDate: isoDay(start), endDate: isoDay(end), dimensions: ["query"], rowLimit: 25 }),
       }),
-    });
-
-    // 3) Top pages
-    const pages = await gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
-      method: "POST",
-      body: JSON.stringify({
-        startDate: isoDay(start),
-        endDate: isoDay(end),
-        dimensions: ["page"],
-        rowLimit: 25,
+      gsc(`/webmasters/v3/sites/${siteParam}/searchAnalytics/query`, {
+        method: "POST",
+        body: JSON.stringify({ startDate: isoDay(start), endDate: isoDay(end), dimensions: ["page"], rowLimit: 25 }),
       }),
-    });
+    ]);
 
-    // 4) Sitemap status (indexing approximation)
     let sitemaps: any = { sitemap: [] };
-    try {
-      sitemaps = await gsc(`/webmasters/v3/sites/${siteParam}/sitemaps`);
-    } catch (_) { /* ignore */ }
+    try { sitemaps = await gsc(`/webmasters/v3/sites/${siteParam}/sitemaps`); } catch (_) {}
+
+    // Latest snapshot per sitemap path → adds added_urls/removed_urls counts.
+    const { data: snapRows } = await supabase
+      .from("seo_sitemap_snapshot")
+      .select("sitemap_path, captured_at, added_urls, removed_urls, urls, submitted, indexed")
+      .eq("site", SITE)
+      .order("captured_at", { ascending: false })
+      .limit(200);
+    const latestBySitemap = new Map<string, any>();
+    for (const r of snapRows ?? []) {
+      if (!latestBySitemap.has(r.sitemap_path)) latestBySitemap.set(r.sitemap_path, r);
+    }
+
+    const { data: alerts } = await supabase
+      .from("seo_alerts")
+      .select("*")
+      .eq("acknowledged", false)
+      .order("created_at", { ascending: false })
+      .limit(20);
 
     return new Response(JSON.stringify({
       site: SITE,
@@ -111,7 +119,17 @@ Deno.serve(async (req) => {
       daily: daily.rows ?? [],
       queries: queries.rows ?? [],
       pages: pages.rows ?? [],
-      sitemaps: sitemaps.sitemap ?? [],
+      sitemaps: (sitemaps.sitemap ?? []).map((s: any) => {
+        const snap = latestBySitemap.get(s.path);
+        return {
+          ...s,
+          added_count: snap?.added_urls?.length ?? 0,
+          removed_count: snap?.removed_urls?.length ?? 0,
+          urls_count: snap?.urls?.length ?? 0,
+          last_snapshot_at: snap?.captured_at ?? null,
+        };
+      }),
+      alerts: alerts ?? [],
     }), { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } });
   } catch (e: any) {
     return new Response(JSON.stringify({ error: e?.message ?? String(e) }),
