@@ -75,6 +75,7 @@ const AUTO_EXCLUDE = new Set<string>([
   "/admin", "/admin/dashboard",
 ]);
 function isExcluded(p: string): boolean {
+  if (!p.startsWith("/")) return true;           // wildcards like "*"
   if (AUTO_EXCLUDE.has(p)) return true;
   if (p.startsWith("/admin")) return true;       // any admin/* path
   if (p.startsWith("/lookbook/")) return true;
