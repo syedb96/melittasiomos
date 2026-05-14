@@ -40,10 +40,13 @@ async function fetchSitemapUrls(sitemapUrl: string): Promise<string[]> {
   } catch { return []; }
 }
 
-async function authorize(req: Request, supabase: any): Promise<{ ok: boolean; reason?: string }> {
-  // Cron path: shared secret
+async function authorize(req: Request): Promise<{ ok: boolean; reason?: string }> {
+  // Cron path: shared secret OR service-role key in x-cron-secret header
   const cronSecret = Deno.env.get("CRON_SECRET");
-  if (cronSecret && req.headers.get("x-cron-secret") === cronSecret) return { ok: true };
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const header = req.headers.get("x-cron-secret") ?? "";
+  if (cronSecret && header === cronSecret) return { ok: true };
+  if (srk && header === srk) return { ok: true };
 
   // Admin path
   const auth = req.headers.get("Authorization") ?? "";
@@ -56,9 +59,11 @@ async function authorize(req: Request, supabase: any): Promise<{ ok: boolean; re
   const { data: userRes } = await userClient.auth.getUser();
   const user = userRes?.user;
   if (!user) return { ok: false, reason: "Unauthorized" };
-  const { data: roles } = await userClient
-    .from("user_roles").select("role").eq("user_id", user.id);
-  const allowed = (roles ?? []).some((r: any) => r.role === "admin" || r.role === "owner");
+  const adminClient = createClient(Deno.env.get("SUPABASE_URL")!, srk!);
+  const { data: prof } = await adminClient.from("profiles").select("role").eq("user_id", user.id).maybeSingle();
+  if (["owner", "admin", "editor"].includes((prof?.role ?? "").toLowerCase())) return { ok: true };
+  const { data: roles } = await adminClient.from("user_roles").select("role").eq("user_id", user.id);
+  const allowed = (roles ?? []).some((r: any) => ["admin", "editor", "owner"].includes(r.role));
   return allowed ? { ok: true } : { ok: false, reason: "Forbidden" };
 }
 
