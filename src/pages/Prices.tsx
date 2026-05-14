@@ -22,7 +22,7 @@ const Prices = () => {
   const [selected, setSelected] = useState<"try" | "commit" | "weekly" | null>(null);
   return (
   <Layout>
-    <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights | Melitta Siomos" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
+    <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
 
     <section className="section-padding section-warm">
       <div className="container-main text-center">

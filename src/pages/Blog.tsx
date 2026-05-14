@@ -66,7 +66,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <SeoHead title="Pura Stories Blog | Salsa & Bachata Tips, Events & Community | Melitta Siomos London" description="Explore the Pura Stories Blog — Salsa & Bachata tips for beginners, event recaps, Latin culture guides, community stories and more." path="/blog" />
+      <SeoHead title="Pura Stories Blog | Salsa & Bachata Tips | Pura Nights" description="Pura Stories Blog — Salsa & Bachata tips for beginners, event recaps, Latin culture guides and community stories from Pura Nights London." path="/blog" />
 
       <section className="section-padding section-dark text-center">
         <FadeInUp>

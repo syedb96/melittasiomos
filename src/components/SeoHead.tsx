@@ -145,7 +145,7 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:url", url, "property");
-    setMeta("og:type", "website", "property");
+    setMeta("og:type", path.startsWith("/blog/") ? "article" : "website", "property");
     setMeta("og:image", image, "property");
     setMeta("og:site_name", "Pura Nights — Melitta Siomos Dance Academy", "property");
     setMeta("og:locale", "en_GB", "property");
