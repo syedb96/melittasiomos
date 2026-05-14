@@ -20,4 +20,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-Sitemap: https://www.puranights.com/sitemap.xml
+Sitemap: https://puranights.com/sitemap.xml
