@@ -356,7 +356,31 @@ const SeoDashboard = () => {
                   <h3 className="font-display font-semibold truncate">Sitemap details</h3>
                   <p className="font-mono text-xs text-muted-foreground truncate">{detail.path}</p>
                 </div>
-                <button onClick={() => setDetail(null)} className="p-1 hover:bg-muted/50 rounded"><X size={16} /></button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const safe = detail.path.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
+                      downloadCsv(`sitemap-${safe}-history.csv`, [
+                        ["captured_at", "submitted", "indexed", "coverage_pct", "added_count", "removed_count", "added_urls", "removed_urls"],
+                        ...detail.history.map(h => [
+                          h.captured_at,
+                          h.submitted,
+                          h.indexed,
+                          h.submitted ? Math.round((h.indexed / h.submitted) * 100) : 0,
+                          h.added_urls?.length || 0,
+                          h.removed_urls?.length || 0,
+                          (h.added_urls ?? []).join(" | "),
+                          (h.removed_urls ?? []).join(" | "),
+                        ]),
+                      ]);
+                    }}
+                    disabled={detail.history.length === 0}
+                    className="flex items-center gap-1.5 text-xs px-2 py-1 rounded border border-border hover:bg-muted/50 disabled:opacity-50"
+                  >
+                    <Download size={12} /> CSV
+                  </button>
+                  <button onClick={() => setDetail(null)} className="p-1 hover:bg-muted/50 rounded"><X size={16} /></button>
+                </div>
               </div>
               <div className="p-4 space-y-4">
                 {detail.history.length === 0 ? (
