@@ -76,7 +76,7 @@ Deno.serve(async (req) => {
   );
 
   try {
-    const auth = await authorize(req, supabase);
+    const auth = await authorize(req);
     if (!auth.ok) {
       return new Response(JSON.stringify({ error: auth.reason }), {
         status: auth.reason === "Forbidden" ? 403 : 401,
