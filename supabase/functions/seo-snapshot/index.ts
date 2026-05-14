@@ -46,6 +46,7 @@ async function authorize(req: Request): Promise<{ ok: boolean; reason?: string }
   const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   const anon = Deno.env.get("SUPABASE_ANON_KEY");
   const header = req.headers.get("x-cron-secret") ?? "";
+  console.log("authorize:", { hdrLen: header.length, anonLen: anon?.length, srkLen: srk?.length, anonMatch: anon === header, srkMatch: srk === header });
   if (cronSecret && header === cronSecret) return { ok: true };
   if (srk && header === srk) return { ok: true };
   if (anon && header === anon) return { ok: true };
