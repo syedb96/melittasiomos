@@ -61,6 +61,49 @@ const STATIC_ROUTES: { path: string; priority?: number; changefreq?: string }[] 
   { path: "/bookings", priority: 0.7, changefreq: "monthly" },
 ];
 
+// ---------- Auto-discovered routes ----------
+// Routes parsed from src/App.tsx are merged into the sitemap so that adding
+// a new <Route path="..."> (e.g. a blog post) automatically appears without
+// having to also edit STATIC_ROUTES.
+const AUTO_EXCLUDE = new Set<string>([
+  "/online-classes",          // 301 → /online-salsa-bachata-coaching
+  "/salsa-classes-acton-local", // 301 → /salsa-classes-acton
+  "/shop", "/size-guide", "/shipping-returns",
+  "/lookbook",
+  "/refer", "/all-pages-master", "/proof-centre",
+  "/login", "/thank-you",
+  "/admin", "/admin/dashboard",
+]);
+function isExcluded(p: string): boolean {
+  if (AUTO_EXCLUDE.has(p)) return true;
+  if (p.startsWith("/admin")) return true;       // any admin/* path
+  if (p.startsWith("/lookbook/")) return true;
+  if (p.startsWith("/shop/")) return true;
+  if (p.includes(":")) return true;              // dynamic route placeholders
+  return false;
+}
+function priorityFor(p: string): { priority: number; changefreq: string } {
+  if (p.startsWith("/blog/")) return { priority: 0.6, changefreq: "monthly" };
+  if (p.startsWith("/venue/")) return { priority: 0.7, changefreq: "monthly" };
+  if (p.startsWith("/learn/")) return { priority: 0.7, changefreq: "monthly" };
+  return { priority: 0.7, changefreq: "monthly" };
+}
+function discoverRoutesFromApp(): { path: string; priority: number; changefreq: string }[] {
+  const appPath = join(ROOT, "src/App.tsx");
+  const src = readFileSync(appPath, "utf8");
+  const re = /<Route\s+path=["']([^"']+)["']/g;
+  const found = new Set<string>();
+  for (const m of src.matchAll(re)) found.add(m[1]);
+  const staticPaths = new Set(STATIC_ROUTES.map(r => r.path));
+  const extra: { path: string; priority: number; changefreq: string }[] = [];
+  for (const p of found) {
+    if (staticPaths.has(p)) continue;
+    if (isExcluded(p)) continue;
+    extra.push({ path: p, ...priorityFor(p) });
+  }
+  return extra.sort((a, b) => a.path.localeCompare(b.path));
+}
+
 // ---------- Helpers ----------
 const errors: string[] = [];
 const warnings: string[] = [];
