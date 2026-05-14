@@ -250,6 +250,20 @@ ${urls.join("\n")}
 `;
   writeFileSync(join(ROOT, "public/sitemap.xml"), xml);
   console.log(`✓ sitemap.xml regenerated with ${urls.length} URLs (host: ${HOST})`);
+
+  // Keep robots.txt Sitemap directive aligned with the chosen canonical host.
+  const robotsPath = join(ROOT, "public/robots.txt");
+  if (existsSync(robotsPath)) {
+    const robots = readFileSync(robotsPath, "utf8");
+    const desired = `Sitemap: ${HOST}/sitemap.xml`;
+    const updated = robots.match(/^Sitemap:.*$/m)
+      ? robots.replace(/^Sitemap:.*$/m, desired)
+      : robots.trimEnd() + `\n\n${desired}\n`;
+    if (updated !== robots) {
+      writeFileSync(robotsPath, updated);
+      console.log(`✓ robots.txt Sitemap directive synced → ${HOST}/sitemap.xml`);
+    }
+  }
 }
 
 // ---------- Internal link / orphan validation (doc 18) ----------
