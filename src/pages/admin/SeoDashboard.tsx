@@ -377,7 +377,41 @@ const SeoDashboard = () => {
                     disabled={detail.history.length === 0}
                     className="flex items-center gap-1.5 text-xs px-2 py-1 rounded border border-border hover:bg-muted/50 disabled:opacity-50"
                   >
-                    <Download size={12} /> CSV
+                    <Download size={12} /> History CSV
+                  </button>
+                  <button
+                    onClick={() => {
+                      const safe = detail.path.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
+                      // history is sorted captured_at DESC. Build URL-level diff rows.
+                      // For each snapshot: emit one row per added/removed url. last_seen_date =
+                      // the most recent snapshot.captured_at whose `urls` array still contains
+                      // that URL (for "removed" this is the snapshot just before removal).
+                      const rows: (string | number)[][] = [
+                        ["url", "change_type", "change_detected_at", "last_seen_date", "reason", "sitemap_path"],
+                      ];
+                      const lastSeen = (url: string, beforeIdx: number) => {
+                        // search from beforeIdx (inclusive) downwards in DESC list — i.e. higher index = older
+                        for (let i = beforeIdx; i < detail.history.length; i++) {
+                          if ((detail.history[i].urls ?? []).includes(url)) return detail.history[i].captured_at;
+                        }
+                        return "";
+                      };
+                      detail.history.forEach((snap, idx) => {
+                        for (const u of snap.added_urls ?? []) {
+                          rows.push([u, "added", snap.captured_at, lastSeen(u, idx), "New URL appeared in sitemap.xml", detail.path]);
+                        }
+                        for (const u of snap.removed_urls ?? []) {
+                          // last seen is in the previous (older) snapshot
+                          rows.push([u, "removed", snap.captured_at, lastSeen(u, idx + 1), "URL no longer present in sitemap.xml", detail.path]);
+                        }
+                      });
+                      if (rows.length === 1) rows.push(["", "", "", "", "No URL changes detected in captured history", detail.path]);
+                      downloadCsv(`sitemap-${safe}-url-changes.csv`, rows);
+                    }}
+                    disabled={detail.history.length === 0}
+                    className="flex items-center gap-1.5 text-xs px-2 py-1 rounded border border-border hover:bg-muted/50 disabled:opacity-50"
+                  >
+                    <Download size={12} /> URL changes CSV
                   </button>
                   <button onClick={() => setDetail(null)} className="p-1 hover:bg-muted/50 rounded"><X size={16} /></button>
                 </div>
