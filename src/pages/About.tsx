@@ -101,7 +101,7 @@ const About = () => {
 
   return (
   <Layout>
-    <SeoHead title="About Melitta Siomos | Award-Winning Dance Instructor | Pura Nights London" description="Meet Melitta Siomos — international award-winning Salsa & Bachata instructor, founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy. 15+ years of experience across London and Europe." path="/about" schema={orgSchema} dateModified="2026-04-13" />
+    <SeoHead title="About Melitta Siomos | Pura Nights London" description="Meet Melitta Siomos — award-winning Salsa & Bachata instructor and founder of Pura Nights, Pura Ladies, and Wedding Dance Made Easy in London." path="/about" schema={orgSchema} dateModified="2026-04-13" />
 
     {/* Hero */}
     <section className="relative h-72 md:h-[26rem] overflow-hidden">
