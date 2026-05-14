@@ -47,9 +47,17 @@ Deno.serve(async (req) => {
       return new Response(JSON.stringify({ error: "Unauthorized" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
-    const { data: roles } = await supabase
-      .from("user_roles").select("role").eq("user_id", user.id);
-    const allowed = (roles ?? []).some((r: any) => r.role === "admin" || r.role === "editor" || r.role === "owner");
+    // Check role from profiles (project's source of truth) with fallback to user_roles
+    const admin = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    );
+    const { data: prof } = await admin.from("profiles").select("role").eq("user_id", user.id).maybeSingle();
+    let allowed = ["owner", "admin", "editor"].includes((prof?.role ?? "").toLowerCase());
+    if (!allowed) {
+      const { data: roles } = await admin.from("user_roles").select("role").eq("user_id", user.id);
+      allowed = (roles ?? []).some((r: any) => ["admin", "editor", "owner"].includes(r.role));
+    }
     if (!allowed) {
       return new Response(JSON.stringify({ error: "Forbidden" }),
         { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
