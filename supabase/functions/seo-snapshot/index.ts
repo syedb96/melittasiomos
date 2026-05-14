@@ -49,6 +49,9 @@ async function authorize(req: Request): Promise<{ ok: boolean; reason?: string }
   if (cronSecret && header === cronSecret) return { ok: true };
   if (srk && header === srk) return { ok: true };
   if (anon && header === anon) return { ok: true };
+  // Accept any of the project's publishable keys (legacy + new) so cron can authenticate.
+  const pubs = (Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") ?? "").split(",").map(s => s.trim()).filter(Boolean);
+  if (pubs.includes(header)) return { ok: true };
 
   // Admin path
   const auth = req.headers.get("Authorization") ?? "";
