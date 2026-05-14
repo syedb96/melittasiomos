@@ -224,23 +224,24 @@ Deno.serve(async (req) => {
     }
 
     if (alerts.length) {
-      await supabase.from("seo_alerts").insert(alerts);
-      // Best-effort email — try to invoke send-transactional-email if it exists.
+      const { data: inserted } = await supabase.from("seo_alerts").insert(alerts).select("id");
       try {
         const alertEmail = Deno.env.get("SEO_ALERT_EMAIL") ?? "";
         if (alertEmail) {
-          await supabase.functions.invoke("send-transactional-email", {
+          const { error: emailErr } = await supabase.functions.invoke("send-transactional-email", {
             body: {
               to: alertEmail,
               subject: `[Pura Nights SEO] ${alerts.length} alert(s) — ${alerts[0].metric}`,
               html: `<h2>SEO Alerts for puranights.com</h2><ul>${alerts.map(a => `<li><strong>${a.severity.toUpperCase()}</strong> — ${a.message}</li>`).join("")}</ul><p><a href="https://www.puranights.com/admin/seo">Open SEO dashboard →</a></p>`,
             },
           });
-          await supabase.from("seo_alerts")
-            .update({ emailed: true })
-            .in("id", alerts.map((_, i) => i)); // best-effort flag (id won't match, harmless)
+          if (!emailErr && inserted) {
+            await supabase.from("seo_alerts")
+              .update({ emailed: true })
+              .in("id", inserted.map((x: any) => x.id));
+          }
         }
-      } catch (_) { /* email infra optional */ }
+      } catch (e) { console.warn("alert email skipped:", e); }
     }
 
     return new Response(JSON.stringify({
