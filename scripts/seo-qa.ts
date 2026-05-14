@@ -228,6 +228,10 @@ function generateSitemap() {
 
   for (const r of STATIC_ROUTES) push(r.path, today, r.changefreq, r.priority);
 
+  // Auto-discovered routes (blog posts, venue pages, locality pages added later).
+  const autoRoutes = discoverRoutesFromApp();
+  for (const r of autoRoutes) push(r.path, today, r.changefreq, r.priority);
+
   // Single-event pages — only future, non-cancelled events (rich-result safe).
   const now = Date.now();
   for (const ev of upcomingEvents) {
