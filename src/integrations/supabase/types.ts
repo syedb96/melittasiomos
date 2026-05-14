@@ -433,6 +433,132 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_alerts: {
+        Row: {
+          acknowledged: boolean
+          baseline_value: number
+          created_at: string
+          current_value: number
+          delta_pct: number
+          emailed: boolean
+          id: string
+          message: string
+          metric: string
+          severity: string
+          site: string
+        }
+        Insert: {
+          acknowledged?: boolean
+          baseline_value: number
+          created_at?: string
+          current_value: number
+          delta_pct: number
+          emailed?: boolean
+          id?: string
+          message: string
+          metric: string
+          severity?: string
+          site: string
+        }
+        Update: {
+          acknowledged?: boolean
+          baseline_value?: number
+          created_at?: string
+          current_value?: number
+          delta_pct?: number
+          emailed?: boolean
+          id?: string
+          message?: string
+          metric?: string
+          severity?: string
+          site?: string
+        }
+        Relationships: []
+      }
+      seo_gsc_daily: {
+        Row: {
+          captured_at: string
+          clicks: number
+          ctr: number
+          date: string
+          id: string
+          impressions: number
+          indexed_pages: number | null
+          position: number
+          site: string
+          submitted_pages: number | null
+        }
+        Insert: {
+          captured_at?: string
+          clicks?: number
+          ctr?: number
+          date: string
+          id?: string
+          impressions?: number
+          indexed_pages?: number | null
+          position?: number
+          site: string
+          submitted_pages?: number | null
+        }
+        Update: {
+          captured_at?: string
+          clicks?: number
+          ctr?: number
+          date?: string
+          id?: string
+          impressions?: number
+          indexed_pages?: number | null
+          position?: number
+          site?: string
+          submitted_pages?: number | null
+        }
+        Relationships: []
+      }
+      seo_sitemap_snapshot: {
+        Row: {
+          added_urls: Json
+          captured_at: string
+          errors: number | null
+          id: string
+          indexed: number | null
+          last_submitted: string | null
+          removed_urls: Json
+          site: string
+          sitemap_path: string
+          submitted: number | null
+          urls: Json
+          warnings: number | null
+        }
+        Insert: {
+          added_urls?: Json
+          captured_at?: string
+          errors?: number | null
+          id?: string
+          indexed?: number | null
+          last_submitted?: string | null
+          removed_urls?: Json
+          site: string
+          sitemap_path: string
+          submitted?: number | null
+          urls?: Json
+          warnings?: number | null
+        }
+        Update: {
+          added_urls?: Json
+          captured_at?: string
+          errors?: number | null
+          id?: string
+          indexed?: number | null
+          last_submitted?: string | null
+          removed_urls?: Json
+          site?: string
+          sitemap_path?: string
+          submitted?: number | null
+          urls?: Json
+          warnings?: number | null
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           id: string
