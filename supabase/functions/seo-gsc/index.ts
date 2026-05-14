@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
 
     // ---- Sitemap detail mode: return latest two snapshots for diffing ----
     if (detailPath) {
-      const { data: snaps } = await supabase
+      const { data: snaps } = await admin
         .from("seo_sitemap_snapshot")
         .select("*")
         .eq("site", SITE).eq("sitemap_path", detailPath)
@@ -103,7 +103,7 @@ Deno.serve(async (req) => {
     try { sitemaps = await gsc(`/webmasters/v3/sites/${siteParam}/sitemaps`); } catch (_) {}
 
     // Latest snapshot per sitemap path → adds added_urls/removed_urls counts.
-    const { data: snapRows } = await supabase
+    const { data: snapRows } = await admin
       .from("seo_sitemap_snapshot")
       .select("sitemap_path, captured_at, added_urls, removed_urls, urls, submitted, indexed")
       .eq("site", SITE)
@@ -114,7 +114,7 @@ Deno.serve(async (req) => {
       if (!latestBySitemap.has(r.sitemap_path)) latestBySitemap.set(r.sitemap_path, r);
     }
 
-    const { data: alerts } = await supabase
+    const { data: alerts } = await admin
       .from("seo_alerts")
       .select("*")
       .eq("acknowledged", false)
