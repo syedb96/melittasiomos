@@ -44,9 +44,11 @@ async function authorize(req: Request): Promise<{ ok: boolean; reason?: string }
   // Cron path: shared secret OR service-role key in x-cron-secret header
   const cronSecret = Deno.env.get("CRON_SECRET");
   const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const anon = Deno.env.get("SUPABASE_ANON_KEY");
   const header = req.headers.get("x-cron-secret") ?? "";
   if (cronSecret && header === cronSecret) return { ok: true };
   if (srk && header === srk) return { ok: true };
+  if (anon && header === anon) return { ok: true };
 
   // Admin path
   const auth = req.headers.get("Authorization") ?? "";
