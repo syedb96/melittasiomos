@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
+import WeddingTiers from "@/components/WeddingTiers";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
 
@@ -163,6 +164,8 @@ const WeddingDanceLessonsLondon = () => (
         <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Free Consultation</a>
       </div>
     </section>
+
+    <WeddingTiers />
 
     <VideoTestimonialsBlock
       heading="Real couples. Real first dances."
