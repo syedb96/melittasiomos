@@ -75,6 +75,12 @@ import CorporateDanceClassesLondon from "./pages/CorporateDanceClassesLondon";
 import PrivateGroupDancePartiesLondon from "./pages/PrivateGroupDancePartiesLondon";
 import PartnerWithPuraNights from "./pages/PartnerWithPuraNights";
 import LatinNightOutWestLondon from "./pages/LatinNightOutWestLondon";
+import SalsaClassesBrentford from "./pages/SalsaClassesBrentford";
+import SalsaClassesKew from "./pages/SalsaClassesKew";
+import SalsaClassesBarnes from "./pages/SalsaClassesBarnes";
+import SalsaClassesPutney from "./pages/SalsaClassesPutney";
+import SalsaClassesShepherdsBush from "./pages/SalsaClassesShepherdsBush";
+import SalsaClassesNottingHill from "./pages/SalsaClassesNottingHill";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -291,6 +297,12 @@ const App = () => (
             <Route path="/private-group-dance-parties-london" element={<PrivateGroupDancePartiesLondon />} />
             <Route path="/partner-with-pura-nights" element={<PartnerWithPuraNights />} />
             <Route path="/latin-night-out-west-london" element={<LatinNightOutWestLondon />} />
+            <Route path="/salsa-classes-brentford" element={<SalsaClassesBrentford />} />
+            <Route path="/salsa-classes-kew" element={<SalsaClassesKew />} />
+            <Route path="/salsa-classes-barnes" element={<SalsaClassesBarnes />} />
+            <Route path="/salsa-classes-putney" element={<SalsaClassesPutney />} />
+            <Route path="/salsa-classes-shepherds-bush" element={<SalsaClassesShepherdsBush />} />
+            <Route path="/salsa-classes-notting-hill" element={<SalsaClassesNottingHill />} />
 
             {/* Shop shell — Wix Stores-ready */}
             <Route path="/shop" element={<Shop />} />

@@ -3,6 +3,8 @@ import { Heart, Clock, Star, Music, MapPin, Calendar } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
+import WeddingTiers from "@/components/WeddingTiers";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
 
@@ -162,6 +164,27 @@ const WeddingDanceLessonsLondon = () => (
         <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Free Consultation</a>
       </div>
     </section>
+
+    <WeddingTiers />
+
+    <VideoTestimonialsBlock
+      heading="Real couples. Real first dances."
+      subcopy="Two short clips from Pura Nights wedding clients. Both walked in nervous. Both nailed their moment."
+      testimonials={[
+        {
+          name: "Sarah & James",
+          context: "Wedding First Dance · The Bingham Riverhouse, Richmond",
+          youtubeId: "dQw4w9WgXcQ",
+          quote: "We thought we'd just shuffle. Melitta turned three lessons into the moment everyone still talks about.",
+        },
+        {
+          name: "Priya & Tom",
+          context: "Wedding First Dance · Syon Park",
+          youtubeId: "dQw4w9WgXcQ",
+          quote: "Calm, kind, and very, very good. Our families cried — in the good way.",
+        },
+      ]}
+    />
 
     <RelatedPages title="Related Pages" links={[
       { to: "/wedding-dance", label: "Wedding Dance Info" },
