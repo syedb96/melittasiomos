@@ -17,6 +17,8 @@ import LiveStudentCounter from "@/components/LiveStudentCounter";
 import SocialProofBar from "@/components/SocialProofBar";
 import NewHereStrip from "@/components/NewHereStrip";
 import YouTubeStrip from "@/components/YouTubeStrip";
+import CorporateCTA from "@/components/CorporateCTA";
+import PartnerCTA from "@/components/PartnerCTA";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -625,6 +627,12 @@ const Index = () => {
           </FadeInUp>
         </div>
       </section>
+
+      {/* SECTION — CORPORATE + PARTNER STRIPS (lower-fold, non-disruptive) */}
+      {/* <!-- WIX SECTION: Corporate Strip — link to /corporate-dance-classes-london --> */}
+      <CorporateCTA compact />
+      {/* <!-- WIX SECTION: Partner Strip — link to /partner-with-pura-nights --> */}
+      <PartnerCTA compact />
 
       {/* SECTION — HOMEPAGE FAQ */}
       {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
