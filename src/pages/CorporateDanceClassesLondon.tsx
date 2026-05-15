@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
+import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import { FadeInUp } from "@/components/animations";
 
 const corporateFaqs = [
@@ -253,6 +254,25 @@ const CorporateDanceClassesLondon = () => (
         />
       </div>
     </section>
+
+    <VideoTestimonialsBlock
+      heading="Watch how a Pura corporate session actually feels"
+      subcopy="Two short clips from real Pura Nights corporate clients — same room, very different teams."
+      testimonials={[
+        {
+          name: "Tech Team Offsite",
+          context: "60-minute Salsa session · Soho Co-working space",
+          youtubeId: "dQw4w9WgXcQ",
+          quote: "Best icebreaker we've ever booked. Two engineers who never speak ended up in the same dance circle.",
+        },
+        {
+          name: "Christmas Party",
+          context: "90-minute Bachata + social · West London hotel",
+          youtubeId: "dQw4w9WgXcQ",
+          quote: "Melitta read the room instantly. The team's still talking about it three months later.",
+        },
+      ]}
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/private-lessons", label: "Private Lessons" },
