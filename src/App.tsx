@@ -127,6 +127,18 @@ import SalsaShoesGuide from "./pages/blog/SalsaShoesGuide";
 import HowToPracticeSalsaAtHome from "./pages/blog/HowToPracticeSalsaAtHome";
 import PuraNightsLatinFridayGuide from "./pages/blog/PuraNightsLatinFridayGuide";
 import DanceClassesWestLondonGuide from "./pages/blog/DanceClassesWestLondonGuide";
+import ShyBeginnersSalsaLondon from "./pages/blog/ShyBeginnersSalsaLondon";
+import SalsaBachataEtiquetteGuide from "./pages/blog/SalsaBachataEtiquetteGuide";
+import HowToMakeFriendsAtSalsaClass from "./pages/blog/HowToMakeFriendsAtSalsaClass";
+import BestLatinSocialDancingLondon from "./pages/blog/BestLatinSocialDancingLondon";
+import AfterWorkDanceClassesLondon from "./pages/blog/AfterWorkDanceClassesLondon";
+import DateNightDanceClassLondon from "./pages/blog/DateNightDanceClassLondon";
+import DanceClassesForCouplesLondon from "./pages/blog/DanceClassesForCouplesLondon";
+import AnniversaryDanceLessonLondon from "./pages/blog/AnniversaryDanceLessonLondon";
+import BirthdayDanceClassLondon from "./pages/blog/BirthdayDanceClassLondon";
+import CorporateChristmasPartyDanceLondon from "./pages/blog/CorporateChristmasPartyDanceLondon";
+import BuildConfidenceOnDanceFloor from "./pages/blog/BuildConfidenceOnDanceFloor";
+import SalsaBachataBucketListLondon from "./pages/blog/SalsaBachataBucketListLondon";
 
 // Pillar pages
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
@@ -210,6 +222,18 @@ const App = () => (
             <Route path="/blog/how-to-practice-salsa-at-home" element={<HowToPracticeSalsaAtHome />} />
             <Route path="/blog/pura-nights-latin-friday-guide" element={<PuraNightsLatinFridayGuide />} />
             <Route path="/blog/dance-classes-west-london-guide" element={<DanceClassesWestLondonGuide />} />
+            <Route path="/blog/shy-beginners-salsa-london" element={<ShyBeginnersSalsaLondon />} />
+            <Route path="/blog/salsa-bachata-etiquette-guide" element={<SalsaBachataEtiquetteGuide />} />
+            <Route path="/blog/how-to-make-friends-at-salsa-class" element={<HowToMakeFriendsAtSalsaClass />} />
+            <Route path="/blog/best-latin-social-dancing-london" element={<BestLatinSocialDancingLondon />} />
+            <Route path="/blog/after-work-dance-classes-london" element={<AfterWorkDanceClassesLondon />} />
+            <Route path="/blog/date-night-dance-class-london" element={<DateNightDanceClassLondon />} />
+            <Route path="/blog/dance-classes-for-couples-london" element={<DanceClassesForCouplesLondon />} />
+            <Route path="/blog/anniversary-dance-lesson-london" element={<AnniversaryDanceLessonLondon />} />
+            <Route path="/blog/birthday-dance-class-london" element={<BirthdayDanceClassLondon />} />
+            <Route path="/blog/corporate-christmas-party-dance-london" element={<CorporateChristmasPartyDanceLondon />} />
+            <Route path="/blog/build-confidence-on-dance-floor" element={<BuildConfidenceOnDanceFloor />} />
+            <Route path="/blog/salsa-bachata-bucket-list-london" element={<SalsaBachataBucketListLondon />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:slug" element={<EventInstance />} />
             <Route path="/gallery" element={<Gallery />} />
