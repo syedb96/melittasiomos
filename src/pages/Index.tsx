@@ -17,6 +17,8 @@ import LiveStudentCounter from "@/components/LiveStudentCounter";
 import SocialProofBar from "@/components/SocialProofBar";
 import NewHereStrip from "@/components/NewHereStrip";
 import YouTubeStrip from "@/components/YouTubeStrip";
+import CorporateCTA from "@/components/CorporateCTA";
+import PartnerCTA from "@/components/PartnerCTA";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
