@@ -61,3 +61,39 @@ All local pages KEEP, indexable, self-canonical, and noindex only if duplicate-t
 3. Set noindex on Refer / Proof Centre / All Pages / Shop (until launch) / Admin.
 4. Hook DanceSchool + LocalBusiness JSON-LD globally via Wix Custom Code.
 5. Connect blog + team + testimonials to Wix CMS collections per `docs/03-WIX-CMS-BLUEPRINT.md`.
+
+---
+
+## Revenue Domination Routes (Blocks 1–3, May 2026)
+
+### Block 1 — New money pages
+| URL | Meta Title | Meta Description | H1 | Schema | Index? |
+|-----|-----------|------------------|----|--------|--------|
+| `/corporate-dance-classes-london` | Corporate Dance Classes London — Team Building \| Pura Nights | Latin dance team-building workshops for London companies. 60–90 min sessions, 6–60 people, all abilities. Enquiry only. | Corporate Dance Classes London | Service + FAQPage + BreadcrumbList | ✅ |
+| `/private-group-dance-parties-london` | Private Group Dance Parties London — Hen, Birthday, Group | Book a private Salsa or Bachata dance party for hens, birthdays, and group celebrations in London. | Private Group Dance Parties London | Service + FAQPage + BreadcrumbList | ✅ |
+| `/partner-with-pura-nights` | Partner with Pura Nights — Venues, Suppliers, Media | Partnership opportunities for venues, suppliers and media. Brand kit + link snippets included. | Partner with Pura Nights | Organization + ContactPage + FAQPage | ✅ |
+| `/latin-night-out-west-london` | Latin Night Out West London — Where to Dance & What to Expect | Editorial guide to Latin nights out in West London — venues, vibe, what to wear, how to book. | Latin Night Out — West London | Article + FAQPage + BreadcrumbList | ✅ |
+
+### Block 2 — Local SEO + AnswerBox
+- AnswerBox component injected on Homepage + 9 priority local pages (Acton, Fulham, Hammersmith, Richmond, Hounslow, West London, London-wide Salsa/Bachata/Latin).
+- Homepage gained "Choose Your Path" 6-card grid + "Why Pura Nights Beats a Normal Night Out" comparison block.
+
+### Block 3 — 12 commercial blog posts
+All posts ship with `Article + FAQPage + BreadcrumbList` schema, mid-article BlogCTA, and 3 RelatedPages links.
+
+| Slug | Category | Funnel target |
+|---|---|---|
+| `/blog/shy-beginners-salsa-london` | Beginners | `/start-here`, `/pura-nights` |
+| `/blog/salsa-bachata-etiquette-guide` | Technique | `/pura-nights` |
+| `/blog/how-to-make-friends-at-salsa-class` | Lifestyle | `/pura-nights`, `/events` |
+| `/blog/best-latin-social-dancing-london` | Events | `/events`, `/latin-night-out-west-london` |
+| `/blog/after-work-dance-classes-london` | Lifestyle | `/pura-nights`, `/prices` |
+| `/blog/date-night-dance-class-london` | Lifestyle | `/private-lessons` |
+| `/blog/dance-classes-for-couples-london` | Lifestyle | `/private-lessons`, `/wedding-dance-london` |
+| `/blog/anniversary-dance-lesson-london` | Lifestyle | `/private-lessons` |
+| `/blog/birthday-dance-class-london` | Events | `/private-group-dance-parties-london` |
+| `/blog/corporate-christmas-party-dance-london` | Events | `/corporate-dance-classes-london` |
+| `/blog/build-confidence-on-dance-floor` | Beginners | `/start-here`, `/private-lessons` |
+| `/blog/salsa-bachata-bucket-list-london` | Culture | `/events`, `/pura-ladies` |
+
+**Sitemap total after Blocks 1–3: 121 URLs (was 105).**
