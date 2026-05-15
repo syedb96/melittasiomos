@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import heroImg from "@/assets/bachata-close.jpg";
 
 const faqItems = [
@@ -166,6 +167,20 @@ const BachataClassesLondon = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where are the best Bachata classes in London?"
+          answer="Pura Nights is taught by Bachata UK Champion Melitta Siomos — weekly classes Monday in Chiswick and Tuesday in Ealing, plus monthly Latin Friday socials and the Pura Ladies styling team. Sensual, modern and Dominican Bachata covered across the term."
+          bullets={["Bachata UK Champion lead instructor", "Mon Chiswick · Tue Ealing · weekly Bachata in every social", "Beginners stream every week — no partner needed", "Optional Pura Ladies styling team for women who want to perform"]}
+          cta={{ label: "Start with Beginners", to: "/start-here" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },

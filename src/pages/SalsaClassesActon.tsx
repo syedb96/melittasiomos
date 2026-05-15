@@ -3,6 +3,7 @@ import { MapPin, Clock, CheckCircle, ChevronRight, Train } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
 
@@ -166,6 +167,20 @@ const SalsaClassesActon = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where can I take Salsa classes in Acton?"
+          answer="Acton's nearest weekly Salsa class is Pura Nights at the George IV in Chiswick (Monday) and the Drayton Court in Ealing (Tuesday) — both 8–12 minutes from Acton by tube, bus or car. No partner needed, beginners every week."
+          bullets={["Mon: George IV, Chiswick W4 — Beginners 7:30 PM, social to 11 PM", "Tue: Drayton Court, W13 — Beginners 7:30 PM, social to 11 PM", "From £10 / class · drop-in, no booking required", "Acton Town → Chiswick Park: 4 min on the District Line"]}
+          cta={{ label: "See full schedule", to: "/schedule" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },

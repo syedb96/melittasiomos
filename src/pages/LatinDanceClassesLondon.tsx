@@ -3,6 +3,7 @@ import { MapPin, Clock, Music, Users, Star, Heart } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const schema = {
@@ -156,6 +157,20 @@ const LatinDanceClassesLondon = () => (
         <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">🎟 Book Your First Class</a>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where can I take Latin dance classes in London?"
+          answer="Pura Nights is West London's home for weekly Latin dance — Salsa and Bachata side by side, Mondays in Chiswick and Tuesdays in Ealing. Award-winning teaching, real partner rotation, open social every night until 11 PM."
+          bullets={["Salsa + Bachata under one roof, every week", "Two venues, four levels, drop-in or bundles", "Monthly Latin Friday social — DJs, performances, dancefloor", "Reach us from Acton, Hammersmith, Fulham, Richmond, Hounslow"]}
+          cta={{ label: "Explore Pura Nights", to: "/pura-nights" }}
+          tone="ivory"
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },

@@ -3,6 +3,7 @@ import { Train, Car } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 
 /* <!-- WIX PAGE: /salsa-classes-hammersmith --> */
@@ -111,6 +112,20 @@ const SalsaClassesHammersmith = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where do Hammersmith dancers go for Salsa?"
+          answer="Hammersmith is 6 minutes from Pura Nights' Chiswick venue (Monday) on the District/Piccadilly Line and 10 minutes from Ealing (Tuesday). Award-winning teaching, weekly socials, no partner required."
+          bullets={["Hammersmith → Turnham Green: 6 min District Line", "Mon Chiswick · Tue Ealing — same teaching team both nights", "From £5 social-only · £10 class + social", "Free pre-class drink at the bar — arrive 6:50 PM"]}
+          cta={{ label: "Book your spot", to: "/bookings" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Your nearest venue" },
