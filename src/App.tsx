@@ -71,6 +71,10 @@ import SalsaClassesFulham from "./pages/SalsaClassesFulham";
 import SalsaClassesActonLocal from "./pages/SalsaClassesActonLocal";
 import ThankYou from "./pages/ThankYou";
 import EventInstance from "./pages/EventInstance";
+import CorporateDanceClassesLondon from "./pages/CorporateDanceClassesLondon";
+import PrivateGroupDancePartiesLondon from "./pages/PrivateGroupDancePartiesLondon";
+import PartnerWithPuraNights from "./pages/PartnerWithPuraNights";
+import LatinNightOutWestLondon from "./pages/LatinNightOutWestLondon";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -259,6 +263,10 @@ const App = () => (
             <Route path="/salsa-classes-fulham" element={<SalsaClassesFulham />} />
             <Route path="/salsa-classes-acton-local" element={<SalsaClassesActonLocal />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/corporate-dance-classes-london" element={<CorporateDanceClassesLondon />} />
+            <Route path="/private-group-dance-parties-london" element={<PrivateGroupDancePartiesLondon />} />
+            <Route path="/partner-with-pura-nights" element={<PartnerWithPuraNights />} />
+            <Route path="/latin-night-out-west-london" element={<LatinNightOutWestLondon />} />
 
             {/* Shop shell — Wix Stores-ready */}
             <Route path="/shop" element={<Shop />} />

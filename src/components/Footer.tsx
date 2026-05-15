@@ -59,9 +59,12 @@ const Footer = () => (
           <ul className="space-y-1.5">
             <li><Link to="/wedding-dance" className="hover:text-primary transition-colors">Wedding Dance</Link></li>
             <li><Link to="/private-lessons" className="hover:text-primary transition-colors">Private Lessons</Link></li>
+            <li><Link to="/corporate-dance-classes-london" className="hover:text-primary transition-colors">Corporate Bookings</Link></li>
+            <li><Link to="/private-group-dance-parties-london" className="hover:text-primary transition-colors">Hen & Group Parties</Link></li>
             <li><Link to="/pura-ladies" className="hover:text-primary transition-colors">Pura Ladies</Link></li>
             <li><Link to="/online-salsa-bachata-coaching" className="hover:text-primary transition-colors">Online Coaching</Link></li>
             <li><Link to="/gift-vouchers" className="hover:text-primary transition-colors">Gift Vouchers</Link></li>
+            <li><Link to="/latin-night-out-west-london" className="hover:text-primary transition-colors">Latin Night Out</Link></li>
             <li><Link to="/testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
@@ -100,6 +103,7 @@ const Footer = () => (
             <li className="flex items-start gap-2"><MapPin size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Mon: The George IV, W4 2DR</span></li>
             <li className="flex items-start gap-2"><MapPin size={12} className="text-peach flex-shrink-0 mt-0.5" /><span>Tue: Drayton Court Hotel, W13 8PH</span></li>
             <li><Link to="/contact" className="hover:text-primary transition-colors">Contact form & enquiries →</Link></li>
+            <li><Link to="/partner-with-pura-nights" className="hover:text-primary transition-colors">Partner with us →</Link></li>
             <li><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Linktree booking ↗</a></li>
           </ul>
           <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-heading font-semibold text-charcoal transition-all hover:opacity-90 mt-4" style={{ background: 'var(--gradient-gold)' }}>

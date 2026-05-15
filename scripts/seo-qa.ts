@@ -59,6 +59,10 @@ const STATIC_ROUTES: { path: string; priority?: number; changefreq?: string }[] 
   { path: "/schedule", priority: 0.7, changefreq: "weekly" },
   { path: "/meet-the-team", priority: 0.8, changefreq: "monthly" },
   { path: "/bookings", priority: 0.7, changefreq: "monthly" },
+  { path: "/corporate-dance-classes-london", priority: 0.9, changefreq: "monthly" },
+  { path: "/private-group-dance-parties-london", priority: 0.9, changefreq: "monthly" },
+  { path: "/partner-with-pura-nights", priority: 0.8, changefreq: "monthly" },
+  { path: "/latin-night-out-west-london", priority: 0.8, changefreq: "monthly" },
 ];
 
 // ---------- Auto-discovered routes ----------
