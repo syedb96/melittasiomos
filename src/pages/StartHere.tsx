@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
+import EmailCaptureGate from "@/components/EmailCaptureGate";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import {
   BookOpen,
@@ -445,6 +446,14 @@ const StartHere = () => (
       title="People who walked in nervous"
       subtitle="And came back the following week."
       limit={3}
+    />
+
+    <EmailCaptureGate
+      source="/start-here"
+      headline="Nervous? Get the new-dancer guide first."
+      subcopy="3-minute read on what to wear, where to stand, and how to leave class feeling great. Then book when you're ready."
+      redirectUrl="https://www.tickettailor.com/events/puranights"
+      redirectLabel="Skip & Book My First Class"
     />
 
     {/* SINGLE PRIMARY CTA */}

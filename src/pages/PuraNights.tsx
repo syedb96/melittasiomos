@@ -9,6 +9,7 @@ import { MapPin, Clock, ChevronRight, ExternalLink } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import EmailCaptureGate from "@/components/EmailCaptureGate";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
@@ -223,6 +224,14 @@ const PuraNights = () => (
       { to: "/blog/beginners-guide-salsa-bachata-london", label: "Beginner's Guide" },
       { to: "/locations", label: "Locations & Directions" },
     ]} />
+
+    <EmailCaptureGate
+      source="/pura-nights"
+      headline="Get the schedule + first-timer guide before you book"
+      subcopy="Two short emails: what to expect on your first night, and the weekly class reminder. Skip straight to booking if you'd rather."
+      redirectUrl="https://www.tickettailor.com/events/puranights"
+      redirectLabel="Skip & Book Now"
+    />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
