@@ -26,10 +26,65 @@
 - **Notification**: Owner email
 - **Success state**: Same pattern with WhatsApp nudge.
 
-### 4. Corporate / Hen Party (Future)
-- **Location**: Future `/hen-parties` or `/corporate-events` page
-- **Fields**: Name*, Email*, Phone, Event Type, Date, Group Size, Message
-- **Submit to**: Enquiries (subject=Corporate or Hen)
+### 4. Corporate Bookings
+- **Location**: `/corporate-dance-classes-london`
+- **Fields**: Name*, Company*, Email*, Phone, Group Size, Date, Message
+- **Submit to**: Enquiries (subject=Corporate)
+- **CRM tag**: `corporate`
+- **Notify**: hello@puranights.com + WhatsApp 07449 482343
+
+### 5. Private Group Dance Parties (Hen / Birthday / Stag)
+- **Location**: `/private-group-dance-parties-london`
+- **Fields**: Name*, Email*, Phone, Event Type (Hen/Birthday/Stag/Other), Group Size, Date, Message
+- **Submit to**: Enquiries (subject=Group Party)
+- **CRM tag**: `group-party`
+- **Notify**: hello@puranights.com + WhatsApp
+
+### 6. Partner Enquiries (Brands / Influencers)
+- **Location**: `/partner-with-pura-nights`
+- **Fields**: Name*, Brand/Org*, Email*, Type of Partnership, Message*
+- **Submit to**: Enquiries (subject=Partner)
+- **CRM tag**: `partner`
+- **Notify**: hello@puranights.com
+
+### 7. Venue Collaboration
+- **Location**: `/partner-with-pura-nights` (segmented option)
+- **Fields**: Name*, Venue Name*, Email*, Phone, Location, Message
+- **Submit to**: Enquiries (subject=Venue Partner)
+- **CRM tag**: `venue-partner`
+- **Notify**: hello@puranights.com
+
+### 8. Email Capture Gate (Lead Magnet)
+- **Location**: `/start-here`, `/pura-nights` (non-blocking gate)
+- **Fields**: Name, Email*
+- **Submit to**: Enquiries (subject=Lead Magnet) → Mailchimp main list
+- **CRM tag**: `lead-magnet`
+
+### 9. First Class Enquiry
+- **Location**: Beginners pages, Start Here CTAs
+- **Fields**: Name*, Email*, Class chosen (Mon Chiswick / Tue Ealing)
+- **Submit to**: Enquiries (subject=First Class)
+- **CRM tag**: `first-class`
+- **Notify**: hello@puranights.com
+
+---
+
+## CRM Tag Master List
+
+| Form | CRM tag | Notify |
+|---|---|---|
+| Contact (general) | `contact` | hello@puranights.com |
+| Wedding | `wedding` | hello@puranights.com + WhatsApp |
+| Private Lessons | `privates` | hello@puranights.com + WhatsApp |
+| Corporate Bookings | `corporate` | hello@puranights.com + WhatsApp |
+| Private Group Parties | `group-party` | hello@puranights.com + WhatsApp |
+| Partner Enquiries | `partner` | hello@puranights.com |
+| Venue Collaboration | `venue-partner` | hello@puranights.com |
+| Email Capture Gate | `lead-magnet` | Mailchimp main list |
+| First Class Enquiry | `first-class` | hello@puranights.com |
+| Newsletter | `lead-magnet` | Mailchimp main list |
+| Pura Ladies Audition | `auditions` | hello@puranights.com |
+| Gift Vouchers | `vouchers` | hello@puranights.com |
 
 ---
 
