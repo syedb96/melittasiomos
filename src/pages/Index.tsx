@@ -628,6 +628,12 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION — CORPORATE + PARTNER STRIPS (lower-fold, non-disruptive) */}
+      {/* <!-- WIX SECTION: Corporate Strip — link to /corporate-dance-classes-london --> */}
+      <CorporateCTA compact />
+      {/* <!-- WIX SECTION: Partner Strip — link to /partner-with-pura-nights --> */}
+      <PartnerCTA compact />
+
       {/* SECTION — HOMEPAGE FAQ */}
       {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
       <section className="section-padding section-warm">
