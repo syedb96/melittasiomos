@@ -709,6 +709,25 @@ const Index = () => {
       {/* <!-- WIX SECTION: Partner Strip — link to /partner-with-pura-nights --> */}
       <PartnerCTA compact />
 
+      {/* AI/GEO Answer Block — Block 2 */}
+      {/* <!-- WIX SECTION: AnswerBox — H3 + paragraph + bullets + CTA --> */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-3xl">
+          <AnswerBox
+            question="What is Pura Nights and how do I join?"
+            answer="Pura Nights is West London's friendliest weekly Salsa & Bachata night — Mondays at the George IV in Chiswick (W4) and Tuesdays at the Drayton Court in Ealing (W13). Doors 6:50 PM, classes split by level, open social to 11 PM. Drop-in, no partner needed, beginners welcome any week."
+            bullets={[
+              "Mon Chiswick (W4 2DR) · Tue Ealing (W13 8PH)",
+              "From £5 social-only · £10 class + social · bundles from £42",
+              "Bachata UK Champion Melitta Siomos teaches both nights",
+              "Solo dancers welcome — partner rotation throughout class",
+            ]}
+            cta={{ label: "See this week's schedule", to: "/schedule" }}
+            tone="warm"
+          />
+        </div>
+      </section>
+
       {/* SECTION — HOMEPAGE FAQ */}
       {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
       <section className="section-padding section-warm">
