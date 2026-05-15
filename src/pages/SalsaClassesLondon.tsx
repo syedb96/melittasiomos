@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
 
 const schema = {
@@ -154,6 +155,20 @@ const SalsaClassesLondon = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where can I learn Salsa in London?"
+          answer="Pura Nights runs London's most welcoming weekly Salsa programme — Mondays at the George IV in Chiswick and Tuesdays at the Drayton Court in Ealing. Bachata UK Champion Melitta Siomos teaches both nights with a beginners stream that restarts every week."
+          bullets={["Two West London venues, four levels, every week", "From £5 social-only · £10 class + social", "Solo dancers welcome — partners rotate every few minutes", "Open socials run until 11 PM — Salsa & Bachata mix"]}
+          cta={{ label: "See this week's schedule", to: "/schedule" }}
+          tone="ivory"
+        />
+      </div>
+    </section>
+
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-london", label: "Bachata Classes London" },
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },

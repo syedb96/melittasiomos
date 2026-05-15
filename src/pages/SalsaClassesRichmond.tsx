@@ -3,6 +3,7 @@ import { MapPin, Train, Car } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
@@ -120,6 +121,20 @@ const SalsaClassesRichmond = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where can Richmond residents learn Salsa & Bachata?"
+          answer="Richmond's closest weekly Latin class is Pura Nights at the George IV in Chiswick (Monday) — 12 minutes via the District Line, or 15 minutes by car. Beginners through Intermediate, plus open social to 11 PM."
+          bullets={["Richmond → Turnham Green: 12 min District Line direct", "Mon Chiswick (W4) · Tue Ealing (W13)", "No partner, no booking — just turn up", "Free street parking after 6:30 PM at both venues"]}
+          cta={{ label: "See Monday Chiswick", to: "/dance-classes-chiswick" }}
+          tone="ivory"
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },

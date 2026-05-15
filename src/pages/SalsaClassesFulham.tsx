@@ -3,6 +3,7 @@ import { Train, Car, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
@@ -130,6 +131,20 @@ const SalsaClassesFulham = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Are there Salsa classes near Fulham?"
+          answer="Fulham residents reach Pura Nights' Chiswick venue in 15–20 minutes via the District Line or A4. Weekly classes Monday at the George IV (Chiswick) and Tuesday at the Drayton Court (Ealing). Solo dancers welcome."
+          bullets={["Fulham Broadway → Turnham Green: 12 min District Line", "Mon Chiswick · Tue Ealing — drop-in, no partner needed", "Beginners stream restarts every week from zero", "Bachata UK Champion Melitta Siomos teaches both nights"]}
+          cta={{ label: "Plan your first class", to: "/start-here" }}
+          tone="ivory"
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },

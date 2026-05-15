@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 
 /* <!-- WIX PAGE: /dance-classes-hounslow --> */
@@ -79,6 +80,20 @@ const DanceClassesHounslow = () => (
         </div>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Are there dance classes in Hounslow?"
+          answer="Hounslow's nearest dedicated weekly Salsa & Bachata class is Pura Nights at the Drayton Court Hotel, West Ealing — every Tuesday from 7 PM. A 15-minute Elizabeth Line trip or 12-minute drive away."
+          bullets={["Hounslow → West Ealing: 15 min Elizabeth Line", "Tue 7 PM Beginners · Improver · Intermediate · Social", "Drop-in £10 · bundles from £42 for 5 classes", "Pub on-site — pre-class meal and after-class drinks"]}
+          cta={{ label: "Plan your Tuesday", to: "/dance-classes-ealing" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Explore More" links={[
       { to: "/pura-nights", label: "Pura Nights", desc: "Weekly Latin nights" },

@@ -3,6 +3,7 @@ import { MapPin, Clock, ChevronRight, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const faqs = [
@@ -174,6 +175,20 @@ const DanceClassesWestLondon = () => (
         <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
       </div>
     </section>
+    {/* AI/GEO Answer Block */}
+    {/* <!-- WIX SECTION: AnswerBox — replicate as Strip with H3 + paragraph + bullets + CTA --> */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="Where can I take dance classes in West London?"
+          answer="Pura Nights runs West London's most consistent weekly Latin programme — Mondays at the George IV in Chiswick (W4) and Tuesdays at the Drayton Court in Ealing (W13). Beginners welcome any week, no partner required."
+          bullets={["Two W4 / W13 venues, every week, all year", "Reachable in under 20 min from Acton, Hammersmith, Fulham, Richmond, Hounslow", "From £5 social-only · drop-in £10 class + social", "Bachata UK Champion lead instructor — international standard teaching"]}
+          cta={{ label: "Find your nearest night", to: "/locations" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/bachata-classes-london", label: "Bachata Classes London" },
