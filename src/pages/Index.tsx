@@ -285,6 +285,80 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 5.5 — CHOOSE YOUR PATH (Block 2) */}
+      {/* <!-- WIX SECTION: Choose Your Path — 6-card Repeater linking to the main money pages --> */}
+      <section className="section-padding section-ivory">
+        <div className="container-main max-w-6xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Where do you want to start?</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">Choose Your Path</h2>
+            <p className="text-muted-foreground text-center text-base md:text-lg font-heading max-w-2xl mx-auto mb-12">
+              Six ways into Pura Nights — pick the one that matches what you actually want from a Tuesday evening.
+            </p>
+          </FadeInUp>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.08}>
+            {[
+              { to: "/start-here", title: "I'm brand new", desc: "Beginners walk-in guide — what to wear, what to expect, where to stand.", tag: "Start Here" },
+              { to: "/pura-nights", title: "Weekly classes", desc: "Mon Chiswick · Tue Ealing — drop-in, no partner, no booking.", tag: "Weekly" },
+              { to: "/events", title: "Latin Friday", desc: "Monthly social with DJs, a class warm-up and an open dancefloor.", tag: "Events" },
+              { to: "/wedding-dance-london", title: "Wedding dance", desc: "First-dance choreography that looks effortless on the day.", tag: "Wedding" },
+              { to: "/corporate-dance-classes-london", title: "Corporate / team", desc: "Team building that gets people laughing and connecting.", tag: "Corporate" },
+              { to: "/private-group-dance-parties-london", title: "Hen / private group", desc: "Birthdays, hens and private group parties with a real dance class.", tag: "Group" },
+            ].map((card) => (
+              <StaggerItem key={card.to}>
+                <Link to={card.to} className="group block bg-card rounded-2xl p-6 h-full border border-border hover:border-primary/40 transition-all hover:shadow-lg">
+                  <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-2">{card.tag}</p>
+                  <h3 className="font-display text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{card.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{card.desc}</p>
+                  <span className="text-primary font-heading text-xs font-semibold inline-flex items-center gap-1">Open this path <ChevronRight size={12} /></span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* SECTION 5.6 — WHY PURA NIGHTS BEATS A NORMAL NIGHT OUT (Block 2) */}
+      {/* <!-- WIX SECTION: Why Pura Nights — 2-column Strip with comparison list --> */}
+      <section className="section-padding section-dark">
+        <div className="container-main max-w-5xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">A Better Tuesday</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center text-primary-foreground mb-4">Why Pura Nights Beats a Normal Night Out</h2>
+            <p className="text-primary-foreground/65 text-center text-base font-heading max-w-2xl mx-auto mb-12">
+              Same evening. Same budget. Very different way to spend it.
+            </p>
+          </FadeInUp>
+          <div className="grid md:grid-cols-2 gap-6">
+            <FadeInUp>
+              <div className="bg-charcoal-light/40 rounded-2xl p-7 border border-primary-foreground/10 h-full">
+                <h3 className="font-display text-2xl font-bold text-primary-foreground/90 mb-4">A normal night out</h3>
+                <ul className="space-y-2.5 text-primary-foreground/60 text-sm font-heading">
+                  <li>· £40+ on drinks before you've spoken to anyone</li>
+                  <li>· Loud music, awkward small talk, phone scrolling</li>
+                  <li>· Same five friends or no-one new at all</li>
+                  <li>· Hangover Wednesday, nothing to show for it</li>
+                </ul>
+              </div>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <div className="bg-primary/10 rounded-2xl p-7 border border-primary/30 h-full">
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">A Pura Night</h3>
+                <ul className="space-y-2.5 text-primary-foreground/85 text-sm font-heading">
+                  <li>✓ From £10 — class, social and a real skill that compounds</li>
+                  <li>✓ Built-in partner rotation — meet 20+ people in 90 minutes</li>
+                  <li>✓ Walk in solo, leave with a dance crew</li>
+                  <li>✓ Wake up Wednesday lighter, sharper, looking forward to next week</li>
+                </ul>
+              </div>
+            </FadeInUp>
+          </div>
+          <FadeInUp delay={0.2} className="text-center mt-10">
+            <Link to="/start-here" className="btn-cta-primary text-sm">Plan your first night →</Link>
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* SECTION 6 — WHAT IS SALSA? WHAT IS BACHATA? */}
       <section className="section-padding section-warm">
         <div className="container-main max-w-6xl">
