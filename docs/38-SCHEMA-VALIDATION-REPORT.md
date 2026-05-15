@@ -1,4 +1,4 @@
-# Schema Validation Report — 2026-05-14
+# Schema Validation Report — 2026-05-15
 
 Source: static scan of `src/pages/**.tsx` + `src/components/SeoHead.tsx`.
 
