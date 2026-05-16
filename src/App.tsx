@@ -81,6 +81,7 @@ import SalsaClassesBarnes from "./pages/SalsaClassesBarnes";
 import SalsaClassesPutney from "./pages/SalsaClassesPutney";
 import SalsaClassesShepherdsBush from "./pages/SalsaClassesShepherdsBush";
 import SalsaClassesNottingHill from "./pages/SalsaClassesNottingHill";
+import SalsaBachataCoventGarden from "./pages/SalsaBachataCoventGarden";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -303,6 +304,7 @@ const App = () => (
             <Route path="/salsa-classes-putney" element={<SalsaClassesPutney />} />
             <Route path="/salsa-classes-shepherds-bush" element={<SalsaClassesShepherdsBush />} />
             <Route path="/salsa-classes-notting-hill" element={<SalsaClassesNottingHill />} />
+            <Route path="/salsa-bachata-classes-covent-garden" element={<SalsaBachataCoventGarden />} />
 
             {/* Shop shell — Wix Stores-ready */}
             <Route path="/shop" element={<Shop />} />
