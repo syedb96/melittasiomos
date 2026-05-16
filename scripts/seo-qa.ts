@@ -65,6 +65,7 @@ const STATIC_ROUTES: { path: string; priority?: number; changefreq?: string }[] 
   { path: "/latin-night-out-west-london", priority: 0.8, changefreq: "monthly" },
   { path: "/salsa-bachata-classes-covent-garden", priority: 0.9, changefreq: "monthly" },
   { path: "/pura-ladies-covent-garden", priority: 0.8, changefreq: "monthly" },
+  { path: "/best-salsa-bachata-classes-west-london", priority: 0.9, changefreq: "monthly" },
 ];
 
 // ---------- Auto-discovered routes ----------

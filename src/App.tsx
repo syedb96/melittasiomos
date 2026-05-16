@@ -147,6 +147,7 @@ import BirthdayDanceClassLondon from "./pages/blog/BirthdayDanceClassLondon";
 import CorporateChristmasPartyDanceLondon from "./pages/blog/CorporateChristmasPartyDanceLondon";
 import BuildConfidenceOnDanceFloor from "./pages/blog/BuildConfidenceOnDanceFloor";
 import SalsaBachataBucketListLondon from "./pages/blog/SalsaBachataBucketListLondon";
+import BestSalsaBachataClassesWestLondon from "./pages/BestSalsaBachataClassesWestLondon";
 
 // Pillar pages
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
@@ -307,6 +308,7 @@ const App = () => (
             <Route path="/salsa-classes-notting-hill" element={<SalsaClassesNottingHill />} />
             <Route path="/salsa-bachata-classes-covent-garden" element={<SalsaBachataCoventGarden />} />
             <Route path="/pura-ladies-covent-garden" element={<PuraLadiesCoventGarden />} />
+            <Route path="/best-salsa-bachata-classes-west-london" element={<BestSalsaBachataClassesWestLondon />} />
 
             {/* Shop shell — Wix Stores-ready */}
             <Route path="/shop" element={<Shop />} />
