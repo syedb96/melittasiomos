@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { Briefcase, Users, Sparkles, Calendar, MapPin, Award, CheckCircle2 } from "lucide-react";
+import { Briefcase, Users, Sparkles, Calendar, MapPin, Award, CheckCircle2, Quote, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
 
 const corporateFaqs = [
@@ -126,6 +127,22 @@ const CorporateDanceClassesLondon = () => (
       </div>
     </section>
 
+    {/* Quote band — featured client voice (mid-page proof) */}
+    <section className="section-padding section-dark">
+      <div className="container-main max-w-3xl text-center">
+        <Quote size={28} className="text-primary mx-auto mb-4" />
+        <p className="font-display text-2xl md:text-3xl text-primary-foreground leading-snug mb-5">
+          "Best icebreaker we've ever booked. Two engineers who never speak ended up dancing in the same circle — and the team still talks about it three months later."
+        </p>
+        <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary">
+          People Lead · 60-person tech offsite · Central London
+        </p>
+        <div className="mt-8">
+          <a href="#enquiry" className="btn-cta-primary text-sm">Get a quote for your team →</a>
+        </div>
+      </div>
+    </section>
+
     {/* Outcomes */}
     <section className="section-padding section-warm">
       <div className="container-main max-w-4xl">
@@ -226,6 +243,20 @@ const CorporateDanceClassesLondon = () => (
             </details>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* Urgency strip — Christmas / quarter planning */}
+    <section className="py-8 bg-primary/10 border-y border-primary/20">
+      <div className="container-main max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div className="flex items-center gap-3">
+          <Clock size={22} className="text-primary flex-shrink-0" />
+          <div>
+            <p className="font-heading font-bold text-sm">Christmas &amp; Q1 dates fill from August</p>
+            <p className="text-xs text-muted-foreground">Most corporate bookings confirm 4–8 weeks ahead. Hold a date with a quick enquiry — no obligation.</p>
+          </div>
+        </div>
+        <a href="#enquiry" className="btn-cta-primary text-xs whitespace-nowrap">Check availability →</a>
       </div>
     </section>
 
