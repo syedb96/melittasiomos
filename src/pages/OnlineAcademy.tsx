@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Play, Clock, Award, Download, Smartphone, Users, CheckCircle2, Star, Lock } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GoldDivider from "@/components/GoldDivider";
@@ -172,6 +173,24 @@ const OnlineAcademy = () => (
         </div>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`Can I genuinely learn Salsa or Bachata online with Melitta?`}
+          answer={`Yes — the Pura Nights Online Academy is structured around short lessons, drilling routines, musicality breakdowns and styling sessions. It works best alongside a weekly social or class, but it's designed so you can build real skill from home, especially for footwork, styling and musicality.`}
+          bullets={[
+              "Structured pathway · beginner to improver",
+              "Watch on phone, tablet or laptop",
+              "Lifetime access to released content",
+              "Pairs with live private lessons on Zoom"
+          ]}
+          cta={{ label: "Explore online lessons", to: "/online-academy" }}
+        />
+      </div>
+    </section>
+
 
     {/* PREVIEW REEL — 60-sec unlisted YouTube teaser */}
     <section className="section-padding bg-card">

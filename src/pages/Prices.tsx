@@ -3,6 +3,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import { Link } from "react-router-dom";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -243,6 +244,24 @@ const Prices = () => {
         </FadeInUp>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`How much do Salsa & Bachata classes cost in West London (2026)?`}
+          answer={`Weekly Pura Nights classes are £15 on the door and £12 pre-booked online. Multi-class bundles bring the per-class rate below £10. Private lessons and wedding-dance packages are enquiry-only and tailored. Latin Friday socials start at £10 early bird.`}
+          bullets={[
+              "Drop-in: £15 door · £12 online",
+              "Bundles: under £10 per class",
+              "Private & wedding: enquiry-only",
+              "Latin Friday social: from £10"
+          ]}
+          cta={{ label: "See the weekly schedule", to: "/schedule" }}
+        />
+      </div>
+    </section>
+
 
     <RelatedPages title="Related Pages" links={[
       { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & venue info" },

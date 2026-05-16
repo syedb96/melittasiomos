@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Trophy, Globe, Users, Calendar, Star, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
@@ -61,6 +62,24 @@ const BachataPerformanceTeamLondon = () => (
         </FadeInUp>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`What is Pura Ladies and how do I join the Bachata performance team?`}
+          answer={`Pura Ladies is the all-female Bachata performance team founded by Melitta Siomos, based in West London with members commuting from across London. Auditions are held roughly twice a year (February and September). If you're newer, start at weekly Pura Nights classes for 4–8 weeks, then audition at the next intake.`}
+          bullets={[
+              "Improvers and above · all body types welcome",
+              "Rehearsals in West London · Piccadilly line access",
+              "Auditions twice a year · follow @puraladies",
+              "Pre-audition private lessons available"
+          ]}
+          cta={{ label: "Ask about Pura Ladies", to: "/contact" }}
+        />
+      </div>
+    </section>
+
 
     <section className="section-padding section-warm">
       <div className="container-main max-w-4xl">
