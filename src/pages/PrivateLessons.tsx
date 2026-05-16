@@ -5,8 +5,11 @@ import ProofBlock from "@/components/ProofBlock";
 import RealProofSlot from "@/components/RealProofSlot";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/private-lesson.jpg";
+
+const PRIVATE_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20dance%20lessons";
 
 /* <!-- WIX PAGE: /private-lessons -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay -->
@@ -54,6 +57,24 @@ const PrivateLessons = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Private Dance Lessons — Tailored Just For You</h1>
           <p className="text-primary-foreground/80 font-heading text-lg max-w-2xl mx-auto">Accelerate your progress with personalised coaching from Bachata UK Champion Melitta Siomos</p>
         </div>
+      </div>
+    </section>
+
+    {/* AnswerBox — AI/GEO + immediate context */}
+    <section className="section-padding section-ivory">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="ivory"
+          question="What does a private lesson with Melitta actually look like?"
+          answer="A private lesson is a focused 1-to-1 (or couple) session built around your specific goal — first dance, audition prep, social-dance confidence, or technical refinement. Sessions run 45 or 60 minutes at a West London or Central London studio, online via Zoom, or at your venue on request. Every plan starts with a free consultation call so the work is genuinely tailored."
+          bullets={[
+            "Free 15-min consultation before anything is booked",
+            "Tailored plan — wedding, beginners, audition prep, technique",
+            "West London, Central London, your venue, or online",
+            "Couples and small-group privates available",
+          ]}
+          cta={{ label: "Book a free consultation", href: PRIVATE_WA }}
+        />
       </div>
     </section>
 
@@ -151,6 +172,19 @@ const PrivateLessons = () => (
             ].map((f, i) => <li key={i} className="flex items-start gap-2"><CheckCircle size={16} className="text-primary flex-shrink-0 mt-0.5" /> {f}</li>)}
           </ul>
         </FadeInUp>
+      </div>
+    </section>
+
+    {/* Mid-page CTA — high-intent moment after "What's included" */}
+    <section className="py-10 bg-primary/10 border-y border-primary/20">
+      <div className="container-main max-w-3xl text-center">
+        <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">No obligation · Free consultation</p>
+        <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">Most students book after a 10-minute call</h3>
+        <p className="text-muted-foreground text-sm mb-6 max-w-xl mx-auto">Melitta will ask about your goal, level and timeline, then send a tailored plan and quote. No pressure, no upsell.</p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={PRIVATE_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 WhatsApp Melitta</a>
+          <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-ghost text-sm">📧 Email instead</a>
+        </div>
       </div>
     </section>
 
