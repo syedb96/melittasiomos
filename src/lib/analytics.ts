@@ -34,8 +34,9 @@ export async function trackCtaClick(args: {
  */
 export function trackCta(label: string, location?: string) {
   try {
-    if (typeof window !== "undefined" && Array.isArray((window as { dataLayer?: unknown[] }).dataLayer)) {
-      (window as { dataLayer: Record<string, unknown>[] }).dataLayer.push({
+    const w = typeof window !== "undefined" ? (window as unknown as { dataLayer?: Record<string, unknown>[] }) : undefined;
+    if (w && Array.isArray(w.dataLayer)) {
+      w.dataLayer.push({
         event: "cta_click",
         cta_label: label,
         cta_location: location ?? "unknown",
