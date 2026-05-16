@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { X } from "lucide-react";
+import { trackCta } from "@/lib/analytics";
 
 const StickyMobileCTA = () => {
   const [visible, setVisible] = useState(false);
@@ -32,7 +33,7 @@ const StickyMobileCTA = () => {
         </span>
         <div className="flex items-center gap-2 shrink-0">
           {isWedding ? (
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" className="bg-background text-foreground text-xs font-heading font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">WhatsApp →</a>
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" onClick={() => trackCta("whatsapp_click", `sticky-mobile:${pathname}`)} className="bg-background text-foreground text-xs font-heading font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">WhatsApp →</a>
           ) : (
             <Link to={isBlog ? "/pura-nights" : "/prices"} className="bg-background text-foreground text-xs font-heading font-bold px-3 py-1.5 rounded-lg whitespace-nowrap">
               {isBlog ? "View Classes →" : "Book Now →"}

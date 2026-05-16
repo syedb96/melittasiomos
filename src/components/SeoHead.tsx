@@ -57,6 +57,7 @@ const globalSchema = {
     "@type": "AggregateRating",
     ratingValue: "5.0",
     reviewCount: "127",
+    ratingCount: "127",
     bestRating: "5",
     worstRating: "1",
   },
@@ -165,6 +166,24 @@ const SeoHead = ({ title, description, path, schema, breadcrumbs, dateModified, 
     let scriptEl = document.getElementById("schema-global");
     if (!scriptEl) { scriptEl = document.createElement("script"); scriptEl.id = "schema-global"; scriptEl.setAttribute("type", "application/ld+json"); document.head.appendChild(scriptEl); }
     scriptEl.textContent = JSON.stringify(schema || globalSchema);
+
+    // JSON-LD: WebSite + Sitelinks SearchBox (sitewide)
+    let wsScript = document.getElementById("schema-website");
+    if (!wsScript) { wsScript = document.createElement("script"); wsScript.id = "schema-website"; wsScript.setAttribute("type", "application/ld+json"); document.head.appendChild(wsScript); }
+    wsScript.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Pura Nights — Melitta Siomos Dance Academy",
+      url: "https://www.puranights.com",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://www.puranights.com/search?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    });
 
     // JSON-LD: BreadcrumbList
     const bc = breadcrumbs || getAutoBreadcrumbs(path, title);

@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { trackCta } from "@/lib/analytics";
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
@@ -18,6 +19,7 @@ const WhatsAppButton = () => {
       href={`https://wa.me/447449482343?text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackCta("whatsapp_click", `floating:${pathname}`)}
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg transition-transform hover:scale-110 group"
       style={{ backgroundColor: "#25D366" }}
       aria-label="Chat with Melitta on WhatsApp"
