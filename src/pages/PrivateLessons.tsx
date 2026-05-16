@@ -211,6 +211,7 @@ const PrivateLessons = () => (
 
     <RelatedPages title="Related Pages" links={[
       { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },
+      { to: "/salsa-bachata-classes-covent-garden", label: "Covent Garden & Central London", desc: "Coaching options from Zone 1" },
       { to: "/proof-centre", label: "Proof Centre", desc: "Reviews, awards & credentials" },
       { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },
       { to: "/pura-nights", label: "Weekly Classes", desc: "Group classes Mon & Tue" },

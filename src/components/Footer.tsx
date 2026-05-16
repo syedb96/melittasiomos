@@ -91,6 +91,7 @@ const Footer = () => (
             <li><Link to="/dance-classes-hounslow" className="hover:text-primary transition-colors">Hounslow</Link></li>
             <li><Link to="/venue/the-george-iv-chiswick" className="hover:text-primary transition-colors">George IV, Chiswick</Link></li>
             <li><Link to="/venue/the-drayton-court-ealing" className="hover:text-primary transition-colors">Drayton Court, Ealing</Link></li>
+            <li><Link to="/salsa-bachata-classes-covent-garden" className="hover:text-primary transition-colors">Covent Garden · Central London</Link></li>
           </ul>
         </div>
 
