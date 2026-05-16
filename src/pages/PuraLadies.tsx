@@ -4,8 +4,11 @@ import ProofBlock from "@/components/ProofBlock";
 import RealProofSlot from "@/components/RealProofSlot";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
+
+const PURA_LADIES_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20joining%20Pura%20Ladies";
 
 const teams = [
   { flag: "🇬🇧", city: "London", desc: "Multiple groups at different levels — the home of Pura Ladies" },
@@ -54,6 +57,24 @@ const PuraLadies = () => (
           <p className="text-muted-foreground leading-relaxed mb-4">Our teams perform at major Latin events across Europe and represent the pinnacle of female expression in social dance. Pura Ladies is not just a performance team — it is a community of women who support, inspire, and elevate each other through the art of dance.</p>
           <p className="text-muted-foreground leading-relaxed">Some of our original team members from 2017 are still in the team today — that's how strong our sisterhood runs.</p>
         </FadeInUp>
+      </div>
+    </section>
+
+    {/* AnswerBox — AI/GEO friendly intro */}
+    <section className="section-padding section-ivory">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="ivory"
+          question="What is Pura Ladies?"
+          answer="Pura Ladies is the all-female Bachata styling and performance company founded by Melitta Siomos in London in 2017. It is a training pathway and a sisterhood — beginners build foundations at Pura Nights, develop styling at the free Tuesday warm-up in Ealing, and progress through audition into one of seven teams across London, Plymouth, Munich and Lisbon."
+          bullets={[
+            "All-female styling + performance training pathway",
+            "Open to dancers from improvers level upwards",
+            "Auditions held annually — follow @puraladies for dates",
+            "London is the home team; international chapters perform across Europe",
+          ]}
+          cta={{ label: "Ask about joining Pura Ladies", href: PURA_LADIES_WA }}
+        />
       </div>
     </section>
 
@@ -168,8 +189,8 @@ const PuraLadies = () => (
         </StaggerContainer>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://www.instagram.com/puraladies/" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">📲 Follow @puraladies</a>
-          <Link to="/contact" className="btn-cta-dark text-sm">📧 Enquire About Joining</Link>
+          <a href={PURA_LADIES_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm" aria-label="WhatsApp Melitta to ask about joining Pura Ladies">💬 Ask About Joining Pura Ladies</a>
+          <a href="https://www.instagram.com/puraladies/" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">📲 Follow @puraladies</a>
         </div>
       </div>
     </section>
