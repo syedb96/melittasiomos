@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Video, Monitor, Globe, Clock, CheckCircle, Users, Heart, Star, BookOpen, Music, Sparkles, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
@@ -107,6 +108,24 @@ const OnlineCoaching = () => (
         </FadeInUp>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`How does 1-to-1 online Salsa / Bachata coaching with Melitta work?`}
+          answer={`You book a Zoom slot, send a short clip of where you're at, and Melitta coaches you live — technique, musicality, styling, choreography or audition prep. Most clients book in 4-session blocks. Works globally; particularly popular for dancers outside London or prepping for performance teams.`}
+          bullets={[
+              "Live Zoom — 30 or 60 min sessions",
+              "Tailored to your goal (social, audition, wedding)",
+              "Replay link sent after every session",
+              "Block-bookings discounted"
+          ]}
+          cta={{ label: "Enquire about online coaching", to: "/contact" }}
+        />
+      </div>
+    </section>
+
 
     {/* <!-- WIX SECTION: What Online Coaching Includes --> */}
     <section className="section-padding section-warm">

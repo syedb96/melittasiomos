@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Heart, Clock, Star, Music, MapPin, Calendar } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import WeddingTiers from "@/components/WeddingTiers";
@@ -111,6 +112,24 @@ const WeddingDanceLessonsLondon = () => (
         </StaggerContainer>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`How many wedding dance lessons do most couples need?`}
+          answer={`Most couples book 4–8 private lessons before the big day. The exact number depends on your song choice, dance experience and how polished you want the choreography. Melitta runs a free 10-minute consultation call to scope the right package — no pressure, no upsell.`}
+          bullets={[
+              "First dance choreography tailored to your song",
+              "London-wide — studio, venue or your home",
+              "Recommended start: 8–12 weeks before the wedding",
+              "Same-week express bookings considered"
+          ]}
+          cta={{ label: "Book a 10-min consultation", to: "/contact" }}
+        />
+      </div>
+    </section>
+
 
     <section className="section-padding bg-card">
       <div className="container-main max-w-3xl">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
@@ -114,6 +115,24 @@ const StartHere = () => (
         </div>
       </div>
     </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-base py-12">
+      <div className="container mx-auto max-w-4xl px-4">
+        <AnswerBox
+          question={`Where do I actually start learning Salsa & Bachata in West London?`}
+          answer={`Start at Pura Nights on a Monday at The George IV in Chiswick or a Tuesday at The Drayton Court in Ealing. No partner needed, no kit required, drop-in or pre-book. Class rotates partners every 60–90 seconds so you'll dance with the whole room on night one.`}
+          bullets={[
+              "Mondays · Chiswick W4 (Turnham Green tube)",
+              "Tuesdays · Ealing W13 (West Ealing rail)",
+              "£12 online · £15 door · improvers welcome",
+              "Arrive 10 min early — Melitta will greet you"
+          ]}
+          cta={{ label: "Book your first class", to: "/bookings" }}
+        />
+      </div>
+    </section>
+
 
     {/* COME ALONE REASSURANCE — high in the funnel */}
     <section className="py-12 md:py-16 bg-card border-b border-border">
