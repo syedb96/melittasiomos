@@ -219,11 +219,11 @@ const PuraLadies = () => (
     </section>
 
     <RelatedPages title="Explore More" links={[
+      { to: "/pura-ladies-covent-garden", label: "Central London Pathway", desc: "For dancers commuting from Covent Garden / Zone 1" },
       { to: "/blog/pura-ladies-story", label: "The Pura Ladies Story", desc: "How one dream became a global community" },
       { to: "/proof-centre", label: "Proof Centre", desc: "Reviews, awards & credentials" },
       { to: "/pura-nights", label: "Weekly Classes", desc: "Build your foundation at Pura Nights" },
       { to: "/private-lessons", label: "Private Lessons", desc: "Fast-track your technique" },
-      { to: "/gallery", label: "Gallery & Videos", desc: "See Pura Ladies in action" },
       { to: "/meet-the-team", label: "Meet the Team", desc: "8 instructors behind the magic" },
     ]} />
   </Layout>
