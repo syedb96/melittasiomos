@@ -27,3 +27,24 @@ export async function trackCtaClick(args: {
     /* swallow — analytics must never break UX */
   }
 }
+
+/**
+ * Lightweight wrapper used by static pages: trackCta(label, location).
+ * Also pushes a dataLayer event for GTM/GA4 when present.
+ */
+export function trackCta(label: string, location?: string) {
+  try {
+    if (typeof window !== "undefined" && Array.isArray((window as { dataLayer?: unknown[] }).dataLayer)) {
+      (window as { dataLayer: Record<string, unknown>[] }).dataLayer.push({
+        event: "cta_click",
+        cta_label: label,
+        cta_location: location ?? "unknown",
+        page_path: window.location.pathname,
+      });
+    }
+  } catch {
+    /* no-op */
+  }
+  // Fire-and-forget Supabase log
+  void trackCtaClick({ ctaLabel: label, ctaType: location ?? "cta" });
+}
