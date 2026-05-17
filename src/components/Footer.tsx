@@ -6,6 +6,23 @@ const Footer = () => (
     {/* Gold accent bar */}
     <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, hsl(43 48% 54%), hsl(20 75% 66%), hsl(43 48% 54%))" }} />
 
+    {/* Top CTA strip — 3 strong actions before columns */}
+    <div className="container-main pt-10 pb-8 border-b border-primary-foreground/6">
+      <div className="grid sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
+        <Link to="/start-here" className="group flex flex-col items-center justify-center text-center rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors px-4 py-4 border border-primary/20">
+          <span className="font-heading font-bold text-sm text-primary-foreground">Book your first class</span>
+          <span className="text-[11px] text-primary-foreground/60 mt-0.5 font-heading">New to dancing? Start here →</span>
+        </Link>
+        <Link to="/private-group-dance-parties-london" className="group flex flex-col items-center justify-center text-center rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors px-4 py-4 border border-primary/20">
+          <span className="font-heading font-bold text-sm text-primary-foreground">Plan a group event</span>
+          <span className="text-[11px] text-primary-foreground/60 mt-0.5 font-heading">Hen, birthday, corporate →</span>
+        </Link>
+        <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center justify-center text-center rounded-xl bg-secondary/15 hover:bg-secondary/25 transition-colors px-4 py-4 border border-secondary/30">
+          <span className="font-heading font-bold text-sm text-primary-foreground">💬 Talk to Melitta</span>
+          <span className="text-[11px] text-primary-foreground/60 mt-0.5 font-heading">WhatsApp — replies in hours</span>
+        </a>
+      </div>
+    </div>
     {/* Brand Statement */}
     <div className="container-main pt-14 pb-10 text-center border-b border-primary-foreground/6">
       <h4 className="font-display text-2xl font-bold text-primary-foreground mb-1">Melitta Siomos Dance Academy</h4>

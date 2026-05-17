@@ -228,6 +228,16 @@ const CorporateDanceClassesLondon = () => (
       </div>
     </section>
 
+    {/* What teams say — social proof */}
+    <ProofBlock
+      categories={["group", "community"]}
+      eyebrow="Real Voices"
+      title="What teams &amp; groups say"
+      subtitle="Verified students and group bookings — first name + context only."
+      limit={3}
+      variant="light"
+    />
+
     {/* FAQ */}
     <section className="section-padding section-ivory">
       <div className="container-main max-w-3xl">
@@ -281,8 +291,11 @@ const CorporateDanceClassesLondon = () => (
             { name: "sessionType", label: "Session type", placeholder: "Salsa / Bachata / Mixed Latin" },
             { name: "budget", label: "Budget (optional)", placeholder: "e.g. £500–£800" },
           ]}
-          messagePlaceholder="Tell us about the team — vibe, occasion, anything we should know."
+          messagePlaceholder="Tell us about the team — vibe, occasion, anything we should know. Optional: how did you hear about us? (Google, Instagram, referral, venue, other)"
         />
+        <p className="text-center text-xs text-muted-foreground mt-5 font-heading">
+          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20corporate%20Salsa%2FBachata%20session%20-%20date%3A%20%2C%20group%20size%3A%20" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
+        </p>
       </div>
     </section>
 
