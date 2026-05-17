@@ -4,6 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
 
 const groupFaqs = [
@@ -138,6 +139,16 @@ const PrivateGroupDancePartiesLondon = () => (
       </div>
     </section>
 
+    {/* What groups say */}
+    <ProofBlock
+      categories={["group", "community", "beginner"]}
+      eyebrow="Real Voices"
+      title="What groups say"
+      subtitle="From hen parties, birthdays and friend groups."
+      limit={3}
+      variant="light"
+    />
+
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8 text-center">Group Party FAQs</h2>
@@ -168,8 +179,11 @@ const PrivateGroupDancePartiesLondon = () => (
             { name: "groupSize", label: "Group size", placeholder: "e.g. 12" },
             { name: "sessionType", label: "Salsa / Bachata / Mixed", placeholder: "Mixed is most popular" },
           ]}
-          messagePlaceholder="Tell us the occasion — hen, birthday, family party, surprise routine, etc."
+          messagePlaceholder="Tell us the occasion — hen, birthday, family party, surprise routine, etc. Optional: how did you hear about us?"
         />
+        <p className="text-center text-xs text-muted-foreground mt-5 font-heading">
+          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20plan%20a%20private%20group%20dance%20party%20-%20date%3A%20%2C%20group%20size%3A%20" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
+        </p>
       </div>
     </section>
 

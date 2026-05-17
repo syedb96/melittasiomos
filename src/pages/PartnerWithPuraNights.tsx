@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
+import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
 
 const partnerFaqs = [
@@ -204,10 +205,41 @@ const PartnerWithPuraNights = () => (
       </div>
     </section>
 
-    <section id="enquiry" className="section-padding section-warm">
+    {/* Community & venue proof */}
+    <ProofBlock
+      categories={["community", "beginner", "group"]}
+      eyebrow="Why Partners Choose Us"
+      title="What our community says"
+      subtitle="500+ active students in our West London community."
+      limit={3}
+      variant="light"
+    />
+
+    {/* What happens next — partnership process */}
+    <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
+        <h2 className="font-display text-2xl md:text-3xl font-bold mb-8 text-center">What happens next</h2>
+        <div className="grid sm:grid-cols-3 gap-5">
+          {[
+            { n: "1", t: "Send your enquiry", d: "Tell us what you're proposing — venue, supplier, brand or media." },
+            { n: "2", t: "We'll arrange a conversation", d: "A quick call or visit to scope what works for both sides." },
+            { n: "3", t: "Agree a format", d: "A simple partnership that fits your audience and ours." },
+          ].map(s => (
+            <div key={s.n} className="bg-card rounded-2xl p-5 border border-border/40">
+              <p className="font-display text-2xl text-primary font-bold mb-2">{s.n}</p>
+              <h3 className="font-heading font-bold text-sm mb-1">{s.t}</h3>
+              <p className="text-muted-foreground text-xs">{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="enquiry" className="section-padding section-ivory">
+      <div className="container-main max-w-3xl">
+        <div className="inline-flex items-center gap-2 mb-4 mx-auto px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-heading font-semibold tracking-wider uppercase">⭐ 500+ students in our West London community</div>
         <h2 className="font-display text-3xl md:text-4xl font-bold mb-3 text-center">Start a Partnership Conversation</h2>
-        <p className="text-muted-foreground text-center mb-8 font-heading text-sm">We respond within a few days.</p>
+        <p className="text-muted-foreground text-center mb-8 font-heading text-sm">We review all partnership enquiries within 48 hours.</p>
         <EnquiryForm
           enquiryType="Partnership / Venue Collaboration"
           contextLabel="Partner with Pura Nights"

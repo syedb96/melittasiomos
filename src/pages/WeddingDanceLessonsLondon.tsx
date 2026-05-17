@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
+import ProofBlock from "@/components/ProofBlock";
 import WeddingTiers from "@/components/WeddingTiers";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
@@ -175,6 +176,16 @@ const WeddingDanceLessonsLondon = () => (
         </div>
       </div>
     </section>
+
+    {/* Couples who trusted us — wedding-specific proof */}
+    <ProofBlock
+      categories={["wedding"]}
+      eyebrow="Real Couples"
+      title="Couples who trusted us"
+      subtitle="First name and wedding year only — privacy respected."
+      limit={4}
+      variant="light"
+    />
 
     <section className="section-padding bg-primary text-center">
       <div className="container-main">
