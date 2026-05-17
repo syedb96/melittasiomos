@@ -540,6 +540,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Commercial callout strip 1 — Corporate */}
+      <section className="py-8 bg-primary/10 border-y border-primary/20">
+        <div className="container-main max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div>
+            <p className="font-heading font-bold text-sm md:text-base">Planning a team social or office event?</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Beginner-friendly Salsa &amp; Bachata sessions — at your office or one of our venues.</p>
+          </div>
+          <Link to="/corporate-dance-classes-london" className="btn-cta-primary text-xs whitespace-nowrap">Enquire about corporate →</Link>
+        </div>
+      </section>
+
       {/* SECTION 11 — BLOG PREVIEW */}
       <section className="section-padding section-warm">
         <div className="container-main max-w-6xl">
@@ -589,6 +600,17 @@ const Index = () => {
           <FadeInUp delay={0.3} className="text-center mt-8">
             <Link to="/blog" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Browse All Articles <ChevronRight size={14} /></Link>
           </FadeInUp>
+        </div>
+      </section>
+
+      {/* Commercial callout strip 2 — Hen/Birthday groups */}
+      <section className="py-8 bg-secondary/10 border-y border-secondary/20">
+        <div className="container-main max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div>
+            <p className="font-heading font-bold text-sm md:text-base">Hosting a hen party or birthday?</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Private Latin dance sessions for friends, family and celebrations — fun, no cringe.</p>
+          </div>
+          <Link to="/private-group-dance-parties-london" className="btn-cta-primary text-xs whitespace-nowrap">Book a private group →</Link>
         </div>
       </section>
 
