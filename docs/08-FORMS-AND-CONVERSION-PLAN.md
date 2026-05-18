@@ -154,3 +154,31 @@ Linktree contains:
 - Add to Wix CMS → Testimonials collection
 - Tag with: category, rating, source, is_featured
 - Feature best ones on homepage carousel (is_featured=true)
+
+---
+
+## v2 Addendum (May 2026) — Wix routing master table
+
+> Companion to `docs/53-TRACKING-AND-ANALYTICS-LAUNCH-GUIDE.md` and `docs/56-WIX-CONVERSION-TRACKING-LAUNCH-REPORT.md`. Use this table when wiring forms in Wix → *Site Manager → Forms*.
+
+| # | Form | Source page(s) | Lead type | CRM tag | Destination inbox | Email subject | Auto-reply (first line) | WhatsApp fallback | Success message | Owner |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | First Class Enquiry | `/start-here`, `/beginners`, `/pura-nights` | hot · class | `first-class` | hello@puranights.com | "New first-class enquiry — {{name}}" | "Hi {{name}}! Thanks for booking your first Pura Nights class — see you on the dance floor." | `wa.me/447449482343?text=First%20class%20question` | "Booked! We'll send a reminder 24h before. WhatsApp Melitta for the fastest answer." | Melitta |
+| 2 | Contact / General | `/contact` | warm · info | `contact` | hello@puranights.com | "Pura Nights enquiry — {{subject}}" | "Thanks {{name}} — we reply within 24 hours, often sooner." | `wa.me/447449482343` | "Thanks! We'll reply within 24 hours." | Melitta |
+| 3 | Corporate Booking | `/corporate-dance-classes-london` | hot · revenue | `corporate` | hello@puranights.com **+ WhatsApp** | "Corporate enquiry — {{company}}" | "Hi {{name}}, thanks for thinking of Pura Nights for {{company}}. Melitta will reply within 2 working hours." | `wa.me/447449482343?text=Corporate%20enquiry` | "Thanks! Melitta will reply within 2 working hours." | Melitta |
+| 4 | Private Group / Party | `/private-group-dance-parties-london` | hot · revenue | `group-party` | hello@puranights.com **+ WhatsApp** | "Group party — {{event_type}}" | "Hi {{name}}! Thanks for your {{event_type}} enquiry — we'll send options within 24h." | `wa.me/447449482343?text=Group%20party` | "Thanks! Expect options within 24 hours." | Melitta |
+| 5 | Wedding Dance | `/wedding-dance`, `/wedding-dance-lessons-london`, `/wedding-dance-west-london` | hot · revenue | `wedding` | hello@puranights.com **+ WhatsApp** | "Wedding consult — {{names}} ({{date}})" | "Congratulations {{names}}! Melitta will be in touch to arrange your free consult." | `wa.me/447449482343?text=Wedding%20enquiry` | "Thanks! Melitta will be in touch to arrange your free consult." | Melitta |
+| 6 | Private Lessons | `/private-lessons`, `/private-dance-lessons-west-london`, `/private-salsa-lessons-london` | hot · revenue | `privates` | hello@puranights.com **+ WhatsApp** | "Private lesson enquiry — {{name}}" | "Hi {{name}} — Melitta will reply with options and availability within 24h." | `wa.me/447449482343?text=Private%20lessons` | "Thanks! Reply within 24 hours." | Melitta |
+| 7 | Pura Ladies / Performance Team | `/pura-ladies`, `/pura-ladies-covent-garden`, `/ladies-styling-london`, `/bachata-performance-team-london` | warm · brand | `auditions` | hello@puranights.com | "Pura Ladies audition — {{name}}" | "Thanks {{name}} — we'll let you know when auditions open." | `wa.me/447449482343?text=Pura%20Ladies` | "Thanks! You'll hear from us before the next audition window." | Melitta |
+| 8 | Partner / Vendor | `/partner-with-pura-nights` | warm · brand | `partner` | hello@puranights.com | "Partner enquiry — {{brand}}" | "Hi {{name}} — thanks for the partnership idea. We'll review within 48h." | n/a | "Thanks! We'll review within 48 hours." | Melitta |
+| 9 | Venue Partner | `/partner-with-pura-nights` (venue segment) | warm · brand | `venue-partner` | hello@puranights.com | "Venue collaboration — {{venue}}" | "Hi {{name}} — thanks for thinking of Pura Nights. Melitta will reply within 48h." | `wa.me/447449482343?text=Venue%20partner` | "Thanks! Melitta will reply within 48 hours." | Melitta |
+| 10 | Lead Magnet | `/start-here`, `/pura-nights` (EmailCaptureGate) | cold · nurture | `lead-magnet` | Mailchimp main list | "Welcome — your beginner's guide" | "Hi {{name}}! Your beginner's guide is attached." | n/a | "Check your inbox in a few seconds." | Mailchimp automation |
+| 11 | Online Coaching Waitlist | `/online-coaching`, `/online-academy` | warm · revenue | `online-waitlist` | hello@puranights.com **+** Mailchimp `online-waitlist` segment | "Online coaching waitlist — {{name}}" | "Hi {{name}} — you're on the list. We'll email when the next cohort opens." | `wa.me/447449482343?text=Online%20coaching` | "You're in! We'll email when the next cohort opens." | Melitta |
+| 12 | Shop / Merch Enquiry | `/shop`, product pages (currently `noindex`) | warm · revenue | `shop` | hello@puranights.com | "Shop enquiry — {{product}}" | "Hi {{name}} — thanks for the enquiry, we'll reply within 24h." | `wa.me/447449482343?text=Shop%20question` | "Thanks! Reply within 24 hours." | Melitta |
+
+### Universal rules
+
+- All forms must push `formSubmit` to `window.dataLayer` with `form_name`, `form_source_page`, and `lead_type` so GTM can build per-form GA4 conversions.
+- All form submissions must trigger the auto-reply within 30 seconds (Wix Automations).
+- Every hot lead form must include a visible WhatsApp fallback within 30px of the submit button.
+- All forms must record consent (GDPR) via a checkbox: "I agree to be contacted by Pura Nights about my enquiry."
