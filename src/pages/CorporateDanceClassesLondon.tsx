@@ -8,6 +8,7 @@ import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
+import EditorialQuote from "@/components/EditorialQuote";
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
