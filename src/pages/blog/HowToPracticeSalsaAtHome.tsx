@@ -11,7 +11,7 @@ import BlogPostFooter from "@/components/BlogPostFooter";
 
 const howToSchema = {
   "@context": "https://schema.org",
-  "@type": "HowTo",
+  "@type": ["HowTo", "Article"],
   name: "How to Practice Salsa at Home Between Classes",
   description: "A simple home practice routine for Salsa students.",
   totalTime: "PT15M",

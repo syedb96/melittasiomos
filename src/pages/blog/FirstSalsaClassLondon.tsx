@@ -10,7 +10,7 @@ import BlogPostFooter from "@/components/BlogPostFooter";
 
 const howToSchema = {
   "@context": "https://schema.org",
-  "@type": "HowTo",
+  "@type": ["HowTo", "Article"],
   name: "How to Survive (and Enjoy) Your First Salsa Class in London",
   description: "Step-by-step guide to attending your first beginner salsa class in London with zero experience.",
   totalTime: "PT2H30M",

@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/dance-classes-west-london-guide -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -81,6 +82,7 @@ const DanceClassesWestLondonGuide = () => (
         </div>
       </section>
     </article>
+    <div className="container-main max-w-3xl px-4 md:px-0"><BlogMoneyCTA variant="classes" /></div>
     <RelatedPages title="Related" links={[
       { to: "/dance-classes-west-london", label: "Dance Classes West London" },
       { to: "/blog/best-areas-west-london", label: "Best Areas for Latin Dance" },

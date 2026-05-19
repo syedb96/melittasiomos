@@ -36,12 +36,12 @@ const rows: Row[] = files.map((f) => {
   return {
     file: f,
     seoHead: /<SeoHead\b/.test(src),
-    schema: /"@type":\s*"Article"/.test(src),
+    schema: /"@type":\s*"Article"|"@type":\s*\[[^\]]*"Article"/.test(src),
     canonical: /<SeoHead[\s\S]*?path=/.test(src),
     internalLinks,
     midCta: /btn-cta-|wa\.me\/447449482343|tickettailor\.com|BlogCTA|BlogMoneyCTA/.test(src),
     bottomCta: /BlogMoneyCTA|BlogCTA|wa\.me\/447449482343|tickettailor\.com/.test(src),
-    related: /RelatedPages|RelatedArticles|Related Articles/.test(src),
+    related: /RelatedPages|RelatedArticles|Related Articles|BlogPostFooter/.test(src),
   };
 });
 

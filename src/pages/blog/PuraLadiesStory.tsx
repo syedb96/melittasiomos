@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogPostFooter from "@/components/BlogPostFooter";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/pura-ladies-story -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -52,6 +53,7 @@ const PuraLadiesStory = () => (
         <FadeInUp delay={0.2}>
           <AuthorCard />
         </FadeInUp>
+        <BlogMoneyCTA variant="ladies" />
         <BlogPostFooter related={[
           { to: "/blog/what-is-bachata", title: "What is Bachata?", category: "Bachata", readTime: "6 min" },
           { to: "/blog/what-is-salsa", title: "What is Salsa?", category: "Salsa", readTime: "6 min" },
