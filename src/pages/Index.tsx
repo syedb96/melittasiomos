@@ -20,6 +20,7 @@ import YouTubeStrip from "@/components/YouTubeStrip";
 import CorporateCTA from "@/components/CorporateCTA";
 import PartnerCTA from "@/components/PartnerCTA";
 import AnswerBox from "@/components/AnswerBox";
+import GoldDivider from "@/components/GoldDivider";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
