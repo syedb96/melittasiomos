@@ -433,8 +433,11 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-ivory-alt"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION 8 — TESTIMONIALS CAROUSEL */}
-      <section className="section-padding section-ivory-alt">
+      <section className="section-padding section-ivory-alt pt-12 md:pt-16">
+
         <div className="container-main max-w-6xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Real Words. Real Reviews.</p>
