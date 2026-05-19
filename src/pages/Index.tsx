@@ -402,8 +402,11 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-ivory"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION 7 — MEET MELITTA */}
-      <section className="section-padding section-ivory">
+      <section className="section-padding section-ivory pt-12 md:pt-16">
+
         <div className="container-main">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
             <FadeInUp delay={0.1}>
