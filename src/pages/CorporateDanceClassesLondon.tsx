@@ -81,8 +81,16 @@ const CorporateDanceClassesLondon = () => (
       </div>
     </section>
 
+    <div className="section-warm">
+      <EditorialQuote
+        quote={`"Within twenty minutes the entire team was laughing, leading, and learning — barriers we'd spent months trying to break dissolved on the dance floor."`}
+        attribution="Head of People, FTSE-100 client"
+      />
+    </div>
+
     {/* Answer box for AI/GEO */}
     <section className="section-padding section-warm">
+
       <div className="container-main max-w-3xl">
         <AnswerBox
           tone="warm"
