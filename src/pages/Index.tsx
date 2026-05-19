@@ -757,9 +757,12 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-warm"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION — HOMEPAGE FAQ */}
       {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
-      <section className="section-padding section-warm">
+      <section className="section-padding section-warm pt-12 md:pt-16">
+
         <div className="container-main max-w-3xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Before You Come</p>
