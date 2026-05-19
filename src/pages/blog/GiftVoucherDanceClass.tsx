@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/gift-voucher-dance-class -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -73,6 +74,7 @@ const GiftVoucherDanceClass = () => (
         </div>
       </section>
     </article>
+    <div className="container-main max-w-3xl px-4 md:px-0"><BlogMoneyCTA variant="classes" /></div>
     <RelatedPages title="Related" links={[
       { to: "/gift-vouchers", label: "Gift Vouchers" },
       { to: "/prices", label: "Prices & Bundles" },

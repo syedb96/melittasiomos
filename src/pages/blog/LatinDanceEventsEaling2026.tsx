@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import NextEventCallout from "@/components/NextEventCallout";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/latin-dance-events-ealing2026 -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -78,6 +79,7 @@ const LatinDanceEventsEaling2026 = () => (
         </div>
       </section>
     </article>
+    <div className="container-main max-w-3xl px-4 md:px-0"><BlogMoneyCTA variant="events" /></div>
     <RelatedPages title="Related" links={[
       { to: "/events", label: "All Events" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },

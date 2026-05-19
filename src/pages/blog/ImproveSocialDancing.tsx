@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import RelatedPages from "@/components/RelatedPages";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/improve-social-dancing -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -79,6 +80,7 @@ const ImproveSocialDancing = () => (
         </div>
       </section>
     </article>
+    <div className="container-main max-w-3xl px-4 md:px-0"><BlogMoneyCTA variant="classes" /></div>
     <RelatedPages title="Related" links={[
       { to: "/blog/lead-follow-salsa-bachata", label: "Lead & Follow Guide" },
       { to: "/blog/how-to-practice-salsa-at-home", label: "Practice Salsa at Home" },
