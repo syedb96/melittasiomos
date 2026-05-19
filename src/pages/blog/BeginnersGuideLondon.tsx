@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BlogPostFooter from "@/components/BlogPostFooter";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/beginners-guide-london -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -56,6 +57,7 @@ const BeginnersGuideLondon = () => (
             {[{q:"What if I have no rhythm?",a:"Rhythm is a skill, not a gift. Melitta teaches it explicitly."},{q:"I'm shy. Will I feel awkward?",a:"Within 15 minutes the self-consciousness fades. Movement and music are natural social lubricants."},{q:"Is dance for all body types?",a:"Dance is for every body. Students aged 18–65+, all fitness levels."},{q:"How do I find the venue?",a:"Mondays: The George IV, 185 Chiswick High Rd, W4 2DR. Tuesdays: Drayton Court Hotel, 2 The Avenue, Ealing, W13 8PH."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
           </Accordion>
           <AuthorCard />
+          <BlogMoneyCTA variant="beginner" />
           <BlogPostFooter related={[
             { to: "/blog/what-is-salsa", title: "What is Salsa?", category: "Salsa", readTime: "8 min" },
             { to: "/blog/first-salsa-class-london", title: "Your First Salsa Class", category: "Beginners", readTime: "6 min" },

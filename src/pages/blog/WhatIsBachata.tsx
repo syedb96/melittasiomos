@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import BlogPostFooter from "@/components/BlogPostFooter";
+import BlogMoneyCTA from "@/components/BlogMoneyCTA";
 
 /* <!-- WIX PAGE: /blog/what-is-bachata -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -62,6 +63,7 @@ const WhatIsBachata = () => (
             {[{q:"Do I need to be flexible or fit to learn bachata?",a:"Not at all. Bachata is accessible to all body types, ages, and fitness levels."},{q:"Is Bachata Sensual appropriate for beginners?",a:"We introduce sensual elements gradually. The focus is always on communication, comfort, and connection."},{q:"How long does it take to learn bachata?",a:"Most people feel comfortable socially within 6–8 weeks. The basic step can be learned in one class."},{q:"What's the difference between Sensual and regular Bachata?",a:"Bachata Sensual features more body waves, closer connection, and slower musicality."}].map((faq,i)=><AccordionItem key={i} value={`faq-${i}`}><AccordionTrigger className="font-heading font-semibold text-left">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent></AccordionItem>)}
           </Accordion>
           <AuthorCard />
+          <BlogMoneyCTA variant="classes" />
           <BlogPostFooter related={[
             { to: "/blog/what-is-salsa", title: "What is Salsa Dance?", category: "Salsa", readTime: "8 min" },
             { to: "/blog/salsa-vs-bachata", title: "Salsa vs Bachata", category: "Beginners", readTime: "5 min" },
