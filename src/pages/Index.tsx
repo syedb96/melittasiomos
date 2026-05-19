@@ -20,6 +20,7 @@ import YouTubeStrip from "@/components/YouTubeStrip";
 import CorporateCTA from "@/components/CorporateCTA";
 import PartnerCTA from "@/components/PartnerCTA";
 import AnswerBox from "@/components/AnswerBox";
+import GoldDivider from "@/components/GoldDivider";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -401,8 +402,11 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-ivory"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION 7 — MEET MELITTA */}
-      <section className="section-padding section-ivory">
+      <section className="section-padding section-ivory pt-12 md:pt-16">
+
         <div className="container-main">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
             <FadeInUp delay={0.1}>
@@ -429,8 +433,11 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-ivory-alt"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION 8 — TESTIMONIALS CAROUSEL */}
-      <section className="section-padding section-ivory-alt">
+      <section className="section-padding section-ivory-alt pt-12 md:pt-16">
+
         <div className="container-main max-w-6xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Real Words. Real Reviews.</p>
@@ -750,9 +757,12 @@ const Index = () => {
         </div>
       </section>
 
+      <div className="section-warm"><GoldDivider variant="hairline" /></div>
+
       {/* SECTION — HOMEPAGE FAQ */}
       {/* <!-- WIX SECTION: FAQ Accordion — use Wix FAQ app or custom Accordions --> */}
-      <section className="section-padding section-warm">
+      <section className="section-padding section-warm pt-12 md:pt-16">
+
         <div className="container-main max-w-3xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Before You Come</p>

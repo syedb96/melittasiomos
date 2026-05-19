@@ -8,6 +8,7 @@ import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import ProofBlock from "@/components/ProofBlock";
 import WeddingTiers from "@/components/WeddingTiers";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import EditorialQuote from "@/components/EditorialQuote";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
 
 const schema = [
@@ -92,6 +93,10 @@ const WeddingDanceLessonsLondon = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <div className="section-warm">
+      <EditorialQuote quote={`"Melitta took our nervous shuffle and turned it into the moment our guests still talk about a year later."`} attribution="Bride, Kew Gardens wedding 2025" />
+    </div>
 
     <section className="section-padding section-warm">
       <div className="container-main max-w-4xl">

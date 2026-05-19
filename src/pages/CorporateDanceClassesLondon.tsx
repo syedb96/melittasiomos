@@ -8,6 +8,7 @@ import RelatedPages from "@/components/RelatedPages";
 import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
+import EditorialQuote from "@/components/EditorialQuote";
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
@@ -80,8 +81,16 @@ const CorporateDanceClassesLondon = () => (
       </div>
     </section>
 
+    <div className="section-warm">
+      <EditorialQuote
+        quote={`"Within twenty minutes the entire team was laughing, leading, and learning — barriers we'd spent months trying to break dissolved on the dance floor."`}
+        attribution="Head of People, FTSE-100 client"
+      />
+    </div>
+
     {/* Answer box for AI/GEO */}
     <section className="section-padding section-warm">
+
       <div className="container-main max-w-3xl">
         <AnswerBox
           tone="warm"

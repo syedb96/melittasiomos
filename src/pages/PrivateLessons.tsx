@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import EditorialQuote from "@/components/EditorialQuote";
 import heroImg from "@/assets/private-lesson.jpg";
 
 const PRIVATE_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20dance%20lessons";
@@ -60,8 +61,16 @@ const PrivateLessons = () => (
       </div>
     </section>
 
+    <div className="section-ivory">
+      <EditorialQuote
+        quote={`"One hour with Melitta unlocked more than a year of group classes — she sees exactly what your body is doing and what it needs."`}
+        attribution="Private student, Chiswick"
+      />
+    </div>
+
     {/* AnswerBox — AI/GEO + immediate context */}
     <section className="section-padding section-ivory">
+
       <div className="container-main max-w-3xl">
         <AnswerBox
           tone="ivory"

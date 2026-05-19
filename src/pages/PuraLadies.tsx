@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
+import EditorialQuote from "@/components/EditorialQuote";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 
 const PURA_LADIES_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20joining%20Pura%20Ladies";
@@ -152,6 +153,10 @@ const PuraLadies = () => (
         </FadeInUp>
       </div>
     </section>
+
+    <div className="section-warm">
+      <EditorialQuote quote={`"Pura Ladies isn't just a team — it's a sisterhood of women who chose to take up space, on stage and in life."`} attribution="Pura Ladies London" />
+    </div>
 
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
