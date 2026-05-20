@@ -80,6 +80,29 @@ const LatinDanceChiswick = () => (
       </div>
     </section>
 
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="What's the best Latin dance night in Chiswick?"
+          answer="The strongest weekly Latin dance night in Chiswick is Pura Nights at The George IV (185 Chiswick High Rd, W4 2DR) every Monday. Award-winning Bachata UK Champion Melitta Siomos teaches split-level Salsa and Bachata from 7:30 PM, followed by an open social to 11 PM. From £5, no partner needed."
+          bullets={["Mon · The George IV · W4 2DR — doors 7:15 PM", "Split-level Salsa + Bachata classes", "9–11 PM open social, 50/50 playlist", "From £5 social-only, £10 class + social"]}
+          cta={{ label: "See Monday schedule", to: "/schedule" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
+    <LocalTrustBlock
+      area="Chiswick"
+      nearestVenue="The George IV, 185 Chiswick High Rd, W4 2DR"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Turnham Green station — 5 min walk. Free street parking after 6:30 PM."
+      bestNight="Mondays — Salsa 7:30, Bachata 8:15, social 9–11 PM."
+      suits="Chiswick locals from W4, plus regulars from Hammersmith, Acton, Kew and Brentford."
+      proof="Monday at The George IV is the highlight of my week. Five years in and I still walk home grinning."
+      proofAttribution="Helena · Chiswick W4"
+    />
+
     <RelatedPages title="More Chiswick Pages" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
