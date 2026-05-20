@@ -3,6 +3,8 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import LastUpdated from "@/components/LastUpdated";
+import AnswerBox from "@/components/AnswerBox";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 
 /* <!-- WIX PAGE: /latin-dance-chiswick --> */
 
