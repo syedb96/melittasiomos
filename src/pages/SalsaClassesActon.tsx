@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
 
 /* <!-- WIX PAGE: salsa-classes-acton -->
