@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 /* <!-- WIX PAGE: /salsa-classes-fulham --> */
