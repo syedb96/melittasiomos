@@ -137,6 +137,17 @@ const SalsaClassesRichmond = () => (
     </section>
 
 
+    <LocalTrustBlock
+      area="Richmond"
+      nearestVenue="The George IV, Chiswick W4 (Mon)"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Richmond → Turnham Green in 12 min direct on the District Line, or 15 min by car."
+      bestNight="Monday in Chiswick — easy post-work commute, riverside drive home."
+      suits="Richmond, Kew and St Margarets professionals and couples — many drive together."
+      proof="Twelve minutes door-to-door from Richmond. I tried it once on a whim and now Monday night belongs to Pura."
+      proofAttribution="Sophie · Richmond regular"
+    />
+
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing", desc: "Tue · Drayton Court" },
