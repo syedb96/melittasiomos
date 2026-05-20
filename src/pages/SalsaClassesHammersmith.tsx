@@ -128,6 +128,17 @@ const SalsaClassesHammersmith = () => (
     </section>
 
 
+    <LocalTrustBlock
+      area="Hammersmith"
+      nearestVenue="The George IV, Chiswick W4 (Mon) · Drayton Court, Ealing W13 (Tue)"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Hammersmith → Turnham Green in 6 min on the District Line, then a 5-min walk."
+      bestNight="Monday — Salsa + Bachata classes 7:30 PM, open social to 11 PM."
+      suits="Beginners, returners and intermediates from Hammersmith, Shepherd's Bush and Fulham. Split-level rooms — never lost, never bored."
+      proof="I was the only one from Hammersmith on my first Monday — three weeks later I knew half the room. Easiest 6-minute tube ride I make all week."
+      proofAttribution="Aisha · Hammersmith regular"
+    />
+
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Your nearest venue" },
       { to: "/bachata-classes-west-london", label: "Bachata West London", desc: "All Bachata classes" },
