@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 
 /* <!-- WIX PAGE: /salsa-classes-hammersmith --> */
 
