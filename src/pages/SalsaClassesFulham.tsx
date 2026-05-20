@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 /* <!-- WIX PAGE: /salsa-classes-fulham --> */
@@ -145,6 +146,17 @@ const SalsaClassesFulham = () => (
       </div>
     </section>
 
+
+    <LocalTrustBlock
+      area="Fulham"
+      nearestVenue="The George IV, Chiswick W4 (Mon)"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Fulham Broadway → Turnham Green in 12 min on the District Line, or 15 min by car via the A4."
+      bestNight="Monday in Chiswick — Salsa + Bachata classes plus open social to 11 PM."
+      suits="Fulham, Parsons Green and West Ken locals — including a lot of professionals dancing after work."
+      proof="I came in expecting awkward — left with five new friends and a Tuesday-Ealing habit too. The teaching is genuinely world-class."
+      proofAttribution="James · Fulham Broadway"
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },

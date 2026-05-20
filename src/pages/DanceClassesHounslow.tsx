@@ -4,6 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 
 /* <!-- WIX PAGE: /dance-classes-hounslow --> */
 
@@ -94,6 +95,17 @@ const DanceClassesHounslow = () => (
       </div>
     </section>
 
+
+    <LocalTrustBlock
+      area="Hounslow"
+      nearestVenue="Drayton Court Hotel, West Ealing W13 (Tue)"
+      venuePath="/venue/the-drayton-court-ealing"
+      travel="Hounslow → West Ealing in ~15 min on the Elizabeth Line, or 12 min by car via the A4."
+      bestNight="Tuesday in Ealing — Salsa + Bachata classes from 7 PM, social to 11 PM."
+      suits="Hounslow, Isleworth, Feltham and Hatton residents — many arrive solo, leave with regulars."
+      proof="I'd been looking for proper classes near Hounslow for years. Pura's Tuesday at Drayton Court became my weekly reset."
+      proofAttribution="Daniel · Hounslow West"
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/pura-nights", label: "Pura Nights", desc: "Weekly Latin nights" },

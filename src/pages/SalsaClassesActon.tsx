@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
 
 /* <!-- WIX PAGE: salsa-classes-acton -->
@@ -180,6 +181,17 @@ const SalsaClassesActon = () => (
         />
       </div>
     </section>
+
+    <LocalTrustBlock
+      area="Acton"
+      nearestVenue="The George IV, Chiswick W4 (Mon) · Drayton Court, Ealing W13 (Tue)"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Acton Town → Chiswick Park in 4 min on the District Line; Acton → West Ealing in 6 min on the Elizabeth Line."
+      bestNight="Two equally close options — Mondays in Chiswick, Tuesdays in Ealing."
+      suits="Acton, East Acton and South Acton locals — short tube, walking distance for many."
+      proof="Two stops one way, two stops the other. Acton dancers genuinely have the easiest commute of anyone in the room."
+      proofAttribution="Priya · South Acton"
+    />
 
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },

@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
 /* <!-- WIX PAGE: /salsa-classes-richmond -->
@@ -135,6 +136,17 @@ const SalsaClassesRichmond = () => (
       </div>
     </section>
 
+
+    <LocalTrustBlock
+      area="Richmond"
+      nearestVenue="The George IV, Chiswick W4 (Mon)"
+      venuePath="/venue/the-george-iv-chiswick"
+      travel="Richmond → Turnham Green in 12 min direct on the District Line, or 15 min by car."
+      bestNight="Monday in Chiswick — easy post-work commute, riverside drive home."
+      suits="Richmond, Kew and St Margarets professionals and couples — many drive together."
+      proof="Twelve minutes door-to-door from Richmond. I tried it once on a whim and now Monday night belongs to Pura."
+      proofAttribution="Sophie · Richmond regular"
+    />
 
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },

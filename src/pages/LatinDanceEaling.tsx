@@ -3,6 +3,8 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import LastUpdated from "@/components/LastUpdated";
+import AnswerBox from "@/components/AnswerBox";
+import LocalTrustBlock from "@/components/LocalTrustBlock";
 
 /* <!-- WIX PAGE: /latin-dance-ealing --> */
 
@@ -72,6 +74,29 @@ const LatinDanceEaling = () => (
         </div>
       </div>
     </section>
+
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          question="What are the best Bachata classes in Ealing?"
+          answer="Pura Nights at the Drayton Court Hotel (West Ealing W13) is the strongest weekly Bachata night in Ealing. Bachata UK Champion Melitta Siomos teaches split-level Bachata every Tuesday from 7:50 PM, alongside Salsa and an open 50/50 social to 11 PM. Beginners stream restarts every week."
+          bullets={["Tue · Drayton Court Hotel · W13 8PH", "Salsa 7:00 · Bachata 7:50 · Social 8:40–11", "Monthly Latin Friday — second Friday of the month", "Drop-in £10, no partner needed"]}
+          cta={{ label: "Plan your Tuesday", to: "/bachata-classes-ealing" }}
+          tone="warm"
+        />
+      </div>
+    </section>
+
+    <LocalTrustBlock
+      area="Ealing"
+      nearestVenue="Drayton Court Hotel, 2 The Avenue, W13 8PH"
+      venuePath="/venue/the-drayton-court-ealing"
+      travel="West Ealing station (Elizabeth Line) — 7 min walk. Free residential parking after 6:30 PM."
+      bestNight="Tuesdays weekly + Monthly Latin Friday (second Friday of every month)."
+      suits="Ealing, West Ealing, Acton and Hounslow locals. Beginner stream restarts every Tuesday."
+      proof="Ealing finally has the Latin night it deserves. Tuesday at Drayton Court is the warmest dance room in West London."
+      proofAttribution="Carlos · West Ealing W13"
+    />
 
     <RelatedPages title="More Ealing Pages" links={[
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
