@@ -94,7 +94,7 @@ const LocalTrustBlock = ({
                 Start Here
               </Link>
               <a
-                href="https://wa.me/447700900123"
+                href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20class."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-primary hover:underline"
