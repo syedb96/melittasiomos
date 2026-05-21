@@ -6,13 +6,23 @@ import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 
+const performanceFaqs = [
+  { q: "Who can audition for Pura Ladies?", a: "Improvers and above of any age, body type or background. If you're newer, attend Pura Nights weekly classes for 4–8 weeks first, then audition at the next intake." },
+  { q: "When are auditions held?", a: "Roughly twice a year — typically February and September. Follow @puraladies on Instagram for the next call-out and audition date." },
+  { q: "Do I need previous performance experience?", a: "No — many members had never performed before joining. What we look for is musicality, commitment and team spirit. Choreography is taught from scratch." },
+  { q: "Where do rehearsals take place?", a: "Rehearsals are in West London with easy Piccadilly, District and Elizabeth line access. Some intensives run at our partner venues in Chiswick and Ealing." },
+  { q: "How much does it cost?", a: "Membership is heavily subsidised compared to private coaching. Exact contribution covers rehearsal space and choreography fees; full details shared at audition." },
+  { q: "Where do Pura Ladies perform?", a: "London, Plymouth, Munich, Lisbon and major Bachata congresses across Europe. Travel is optional — members can perform locally or with the international touring squad." },
+];
+
 const schema = {
   "@context": "https://schema.org",
-  "@type": "PerformingGroup",
+  "@type": ["PerformingGroup", "FAQPage"],
   name: "Pura Ladies — Bachata Performance Team London",
   description: "London's premier all-female Bachata performance team, founded by Bachata UK Champion Melitta Siomos. Performing at international Latin dance festivals.",
   founder: { "@type": "Person", name: "Melitta Siomos" },
   location: { "@type": "City", name: "London" },
+  mainEntity: performanceFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
 const highlights = [
@@ -151,6 +161,26 @@ const BachataPerformanceTeamLondon = () => (
             <p>If you're looking for more than just dance — if you want purpose, community, and a stage — Pura Ladies is your home.</p>
           </div>
         </FadeInUp>
+      </div>
+    </section>
+
+    {/* WIX SECTION: FAQ */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold mb-2 text-center">Performance Team FAQs</h2>
+          <div className="h-1 w-20 bg-primary rounded-full mb-8 mx-auto" />
+        </FadeInUp>
+        <div className="space-y-4">
+          {performanceFaqs.map((f, i) => (
+            <details key={i} className="group bg-card rounded-xl p-5 border border-border/40">
+              <summary className="font-heading font-bold text-sm cursor-pointer list-none flex justify-between gap-3">
+                {f.q}<span className="text-primary group-open:rotate-180 transition-transform">▾</span>
+              </summary>
+              <p className="text-muted-foreground text-sm mt-3">{f.a}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
 

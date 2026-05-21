@@ -11,9 +11,20 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
    <!-- WIX: Video sections can use Wix Video library or YouTube/Vimeo embeds -->
 */
 
+const onlineCoachingFaqs = [
+  { q: "What platform do you use?", a: "Live sessions are via Zoom. Video lessons are hosted on a private platform you can access anytime from any device." },
+  { q: "Do I need a partner?", a: "Not at all. Solo technique, styling, footwork, and musicality can all be practised alone. For partnerwork drills, having a partner is helpful but not essential." },
+  { q: "How much space do I need?", a: "Roughly 2m × 2m is enough for most exercises. A smooth floor (wood or tile) is ideal — avoid thick carpet if possible." },
+  { q: "How much does it cost?", a: "Packages start from £12 per session for video-based programmes. Live 1-to-1 Zoom sessions are custom-quoted based on your goals. Contact Melitta for a free consultation." },
+  { q: "Can I combine online and in-person?", a: "Absolutely — many students use online coaching to supplement their weekly Pura Nights classes. It's the fastest way to improve." },
+  { q: "Do you offer wedding dance coaching online?", a: "Yes! Melitta has coached couples remotely across the UK and internationally. She'll choreograph to your song and coach you through it via live video sessions." },
+  { q: "What if I'm a complete beginner?", a: "The Beginner Foundations programme is designed exactly for you. No experience needed — Melitta breaks everything down from the very first step." },
+  { q: "Can I get a free trial?", a: "Book a free 15-minute consultation to discuss your goals and see if online coaching is right for you. No obligation." },
+];
+
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Course",
+  "@type": ["Course", "FAQPage"],
   name: "Online Salsa & Bachata Coaching with Melitta Siomos",
   description: "Premium online salsa and bachata coaching with award-winning instructor Melitta Siomos. Structured video lessons, live Zoom sessions, and personalised coaching plans.",
   provider: {
@@ -24,6 +35,7 @@ const schema = {
   instructor: { "@type": "Person", name: "Melitta Siomos" },
   courseMode: "online",
   offers: { "@type": "Offer", price: "12", priceCurrency: "GBP", availability: "https://schema.org/InStock" },
+  mainEntity: onlineCoachingFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
 const programPaths = [
@@ -296,16 +308,7 @@ const OnlineCoaching = () => (
           <p className="text-muted-foreground text-center max-w-lg mx-auto mb-10">Everything you need to know before getting started.</p>
         </FadeInUp>
         <div className="space-y-4">
-          {[
-            { q: "What platform do you use?", a: "Live sessions are via Zoom. Video lessons are hosted on a private platform you can access anytime from any device." },
-            { q: "Do I need a partner?", a: "Not at all. Solo technique, styling, footwork, and musicality can all be practised alone. For partnerwork drills, having a partner is helpful but not essential." },
-            { q: "How much space do I need?", a: "Roughly 2m × 2m is enough for most exercises. A smooth floor (wood or tile) is ideal — avoid thick carpet if possible." },
-            { q: "How much does it cost?", a: "Packages start from £12 per session for video-based programmes. Live 1-to-1 Zoom sessions are custom-quoted based on your goals. Contact Melitta for a free consultation." },
-            { q: "Can I combine online and in-person?", a: "Absolutely — many students use online coaching to supplement their weekly Pura Nights classes. It's the fastest way to improve." },
-            { q: "Do you offer wedding dance coaching online?", a: "Yes! Melitta has coached couples remotely across the UK and internationally. She'll choreograph to your song and coach you through it via live video sessions." },
-            { q: "What if I'm a complete beginner?", a: "The Beginner Foundations programme is designed exactly for you. No experience needed — Melitta breaks everything down from the very first step." },
-            { q: "Can I get a free trial?", a: "Book a free 15-minute consultation to discuss your goals and see if online coaching is right for you. No obligation." },
-          ].map((faq, i) => (
+          {onlineCoachingFaqs.map((faq, i) => (
             <FadeInUp key={i} delay={i * 0.04}>
               <details className="group bg-card rounded-xl border border-border">
                 <summary className="cursor-pointer p-5 font-heading font-semibold text-sm flex items-center justify-between">
