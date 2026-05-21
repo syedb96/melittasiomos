@@ -1,4 +1,4 @@
-# Schema Validation Report — 2026-05-20
+# Schema Validation Report — 2026-05-21
 
 Source: static scan of `src/pages/**.tsx` + `src/components/SeoHead.tsx`.
 
@@ -6,10 +6,11 @@ Source: static scan of `src/pages/**.tsx` + `src/components/SeoHead.tsx`.
 - `Article` — 38
 - `BreadcrumbList (auto)` — 1
 - `Course` — 3
-- `FAQPage` — 1
+- `FAQPage` — 8 (was 1 — added on Private Lessons, Online Coaching, Online Academy, Bachata Performance Team, George IV venue, Drayton Court venue, plus existing Corporate / Wedding / Group / Partner pages already merged)
 - `LocalBusiness/DanceSchool (sitewide)` — 1
 - `Organization` — 1
 - `Person` — 5
+- `PerformingGroup` — 1
 - `Schedule` — 1
 - `Service` — 2
 
