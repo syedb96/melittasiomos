@@ -39,12 +39,13 @@ const PrivateLessons = () => (
       dateModified="2026-04-14"
       schema={{
         "@context": "https://schema.org",
-        "@type": ["Service", "Course"],
+        "@type": ["Service", "Course", "FAQPage"],
         name: "Private Salsa & Bachata Lessons",
         provider: { "@type": "Person", name: "Melitta Siomos" },
         areaServed: { "@type": "Place", name: "West London" },
         description: "Private 1-to-1 salsa and bachata coaching sessions tailored to individual goals.",
         hasCourseInstance: { "@type": "CourseInstance", courseMode: "onsite", instructor: { "@type": "Person", name: "Melitta Siomos" } },
+        mainEntity: privateLessonFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
       }}
     />
 
@@ -216,12 +217,7 @@ const PrivateLessons = () => (
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">
         <h2 className="font-display text-3xl font-bold mb-8">Private Lesson FAQs</h2>
-        {[
-          { q: "How much do private lessons cost?", a: "Pricing is bespoke based on your schedule and goals. Contact Melitta for a free consultation and quote." },
-          { q: "How many lessons will I need?", a: "It depends on your goals. Beginners typically see great progress in 4–6 sessions. Wedding couples usually book 6–10." },
-          { q: "Can I bring a friend or partner?", a: "Yes — couples and small group private sessions are available at adjusted rates." },
-          { q: "Do you offer online private lessons?", a: "Yes. Melitta teaches private lessons via Zoom for dancers outside London or with busy schedules." },
-        ].map((faq, i) => (
+        {privateLessonFaqs.map((faq, i) => (
           <details key={i} className="border-b border-border py-4 group">
             <summary className="font-heading font-semibold cursor-pointer hover:text-primary transition-colors">{faq.q}</summary>
             <p className="text-muted-foreground text-sm mt-2">{faq.a}</p>
