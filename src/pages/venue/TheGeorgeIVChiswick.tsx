@@ -244,14 +244,7 @@ const TheGeorgeIVChiswick = () => (
           <h2 className="text-3xl font-bold text-foreground text-center mb-10">Frequently Asked Questions</h2>
         </FadeInUp>
         <div className="space-y-4">
-          {[
-            { q: "Do I need to book in advance?", a: "No — just turn up! We welcome walk-ins every Monday. If it's your first time, arrive a few minutes early." },
-            { q: "Can I come on my own?", a: "Absolutely. Most people come alone. We rotate partners during class so you'll meet everyone." },
-            { q: "What should I wear?", a: "Comfortable clothes you can move in. Clean shoes with a smooth sole — avoid trainers with heavy grip." },
-            { q: "Is there parking?", a: "Yes — on-street parking is free after 6:30pm on surrounding roads. The venue is also a 5-minute walk from Turnham Green Tube." },
-            { q: "Can I stay for just one class?", a: "Yes. You can do one class + social for £10, or stay for both classes + social for £15." },
-            { q: "What if I've never danced before?", a: "The 7:30pm Beginners class assumes zero experience. We'll teach you from step one." },
-          ].map((faq, i) => (
+          {venueFaqs.map((faq, i) => (
             <FadeInUp key={i} delay={i * 0.05}>
               <details className="group bg-card rounded-xl border border-border p-5">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex justify-between items-center">
