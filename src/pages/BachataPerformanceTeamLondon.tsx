@@ -164,6 +164,26 @@ const BachataPerformanceTeamLondon = () => (
       </div>
     </section>
 
+    {/* WIX SECTION: FAQ */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <FadeInUp>
+          <h2 className="font-display text-3xl font-bold mb-2 text-center">Performance Team FAQs</h2>
+          <div className="h-1 w-20 bg-primary rounded-full mb-8 mx-auto" />
+        </FadeInUp>
+        <div className="space-y-4">
+          {performanceFaqs.map((f, i) => (
+            <details key={i} className="group bg-card rounded-xl p-5 border border-border/40">
+              <summary className="font-heading font-bold text-sm cursor-pointer list-none flex justify-between gap-3">
+                {f.q}<span className="text-primary group-open:rotate-180 transition-transform">▾</span>
+              </summary>
+              <p className="text-muted-foreground text-sm mt-3">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section className="section-padding bg-primary text-center">
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Be Part of Something Bigger</h2>
