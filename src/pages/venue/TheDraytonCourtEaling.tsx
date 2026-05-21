@@ -261,14 +261,7 @@ const TheDraytonCourtEaling = () => (
           <h2 className="text-3xl font-bold text-foreground text-center mb-10">Frequently Asked Questions</h2>
         </FadeInUp>
         <div className="space-y-4">
-          {[
-            { q: "Do I need to book?", a: "No — just turn up! Walk-ins welcome every Tuesday." },
-            { q: "Is the ladies styling only for women?", a: "Everyone is welcome at the 6:50pm warm-up. It focuses on body movement, arm styling, and confidence — useful for all dancers." },
-            { q: "Can I come alone?", a: "Most people do. We rotate partners so you'll dance with everyone." },
-            { q: "What should I wear?", a: "Comfortable clothes and clean shoes with a smooth sole. Avoid heavy-grip trainers." },
-            { q: "Is there free parking?", a: "Yes — the Drayton Court has its own car park, and on-street parking is also available nearby." },
-            { q: "How do I get there by train?", a: "West Ealing Station (Elizabeth Line) is a 10-minute walk. Ealing Broadway is also accessible via Central and District lines." },
-          ].map((faq, i) => (
+          {venueFaqs.map((faq, i) => (
             <FadeInUp key={i} delay={i * 0.05}>
               <details className="group bg-card rounded-xl border border-border p-5">
                 <summary className="font-semibold text-foreground cursor-pointer list-none flex justify-between items-center">
