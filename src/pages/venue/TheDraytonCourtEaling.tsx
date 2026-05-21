@@ -6,15 +6,25 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Sparkles, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const venueFaqs = [
+  { q: "Do I need to book?", a: "No — just turn up! Walk-ins welcome every Tuesday." },
+  { q: "Is the ladies styling only for women?", a: "Everyone is welcome at the 6:50pm warm-up. It focuses on body movement, arm styling, and confidence — useful for all dancers." },
+  { q: "Can I come alone?", a: "Most people do. We rotate partners so you'll dance with everyone." },
+  { q: "What should I wear?", a: "Comfortable clothes and clean shoes with a smooth sole. Avoid heavy-grip trainers." },
+  { q: "Is there free parking?", a: "Yes — the Drayton Court has its own car park, and on-street parking is also available nearby." },
+  { q: "How do I get there by train?", a: "West Ealing Station (Elizabeth Line) is a 10-minute walk. Ealing Broadway is also accessible via Central and District lines." },
+];
+
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "FAQPage"],
   name: "Pura Nights at The Drayton Court Hotel",
   description: "Weekly salsa and bachata classes every Tuesday at The Drayton Court Hotel in Ealing, West London. Free ladies styling warm-up at 6:50pm.",
   address: { "@type": "PostalAddress", streetAddress: "2 The Avenue", addressLocality: "West Ealing", addressRegion: "London", postalCode: "W13 8PH", addressCountry: "GB" },
   geo: { "@type": "GeoCoordinates", latitude: "51.5130", longitude: "-0.3190" },
   url: "https://www.puranights.com/venue/the-drayton-court-ealing",
   telephone: "+447449482343",
+  mainEntity: venueFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
 const TheDraytonCourtEaling = () => (
