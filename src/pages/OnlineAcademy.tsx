@@ -105,7 +105,7 @@ const faqs = [
 
 const courseSchema = {
   "@context": "https://schema.org",
-  "@type": "Course",
+  "@type": ["Course", "FAQPage"],
   name: "Pura Academy — Online Salsa & Bachata Courses",
   description: "Pre-recorded online Salsa On2 and Bachata Sensual courses taught by Bachata UK Champion Melitta Siomos. Stream HD lessons anywhere.",
   provider: { "@type": "Organization", name: "Melitta Siomos Dance Academy", sameAs: "https://www.puranights.com" },
@@ -117,6 +117,7 @@ const courseSchema = {
     },
   ],
   offers: { "@type": "Offer", price: "19.00", priceCurrency: "GBP", category: "subscription" },
+  mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
 const OnlineAcademy = () => (
