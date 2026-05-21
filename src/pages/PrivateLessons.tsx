@@ -30,6 +30,14 @@ const goals = [
   { icon: Sparkles, title: "Performance Prep", desc: "Prepare for competitions, showcases, or Pura Ladies auditions with dedicated coaching." },
 ];
 
+const privateLessonFaqs = [
+  { q: "How much do private lessons cost?", a: "Pricing is bespoke based on your schedule and goals. Contact Melitta for a free consultation and quote." },
+  { q: "How many lessons will I need?", a: "It depends on your goals. Beginners typically see great progress in 4–6 sessions. Wedding couples usually book 6–10." },
+  { q: "Can I bring a friend or partner?", a: "Yes — couples and small group private sessions are available at adjusted rates." },
+  { q: "Do you offer online private lessons?", a: "Yes. Melitta teaches private lessons via Zoom for dancers outside London or with busy schedules." },
+];
+
+
 const PrivateLessons = () => (
   <Layout>
     <SeoHead
