@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle,
   CalendarDays, Sparkles, Crown, Laptop, Tag, Gift, User, Heart, UserCheck,
-  BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin,
+  BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin, ExternalLink,
 } from "lucide-react";
 
 // Premium, minimal nav — high-intent only.
