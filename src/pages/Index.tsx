@@ -241,6 +241,62 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 4B — HOMEPAGE TESTIMONIALS */}
+      {/* <!-- WIX SECTION: Student Testimonials — Repeater connected to Testimonials collection, 6 items --> */}
+      <section className="section-padding bg-charcoal-light">
+        <div className="container-main max-w-6xl">
+          <FadeInUp>
+            <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">What Students Say</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-center text-primary-foreground mb-4">Real people. Real results.</h2>
+            <p className="text-primary-foreground/60 text-center text-base mb-14 font-heading max-w-2xl mx-auto">No partner needed. No experience needed. Just show up.</p>
+          </FadeInUp>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
+            {[
+              { q: "I came alone on a Monday night not knowing a single step. By the end I'd danced with 20 different people and already booked the following week.", n: "Sarah T., Chiswick" },
+              { q: "Melitta has a gift for making complete beginners feel totally at home. I've tried other schools and nothing compares to the energy at Pura Nights.", n: "James K., Ealing" },
+              { q: "Three months in and I'm addicted. The Latin Friday socials are the highlight of my month. Best decision I made this year.", n: "Priya M., Richmond" },
+              { q: "My wife and I came for our wedding choreography. Melitta completely transformed how we move together. The first dance got a standing ovation.", n: "Tom & Claire H., Kingston" },
+              { q: "I've been dancing for 2 years at Pura Nights and the community here is genuinely unlike anything else in London. It's become my second family.", n: "Amara O., Hammersmith" },
+              { q: "Came for the fitness, stayed for the dancing. I've lost weight, gained confidence, and made real friends. Can't recommend it enough.", n: "Daniel R., Chiswick" },
+            ].map((t, i) => (
+              <StaggerItem key={i}>
+                <figure className="h-full bg-charcoal rounded-2xl p-6 border-l-[3px] border-primary border-y border-r border-primary-foreground/5 lift-hover">
+                  <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
+                    {[...Array(5)].map((_, j) => <Star key={j} size={13} className="fill-primary text-primary" />)}
+                  </div>
+                  <blockquote className="text-primary-foreground/85 text-[15px] leading-relaxed italic font-heading mb-4">"{t.q}"</blockquote>
+                  <figcaption className="text-primary-foreground/50 text-xs font-heading not-italic">— {t.n}</figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <FadeInUp delay={0.2} className="text-center mt-10">
+            <p className="text-primary-foreground/50 text-xs font-heading mb-2">Rated 5.0 on Google · 500+ students taught · West &amp; South West London</p>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold hover:underline">See our Google reviews →</a>
+              <span className="text-primary-foreground/20 text-xs">·</span>
+              <Link to="/testimonials" className="text-primary-foreground/70 text-xs font-heading font-semibold hover:text-primary">Read more student stories →</Link>
+            </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* SECTION 4C — GIFT VOUCHER STRIP */}
+      {/* <!-- WIX SECTION: Gift Voucher Promo Strip — Full-width gold Strip with 2 columns --> */}
+      <section style={{ background: 'var(--gradient-gold)' }}>
+        <div className="container-main py-5 md:py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div className="text-charcoal">
+              <p className="font-display text-xl md:text-2xl font-bold leading-tight">🎁 Give the gift of dance</p>
+              <p className="font-heading text-xs md:text-sm opacity-80">Digital gift vouchers from £25 — for birthdays, anniversaries &amp; first dances.</p>
+            </div>
+            <Link to="/gift-vouchers" className="inline-flex items-center gap-2 bg-charcoal text-primary px-6 py-3 rounded-lg font-heading font-semibold text-sm hover:bg-charcoal-light transition-colors whitespace-nowrap">
+              Buy a Gift Voucher →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 5 — WEEKLY CLASS SCHEDULE TABLE */}
       <section className="section-padding section-dark">
         <div className="container-main">

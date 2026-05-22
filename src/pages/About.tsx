@@ -299,6 +299,28 @@ const About = () => {
       </div>
     </section>
 
+    {/* Melitta's personal site crosslink */}
+    <section className="section-padding section-ivory">
+      <div className="container-main max-w-3xl text-center">
+        <FadeInUp>
+          <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">Melitta's Personal Website</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">More from Melitta</h2>
+          <p className="text-muted-foreground font-heading text-base mb-6 max-w-xl mx-auto">
+            For Melitta's full competitive history, press features, private lesson enquiries and wedding dance consultations, visit her personal studio site.
+          </p>
+          <a
+            href="https://melittasiomos.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-lg font-heading font-semibold text-sm hover:bg-primary/10 transition-colors"
+          >
+            Visit melittasiomos.com →
+          </a>
+        </FadeInUp>
+      </div>
+    </section>
+
+
     <RelatedPages title="Explore Melitta's World" links={[
       { to: "/pura-nights", label: "Pura Nights Classes", desc: "Weekly Salsa & Bachata" },
       { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },

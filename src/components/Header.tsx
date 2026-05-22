@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle,
   CalendarDays, Sparkles, Crown, Laptop, Tag, Gift, User, Heart, UserCheck,
-  BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin,
+  BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin, ExternalLink,
 } from "lucide-react";
 
 // Premium, minimal nav — high-intent only.
@@ -34,7 +34,8 @@ const navGroups = [
     label: "About & Services",
     path: "/about",
     dropdown: [
-      { label: "About Melitta", path: "/about", icon: User, description: "Bachata UK Champion & founder" },
+      { label: "About Melitta", path: "/about", icon: User, description: "Bachata UK Champion & founder — full bio at melittasiomos.com →" },
+      { label: "Melitta's Personal Site", path: "https://melittasiomos.com", icon: ExternalLink, description: "Biography, press, awards & private studio", external: true },
       { label: "Wedding Dance", path: "/wedding-dance", icon: Heart, description: "Bespoke first-dance choreography" },
       { label: "Private Lessons", path: "/private-lessons", icon: UserCheck, description: "1-to-1 or small group, by enquiry" },
       { label: "Contact", path: "/contact", icon: Mail, description: "WhatsApp, email or enquiry form" },

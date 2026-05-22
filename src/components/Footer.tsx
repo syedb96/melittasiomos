@@ -86,6 +86,7 @@ const Footer = () => (
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog & Guides</Link></li>
+            <li><a href="https://melittasiomos.com" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-primary transition-colors font-semibold inline-flex items-center gap-1">melittasiomos.com <ExternalLink size={9} /></a></li>
           </ul>
         </div>
 
@@ -168,12 +169,26 @@ const Footer = () => (
       </div>
     </div>
 
+    {/* Melitta's personal site crosslink */}
+    <div className="border-t border-primary/15" style={{ background: 'linear-gradient(90deg, transparent, hsl(43 48% 54% / 0.06), transparent)' }}>
+      <div className="container-main py-6 text-center">
+        <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-2">Melitta Siomos · Personal Site</p>
+        <p className="text-primary-foreground/55 text-xs font-heading max-w-2xl mx-auto mb-3">
+          Melitta's personal site — full biography, press, awards, private lessons and wedding dance.
+        </p>
+        <a href="https://melittasiomos.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-primary font-heading text-sm font-semibold hover:underline">
+          Visit melittasiomos.com →
+        </a>
+      </div>
+    </div>
+
     {/* Newsletter hint */}
     <div className="border-t border-primary-foreground/6">
       <div className="container-main py-6 text-center">
         <p className="text-primary-foreground/30 text-xs font-heading">📩 Follow us on Instagram for class updates, event announcements, and community highlights</p>
       </div>
     </div>
+
 
     {/* Bottom Bar */}
     <div className="border-t border-primary-foreground/6">
