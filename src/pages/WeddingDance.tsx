@@ -43,6 +43,19 @@ const WeddingDance = () => (
       }}
     />
 
+    {/* Cross-brand banner — Melitta's personal site for wedding dance packages */}
+    <a
+      href="https://melittasiomos.com/wedding-dance"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-center text-charcoal font-heading text-xs md:text-sm py-3 px-4 hover:opacity-90 transition-opacity"
+      style={{ background: 'var(--gradient-gold)' }}
+    >
+      <span className="font-semibold">Wedding dance packages are managed through Melitta's personal studio site.</span>
+      <span className="hidden md:inline"> · </span>
+      <span className="block md:inline underline underline-offset-2">View packages at melittasiomos.com →</span>
+    </a>
+
     {/* Hero */}
     <section className="relative h-80 md:h-[30rem] overflow-hidden">
       <img src={weddingImg} alt="Couple performing their wedding first dance choreographed by Melitta Siomos" className="w-full h-full object-cover" width={1920} height={1080} />
