@@ -86,6 +86,7 @@ const Footer = () => (
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog & Guides</Link></li>
+            <li><a href="https://melittasiomos.com" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-primary transition-colors font-semibold inline-flex items-center gap-1">melittasiomos.com <ExternalLink size={9} /></a></li>
           </ul>
         </div>
 
