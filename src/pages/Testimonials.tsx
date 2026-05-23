@@ -26,24 +26,32 @@ const categories = [
 
 const proofFaqs = [
   {
+    q: "Can beginners join alone?",
+    a: "Yes — the majority of new students arrive solo. We rotate partners every few minutes during class, so you'll dance with everyone and never feel stuck. Most people leave their first Monday Chiswick or Tuesday Ealing class with new friends.",
+  },
+  {
+    q: "Are the classes friendly?",
+    a: "Genuinely, yes. Pura Nights is built around a no-judgement, welcoming community. Melitta and the team make sure first-timers are introduced and never left at the side.",
+  },
+  {
+    q: "Do I need a partner?",
+    a: "No. Salsa & Bachata at Pura Nights is taught with rotation — you'll partner with multiple people each class. Bringing a partner is welcome but completely optional.",
+  },
+  {
+    q: "Are wedding lessons private?",
+    a: "Yes. Wedding-dance coaching is 1-to-1 with Melitta (or the couple together). Sessions are tailored to your song, ability, and venue. Book a free consultation to start.",
+  },
+  {
+    q: "Can I try one class first?",
+    a: "Absolutely. A drop-in class is £10 and covers the lesson plus the social. No commitment, no bundle required. If you love it, the 5-class bundle is the most popular next step.",
+  },
+  {
     q: "Are these reviews real?",
-    a: "Yes. Every testimonial here is from a verified Pura Nights student, wedding dance couple, private-lesson client, or Pura Ladies team member. Google-marked quotes link directly to public reviews on our Google Business Profile.",
+    a: "Yes. Every testimonial is from a verified Pura Nights student, wedding-dance couple, private-lesson client, or Pura Ladies team member. Reviews tagged 'Google ⭐' link to public reviews on our Google Business Profile; the rest are first-party student stories.",
   },
   {
     q: "How is Pura Nights rated on Google?",
-    a: "Pura Nights — Melitta Siomos Dance Academy holds a 5.0 rating across 47+ public Google reviews (and growing). The same 5.0 rating is reflected on the Wedding Dance Made Easy and Pura Ladies brand profiles.",
-  },
-  {
-    q: "Can I leave a review after my first class?",
-    a: "Yes — and it genuinely helps other West London dancers find us. After your first Monday Chiswick or Tuesday Ealing class, search 'Pura Nights Salsa Bachata London' on Google Maps and tap the star rating. It takes 30 seconds.",
-  },
-  {
-    q: "Do you have video testimonials?",
-    a: "Yes — short student and wedding couple videos sit on the homepage and on the Wedding Dance page. Full-length wedding stories live on YouTube @melittasiomos.",
-  },
-  {
-    q: "Where can I read wedding-specific reviews?",
-    a: "Filter the grid above by 'Wedding Dance', or visit the dedicated Wedding Dance page where every couple's story is paired with a photo and date.",
+    a: "Pura Nights — Melitta Siomos Dance Academy holds a 5.0 rating across 47+ public Google reviews and growing. Wedding Dance Made Easy and Pura Ladies brand profiles share the same 5.0 rating.",
   },
 ];
 
