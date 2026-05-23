@@ -172,12 +172,22 @@ const Testimonials = () => {
             </Accordion>
           </FadeInUp>
 
-          <FadeInUp className="mt-12 text-center">
-            <div className="bg-primary rounded-2xl p-8">
-              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-3">Love Your Experience?</h2>
-              <p className="text-primary-foreground/80 mb-5 font-heading text-sm">Help other dancers discover Pura Nights by leaving a review.</p>
-              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Leave a Google Review ⭐</a>
-            </div>
+          <FadeInUp className="mt-12 grid md:grid-cols-2 gap-4">
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary rounded-2xl p-8 text-center hover:opacity-95 transition-opacity">
+              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-2">Book your first class</h2>
+              <p className="text-primary-foreground/80 font-heading text-sm">£10 drop-in. Mon Chiswick or Tue Ealing. No partner needed.</p>
+            </a>
+            <a href="/start-here" className="bg-charcoal rounded-2xl p-8 text-center hover:opacity-95 transition-opacity">
+              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-2">Not sure where to start?</h2>
+              <p className="text-primary-foreground/70 font-heading text-sm">Read the Start Here guide — first-timer essentials in 3 minutes.</p>
+            </a>
+          </FadeInUp>
+
+          <FadeInUp className="mt-6 text-center">
+            <p className="text-sm text-muted-foreground font-heading">
+              Loved your experience?{" "}
+              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Leave a Google review ⭐</a>
+            </p>
           </FadeInUp>
         </div>
       </section>
