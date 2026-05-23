@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { CheckCircle2, Mail } from "lucide-react";
 
@@ -17,6 +18,11 @@ interface EmailCaptureGateProps {
   tone?: "warm" | "dark";
 }
 
+const captureSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(200, "Name must be under 200 characters"),
+  email: z.string().trim().email("Please enter a valid email").max(255, "Email must be under 255 characters"),
+});
+
 /* <!-- WIX SECTION: EmailCaptureGate — replicate as Strip with form + button + outbound link --> */
 const EmailCaptureGate = ({
   headline = "Get class reminders + the welcome guide",
@@ -28,18 +34,42 @@ const EmailCaptureGate = ({
 }: EmailCaptureGateProps) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const renderedAtRef = useRef<number>(Date.now());
+
+  useEffect(() => {
+    renderedAtRef.current = Date.now();
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !name) return;
-    setLoading(true);
     setError(null);
+
+    // Honeypot — silent success for bots
+    if (website.trim() !== "") {
+      setDone(true);
+      return;
+    }
+
+    // Timing trap — silent success if submitted too fast
+    if (Date.now() - renderedAtRef.current < 2000) {
+      setDone(true);
+      return;
+    }
+
+    const parsed = captureSchema.safeParse({ name, email });
+    if (!parsed.success) {
+      setError(parsed.error.errors[0]?.message ?? "Please check your details.");
+      return;
+    }
+
+    setLoading(true);
     const { error: insertError } = await supabase.from("enquiries").insert({
-      name,
-      email,
+      name: parsed.data.name,
+      email: parsed.data.email,
       message: `Newsletter signup from ${source}`,
       subject: "General Enquiry",
       source_page: source,
@@ -65,12 +95,24 @@ const EmailCaptureGate = ({
             <h2 className="font-display text-3xl font-bold mb-3">{headline}</h2>
             <p className={`mb-6 text-sm ${tone === "dark" ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{subcopy}</p>
             <form onSubmit={submit} className="grid sm:grid-cols-[1fr_1fr_auto] gap-3 max-w-xl mx-auto">
+              {/* Honeypot field — hidden from users, visible to bots */}
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+              />
               <input
                 required
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="First name"
+                maxLength={200}
                 className={`px-4 py-3 rounded-xl border text-sm ${inputBg}`}
                 aria-label="First name"
               />
@@ -80,6 +122,7 @@ const EmailCaptureGate = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email address"
+                maxLength={255}
                 className={`px-4 py-3 rounded-xl border text-sm ${inputBg}`}
                 aria-label="Email address"
               />
