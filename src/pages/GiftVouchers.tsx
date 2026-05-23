@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Gift, Heart, Mail, MessageCircle, Sparkles, Check } from "lucide-react";
+import { Gift, Heart, Mail, MessageCircle, Sparkles, Check, Cake, Star, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
