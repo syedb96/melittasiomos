@@ -77,7 +77,8 @@ const Testimonials = () => {
   const [filter, setFilter] = useState("all");
   const filtered = filter === "all" ? testimonials : testimonials.filter(t => t.category === filter);
 
-  // FAQ + Review @graph for centralised proof
+  // Clean @graph: FAQPage + ItemList of Reviews. Person uses display name only.
+  // itemReviewed points to the dance school. publisher set only when source is Google.
   const schema = useMemo(() => ({
     "@context": "https://schema.org",
     "@graph": [
@@ -92,12 +93,23 @@ const Testimonials = () => {
       {
         "@type": "ItemList",
         name: "Pura Nights Student Testimonials",
-        itemListElement: testimonials.slice(0, 20).map((t, i) => ({
-          "@type": "Review",
+        itemListElement: testimonials.map((t, i) => ({
+          "@type": "ListItem",
           position: i + 1,
-          author: { "@type": "Person", name: t.name },
-          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-          reviewBody: t.quote,
+          item: {
+            "@type": "Review",
+            reviewBody: t.quote,
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            author: { "@type": "Person", name: t.name },
+            itemReviewed: {
+              "@type": "DanceSchool",
+              name: "Pura Nights — Melitta Siomos Dance Academy",
+              url: "https://www.puranights.com",
+            },
+            ...(t.platform === "google"
+              ? { publisher: { "@type": "Organization", name: "Google" } }
+              : {}),
+          },
         })),
       },
     ],
