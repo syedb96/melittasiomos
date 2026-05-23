@@ -197,8 +197,8 @@ const Testimonials = () => {
         { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
         { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance coaching" },
         { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
+        { to: "/corporate-dance-classes-london", label: "Corporate Bookings", desc: "Team-building & events" },
         { to: "/start-here", label: "Start Here", desc: "New to dancing?" },
-        { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
       ]} />
     </Layout>
   );
