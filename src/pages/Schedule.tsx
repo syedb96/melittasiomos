@@ -6,6 +6,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
+import { WA, trackWaClick } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /schedule -->
    <!-- WIX: Use Repeater or Table connected to Classes/Schedule CMS collection -->
