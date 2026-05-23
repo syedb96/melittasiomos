@@ -120,7 +120,7 @@ const buildMailto = (amount: number) => {
 };
 
 const buildWhatsAppLink = (amount: number) =>
-  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'd like to buy a £${amount} Pura Nights gift voucher. Can you send me the details?`)}`;
+  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'm interested in the £${amount} Pura Nights gift voucher. Can you confirm how it works and how I can purchase it?`)}`;
 
 const GiftVouchers = () => {
   const schema = useMemo(() => ({
