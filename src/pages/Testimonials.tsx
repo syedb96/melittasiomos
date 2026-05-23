@@ -26,24 +26,32 @@ const categories = [
 
 const proofFaqs = [
   {
+    q: "Can beginners join alone?",
+    a: "Yes — the majority of new students arrive solo. We rotate partners every few minutes during class, so you'll dance with everyone and never feel stuck. Most people leave their first Monday Chiswick or Tuesday Ealing class with new friends.",
+  },
+  {
+    q: "Are the classes friendly?",
+    a: "Genuinely, yes. Pura Nights is built around a no-judgement, welcoming community. Melitta and the team make sure first-timers are introduced and never left at the side.",
+  },
+  {
+    q: "Do I need a partner?",
+    a: "No. Salsa & Bachata at Pura Nights is taught with rotation — you'll partner with multiple people each class. Bringing a partner is welcome but completely optional.",
+  },
+  {
+    q: "Are wedding lessons private?",
+    a: "Yes. Wedding-dance coaching is 1-to-1 with Melitta (or the couple together). Sessions are tailored to your song, ability, and venue. Book a free consultation to start.",
+  },
+  {
+    q: "Can I try one class first?",
+    a: "Absolutely. A drop-in class is £10 and covers the lesson plus the social. No commitment, no bundle required. If you love it, the 5-class bundle is the most popular next step.",
+  },
+  {
     q: "Are these reviews real?",
-    a: "Yes. Every testimonial here is from a verified Pura Nights student, wedding dance couple, private-lesson client, or Pura Ladies team member. Google-marked quotes link directly to public reviews on our Google Business Profile.",
+    a: "Yes. Every testimonial is from a verified Pura Nights student, wedding-dance couple, private-lesson client, or Pura Ladies team member. Reviews tagged 'Google ⭐' link to public reviews on our Google Business Profile; the rest are first-party student stories.",
   },
   {
     q: "How is Pura Nights rated on Google?",
-    a: "Pura Nights — Melitta Siomos Dance Academy holds a 5.0 rating across 47+ public Google reviews (and growing). The same 5.0 rating is reflected on the Wedding Dance Made Easy and Pura Ladies brand profiles.",
-  },
-  {
-    q: "Can I leave a review after my first class?",
-    a: "Yes — and it genuinely helps other West London dancers find us. After your first Monday Chiswick or Tuesday Ealing class, search 'Pura Nights Salsa Bachata London' on Google Maps and tap the star rating. It takes 30 seconds.",
-  },
-  {
-    q: "Do you have video testimonials?",
-    a: "Yes — short student and wedding couple videos sit on the homepage and on the Wedding Dance page. Full-length wedding stories live on YouTube @melittasiomos.",
-  },
-  {
-    q: "Where can I read wedding-specific reviews?",
-    a: "Filter the grid above by 'Wedding Dance', or visit the dedicated Wedding Dance page where every couple's story is paired with a photo and date.",
+    a: "Pura Nights — Melitta Siomos Dance Academy holds a 5.0 rating across 47+ public Google reviews and growing. Wedding Dance Made Easy and Pura Ladies brand profiles share the same 5.0 rating.",
   },
 ];
 
@@ -69,7 +77,8 @@ const Testimonials = () => {
   const [filter, setFilter] = useState("all");
   const filtered = filter === "all" ? testimonials : testimonials.filter(t => t.category === filter);
 
-  // FAQ + Review @graph for centralised proof
+  // Clean @graph: FAQPage + ItemList of Reviews. Person uses display name only.
+  // itemReviewed points to the dance school. publisher set only when source is Google.
   const schema = useMemo(() => ({
     "@context": "https://schema.org",
     "@graph": [
@@ -84,12 +93,23 @@ const Testimonials = () => {
       {
         "@type": "ItemList",
         name: "Pura Nights Student Testimonials",
-        itemListElement: testimonials.slice(0, 20).map((t, i) => ({
-          "@type": "Review",
+        itemListElement: testimonials.map((t, i) => ({
+          "@type": "ListItem",
           position: i + 1,
-          author: { "@type": "Person", name: t.name },
-          reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-          reviewBody: t.quote,
+          item: {
+            "@type": "Review",
+            reviewBody: t.quote,
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            author: { "@type": "Person", name: t.name },
+            itemReviewed: {
+              "@type": "DanceSchool",
+              name: "Pura Nights — Melitta Siomos Dance Academy",
+              url: "https://www.puranights.com",
+            },
+            ...(t.platform === "google"
+              ? { publisher: { "@type": "Organization", name: "Google" } }
+              : {}),
+          },
         })),
       },
     ],
@@ -152,12 +172,22 @@ const Testimonials = () => {
             </Accordion>
           </FadeInUp>
 
-          <FadeInUp className="mt-12 text-center">
-            <div className="bg-primary rounded-2xl p-8">
-              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-3">Love Your Experience?</h2>
-              <p className="text-primary-foreground/80 mb-5 font-heading text-sm">Help other dancers discover Pura Nights by leaving a review.</p>
-              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="btn-cta-dark inline-block">Leave a Google Review ⭐</a>
-            </div>
+          <FadeInUp className="mt-12 grid md:grid-cols-2 gap-4">
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary rounded-2xl p-8 text-center hover:opacity-95 transition-opacity">
+              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-2">Book your first class</h2>
+              <p className="text-primary-foreground/80 font-heading text-sm">£10 drop-in. Mon Chiswick or Tue Ealing. No partner needed.</p>
+            </a>
+            <a href="/start-here" className="bg-charcoal rounded-2xl p-8 text-center hover:opacity-95 transition-opacity">
+              <h2 className="font-display text-2xl font-bold text-primary-foreground mb-2">Not sure where to start?</h2>
+              <p className="text-primary-foreground/70 font-heading text-sm">Read the Start Here guide — first-timer essentials in 3 minutes.</p>
+            </a>
+          </FadeInUp>
+
+          <FadeInUp className="mt-6 text-center">
+            <p className="text-sm text-muted-foreground font-heading">
+              Loved your experience?{" "}
+              <a href="https://maps.google.com/?q=Pura+Nights+Salsa+Bachata+London" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Leave a Google review ⭐</a>
+            </p>
           </FadeInUp>
         </div>
       </section>
@@ -167,8 +197,8 @@ const Testimonials = () => {
         { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching" },
         { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance coaching" },
         { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
+        { to: "/corporate-dance-classes-london", label: "Corporate Bookings", desc: "Team-building & events" },
         { to: "/start-here", label: "Start Here", desc: "New to dancing?" },
-        { to: "/contact", label: "Contact Melitta", desc: "Get in touch" },
       ]} />
     </Layout>
   );

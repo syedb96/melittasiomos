@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Gift, Heart, Mail, MessageCircle, Sparkles, Check } from "lucide-react";
+import { Gift, Heart, Mail, MessageCircle, Sparkles, Check, Cake, Star, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
@@ -103,9 +103,12 @@ const giftFaqs = [
 
 const useCases = [
   { icon: Heart, title: "Anniversary", copy: "Couples redeem against private wedding-style sessions or our Tuesday styling class." },
-  { icon: Sparkles, title: "Birthday", copy: "A grown-up gift that delivers a memory, not another candle." },
-  { icon: Gift, title: "Christmas", copy: "Pura Ladies and weekly classes are our December bestsellers — order by 22 Dec." },
+  { icon: Cake, title: "Birthday", copy: "A grown-up gift that delivers a memory, not another candle." },
+  { icon: Gift, title: "Christmas / Eid", copy: "Pura Ladies and weekly classes are our December bestsellers — order by 22 Dec." },
   { icon: Mail, title: "Thank You", copy: "Smaller £25–£50 vouchers are perfect for hosts, teachers and helpers." },
+  { icon: Sparkles, title: "Wedding Gift", copy: "Give the couple a private first-dance starter — the gift their guests will remember." },
+  { icon: Star, title: "Confidence Boost", copy: "For someone who's said 'I wish I could dance.' Beginner classes with zero judgement." },
+  { icon: Users, title: "Beginner Taster", copy: "£25 covers a single drop-in. Risk-free, partner-free, the perfect first step." },
 ];
 
 const buildMailto = (amount: number) => {
@@ -117,7 +120,7 @@ const buildMailto = (amount: number) => {
 };
 
 const buildWhatsAppLink = (amount: number) =>
-  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'd like to buy a £${amount} Pura Nights gift voucher. Can you send me the details?`)}`;
+  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'm interested in the £${amount} Pura Nights gift voucher. Can you confirm how it works and how I can purchase it?`)}`;
 
 const GiftVouchers = () => {
   const schema = useMemo(() => ({

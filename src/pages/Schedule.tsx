@@ -6,6 +6,7 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
+import { WA, trackWaClick } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /schedule -->
    <!-- WIX: Use Repeater or Table connected to Classes/Schedule CMS collection -->
@@ -80,7 +81,8 @@ const Schedule = () => (
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
-                <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
+                <a href={WA.scheduleMonChiswick()} target="_blank" rel="noopener noreferrer" onClick={() => trackWaClick("schedule_mon_chiswick")} className="btn-cta-outline text-xs px-4 py-2">💬 Ask about Monday</a>
+                <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Directions</a>
               </div>
             </div>
           </FadeInUp>
@@ -123,7 +125,8 @@ const Schedule = () => (
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs px-4 py-2">Book →</a>
-                <a href="https://maps.google.com/?q=Drayton+Court+Hotel+2+The+Avenue+Ealing+W13+8PH" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Get Directions</a>
+                <a href={WA.scheduleTueEaling()} target="_blank" rel="noopener noreferrer" onClick={() => trackWaClick("schedule_tue_ealing")} className="btn-cta-outline text-xs px-4 py-2">💬 Ask about Tuesday</a>
+                <a href="https://maps.google.com/?q=Drayton+Court+Hotel+2+The+Avenue+Ealing+W13+8PH" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-xs px-4 py-2">📍 Directions</a>
               </div>
             </div>
           </FadeInUp>

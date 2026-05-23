@@ -209,7 +209,7 @@ const Events = () => {
           <p className="text-primary-foreground/80 mb-8">Follow us for event announcements and last-minute deals.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">📲 Follow @puranights.salsabachata</a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-outline">💬 Join WhatsApp Group</a>
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20please%20add%20me%20to%20the%20Pura%20Nights%20WhatsApp%20group%20for%20class%20reminders%20and%20Latin%20Friday%20updates." target="_blank" rel="noopener noreferrer" className="btn-cta-outline">💬 Join WhatsApp Group</a>
           </div>
         </div>
       </section>
