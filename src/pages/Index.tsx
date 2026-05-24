@@ -506,6 +506,12 @@ const Index = () => {
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
           </FadeInUp>
 
+          {/* Optional visual proof layer — Wix Google Reviews embed on launch */}
+          <div className="mt-12 -mx-4 md:-mx-8">
+            <WixReviewsEmbed showCta={false} title="Verified on Google" eyebrow="Live Google Reviews" />
+          </div>
+
+
           {/* Real-proof visual slot — Google review screenshot */}
           <FadeInUp delay={0.4} className="max-w-md mx-auto mt-12">
             <RealProofSlot
