@@ -103,6 +103,35 @@ const TestimonialsAdmin = () => {
               {[5,4,3,2,1].map(r => <option key={r} value={r}>{r} Stars</option>)}
             </select>
           </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <label className="block text-sm">
+              <span className="font-heading text-xs uppercase tracking-wider text-muted-foreground">Platform</span>
+              <select
+                value={editing.platform}
+                onChange={e => setEditing({ ...editing, platform: e.target.value as "google" | "personal" })}
+                className="mt-1 w-full px-3 py-2 rounded-lg border border-border bg-background text-sm"
+              >
+                <option value="personal">Personal — Student Story (badge: Student Story)</option>
+                <option value="google">Google — Verified review (badge: Google ⭐, requires source URL)</option>
+              </select>
+            </label>
+            <label className="block text-sm">
+              <span className="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+                Source URL {editing.platform === "google" && <span className="text-primary">required for Google</span>}
+              </span>
+              <input
+                value={editing.source_url ?? ""}
+                onChange={e => setEditing({ ...editing, source_url: e.target.value })}
+                placeholder="https://www.google.com/maps/...review..."
+                className="mt-1 w-full px-3 py-2 rounded-lg border border-border bg-background text-sm"
+              />
+            </label>
+          </div>
+          {editing.platform === "google" && !editing.source_url?.trim() && (
+            <p className="text-xs text-destructive font-heading">
+              Google-platform reviews emit <code>publisher: Google</code> in JSON-LD. A source URL is required so this review is verifiable. Without it the review is saved as a Personal Story.
+            </p>
+          )}
           <textarea value={editing.quote} onChange={e => setEditing({ ...editing, quote: e.target.value })} placeholder="Testimonial quote" rows={3} className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm" />
           <div className="flex gap-3">
             <button onClick={save} className="btn-cta-primary text-sm">Save</button>
