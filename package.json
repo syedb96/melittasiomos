@@ -22,12 +22,13 @@
     "qa:schema": "bun scripts/schema-snapshot.ts",
     "qa:schema:validate": "bun scripts/schema-validate.ts",
     "qa:schema:strict": "bun scripts/schema-snapshot.ts --strict",
+    "qa:schema:report": "bun scripts/schema-qa-report.ts",
     "qa:monitoring": "bun scripts/monitoring-import.ts",
     "qa:manifest": "bun scripts/evidence-manifest.ts",
     "qa:run": "bun scripts/launch-qa-run.ts",
     "qa:alt-lint": "bun scripts/alt-text-lint.ts",
     "qa:cta-smoke": "bun scripts/cta-smoke-test.ts",
-    "prebuild": "bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts",
+    "prebuild": "bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts",
     "predev": "bun scripts/seo-qa.ts"
   },
   "dependencies": {
