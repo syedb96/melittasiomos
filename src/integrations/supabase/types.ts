@@ -637,6 +637,7 @@ export type Database = {
           is_featured: boolean
           is_published: boolean
           person_name: string
+          platform: string
           quote: string
           rating: number | null
           source_type: string | null
@@ -651,6 +652,7 @@ export type Database = {
           is_featured?: boolean
           is_published?: boolean
           person_name: string
+          platform?: string
           quote: string
           rating?: number | null
           source_type?: string | null
@@ -665,6 +667,7 @@ export type Database = {
           is_featured?: boolean
           is_published?: boolean
           person_name?: string
+          platform?: string
           quote?: string
           rating?: number | null
           source_type?: string | null
