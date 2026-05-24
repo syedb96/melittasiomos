@@ -14,11 +14,25 @@ interface TestimonialRow {
   quote: string;
   rating: number;
   source_type: string;
+  /** Anti-fake-review tag. 'google' requires a verifiable source_url. */
+  platform: "google" | "personal";
+  source_url: string | null;
   is_featured: boolean;
   is_published: boolean;
 }
 
-const empty: TestimonialRow = { id: "", person_name: "", context_label: "", quote: "", rating: 5, source_type: "google", is_featured: false, is_published: false };
+const empty: TestimonialRow = {
+  id: "",
+  person_name: "",
+  context_label: "",
+  quote: "",
+  rating: 5,
+  source_type: "google",
+  platform: "personal",
+  source_url: "",
+  is_featured: false,
+  is_published: false,
+};
 
 const TestimonialsAdmin = () => {
   const [items, setItems] = useState<TestimonialRow[]>([]);
@@ -33,12 +47,21 @@ const TestimonialsAdmin = () => {
 
   const save = async () => {
     if (!editing?.person_name || !editing.quote) return;
+    // Client-side guard mirroring the DB trigger: don't claim Google reviews
+    // without a verifiable source URL. Prevents fake aggregateRating signals.
+    if (editing.platform === "google" && !editing.source_url?.trim()) {
+      toast.error("Google-platform reviews require a source URL linking to the live Google review.");
+      return;
+    }
+    const payload = { ...editing, source_url: editing.source_url?.trim() || null };
     if (editing.id) {
-      const { id, ...rest } = editing;
-      await supabase.from("testimonials").update(rest).eq("id", id);
+      const { id, ...rest } = payload;
+      const { error } = await supabase.from("testimonials").update(rest).eq("id", id);
+      if (error) { toast.error(error.message); return; }
     } else {
-      const { id, ...rest } = editing;
-      await supabase.from("testimonials").insert(rest);
+      const { id, ...rest } = payload;
+      const { error } = await supabase.from("testimonials").insert(rest);
+      if (error) { toast.error(error.message); return; }
     }
     toast.success("Saved");
     setEditing(null);
