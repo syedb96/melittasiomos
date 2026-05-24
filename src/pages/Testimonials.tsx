@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import WixReviewsEmbed from "@/components/WixReviewsEmbed";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import testimonials, { type Testimonial } from "@/data/testimonials";
@@ -152,6 +153,9 @@ const Testimonials = () => {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Optional visual proof layer — Wix Google Reviews widget on launch */}
+      <WixReviewsEmbed />
 
       {/* Proof FAQ — emitted as FAQPage JSON-LD above */}
       <section className="section-padding section-ivory">

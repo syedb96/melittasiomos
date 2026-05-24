@@ -14,11 +14,25 @@ interface TestimonialRow {
   quote: string;
   rating: number;
   source_type: string;
+  /** Anti-fake-review tag. 'google' requires a verifiable source_url. */
+  platform: "google" | "personal";
+  source_url: string | null;
   is_featured: boolean;
   is_published: boolean;
 }
 
-const empty: TestimonialRow = { id: "", person_name: "", context_label: "", quote: "", rating: 5, source_type: "google", is_featured: false, is_published: false };
+const empty: TestimonialRow = {
+  id: "",
+  person_name: "",
+  context_label: "",
+  quote: "",
+  rating: 5,
+  source_type: "google",
+  platform: "personal",
+  source_url: "",
+  is_featured: false,
+  is_published: false,
+};
 
 const TestimonialsAdmin = () => {
   const [items, setItems] = useState<TestimonialRow[]>([]);
@@ -33,12 +47,21 @@ const TestimonialsAdmin = () => {
 
   const save = async () => {
     if (!editing?.person_name || !editing.quote) return;
+    // Client-side guard mirroring the DB trigger: don't claim Google reviews
+    // without a verifiable source URL. Prevents fake aggregateRating signals.
+    if (editing.platform === "google" && !editing.source_url?.trim()) {
+      toast.error("Google-platform reviews require a source URL linking to the live Google review.");
+      return;
+    }
+    const payload = { ...editing, source_url: editing.source_url?.trim() || null };
     if (editing.id) {
-      const { id, ...rest } = editing;
-      await supabase.from("testimonials").update(rest).eq("id", id);
+      const { id, ...rest } = payload;
+      const { error } = await supabase.from("testimonials").update(rest).eq("id", id);
+      if (error) { toast.error(error.message); return; }
     } else {
-      const { id, ...rest } = editing;
-      await supabase.from("testimonials").insert(rest);
+      const { id, ...rest } = payload;
+      const { error } = await supabase.from("testimonials").insert(rest);
+      if (error) { toast.error(error.message); return; }
     }
     toast.success("Saved");
     setEditing(null);
@@ -80,6 +103,35 @@ const TestimonialsAdmin = () => {
               {[5,4,3,2,1].map(r => <option key={r} value={r}>{r} Stars</option>)}
             </select>
           </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <label className="block text-sm">
+              <span className="font-heading text-xs uppercase tracking-wider text-muted-foreground">Platform</span>
+              <select
+                value={editing.platform}
+                onChange={e => setEditing({ ...editing, platform: e.target.value as "google" | "personal" })}
+                className="mt-1 w-full px-3 py-2 rounded-lg border border-border bg-background text-sm"
+              >
+                <option value="personal">Personal — Student Story (badge: Student Story)</option>
+                <option value="google">Google — Verified review (badge: Google ⭐, requires source URL)</option>
+              </select>
+            </label>
+            <label className="block text-sm">
+              <span className="font-heading text-xs uppercase tracking-wider text-muted-foreground">
+                Source URL {editing.platform === "google" && <span className="text-primary">required for Google</span>}
+              </span>
+              <input
+                value={editing.source_url ?? ""}
+                onChange={e => setEditing({ ...editing, source_url: e.target.value })}
+                placeholder="https://www.google.com/maps/...review..."
+                className="mt-1 w-full px-3 py-2 rounded-lg border border-border bg-background text-sm"
+              />
+            </label>
+          </div>
+          {editing.platform === "google" && !editing.source_url?.trim() && (
+            <p className="text-xs text-destructive font-heading">
+              Google-platform reviews emit <code>publisher: Google</code> in JSON-LD. A source URL is required so this review is verifiable. Without it the review is saved as a Personal Story.
+            </p>
+          )}
           <textarea value={editing.quote} onChange={e => setEditing({ ...editing, quote: e.target.value })} placeholder="Testimonial quote" rows={3} className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm" />
           <div className="flex gap-3">
             <button onClick={save} className="btn-cta-primary text-sm">Save</button>
@@ -93,8 +145,13 @@ const TestimonialsAdmin = () => {
           <div key={t.id} className="bg-card rounded-xl p-5 border border-border">
             <div className="flex items-start gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
                   <p className="font-heading font-semibold text-sm">{t.person_name}</p>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-heading uppercase tracking-wider ${
+                    t.platform === "google" ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"
+                  }`}>
+                    {t.platform === "google" ? "Google ⭐" : "Student Story"}
+                  </span>
                   {t.context_label && <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">{t.context_label}</span>}
                 </div>
                 <div className="flex gap-0.5 mb-2">{Array(t.rating).fill(0).map((_, i) => <Star key={i} size={10} className="fill-primary text-primary" />)}</div>

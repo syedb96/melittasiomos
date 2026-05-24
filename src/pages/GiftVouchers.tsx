@@ -4,6 +4,7 @@ import { Gift, Heart, Mail, MessageCircle, Sparkles, Check, Cake, Star, Users } 
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import VoucherEnquiryForm from "@/components/VoucherEnquiryForm";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -277,6 +278,15 @@ const GiftVouchers = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Premium voucher enquiry form — emails buyer, posts to enquiries CMS, optional Wix Stores handoff */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-2xl">
+          <FadeInUp>
+            <VoucherEnquiryForm defaultAmount={75} />
+          </FadeInUp>
         </div>
       </section>
 
