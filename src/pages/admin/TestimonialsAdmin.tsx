@@ -145,8 +145,13 @@ const TestimonialsAdmin = () => {
           <div key={t.id} className="bg-card rounded-xl p-5 border border-border">
             <div className="flex items-start gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
                   <p className="font-heading font-semibold text-sm">{t.person_name}</p>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-heading uppercase tracking-wider ${
+                    t.platform === "google" ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"
+                  }`}>
+                    {t.platform === "google" ? "Google ⭐" : "Student Story"}
+                  </span>
                   {t.context_label && <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">{t.context_label}</span>}
                 </div>
                 <div className="flex gap-0.5 mb-2">{Array(t.rating).fill(0).map((_, i) => <Star key={i} size={10} className="fill-primary text-primary" />)}</div>
