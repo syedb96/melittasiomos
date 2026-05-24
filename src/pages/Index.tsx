@@ -11,6 +11,7 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import WixReviewsEmbed from "@/components/WixReviewsEmbed";
 import RealProofSlot from "@/components/RealProofSlot";
 import LastUpdated from "@/components/LastUpdated";
 import LiveStudentCounter from "@/components/LiveStudentCounter";
