@@ -281,6 +281,15 @@ const GiftVouchers = () => {
         </div>
       </section>
 
+      {/* Premium voucher enquiry form — emails buyer, posts to enquiries CMS, optional Wix Stores handoff */}
+      <section className="section-padding section-warm">
+        <div className="container-main max-w-2xl">
+          <FadeInUp>
+            <VoucherEnquiryForm defaultAmount={75} />
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="section-padding section-ivory">
         <div className="container-main max-w-3xl">
