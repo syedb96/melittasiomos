@@ -4,6 +4,7 @@ import { Gift, Heart, Mail, MessageCircle, Sparkles, Check, Cake, Star, Users } 
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import VoucherEnquiryForm from "@/components/VoucherEnquiryForm";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
