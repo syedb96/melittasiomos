@@ -154,6 +154,9 @@ const Testimonials = () => {
         </div>
       </section>
 
+      {/* Optional visual proof layer — Wix Google Reviews widget on launch */}
+      <WixReviewsEmbed />
+
       {/* Proof FAQ — emitted as FAQPage JSON-LD above */}
       <section className="section-padding section-ivory">
         <div className="container-main max-w-3xl">
