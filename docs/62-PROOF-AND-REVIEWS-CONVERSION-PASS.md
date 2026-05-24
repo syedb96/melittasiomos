@@ -1,81 +1,103 @@
 # 62 — Proof & Reviews Conversion Pass
 
 Sprint: Proof + Voucher Conversion (5-credit pass).
-Date: 2026-05-23.
+Date: 2026-05-24.
 
 ## Where review text lives
 
-- `src/data/testimonials.ts` — single source of truth for student stories.
-  - Fields: `name`, `label`, `platform` ("google" | "personal"), `quote`,
-    `category` (beginner | group | wedding | private | pura-ladies | online | community).
-  - `platform: "google"` = verified public Google review (badge: "Google ⭐").
-  - `platform: "personal"` = first-party student story (badge: "Student Story").
-- `src/components/TestimonialsCarousel.tsx` — homepage carousel reading the same file.
-- `src/pages/Testimonials.tsx` — full proof hub with category chips + FAQ.
+- `src/data/testimonials.ts` — static carousel source for the homepage.
+- **`public.testimonials` (Supabase)** — admin-managed source of truth via
+  `/admin/testimonials`. New `platform` column ('google' or 'personal').
+  A DB trigger blocks `platform='google'` rows that don't carry a
+  `source_url` — preventing fake `publisher: Google` schema metadata.
+- `src/components/TestimonialsCarousel.tsx` — homepage carousel, conditional
+  `publisher: Organization (Google)` only when `platform === "google"`.
+- `src/pages/Testimonials.tsx` — full proof hub with category chips + FAQ,
+  followed by the optional Wix Google Reviews widget slot.
 
-## What needs replacing with real Google review text
+## Admin workflow (anti-fake-review)
 
-Replace the `platform: "personal"` quotes that are intended to read as Google
-reviews with the verified review text once Melitta confirms each one is live
-on Google Business Profile. Tag those records with `platform: "google"` to
-flip the badge automatically. Do not invent surnames or dates.
+1. `/admin/testimonials` → Add or edit a testimonial.
+2. Pick **Platform**:
+   - **Personal — Student Story** → Badge: "Student Story". No
+     `publisher: Google` emitted in JSON-LD. Source URL optional.
+   - **Google — Verified** → Badge: "Google ⭐". `publisher: Google`
+     emitted. **Source URL required** — paste the live Google Maps review
+     permalink. Saving without one is rejected client- and DB-side.
+3. Toggle Featured (homepage carousel) and Published.
 
-Currently 5 of 15 entries are tagged "google". Targets to verify and migrate:
+The DB trigger `validate_testimonial_platform_trg` is the final guard:
+even direct SQL inserts cannot fake a Google review.
 
-- Sarah M. (Beginner — Chiswick)
-- Marcus W. (Beginner — Chiswick)
-- Aisha T. (Pura Ladies)
-- Daniel F. (Improver — Chiswick Mondays)
+## Schema QA
 
-## Schema notes
+- `scripts/schema-validate.ts` — static source-tree scan. Runs in `prebuild`.
+- `scripts/schema-qa-report.ts` — per-page QA. Validates the homepage
+  `ItemList` + `/testimonials` schema graph for:
+  - publisher:Google emitted unconditionally (error)
+  - missing reviewRating / itemReviewed
+  - ItemList without itemListElement
+  Output: `docs/64-SCHEMA-QA-PER-PAGE-REPORT.md`. Runs in `prebuild` and
+  fails CI when errors are detected.
 
-- Page-level `@graph` is emitted via `SeoHead` (`/testimonials`,
-  `/gift-vouchers`, etc.). Carousel emits its own `ItemList` of `Review`
-  nodes under id `schema-testimonials-carousel`.
-- Every Review has:
-  - `author`: Person, display name only (first name + initial — no surnames invented).
-  - `reviewRating`: 5-star (since all current entries are 5-star).
-  - `itemReviewed`: DanceSchool — Pura Nights — Melitta Siomos Dance Academy.
-  - `publisher`: Organization (Google) — only when `platform === "google"`.
-- No fake review dates. No invented platforms. No dual-emission of the same
-  Review on the same page.
+## Wix Google Reviews embed
 
-## Adding a real Google Reviews embed in Wix
-
-Lovable does not emit a Google Reviews live widget — only structured proof.
-For a live embed in Wix:
+Lovable ships a `<WixReviewsEmbed>` placeholder on `/` and `/testimonials`.
+It includes the heading, 5★ summary line, and CTAs ("Read all Google
+reviews", "Leave a review"). Replace the inner block in Wix Editor:
 
 1. Wix Editor → Add (`+`) → Reviews → "Google Reviews by Common Ninja"
    (or Elfsight Google Reviews).
 2. Connect Google Business Profile: `Pura Nights — Melitta Siomos Dance Academy`.
-3. Drop the widget on `/testimonials` ABOVE the category chips, and on the
-   homepage REPLACING the `TestimonialsCarousel` strip if desired.
-4. Keep the existing custom story cards as a secondary section so the proof
-   is split: live Google reviews + curated wedding/Pura Ladies stories.
+3. Drop the widget inside the section that has
+   `data-wix-slot="google-reviews-embed"` — keep the surrounding heading
+   so SEO context stays intact.
+4. Keep the existing custom story cards as a secondary section.
 5. Do NOT remove the FAQPage / ItemList JSON-LD — Wix Custom Code keeps
    them; the embed adds visual reviews, the schema feeds AI extraction.
+
+## Voucher enquiry flow
+
+`/gift-vouchers` now ships `<VoucherEnquiryForm>` which:
+- Validates with Zod (name/email/amount/recipient/occasion/message).
+- Has a honeypot + 2-second timing trap for bots.
+- Inserts into the `enquiries` table with `subject = 'Gift Vouchers'`,
+  `source_page = '/gift-vouchers'` so Melitta receives it in
+  `/admin/enquiries` with full buyer context.
+- On success, shows a confirmation card. If
+  `VITE_WIX_GIFT_CARDS_URL` is set, surfaces a "Buy instantly via Wix
+  Gift Cards" CTA — the Wix Stores Gift Cards permalink — alongside the
+  email confirmation path.
+- Keeps the WhatsApp + mailto fallbacks visible at all times.
+
+When migrating to Wix:
+- Replace the form with a Wix Form posting to the **Gift Vouchers** CRM
+  tag.
+- Set `VITE_WIX_GIFT_CARDS_URL` (or the Wix-side equivalent) so the
+  Stores Gift Cards permalink renders next to the form.
+- See `docs/63-GIFT-VOUCHER-WIX-HANDOFF.md` for the full Wix Stores /
+  Gift Cards mapping.
 
 ## WhatsApp prefill logic
 
 - Centralised in `src/lib/whatsapp.ts` (`WA.*` map).
-- Each preset references the page/intent; Melitta receives context-rich
-  messages instead of "Hi" pings.
-- `trackWaClick(context, meta?)` pushes to `window.dataLayer` (or
-  `window.trackCta` if available) for GA4/Wix Analytics conversion tracking.
 - See `docs/61-WIX-ENQUIRY-ROUTING-MAP.md` for full subject → CRM mapping.
 
 ## Do NOT fake reviews
 
 - Never auto-generate quotes. Never invent surnames, dates, or platforms.
-- Never emit `publisher: Google` for first-party stories.
+- Never emit `publisher: Google` for first-party stories — DB trigger blocks it.
 - Never duplicate a Review across multiple `@graph` blocks on the same URL.
 - Never claim aggregate Google rating counts that exceed the live profile.
 
 ## Launch checklist
 
-- [ ] Replace all "personal" entries earmarked for Google migration.
-- [ ] Validate `/testimonials` JSON-LD in Rich Results Test.
-- [ ] Validate `/` homepage carousel JSON-LD (no duplicates).
-- [ ] Confirm WhatsApp prefills land in WhatsApp Web with full text.
-- [ ] Add Wix Google Reviews embed once GBP is verified.
-- [ ] Confirm 5.0 / 47+ ratings in `SeoHead.tsx` global schema match GBP.
+- [ ] Migrate verified Google reviews into `public.testimonials` with
+      `platform='google'` and a live Google review `source_url`.
+- [ ] Validate `/testimonials` and `/` JSON-LD in Rich Results Test.
+- [ ] Run `bun scripts/schema-qa-report.ts` and confirm 0 errors.
+- [ ] Replace `<WixReviewsEmbed>` slot with the live Wix widget.
+- [ ] Test the voucher enquiry form end-to-end (submission lands in
+      `/admin/enquiries`).
+- [ ] Set `VITE_WIX_GIFT_CARDS_URL` once the Wix Stores Gift Cards
+      product permalink is live.
