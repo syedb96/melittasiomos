@@ -1,6 +1,10 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import VenueGeoCard from "@/components/VenueGeoCard";
+import LocalTransportBlock from "@/components/LocalTransportBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Shirt } from "lucide-react";
@@ -285,6 +289,34 @@ const TheGeorgeIVChiswick = () => (
       title="What Chiswick regulars say"
       limit={3}
     />
+
+    <VenueGeoCard
+      name="The George IV, Chiswick"
+      streetAddress="185 Chiswick High Rd"
+      locality="London"
+      postcode="W4 2DR"
+      lat={51.4926}
+      lng={-0.2583}
+      telephone="+447449482343"
+      directionsUrl="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR"
+    />
+
+    <LocalTransportBlock
+      venueName="The George IV"
+      postcode="W4 2DR"
+      rows={[
+        { mode: "tube", label: "Turnham Green (District)", detail: "3-min walk down Chiswick High Rd.", time: "3 min" },
+        { mode: "tube", label: "Gunnersbury (District / Overground)", detail: "8-min walk via Wellesley Rd.", time: "8 min" },
+        { mode: "bus", label: "27, E3, 272, 391", detail: "Stop directly outside the pub. Night bus N9.", time: "Door" },
+        { mode: "car", label: "Drive & park", detail: "Free meter parking after 6:30 PM around the venue.", time: "After 6:30" },
+        { mode: "cycle", label: "Santander Bikes", detail: "Dock at Turnham Green Terrace. CS9 cycle route runs past.", time: "Door" },
+        { mode: "access", label: "Step-free access", detail: "Ground-floor entrance and accessible WC.", time: "—" },
+      ]}
+      parkingNote="Free on-street meter parking after 6:30 PM along Chiswick High Rd and side streets."
+      accessibilityNote="Step-free from the street. Dance floor on ground level. Accessible toilet available."
+    />
+
+    <NearMeGrid areas={CHISWICK_NEAR} />
 
     <RelatedPages links={[
       { label: "Salsa Classes Chiswick", to: "/salsa-classes-chiswick" },

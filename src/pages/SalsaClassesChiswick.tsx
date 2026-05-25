@@ -7,6 +7,11 @@ import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
+import LocalTransportBlock from "@/components/LocalTransportBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import heroImg from "@/assets/salsa-chiswick.jpg";
 
 // Recurring class page — NO Event schema. FAQPage + DanceSchool only.
@@ -243,6 +248,30 @@ const SalsaClassesChiswick = () => (
       </div>
     </section>
     <section className="bg-card"><div className="container-main max-w-3xl"><NextEventCallout context="Coming Up at Drayton Court" /></div></section>
+
+    <ReviewVelocityTicker recentCount={14} snippets={REVIEW_VELOCITY_SNIPPETS} />
+
+    <LocalTransportBlock
+      venueName="The George IV, Chiswick"
+      postcode="W4 2DR"
+      rows={[
+        { mode: "tube", label: "Turnham Green (District)", detail: "3-min walk down Chiswick High Rd. The closest tube to the venue.", time: "3 min" },
+        { mode: "tube", label: "Gunnersbury (District / Overground)", detail: "8-min walk via Wellesley Rd. Useful if coming from Richmond or Stratford.", time: "8 min" },
+        { mode: "tube", label: "Chiswick Park (District)", detail: "10-min walk through Acton Green. Quieter route after class.", time: "10 min" },
+        { mode: "bus", label: "Buses 27, E3, 272, 391", detail: "Stop directly outside the pub on Chiswick High Rd. Night bus N9 runs back to Aldwych until 4 AM.", time: "Door" },
+        { mode: "car", label: "Drive & park", detail: "Free on-street meter parking after 6:30 PM along Chiswick High Rd, Bourne Place, Acton Lane and side streets.", time: "After 6:30" },
+        { mode: "cycle", label: "Cycle / Santander Bikes", detail: "Santander dock at Turnham Green Terrace. CS9 cycle superhighway runs along Chiswick High Rd.", time: "Door" },
+      ]}
+      parkingNote="Free meter parking after 6:30 PM on Chiswick High Rd & surrounding residential streets. Pay-and-display Saturdays."
+      accessibilityNote="Step-free entrance from Chiswick High Rd. Accessible toilet on ground floor. Dance floor at street level — no stairs."
+    />
+
+    <NearMeGrid
+      title="Coming from somewhere else in West London?"
+      eyebrow="Areas We Serve"
+      intro="Chiswick Mondays draw dancers from across W3, W4, W6, W12 and the SW13–SW15 belt. Pick your postcode for tube routes, parking and what to expect on your first night."
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },

@@ -6,6 +6,11 @@ import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
+import LocalTransportBlock from "@/components/LocalTransportBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { EALING_NEAR } from "@/data/near-me-areas";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import heroImg from "@/assets/salsa-ealing.jpg";
 
 const ealingFaqs = [
@@ -198,6 +203,30 @@ const SalsaClassesEaling = () => (
       </div>
     </section>
     <div className="container-main max-w-3xl"><NextEventCallout context="Next Latin Friday in Ealing" /></div>
+
+    <ReviewVelocityTicker recentCount={11} snippets={REVIEW_VELOCITY_SNIPPETS} />
+
+    <LocalTransportBlock
+      venueName="The Drayton Court Hotel, West Ealing"
+      postcode="W13 8PH"
+      rows={[
+        { mode: "tube", label: "West Ealing (Elizabeth Line / GWR)", detail: "3-min walk via The Avenue. Fastest route from Paddington, Bond Street and Canary Wharf.", time: "3 min" },
+        { mode: "tube", label: "Ealing Broadway (Central / District / Elizabeth)", detail: "10-min walk or 4-min bus on the 207 / 427. Best transfer hub.", time: "10 min" },
+        { mode: "tube", label: "Northfields (Piccadilly)", detail: "12-min walk through residential Ealing. Convenient from Hammersmith.", time: "12 min" },
+        { mode: "bus", label: "Buses 207, 427, 83, E1", detail: "Stops on Uxbridge Rd & The Avenue. Night bus N207 runs back to Holborn until 4 AM.", time: "Door" },
+        { mode: "car", label: "Drive & park", detail: "Free on-street parking from 6:30 PM along The Avenue, Drayton Bridge Rd and surrounding streets. Hotel car park for paying guests.", time: "After 6:30" },
+        { mode: "cycle", label: "Cycle", detail: "Quiet residential approach via Drayton Bridge Rd. Bike racks at the venue and at West Ealing station.", time: "Door" },
+      ]}
+      parkingNote="Free on-street parking from 6:30 PM along The Avenue & nearby roads. Hotel guests have a private car park on-site."
+      accessibilityNote="Step-free entrance via the side terrace. Lift to the function room. Accessible WCs on each floor."
+    />
+
+    <NearMeGrid
+      title="Travelling to Ealing from elsewhere?"
+      eyebrow="Areas We Serve"
+      intro="Tuesday nights bring dancers from W3, W5, W7, W13, the Elizabeth Line corridor and South-West London. Find the closest route from your postcode."
+      areas={EALING_NEAR}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },
       { to: "/dance-classes-ealing", label: "Dance Classes Ealing" },

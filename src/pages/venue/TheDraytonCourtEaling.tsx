@@ -1,6 +1,10 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import VenueGeoCard from "@/components/VenueGeoCard";
+import LocalTransportBlock from "@/components/LocalTransportBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import { EALING_NEAR } from "@/data/near-me-areas";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Sparkles, Shirt } from "lucide-react";
@@ -302,6 +306,34 @@ const TheDraytonCourtEaling = () => (
       title="What Ealing dancers say"
       limit={3}
     />
+
+    <VenueGeoCard
+      name="The Drayton Court Hotel, West Ealing"
+      streetAddress="2 The Avenue"
+      locality="West Ealing"
+      postcode="W13 8PH"
+      lat={51.5126}
+      lng={-0.3232}
+      telephone="+447449482343"
+      directionsUrl="https://maps.google.com/?q=The+Drayton+Court+Hotel+2+The+Avenue+London+W13+8PH"
+    />
+
+    <LocalTransportBlock
+      venueName="The Drayton Court Hotel"
+      postcode="W13 8PH"
+      rows={[
+        { mode: "tube", label: "West Ealing (Elizabeth Line / GWR)", detail: "3-min walk via The Avenue. Fastest from Paddington & Canary Wharf.", time: "3 min" },
+        { mode: "tube", label: "Ealing Broadway (Central / District)", detail: "10-min walk or 4-min bus 207 / 427.", time: "10 min" },
+        { mode: "bus", label: "207, 427, 83, E1", detail: "Stops on Uxbridge Rd & The Avenue. Night bus N207.", time: "Door" },
+        { mode: "car", label: "Drive & park", detail: "Free on-street from 6:30 PM. Private hotel car park for guests.", time: "After 6:30" },
+        { mode: "cycle", label: "Cycle", detail: "Quiet residential route via Drayton Bridge Rd. Bike racks at venue.", time: "Door" },
+        { mode: "access", label: "Step-free access", detail: "Side terrace entrance + lift to function room.", time: "—" },
+      ]}
+      parkingNote="Free on-street parking from 6:30 PM along The Avenue & nearby roads. Hotel guests use the on-site car park."
+      accessibilityNote="Step-free side entrance. Lift to dance floor. Accessible WCs on each floor."
+    />
+
+    <NearMeGrid areas={EALING_NEAR} />
 
     <RelatedPages links={[
       { label: "Bachata Classes Ealing", to: "/bachata-classes-ealing" },
