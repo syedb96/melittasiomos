@@ -11,6 +11,8 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import WixReviewsEmbed from "@/components/WixReviewsEmbed";
 import RealProofSlot from "@/components/RealProofSlot";
 import LastUpdated from "@/components/LastUpdated";
@@ -502,6 +504,7 @@ const Index = () => {
             <p className="text-muted-foreground text-center text-base mb-14 font-heading max-w-xl mx-auto">Rated 5.0 on Google · Verified student reviews from Chiswick & Ealing.</p>
           </FadeInUp>
           <TestimonialsCarousel />
+          <ReviewVelocityTicker recentCount={14} snippets={REVIEW_VELOCITY_SNIPPETS} />
           <FadeInUp delay={0.3} className="text-center mt-10">
             <Link to="/testimonials" className="text-primary font-heading text-sm font-semibold hover:opacity-80 inline-flex items-center gap-1">Read All Reviews <ChevronRight size={14} /></Link>
           </FadeInUp>
