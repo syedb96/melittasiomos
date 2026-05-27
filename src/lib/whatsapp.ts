@@ -81,6 +81,18 @@ export const WA = {
   startHere: () => waLink(
     "Hi Melitta, I'm new and I'd love to ask a couple of questions before I come to a class."
   ),
+  // /online-salsa-bachata-coaching
+  online: (level?: string, style?: string) => waLink(
+    `Hi Melitta, I'd like to ask about online dance coaching${style ? ` for ${style}` : ""}${level ? ` (level: ${level})` : ""}. Could you share availability and what's included?`
+  ),
+  // /partner-with-pura-nights
+  partner: (org?: string) => waLink(
+    `Hi Melitta, I'm reaching out from ${org || "[organisation]"} about a possible partnership / collaboration with Pura Nights. Could we have a quick chat?`
+  ),
+  // Membership pathway
+  membership: () => waLink(
+    "Hi Melitta, I'd like to ask which Pura Nights pass would suit me best — drop-in, bundle or monthly unlimited."
+  ),
   // Generic fallback
   general: () => waLink(
     "Hi Melitta, I'd like to ask a quick question about Pura Nights."
