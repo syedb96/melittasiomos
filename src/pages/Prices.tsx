@@ -9,6 +9,7 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { CheckCircle, Star } from "lucide-react";
 import BundleCalculator from "@/components/BundleCalculator";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
@@ -263,6 +264,7 @@ const Prices = () => {
     </section>
 
 
+    <MembershipPathwayBlock context="prices_pathway" title="Which pass fits your stage?" />
     <RelatedPages title="Related Pages" links={[
       { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & venue info" },
       { to: "/private-lessons", label: "Private Lessons", desc: "Enquire about 1-to-1 coaching" },

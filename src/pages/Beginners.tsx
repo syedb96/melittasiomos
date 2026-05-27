@@ -9,6 +9,7 @@ import { ChevronRight, CheckCircle, MapPin, Clock, Users, Star, Heart } from "lu
 import { motion } from "framer-motion";
 import heroImg from "@/assets/beginner-welcome.jpg";
 import melittaImg from "@/assets/melitta-candid-real.jpg";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 
 /* <!-- WIX PAGE: /beginners -->
    <!-- WIX SECTION: Hero — Full-width Strip with welcoming beginner image -->
@@ -276,6 +277,7 @@ const Beginners = () => (
       </div>
     </section>
 
+    <MembershipPathwayBlock context="beginners_pathway" title="Pick a pass that fits your stage" />
     <RelatedPages title="Helpful Links for Beginners" links={[
       { to: "/start-here", label: "Start Here Guide", desc: "Everything to know before class" },
       { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & details" },

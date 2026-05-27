@@ -5,6 +5,10 @@ import RelatedPages from "@/components/RelatedPages";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { EALING_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /latin-dance-ealing --> */
 
@@ -98,6 +102,11 @@ const LatinDanceEaling = () => (
       proofAttribution="Carlos · West Ealing W13"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Ealing)"
+      areas={EALING_NEAR}
+    />
     <RelatedPages title="More Ealing Pages" links={[
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
       { to: "/bachata-classes-ealing", label: "Bachata Classes Ealing" },

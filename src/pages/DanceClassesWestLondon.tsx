@@ -5,6 +5,10 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR, EALING_NEAR } from "@/data/near-me-areas";
 
 const faqs = [
   { q: "Are these the only Latin dance classes in West London?", a: "There are other classes around, but Pura Nights is the only weekly school in West London offering three levels every evening with an award-winning instructor and a built-in social dance floor." },
@@ -189,6 +193,11 @@ const DanceClassesWestLondon = () => (
       </div>
     </section>
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (West London)"
+      areas={[...CHISWICK_NEAR, ...EALING_NEAR]}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/bachata-classes-london", label: "Bachata Classes London" },

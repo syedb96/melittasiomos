@@ -5,6 +5,8 @@ import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import {
   BookOpen,
@@ -511,6 +513,17 @@ const StartHere = () => (
         </p>
       </div>
     </section>
+
+    <WhoThisIsForBlock
+      title="Who turns up to their first class"
+      personas={[
+        { label: "Complete beginners", description: "Zero experience required. The beginner block restarts weekly." },
+        { label: "Solo adults", description: "Most people come alone — partner rotation makes it easy." },
+        { label: "People new to London", description: "Fastest way to build a community in West London." },
+        { label: "Returners", description: "Danced years ago and want back in? Start with one class and feel it." },
+      ]}
+    />
+    <MembershipPathwayBlock context="start_here_pathway" />
 
     <RelatedPages
       title="Next Steps"

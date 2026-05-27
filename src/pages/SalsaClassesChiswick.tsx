@@ -13,6 +13,7 @@ import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
 import { CHISWICK_NEAR } from "@/data/near-me-areas";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import heroImg from "@/assets/salsa-chiswick.jpg";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 
 // Recurring class page — NO Event schema. FAQPage + DanceSchool only.
 const chiswickFaqs = [
@@ -272,6 +273,7 @@ const SalsaClassesChiswick = () => (
       intro="Chiswick Mondays draw dancers from across W3, W4, W6, W12 and the SW13–SW15 belt. Pick your postcode for tube routes, parking and what to expect on your first night."
       areas={CHISWICK_NEAR}
     />
+    <MembershipPathwayBlock context="chiswick_pathway" />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },

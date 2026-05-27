@@ -5,6 +5,10 @@ import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { EALING_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /dance-classes-hounslow --> */
 
@@ -107,6 +111,11 @@ const DanceClassesHounslow = () => (
       proofAttribution="Daniel · Hounslow West"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Hounslow)"
+      areas={EALING_NEAR}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/pura-nights", label: "Pura Nights", desc: "Weekly Latin nights" },
       { to: "/schedule", label: "Schedule", desc: "Mon & Tue weekly" },

@@ -7,6 +7,8 @@ import RelatedPages from "@/components/RelatedPages";
 import VoucherEnquiryForm from "@/components/VoucherEnquiryForm";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
    <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
@@ -325,7 +327,23 @@ const GiftVouchers = () => {
         </div>
       </section>
 
-      <RelatedPages title="Related Pages" links={[
+      <WhoThisIsForBlock
+      title="Who Pura Nights vouchers are for"
+      personas={[
+        { label: "Partner gifting", description: "Anniversaries, birthdays, or 'we keep saying we'd dance one day'." },
+        { label: "Friend groups", description: "A shared experience instead of another candle." },
+        { label: "Engagement gifts", description: "Pre-wedding dance lessons couples actually use." },
+        { label: "Corporate gifting", description: "Memorable client / team thank-you with a story attached." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/start-here", label: "How to Redeem", description: "Walk recipients through their first class." },
+        { to: "/pura-nights", label: "What They'll Experience", description: "Show them the room before they arrive." },
+        { to: "/wedding-dance", label: "Wedding Lessons", description: "Pair a voucher with first-dance coaching." },
+      ]}
+    />
+    <RelatedPages title="Related Pages" links={[
         { to: "/pura-nights", label: "Weekly Classes", desc: "Salsa & Bachata every Mon & Tue" },
         { to: "/private-lessons", label: "Private Lessons", desc: "1-to-1 coaching sessions" },
         { to: "/wedding-dance", label: "Wedding Dance", desc: "First dance choreography" },

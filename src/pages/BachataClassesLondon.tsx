@@ -6,6 +6,10 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import heroImg from "@/assets/bachata-close.jpg";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR, EALING_NEAR } from "@/data/near-me-areas";
 
 const faqItems = [
   { q: "Is bachata easier than salsa for beginners?", a: "Many beginners find bachata slightly more accessible due to the slower tempo (120–145 BPM) and a simpler 4-step basic. Both dances are taught at beginner level every week at Pura Nights." },
@@ -181,6 +185,11 @@ const BachataClassesLondon = () => (
       </div>
     </section>
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (London)"
+      areas={[...CHISWICK_NEAR, ...EALING_NEAR]}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },

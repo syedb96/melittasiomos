@@ -3,6 +3,10 @@ import { MapPin, Clock, Star, Trophy, Users, Heart, ArrowRight } from "lucide-re
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 const schema = {
   "@context": "https://schema.org",
@@ -125,6 +129,11 @@ const DanceClassesSouthWestLondon = () => (
         </div>
       </div>
     </section>
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (South West London)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/dance-classes-west-london", label: "Dance Classes West London" },
       { to: "/salsa-classes-london", label: "Salsa Classes London" },

@@ -5,6 +5,10 @@ import RelatedPages from "@/components/RelatedPages";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /latin-dance-chiswick --> */
 
@@ -103,6 +107,11 @@ const LatinDanceChiswick = () => (
       proofAttribution="Helena · Chiswick W4"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Chiswick)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="More Chiswick Pages" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },

@@ -7,6 +7,7 @@ import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
 import { WA, trackWaClick } from "@/lib/whatsapp";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 
 /* <!-- WIX PAGE: /schedule -->
    <!-- WIX: Use Repeater or Table connected to Classes/Schedule CMS collection -->
@@ -195,6 +196,7 @@ const Schedule = () => (
       <div className="container-main max-w-4xl"><NextEventCallout context="Next Latin Friday Social" /></div>
     </section>
 
+    <MembershipPathwayBlock context="schedule_pathway" />
     <RelatedPages title="Related Pages" links={[
       { to: "/pura-nights", label: "About Pura Nights" },
       { to: "/prices", label: "Full Pricing" },

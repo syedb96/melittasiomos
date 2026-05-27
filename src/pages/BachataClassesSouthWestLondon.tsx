@@ -5,6 +5,10 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 const schema = {
   "@context": "https://schema.org",
@@ -183,6 +187,11 @@ const BachataClassesSouthWestLondon = () => (
       </div>
     </section>
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (South West London)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-london", label: "Bachata Classes London" },
       { to: "/bachata-classes-ealing", label: "Bachata in Ealing" },

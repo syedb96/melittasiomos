@@ -6,6 +6,10 @@ import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import heroImg from "@/assets/salsa-class-teaching.jpg";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR, EALING_NEAR } from "@/data/near-me-areas";
 
 const schema = {
   "@context": "https://schema.org",
@@ -169,6 +173,11 @@ const SalsaClassesLondon = () => (
       </div>
     </section>
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (London)"
+      areas={[...CHISWICK_NEAR, ...EALING_NEAR]}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-london", label: "Bachata Classes London" },
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },
