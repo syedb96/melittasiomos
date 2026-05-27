@@ -5,6 +5,8 @@ import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import {
   BookOpen,
