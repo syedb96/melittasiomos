@@ -8,6 +8,8 @@ import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import EditorialQuote from "@/components/EditorialQuote";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 const PURA_LADIES_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20joining%20Pura%20Ladies";
 
@@ -223,6 +225,22 @@ const PuraLadies = () => (
       </div>
     </section>
 
+    <WhoThisIsForBlock
+      title="Who joins Pura Ladies"
+      personas={[
+        { label: "Improver+ dancers", description: "Comfortable with basics and ready for choreography." },
+        { label: "Women wanting confidence", description: "A team room where styling and self-expression are built deliberately." },
+        { label: "Aspiring performers", description: "A clear pathway to festival stages and showcases." },
+        { label: "Existing dancers seeking a tribe", description: "Weekly rehearsals = sisterhood you can rely on." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/blog/ladies-styling-london", label: "Ladies Styling", description: "What styling looks like and how to start." },
+        { to: "/blog/bachata-performance-team-london", label: "Performance Team", description: "Inside the team behind Pura Ladies." },
+        { to: "/gallery", label: "Gallery", description: "Watch the team in action across cities." },
+      ]}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/pura-ladies-covent-garden", label: "Central London Pathway", desc: "For dancers commuting from Covent Garden / Zone 1" },
       { to: "/blog/pura-ladies-story", label: "The Pura Ladies Story", desc: "How one dream became a global community" },

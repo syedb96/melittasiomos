@@ -9,6 +9,8 @@ import VideoTestimonialsBlock from "@/components/VideoTestimonialsBlock";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
 import EditorialQuote from "@/components/EditorialQuote";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
@@ -327,6 +329,22 @@ const CorporateDanceClassesLondon = () => (
       ]}
     />
 
+    <WhoThisIsForBlock
+      title="Who books corporate dance sessions"
+      personas={[
+        { label: "HR & People teams", description: "Need a memorable, inclusive activity for an off-site or away-day." },
+        { label: "Team-building organisers", description: "Want everyone laughing and connecting within 5 minutes." },
+        { label: "Wellbeing leads", description: "Movement-based wellbeing that's actually enjoyable." },
+        { label: "Party planners", description: "Christmas, summer or end-of-quarter — a perfect ice-breaker." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/private-group-dance-parties-london", label: "Group Parties", description: "Hen, birthday and family group bookings." },
+        { to: "/partner-with-pura-nights", label: "Partner With Us", description: "Venues, wellness brands and event partners." },
+        { to: "/contact", label: "Get a Quote", description: "Tell us about your team and dates." },
+      ]}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/private-lessons", label: "Private Lessons" },
       { to: "/events", label: "Latin Friday Events" },

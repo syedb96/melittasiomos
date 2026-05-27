@@ -6,6 +6,8 @@ import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 const groupFaqs = [
   { q: "Do guests need experience or a partner?", a: "Neither. Every routine is built from zero with full partner rotation, so the shy ones get to giggle and the confident ones get to lead." },
@@ -187,6 +189,22 @@ const PrivateGroupDancePartiesLondon = () => (
       </div>
     </section>
 
+    <WhoThisIsForBlock
+      title="Who books a private party with Melitta"
+      personas={[
+        { label: "Hen party organisers", description: "Want something memorable, beginner-friendly and zero-cringe." },
+        { label: "Milestone birthdays", description: "30th, 40th, 50th — a Latin dance hour beats another dinner." },
+        { label: "Family celebrations", description: "Pre-wedding, anniversary or family reunion." },
+        { label: "Friend groups", description: "Just an excuse to do something different together." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/corporate-dance-classes-london", label: "Corporate Sessions", description: "Same energy, team-building format." },
+        { to: "/wedding-dance", label: "Wedding Dance", description: "If the party is for a wedding, ask about choreography too." },
+        { to: "/contact", label: "Plan Your Party", description: "Share date, group size and vibe." },
+      ]}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/wedding-dance", label: "Wedding Dance" },
       { to: "/private-lessons", label: "Private Lessons" },

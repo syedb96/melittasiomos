@@ -10,6 +10,9 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
@@ -218,6 +221,26 @@ const PuraNights = () => (
 
     <div className="container-main max-w-3xl"><NextEventCallout context="Coming up at Pura Nights" /></div>
 
+    <WhoThisIsForBlock
+      title="Who Pura Nights is built for"
+      intro="Most of the room is just like you: a working adult who wants a real hobby, not another gym membership."
+      personas={[
+        { label: "Complete beginners", description: "You've never danced before. We restart the beginner block every single week." },
+        { label: "Solo adults", description: "Coming alone is the norm — partners rotate every few minutes." },
+        { label: "Couples and friends", description: "Lock in date-night or your weekly catch-up with a shared challenge." },
+        { label: "Improvers", description: "Already comfortable with the basics? Step into the second hour for sharper musicality and technique." },
+        { label: "New to London", description: "Easiest way to build a social circle in West London — same room, same faces, every week." },
+      ]}
+    />
+    <MembershipPathwayBlock context="pura_nights_pathway" />
+    <NextStepServiceGrid
+      title="What dancers do next"
+      items={[
+        { to: "/pura-ladies", label: "Pura Ladies", description: "Women wanting styling, confidence and a performance pathway.", eyebrow: "Performance" },
+        { to: "/events", label: "Latin Friday", description: "Monthly social party at the Drayton Court — workshops + DJs.", eyebrow: "Socials" },
+        { to: "/private-lessons", label: "Private Lessons", description: "1-to-1 coaching to accelerate technique, musicality or wedding routines.", eyebrow: "1-to-1" },
+      ]}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/prices", label: "Prices & Bundles" },
       { to: "/events", label: "Monthly Events" },

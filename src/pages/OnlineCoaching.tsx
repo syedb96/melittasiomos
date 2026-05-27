@@ -5,6 +5,8 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 /* <!-- WIX PAGE: /online-salsa-bachata-coaching -->
    <!-- WIX: This page is designed to connect to Wix Online Programs app -->
@@ -341,6 +343,22 @@ const OnlineCoaching = () => (
       </div>
     </section>
 
+    <WhoThisIsForBlock
+      title="Who online coaching is built for"
+      personas={[
+        { label: "Outside London", description: "You can't make Monday Chiswick or Tuesday Ealing — but want Melitta as your coach." },
+        { label: "Busy weeks", description: "Top-up sessions between in-person classes." },
+        { label: "Solo technique", description: "Footwork, body movement, styling — drillable without a partner." },
+        { label: "Wedding couples abroad", description: "Choreographed via video, refined on the day." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/private-lessons", label: "In-Person Privates", description: "When you're next in London." },
+        { to: "/blog", label: "Technique Guides", description: "Free reading to pair with coaching." },
+        { to: "/contact", label: "Talk to Melitta", description: "Free 15-min chat about your goals." },
+      ]}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/private-lessons", label: "Private Lessons", desc: "In-person 1-to-1 coaching in London" },
       { to: "/pura-nights", label: "Weekly Classes", desc: "Join in person in West London" },

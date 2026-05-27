@@ -9,6 +9,8 @@ import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import EditorialQuote from "@/components/EditorialQuote";
 import heroImg from "@/assets/private-lesson.jpg";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 const PRIVATE_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20dance%20lessons";
 
@@ -256,6 +258,22 @@ const PrivateLessons = () => (
       </div>
     </section>
 
+    <WhoThisIsForBlock
+      title="Who books private lessons"
+      personas={[
+        { label: "Complete beginners", description: "Want to learn in private before stepping into a group class." },
+        { label: "Improvers stuck on a plateau", description: "Personalised drills to break through technique blocks." },
+        { label: "Performance hopefuls", description: "Prepping for Pura Ladies audition, a showcase or competition." },
+        { label: "Couples", description: "Wedding, anniversary or just date-night dancing — sessions for two." },
+      ]}
+    />
+    <NextStepServiceGrid
+      items={[
+        { to: "/pura-nights", label: "Weekly Classes", description: "Apply your private work in a real social setting." },
+        { to: "/wedding-dance", label: "Wedding Dance", description: "Full first-dance coaching pathway." },
+        { to: "/online-salsa-bachata-coaching", label: "Online Coaching", description: "Continue between in-person sessions." },
+      ]}
+    />
     <RelatedPages title="Related Pages" links={[
       { to: "/private-dance-lessons-west-london", label: "Private Lessons West London", desc: "Local 1-to-1 coaching info" },
       { to: "/salsa-bachata-classes-covent-garden", label: "Covent Garden & Central London", desc: "Coaching options from Zone 1" },

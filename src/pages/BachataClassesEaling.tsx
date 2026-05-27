@@ -8,6 +8,7 @@ import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
 import heroImg from "@/assets/salsa-ealing.jpg";
+import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 
 const ealingBachataFaqs = [
   { q: "Are there bachata classes near Ealing Broadway?", a: "Yes — Pura Nights teaches bachata every Tuesday at The Drayton Court Hotel, 2 The Avenue W13 8PH, from 8:15 PM. It's a 10-minute walk from Ealing Broadway or 3 minutes from West Ealing on the Elizabeth Line." },
@@ -145,6 +146,7 @@ const BachataClassesEaling = () => (
       </div>
     </section>
     <div className="container-main max-w-3xl"><NextEventCallout context="Next Latin Friday in Ealing" /></div>
+    <MembershipPathwayBlock context="ealing_pathway" />
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing (same Tuesday)" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick (Mondays)" },

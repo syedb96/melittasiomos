@@ -8,6 +8,8 @@ import { Star, Heart, CheckCircle, ChevronRight, ExternalLink } from "lucide-rea
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 
 /* <!-- WIX PAGE: /wedding-dance -->
    <!-- WIX SECTION: Hero — use Full-width Strip with dark overlay -->
@@ -260,6 +262,23 @@ const WeddingDance = () => (
       </div>
     </section>
 
+    <WhoThisIsForBlock
+      title="Who Melitta coaches for first dances"
+      personas={[
+        { label: "Nervous couples", description: "Never danced together? Melitta builds confidence first, choreography second." },
+        { label: "Last-minute couples", description: "Got 4–6 weeks left? She'll build a beautiful, achievable routine fast." },
+        { label: "Simple & elegant", description: "Sometimes the most moving first dance is the calmest one. We'll match your song." },
+        { label: "Showpiece routines", description: "Want a wow-moment with a lift or a reveal? She's choreographed dozens." },
+      ]}
+    />
+    <NextStepServiceGrid
+      title="After your first dance"
+      items={[
+        { to: "/private-lessons", label: "Private Lessons", description: "Keep dancing together — beyond the wedding.", eyebrow: "Couples" },
+        { to: "/testimonials", label: "Real Couple Reviews", description: "Read how other couples felt on the day." },
+        { to: "/gift-vouchers", label: "Gift a Lesson", description: "Perfect anniversary or engagement gift." },
+      ]}
+    />
     <RelatedPages title="Wedding Dance Resources" links={[
       { to: "/blog/wedding-first-dance-tips", label: "10 First Dance Tips", desc: "Expert advice for your big day" },
       { to: "/blog/choose-wedding-first-dance-song", label: "Choose Your Song", desc: "How to pick the perfect track" },
