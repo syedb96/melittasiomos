@@ -6,6 +6,10 @@ import RelatedPages from "@/components/RelatedPages";
 import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /salsa-classes-hammersmith --> */
 
@@ -139,6 +143,11 @@ const SalsaClassesHammersmith = () => (
       proofAttribution="Aisha · Hammersmith regular"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Hammersmith)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Your nearest venue" },
       { to: "/bachata-classes-west-london", label: "Bachata West London", desc: "All Bachata classes" },

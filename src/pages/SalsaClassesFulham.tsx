@@ -7,6 +7,10 @@ import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /salsa-classes-fulham --> */
 
@@ -158,6 +162,11 @@ const SalsaClassesFulham = () => (
       proofAttribution="James · Fulham Broadway"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Fulham)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },
       { to: "/salsa-classes-hammersmith", label: "Salsa Hammersmith", desc: "Same line, 2 stops further" },

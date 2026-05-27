@@ -7,6 +7,10 @@ import AnswerBox from "@/components/AnswerBox";
 import LastUpdated from "@/components/LastUpdated";
 import LocalTrustBlock from "@/components/LocalTrustBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
+import { CHISWICK_NEAR } from "@/data/near-me-areas";
 
 /* <!-- WIX PAGE: /salsa-classes-richmond -->
    <!-- WIX SECTION: Hero, Schedule, Why Richmond, Getting There, FAQ, CTA --> */
@@ -148,6 +152,11 @@ const SalsaClassesRichmond = () => (
       proofAttribution="Sophie · Richmond regular"
     />
 
+    <ReviewVelocityTicker snippets={REVIEW_VELOCITY_SNIPPETS} />
+    <NearMeGrid
+      title="Pura Nights near you (Richmond)"
+      areas={CHISWICK_NEAR}
+    />
     <RelatedPages title="Explore More" links={[
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick", desc: "Mon · The George IV" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing", desc: "Tue · Drayton Court" },
