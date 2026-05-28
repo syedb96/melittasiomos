@@ -1,10 +1,13 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { trackCta } from "@/lib/analytics";
 
 /* <!-- WIX SECTION: Next-Step Service Grid — replicate as a Repeater bound
      to a static "RelatedServices" CMS collection (label|description|to|tone).
-     Heading sits above as a Wix Title; the cards become a 3-column Repeater. --> */
+     A/B test note for Wix: use Wix A/B (or Velo Math.random + cookie) to
+     reverse the Repeater dataset for variant B and tag clicks with the variant. --> */
 
 export interface NextStepItem {
   to: string;
@@ -22,6 +25,29 @@ interface Props {
   /** Intro paragraph */
   intro?: string;
   items: NextStepItem[];
+  /** Unique key so the A/B variant is stable per placement (page + slot). */
+  experimentKey?: string;
+}
+
+const VARIANT_STORAGE_KEY = "pn_nss_variant_v1";
+
+/**
+ * Get or assign this visitor's NextStepServiceGrid ordering variant.
+ *  - A = original order (control)
+ *  - B = reversed order (test)
+ * Variant is stored per browser session so analytics stays attributable.
+ */
+function getOrAssignVariant(): "A" | "B" {
+  if (typeof window === "undefined") return "A";
+  try {
+    const existing = sessionStorage.getItem(VARIANT_STORAGE_KEY);
+    if (existing === "A" || existing === "B") return existing;
+    const next: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+    sessionStorage.setItem(VARIANT_STORAGE_KEY, next);
+    return next;
+  } catch {
+    return "A";
+  }
 }
 
 const NextStepServiceGrid = ({
@@ -29,53 +55,71 @@ const NextStepServiceGrid = ({
   title = "Your Next Step with Pura Nights",
   intro = "Most students naturally branch into a second service once they're enjoying weekly classes. Here's where dancers like you tend to go next.",
   items,
-}: Props) => (
-  <section
-    className="section-padding bg-card"
-    aria-labelledby="next-step-service-title"
-  >
-    <div className="container-main max-w-6xl">
-      <FadeInUp>
-        <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
-          {eyebrow}
-        </p>
-        <h2
-          id="next-step-service-title"
-          className="font-display text-3xl md:text-4xl font-bold mb-3"
-        >
-          {title}
-        </h2>
-        <p className="text-muted-foreground font-heading text-sm max-w-2xl mb-10">
-          {intro}
-        </p>
-      </FadeInUp>
+  experimentKey = "default",
+}: Props) => {
+  const variant = useMemo(getOrAssignVariant, []);
+  const ordered = useMemo(
+    () => (variant === "B" ? [...items].reverse() : items),
+    [items, variant]
+  );
 
-      <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {items.map((item) => (
-          <StaggerItem key={item.to}>
-            <Link
-              to={item.to}
-              className="group block h-full bg-background rounded-2xl p-5 border border-border hover:border-primary/40 transition-colors card-hover"
-            >
-              <div className="flex items-start justify-between mb-2">
-                <span className="font-accent text-[10px] tracking-[0.2em] uppercase text-primary">
-                  {item.eyebrow || "Next step"}
-                </span>
-                <ArrowUpRight
-                  size={16}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                />
-              </div>
-              <h3 className="font-display text-lg font-bold mb-1">{item.label}</h3>
-              <p className="text-xs text-muted-foreground font-heading leading-relaxed">
-                {item.description}
-              </p>
-            </Link>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-    </div>
-  </section>
-);
+  return (
+    <section
+      className="section-padding bg-card"
+      aria-labelledby="next-step-service-title"
+      data-experiment="nextstep_order"
+      data-variant={variant}
+      data-experiment-key={experimentKey}
+    >
+      <div className="container-main max-w-6xl">
+        <FadeInUp>
+          <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+            {eyebrow}
+          </p>
+          <h2
+            id="next-step-service-title"
+            className="font-display text-3xl md:text-4xl font-bold mb-3"
+          >
+            {title}
+          </h2>
+          <p className="text-muted-foreground font-heading text-sm max-w-2xl mb-10">
+            {intro}
+          </p>
+        </FadeInUp>
+
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {ordered.map((item, idx) => (
+            <StaggerItem key={item.to}>
+              <Link
+                to={item.to}
+                onClick={() =>
+                  trackCta(
+                    `nextstep:${experimentKey}:${item.to}`,
+                    `nextstep_variant_${variant}_pos_${idx + 1}`
+                  )
+                }
+                className="group block h-full bg-background rounded-2xl p-5 border border-border hover:border-primary/40 transition-colors card-hover"
+              >
+                <div className="flex items-start justify-between mb-2">
+                  <span className="font-accent text-[10px] tracking-[0.2em] uppercase text-primary">
+                    {item.eyebrow || "Next step"}
+                  </span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-muted-foreground group-hover:text-primary transition-colors"
+                  />
+                </div>
+                <h3 className="font-display text-lg font-bold mb-1">{item.label}</h3>
+                <p className="text-xs text-muted-foreground font-heading leading-relaxed">
+                  {item.description}
+                </p>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+};
 
 export default NextStepServiceGrid;
