@@ -161,8 +161,8 @@ const MembershipPathwayBlock = ({
       </div>
       <MonthlyUnlimitedDialog open={monthlyOpen} onClose={() => setMonthlyOpen(false)} />
     </section>
+  );
+};
+
 export default MembershipPathwayBlock;
 
-
-
-export default MembershipPathwayBlock;
