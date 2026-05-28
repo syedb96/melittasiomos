@@ -4,7 +4,12 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { CENTRAL_FROM_CG } from "@/data/near-me-areas";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+
 
 /* <!-- WIX PAGE: /salsa-bachata-classes-covent-garden
         Wix page type: Static page
