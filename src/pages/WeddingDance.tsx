@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import RealProofSlot from "@/components/RealProofSlot";
@@ -72,6 +73,19 @@ const WeddingDance = () => (
             Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
           </p>
         </div>
+      </div>
+    </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="warm"
+          question="How many wedding dance lessons do most couples need?"
+          answer="Most couples polish a memorable 60–90 second first dance in 4–6 private sessions with Melitta. Beginners with no experience usually take 6, returning dancers 3–4, and busy couples on a tight runway can fast-track in 2 intensive blocks. Choreography is tailored to your song, venue size, dress and guest list so you actually look like yourselves on the night."
+          bullets={["4–6 lessons is the most popular package","Free 15-min discovery call before you commit","Online prep videos sent between sessions","Last-minute bookings available with notice"]}
+          cta={{ label: "Book a free consultation", href: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20we%27d%20like%20to%20book%20a%20free%20wedding%20dance%20consultation" }}
+        />
       </div>
     </section>
 
