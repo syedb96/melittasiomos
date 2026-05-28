@@ -27,3 +27,19 @@ export const EALING_NEAR: NearMeArea[] = [
   { slug: "salsa-classes-richmond", name: "Richmond", postcode: "TW9", distance: "4.6 mi · 18 min drive", venue: "Both" },
   { slug: "dance-classes-south-west-london", name: "SW London", postcode: "SW1–SW20", distance: "Region hub", venue: "Both" },
 ];
+
+/* For Central London visitors landing on /salsa-bachata-classes-covent-garden.
+   These slugs all link to existing pages; distances are door-to-door from
+   Covent Garden (WC2) using TfL/driving. Venue tag shows which weekly night
+   the area naturally feeds into. */
+export const CENTRAL_FROM_CG: NearMeArea[] = [
+  { slug: "salsa-classes-hammersmith", name: "Hammersmith", postcode: "W6", distance: "5.2 mi · 25 min Piccadilly", venue: "Both" },
+  { slug: "salsa-classes-chiswick", name: "Chiswick", postcode: "W4", distance: "7.1 mi · 28 min Piccadilly", venue: "Chiswick" },
+  { slug: "salsa-classes-ealing", name: "Ealing", postcode: "W13", distance: "8.6 mi · 35 min Central", venue: "Ealing" },
+  { slug: "salsa-classes-acton", name: "Acton", postcode: "W3", distance: "6.8 mi · 27 min Central", venue: "Both" },
+  { slug: "salsa-classes-notting-hill", name: "Notting Hill", postcode: "W11", distance: "3.4 mi · 18 min Central", venue: "Chiswick" },
+  { slug: "salsa-classes-shepherds-bush", name: "Shepherd's Bush", postcode: "W12", distance: "4.6 mi · 22 min Central", venue: "Chiswick" },
+  { slug: "salsa-classes-fulham", name: "Fulham", postcode: "SW6", distance: "4.8 mi · 24 min District", venue: "Chiswick" },
+  { slug: "salsa-classes-richmond", name: "Richmond", postcode: "TW9", distance: "9.4 mi · 38 min District", venue: "Both" },
+];
+

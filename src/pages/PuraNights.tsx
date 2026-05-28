@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import ProofBlock from "@/components/ProofBlock";
@@ -52,6 +53,19 @@ const PuraNights = () => (
             Drop in from £10 · 7:00pm Beginners · 8:00pm Improvers · Social dancing til late
           </p>
         </div>
+      </div>
+    </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="warm"
+          question="Who is Pura Nights for and how do I join?"
+          answer="Pura Nights is West London's adult Salsa & Bachata community — beginner-friendly, never cliquey, run by Bachata UK Champion Melitta Siomos since 2017. We meet weekly in Chiswick (Monday) and Ealing (Tuesday), and you join by simply turning up to your first class. No partner, no experience and no booking required — pay on the door or grab a bundle once you know you're hooked."
+          bullets={["Two weekly venues, both beginner-friendly","Pay-as-you-go or 5/10-class bundles","Includes social dancing every week","Latin Friday socials once a month"]}
+          cta={{ label: "Read the start-here guide", to: "/start-here" }}
+        />
       </div>
     </section>
 

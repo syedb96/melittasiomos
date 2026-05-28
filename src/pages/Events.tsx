@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Clock, Calendar, ExternalLink } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { upcomingEvents, EVENT_CATEGORIES, type EventCategory } from "@/data/events";
@@ -87,6 +88,19 @@ const Events = () => {
           </FadeInUp>
         </div>
       </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="warm"
+          question="What Latin dance events are on in West London this month?"
+          answer="The flagship event is Pura Nights' Latin Friday — a monthly Salsa & Bachata social at the Drayton Court Hotel in West Ealing. The night opens with a beginner-friendly workshop, then DJs play a balanced mix of salsa, bachata and a touch of kizomba until late. Tickets are released ~3 weeks ahead and usually sell out. Weekly classes in Chiswick (Mon) and Ealing (Tue) run on top."
+          bullets={["Monthly Latin Friday at Drayton Court","Beginner workshop included with every ticket","Salsa, Bachata + light Kizomba sets","Weekly classes Mon & Tue — no booking needed"]}
+          cta={{ label: "Talk to Melitta about the next event", href: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20when%20is%20the%20next%20Latin%20Friday%3F" }}
+        />
+      </div>
+    </section>
 
       {/* Featured: Next Latin Friday with Countdown */}
       <section className="section-padding bg-charcoal">

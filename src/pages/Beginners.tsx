@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import RealProofSlot from "@/components/RealProofSlot";
@@ -97,6 +98,19 @@ const Beginners = () => (
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
           Arrive 10 min early · Flat shoes only · We rotate partners — come solo or with a friend
         </motion.p>
+      </div>
+    </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="warm"
+          question="Is salsa or bachata easier for a complete beginner?"
+          answer="Bachata is the gentler entry point — it has fewer turn patterns, a forgiving 1-2-3-tap rhythm and a slower BPM, so most adults feel competent on the floor inside 2–3 classes. Salsa adds a faster tempo and more partner cues, but the basic step is just as learnable. At Pura Nights you'll try both back-to-back on your first night and quickly discover which one your body prefers."
+          bullets={["No partner and no experience needed","Beginner-only slot every Monday & Tuesday","Friendly rotation — never feel stuck","Try both styles before committing"]}
+          cta={{ label: "Book your first class", to: "/start-here" }}
+        />
       </div>
     </section>
 

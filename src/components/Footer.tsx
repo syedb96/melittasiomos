@@ -80,14 +80,27 @@ const Footer = () => (
             <li><Link to="/private-group-dance-parties-london" className="hover:text-primary transition-colors">Hen & Group Parties</Link></li>
             <li><Link to="/pura-ladies" className="hover:text-primary transition-colors">Pura Ladies</Link></li>
             <li><Link to="/online-salsa-bachata-coaching" className="hover:text-primary transition-colors">Online Coaching</Link></li>
+            <li><Link to="/online-academy" className="hover:text-primary transition-colors">Online Academy</Link></li>
             <li><Link to="/gift-vouchers" className="hover:text-primary transition-colors">Gift Vouchers</Link></li>
+            <li><Link to="/wedding-dance-lessons-london" className="hover:text-primary transition-colors">Wedding Dance · London</Link></li>
+            <li><Link to="/wedding-dance-west-london" className="hover:text-primary transition-colors">Wedding Dance · West London</Link></li>
+            <li><Link to="/private-dance-lessons-west-london" className="hover:text-primary transition-colors">Private Lessons · West London</Link></li>
+            <li><Link to="/private-salsa-lessons-london" className="hover:text-primary transition-colors">Private Salsa · London</Link></li>
+            <li><Link to="/ladies-styling-london" className="hover:text-primary transition-colors">Ladies Styling · London</Link></li>
+            <li><Link to="/bachata-performance-team-london" className="hover:text-primary transition-colors">Bachata Performance Team</Link></li>
+            <li><Link to="/pura-ladies-covent-garden" className="hover:text-primary transition-colors">Pura Ladies · Covent Garden</Link></li>
             <li><Link to="/latin-night-out-west-london" className="hover:text-primary transition-colors">Latin Night Out</Link></li>
+            <li><Link to="/proof-centre" className="hover:text-primary transition-colors">Proof Centre</Link></li>
+            <li><Link to="/meet-the-team" className="hover:text-primary transition-colors">Meet the Team</Link></li>
+            <li><Link to="/community" className="hover:text-primary transition-colors">Community</Link></li>
+            <li><Link to="/refer" className="hover:text-primary transition-colors">Refer a Friend</Link></li>
             <li><Link to="/testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
             <li><Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog & Guides</Link></li>
             <li><a href="https://melittasiomos.com" target="_blank" rel="noopener noreferrer" className="text-primary/80 hover:text-primary transition-colors font-semibold inline-flex items-center gap-1">melittasiomos.com <ExternalLink size={9} /></a></li>
           </ul>
+
         </div>
 
         {/* Col 3 — Find Classes by Area (visually secondary, SEO directory) */}

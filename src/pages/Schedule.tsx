@@ -3,6 +3,7 @@ import { MapPin, Clock, ArrowRight, Calendar, Music, Users } from "lucide-react"
 import Layout from "@/components/Layout";
 import FirstTimerCallout from "@/components/FirstTimerCallout";
 import SeoHead from "@/components/SeoHead";
+import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
@@ -39,6 +40,19 @@ const Schedule = () => (
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Weekly Class Schedule</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">Two locations, five classes, unlimited social dancing. Here's when and where to find us every week.</p>
         </FadeInUp>
+      </div>
+    </section>
+
+    {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
+    <section className="section-padding section-warm">
+      <div className="container-main max-w-3xl">
+        <AnswerBox
+          tone="warm"
+          question="What is the weekly Pura Nights class schedule?"
+          answer="Pura Nights runs every Monday at The George IV in Chiswick (W4 2DR) from 7:30pm and every Tuesday at the Drayton Court Hotel in West Ealing (W13 8PH) from 7:30pm. Each night includes a beginner class, an improver/intermediate class and open social dancing until 11pm. No partner needed — rotation is built in — and you can drop in to any week without booking ahead."
+          bullets={["Mon: George IV, Chiswick — Salsa & Bachata","Tue: Drayton Court, Ealing — Salsa & Bachata","Beginners class first, social dancing until 11pm","Drop-in or bundle pass, both venues accept walk-ins"]}
+          cta={{ label: "See pricing & passes", to: "/prices" }}
+        />
       </div>
     </section>
 

@@ -4,7 +4,12 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
+import NearMeGrid from "@/components/NearMeGrid";
+import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
+import { CENTRAL_FROM_CG } from "@/data/near-me-areas";
+import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+
 
 /* <!-- WIX PAGE: /salsa-bachata-classes-covent-garden
         Wix page type: Static page
@@ -158,6 +163,23 @@ const SalsaBachataCoventGarden = () => (
         />
       </div>
     </section>
+
+    {/* Review velocity — proof from recent students */}
+    <ReviewVelocityTicker
+      recentCount={12}
+      windowLabel="last 30 days"
+      ratingAvg={5.0}
+      snippets={REVIEW_VELOCITY_SNIPPETS}
+    />
+
+    {/* Near-me grid — Central London → West London weekly venues */}
+    <NearMeGrid
+      id="near-cg"
+      eyebrow="Near You — Central & West"
+      title="Where Central London dancers commute from"
+      intro="Pura Nights' weekly classes are in Chiswick (Mon) and Ealing (Tue). Here's how close they sit to the neighbourhoods Covent Garden dancers commute via."
+      areas={CENTRAL_FROM_CG}
+    />
 
     {/* Best for */}
     <section className="section-padding section-ivory">
