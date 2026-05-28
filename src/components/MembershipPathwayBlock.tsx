@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles, TrendingUp, Award, Crown } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import { waLink, trackWaClick } from "@/lib/whatsapp";
+import MonthlyUnlimitedDialog from "@/components/MonthlyUnlimitedDialog";
 
 /* <!-- WIX SECTION: Membership Pathway — replicate as a 4-card Repeater bound
      to a "MembershipTier" CMS collection (icon|label|price|bestFor|note|cta).
@@ -60,11 +61,12 @@ const MembershipPathwayBlock = ({
   title = "Your Pura Nights Pathway",
   intro = "Most students follow the same simple journey — try one class, return next week, then commit when you feel the spark. Pick the pass that matches where you are right now.",
   context = "membership_pathway",
+  context = "membership_pathway",
 }: Props) => {
-  const wa = waLink(
-    "Hi Melitta, I'd like to ask which Pura Nights pass would suit me best for the weekly classes."
-  );
+  const [monthlyOpen, setMonthlyOpen] = useState(false);
   return (
+    <section className="section-padding section-warm" aria-labelledby="membership-pathway-title">
+
     <section className="section-padding section-warm" aria-labelledby="membership-pathway-title">
       <div className="container-main max-w-6xl">
         <FadeInUp>
@@ -149,19 +151,22 @@ const MembershipPathwayBlock = ({
           <Link to="/pura-nights" className="btn-cta-outline text-xs">
             Start with one class
           </Link>
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWaClick(context)}
+          <button
+            type="button"
+            onClick={() => setMonthlyOpen(true)}
             className="btn-cta-outline text-xs"
+            data-context={context}
           >
-            💬 Ask Melitta on WhatsApp
-          </a>
+            👑 Get Monthly Unlimited pricing
+          </button>
         </div>
       </div>
+      <MonthlyUnlimitedDialog open={monthlyOpen} onClose={() => setMonthlyOpen(false)} />
     </section>
   );
 };
+
+export default MembershipPathwayBlock;
+
 
 export default MembershipPathwayBlock;
