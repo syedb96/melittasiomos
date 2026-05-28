@@ -61,13 +61,11 @@ const MembershipPathwayBlock = ({
   title = "Your Pura Nights Pathway",
   intro = "Most students follow the same simple journey — try one class, return next week, then commit when you feel the spark. Pick the pass that matches where you are right now.",
   context = "membership_pathway",
-  context = "membership_pathway",
 }: Props) => {
   const [monthlyOpen, setMonthlyOpen] = useState(false);
   return (
     <section className="section-padding section-warm" aria-labelledby="membership-pathway-title">
 
-    <section className="section-padding section-warm" aria-labelledby="membership-pathway-title">
       <div className="container-main max-w-6xl">
         <FadeInUp>
           <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary mb-3">{eyebrow}</p>
@@ -163,10 +161,8 @@ const MembershipPathwayBlock = ({
       </div>
       <MonthlyUnlimitedDialog open={monthlyOpen} onClose={() => setMonthlyOpen(false)} />
     </section>
-  );
-};
-
 export default MembershipPathwayBlock;
+
 
 
 export default MembershipPathwayBlock;
