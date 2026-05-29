@@ -292,7 +292,7 @@ const TheDraytonCourtEaling = () => (
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
             </a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20the%20Tuesday%20Ealing%20class%20at%20the%20Drayton%20Court.%20Is%20the%20beginner%20slot%20the%20best%20place%20to%20start%3F" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               WhatsApp Melitta
             </a>
           </div>

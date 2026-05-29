@@ -275,7 +275,7 @@ const TheGeorgeIVChiswick = () => (
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
             </a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20the%20Monday%20Chiswick%20class%20at%20The%20George%20IV.%20Is%20it%20suitable%20for%20a%20complete%20beginner%20coming%20alone%3F" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               WhatsApp Melitta
             </a>
           </div>

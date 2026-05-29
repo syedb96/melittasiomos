@@ -196,7 +196,7 @@ const Header = () => {
               )
             )}
             {/* WhatsApp ghost button */}
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="ml-3 flex items-center gap-1.5 px-4 py-2 text-[10px] font-heading font-semibold border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors">
+            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20a%20quick%20question%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="ml-3 flex items-center gap-1.5 px-4 py-2 text-[10px] font-heading font-semibold border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors">
               <MessageCircle size={12} /> WhatsApp
             </a>
             {/* Book Now solid */}
@@ -226,7 +226,7 @@ const Header = () => {
               )
             )}
             <div className="flex flex-col gap-3 mt-4 w-64">
-              <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm text-center w-full">
+              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20a%20quick%20question%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm text-center w-full">
                 💬 WhatsApp Melitta
               </a>
               <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm text-center w-full">
