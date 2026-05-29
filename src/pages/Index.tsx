@@ -121,7 +121,7 @@ const Index = () => {
       {/* SECTION 1 — HERO */}
       <section className="relative min-h-[78vh] md:min-h-[80vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden">
         {/* <!-- WIX: Replace with Wix Video Background or Hero Media. Focal point upper-third to keep dancers' faces visible. --> */}
-        <img src={heroImage} alt="Pura Nights salsa and bachata social dancing in London" className="absolute inset-0 w-full h-full object-cover object-[center_30%]" width={1920} height={1080} />
+        <img src={heroImage} alt="Pura Nights salsa and bachata social dancing in London" className="absolute inset-0 w-full h-full object-cover object-[center_30%]" width={1920} height={1080} fetchPriority="high" decoding="async" />
         <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="font-accent text-xs tracking-[0.3em] uppercase text-primary mb-6">

@@ -64,7 +64,7 @@ const PhotoSlot = ({
           <p className="text-[11px] text-muted-foreground leading-relaxed max-w-[32ch] mx-auto mb-2">
             {idealSubject}
           </p>
-          <p className="text-[10px] text-muted-foreground/70 italic">
+          <p className="text-[10px] text-muted-foreground italic">
             alt: "{altText}"
           </p>
         </div>

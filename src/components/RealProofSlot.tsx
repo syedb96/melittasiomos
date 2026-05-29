@@ -74,7 +74,7 @@ const RealProofSlot = ({
         <p className="text-xs text-muted-foreground max-w-xs leading-relaxed mb-3">
           {idealSubject}
         </p>
-        <p className="text-[10px] font-heading uppercase tracking-wider text-muted-foreground/70">
+        <p className="text-[10px] font-heading uppercase tracking-wider text-muted-foreground">
           Crop {cropRatio} · alt: "{altText}"
         </p>
       </div>

@@ -43,7 +43,7 @@ const HowManyWeddingLessons = () => (
                 <div key={i} className="bg-card rounded-lg p-5">
                   <h3 className="font-display text-lg font-bold text-primary mb-1">{item.lessons}</h3>
                   <p className="text-muted-foreground text-sm mb-2">{item.who}</p>
-                  <p className="text-xs text-muted-foreground/70">Recommended timeline: {item.timeline}</p>
+                  <p className="text-xs text-muted-foreground">Recommended timeline: {item.timeline}</p>
                 </div>
               ))}
             </div>
