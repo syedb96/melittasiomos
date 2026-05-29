@@ -182,3 +182,41 @@ Linktree contains:
 - All form submissions must trigger the auto-reply within 30 seconds (Wix Automations).
 - Every hot lead form must include a visible WhatsApp fallback within 30px of the submit button.
 - All forms must record consent (GDPR) via a checkbox: "I agree to be contacted by Pura Nights about my enquiry."
+
+---
+
+## Final Wix Form Routing Table (2026-05-29)
+
+Locked taxonomy. Mirrors the trigger allow-list in
+`supabase/migrations/20260515102200…sql` and the WhatsApp prefill helpers
+in `src/lib/whatsapp.ts`. Use this as the single source of truth when
+rebuilding forms inside Wix.
+
+| Form | Page(s) | Lead type | CRM tag | Destination inbox | Suggested email subject | Auto-reply (one line) | WhatsApp fallback | Wix automation note |
+|---|---|---|---|---|---|---|---|---|
+| General Contact | `/contact` | enquiry | `general` | siomosmelitta@gmail.com | `[General] {{name}} — {{source_page}}` | "Thanks {{name}} — Melitta will reply within 24h." | `WA.general` | Wix Form → Enquiries collection · auto-reply template `general-reply` |
+| First Class Enquiry | `/start-here`, `/schedule`, `/pura-nights` | first-timer | `first-class` | siomosmelitta@gmail.com | `[First class] {{name}} — {{chosen_night}}` | "Welcome {{name}}! Just turn up to the beginner slot — see you on the floor." | `WA.scheduleMonChiswick` / `WA.scheduleTueEaling` | Hidden `enquiry_type = Group Classes — Chiswick or Ealing` |
+| Wedding Dance | `/wedding-dance`, `/wedding-dance-lessons-london`, `/wedding-dance-west-london` | wedding | `wedding` | siomosmelitta@gmail.com + WhatsApp | `[Wedding] {{names}} — {{date}}` | "Congratulations {{names}}! Melitta will be in touch to arrange your free consult." | `WA.weddingDance` | Hidden `enquiry_type = Wedding Dance — Consultation`; fields: `eventDate`, `location`, `sessionType` |
+| Private Lessons | `/private-lessons`, `/private-dance-lessons-west-london`, `/private-salsa-lessons-london` | private | `private-lessons` | siomosmelitta@gmail.com + WhatsApp | `[Privates] {{name}} — {{goal}}` | "Hi {{name}} — Melitta will reply with options and availability within 24h." | `WA.privateLessons` | Hidden `enquiry_type = Private Lessons — Enquiry` |
+| Corporate Booking | `/corporate-dance-classes-london` | corporate | `corporate` | siomosmelitta@gmail.com | `[Corporate] {{company}} — {{eventDate}} · {{groupSize}}px` | "Hi {{name}} — quote on its way within 1 working day." | `WA.corporate(date, group)` | Hidden `enquiry_type = Corporate Booking — Team Building`; fields: `company`, `eventDate`, `location`, `groupSize`, `sessionType`, `budget` |
+| Group Party | `/private-group-dance-parties-london` | group-party | `group-party` | siomosmelitta@gmail.com | `[Group party] {{occasion}} — {{eventDate}} · {{groupSize}}px` | "Hi {{name}} — Melitta will reply with availability + pricing within 24h." | `WA.groupParty(date, group)` | Hidden `enquiry_type = Private Group Party — Hen / Birthday`; fields: `eventDate`, `location`, `groupSize`, `sessionType` |
+| Pura Ladies | `/pura-ladies`, `/pura-ladies-covent-garden`, `/ladies-styling-london`, `/bachata-performance-team-london` | performance | `pura-ladies` | siomosmelitta@gmail.com | `[Pura Ladies] {{name}} — {{location}}` | "Thanks {{name}} — we'll let you know when the next audition window opens." | `WA.puraLadies` | Hidden `enquiry_type = Pura Ladies — Audition / Membership` |
+| Partner / Venue Enquiry | `/partner-with-pura-nights` | partner | `partnership` | siomosmelitta@gmail.com | `[Partner] {{organisation}}` | "Hi {{name}} — Melitta will review and reply within 48h." | `WA.partner(org)` | Hidden `enquiry_type = Partnership / Venue Collaboration`; fields: `organisation`, `website`, `sessionType`, `location` |
+| Gift Vouchers | `/gift-vouchers`, `/contact` | voucher | `vouchers` | siomosmelitta@gmail.com | `[Voucher] £{{amount}} — {{name}}` | "Hi {{name}} — Melitta will send your voucher details within 24h." | `WA.voucher(amount)` / `WA.voucherCustom` | Hidden `enquiry_type = Gift Vouchers`; field: `amount` |
+| Online Coaching | `/online-salsa-bachata-coaching`, `/online-academy`, `/contact` | online | `online` | siomosmelitta@gmail.com + Mailchimp `online-waitlist` | `[Online] {{name}} — {{level}}/{{style}}` | "You're on the list — we'll email when the next cohort opens." | `WA.online(level, style)` | Hidden `enquiry_type = Online Classes`; fields: `level`, `style` |
+| Lead Magnet / Email Capture | `EmailCaptureGate` on `/start-here`, `/pura-nights`, blog gates | lead | `lead-magnet` | Mailchimp main list | `Welcome — your beginner's guide` | "Hi {{name}}! Your beginner's guide is on its way." | n/a | Mailchimp automation; double opt-in ON |
+
+### Human blockers (2026-05-29)
+
+- ⚠️ **Verify sender domain before transactional emails can send.** Until
+  the verified sending domain (`notify.puranights.com` or chosen
+  subdomain) is provisioned and DNS-verified, all of the auto-replies in
+  the table above are **queued or undeliverable**. WhatsApp fallback is
+  the live channel today.
+- ⚠️ Wix Automations for `general`, `first-class`, `wedding`,
+  `private-lessons`, `corporate`, `group-party`, `pura-ladies`,
+  `partnership`, `vouchers`, `online` must be re-created on Wix Forms
+  after migration — they don't transfer automatically from Lovable.
+- ⚠️ Hidden `enquiry_type` value MUST match the allow-list exactly
+  (see `docs/61-WIX-ENQUIRY-ROUTING-MAP.md`) or the Supabase trigger
+  rejects the insert.
