@@ -95,7 +95,7 @@ const FAQ = () => (
             <p className="text-muted-foreground mb-6">We're here to help! Reach out anytime.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" className="btn-cta-primary text-sm">Contact Us</Link>
-              <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Us</a>
+              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20have%20a%20quick%20question%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Us</a>
             </div>
           </div>
         </FadeInUp>
