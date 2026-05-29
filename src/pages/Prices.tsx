@@ -33,7 +33,7 @@ const Prices = () => {
           <div className="h-1 w-20 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground max-w-xl mx-auto mb-2">Drop in when you can. Or commit to a bundle and save up to 30%.</p>
           <p className="text-[11px] font-accent tracking-wide text-primary mb-3">Instant Ticket Tailor confirmation · No subscription · Cancel anytime</p>
-          <p className="text-muted-foreground/80 text-xs italic max-w-xl mx-auto mb-8">
+          <p className="text-muted-foreground text-xs italic max-w-xl mx-auto mb-8">
             We teach <Link to="/learn/salsa-vs-bachata" className="text-primary hover:underline">On2 Crossbody Salsa</Link> and Dominican / Modern Bachata — the internationally recognised social dance styles. Not Cuban Salsa or Rueda.
           </p>
         </FadeInUp>
