@@ -65,7 +65,7 @@ const HowToPracticeSalsaAtHome = () => (
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-8">
               <h3 className="font-heading font-bold mb-2">Want Guided Practice?</h3>
               <p className="text-muted-foreground text-sm mb-4">Our online classes give you structured practice material you can follow at home.</p>
-              <Link to="/online-classes" className="btn-cta-primary text-sm">View Online Classes →</Link>
+              <Link to="/online-salsa-bachata-coaching" className="btn-cta-primary text-sm">View Online Coaching →</Link>
             </div>
 
             <h2 className="font-display text-2xl font-bold mt-10 mb-4">Frequently Asked Questions</h2>
