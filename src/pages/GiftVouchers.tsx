@@ -10,6 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import ProofNudge from "@/components/ProofNudge";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
    <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
@@ -182,6 +183,12 @@ const GiftVouchers = () => {
           </div>
         </div>
       </section>
+      <ProofNudge
+        quote="Best present I've ever given my mum. She still talks about her first class six months later."
+        attribution="Lucy, gift recipient's daughter"
+        trustCue="All levels welcome · No partner needed"
+        waContext="voucherCustom"
+      />
 
     {/* WIX SECTION: AnswerBox — AI / GEO answer block */}
     <section className="section-padding section-warm">

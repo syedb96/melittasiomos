@@ -11,6 +11,7 @@ import { FadeInUp } from "@/components/animations";
 import EditorialQuote from "@/components/EditorialQuote";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import ProofNudge from "@/components/ProofNudge";
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
@@ -82,6 +83,12 @@ const CorporateDanceClassesLondon = () => (
         </FadeInUp>
       </div>
     </section>
+    <ProofNudge
+      quote="The whole office was on the floor in 15 minutes — and laughing for the rest of the night. Best team day we've done."
+      attribution="Hannah, Ops Lead · Notting Hill agency"
+      trustCue="All abilities welcome · Reply within 1 working day"
+      waContext="corporate"
+    />
 
     <div className="section-warm">
       <EditorialQuote
