@@ -854,6 +854,8 @@ const Index = () => {
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
+      <FirstClassLeadMagnet source="/" />
+
       {/* COMMUNITY CTA */}
       <section className="py-24 md:py-28 text-center" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main max-w-4xl">
