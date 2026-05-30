@@ -12,6 +12,7 @@ import socialImg from "@/assets/social-dancing.jpg";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 
@@ -247,6 +248,7 @@ const PuraNights = () => (
       ]}
     />
     <MembershipPathwayBlock context="pura_nights_pathway" />
+    <FirstClassLeadMagnet source="/pura-nights" />
     <NextStepServiceGrid
       title="What dancers do next"
       items={[

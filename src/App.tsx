@@ -57,6 +57,7 @@ import PrivateSalsaLessonsLondon from "./pages/PrivateSalsaLessonsLondon";
 import LadiesStylingLondon from "./pages/LadiesStylingLondon";
 import BachataPerformanceTeamLondon from "./pages/BachataPerformanceTeamLondon";
 import Beginners from "./pages/Beginners";
+import FirstClassGuide from "./pages/FirstClassGuide";
 import AllPagesMaster from "./pages/AllPagesMaster";
 import ProofCentre from "./pages/ProofCentre";
 import MeetTheTeam from "./pages/MeetTheTeam";
@@ -283,6 +284,7 @@ const App = () => (
             <Route path="/ladies-styling-london" element={<LadiesStylingLondon />} />
             <Route path="/bachata-performance-team-london" element={<BachataPerformanceTeamLondon />} />
             <Route path="/beginners" element={<Beginners />} />
+            <Route path="/first-class-guide" element={<FirstClassGuide />} />
             <Route path="/all-pages-master" element={<AllPagesMaster />} />
             <Route path="/proof-centre" element={<ProofCentre />} />
             <Route path="/meet-the-team" element={<MeetTheTeam />} />

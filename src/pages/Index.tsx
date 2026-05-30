@@ -23,6 +23,7 @@ import YouTubeStrip from "@/components/YouTubeStrip";
 import CorporateCTA from "@/components/CorporateCTA";
 import PartnerCTA from "@/components/PartnerCTA";
 import AnswerBox from "@/components/AnswerBox";
+import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import GoldDivider from "@/components/GoldDivider";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -852,6 +853,8 @@ const Index = () => {
         </div>
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
+
+      <FirstClassLeadMagnet source="/" />
 
       {/* COMMUNITY CTA */}
       <section className="py-24 md:py-28 text-center" style={{ background: 'var(--gradient-gold)' }}>

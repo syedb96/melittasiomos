@@ -8,6 +8,7 @@ import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import ProofNudge from "@/components/ProofNudge";
 
 const groupFaqs = [
   { q: "Do guests need experience or a partner?", a: "Neither. Every routine is built from zero with full partner rotation, so the shy ones get to giggle and the confident ones get to lead." },
@@ -59,6 +60,12 @@ const PrivateGroupDancePartiesLondon = () => (
         </FadeInUp>
       </div>
     </section>
+    <ProofNudge
+      quote="My hen do — eight of us, half had never danced — and Melitta had us all in stitches doing salsa within ten minutes."
+      attribution="Priya, Bride · Chiswick hen party"
+      trustCue="Tailored to your group · Reply within 24h"
+      waContext="groupParty"
+    />
 
     <section className="section-padding section-warm">
       <div className="container-main max-w-3xl">

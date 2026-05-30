@@ -10,6 +10,7 @@ import NearMeGrid from "@/components/NearMeGrid";
 import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { CHISWICK_NEAR, EALING_NEAR } from "@/data/near-me-areas";
+import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 
 const schema = {
   "@context": "https://schema.org",
@@ -178,6 +179,7 @@ const SalsaClassesLondon = () => (
       title="Pura Nights near you (London)"
       areas={[...CHISWICK_NEAR, ...EALING_NEAR]}
     />
+    <FirstClassLeadMagnet source="/salsa-classes-london" defaultInterest="First salsa class" />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-london", label: "Bachata Classes London" },
       { to: "/salsa-classes-chiswick", label: "Salsa Classes Chiswick" },

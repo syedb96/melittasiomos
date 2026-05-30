@@ -61,6 +61,7 @@ const Footer = () => (
           <ul className="space-y-1.5">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <li><Link to="/start-here" className="hover:text-primary transition-colors">Start Here (Beginners)</Link></li>
+            <li><Link to="/first-class-guide" className="hover:text-primary transition-colors">First Class Guide</Link></li>
             <li><Link to="/pura-nights" className="hover:text-primary transition-colors">Weekly Classes</Link></li>
             <li><Link to="/schedule" className="hover:text-primary transition-colors">Full Schedule</Link></li>
             <li><Link to="/events" className="hover:text-primary transition-colors">Monthly Latin Fridays</Link></li>
