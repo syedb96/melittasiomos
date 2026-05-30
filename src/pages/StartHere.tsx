@@ -5,6 +5,7 @@ import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import EmailCaptureGate from "@/components/EmailCaptureGate";
+import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -524,6 +525,7 @@ const StartHere = () => (
       ]}
     />
     <MembershipPathwayBlock context="start_here_pathway" />
+    <FirstClassLeadMagnet source="/start-here" tone="dark" />
 
     <RelatedPages
       title="Next Steps"

@@ -14,6 +14,7 @@ import { CHISWICK_NEAR } from "@/data/near-me-areas";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import heroImg from "@/assets/salsa-chiswick.jpg";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 
 // Recurring class page — NO Event schema. FAQPage + DanceSchool only.
 const chiswickFaqs = [
@@ -274,6 +275,7 @@ const SalsaClassesChiswick = () => (
       areas={CHISWICK_NEAR}
     />
     <MembershipPathwayBlock context="chiswick_pathway" />
+    <FirstClassLeadMagnet source="/salsa-classes-chiswick" defaultInterest="First salsa class" />
     <RelatedPages title="Related Pages" links={[
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
       { to: "/salsa-classes-ealing", label: "Salsa Classes Ealing" },
