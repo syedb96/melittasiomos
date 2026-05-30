@@ -220,3 +220,40 @@ rebuilding forms inside Wix.
 - ⚠️ Hidden `enquiry_type` value MUST match the allow-list exactly
   (see `docs/61-WIX-ENQUIRY-ROUTING-MAP.md`) or the Supabase trigger
   rejects the insert.
+
+---
+
+## v3 Addendum (2026-05-30) — First-Timer Guide lead magnet
+
+A new lead-capture flow was added across the homepage, `/start-here`,
+`/beginners`, `/pura-nights`, `/salsa-classes-chiswick`,
+`/bachata-classes-ealing`, `/salsa-classes-london`,
+`/bachata-classes-london`, and the new `/first-class-guide` page.
+
+| Form | Page(s) | Lead type | CRM tag(s) | Destination inbox | Email subject | Auto-reply subject | Success message | WhatsApp fallback | Wix automation note |
+|---|---|---|---|---|---|---|---|---|---|
+| First-Timer Guide | Homepage + 7 commercial pages + `/first-class-guide` | lead · first-timer | `lead-magnet`, `first-class` | siomosmelitta@gmail.com | `New first-timer guide lead — Pura Nights` | `Your Pura Nights first-timer guide` | "Done — your first-timer guide is on the way. Want a faster answer? Message Melitta on WhatsApp." | `WA.startHere` | Hidden `enquiry_type = First-Timer Guide`; auto-reply attaches/links the PDF guide once produced. Until then, link to `/first-class-guide`. |
+
+### Microcopy polish (2026-05-30)
+
+The following form patterns were standardised across Contact,
+Corporate, Group Parties, Wedding, Private Lessons, Lead Magnet,
+Gift Vouchers, and Partner forms:
+
+- Message label/placeholder: "Tell Melitta what you're looking for —
+  date, group size, style, or any nerves/questions."
+- Submit label is intent-specific, never "Submit":
+  - Contact → "Send my enquiry"
+  - Corporate → "Ask about corporate sessions"
+  - Group Parties → "Plan my private party"
+  - Wedding → "Enquire about wedding dance"
+  - Private Lessons → "Ask about private lessons"
+  - Lead Magnet → "Send me the guide"
+  - Gift Vouchers → "Send my voucher enquiry"
+  - Partner → "Send partner enquiry"
+
+### Human blocker (still open)
+
+- ⚠️ Sender domain verification — without it the auto-reply for the
+  lead magnet is queued/undeliverable. WhatsApp remains the live
+  reply channel.
