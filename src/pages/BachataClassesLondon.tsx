@@ -191,6 +191,7 @@ const BachataClassesLondon = () => (
       title="Pura Nights near you (London)"
       areas={[...CHISWICK_NEAR, ...EALING_NEAR]}
     />
+    <FirstClassLeadMagnet source="/bachata-classes-london" defaultInterest="First bachata class" />
     <RelatedPages title="Related Pages" links={[
       { to: "/salsa-classes-london", label: "Salsa Classes London" },
       { to: "/bachata-classes-chiswick", label: "Bachata Classes Chiswick" },
