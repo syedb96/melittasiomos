@@ -137,7 +137,10 @@ const Footer = () => (
             <li className="flex items-start gap-2"><MapPin size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Mon: The George IV, W4 2DR</span></li>
             <li className="flex items-start gap-2"><MapPin size={12} className="text-peach flex-shrink-0 mt-0.5" /><span>Tue: Drayton Court Hotel, W13 8PH</span></li>
             <li><Link to="/contact" className="hover:text-primary transition-colors">Contact form & enquiries →</Link></li>
+            <li><Link to="/press" className="hover:text-primary transition-colors">Press, sources & citations →</Link></li>
+            <li><Link to="/influencers" className="hover:text-primary transition-colors">Influencer program →</Link></li>
             <li><Link to="/partner-with-pura-nights" className="hover:text-primary transition-colors">Partner with us →</Link></li>
+            <li><a href="https://shop.puranights.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors inline-flex items-center gap-1">Shop merch <ExternalLink size={9} /></a></li>
             <li><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Linktree booking ↗</a></li>
           </ul>
           <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-heading font-semibold text-charcoal transition-all hover:opacity-90 mt-4" style={{ background: 'var(--gradient-gold)' }}>
