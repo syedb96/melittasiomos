@@ -53,7 +53,15 @@ const navGroups = [
       { label: "FAQs", path: "/faq", icon: HelpCircle, description: "Common questions, answered" },
       { label: "Blog", path: "/blog", icon: FileText, description: "Guides, tips and London Latin scene" },
       { label: "Find a Class Near You", path: "/locations", icon: MapPin, description: "Local class pages by area" },
+      { label: "Press & Sources", path: "/press", icon: FileText, description: "Citation hub, embeddable badge, press kit" },
+      { label: "Influencer Program", path: "/influencers", icon: Star, description: "Trackable links & revenue share" },
     ],
+  },
+  {
+    label: "Shop",
+    path: "https://shop.puranights.com",
+    external: true,
+    dropdown: null,
   },
 ];
 
