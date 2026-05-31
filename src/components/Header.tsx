@@ -234,6 +234,11 @@ const Header = () => {
             {mobileLinks.map((item, idx) =>
               (item as any).divider ? (
                 <div key={idx} className="h-px bg-primary-foreground/10 my-2 w-48" />
+              ) : (item as any).external ? (
+                <a key={idx} href={item.path!} target="_blank" rel="noopener noreferrer"
+                   className="block text-center py-2 text-sm font-heading text-primary-foreground/70 hover:text-primary w-full">
+                  {item.label}
+                </a>
               ) : (
                 <Link key={idx} to={item.path!} className={`block text-center py-2 text-sm font-heading transition-colors w-full ${
                   location.pathname === item.path ? "text-primary font-bold" : "text-primary-foreground/70 hover:text-primary"
