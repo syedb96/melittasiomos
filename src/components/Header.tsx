@@ -57,12 +57,8 @@ const navGroups = [
       { label: "Influencer Program", path: "/influencers", icon: Star, description: "Trackable links & revenue share" },
     ],
   },
-  {
-    label: "Shop",
-    path: "https://shop.puranights.com",
-    external: true,
-    dropdown: null,
-  },
+  // NOTE: Shop is intentionally hidden until the Shopify store goes live.
+  // Re-add a group here and toggle SHOPIFY_STORE_ENABLED in src/lib/external-links.ts.
 ];
 
 const mobileLinks = [
@@ -91,8 +87,7 @@ const mobileLinks = [
   { label: "Press & Sources", path: "/press" },
   { label: "Influencer Program", path: "/influencers" },
   { label: "Contact", path: "/contact" },
-  { divider: true },
-  { label: "Shop ↗", path: "https://shop.puranights.com", external: true },
+  // Shop intentionally hidden until Shopify store is live.
 ];
 
 const Header = () => {
