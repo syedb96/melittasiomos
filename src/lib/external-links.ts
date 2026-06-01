@@ -1,8 +1,11 @@
 // Central registry of external destinations + UTM helpers.
 // Wix handoff: mirror these as Site → Settings → Custom URLs.
 
-// Shopify store URL — update once the storefront is live.
-// Placeholder uses a subdomain pattern so Wix can point shop.puranights.com → Shopify.
+// Shopify store — currently NOT live. When the store is ready:
+//   1. Set SHOPIFY_STORE_ENABLED = true
+//   2. Update SHOPIFY_STORE_URL to the final domain (shop.puranights.com or .myshopify.com)
+//   3. Re-add Shop entries in Header.tsx navGroups/mobileLinks and Footer.tsx
+export const SHOPIFY_STORE_ENABLED = false;
 export const SHOPIFY_STORE_URL = "https://shop.puranights.com";
 
 export const BOOKING_URL = "https://www.tickettailor.com/events/puranights";
@@ -34,3 +37,25 @@ export function influencerLink(handle: string, target = "/") {
     campaign: "ambassador-2026",
   });
 }
+
+/** Published revenue-share tiers shown on /influencers and used in apply prefill. */
+export const INFLUENCER_TIERS = [
+  {
+    name: "Starter",
+    share: "10%",
+    threshold: "1–4 paying students / month",
+    note: "Perfect for first-time creators getting traction.",
+  },
+  {
+    name: "Partner",
+    share: "15%",
+    threshold: "5–14 paying students / month",
+    note: "Our standard ambassador tier — market rate for London lifestyle creators.",
+  },
+  {
+    name: "Headline",
+    share: "20%",
+    threshold: "15+ paying students / month",
+    note: "Top-tier — co-created reels, featured on the site, priority on private bookings.",
+  },
+] as const;
