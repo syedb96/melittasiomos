@@ -86,6 +86,10 @@ import SalsaBachataCoventGarden from "./pages/SalsaBachataCoventGarden";
 import PuraLadiesCoventGarden from "./pages/PuraLadiesCoventGarden";
 import Press from "./pages/Press";
 import Influencers from "./pages/Influencers";
+import Resources from "./pages/Resources";
+import Glossary from "./pages/Glossary";
+import PartnersEmbed from "./pages/PartnersEmbed";
+import EmbedClassFinder from "./pages/EmbedClassFinder";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -155,6 +159,7 @@ import BestSalsaBachataClassesWestLondon from "./pages/BestSalsaBachataClassesWe
 // Pillar pages
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
 import SalsaVsBachataPillar from "./pages/learn/SalsaVsBachataPillar";
+import UltimateLondonGuide from "./pages/learn/UltimateLondonGuide";
 
 // Auth & Admin pages
 import Login from "./pages/Login";
@@ -345,6 +350,13 @@ const App = () => (
             {/* Pillar */}
             <Route path="/learn/salsa-bachata-guide" element={<SalsaBachataGuide />} />
             <Route path="/learn/salsa-vs-bachata" element={<SalsaVsBachataPillar />} />
+            <Route path="/learn/ultimate-london-salsa-bachata-guide" element={<UltimateLondonGuide />} />
+
+            {/* Resources, Glossary, Partner Embed */}
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/glossary/salsa-bachata" element={<Glossary />} />
+            <Route path="/partners/embed-widget" element={<PartnersEmbed />} />
+            <Route path="/embed/class-finder" element={<EmbedClassFinder />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
