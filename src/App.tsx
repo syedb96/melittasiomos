@@ -86,6 +86,10 @@ import SalsaBachataCoventGarden from "./pages/SalsaBachataCoventGarden";
 import PuraLadiesCoventGarden from "./pages/PuraLadiesCoventGarden";
 import Press from "./pages/Press";
 import Influencers from "./pages/Influencers";
+import Resources from "./pages/Resources";
+import Glossary from "./pages/Glossary";
+import PartnersEmbed from "./pages/PartnersEmbed";
+import EmbedClassFinder from "./pages/EmbedClassFinder";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
