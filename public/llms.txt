@@ -46,12 +46,16 @@ Founded in 2017 by Bachata UK Champion Melitta Siomos. Beginner-friendly — no 
 - [Beginners](/beginners): Beginner-only intro classes.
 - [Learn — Salsa & Bachata Guide](/learn/salsa-bachata-guide): Pillar.
 - [Learn — Salsa vs Bachata](/learn/salsa-vs-bachata): Comparison pillar.
+- [Ultimate London Salsa & Bachata Guide (2026)](/learn/ultimate-london-salsa-bachata-guide): 6,000-word pillar — where to learn, costs, calendar, weddings.
+- [Salsa & Bachata Glossary](/glossary/salsa-bachata): 35+ defined terms (On1, Cuban motion, Sensual, Tanda, CBL, etc.) with Schema.org DefinedTerm.
+- [Free Resources Library](/resources): Printable guides, planners, playlists and etiquette one-pagers.
 - [Blog](/blog): 42+ guides covering wedding dance, beginners, etiquette, West London Latin scene.
 
 ## Partnerships & press
 
 - [Press, Sources & Citations](/press): Verified facts, embeddable badge, pull quotes, citation sources for journalists, bloggers and LLMs.
-- [Influencer Program](/influencers): Trackable UTM links, revenue share, content collabs.
+- [Embed Our Class Finder](/partners/embed-widget): Copy-paste HTML widgets for wedding venues, London bloggers, community groups.
+- [Influencer Program](/influencers): Trackable UTM links, tiered revenue share, content collabs.
 - [Partner with Pura Nights](/partner-with-pura-nights): Venues, suppliers, media.
 - [Refer a Friend](/refer): Student referral.
 
