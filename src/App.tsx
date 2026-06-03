@@ -160,6 +160,7 @@ import BestSalsaBachataClassesWestLondon from "./pages/BestSalsaBachataClassesWe
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
 import SalsaVsBachataPillar from "./pages/learn/SalsaVsBachataPillar";
 import UltimateLondonGuide from "./pages/learn/UltimateLondonGuide";
+import BestSalsaBachataNightsLondon from "./pages/learn/BestSalsaBachataNightsLondon";
 
 // Auth & Admin pages
 import Login from "./pages/Login";
@@ -351,6 +352,7 @@ const App = () => (
             <Route path="/learn/salsa-bachata-guide" element={<SalsaBachataGuide />} />
             <Route path="/learn/salsa-vs-bachata" element={<SalsaVsBachataPillar />} />
             <Route path="/learn/ultimate-london-salsa-bachata-guide" element={<UltimateLondonGuide />} />
+            <Route path="/learn/best-salsa-bachata-nights-london" element={<BestSalsaBachataNightsLondon />} />
 
             {/* Resources, Glossary, Partner Embed */}
             <Route path="/resources" element={<Resources />} />
