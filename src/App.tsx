@@ -160,6 +160,7 @@ import BestSalsaBachataClassesWestLondon from "./pages/BestSalsaBachataClassesWe
 import SalsaBachataGuide from "./pages/learn/SalsaBachataGuide";
 import SalsaVsBachataPillar from "./pages/learn/SalsaVsBachataPillar";
 import UltimateLondonGuide from "./pages/learn/UltimateLondonGuide";
+import BestSalsaBachataNightsLondon from "./pages/learn/BestSalsaBachataNightsLondon";
 
 // Auth & Admin pages
 import Login from "./pages/Login";
