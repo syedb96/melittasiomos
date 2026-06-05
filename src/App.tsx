@@ -90,6 +90,9 @@ import Resources from "./pages/Resources";
 import Glossary from "./pages/Glossary";
 import PartnersEmbed from "./pages/PartnersEmbed";
 import EmbedClassFinder from "./pages/EmbedClassFinder";
+import LatinFriday from "./pages/LatinFriday";
+import YourFirstClass from "./pages/YourFirstClass";
+import LeaveAReview from "./pages/LeaveAReview";
 
 // Shop shell (Wix Stores-ready)
 import Shop from "./pages/shop/Shop";
@@ -359,6 +362,11 @@ const App = () => (
             <Route path="/glossary/salsa-bachata" element={<Glossary />} />
             <Route path="/partners/embed-widget" element={<PartnersEmbed />} />
             <Route path="/embed/class-finder" element={<EmbedClassFinder />} />
+
+            {/* Authority & Conversion */}
+            <Route path="/latin-friday" element={<LatinFriday />} />
+            <Route path="/your-first-class" element={<YourFirstClass />} />
+            <Route path="/leave-a-review" element={<LeaveAReview />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
