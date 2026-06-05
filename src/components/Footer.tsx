@@ -64,7 +64,9 @@ const Footer = () => (
             <li><Link to="/first-class-guide" className="hover:text-primary transition-colors">First Class Guide</Link></li>
             <li><Link to="/pura-nights" className="hover:text-primary transition-colors">Weekly Classes</Link></li>
             <li><Link to="/schedule" className="hover:text-primary transition-colors">Full Schedule</Link></li>
-            <li><Link to="/events" className="hover:text-primary transition-colors">Monthly Latin Fridays</Link></li>
+            <li><Link to="/events" className="hover:text-primary transition-colors">All Events</Link></li>
+            <li><Link to="/latin-friday" className="hover:text-primary transition-colors">Monthly Latin Friday</Link></li>
+            <li><Link to="/your-first-class" className="hover:text-primary transition-colors">Your First Class</Link></li>
             <li><Link to="/prices" className="hover:text-primary transition-colors">Class Pricing</Link></li>
             <li><Link to="/about" className="hover:text-primary transition-colors">About Melitta</Link></li>
             <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
@@ -220,6 +222,7 @@ const Footer = () => (
           <Link to="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
           <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          <Link to="/leave-a-review" className="hover:text-primary transition-colors">Leave a Google review →</Link>
         </div>
         <p>Built with ♥ in West London</p>
       </div>
