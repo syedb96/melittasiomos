@@ -59,6 +59,11 @@ const ThankYou = () => (
             <ArrowLeft size={14} /> Back to Home
           </Link>
         </div>
+
+        <p className="text-primary-foreground/50 text-xs font-heading mt-8">
+          Enjoyed a class recently? A Google review takes 60 seconds and really helps.{" "}
+          <Link to="/leave-a-review" className="text-primary hover:underline">Leave a review →</Link>
+        </p>
       </div>
 
       <style>{`
