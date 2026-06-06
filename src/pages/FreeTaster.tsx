@@ -34,10 +34,10 @@ const FreeTaster = () => {
     if (!parsed.success) { setError(parsed.error.issues[0]?.message ?? "Please check your details"); return; }
     setLoading(true);
     trackLead("free_taster_form");
-    const { error: dbErr } = await supabase.from("free_taster_leads").insert({
+    const { error: dbErr } = await supabase.from("free_taster_leads").insert([{
       ...parsed.data,
-      source_page: typeof window !== "undefined" ? window.location.pathname : null,
-    });
+      source_page: typeof window !== "undefined" ? window.location.pathname : undefined,
+    }]);
     setLoading(false);
     if (dbErr) { setError("Something went wrong. Please WhatsApp Melitta directly."); return; }
     trackConversion("free_taster_submit");
