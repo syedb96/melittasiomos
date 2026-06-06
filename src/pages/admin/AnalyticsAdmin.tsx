@@ -43,12 +43,17 @@ const AnalyticsAdmin = () => {
     </div>
   );
 
+  useEffect(() => {
+    document.title = "Analytics — Internal";
+    let m = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!m) { m = document.createElement("meta"); m.name = "robots"; document.head.appendChild(m); }
+    const prev = m.content; m.content = "noindex, nofollow";
+    return () => { m!.content = prev; };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background p-6 md:p-10">
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-        <title>Analytics — Internal</title>
-      </Helmet>
+
       <header className="mb-8 flex items-center justify-between">
         <div>
           <p className="font-display text-2xl font-bold">PURA NIGHTS</p>
