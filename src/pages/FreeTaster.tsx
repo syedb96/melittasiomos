@@ -34,8 +34,12 @@ const FreeTaster = () => {
     if (!parsed.success) { setError(parsed.error.issues[0]?.message ?? "Please check your details"); return; }
     setLoading(true);
     trackLead("free_taster_form");
+    const d = parsed.data;
     const { error: dbErr } = await supabase.from("free_taster_leads").insert([{
-      ...parsed.data,
+      first_name: d.first_name as string,
+      email: d.email as string,
+      venue_preference: d.venue_preference,
+      message: d.message,
       source_page: typeof window !== "undefined" ? window.location.pathname : undefined,
     }]);
     setLoading(false);
