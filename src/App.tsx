@@ -179,6 +179,10 @@ import AmbassadorsAdmin from "./pages/admin/AmbassadorsAdmin";
 import SiteDocs from "./pages/admin/SiteDocs";
 import SeoDashboard from "./pages/admin/SeoDashboard";
 import ShopPhotoTracker from "./pages/admin/ShopPhotoTracker";
+import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
+
+import FreeTaster from "./pages/FreeTaster";
+import WhyPuraNights from "./pages/WhyPuraNights";
 
 const queryClient = new QueryClient();
 
