@@ -18,6 +18,7 @@ const faqCategories = [
       { q: "Do I need to book in advance?", a: "No booking is required for weekly classes — just turn up on the night. For Monthly Latin Friday events, tickets are available in advance via our Linktree (early bird pricing available) or on the door." },
       { q: "What should I wear?", a: "Comfortable, breathable clothing you can move in. For shoes — flat trainers with a smooth sole are perfect for beginners. Avoid thick-soled running shoes as they make turning difficult." },
       { q: "Is there a minimum age requirement?", a: "Our regular classes welcome adults of all ages (18+). If you're enquiring about younger students, contact Melitta directly." },
+      { q: "Can I try a class for free?", a: "Yes. Claim a free taster class at puranights.com/free-taster — available for Monday (Chiswick) and Tuesday (Ealing) classes. No experience or partner needed." },
     ],
   },
   {

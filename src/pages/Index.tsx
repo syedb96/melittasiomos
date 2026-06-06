@@ -25,6 +25,7 @@ import PartnerCTA from "@/components/PartnerCTA";
 import AnswerBox from "@/components/AnswerBox";
 import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import GoldDivider from "@/components/GoldDivider";
+import ReviewWall from "@/components/ReviewWall";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const homeFaqs = [
@@ -347,9 +348,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECTION 5.4 — REVIEW WALL */}
+      <ReviewWall />
+
       {/* SECTION 5.5 — CHOOSE YOUR PATH (Block 2) */}
       {/* <!-- WIX SECTION: Choose Your Path — 6-card Repeater linking to the main money pages --> */}
       <section className="section-padding section-ivory">
+
         <div className="container-main max-w-6xl">
           <FadeInUp>
             <p className="font-accent text-[11px] tracking-[0.3em] uppercase text-primary text-center mb-3">Where do you want to start?</p>

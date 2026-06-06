@@ -251,6 +251,36 @@ export type Database = {
         }
         Relationships: []
       }
+      free_taster_leads: {
+        Row: {
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          message: string | null
+          source_page: string | null
+          venue_preference: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          message?: string | null
+          source_page?: string | null
+          venue_preference?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          message?: string | null
+          source_page?: string | null
+          venue_preference?: string | null
+        }
+        Relationships: []
+      }
       gallery_albums: {
         Row: {
           category: string

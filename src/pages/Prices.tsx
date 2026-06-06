@@ -99,6 +99,17 @@ const Prices = () => {
           </div>
         </FadeInUp>
 
+        {/* Trust badge strip */}
+        <FadeInUp delay={0.07}>
+          <div className="bg-charcoal text-primary-foreground rounded-full px-6 py-4 mb-10 max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-heading">
+            <span><span className="text-primary">★★★★★</span> Google Rated 5.0</span>
+            <span><span className="text-primary">🏆</span> UK Bachata Championship</span>
+            <span><span className="text-primary">💬</span> 500+ Students</span>
+            <span><span className="text-primary">🔒</span> No contract, cancel anytime</span>
+          </div>
+        </FadeInUp>
+
+
         {/* Bundle Calculator */}
         <FadeInUp delay={0.15}>
           <div className="mb-16">
