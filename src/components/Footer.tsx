@@ -80,6 +80,8 @@ const Footer = () => (
             <li><Link to="/wedding-dance" className="hover:text-primary transition-colors">Wedding Dance</Link></li>
             <li><Link to="/private-lessons" className="hover:text-primary transition-colors">Private Lessons</Link></li>
             <li><Link to="/corporate-dance-classes-london" className="hover:text-primary transition-colors">Corporate Bookings</Link></li>
+            <li><Link to="/why-pura-nights" className="hover:text-primary transition-colors">Why Pura Nights</Link></li>
+            <li><Link to="/free-taster" className="hover:text-primary transition-colors">Free Taster Class</Link></li>
             <li><Link to="/private-group-dance-parties-london" className="hover:text-primary transition-colors">Hen & Group Parties</Link></li>
             <li><Link to="/pura-ladies" className="hover:text-primary transition-colors">Pura Ladies</Link></li>
             <li><Link to="/online-salsa-bachata-coaching" className="hover:text-primary transition-colors">Online Coaching</Link></li>
