@@ -5,7 +5,6 @@ import { CheckCircle2 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead, trackConversion, trackEvent } from "@/lib/analytics";
-import logo from "@/assets/hero-dance.jpg"; // fallback brand mark not needed
 
 const schema = z.object({
   first_name: z.string().trim().min(1, "Please enter your name").max(100),
