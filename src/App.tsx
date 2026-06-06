@@ -371,8 +371,12 @@ const App = () => (
             <Route path="/latin-friday" element={<LatinFriday />} />
             <Route path="/your-first-class" element={<YourFirstClass />} />
             <Route path="/leave-a-review" element={<LeaveAReview />} />
+            <Route path="/free-taster" element={<FreeTaster />} />
+            <Route path="/why-pura-nights" element={<WhyPuraNights />} />
+            <Route path="/admin/analytics" element={<AnalyticsAdmin />} />
 
             <Route path="*" element={<NotFound />} />
+
           </Routes>
         </AuthProvider>
       </BrowserRouter>
