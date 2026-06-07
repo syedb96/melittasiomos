@@ -114,8 +114,8 @@ const Index = () => {
   return (
     <Layout>
       <SeoHead
-        title="Salsa & Bachata Classes London | Pura Nights by Melitta Siomos"
-        description="Join London's award-winning Salsa & Bachata dance school. Weekly classes in Chiswick & Ealing, private lessons, wedding dance & performance teams. All levels welcome. Book today!"
+        title="Salsa & Bachata Classes London | Pura Nights"
+        description="Award-winning Salsa & Bachata school in London. Weekly classes in Chiswick & Ealing, private lessons, wedding dance & performance teams. All levels welcome."
         path="/"
         dateModified="2026-04-13"
       />
@@ -129,9 +129,10 @@ const Index = () => {
           <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="font-accent text-xs tracking-[0.3em] uppercase text-primary mb-6">
             SALSA & BACHATA · WEST / SOUTH WEST LONDON · ALL LEVELS WELCOME
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }} className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6">
+          <h1 className="sr-only">Salsa &amp; Bachata Classes in West London</h1>
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }} className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6" aria-hidden="true">
             Dance Like You Mean It
-          </motion.h1>
+          </motion.p>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35 }} className="font-heading text-base md:text-lg text-primary-foreground/80 mb-10 max-w-2xl mx-auto font-light">
             West London's most vibrant Salsa & Bachata community. Weekly classes in Chiswick & Ealing — no partner, no experience needed.
           </motion.p>
@@ -165,7 +166,7 @@ const Index = () => {
             ].map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex flex-col items-center">
                 <b.icon size={28} className="text-primary mb-3" />
-                <h3 className="font-heading font-bold text-sm mb-1">{b.title}</h3>
+                <h2 className="font-heading font-bold text-sm mb-1">{b.title}</h2>
                 <p className="text-muted-foreground text-xs leading-relaxed">{b.desc}</p>
               </motion.div>
             ))}
