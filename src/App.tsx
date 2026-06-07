@@ -373,7 +373,7 @@ const App = () => (
             <Route path="/leave-a-review" element={<LeaveAReview />} />
             <Route path="/free-taster" element={<FreeTaster />} />
             <Route path="/why-pura-nights" element={<WhyPuraNights />} />
-            <Route path="/admin/analytics" element={<AnalyticsAdmin />} />
+            <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
 
