@@ -225,8 +225,9 @@ const Footer = () => (
           <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
           <Link to="/leave-a-review" className="hover:text-primary transition-colors">Leave a Google review →</Link>
+          <Link to="/credits" className="hover:text-primary transition-colors">Website Credits</Link>
         </div>
-        <p>Built with ♥ in West London · <a href="https://www.rankmylocal.co.uk" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Website by Rank My Local</a></p>
+        <p className="text-primary-foreground/40">Built with ♥ in West London · <a href="https://www.rankmylocal.co.uk" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Website by Rank My Local</a></p>
       </div>
     </div>
   </footer>
