@@ -204,7 +204,7 @@ const About = () => {
     {openBio !== null && (
       <div className="fixed inset-0 z-50 bg-charcoal/90 flex items-center justify-center p-4" onClick={() => setOpenBio(null)}>
         <div className="bg-card rounded-2xl p-8 max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
-          <button onClick={() => setOpenBio(null)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X size={20} /></button>
+          <button onClick={() => setOpenBio(null)} aria-label="Close bio" className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"><X size={20} /></button>
           <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-xl font-display font-bold text-primary border-[3px] border-primary" style={{ background: 'var(--gradient-warm)' }}>
             {team[openBio].name.split(" ").map(n => n[0]).join("")}
           </div>
