@@ -166,7 +166,7 @@ const Index = () => {
             ].map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex flex-col items-center">
                 <b.icon size={28} className="text-primary mb-3" />
-                <h3 className="font-heading font-bold text-sm mb-1">{b.title}</h3>
+                <h2 className="font-heading font-bold text-sm mb-1">{b.title}</h2>
                 <p className="text-muted-foreground text-xs leading-relaxed">{b.desc}</p>
               </motion.div>
             ))}
