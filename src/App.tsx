@@ -183,6 +183,7 @@ import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
+import Credits from "./pages/Credits";
 
 const queryClient = new QueryClient();
 
@@ -373,6 +374,7 @@ const App = () => (
             <Route path="/leave-a-review" element={<LeaveAReview />} />
             <Route path="/free-taster" element={<FreeTaster />} />
             <Route path="/why-pura-nights" element={<WhyPuraNights />} />
+            <Route path="/credits" element={<Credits />} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
