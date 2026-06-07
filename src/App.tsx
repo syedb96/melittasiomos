@@ -183,6 +183,7 @@ import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
+import Credits from "./pages/Credits";
 
 const queryClient = new QueryClient();
 
