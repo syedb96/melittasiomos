@@ -184,6 +184,10 @@ import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
 import Credits from "./pages/Credits";
+import WebsiteCredits from "./pages/WebsiteCredits";
+import Loyalty from "./pages/Loyalty";
+import SalsaBachataWestLondon from "./pages/SalsaBachataWestLondon";
+import LatinDanceCorporateEventsLondon from "./pages/LatinDanceCorporateEventsLondon";
 
 const queryClient = new QueryClient();
 
@@ -375,6 +379,10 @@ const App = () => (
             <Route path="/free-taster" element={<FreeTaster />} />
             <Route path="/why-pura-nights" element={<WhyPuraNights />} />
             <Route path="/credits" element={<Credits />} />
+            <Route path="/website-credits" element={<WebsiteCredits />} />
+            <Route path="/loyalty" element={<Loyalty />} />
+            <Route path="/salsa-bachata-west-london" element={<SalsaBachataWestLondon />} />
+            <Route path="/latin-dance-corporate-events-london" element={<LatinDanceCorporateEventsLondon />} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
