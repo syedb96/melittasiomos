@@ -217,17 +217,30 @@ const Footer = () => (
 
     {/* Bottom Bar */}
     <div className="border-t border-primary-foreground/6">
-      <div className="container-main flex flex-col md:flex-row items-center justify-between gap-2 py-4 text-[11px] text-primary-foreground/25">
+      <div className="container-main flex flex-col md:flex-row items-center justify-between gap-2 py-4 text-[11px] text-primary-foreground/40">
         <p>© {new Date().getFullYear()} Melitta Siomos Dance Academy · Pura Nights</p>
         <div className="flex gap-3 flex-wrap justify-center">
           <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
           <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link>
           <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          <Link to="/loyalty" className="hover:text-primary transition-colors">Loyalty Card</Link>
           <Link to="/leave-a-review" className="hover:text-primary transition-colors">Leave a Google review →</Link>
-          <Link to="/credits" className="hover:text-primary transition-colors">Website Credits</Link>
+          <Link to="/credits" className="hover:text-primary transition-colors">Credits</Link>
+          <Link to="/website-credits" className="hover:text-primary transition-colors">Website Credits</Link>
         </div>
-        <p className="text-primary-foreground/40">Built with ♥ in West London · <a href="https://www.rankmylocal.co.uk" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Website by Rank My Local</a></p>
+        <p className="text-primary-foreground/55">
+          Website design &amp; local SEO support by{" "}
+          <a
+            href="https://rankmylocal.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Rank My Local website"
+            className="text-primary-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm transition-colors font-semibold"
+          >
+            Rank My Local
+          </a>
+        </p>
       </div>
     </div>
   </footer>
