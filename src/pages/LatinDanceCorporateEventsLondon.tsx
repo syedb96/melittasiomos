@@ -157,7 +157,7 @@ const LatinDanceCorporateEventsLondon = () => (
           Share your date, team size and venue — we'll come back with format and price options
           within one working day.
         </p>
-        <EnquiryForm defaultSubject="corporate" />
+        <EnquiryForm enquiryType="corporate" contextLabel="Corporate Latin Dance Events" whatsappUrl={WA_CORPORATE} />
         <div className="mt-6 text-center">
           <a
             href={WA_CORPORATE}
