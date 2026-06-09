@@ -15,6 +15,7 @@ import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
+import ClassMatchBlock from "@/components/ClassMatchBlock";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
@@ -271,6 +272,8 @@ const PuraNights = () => (
       redirectUrl="https://www.tickettailor.com/events/puranights"
       redirectLabel="Skip & Book Now"
     />
+
+    <ClassMatchBlock tone="ivory" />
 
     {/* CTA */}
     <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
