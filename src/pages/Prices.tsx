@@ -10,6 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { CheckCircle, Star } from "lucide-react";
 import BundleCalculator from "@/components/BundleCalculator";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import ClassMatchBlock from "@/components/ClassMatchBlock";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
@@ -275,6 +276,7 @@ const Prices = () => {
     </section>
 
 
+    <ClassMatchBlock tone="warm" />
     <MembershipPathwayBlock context="prices_pathway" title="Which pass fits your stage?" />
     <RelatedPages title="Related Pages" links={[
       { to: "/pura-nights", label: "Weekly Classes", desc: "Full schedule & venue info" },

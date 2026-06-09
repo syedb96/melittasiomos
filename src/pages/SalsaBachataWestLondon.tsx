@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import PartnerCTA from "@/components/PartnerCTA";
+import ClassMatchBlock from "@/components/ClassMatchBlock";
 
 const AREAS = [
   ["Chiswick", "/salsa-classes-chiswick", "Monday weekly classes at The George IV — main hub."],
@@ -186,6 +187,7 @@ const SalsaBachataWestLondon = () => (
       </div>
     </section>
 
+    <ClassMatchBlock tone="ivory" />
     <PartnerCTA compact />
   </Layout>
 );

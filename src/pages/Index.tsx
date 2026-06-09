@@ -27,6 +27,7 @@ import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import GoldDivider from "@/components/GoldDivider";
 import ReviewWall from "@/components/ReviewWall";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ClassMatchBlock from "@/components/ClassMatchBlock";
 
 const homeFaqs = [
   { q: "Do I need a partner to join?", a: "No — we rotate partners throughout every class. Many of our students come solo." },
@@ -859,6 +860,8 @@ const Index = () => {
         </div>
       </section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
+
+      <ClassMatchBlock tone="warm" />
 
       <FirstClassLeadMagnet source="/" />
 

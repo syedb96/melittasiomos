@@ -4,6 +4,7 @@ import { z } from "zod";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
+import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
 import { toast } from "@/hooks/use-toast";
@@ -271,6 +272,8 @@ const Loyalty = () => {
           </div>
         </div>
       </section>
+
+      <ClassMatchBlock tone="ivory" />
 
       {/* FAQ */}
       <section className="section-padding section-warm">
