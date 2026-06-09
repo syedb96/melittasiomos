@@ -115,7 +115,7 @@ const Index = () => {
     <Layout>
       <SeoHead
         title="Salsa & Bachata Classes London | Pura Nights"
-        description="Award-winning Salsa & Bachata school in London. Weekly classes in Chiswick & Ealing, private lessons, wedding dance & performance teams. All levels welcome."
+        description="Award-winning Salsa & Bachata school in London. Weekly classes in Chiswick & Ealing, private lessons, wedding dance & performance teams."
         path="/"
         dateModified="2026-04-13"
       />

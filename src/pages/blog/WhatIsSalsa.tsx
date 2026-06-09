@@ -19,7 +19,7 @@ import BlogPostFooter from "@/components/BlogPostFooter";
 const WhatIsSalsa = () => (
   <Layout>
     <SeoHead
-      title="What is Salsa Dance? The Complete Guide to On1 Crossbody Style | Pura Nights London"
+      title="What is Salsa Dance? On1 Crossbody Guide | Pura Nights"
       description="Discover the history, music, and technique of Salsa dance. Learn On1 Crossbody Salsa in London at Pura Nights with award-winning instructor Melitta Siomos."
       path="/blog/what-is-salsa"
       schema={{
