@@ -187,6 +187,7 @@ const SalsaBachataWestLondon = () => (
       </div>
     </section>
 
+    <ClassMatchBlock tone="ivory" />
     <PartnerCTA compact />
   </Layout>
 );
