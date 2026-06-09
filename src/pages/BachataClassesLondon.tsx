@@ -59,7 +59,7 @@ const schema = { "@context": "https://schema.org", "@graph": [courseSchema, faqS
 const BachataClassesLondon = () => (
   <Layout>
     <SeoHead
-      title="Bachata Classes London | Learn with UK Champion | Melitta Siomos"
+      title="Bachata Classes London | UK Champion Coach | Melitta Siomos"
       description="Learn bachata in London with Bachata UK Champion Melitta Siomos. Weekly classes in Chiswick & Ealing for all levels. No partner needed. From £5."
       path="/bachata-classes-london"
       schema={schema}
