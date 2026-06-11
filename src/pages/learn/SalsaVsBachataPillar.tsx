@@ -8,6 +8,7 @@ import LastUpdated from "@/components/LastUpdated";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { FadeInUp } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /learn/salsa-vs-bachata -->
    <!-- WIX SECTION: Hero / Comparison Table / Quiz (Wix Forms or custom code) / FAQ / CTA --> */
@@ -221,7 +222,7 @@ const SalsaVsBachataPillar = () => {
           <p className="text-charcoal/70 text-sm mb-6">Whichever you choose — Pura Nights teaches it. From £10, no partner needed.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/30 hover:bg-charcoal/20 text-sm">💬 WhatsApp Melitta</a>
+            <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "SalsaVsBachataPillar:224")} className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/30 hover:bg-charcoal/20 text-sm">💬 WhatsApp Melitta</a>
           </div>
         </div>
       </section>

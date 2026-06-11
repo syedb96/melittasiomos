@@ -30,6 +30,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { useVariant, recordVariantClick } from "@/lib/ab";
 import { HOME_HERO_PRIMARY } from "@/data/ab-experiments";
+import { waCustom } from "@/lib/whatsapp";
 
 const homeFaqs = [
   { q: "Do I need a partner to join?", a: "No — we rotate partners throughout every class. Many of our students come solo." },
@@ -628,7 +629,7 @@ const Index = () => {
             </blockquote>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/wedding-dance" className="btn-cta-primary text-sm">Explore Wedding Dance →</Link>
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm">WhatsApp for Free Consultation</a>
+              <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "Index:631")} className="btn-cta-ghost text-sm">WhatsApp for Free Consultation</a>
             </div>
           </FadeInUp>
         </div>

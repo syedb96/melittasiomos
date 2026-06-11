@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sparkles, BookOpen, MessageCircle } from "lucide-react";
 import { FadeInUp } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 interface FirstTimerCalloutProps {
   variant?: "light" | "dark";
@@ -39,9 +40,9 @@ const FirstTimerCallout = ({ variant = "light" }: FirstTimerCalloutProps) => {
                 <BookOpen size={15} /> Read the First-Timer Guide
               </Link>
               <a
-                href="https://wa.me/447449482343"
-                target="_blank"
-                rel="noopener noreferrer"
+                {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "FirstTimerCallout:41")}
+               
+               
                 className={`text-sm inline-flex items-center justify-center gap-2 ${isDark ? "btn-cta-ghost" : "btn-cta-dark"}`}
               >
                 <MessageCircle size={15} /> Ask a Question on WhatsApp

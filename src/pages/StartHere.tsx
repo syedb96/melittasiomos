@@ -25,6 +25,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import heroImg from "@/assets/hero-dance.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /start-here -->
    <!-- WIX SECTION: Hero — Strip with welcoming image + single primary CTA -->
@@ -107,9 +108,9 @@ const StartHere = () => (
               🎟 Book My First Class
             </a>
             <a
-              href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20new%20and%20I%27d%20love%20to%20ask%20a%20couple%20of%20questions%20before%20I%20come%20to%20a%20class."
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waCustom("Hi Melitta, I'm new and I'd love to ask a couple of questions before I come to a class.", "StartHere:109")}
+             
+             
               className="inline-flex items-center justify-center gap-2 bg-background/10 backdrop-blur-sm border border-primary-foreground/30 text-primary-foreground hover:bg-background/20 transition-colors px-6 py-3 rounded-md font-heading font-semibold text-sm"
             >
               <MessageCircle size={16} /> WhatsApp Melitta
@@ -497,9 +498,9 @@ const StartHere = () => (
             🎟 Book My First Class
           </a>
           <a
-            href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20new%20and%20I%27d%20love%20to%20ask%20a%20couple%20of%20questions%20before%20I%20come%20to%20a%20class."
-            target="_blank"
-            rel="noopener noreferrer"
+            {...waCustom("Hi Melitta, I'm new and I'd love to ask a couple of questions before I come to a class.", "StartHere:499")}
+           
+           
             className="inline-flex items-center justify-center gap-2 bg-charcoal/10 border-2 border-charcoal/20 text-charcoal hover:bg-charcoal/20 transition-colors px-6 py-3 rounded-md font-heading font-semibold text-sm"
           >
             <MessageCircle size={16} /> WhatsApp Melitta

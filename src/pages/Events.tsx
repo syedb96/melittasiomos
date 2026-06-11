@@ -15,6 +15,7 @@ import { upcomingEvents, EVENT_CATEGORIES, type EventCategory } from "@/data/eve
    <!-- WIX SECTION: Calendar — link to external calendar or Wix Events app -->
 */
 import eventImg from "@/assets/latin-friday-event.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 const latinFridayDates2026 = [
   new Date(2026, 3, 10, 19, 15),  // April 10
@@ -97,7 +98,7 @@ const Events = () => {
           question="What Latin dance events are on in West London this month?"
           answer="The flagship event is Pura Nights' Latin Friday — a monthly Salsa & Bachata social at the Drayton Court Hotel in West Ealing. The night opens with a beginner-friendly workshop, then DJs play a balanced mix of salsa, bachata and a touch of kizomba until late. Tickets are released ~3 weeks ahead and usually sell out. Weekly classes in Chiswick (Mon) and Ealing (Tue) run on top."
           bullets={["Monthly Latin Friday at Drayton Court","Beginner workshop included with every ticket","Salsa, Bachata + light Kizomba sets","Weekly classes Mon & Tue — no booking needed"]}
-          cta={{ label: "Talk to Melitta about the next event", href: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20when%20is%20the%20next%20Latin%20Friday%3F" }}
+          cta={{ label: "Talk to Melitta about the next event", href: waCustom("Hi Melitta, when is the next Latin Friday?", "Events:100").href }}
         />
       </div>
     </section>
@@ -223,7 +224,7 @@ const Events = () => {
           <p className="text-primary-foreground/80 mb-8">Follow us for event announcements and last-minute deals.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">📲 Follow @puranights.salsabachata</a>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20please%20add%20me%20to%20the%20Pura%20Nights%20WhatsApp%20group%20for%20class%20reminders%20and%20Latin%20Friday%20updates." target="_blank" rel="noopener noreferrer" className="btn-cta-outline">💬 Join WhatsApp Group</a>
+            <a {...waCustom("Hi Melitta, please add me to the Pura Nights WhatsApp group for class reminders and Latin Friday updates.", "Events:226")} className="btn-cta-outline">💬 Join WhatsApp Group</a>
           </div>
         </div>
       </section>

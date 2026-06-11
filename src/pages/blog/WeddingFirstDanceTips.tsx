@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
 import BlogPostFooter from "@/components/BlogPostFooter";
+import { waCustom } from "@/lib/whatsapp";
 
 const tips = [
   { n: 1, title: "Start Earlier Than You Think", text: "Aim for 8–12 weeks before your wedding. Starting early reduces pressure and lets you enjoy the process." },
@@ -51,7 +52,7 @@ const WeddingFirstDanceTips = () => (
             <div className="not-prose my-12 bg-primary rounded-2xl p-8 text-center">
               <h3 className="font-display text-2xl font-bold text-primary-foreground mb-2">Ready to Plan Your First Dance?</h3>
               <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4">
-                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" className="btn-cta-dark inline-block">WhatsApp Melitta 💬</a>
+                <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingFirstDanceTips:54")} className="btn-cta-dark inline-block">WhatsApp Melitta 💬</a>
                 <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-outline inline-block">Email Melitta ✉️</a>
               </div>
             </div>

@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import { Link } from "react-router-dom";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /size-guide -->
    <!-- WIX: Use Wix Stores Size Chart widget OR custom Table for each category -->
@@ -109,7 +110,7 @@ const SizeGuide = () => (
         <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6">
           <h3 className="font-heading font-bold text-base mb-2">Not sure which size to pick?</h3>
           <p className="text-muted-foreground text-sm mb-3">WhatsApp Melitta with your usual UK size and we'll recommend the best fit.</p>
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20need%20help%20choosing%20a%20size" target="_blank" rel="noopener noreferrer" className="text-primary font-heading text-sm font-semibold hover:underline">💬 WhatsApp for sizing help →</a>
+          <a {...waCustom("Hi Melitta, I need help choosing a size", "SizeGuide:112")} className="text-primary font-heading text-sm font-semibold hover:underline">💬 WhatsApp for sizing help →</a>
         </div>
 
         <div className="text-center">

@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
    <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
@@ -125,7 +126,7 @@ const buildMailto = (amount: number) => {
 };
 
 const buildWhatsAppLink = (amount: number) =>
-  `https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi Melitta, I'm interested in the £${amount} Pura Nights gift voucher. Can you confirm how it works and how I can purchase it?`)}`;
+  waCustom(`Hi Melitta, I'm interested in the £${amount} Pura Nights gift voucher. Can you confirm how it works and how I can purchase it?`, "GiftVouchers:1").href;
 
 const GiftVouchers = () => {
   const schema = useMemo(() => ({

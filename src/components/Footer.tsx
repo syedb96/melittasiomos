@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Star, ExternalLink } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 const Footer = () => (
   <footer className="bg-charcoal text-primary-foreground/60">
@@ -17,7 +18,7 @@ const Footer = () => (
           <span className="font-heading font-bold text-sm text-primary-foreground">Plan a group event</span>
           <span className="text-[11px] text-primary-foreground/60 mt-0.5 font-heading">Hen, birthday, corporate →</span>
         </Link>
-        <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center justify-center text-center rounded-xl bg-secondary/15 hover:bg-secondary/25 transition-colors px-4 py-4 border border-secondary/30">
+        <a {...waCustom("Hi Melitta, I'd like to get in touch", "Footer:20")} className="group flex flex-col items-center justify-center text-center rounded-xl bg-secondary/15 hover:bg-secondary/25 transition-colors px-4 py-4 border border-secondary/30">
           <span className="font-heading font-bold text-sm text-primary-foreground">💬 Talk to Melitta</span>
           <span className="text-[11px] text-primary-foreground/60 mt-0.5 font-heading">WhatsApp — replies in hours</span>
         </a>
@@ -136,7 +137,7 @@ const Footer = () => (
         <div>
           <h5 className="font-heading font-semibold text-primary-foreground text-[11px] tracking-wider uppercase mb-3">Contact</h5>
           <ul className="space-y-2.5 text-xs">
-            <li><a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={12} className="text-primary flex-shrink-0" /> +44 7449 482 343</a></li>
+            <li><a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Footer:139")} className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={12} className="text-primary flex-shrink-0" /> +44 7449 482 343</a></li>
             <li><a href="mailto:siomosmelitta@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors"><Mail size={12} className="text-primary flex-shrink-0" /> siomosmelitta@gmail.com</a></li>
             <li className="flex items-start gap-2"><MapPin size={12} className="text-primary flex-shrink-0 mt-0.5" /><span>Mon: The George IV, W4 2DR</span></li>
             <li className="flex items-start gap-2"><MapPin size={12} className="text-peach flex-shrink-0 mt-0.5" /><span>Tue: Drayton Court Hotel, W13 8PH</span></li>
@@ -151,7 +152,7 @@ const Footer = () => (
             {/* Shop merch link hidden until Shopify store is live — toggle via SHOPIFY_STORE_ENABLED in src/lib/external-links.ts. */}
             <li><a href="https://linktr.ee/pura.nights" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Linktree booking ↗</a></li>
           </ul>
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-heading font-semibold text-charcoal transition-all hover:opacity-90 mt-4" style={{ background: 'var(--gradient-gold)' }}>
+          <a {...waCustom("Hi Melitta, I'd like to ask about Pura Nights classes.", "Footer:154")} className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-heading font-semibold text-charcoal transition-all hover:opacity-90 mt-4" style={{ background: 'var(--gradient-gold)' }}>
             💬 WhatsApp Melitta
           </a>
         </div>

@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 const schema = {
   "@context": "https://schema.org",
@@ -109,7 +110,7 @@ const PrivateSalsaLessonsLondon = () => (
               <div>
                 <h3 className="font-heading font-bold mb-3">Pricing</h3>
                 <p className="text-sm text-muted-foreground mb-3">Private lesson rates are personalised to your goals, level, and schedule. Contact Melitta directly to discuss — she'll get back to you within 24 hours.</p>
-                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20Salsa%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs">💬 Enquire via WhatsApp</a>
+                <a {...waCustom("Hi Melitta, I'd like to enquire about private Salsa lessons", "PrivateSalsaLessonsLondon:112")} className="btn-cta-primary text-xs">💬 Enquire via WhatsApp</a>
               </div>
               <div>
                 <h3 className="font-heading font-bold mb-3">Location</h3>

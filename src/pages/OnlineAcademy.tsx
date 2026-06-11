@@ -7,6 +7,7 @@ import RelatedPages from "@/components/RelatedPages";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GoldDivider from "@/components/GoldDivider";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 // v8.0 Online Academy — Soft launch landing page (Teachable-powered)
 // === SETUP: Replace these two constants once Melitta's school is live ===
@@ -80,7 +81,7 @@ const tiers = [
     desc: "Pair the academy with personal Zoom feedback.",
     features: ["50-min private Zoom session", "Personal video review", "Custom practice plan", "Booked around your schedule"],
     cta: "Enquire About 1-to-1",
-    href: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20add%201-to-1%20Zoom%20coaching%20to%20my%20Academy%20subscription.",
+    href: waCustom("Hi Melitta, I'd like to add 1-to-1 Zoom coaching to my Academy subscription.", "OnlineAcademy:83").href,
     highlight: false,
   },
 ];

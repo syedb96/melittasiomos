@@ -11,6 +11,9 @@ import { CheckCircle, Star } from "lucide-react";
 import BundleCalculator from "@/components/BundleCalculator";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { waCustom } from "@/lib/whatsapp";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { PRICES_GIFT_VOUCHER } from "@/data/ab-experiments";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
@@ -23,6 +26,7 @@ import ClassMatchBlock from "@/components/ClassMatchBlock";
 */
 const Prices = () => {
   const [selected, setSelected] = useState<"try" | "commit" | "weekly" | null>(null);
+  const giftVoucher = useVariant(PRICES_GIFT_VOUCHER);
   return (
   <Layout>
     <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
@@ -219,12 +223,12 @@ const Prices = () => {
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 text-left">
               <h3 className="font-heading font-bold mb-2">Private Lessons — Bespoke Pricing</h3>
               <p className="text-muted-foreground text-sm mb-4">Contact Melitta to discuss your goals.</p>
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-6">💬 Enquire via WhatsApp</a>
+              <a {...waCustom("Hi Melitta, I'd like to enquire about private lessons", "Prices:222")} className="btn-cta-primary text-xs py-2 px-6">💬 Enquire via WhatsApp</a>
             </div>
             <div className="bg-peach/10 border border-peach/20 rounded-2xl p-6 text-left">
               <h3 className="font-heading font-bold mb-2">Wedding Dance — Free Consultation</h3>
               <p className="text-muted-foreground text-sm mb-4">Melitta will design a package around your song, timeline, and vision.</p>
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20we%27d%20love%20to%20book%20a%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta text-xs py-2 px-6 bg-peach text-charcoal font-semibold hover:opacity-90 rounded-xl">Book Free Consultation</a>
+              <a {...waCustom("Hi Melitta, we'd love to book a wedding dance consultation", "Prices:227")} className="btn-cta text-xs py-2 px-6 bg-peach text-charcoal font-semibold hover:opacity-90 rounded-xl">Book Free Consultation</a>
             </div>
           </div>
         </FadeInUp>
@@ -234,7 +238,11 @@ const Prices = () => {
           <div className="bg-card rounded-2xl p-8 max-w-2xl mx-auto card-hover mb-12">
             <h2 className="font-display text-2xl font-bold mb-2">🎁 Gift Vouchers</h2>
             <p className="text-muted-foreground mb-4">Give the gift of dance! Choose from £25, £50, £75, £100, £150, or £200.</p>
-            <Link to="/gift-vouchers" className="btn-cta-primary text-xs py-2 px-6">Buy a Gift Voucher</Link>
+            <Link
+              to="/gift-vouchers"
+              className="btn-cta-primary text-xs py-2 px-6"
+              onClick={() => recordVariantClick(PRICES_GIFT_VOUCHER.key, giftVoucher.id, "prices:gift-voucher")}
+            >{giftVoucher.payload.label}</Link>
           </div>
         </FadeInUp>
 

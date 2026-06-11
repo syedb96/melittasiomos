@@ -10,6 +10,7 @@ import {
   buildImageGallerySchema,
   LookbookCategorySlug,
 } from "./lookbookData";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /lookbook/{category} (dynamic) -->
    <!-- WIX: Connect to Lookbook CMS collection filtered by Category reference field. -->
@@ -17,7 +18,7 @@ import {
 */
 
 const WHATSAPP = (cat: string) =>
-  `https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I'm interested in the Pura Nights ${cat} edit`)}`;
+  waCustom(`Hi Melitta, I'm interested in the Pura Nights ${cat} edit`, "LookbookCategory:1").href;
 
 const LookbookCategory = () => {
   const { category } = useParams<{ category: string }>();

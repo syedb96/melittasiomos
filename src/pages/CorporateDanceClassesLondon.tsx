@@ -12,6 +12,7 @@ import EditorialQuote from "@/components/EditorialQuote";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
+import { waCustom } from "@/lib/whatsapp";
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
@@ -78,7 +79,7 @@ const CorporateDanceClassesLondon = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="#enquiry" className="btn-cta-primary text-sm">Enquire for your team →</a>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20corporate%20Salsa%2FBachata%20session" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
+            <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:81")} className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
           </div>
         </FadeInUp>
       </div>
@@ -300,7 +301,7 @@ const CorporateDanceClassesLondon = () => (
         <EnquiryForm
           enquiryType="Corporate Booking — Team Building"
           contextLabel="Corporate Dance Classes London"
-          whatsappUrl="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20corporate%20Salsa%2FBachata%20session"
+          whatsappUrl={waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:303").href}
           extraFields={[
             { name: "company", label: "Company", placeholder: "Acme Ltd" },
             { name: "eventDate", label: "Preferred date", type: "date" },
@@ -312,7 +313,7 @@ const CorporateDanceClassesLondon = () => (
           messagePlaceholder="Tell us about the team — vibe, occasion, anything we should know. Optional: how did you hear about us? (Google, Instagram, referral, venue, other)"
         />
         <p className="text-center text-xs text-muted-foreground mt-5 font-heading">
-          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20corporate%20Salsa%2FBachata%20session%20-%20date%3A%20%2C%20group%20size%3A%20" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
+          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session - date: , group size: ", "CorporateDanceClassesLondon:315")} className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
         </p>
       </div>
     </section>

@@ -6,9 +6,10 @@ import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Train, Clock, Sparkles, CheckCircle2 } from "lucide-react";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 const WA_AUDITION =
-  "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20Pura%20Ladies%20Covent%20Garden%20%2F%20Central%20London%20auditions";
+  waCustom("Hi Melitta, I'd like to ask about Pura Ladies Covent Garden / Central London auditions", "PuraLadiesCoventGarden:11").href;
 
 const faqs = [
   { q: "Where do Pura Ladies rehearse if I'm based in Covent Garden?", a: "The London Pura Ladies team rehearses in West London (Chiswick / Ealing). From Covent Garden it's roughly 25–35 minutes on the Piccadilly line. Many of our current members live in Zone 1 and commute weekly." },

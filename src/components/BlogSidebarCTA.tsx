@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX: Replicate as a sticky strip widget visible on blog dynamic pages (desktop only).
    Use Wix Velo position:sticky CSS or anchor element. --> */
@@ -9,7 +10,7 @@ const BlogSidebarCTA = () => (
       <h3 className="font-display text-lg font-bold mb-2 leading-tight">Your first class is just £10</h3>
       <p className="text-primary-foreground/60 text-xs font-heading mb-4">No partner. No experience. Just turn up.</p>
       <Link to="/pura-nights" className="btn-cta-primary w-full text-center block text-xs mb-2">Book a Class →</Link>
-      <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="block text-center text-xs font-heading text-primary hover:underline">Or WhatsApp Melitta</a>
+      <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "BlogSidebarCTA:12")} className="block text-center text-xs font-heading text-primary hover:underline">Or WhatsApp Melitta</a>
     </div>
   </aside>
 );

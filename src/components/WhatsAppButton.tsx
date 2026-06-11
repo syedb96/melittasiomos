@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 const WhatsAppButton = () => {
   const { pathname } = useLocation();
@@ -16,7 +17,7 @@ const WhatsAppButton = () => {
 
   return (
     <a
-      href={`https://wa.me/447449482343?text=${encodeURIComponent(message)}`}
+      href={waCustom(message, "WhatsAppButton:1").href}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackCta("whatsapp_click", `floating:${pathname}`)}

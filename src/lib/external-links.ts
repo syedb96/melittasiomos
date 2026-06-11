@@ -1,3 +1,4 @@
+import { waCustom } from "@/lib/whatsapp";
 // Central registry of external destinations + UTM helpers.
 // Wix handoff: mirror these as Site → Settings → Custom URLs.
 
@@ -10,7 +11,7 @@ export const SHOPIFY_STORE_URL = "https://shop.puranights.com";
 
 export const BOOKING_URL = "https://www.tickettailor.com/events/puranights";
 export const LINKTREE_URL = "https://linktr.ee/pura.nights";
-export const WHATSAPP_BASE = "https://wa.me/447449482343";
+export const WHATSAPP_BASE = waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "external-links:13").href;
 export const INSTAGRAM_MAIN = "https://www.instagram.com/puranights.salsabachata/";
 
 /**

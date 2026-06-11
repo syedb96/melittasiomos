@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: wedding-dance-west-london -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -40,7 +41,7 @@ const WeddingDanceWestLondon = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Wedding Dance Lessons in West London</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Your first dance should be one of the most magical moments of your wedding day. Whether you want a timeless waltz, a fun Latin routine, or a contemporary show-stopper, Melitta Siomos creates bespoke choreography tailored to you, your song, and your confidence level — right here in West London.</p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20we're%20interested%20in%20wedding%20dance%20lessons%20in%20West%20London" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💬 Enquire on WhatsApp</a>
+            <a {...waCustom("Hi Melitta, we're interested in wedding dance lessons in West London", "WeddingDanceWestLondon:43")} className="btn-cta-primary">💬 Enquire on WhatsApp</a>
             <Link to="/wedding-dance" className="btn-cta-ghost">Full Wedding Dance Info</Link>
           </div>
         </FadeInUp>
@@ -138,7 +139,7 @@ const WeddingDanceWestLondon = () => (
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Make Your First Dance Unforgettable</h2>
         <p className="text-charcoal/70 mb-6 max-w-lg mx-auto">Enquire today for a free consultation. Melitta responds personally to every message.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20we're%20interested%20in%20wedding%20dance%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
+          <a {...waCustom("Hi Melitta, we're interested in wedding dance lessons", "WeddingDanceWestLondon:141")} className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
           <a href="mailto:siomosmelitta@gmail.com" className="text-charcoal font-heading font-semibold text-sm hover:opacity-70 transition-opacity">Email Instead →</a>
         </div>
       </div>

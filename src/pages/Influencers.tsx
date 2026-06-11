@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import { Copy, Check, Instagram, TrendingUp } from "lucide-react";
 import { influencerLink, INFLUENCER_TIERS } from "@/lib/external-links";
+import { waCustom } from "@/lib/whatsapp";
 
 const PERKS = [
   { title: "Free first class", body: "Drop in to any Chiswick or Ealing class on us — no obligation, no partner needed." },
@@ -20,7 +21,7 @@ const HOW = [
   "Get paid monthly — 10% / 15% / 20% depending on the tier you unlock.",
 ];
 
-const APPLY_WA = "https://wa.me/447449482343?text=" + encodeURIComponent(
+const APPLY_WA = waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Influencers:23").href + encodeURIComponent(
   "Hi Melitta, I'd like to apply to the Pura Nights ambassador program (10% / 15% / 20% tiered revenue share). My Instagram handle is @"
 );
 

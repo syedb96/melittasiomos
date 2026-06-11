@@ -10,9 +10,10 @@ import StickyMobileCTA from "./StickyMobileCTA";
 import ExitIntentPopup from "./ExitIntentPopup";
 import FreeTasterPill from "./FreeTasterPill";
 import SmartCTABanner from "./SmartCTABanner";
+import { waCustom } from "@/lib/whatsapp";
 
-const WHATSAPP_QUESTION = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20have%20a%20question";
-const WHATSAPP_PRICING = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20have%20a%20question%20about%20pricing";
+const WHATSAPP_QUESTION = waCustom("Hi Melitta, I have a question", "Layout:14").href;
+const WHATSAPP_PRICING = waCustom("Hi Melitta, I have a question about pricing", "Layout:15").href;
 
 const BANNERS: Record<string, React.ComponentProps<typeof SmartCTABanner>> = {
   "/pura-nights": {

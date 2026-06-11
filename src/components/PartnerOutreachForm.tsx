@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: Partner Outreach Form -->
    Wix mirror: Wix Form → "contact_submissions" with enquiry_type
@@ -43,7 +44,7 @@ const schema = z.object({
   message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
 
-const WA = "https://wa.me/447449482343?text=Hi%20Melitta%20%E2%80%94%20I%27d%20like%20to%20discuss%20a%20Pura%20Nights%20partnership.";
+const WA = waCustom("Hi Melitta — I'd like to discuss a Pura Nights partnership.", "PartnerOutreachForm:46").href;
 
 const PartnerOutreachForm = () => {
   const [d, setD] = useState({ name: "", email: "", organisation: "", website: "", social: "", partnerType: "", audience: "", want: "", message: "" });

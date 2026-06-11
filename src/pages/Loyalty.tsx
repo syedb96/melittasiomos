@@ -10,9 +10,10 @@ import { trackEvent } from "@/lib/analytics";
 import { useVariant, recordVariantClick } from "@/lib/ab";
 import { LOYALTY_SUBMIT } from "@/data/ab-experiments";
 import { toast } from "@/hooks/use-toast";
+import { waCustom } from "@/lib/whatsapp";
 
 const WA_LOYALTY =
-  "https://wa.me/447449482343?text=" +
+  waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Loyalty:15").href +
   encodeURIComponent(
     "Hi Melitta, I'd love to join the Pura Nights loyalty card. Could you confirm which weekly drop-in and Latin Friday sessions count toward the 9th-free reward?"
   );

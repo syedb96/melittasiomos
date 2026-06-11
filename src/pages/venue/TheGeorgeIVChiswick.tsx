@@ -9,6 +9,7 @@ import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
+import { waCustom } from "@/lib/whatsapp";
 
 const venueFaqs = [
   { q: "Do I need to book in advance?", a: "No — just turn up! We welcome walk-ins every Monday. If it's your first time, arrive a few minutes early." },
@@ -116,7 +117,7 @@ const TheGeorgeIVChiswick = () => (
                     <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <div>
                       <p className="font-medium text-foreground">Questions?</p>
-                      <a href="https://wa.me/447449482343" className="text-primary hover:underline">Message Melitta on WhatsApp</a>
+                      <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "TheGeorgeIVChiswick:119")} className="text-primary hover:underline">Message Melitta on WhatsApp</a>
                     </div>
                   </div>
                 </div>
@@ -275,7 +276,7 @@ const TheGeorgeIVChiswick = () => (
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
             </a>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20the%20Monday%20Chiswick%20class%20at%20The%20George%20IV.%20Is%20it%20suitable%20for%20a%20complete%20beginner%20coming%20alone%3F" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
+            <a {...waCustom("Hi Melitta, I'm interested in the Monday Chiswick class at The George IV. Is it suitable for a complete beginner coming alone?", "TheGeorgeIVChiswick:278")} className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               WhatsApp Melitta
             </a>
           </div>

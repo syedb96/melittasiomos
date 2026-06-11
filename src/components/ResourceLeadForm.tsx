@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: Resource Lead Capture Form -->
    Wix mirror: Wix Form bound to "contact_submissions" with hidden
@@ -25,7 +26,7 @@ const INTERESTS = [
   "Pura Ladies",
 ];
 
-const WA = "https://wa.me/447449482343?text=Hi%20Melitta%20%E2%80%94%20I%20just%20requested%20the%20First%20Class%20Checklist.";
+const WA = waCustom("Hi Melitta — I just requested the First Class Checklist.", "ResourceLeadForm:28").href;
 
 const ResourceLeadForm = () => {
   const [data, setData] = useState({ name: "", email: "", phone: "", interest: "" });

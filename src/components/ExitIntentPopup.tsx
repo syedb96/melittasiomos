@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, forwardRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { X } from "lucide-react";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
   const [show, setShow] = useState(false);
@@ -51,7 +52,7 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
           <>
             <h3 className="font-display text-2xl font-bold mb-2">Planning Your First Dance?</h3>
             <p className="text-muted-foreground text-sm mb-5">Melitta Siomos has helped dozens of couples create unforgettable wedding first dances. Book a free 15-minute consultation.</p>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20love%20to%20enquire%20about%20Wedding%20Dance%20coaching" onClick={() => trackCta("whatsapp_click", `exit-intent-wedding:${pathname}`)} className="btn-cta-primary w-full text-center block mb-3">Book Free Consultation</a>
+            <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "ExitIntentPopup:54")} onClick={() => trackCta("whatsapp_click", `exit-intent-wedding:${pathname}`)} className="btn-cta-primary w-full text-center block mb-3">Book Free Consultation</a>
           </>
         ) : (
           <>
@@ -59,7 +60,7 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
             <p className="text-peach font-heading text-sm font-semibold mb-1">First class offer for new students</p>
             <p className="text-muted-foreground text-sm mb-5">Join your first Pura Nights class and see why we're rated 5 stars. Drop-in from £10. No booking, no partner needed. Just turn up.</p>
             <Link to="/pura-nights" onClick={() => setShow(false)} className="btn-cta-primary w-full text-center block mb-3">See Class Schedule</Link>
-            <a href="https://wa.me/447449482343" onClick={() => trackCta("whatsapp_click", `exit-intent:${pathname}`)} className="text-primary text-sm font-heading text-center block hover:underline">Or WhatsApp Melitta directly</a>
+            <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "ExitIntentPopup:62")} onClick={() => trackCta("whatsapp_click", `exit-intent:${pathname}`)} className="text-primary text-sm font-heading text-center block hover:underline">Or WhatsApp Melitta directly</a>
           </>
         )}
         <p className="text-xs text-muted-foreground text-center mt-4">✅ No spam. ✅ No commitment. Just dancing.</p>

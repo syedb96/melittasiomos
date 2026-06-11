@@ -1,4 +1,5 @@
 import { Check, Minus } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 interface Tier {
   name: string;
@@ -77,9 +78,9 @@ const WeddingTiers = ({
               ))}
             </ul>
             <a
-              href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20a%20wedding%20dance%20quote"
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waCustom("Hi Melitta, I'd like a wedding dance quote", "WeddingTiers:79")}
+             
+             
               className={`block text-center text-xs font-heading font-semibold rounded-md py-3 ${
                 tier.highlight ? "bg-primary text-primary-foreground hover:opacity-90" : "border border-border hover:border-primary hover:text-primary"
               }`}

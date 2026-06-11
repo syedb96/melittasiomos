@@ -16,6 +16,8 @@ import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { PURA_NIGHTS_HERO_PRIMARY } from "@/data/ab-experiments";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
@@ -27,7 +29,9 @@ import ClassMatchBlock from "@/components/ClassMatchBlock";
    <!-- WIX SECTION: Testimonials — use Slider connected to Testimonials collection -->
    <!-- WIX SECTION: CTA Band — use Full-width Strip -->
 */
-const PuraNights = () => (
+const PuraNights = () => {
+  const heroPrimary = useVariant(PURA_NIGHTS_HERO_PRIMARY);
+  return (
   <Layout>
     <SeoHead
       title="Pura Nights | Salsa & Bachata Classes Chiswick & Ealing | Every Monday & Tuesday"
@@ -48,7 +52,13 @@ const PuraNights = () => (
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Pura Nights — Salsa & Bachata Every Week in West London</h1>
           <p className="font-heading text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">Monday Chiswick · Tuesday Ealing · No partner needed · All levels</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Come dance with us →</a>
+            <a
+              href={heroPrimary.payload.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta-primary text-sm"
+              onClick={() => recordVariantClick(PURA_NIGHTS_HERO_PRIMARY.key, heroPrimary.id, "pura-nights:hero")}
+            >{heroPrimary.payload.label}</a>
             <Link to="/prices" className="btn-cta-ghost text-sm">See drop-in & bundle prices →</Link>
           </div>
           <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
@@ -288,6 +298,7 @@ const PuraNights = () => (
     </section>
     <FirstTimerCallout />
   </Layout>
-);
+  );
+};
 
 export default PuraNights;

@@ -23,6 +23,7 @@ import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
    <!-- WIX SECTION: CTA Band — use Full-width Strip -->
 */
 import socialImg from "@/assets/community-vibe.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 const schema = {
   "@context": "https://schema.org",
@@ -265,7 +266,7 @@ const Beginners = () => (
         <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">Your first class is just a click away. No booking required for drop-ins — just turn up at 7:15 PM and join the Beginners class.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class</a>
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20trying%20a%20beginner%20class" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">💬 Ask Melitta a Question</a>
+          <a {...waCustom("Hi Melitta, I'm interested in trying a beginner class", "Beginners:268")} className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm">💬 Ask Melitta a Question</a>
         </div>
       </div>
     </section>

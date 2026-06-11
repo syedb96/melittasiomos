@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import { MapPin, Users, Music, Heart, CheckCircle2 } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: Editorial guide — Best Salsa & Bachata Nights in London -->
    Wix mirror: long-form page with Article + FAQPage + BreadcrumbList schema.
@@ -183,7 +184,7 @@ const BestSalsaBachataNightsLondon = () => {
           <div className="flex flex-wrap justify-center gap-2">
             <Link to="/start-here" className="btn-cta-primary text-sm">Book your first class →</Link>
             <Link to="/schedule" className="inline-flex rounded-lg border border-primary text-primary px-4 py-2 text-sm font-heading font-semibold hover:bg-primary/5">See this week's classes</Link>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%20-%20which%20night%20would%20you%20recommend%20for%20a%20first-timer%3F" target="_blank" rel="noopener" className="inline-flex rounded-lg border border-primary text-primary px-4 py-2 text-sm font-heading font-semibold hover:bg-primary/5">WhatsApp Melitta</a>
+            <a {...waCustom("Hi Melitta - which night would you recommend for a first-timer?", "BestSalsaBachataNightsLondon:186")} className="inline-flex rounded-lg border border-primary text-primary px-4 py-2 text-sm font-heading font-semibold hover:bg-primary/5">WhatsApp Melitta</a>
           </div>
         </div>
       </article>

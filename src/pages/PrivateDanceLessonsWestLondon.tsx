@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: private-dance-lessons-west-london -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -39,7 +40,7 @@ const PrivateDanceLessonsWestLondon = () => (
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Private Dance Lessons in West London</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl mb-8">Whether you want to fast-track your Salsa or Bachata, prepare for a performance, build confidence, or simply learn at your own pace — private 1-to-1 lessons with Melitta Siomos give you focused, tailored instruction that group classes can't match.</p>
           <div className="flex flex-wrap gap-4">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'm%20interested%20in%20private%20dance%20lessons%20in%20West%20London" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💬 Enquire on WhatsApp</a>
+            <a {...waCustom("Hi Melitta, I'm interested in private dance lessons in West London", "PrivateDanceLessonsWestLondon:43")} className="btn-cta-primary">💬 Enquire on WhatsApp</a>
             <Link to="/private-lessons" className="btn-cta-ghost">Full Details</Link>
           </div>
         </FadeInUp>
@@ -105,7 +106,7 @@ const PrivateDanceLessonsWestLondon = () => (
           <h2 className="font-display text-3xl font-bold mb-4">Interested in Private Lessons?</h2>
           <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Private lesson rates are tailored to your goals and schedule. Contact Melitta directly for a free consultation and personalised quote.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons%20in%20West%20London" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💬 Enquire on WhatsApp</a>
+            <a {...waCustom("Hi Melitta, I'd like to enquire about private lessons in West London", "PrivateDanceLessonsWestLondon:108")} className="btn-cta-primary">💬 Enquire on WhatsApp</a>
             <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-dark">📧 Email Melitta</a>
           </div>
         </FadeInUp>
@@ -137,7 +138,7 @@ const PrivateDanceLessonsWestLondon = () => (
         <h2 className="font-display text-3xl font-bold text-charcoal mb-4">Start Your Private Dance Journey</h2>
         <p className="text-charcoal/70 mb-6 max-w-lg mx-auto">Message Melitta today for a free consultation. She responds personally to every enquiry.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'm%20interested%20in%20private%20dance%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
+          <a {...waCustom("Hi Melitta, I'm interested in private dance lessons", "PrivateDanceLessonsWestLondon:141")} className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
           <a href="mailto:siomosmelitta@gmail.com" className="text-charcoal font-heading font-semibold text-sm hover:opacity-70 transition-opacity">Email Instead →</a>
         </div>
       </div>

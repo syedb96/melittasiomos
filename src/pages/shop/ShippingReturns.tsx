@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import { Link } from "react-router-dom";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /shipping-returns -->
    <!-- WIX: Standard Wix Page. Connect any policy text via Wix Editor. -->
@@ -69,7 +70,7 @@ const ShippingReturns = () => (
         <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6">
           <h3 className="font-heading font-bold text-base mb-2">Order issues?</h3>
           <p className="text-muted-foreground text-sm mb-3">WhatsApp Melitta directly — orders are personally checked before they ship.</p>
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20have%20a%20question%20about%20my%20Pura%20Nights%20order" target="_blank" rel="noopener noreferrer" className="text-primary font-heading text-sm font-semibold hover:underline">💬 WhatsApp Melitta →</a>
+          <a {...waCustom("Hi Melitta, I have a question about my Pura Nights order", "ShippingReturns:72")} className="text-primary font-heading text-sm font-semibold hover:underline">💬 WhatsApp Melitta →</a>
         </div>
 
         <div className="text-center">

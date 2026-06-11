@@ -7,6 +7,7 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { motion } from "framer-motion";
 import melittaImg from "@/assets/melitta-portrait-real.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /meet-the-team -->
    <!-- WIX: Create as dynamic page connected to Team Members CMS collection -->
@@ -228,7 +229,7 @@ const MeetTheTeam = () => {
               Pura Nights is always looking for passionate, skilled instructors. If you love teaching, care about community, 
               and want to be part of something special — get in touch with Melitta.
             </p>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20teaching%20opportunities%20at%20Pura%20Nights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Contact Melitta →</a>
+            <a {...waCustom("Hi Melitta, I'm interested in teaching opportunities at Pura Nights", "MeetTheTeam:231")} className="btn-cta-primary text-sm">Contact Melitta →</a>
           </FadeInUp>
         </div>
       </section>

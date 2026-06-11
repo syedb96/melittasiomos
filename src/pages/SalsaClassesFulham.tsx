@@ -11,6 +11,7 @@ import NearMeGrid from "@/components/NearMeGrid";
 import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { CHISWICK_NEAR } from "@/data/near-me-areas";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /salsa-classes-fulham --> */
 
@@ -132,7 +133,7 @@ const SalsaClassesFulham = () => (
         <p className="text-primary-foreground/80 text-sm mb-6">Drop in this Monday in Chiswick — only 12 minutes from Fulham. From £10.</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book a Class</a>
-          <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
+          <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "SalsaClassesFulham:135")} className="btn-cta-dark text-sm">💬 WhatsApp Melitta</a>
         </div>
       </div>
     </section>

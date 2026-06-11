@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /blog/salsa-vs-waltz-wedding -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -50,7 +51,7 @@ const SalsaVsWaltzWedding = () => (
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Which Should You Choose?</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">Choose the waltz if you want something timeless and elegant. Choose Salsa or Bachata if you want to surprise your guests and show off your personality. Choose a mashup if you want both. There's no wrong answer — the right dance is the one that makes you both smile.</p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20we're%20considering%20a%20Latin%20wedding%20dance" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 Discuss Your Options</a>
+              <a {...waCustom("Hi Melitta, we're considering a Latin wedding dance", "SalsaVsWaltzWedding:53")} className="btn-cta-primary text-sm">💬 Discuss Your Options</a>
               <Link to="/wedding-dance" className="text-primary font-heading font-semibold text-sm">Wedding Dance Info →</Link>
             </div>
             <AuthorCard />

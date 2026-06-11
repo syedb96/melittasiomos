@@ -7,6 +7,7 @@ import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /online-salsa-bachata-coaching -->
    <!-- WIX: This page is designed to connect to Wix Online Programs app -->
@@ -112,7 +113,7 @@ const OnlineCoaching = () => (
           </p>
           <p className="text-primary-foreground/50 text-sm mb-10">From £12 per session · No partner needed · All levels welcome</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20online%20coaching" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">
+            <a {...waCustom("Hi Melitta, I'm interested in online coaching", "OnlineCoaching:115")} className="btn-cta-primary text-base px-8 py-3">
               💬 Book a Free Consultation
             </a>
             <a href="mailto:siomosmelitta@gmail.com?subject=Online%20Coaching%20Enquiry" className="btn-cta-outline text-base px-8 py-3">
@@ -332,7 +333,7 @@ const OnlineCoaching = () => (
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">Ready to Start Learning?</h2>
           <p className="text-primary-foreground/60 mb-8 max-w-lg mx-auto">Book a free consultation with Melitta and find the right programme for your goals. No obligation, no pressure — just a conversation about your dance journey.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20interested%20in%20online%20coaching" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
+            <a {...waCustom("Hi Melitta, I'm interested in online coaching", "OnlineCoaching:335")} className="btn-cta-primary text-base px-10 py-3.5">
               💬 Book Free Consultation <ArrowRight size={16} className="ml-2 inline" />
             </a>
             <a href="mailto:siomosmelitta@gmail.com?subject=Online%20Coaching%20Enquiry" className="btn-cta-outline text-base px-8 py-3">

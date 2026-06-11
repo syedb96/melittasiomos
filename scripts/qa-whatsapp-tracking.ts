@@ -69,13 +69,27 @@ function audit() {
     const lines = src.split("\n");
 
     lines.forEach((line, i) => {
-      // Rule 1 — no raw wa.me phone
+      // Skip comment lines (Wix replication docs reference URLs verbatim).
+      if (/^\s*(\/\/|\/\*|\*|<!--)/.test(line)) return;
+      // Rule 1 — no raw wa.me phone (share URLs wa.me/?text=... are exempt
+      // because they target the user's own contacts, not Melitta).
+      // because they target the user's own contacts, not Melitta).
       if (line.includes(`wa.me/${PHONE}`) && !ALLOW_RAW_FILES.has(rel)) {
         findings.push({
           level: "error",
           file: rel,
           line: i + 1,
           msg: `Raw wa.me URL — must go through WA helper for tracking consistency.`,
+        });
+      }
+      // Also flag template-string variants `wa.me/${PHONE}` / `wa.me/${WA_PHONE}`
+      // outside the helper itself.
+      if (/wa\.me\/\$\{(?:PHONE|WA_PHONE)\}/.test(line) && !ALLOW_RAW_FILES.has(rel)) {
+        findings.push({
+          level: "error",
+          file: rel,
+          line: i + 1,
+          msg: `Templated wa.me URL — must go through WA / waCta / waCustom helper.`,
         });
       }
     });
@@ -87,16 +101,15 @@ function audit() {
       if (re1.test(src) || re2.test(src)) usedPresets.add(p);
     }
 
-    // Rule 2 — anchors using WA.* must be safe
-    // Simple multi-line check: find `<a` blocks containing WA. or waCta and assert target/rel
+    // Rule 2 — anchors using WA.* / waCta / waCustom must be safe
     const anchorRe = /<a\b[\s\S]*?>/g;
     for (const m of src.matchAll(anchorRe)) {
       const anchor = m[0];
-      const usesWaHelper = /WA\.\w+\(|waCta\s*\(/.test(anchor);
+      const usesWaHelper = /WA\.\w+\(|waCta\s*\(|waCustom\s*\(/.test(anchor);
       if (!usesWaHelper) continue;
-      // waCta(...) spreads target+rel automatically.
-      const usesWaCtaSpread = /\{\.\.\.waCta\s*\(/.test(anchor);
-      if (usesWaCtaSpread) continue;
+      // {...waCta(...)} or {...waCustom(...)} spreads target+rel automatically.
+      const usesSpread = /\{\.\.\.(waCta|waCustom)\s*\(/.test(anchor);
+      if (usesSpread) continue;
       const hasTargetBlank = /target=["']_blank["']/.test(anchor);
       const hasRelSafe = /rel=["'][^"']*noopener[^"']*noreferrer[^"']*["']|rel=["'][^"']*noreferrer[^"']*noopener[^"']*["']/.test(
         anchor,

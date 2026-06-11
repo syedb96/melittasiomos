@@ -9,6 +9,7 @@ import { FadeInUp } from "@/components/animations";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
+import { waCustom } from "@/lib/whatsapp";
 
 const groupFaqs = [
   { q: "Do guests need experience or a partner?", a: "Neither. Every routine is built from zero with full partner rotation, so the shy ones get to giggle and the confident ones get to lead." },
@@ -55,7 +56,7 @@ const PrivateGroupDancePartiesLondon = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href="#enquiry" className="btn-cta-primary text-sm">Plan a private dance party →</a>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20plan%20a%20private%20group%20dance%20party" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm">💬 WhatsApp your date</a>
+            <a {...waCustom("Hi Melitta, I'd like to plan a private group dance party", "PrivateGroupDancePartiesLondon:58")} className="btn-cta-ghost text-sm">💬 WhatsApp your date</a>
           </div>
         </FadeInUp>
       </div>
@@ -181,7 +182,7 @@ const PrivateGroupDancePartiesLondon = () => (
         <EnquiryForm
           enquiryType="Private Group Party — Hen / Birthday"
           contextLabel="Private Group Dance Party London"
-          whatsappUrl="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20plan%20a%20private%20group%20dance%20party"
+          whatsappUrl={waCustom("Hi Melitta, I'd like to plan a private group dance party", "PrivateGroupDancePartiesLondon:184").href}
           extraFields={[
             { name: "eventDate", label: "Date of party", type: "date" },
             { name: "location", label: "Venue / postcode", placeholder: "Airbnb, hotel, or 'help me find one'" },
@@ -191,7 +192,7 @@ const PrivateGroupDancePartiesLondon = () => (
           messagePlaceholder="Tell us the occasion — hen, birthday, family party, surprise routine, etc. Optional: how did you hear about us?"
         />
         <p className="text-center text-xs text-muted-foreground mt-5 font-heading">
-          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20plan%20a%20private%20group%20dance%20party%20-%20date%3A%20%2C%20group%20size%3A%20" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
+          ⏱ We usually respond within 2 hours on weekdays. Prefer to WhatsApp? <a {...waCustom("Hi Melitta, I'd like to plan a private group dance party - date: , group size: ", "PrivateGroupDancePartiesLondon:194")} className="text-primary font-semibold hover:underline">Send your date and group size directly →</a>
         </p>
       </div>
     </section>

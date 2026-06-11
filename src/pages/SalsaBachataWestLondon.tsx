@@ -4,6 +4,8 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import PartnerCTA from "@/components/PartnerCTA";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { WL_HERO_PRIMARY } from "@/data/ab-experiments";
 
 const AREAS = [
   ["Chiswick", "/salsa-classes-chiswick", "Monday weekly classes at The George IV — main hub."],
@@ -61,7 +63,9 @@ const schema = {
 
 /* <!-- WIX SECTION: West London Hub — regional discovery page. Replicate as Strips:
        Hero, AnswerBox row, Areas Grid, How to get to venues, Service options, FAQ, Related. --> */
-const SalsaBachataWestLondon = () => (
+const SalsaBachataWestLondon = () => {
+  const heroPrimary = useVariant(WL_HERO_PRIMARY);
+  return (
   <Layout>
     <SeoHead
       title="Salsa & Bachata in West London — Classes, Venues & Travel | Pura Nights"
@@ -83,6 +87,13 @@ const SalsaBachataWestLondon = () => (
           One honest guide — where Pura Nights runs weekly classes, how to get there, and what
           to do if you live a little further out.
         </p>
+        <div className="mt-6 flex justify-center">
+          <Link
+            to={heroPrimary.payload.to}
+            className="btn-cta-primary text-sm"
+            onClick={() => recordVariantClick(WL_HERO_PRIMARY.key, heroPrimary.id, "salsa-bachata-west-london:hero")}
+          >{heroPrimary.payload.label}</Link>
+        </div>
       </div>
     </section>
 
@@ -190,6 +201,7 @@ const SalsaBachataWestLondon = () => (
     <ClassMatchBlock tone="ivory" />
     <PartnerCTA compact />
   </Layout>
-);
+  );
+};
 
 export default SalsaBachataWestLondon;

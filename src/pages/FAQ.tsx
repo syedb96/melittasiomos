@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import RelatedPages from "@/components/RelatedPages";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /faq -->
    <!-- WIX: Use Wix FAQ app with categories, or custom Accordions grouped by section -->
@@ -43,7 +44,7 @@ const faqCategories = [
   {
     title: "Other Services",
     items: [
-      { q: "Do you offer private lessons?", a: "Yes — private 1-on-1 or couples lessons are available with Melitta. Pricing is tailored to your goals and schedule. Contact her directly.", link: { to: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20private%20lessons", label: "Enquire about Private Lessons →", external: true } },
+      { q: "Do you offer private lessons?", a: "Yes — private 1-on-1 or couples lessons are available with Melitta. Pricing is tailored to your goals and schedule. Contact her directly.", link: { to: waCustom("Hi Melitta, I'd like to enquire about private lessons", "FAQ:46").href, label: "Enquire about Private Lessons →", external: true } },
       { q: "Can you choreograph our wedding first dance?", a: "Yes — this is one of Melitta's specialities. She has helped dozens of couples create unforgettable first dances. Book a free consultation.", link: { to: "/wedding-dance", label: "Wedding Dance →" } },
       { q: "Can I join Pura Ladies?", a: "Pura Ladies auditions are held annually, typically in February. Improvers-level social dancing is the minimum requirement. Follow @puraladies for audition announcements." },
       { q: "Do you offer online classes?", a: "Yes — live Zoom classes and HD drill videos available.", link: { to: "/online-classes", label: "Online Classes →" } },
@@ -96,7 +97,7 @@ const FAQ = () => (
             <p className="text-muted-foreground mb-6">We're here to help! Reach out anytime.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" className="btn-cta-primary text-sm">Contact Us</Link>
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20have%20a%20quick%20question%20about%20Pura%20Nights%20classes." target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 WhatsApp Us</a>
+              <a {...waCustom("Hi Melitta, I have a quick question about Pura Nights classes.", "FAQ:99")} className="btn-cta-dark text-sm">💬 WhatsApp Us</a>
             </div>
           </div>
         </FadeInUp>
