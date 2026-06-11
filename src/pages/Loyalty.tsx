@@ -7,6 +7,8 @@ import AnswerBox from "@/components/AnswerBox";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { LOYALTY_SUBMIT } from "@/data/ab-experiments";
 import { toast } from "@/hooks/use-toast";
 
 const WA_LOYALTY =
@@ -94,6 +96,7 @@ const formSchema = z.object({
 const Loyalty = () => {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const submitVariant = useVariant(LOYALTY_SUBMIT);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -254,8 +257,18 @@ const Loyalty = () => {
                 <input type="checkbox" name="consent" required className="mt-1" />
                 <span>I agree to receive loyalty-card updates from Pura Nights by email.</span>
               </label>
-              <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full sm:w-auto" onClick={() => trackEvent("loyalty", "loyalty_join_click")}>
-                {submitting ? "Joining…" : "Count me in →"}
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn-cta-primary text-sm w-full sm:w-auto"
+                data-ab-variant={submitVariant.id}
+                data-ab-experiment={LOYALTY_SUBMIT.key}
+                onClick={() => {
+                  recordVariantClick(LOYALTY_SUBMIT.key, submitVariant.id, "/loyalty form");
+                  trackEvent("loyalty", "loyalty_join_click");
+                }}
+              >
+                {submitting ? "Joining…" : submitVariant.payload.label}
               </button>
             </form>
           )}
