@@ -80,12 +80,13 @@ const PartnerOutreachForm = () => {
         ``,
         r.data.message || "(no message)",
       ].join("\n");
-      await supabase.from("contact_submissions").insert({
+      const { error } = await supabase.from("contact_submissions").insert({
         name: r.data.name,
         email: r.data.email,
         enquiry_type: "Partnership / Venue Collaboration",
         message: body,
       });
+      if (error) throw error;
       trackCta("partner_outreach_submit", "/partners/embed-widget");
       setDone(true);
     } catch {
