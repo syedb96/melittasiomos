@@ -4,13 +4,13 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MessageCircle } from "lucide-react";
 import {
-import { waCustom } from "@/lib/whatsapp";
   LOOKBOOK_CATEGORIES,
   findCategory,
   itemsByCategory,
   buildImageGallerySchema,
   LookbookCategorySlug,
 } from "./lookbookData";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /lookbook/{category} (dynamic) -->
    <!-- WIX: Connect to Lookbook CMS collection filtered by Category reference field. -->

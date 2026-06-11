@@ -182,7 +182,7 @@ const PrivateGroupDancePartiesLondon = () => (
         <EnquiryForm
           enquiryType="Private Group Party — Hen / Birthday"
           contextLabel="Private Group Dance Party London"
-          whatsappUrl=waCustom("Hi Melitta, I'd like to plan a private group dance party", "PrivateGroupDancePartiesLondon:184").href
+          whatsappUrl={waCustom("Hi Melitta, I'd like to plan a private group dance party", "PrivateGroupDancePartiesLondon:184").href}
           extraFields={[
             { name: "eventDate", label: "Date of party", type: "date" },
             { name: "location", label: "Venue / postcode", placeholder: "Airbnb, hotel, or 'help me find one'" },

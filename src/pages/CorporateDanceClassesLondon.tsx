@@ -301,7 +301,7 @@ const CorporateDanceClassesLondon = () => (
         <EnquiryForm
           enquiryType="Corporate Booking — Team Building"
           contextLabel="Corporate Dance Classes London"
-          whatsappUrl=waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:303").href
+          whatsappUrl={waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:303").href}
           extraFields={[
             { name: "company", label: "Company", placeholder: "Acme Ltd" },
             { name: "eventDate", label: "Preferred date", type: "date" },

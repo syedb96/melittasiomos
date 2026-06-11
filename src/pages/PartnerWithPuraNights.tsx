@@ -244,7 +244,7 @@ const PartnerWithPuraNights = () => (
         <EnquiryForm
           enquiryType="Partnership / Venue Collaboration"
           contextLabel="Partner with Pura Nights"
-          whatsappUrl=waCustom("Hi Melitta, I'd like to discuss a Pura Nights partnership", "PartnerWithPuraNights:246").href
+          whatsappUrl={waCustom("Hi Melitta, I'd like to discuss a Pura Nights partnership", "PartnerWithPuraNights:246").href}
           extraFields={[
             { name: "organisation", label: "Organisation", placeholder: "Venue / brand / publication" },
             { name: "website", label: "Website", placeholder: "https://" },

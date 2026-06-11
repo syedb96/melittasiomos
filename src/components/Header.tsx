@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-import { waCustom } from "@/lib/whatsapp";
   Menu, X, Phone, Mail, Instagram, Facebook, Youtube, ChevronDown, MessageCircle,
   CalendarDays, Sparkles, Crown, Laptop, Tag, Gift, User, Heart, UserCheck,
   BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin, ExternalLink,
 } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 // Premium, minimal nav — high-intent only.
 // Local SEO pages live in footer + /locations + contextual links, NOT here.
