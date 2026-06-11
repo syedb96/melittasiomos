@@ -7,6 +7,7 @@ import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
 import BlogPostFooter from "@/components/BlogPostFooter";
+import { waCustom } from "@/lib/whatsapp";
 /* <!-- WIX PAGE: /blog/choose-wedding-song -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
    <!-- WIX SECTION: Article Header — title, category, author, date -->
@@ -52,7 +53,7 @@ const ChooseWeddingSong = () => (
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">My Top Tip</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">Don't overthink it. Choose the song that makes you both feel something. The choreography and the coaching will take care of the rest. Your guests won't remember whether you danced a perfect waltz — they'll remember the genuine emotion on your faces.</p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20we%20need%20help%20choosing%20our%20wedding%20dance%20song" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 Ask Melitta for Song Advice</a>
+              <a {...waCustom("Hi Melitta, we need help choosing our wedding dance song", "ChooseWeddingSong:55")} className="btn-cta-primary text-sm">💬 Ask Melitta for Song Advice</a>
               <Link to="/wedding-dance" className="text-primary font-heading font-semibold text-sm">Wedding Dance Info →</Link>
             </div>
             <AuthorCard />

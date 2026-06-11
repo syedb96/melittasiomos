@@ -10,8 +10,9 @@ import EditorialQuote from "@/components/EditorialQuote";
 import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
+import { waCustom } from "@/lib/whatsapp";
 
-const PURA_LADIES_WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20joining%20Pura%20Ladies";
+const PURA_LADIES_WA = waCustom("Hi Melitta, I'd like to ask about joining Pura Ladies", "PuraLadies:14").href;
 
 const teams = [
   { flag: "🇬🇧", city: "London", desc: "Multiple groups at different levels — the home of Pura Ladies" },

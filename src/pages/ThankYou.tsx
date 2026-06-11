@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Instagram, MessageCircle, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /thank-you -->
    <!-- WIX: Configure as form-success redirect for Wix Forms -->
@@ -52,7 +53,7 @@ const ThankYou = () => (
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm inline-flex items-center gap-2">
+          <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "ThankYou:55")} className="btn-cta-primary text-sm inline-flex items-center gap-2">
             <MessageCircle size={14} /> WhatsApp Melitta
           </a>
           <Link to="/" className="btn-cta-outline text-sm inline-flex items-center gap-2">

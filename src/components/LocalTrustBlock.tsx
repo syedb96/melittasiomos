@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Train, Clock, Users, Heart, Quote, MessageCircle } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 export interface LocalTrustBlockProps {
   /** Area name e.g. "Hammersmith" */
@@ -94,9 +95,9 @@ const LocalTrustBlock = ({
                 Start Here
               </Link>
               <a
-                href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20enquire%20about%20a%20class."
-                target="_blank"
-                rel="noopener noreferrer"
+                {...waCustom("Hi Melitta, I'd like to enquire about a class.", "LocalTrustBlock:96")}
+               
+               
                 className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-primary hover:underline"
               >
                 <MessageCircle size={14} /> WhatsApp Melitta

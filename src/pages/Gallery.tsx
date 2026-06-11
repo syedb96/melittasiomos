@@ -9,6 +9,7 @@ import puraLadiesImg from "@/assets/pura-ladies.jpg";
 import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait-real.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /gallery -->
    <!-- WIX SECTION: Hero Strip — dark with overlay -->
@@ -239,7 +240,7 @@ const Gallery = () => {
           <p className="text-charcoal/70 text-sm mb-8 max-w-lg mx-auto">From £10 a class. No partner needed. Just turn up.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class →</a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm inline-flex items-center gap-2"><MessageCircle size={14} /> WhatsApp Melitta</a>
+            <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Gallery:242")} className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm inline-flex items-center gap-2"><MessageCircle size={14} /> WhatsApp Melitta</a>
           </div>
         </div>
       </section>

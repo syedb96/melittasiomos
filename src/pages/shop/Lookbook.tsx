@@ -5,6 +5,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { Link } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
 import { LOOKBOOK_CATEGORIES, LOOKBOOK_ITEMS, buildImageGallerySchema } from "./lookbookData";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /lookbook -->
    <!-- WIX: Use Wix Pro Gallery in Masonry layout. Connect to a Lookbook collection. -->
@@ -24,7 +25,7 @@ const venueFilters: { slug: Venue; label: string }[] = [
   { slug: "lifestyle", label: "Lifestyle" },
 ];
 
-const WHATSAPP_LOOKBOOK = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20saw%20the%20Pura%20Nights%20lookbook%20and%20have%20a%20question";
+const WHATSAPP_LOOKBOOK = waCustom("Hi Melitta, I saw the Pura Nights lookbook and have a question", "Lookbook:27").href;
 
 const Lookbook = () => {
   const [active, setActive] = useState<Venue>("all");

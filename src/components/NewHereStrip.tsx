@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { UserPlus, CalendarDays, MessageCircle, Heart, Sparkles, Users } from "lucide-react";
 import { FadeInUp } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: New Here Conversion Strip — ivory background, 3 reassurance badges, 3 CTAs --> */
 const NewHereStrip = () => (
@@ -39,7 +40,7 @@ const NewHereStrip = () => (
           <Link to="/schedule" className="btn-cta-dark text-sm inline-flex items-center justify-center gap-2">
             <CalendarDays size={16} /> See This Week's Classes
           </Link>
-          <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-ghost text-sm inline-flex items-center justify-center gap-2">
+          <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "NewHereStrip:42")} className="btn-cta-ghost text-sm inline-flex items-center justify-center gap-2">
             <MessageCircle size={16} /> Message Melitta
           </a>
         </div>

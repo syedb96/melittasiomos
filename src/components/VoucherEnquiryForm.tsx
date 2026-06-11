@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Mail, MessageCircle, Send } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: Voucher Enquiry Form — Wix Forms (CRM tag: gift-vouchers).
      On Wix this becomes a Wix Form posting to the "Gift Vouchers" CRM tag and
@@ -169,7 +170,7 @@ const VoucherEnquiryForm = ({ defaultAmount = 75 }: Props) => {
             Buy instantly via Wix Gift Cards
           </a>
         )}
-        <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-primary text-sm font-heading">
+        <a href={waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "VoucherEnquiryForm:1").href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-primary text-sm font-heading">
           <MessageCircle size={14} /> WhatsApp
         </a>
         <a href={`mailto:${EMAIL}?subject=Gift%20Voucher%20Enquiry`} className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-primary text-sm font-heading">

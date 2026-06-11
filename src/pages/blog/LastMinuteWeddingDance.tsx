@@ -5,6 +5,7 @@ import { FadeInUp } from "@/components/animations";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /blog/last-minute-wedding-dance -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
@@ -44,7 +45,7 @@ const LastMinuteWeddingDance = () => (
               <p className="text-sm text-muted-foreground"><strong className="text-foreground">The bottom line:</strong> It's never too late. Even if your wedding is this weekend, one lesson is better than none. Don't let perfectionism stop you — your guests want to see you happy, not perfect.</p>
             </div>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20our%20wedding%20is%20very%20soon%20and%20we%20need%20last-minute%20dance%20help!" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 Message Melitta Now</a>
+              <a {...waCustom("Hi Melitta, our wedding is very soon and we need last-minute dance help!", "LastMinuteWeddingDance:47")} className="btn-cta-primary text-sm">💬 Message Melitta Now</a>
               <a href="mailto:siomosmelitta@gmail.com" className="text-primary font-heading font-semibold text-sm">Email Instead →</a>
             </div>
             <AuthorCard />

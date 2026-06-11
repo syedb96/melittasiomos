@@ -6,6 +6,7 @@ import AnswerBox from "@/components/AnswerBox";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /best-salsa-bachata-classes-west-london
         Wix page type: Static page
@@ -133,7 +134,7 @@ const schema = {
   ],
 };
 
-const WA = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20ask%20about%20the%20best%20Salsa%20%2F%20Bachata%20class%20for%20me%20in%20West%20London";
+const WA = waCustom("Hi Melitta, I'd like to ask about the best Salsa / Bachata class for me in West London", "BestSalsaBachataClassesWestLondon:136").href;
 
 const BestSalsaBachataClassesWestLondon = () => (
   <Layout>

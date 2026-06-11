@@ -5,6 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import { supabase } from "@/integrations/supabase/client";
 import { trackLead, trackConversion, trackEvent } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 const schema = z.object({
   first_name: z.string().trim().min(1, "Please enter your name").max(100),
@@ -13,7 +14,7 @@ const schema = z.object({
   message: z.string().max(1000).optional(),
 });
 
-const WHATSAPP = "https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%20just%20claimed%20my%20free%20taster%20class%20and%20wanted%20to%20say%20hello";
+const WHATSAPP = waCustom("Hi Melitta, I just claimed my free taster class and wanted to say hello", "FreeTaster:16").href;
 
 const FreeTaster = () => {
   const [submitted, setSubmitted] = useState<{ first_name: string } | null>(null);
@@ -56,7 +57,7 @@ const FreeTaster = () => {
       />
       <header className="px-4 py-4 flex items-center justify-between border-b border-primary/10">
         <Link to="/" className="font-display text-xl font-bold text-primary-foreground">PURA NIGHTS</Link>
-        <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("engagement", "whatsapp_header_click", "free_taster")} className="text-primary font-heading text-xs">💬 WhatsApp</a>
+        <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "FreeTaster:59")} onClick={() => trackEvent("engagement", "whatsapp_header_click", "free_taster")} className="text-primary font-heading text-xs">💬 WhatsApp</a>
       </header>
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-12">

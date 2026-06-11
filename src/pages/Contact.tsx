@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import RelatedPages from "@/components/RelatedPages";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /contact -->
    <!-- WIX: Use Wix Forms connected to Enquiries CMS collection -->
@@ -117,7 +118,7 @@ const Contact = () => {
             <div className="lg:col-span-2 space-y-5">
               <FadeInUp>
                 {/* WhatsApp — Primary */}
-                <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="block bg-card rounded-2xl p-6 card-hover border-2 border-secondary/20 hover:border-secondary/40 transition-all group">
+                <a {...waCustom("Hi Melitta, I'd like to get in touch", "Contact:120")} className="block bg-card rounded-2xl p-6 card-hover border-2 border-secondary/20 hover:border-secondary/40 transition-all group">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
                       <MessageCircle size={20} className="text-secondary" />
@@ -216,7 +217,7 @@ const Contact = () => {
                         <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-heading font-semibold text-muted-foreground">Message</dt><dd className="whitespace-pre-wrap">{submittedSnapshot.message}</dd></div>
                       </dl>
                     )}
-                    <p className="text-sm text-muted-foreground text-center">Need a faster reply? <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">WhatsApp Melitta →</a></p>
+                    <p className="text-sm text-muted-foreground text-center">Need a faster reply? <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Contact:219")} className="text-primary font-semibold hover:underline">WhatsApp Melitta →</a></p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5" noValidate>
@@ -278,7 +279,7 @@ const Contact = () => {
           <FadeInUp>
             <h2 className="font-display text-3xl font-bold text-charcoal mb-3">Prefer an Instant Reply?</h2>
             <p className="text-charcoal/70 mb-6 font-heading text-sm">Most enquiries are answered within a few hours via WhatsApp</p>
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20get%20in%20touch" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">💬 Chat on WhatsApp</a>
+            <a {...waCustom("Hi Melitta, I'd like to get in touch", "Contact:281")} className="btn-cta-dark text-sm">💬 Chat on WhatsApp</a>
           </FadeInUp>
         </div>
       </section>

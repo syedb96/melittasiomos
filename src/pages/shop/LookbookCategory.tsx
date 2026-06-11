@@ -4,6 +4,7 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { MessageCircle } from "lucide-react";
 import {
+import { waCustom } from "@/lib/whatsapp";
   LOOKBOOK_CATEGORIES,
   findCategory,
   itemsByCategory,
@@ -17,7 +18,7 @@ import {
 */
 
 const WHATSAPP = (cat: string) =>
-  `https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, I'm interested in the Pura Nights ${cat} edit`)}`;
+  waCustom(`Hi Melitta, I'm interested in the Pura Nights ${cat} edit`, "LookbookCategory:1").href;
 
 const LookbookCategory = () => {
   const { category } = useParams<{ category: string }>();

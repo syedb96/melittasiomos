@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /latin-friday -->
    <!-- WIX: Flagship monthly event page. Use Wix Events for upcoming dates. -->
@@ -212,7 +213,7 @@ const LatinFriday = () => (
             <a href={TICKET_TAILOR} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-10 py-3.5">
               Book Latin Friday → <ArrowRight size={16} className="ml-2 inline" />
             </a>
-            <a href="https://wa.me/447449482343?text=Hi%2C%20I%27d%20like%20to%20book%20a%20group%20for%20Latin%20Friday" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-base px-8 py-3">
+            <a {...waCustom("Hi, I'd like to book a group for Latin Friday", "LatinFriday:215")} className="btn-cta-outline text-base px-8 py-3">
               💬 WhatsApp for group bookings →
             </a>
           </div>

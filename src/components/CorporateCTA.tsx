@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Briefcase, HeartPulse, Sparkles, ArrowRight } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX SECTION: CorporateCTA Strip — premium 3-track band linking to /corporate-dance-classes-london -->
    Three equal-weight offers: Team-building workshop · Wellness program · Private events.
@@ -33,7 +34,7 @@ const TRACKS = [
 ];
 
 const waUrl = (context: string) =>
-  `https://wa.me/447449482343?text=${encodeURIComponent(`Hi Melitta, ${context}.`)}`;
+  waCustom(`Hi Melitta, ${context}.`, "CorporateCTA:1").href;
 
 const CorporateCTA = ({ compact = false }: { compact?: boolean }) => (
   <section

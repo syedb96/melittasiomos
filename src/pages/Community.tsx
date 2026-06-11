@@ -6,6 +6,7 @@ import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import communityImg from "@/assets/community-vibe.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /community -->
    <!-- WIX SECTION: Hero — Full-width Strip with community image + dark overlay -->
@@ -81,7 +82,7 @@ const Community = () => (
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-base px-8 py-3">🎟 Join Us This Week</a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-base px-8 py-3">💬 Say Hello</a>
+            <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Community:84")} className="btn-cta-outline text-base px-8 py-3">💬 Say Hello</a>
           </div>
         </FadeInUp>
       </div>
@@ -294,7 +295,7 @@ const Community = () => (
             <a href="https://www.instagram.com/puranights.salsabachata/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary/20 px-6 py-3 rounded-xl text-sm font-heading font-semibold transition-colors">
               <Instagram size={18} /> @puranights
             </a>
-            <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary/20 px-6 py-3 rounded-xl text-sm font-heading font-semibold transition-colors">
+            <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Community:297")} className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary/20 px-6 py-3 rounded-xl text-sm font-heading font-semibold transition-colors">
               <MessageCircle size={18} /> WhatsApp Group
             </a>
             <a href="https://www.instagram.com/melittasiomos/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary/20 px-6 py-3 rounded-xl text-sm font-heading font-semibold transition-colors">

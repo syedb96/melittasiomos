@@ -5,6 +5,7 @@ import SeoHead from "@/components/SeoHead";
 import { FadeInUp } from "@/components/animations";
 import { MessageCircle, Truck, RotateCcw, Ruler, ArrowLeft, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /shop/{product-slug} -->
    <!-- WIX: Replace this entire template with a Wix Stores Product Page template -->
@@ -186,7 +187,7 @@ const catalog: Record<string, {
 const buildWhatsAppLink = (productName: string, size: string | null) => {
   const sizeFragment = size ? ` (size: ${size})` : "";
   const text = `Hi Melitta, I'm interested in the ${productName}${sizeFragment} from the Pura Nights shop. Is it in stock?`;
-  return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+  return waCustom(text, "ProductTemplate:1").href;
 };
 
 const ProductTemplate = () => {

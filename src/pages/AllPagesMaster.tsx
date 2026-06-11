@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /all-pages-master -->
    <!-- WIX: Create as a standard Wix page with manual link lists -->
@@ -210,7 +211,7 @@ const AllPagesMaster = () => (
         <p className="text-charcoal/70 text-sm font-heading mb-6">Get in touch — Melitta responds personally to every message.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contact" className="btn-cta-dark text-sm">Contact Us</Link>
-          <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">WhatsApp Melitta</a>
+          <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "AllPagesMaster:213")} className="btn-cta-dark text-sm">WhatsApp Melitta</a>
         </div>
       </div>
     </section>

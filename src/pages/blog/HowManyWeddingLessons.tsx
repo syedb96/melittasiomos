@@ -6,6 +6,7 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import AuthorCard from "@/components/AuthorCard";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import BlogCTA from "@/components/BlogCTA";
+import { waCustom } from "@/lib/whatsapp";
 /* <!-- WIX PAGE: /blog/how-many-wedding-lessons -->
    <!-- WIX: Use dynamic page template connected to Blog Posts collection -->
    <!-- WIX SECTION: Article Header — title, category, author, date -->
@@ -58,7 +59,7 @@ const HowManyWeddingLessons = () => (
             <h2 className="font-display text-2xl font-bold mb-4 mt-10">Last-Minute Couples</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">Even if your wedding is in two weeks, I can still help. A single intensive session can transform your first dance from an awkward shuffle into something you'll both be proud of. Don't assume it's too late — reach out and let's see what we can do.</p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20our%20wedding%20is%20coming%20up%20and%20we%20need%20dance%20lessons" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 Get a Free Consultation</a>
+              <a {...waCustom("Hi Melitta, our wedding is coming up and we need dance lessons", "HowManyWeddingLessons:61")} className="btn-cta-primary text-sm">💬 Get a Free Consultation</a>
               <Link to="/wedding-dance" className="text-primary font-heading font-semibold text-sm">Wedding Dance Info →</Link>
             </div>
             <AuthorCard />

@@ -9,6 +9,7 @@ import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
 import { CENTRAL_FROM_CG } from "@/data/near-me-areas";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 
 /* <!-- WIX PAGE: /salsa-bachata-classes-covent-garden
@@ -130,9 +131,9 @@ const SalsaBachataCoventGarden = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20based%20near%20Covent%20Garden%20and%20would%20like%20to%20learn%20Salsa%2FBachata"
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waCustom("Hi Melitta, I'm based near Covent Garden and would like to learn Salsa/Bachata", "SalsaBachataCoventGarden:132")}
+             
+             
               className="btn-cta-primary text-sm"
             >
               💬 WhatsApp Melitta
@@ -159,7 +160,7 @@ const SalsaBachataCoventGarden = () => (
             "Weekly classes in Chiswick & Ealing (Piccadilly / District line)",
             "Wedding choreography for Central London couples",
           ]}
-          cta={{ label: "Ask Melitta what's best for you", href: "https://wa.me/447449482343?text=Hi%20Melitta%2C%20what%27s%20the%20best%20way%20for%20me%20to%20learn%20Salsa%2FBachata%20from%20Covent%20Garden%3F" }}
+          cta={{ label: "Ask Melitta what's best for you", href: waCustom("Hi Melitta, what's the best way for me to learn Salsa/Bachata from Covent Garden?", "SalsaBachataCoventGarden:162").href }}
         />
       </div>
     </section>
@@ -293,9 +294,9 @@ const SalsaBachataCoventGarden = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27m%20based%20near%20Covent%20Garden%20and%20would%20like%20to%20learn%20Salsa%2FBachata"
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waCustom("Hi Melitta, I'm based near Covent Garden and would like to learn Salsa/Bachata", "SalsaBachataCoventGarden:132")}
+             
+             
               className="btn-cta-primary text-sm"
             >
               💬 WhatsApp Melitta

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 const services = [
   { emoji: "💃", title: "Salsa & Bachata — Chiswick (Mon)", desc: "The George IV, 185 Chiswick High Rd", cta: "Book Now", href: "https://www.tickettailor.com/events/puranights" },
@@ -55,7 +56,7 @@ const Bookings = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Not Sure What to Book?</h2>
         <p className="text-primary-foreground/80 mb-8">Chat with Melitta and she'll help you find the perfect option.</p>
-        <a href="https://wa.me/447449482343" target="_blank" rel="noopener noreferrer" className="btn-cta-dark">💬 WhatsApp Melitta</a>
+        <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Bookings:58")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
       </div>
     </section>
     <RelatedPages title="Related Pages" links={[

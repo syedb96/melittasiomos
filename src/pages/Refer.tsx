@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { waCustom } from "@/lib/whatsapp";
 
 // v8.0 Refer-a-Friend & Pura Ambassador
 const referralSchema = z.object({
@@ -319,12 +320,10 @@ const Refer = () => {
                 <h3 className="font-display text-2xl font-bold mb-2">Referral Sent!</h3>
                 <p className="text-muted-foreground mb-6">Thank you. Melitta will personally reach out to your friend within 24 hours and credit your account once they attend.</p>
                 <a
-                  href={`https://wa.me/447449482343?text=${encodeURIComponent(
-                    `Hi Melitta — just sent a referral via the website:\n\n` +
+                  href={waCustom(`Hi Melitta — just sent a referral via the website:\n\n` +
                     `From: ${form.name} (${form.email}${form.phone ? `, ${form.phone}` : ""})\n` +
                     `Friend: ${form.friend_name} — ${form.friend_contact}\n` +
-                    (form.message ? `Note: ${form.message}\n` : "")
-                  )}`}
+                    (form.message ? `Note: ${form.message}\n` : ""), "Refer:1").href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
@@ -393,7 +392,7 @@ const Refer = () => {
           <Award size={42} className="text-primary mx-auto mb-4" />
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">Already Sent 5+ Friends?</h2>
           <p className="text-primary-foreground/75 mb-8">WhatsApp Melitta directly to claim your Pura Ambassador status — free unlimited monthly membership and the inside lane on every event we run.</p>
-          <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20claim%20my%20Pura%20Ambassador%20status." target="_blank" rel="noopener noreferrer" className="btn-cta bg-primary text-primary-foreground hover:opacity-90">
+          <a {...waCustom("Hi Melitta, I'd like to claim my Pura Ambassador status.", "Refer:396")} className="btn-cta bg-primary text-primary-foreground hover:opacity-90">
             💬 Claim Ambassador Status
           </a>
         </div>
@@ -419,13 +418,11 @@ const Refer = () => {
               <DialogTitle className="font-display text-2xl font-bold mb-2">Application Sent!</DialogTitle>
               <DialogDescription className="mb-5">Thank you. Melitta will personally review and reach out within 48 hours.</DialogDescription>
               <a
-                href={`https://wa.me/447449482343?text=${encodeURIComponent(
-                  `Hi Melitta — just submitted my Pura Ambassador application:\n\n` +
+                href={waCustom(`Hi Melitta — just submitted my Pura Ambassador application:\n\n` +
                   `Name: ${appForm.name}\n` +
                   `Email: ${appForm.email}\n` +
                   `Instagram: @${appForm.instagram.replace(/^@/, "")}\n\n` +
-                  `Pitch:\n${appForm.pitch}`
-                )}`}
+                  `Pitch:\n${appForm.pitch}`, "Refer:1").href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:opacity-90 transition-opacity"

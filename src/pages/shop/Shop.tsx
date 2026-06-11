@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ShoppingBag, Truck, Ruler, Sparkles, MessageCircle } from "lucide-react";
+import { waCustom } from "@/lib/whatsapp";
 
 /* <!-- WIX PAGE: /shop -->
    <!-- WIX: Replace this entire shell with a Wix Stores Category page -->
@@ -20,10 +21,10 @@ const PHONE = "447449482343";
 const buildWhatsAppLink = (productName: string, size: string | null) => {
   const sizeFragment = size ? ` (size: ${size})` : "";
   const text = `Hi Melitta, I'm interested in the ${productName}${sizeFragment} from the Pura Nights shop. Is it in stock?`;
-  return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+  return waCustom(text, "Shop:1").href;
 };
 
-const WHATSAPP_GENERAL = `https://wa.me/${PHONE}?text=${encodeURIComponent("Hi Melitta, I have a question about the Pura Nights shop")}`;
+const WHATSAPP_GENERAL = waCustom("Hi Melitta, I have a question about the Pura Nights shop", "Shop:1").href;
 
 const categories = [
   { slug: "all", title: "All", desc: "Everything in the collection.", count: 40 },

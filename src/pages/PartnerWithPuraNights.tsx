@@ -7,6 +7,7 @@ import EnquiryForm from "@/components/EnquiryForm";
 import RelatedPages from "@/components/RelatedPages";
 import ProofBlock from "@/components/ProofBlock";
 import { FadeInUp } from "@/components/animations";
+import { waCustom } from "@/lib/whatsapp";
 
 const partnerFaqs = [
   { q: "Who do you partner with?", a: "Venues, hotels, pubs, wedding suppliers, photographers, DJs, local publications, brands, and community / university groups across West London." },
@@ -243,7 +244,7 @@ const PartnerWithPuraNights = () => (
         <EnquiryForm
           enquiryType="Partnership / Venue Collaboration"
           contextLabel="Partner with Pura Nights"
-          whatsappUrl="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I%27d%20like%20to%20discuss%20a%20Pura%20Nights%20partnership"
+          whatsappUrl=waCustom("Hi Melitta, I'd like to discuss a Pura Nights partnership", "PartnerWithPuraNights:246").href
           extraFields={[
             { name: "organisation", label: "Organisation", placeholder: "Venue / brand / publication" },
             { name: "website", label: "Website", placeholder: "https://" },

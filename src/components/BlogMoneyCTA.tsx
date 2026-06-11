@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 /**
  * Reusable bottom-of-article money CTA for blog posts.
@@ -50,9 +51,9 @@ const BlogMoneyCTA = ({ variant = "classes" }: { variant?: Variant }) => {
       <div className="flex flex-wrap gap-3 justify-center">
         <Link to={c.to} onClick={() => trackCta(c.cta, `blog-money-cta:${variant}`)} className="btn-cta-primary text-sm">{c.label}</Link>
         <a
-          href="https://wa.me/447449482343"
-          target="_blank"
-          rel="noopener noreferrer"
+          {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "BlogMoneyCTA:52")}
+         
+         
           onClick={() => trackCta("whatsapp_click", `blog-money-cta:${variant}`)}
           className="inline-flex items-center text-sm font-heading text-primary hover:underline px-4 py-2"
         >

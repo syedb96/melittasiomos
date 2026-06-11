@@ -3,9 +3,10 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import EnquiryForm from "@/components/EnquiryForm";
+import { waCustom } from "@/lib/whatsapp";
 
 const WA_CORPORATE =
-  "https://wa.me/447449482343?text=" +
+  waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "LatinDanceCorporateEventsLondon:8").href +
   encodeURIComponent(
     "Hi Melitta, I'd like a quote for a Latin dance corporate session for our team. Could you send options?"
   );
