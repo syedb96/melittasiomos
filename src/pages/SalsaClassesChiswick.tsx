@@ -56,7 +56,7 @@ const schema = {
 const SalsaClassesChiswick = () => (
   <Layout>
     <SeoHead
-      title="Salsa Classes Chiswick W4 | Every Monday at The George IV | Pura Nights"
+      title="Salsa Classes Chiswick W4 | Mondays at The George IV"
       description="Salsa & bachata classes every Monday in Chiswick at The George IV (W4 2DR). 3 min from Turnham Green tube. All levels, no partner, from £5. Run by Melitta Siomos."
       path="/salsa-classes-chiswick"
       schema={schema}

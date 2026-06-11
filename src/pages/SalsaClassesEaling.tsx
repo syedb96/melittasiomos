@@ -43,7 +43,7 @@ const schema = {
 const SalsaClassesEaling = () => (
   <Layout>
     <SeoHead
-      title="Salsa Classes Ealing W13 | Every Tuesday at The Drayton Court | Pura Nights"
+      title="Salsa Classes Ealing W13 | Tuesdays at The Drayton Court"
       description="Salsa & bachata classes every Tuesday at The Drayton Court Hotel, West Ealing (W13 8PH). 3 min from West Ealing Elizabeth Line. All levels, no partner, from £5."
       path="/salsa-classes-ealing"
       schema={schema}
