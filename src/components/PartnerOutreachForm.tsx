@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackCta } from "@/lib/analytics";
 import { waCustom } from "@/lib/whatsapp";
+import { logSecurityEvent } from "@/lib/security-log";
 
 /* <!-- WIX SECTION: Partner Outreach Form -->
    Wix mirror: Wix Form → "contact_submissions" with enquiry_type
