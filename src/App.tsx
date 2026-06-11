@@ -387,6 +387,7 @@ const App = () => (
             <Route path="/latin-dance-corporate-events-london" element={<LatinDanceCorporateEventsLondon />} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
             <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
+            <Route path="/admin/security-events" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
 
