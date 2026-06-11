@@ -238,7 +238,11 @@ const Prices = () => {
           <div className="bg-card rounded-2xl p-8 max-w-2xl mx-auto card-hover mb-12">
             <h2 className="font-display text-2xl font-bold mb-2">🎁 Gift Vouchers</h2>
             <p className="text-muted-foreground mb-4">Give the gift of dance! Choose from £25, £50, £75, £100, £150, or £200.</p>
-            <Link to="/gift-vouchers" className="btn-cta-primary text-xs py-2 px-6">Buy a Gift Voucher</Link>
+            <Link
+              to="/gift-vouchers"
+              className="btn-cta-primary text-xs py-2 px-6"
+              onClick={() => recordVariantClick(PRICES_GIFT_VOUCHER.key, giftVoucher.id, "prices:gift-voucher")}
+            >{giftVoucher.payload.label}</Link>
           </div>
         </FadeInUp>
 
