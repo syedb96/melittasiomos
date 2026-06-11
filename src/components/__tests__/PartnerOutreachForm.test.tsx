@@ -32,7 +32,11 @@ const findEvents = (type: string) =>
 const inputByLabel = (container: HTMLElement, text: string) => {
   const labels = Array.from(container.querySelectorAll("label"));
   const label = labels.find(l => l.textContent?.includes(text));
-  return label?.querySelector("input, select, textarea") as HTMLInputElement | HTMLSelectElement | null;
+  if (!label) return null;
+  // F() renders <label> and <input> as siblings inside a wrapper <div>
+  return (label.querySelector("input, select, textarea") ??
+    label.parentElement?.querySelector("input, select, textarea") ??
+    null) as HTMLInputElement | HTMLSelectElement | null;
 };
 
 const submitButton = (container: HTMLElement) =>
