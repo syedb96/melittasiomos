@@ -12,6 +12,8 @@ import BundleCalculator from "@/components/BundleCalculator";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { waCustom } from "@/lib/whatsapp";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { PRICES_GIFT_VOUCHER } from "@/data/ab-experiments";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
