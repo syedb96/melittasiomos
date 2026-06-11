@@ -292,6 +292,7 @@ const PuraNights = () => {
     </section>
     <FirstTimerCallout />
   </Layout>
-);
+  );
+};
 
 export default PuraNights;
