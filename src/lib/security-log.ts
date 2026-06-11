@@ -24,14 +24,14 @@ interface LogPayload {
 
 export async function logSecurityEvent(p: LogPayload): Promise<void> {
   try {
-    await supabase.from("security_events").insert({
+    await supabase.from("security_events").insert([{
       event_type: p.event_type,
       source: p.source.slice(0, 120),
       severity: p.severity ?? "info",
       page_path: typeof window !== "undefined" ? window.location.pathname.slice(0, 300) : null,
       user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
-      meta: p.meta ?? {},
-    });
+      meta: (p.meta ?? {}) as never,
+    }]);
   } catch {
     // swallow — logging must never break the UX
   }
