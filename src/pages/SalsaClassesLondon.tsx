@@ -32,7 +32,7 @@ const schema = {
 const SalsaClassesLondon = () => (
   <Layout>
     <SeoHead
-      title="Salsa Classes London | Weekly Lessons | Melitta Siomos"
+      title="Salsa Classes London | Weekly Lessons | Pura Nights"
       description="Learn salsa in London with award-winning instructor Melitta Siomos. Weekly salsa classes in Chiswick & Ealing for all levels. No partner needed. Book from £5."
       path="/salsa-classes-london"
       schema={schema}
