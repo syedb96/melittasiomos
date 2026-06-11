@@ -89,7 +89,7 @@ const WeddingDanceLessonsLondon = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a {...waCustom("Hi Melitta, I'd love to book a free wedding dance consultation", "WeddingDanceLessonsLondon:90")} className="btn-cta-primary">💍 Book Free Consultation</a>
-            <Link to="/wedding-dance" className="btn-cta-dark">Learn More</Link>
+            <Link to="/wedding-dance" className="btn-cta-dark">Explore Wedding Dance Packages</Link>
           </div>
         </FadeInUp>
       </div>
