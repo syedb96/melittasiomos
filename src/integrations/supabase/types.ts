@@ -463,6 +463,42 @@ export type Database = {
         }
         Relationships: []
       }
+      security_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: string
+          ip_hint: string | null
+          meta: Json
+          page_path: string | null
+          severity: string
+          source: string
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: string
+          ip_hint?: string | null
+          meta?: Json
+          page_path?: string | null
+          severity?: string
+          source: string
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: string
+          ip_hint?: string | null
+          meta?: Json
+          page_path?: string | null
+          severity?: string
+          source?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       seo_alerts: {
         Row: {
           acknowledged: boolean
