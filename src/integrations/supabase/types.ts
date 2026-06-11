@@ -468,7 +468,6 @@ export type Database = {
           created_at: string
           event_type: string
           id: string
-          ip_hint: string | null
           meta: Json
           page_path: string | null
           severity: string
@@ -479,7 +478,6 @@ export type Database = {
           created_at?: string
           event_type: string
           id?: string
-          ip_hint?: string | null
           meta?: Json
           page_path?: string | null
           severity?: string
@@ -490,7 +488,6 @@ export type Database = {
           created_at?: string
           event_type?: string
           id?: string
-          ip_hint?: string | null
           meta?: Json
           page_path?: string | null
           severity?: string
@@ -756,6 +753,7 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
+      purge_old_security_events: { Args: never; Returns: undefined }
     }
     Enums: {
       app_role: "owner" | "admin" | "editor" | "viewer"
