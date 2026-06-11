@@ -113,9 +113,10 @@ const EmbedClassFinder = () => {
       </a>
 
       <a
-        href={`https://wa.me/447449482343?text=Hi%20Melitta%20%E2%80%94%20I%20found%20you%20via%20a%20partner%20site%20(${encodeURIComponent(query.utm_source || "embed")}).`}
-        target="_blank"
-        rel="noopener"
+        {...waCustom(
+          `Hi Melitta — I found you via a partner site (${query.utm_source || "embed"}).`,
+          "EmbedClassFinder:115",
+        )}
         onClick={() => onCta("class_finder_whatsapp_click", "wa.me")}
         style={{ display: "block", textAlign: "center", marginTop: 6, background: "#fff", color: "#151515", padding: "8px 14px", borderRadius: 10, textDecoration: "none", fontWeight: 600, fontSize: 12, border: "1px solid #ddd" }}
       >
