@@ -69,7 +69,10 @@ function audit() {
     const lines = src.split("\n");
 
     lines.forEach((line, i) => {
+      // Skip comment lines (Wix replication docs reference URLs verbatim).
+      if (/^\s*(\/\/|\/\*|\*|<!--)/.test(line)) return;
       // Rule 1 — no raw wa.me phone (share URLs wa.me/?text=... are exempt
+      // because they target the user's own contacts, not Melitta).
       // because they target the user's own contacts, not Melitta).
       if (line.includes(`wa.me/${PHONE}`) && !ALLOW_RAW_FILES.has(rel)) {
         findings.push({
