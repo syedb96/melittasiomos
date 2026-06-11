@@ -16,6 +16,8 @@ import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { PURA_NIGHTS_HERO_PRIMARY } from "@/data/ab-experiments";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
