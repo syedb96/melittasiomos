@@ -21,6 +21,7 @@ const SRC = join(ROOT, "src");
 const ALLOW_RAW_FILES = new Set([
   "src/lib/whatsapp.ts",
   "src/pages/admin/TrackingQA.tsx",
+  "src/components/__tests__/PartnerOutreachForm.test.tsx",
 ]);
 
 const PHONE = "447449482343";
