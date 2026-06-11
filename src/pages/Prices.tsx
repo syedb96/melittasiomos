@@ -26,6 +26,7 @@ import { PRICES_GIFT_VOUCHER } from "@/data/ab-experiments";
 */
 const Prices = () => {
   const [selected, setSelected] = useState<"try" | "commit" | "weekly" | null>(null);
+  const giftVoucher = useVariant(PRICES_GIFT_VOUCHER);
   return (
   <Layout>
     <SeoHead title="Salsa & Bachata Class Prices London | Pura Nights" description="View all Salsa & Bachata class prices at Pura Nights. Drop-in from £5, monthly bundles, and Latin Friday tickets. Chiswick & Ealing venues." path="/prices" />
