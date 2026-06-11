@@ -138,8 +138,8 @@ const Index = () => {
             West London's most vibrant Salsa & Bachata community. Weekly classes in Chiswick & Ealing — no partner, no experience needed.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Your First Class — From £10 →</a>
-            <Link to="/schedule" className="btn-cta-ghost text-sm">See Class Schedule →</Link>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Come dance with us — from £10 →</a>
+            <Link to="/schedule" className="btn-cta-ghost text-sm">See when we're dancing →</Link>
           </motion.div>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75 }} className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
             Instant ticket confirmation · Free to switch venues · No partner required
@@ -210,7 +210,7 @@ const Index = () => {
             ))}
           </div>
           <FadeInUp delay={0.3} className="mt-8">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book Now →</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Save me a spot →</a>
           </FadeInUp>
         </div>
       </section>

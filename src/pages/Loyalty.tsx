@@ -12,7 +12,7 @@ import { toast } from "@/hooks/use-toast";
 const WA_LOYALTY =
   "https://wa.me/447449482343?text=" +
   encodeURIComponent(
-    "Hi Melitta, I'd like to join the loyalty programme. How does the 8 sessions + 9th free tracking work?"
+    "Hi Melitta, I'd love to join the Pura Nights loyalty card. Could you confirm which weekly drop-in and Latin Friday sessions count toward the 9th-free reward?"
   );
 
 const schema = {
@@ -38,10 +38,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Which sessions count?",
+      name: "Which sessions count toward the 9th-free reward?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Weekly drop-in classes in Chiswick (Mondays) and Ealing (Tuesdays) count. Final eligibility is confirmed by Pura Nights — bundles, private lessons and events may be excluded.",
+        text: "Weekly drop-in classes in Chiswick (Mondays) and Ealing (Tuesdays) count, and Latin Friday tickets count too. Class bundles and monthly unlimited passes are excluded — they already include a built-in discount.",
       },
     },
     {
@@ -49,15 +49,15 @@ const faqSchema = {
       name: "How do I track my visits?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Visits are tracked manually by the Pura Nights team at the door. You can also message Melitta on WhatsApp to confirm your current count.",
+        text: "Visits are tracked manually by the Pura Nights team at the door. Message Melitta on WhatsApp any time to confirm your current count.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I combine loyalty with a class bundle?",
+      name: "Do bundle classes count toward loyalty?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Bundle eligibility is reviewed case by case — message Melitta on WhatsApp to confirm before purchase.",
+        text: "No — class bundles and monthly unlimited passes are already discounted, so they don't count toward the 8+1 loyalty reward. Drop-in classes (£15) and Latin Friday tickets do count.",
       },
     },
     {
@@ -65,15 +65,15 @@ const faqSchema = {
       name: "Can I join if I'm completely new?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. Join from your very first class — there's no minimum experience required.",
+        text: "Absolutely. Join from your very first drop-in class — there's no minimum experience required.",
       },
     },
     {
       "@type": "Question",
-      name: "Does loyalty apply to private lessons or events?",
+      name: "Does loyalty apply to private lessons, weddings or corporate bookings?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Private lessons, weddings, corporate bookings and Latin Friday tickets are not included in the loyalty count. The programme is designed for weekly class attendance.",
+        text: "No. Private lessons, wedding choreography and corporate bookings are bespoke services and are not part of the loyalty count. The programme rewards regular drop-in attendance and Latin Friday visits.",
       },
     },
   ],
@@ -182,12 +182,13 @@ const Loyalty = () => {
       {/* What counts */}
       <section className="section-padding section-warm">
         <div className="container-main max-w-3xl">
-          <h2 className="font-display text-2xl md:text-3xl font-bold mb-5">What counts</h2>
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-5">What counts toward your 9th free session</h2>
           <ul className="space-y-2 text-muted-foreground text-sm md:text-base">
-            <li>• Weekly drop-in classes in Chiswick (Mondays) and Ealing (Tuesdays).</li>
-            <li>• Eligible drop-ins or class bundles, depending on final policy.</li>
-            <li>• Final eligibility is confirmed by Pura Nights — message Melitta if in doubt.</li>
-            <li>• Private lessons, weddings, corporate bookings and Latin Friday tickets are not included.</li>
+            <li>✅ Drop-in weekly classes in Chiswick (Mondays) and Ealing (Tuesdays) — £15 each.</li>
+            <li>✅ Latin Friday tickets — every monthly Latin Friday counts as one eligible session.</li>
+            <li>❌ Class bundles and monthly unlimited passes — already discounted, so not eligible.</li>
+            <li>❌ Private lessons, wedding choreography and corporate bookings — bespoke services, not included.</li>
+            <li>The team logs your attendance manually at the door — message Melitta any time to check your count.</li>
           </ul>
         </div>
       </section>
@@ -254,7 +255,7 @@ const Loyalty = () => {
                 <span>I agree to receive loyalty-card updates from Pura Nights by email.</span>
               </label>
               <button type="submit" disabled={submitting} className="btn-cta-primary text-sm w-full sm:w-auto" onClick={() => trackEvent("loyalty", "loyalty_join_click")}>
-                {submitting ? "Joining…" : "Join the loyalty card →"}
+                {submitting ? "Joining…" : "Count me in →"}
               </button>
             </form>
           )}
@@ -267,7 +268,7 @@ const Loyalty = () => {
               onClick={() => trackEvent("loyalty", "loyalty_whatsapp_click")}
               className="inline-flex items-center gap-2 text-primary font-heading font-semibold hover:underline"
             >
-              💬 Ask about loyalty on WhatsApp →
+              💬 Chat to Melitta about loyalty on WhatsApp →
             </a>
           </div>
         </div>

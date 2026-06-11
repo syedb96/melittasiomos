@@ -20,9 +20,23 @@ const CATEGORY_LABELS: Record<Testimonial["category"], string> = {
   community: "Community",
 };
 
+// Direct-link each testimonial to the matching service page so proof
+// routes straight to the correct conversion path.
+const CATEGORY_LINKS: Record<Testimonial["category"], string> = {
+  beginner: "/start-here",
+  group: "/pura-nights",
+  wedding: "/wedding-dance",
+  private: "/private-lessons",
+  "pura-ladies": "/pura-ladies",
+  online: "/online-salsa-bachata-coaching",
+  community: "/pura-nights",
+};
+
 const TestimonialCard = ({ t }: { t: Testimonial }) => {
   const [expanded, setExpanded] = useState(false);
   const initials = t.name.split(" ").map(w => w[0]).join("").slice(0, 2);
+  const href = CATEGORY_LINKS[t.category];
+  const ariaLabel = `${CATEGORY_LABELS[t.category]} story from ${t.name} — read more about this service`;
 
   return (
     <div className="review-card bg-card rounded-2xl p-6 shadow-card flex flex-col min-w-[320px] max-w-[400px] shrink-0">
@@ -38,18 +52,34 @@ const TestimonialCard = ({ t }: { t: Testimonial }) => {
           {t.platform === "google" ? "Google ⭐" : "Student Story"}
         </span>
       </div>
-      <p className="font-accent text-[10px] tracking-[0.2em] uppercase text-primary mb-2">{CATEGORY_LABELS[t.category]}</p>
+      <Link
+        to={href}
+        aria-label={ariaLabel}
+        className="font-accent text-[10px] tracking-[0.2em] uppercase text-primary mb-2 hover:underline self-start"
+        data-event={`testimonial_category_click_${t.category}`}
+      >
+        {CATEGORY_LABELS[t.category]} →
+      </Link>
       <div className="flex gap-0.5 mb-3" aria-label="5 star rating">
         {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-primary text-primary" />)}
       </div>
       <p className={`text-sm leading-relaxed text-muted-foreground ${!expanded ? "line-clamp-3" : ""}`}>
         "{t.quote}"
       </p>
-      {t.quote.length > 150 && (
-        <button onClick={() => setExpanded(!expanded)} className="text-primary text-xs font-heading font-semibold mt-2 self-start hover:underline">
-          {expanded ? "Show less" : "Read more"}
-        </button>
-      )}
+      <div className="mt-3 flex items-center justify-between gap-3">
+        {t.quote.length > 150 ? (
+          <button onClick={() => setExpanded(!expanded)} className="text-primary text-xs font-heading font-semibold hover:underline">
+            {expanded ? "Show less" : "Read more"}
+          </button>
+        ) : <span />}
+        <Link
+          to={href}
+          className="text-xs font-heading font-semibold text-primary hover:underline"
+          data-event={`testimonial_cta_click_${t.category}`}
+        >
+          See {CATEGORY_LABELS[t.category]} →
+        </Link>
+      </div>
     </div>
   );
 };
