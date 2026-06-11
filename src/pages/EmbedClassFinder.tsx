@@ -5,6 +5,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { trackCta } from "@/lib/analytics";
+import { waCustom } from "@/lib/whatsapp";
 
 type ClassRow = { day: string; venue: string; location: string; style: "Salsa" | "Bachata" | "Both"; time: string };
 
