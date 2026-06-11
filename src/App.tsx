@@ -181,6 +181,7 @@ import SeoDashboard from "./pages/admin/SeoDashboard";
 import ShopPhotoTracker from "./pages/admin/ShopPhotoTracker";
 import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
 import TrackingQA from "./pages/admin/TrackingQA";
+import SecurityEvents from "./pages/admin/SecurityEvents";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
