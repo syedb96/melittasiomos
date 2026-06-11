@@ -4,6 +4,8 @@ import SeoHead from "@/components/SeoHead";
 import AnswerBox from "@/components/AnswerBox";
 import PartnerCTA from "@/components/PartnerCTA";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { WL_HERO_PRIMARY } from "@/data/ab-experiments";
 
 const AREAS = [
   ["Chiswick", "/salsa-classes-chiswick", "Monday weekly classes at The George IV — main hub."],
