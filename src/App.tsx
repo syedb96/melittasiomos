@@ -180,6 +180,7 @@ import SiteDocs from "./pages/admin/SiteDocs";
 import SeoDashboard from "./pages/admin/SeoDashboard";
 import ShopPhotoTracker from "./pages/admin/ShopPhotoTracker";
 import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
+import TrackingQA from "./pages/admin/TrackingQA";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -384,6 +385,7 @@ const App = () => (
             <Route path="/salsa-bachata-west-london" element={<SalsaBachataWestLondon />} />
             <Route path="/latin-dance-corporate-events-london" element={<LatinDanceCorporateEventsLondon />} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
+            <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
 

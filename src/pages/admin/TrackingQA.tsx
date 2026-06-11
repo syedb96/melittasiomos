@@ -36,7 +36,7 @@ const TrackingQA = () => {
 
     w.gtag = (cmd: string, ev: string, params?: Record<string, unknown>) => {
       if (cmd === "event") {
-        setEvents((prev) => [{ ts: Date.now(), source: "gtag", name: ev, payload: params ?? {} }, ...prev].slice(0, 50));
+        setEvents((prev) => [{ ts: Date.now(), source: "gtag" as const, name: ev, payload: params ?? {} }, ...prev].slice(0, 50));
       }
       origGtag?.(cmd, ev, params);
     };
@@ -44,7 +44,7 @@ const TrackingQA = () => {
       w.dataLayer.push = (...args: Record<string, unknown>[]) => {
         for (const a of args) {
           const name = String(a.event ?? "(unknown)");
-          setEvents((prev) => [{ ts: Date.now(), source: "dataLayer", name, payload: a }, ...prev].slice(0, 50));
+          setEvents((prev) => [{ ts: Date.now(), source: "dataLayer" as const, name, payload: a }, ...prev].slice(0, 50));
         }
         return origDLPush ? origDLPush(...args) : args.length;
       };
@@ -52,7 +52,7 @@ const TrackingQA = () => {
       w.dataLayer = [];
     }
     w.trackCta = (name: string, meta?: Record<string, unknown>) => {
-      setEvents((prev) => [{ ts: Date.now(), source: "trackCta", name, payload: meta ?? {} }, ...prev].slice(0, 50));
+      setEvents((prev) => [{ ts: Date.now(), source: "trackCta" as const, name, payload: meta ?? {} }, ...prev].slice(0, 50));
       origTrackCta?.(name, meta);
     };
 
