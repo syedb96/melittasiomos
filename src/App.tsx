@@ -157,6 +157,7 @@ import BirthdayDanceClassLondon from "./pages/blog/BirthdayDanceClassLondon";
 import CorporateChristmasPartyDanceLondon from "./pages/blog/CorporateChristmasPartyDanceLondon";
 import BuildConfidenceOnDanceFloor from "./pages/blog/BuildConfidenceOnDanceFloor";
 import SalsaBachataBucketListLondon from "./pages/blog/SalsaBachataBucketListLondon";
+import BestLatinDanceFestivalsEurope2026 from "./pages/blog/BestLatinDanceFestivalsEurope2026";
 import BestSalsaBachataClassesWestLondon from "./pages/BestSalsaBachataClassesWestLondon";
 
 // Pillar pages
@@ -266,6 +267,7 @@ const App = () => (
             <Route path="/blog/corporate-christmas-party-dance-london" element={<CorporateChristmasPartyDanceLondon />} />
             <Route path="/blog/build-confidence-on-dance-floor" element={<BuildConfidenceOnDanceFloor />} />
             <Route path="/blog/salsa-bachata-bucket-list-london" element={<SalsaBachataBucketListLondon />} />
+            <Route path="/blog/best-latin-dance-festivals-europe-2026" element={<BestLatinDanceFestivalsEurope2026 />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:slug" element={<EventInstance />} />
             <Route path="/gallery" element={<Gallery />} />
