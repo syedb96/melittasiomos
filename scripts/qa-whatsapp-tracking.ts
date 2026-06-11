@@ -18,10 +18,18 @@ import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, "src");
+// Allow-list of files permitted to reference the raw wa.me/<PHONE> URL.
+// Every other file in src/** MUST route through src/lib/whatsapp.ts so that
+// click tracking, UTM tags, and the central preset map stay consistent.
+// Add to this list ONLY when a file legitimately needs the literal URL
+// (e.g. the helper itself or an admin QA dashboard that displays it).
+// New test mocks should inject the URL via env/config instead of hard-coding,
+// so they do not need an entry here.
 const ALLOW_RAW_FILES = new Set([
+  // Source of truth: defines the WA helper + preset map.
   "src/lib/whatsapp.ts",
+  // Admin-only tracking QA dashboard that surfaces the raw URL for inspection.
   "src/pages/admin/TrackingQA.tsx",
-  "src/components/__tests__/PartnerOutreachForm.test.tsx",
 ]);
 
 const PHONE = "447449482343";
