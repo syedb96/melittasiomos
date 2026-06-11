@@ -29,7 +29,9 @@ import { PURA_NIGHTS_HERO_PRIMARY } from "@/data/ab-experiments";
    <!-- WIX SECTION: Testimonials — use Slider connected to Testimonials collection -->
    <!-- WIX SECTION: CTA Band — use Full-width Strip -->
 */
-const PuraNights = () => (
+const PuraNights = () => {
+  const heroPrimary = useVariant(PURA_NIGHTS_HERO_PRIMARY);
+  return (
   <Layout>
     <SeoHead
       title="Pura Nights | Salsa & Bachata Classes Chiswick & Ealing | Every Monday & Tuesday"
