@@ -29,7 +29,8 @@
     "qa:alt-lint": "bun scripts/alt-text-lint.ts",
     "qa:cta-smoke": "bun scripts/cta-smoke-test.ts",
     "qa:wa-tracking": "bun scripts/qa-whatsapp-tracking.ts",
-    "prebuild": "bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts",
+    "qa:deps": "bun scripts/qa-dependency-audit.ts",
+    "prebuild": "bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts && bun scripts/qa-dependency-audit.ts",
     "predev": "bun scripts/seo-qa.ts"
   },
   "dependencies": {

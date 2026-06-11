@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackCta } from "@/lib/analytics";
 import { waCustom } from "@/lib/whatsapp";
+import { logSecurityEvent } from "@/lib/security-log";
 
 /* <!-- WIX SECTION: Partner Outreach Form -->
    Wix mirror: Wix Form → "contact_submissions" with enquiry_type
@@ -59,12 +60,17 @@ const PartnerOutreachForm = () => {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
-    if (hp.trim() !== "" || Date.now() - renderedAt < 1500) { setDone(true); return; }
+    if (hp.trim() !== "" || Date.now() - renderedAt < 1500) {
+      logSecurityEvent({ event_type: "form_honeypot_tripped", source: "PartnerOutreachForm", severity: "warn", meta: { hp: hp.length > 0, dt: Date.now() - renderedAt } });
+      setDone(true);
+      return;
+    }
     const r = schema.safeParse(d);
     if (!r.success) {
       const fe: Record<string, string> = {};
       r.error.issues.forEach(i => { const k = i.path[0] as string; if (!fe[k]) fe[k] = i.message; });
       setErrors(fe);
+      logSecurityEvent({ event_type: "form_validation_failed", source: "PartnerOutreachForm", severity: "info", meta: { fields: Object.keys(fe) } });
       return;
     }
     setSubmitting(true);
@@ -88,9 +94,11 @@ const PartnerOutreachForm = () => {
       });
       if (error) throw error;
       trackCta("partner_outreach_submit", "/partners/embed-widget");
+      logSecurityEvent({ event_type: "form_submission_success", source: "PartnerOutreachForm" });
       setDone(true);
-    } catch {
+    } catch (err) {
       setErrors({ form: "Couldn't send — please WhatsApp Melitta instead." });
+      logSecurityEvent({ event_type: "form_submission_error", source: "PartnerOutreachForm", severity: "error", meta: { message: (err as Error)?.message?.slice(0, 200) } });
     } finally {
       setSubmitting(false);
     }
