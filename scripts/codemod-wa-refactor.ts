@@ -56,33 +56,39 @@ function locationTag(rel: string, line: number): string {
 }
 
 function ensureImport(src: string): string {
-  // Already importing waCustom?
-  if (/from\s+["']@\/lib\/whatsapp["']/.test(src)) {
-    if (/\bwaCustom\b/.test(src.split("\n").slice(0, 60).join("\n"))) {
-      // probably already imported; quick check on import lines
-      const importLineRe = /import\s*\{([^}]*)\}\s*from\s*["']@\/lib\/whatsapp["']/;
-      const m = src.match(importLineRe);
-      if (m && /\bwaCustom\b/.test(m[1])) return src;
-      if (m) {
-        const merged = m[0].replace(m[1], ` ${m[1].trim().replace(/,?\s*$/, "")}, waCustom `);
-        return src.replace(m[0], merged);
-      }
-    } else {
-      const importLineRe = /import\s*\{([^}]*)\}\s*from\s*["']@\/lib\/whatsapp["']/;
-      const m = src.match(importLineRe);
-      if (m) {
-        const merged = m[0].replace(m[1], ` ${m[1].trim().replace(/,?\s*$/, "")}, waCustom `);
-        return src.replace(m[0], merged);
-      }
-    }
+  const importLineRe = /import\s*\{([^}]*)\}\s*from\s*["']@\/lib\/whatsapp["']/;
+  const m = src.match(importLineRe);
+  if (m) {
+    if (/\bwaCustom\b/.test(m[1])) return src;
+    const merged = m[0].replace(m[1], ` ${m[1].trim().replace(/,?\s*$/, "")}, waCustom `);
+    return src.replace(m[0], merged);
   }
-  // Insert after last existing import
+  // Insert AFTER the entire import block (skip multi-line imports too).
   const lines = src.split("\n");
-  let lastImport = -1;
-  for (let i = 0; i < Math.min(lines.length, 80); i++) {
-    if (/^\s*import\b/.test(lines[i])) lastImport = i;
+  let i = 0;
+  // skip leading comments/blank
+  while (i < lines.length && /^\s*(\/\/|\/\*|\*|$)/.test(lines[i])) i++;
+  let insertAt = i;
+  let depth = 0;
+  while (i < lines.length) {
+    const ln = lines[i];
+    if (/^\s*import\b/.test(ln) || depth > 0) {
+      // track braces to handle multi-line `import { ... } from ...`
+      for (const ch of ln) {
+        if (ch === "{") depth++;
+        else if (ch === "}") depth--;
+      }
+      if (depth === 0 && /from\s*["'][^"']+["'];?\s*$/.test(ln.trim())) {
+        insertAt = i + 1;
+      } else if (depth === 0 && /^\s*import\s+[^{][^;]*;?\s*$/.test(ln)) {
+        // bare `import X from "..."` single line
+        insertAt = i + 1;
+      }
+      i++;
+      continue;
+    }
+    break;
   }
-  const insertAt = lastImport >= 0 ? lastImport + 1 : 0;
   lines.splice(insertAt, 0, `import { waCustom } from "@/lib/whatsapp";`);
   return lines.join("\n");
 }
