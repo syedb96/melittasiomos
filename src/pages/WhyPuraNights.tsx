@@ -16,7 +16,7 @@ const rows = [
 const faqs = [
   { q: "Is Pura Nights right for absolute beginners?", a: "Yes — every class starts from zero. Most of our regular students arrived with no dance experience at all." },
   { q: "How does Pura Nights compare to larger London dance schools?", a: "The biggest difference is consistency — Melitta teaches every class, at intimate West London venues, with a partner-rotation system that means no one sits out. Larger schools offer higher volume; we offer higher quality per session." },
-  { q: "Do you offer trial classes before committing?", a: "Yes — claim a free taster class at puranights.com/free-taster. No card required." },
+  { q: "Do you offer trial classes before committing?", a: "Yes — claim a free taster class at www.puranights.com/free-taster. No card required." },
   { q: "What areas of London do you serve?", a: "Weekly classes in Chiswick (W4) and Ealing (W13). Our students travel from across West London including Hammersmith, Acton, Shepherd's Bush, Brentford, Kew, Richmond, and Twickenham." },
   { q: "Is Melitta still actively competing?", a: "Melitta remains active in the UK and international Latin dance scene. Her ongoing performance work keeps her teaching current — what she teaches in class is what she dances on stage." },
 ];
@@ -31,8 +31,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://puranights.com/" },
-    { "@type": "ListItem", position: 2, name: "Why Pura Nights", item: "https://puranights.com/why-pura-nights" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.puranights.com/" },
+    { "@type": "ListItem", position: 2, name: "Why Pura Nights", item: "https://www.puranights.com/why-pura-nights" },
   ],
 };
 

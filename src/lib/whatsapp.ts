@@ -107,19 +107,69 @@ export const WA = {
   ),
 };
 
-// Lightweight CTA tracking — defers to existing dataLayer/trackCta if present.
-export function trackWaClick(context: string, meta?: Record<string, unknown>) {
+// Unified WhatsApp click tracking.
+// Every WA CTA on the site should funnel through this so we get
+// consistent event names, page context, and prefilled-message context
+// across both GA4 (gtag), GTM (dataLayer) and Supabase cta_events.
+//
+// Event name convention: whatsapp_<context>_click
+// Params: context, page_path, location (optional placement label),
+// prefill_id (optional preset id like "loyaltyJoin"), and any extra meta.
+export function trackWaClick(
+  context: string,
+  meta?: Record<string, unknown> & { location?: string; prefill_id?: string }
+) {
+  const eventName = `whatsapp_${context}_click`;
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+  const payload = {
+    cta_type: "whatsapp",
+    cta_context: context,
+    page_path: path,
+    ...meta,
+  };
   try {
     const w = window as unknown as {
       dataLayer?: Array<Record<string, unknown>>;
+      gtag?: (cmd: string, ev: string, params?: Record<string, unknown>) => void;
       trackCta?: (name: string, meta?: Record<string, unknown>) => void;
     };
-    if (typeof w.trackCta === "function") {
-      w.trackCta(`whatsapp:${context}`, meta);
-      return;
+    // 1. GA4 via gtag (if present)
+    if (typeof w.gtag === "function") {
+      w.gtag("event", eventName, payload);
     }
+    // 2. GTM / dataLayer
     if (Array.isArray(w.dataLayer)) {
-      w.dataLayer.push({ event: "cta_click", cta_type: "whatsapp", cta_context: context, ...meta });
+      w.dataLayer.push({ event: eventName, ...payload });
+    }
+    // 3. Legacy global hook
+    if (typeof w.trackCta === "function") {
+      w.trackCta(`whatsapp:${context}`, payload);
     }
   } catch { /* no-op */ }
+  // 4. Supabase cta_events (deferred import to avoid cycle)
+  try {
+    void import("@/lib/analytics").then(({ trackCtaClick }) =>
+      trackCtaClick({
+        ctaLabel: eventName,
+        ctaType: "whatsapp",
+        destination: typeof meta?.location === "string" ? meta.location : context,
+      })
+    );
+  } catch { /* no-op */ }
+}
+
+// Convenience helper: builds the href AND wires the click handler.
+// Use on any anchor:  const { href, onClick } = waCta("loyaltyJoin", "/loyalty hero");
+export function waCta(
+  preset: keyof typeof WA,
+  location?: string,
+  meta?: Record<string, unknown>
+) {
+  const fn = WA[preset] as () => string;
+  return {
+    href: fn(),
+    target: "_blank" as const,
+    rel: "noopener noreferrer" as const,
+    onClick: () => trackWaClick(preset, { location, prefill_id: preset, ...meta }),
+  };
 }
