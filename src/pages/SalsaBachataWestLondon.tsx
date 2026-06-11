@@ -201,6 +201,7 @@ const SalsaBachataWestLondon = () => {
     <ClassMatchBlock tone="ivory" />
     <PartnerCTA compact />
   </Layout>
-);
+  );
+};
 
 export default SalsaBachataWestLondon;
