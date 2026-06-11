@@ -10,6 +10,7 @@ import WeddingTiers from "@/components/WeddingTiers";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import EditorialQuote from "@/components/EditorialQuote";
 import heroImg from "@/assets/wedding-dance-couple.jpg";
+import { waCustom } from "@/lib/whatsapp";
 
 const schema = [
   {
@@ -87,7 +88,7 @@ const WeddingDanceLessonsLondon = () => (
             Your first dance should be one of the most magical moments of your wedding day. With Melitta Siomos — Bachata UK Champion and experienced wedding choreographer — you'll learn a routine that feels natural, looks stunning, and creates memories that last a lifetime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta-primary">💍 Book Free Consultation</a>
+            <a {...waCustom("Hi Melitta, I'd love to book a free wedding dance consultation", "WeddingDanceLessonsLondon:90")} className="btn-cta-primary">💍 Book Free Consultation</a>
             <Link to="/wedding-dance" className="btn-cta-dark">Learn More</Link>
           </div>
         </FadeInUp>
@@ -196,7 +197,7 @@ const WeddingDanceLessonsLondon = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Make Your First Dance Unforgettable</h2>
         <p className="text-primary-foreground/80 mb-8">Book your free consultation today — no obligation, just a friendly chat about your vision.</p>
-        <a href="https://wa.me/447449482343?text=Hi%20Melitta%2C%20I'd%20love%20to%20book%20a%20free%20wedding%20dance%20consultation" target="_blank" rel="noopener noreferrer" className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Free Consultation</a>
+        <a {...waCustom("Hi Melitta, I'd love to book a free wedding dance consultation", "WeddingDanceLessonsLondon:199")} className="btn-cta bg-charcoal text-primary-foreground hover:bg-charcoal-light">💍 Book Free Consultation</a>
       </div>
     </section>
 
