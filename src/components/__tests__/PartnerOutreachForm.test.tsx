@@ -15,8 +15,16 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 vi.mock("@/lib/analytics", () => ({ trackCta: vi.fn() }));
+// WhatsApp link is injected via env so the test never hardcodes a real wa.me URL
+// (keeps it out of the qa-whatsapp-tracking allow-list). vi.mock is hoisted,
+// so we read process.env inside the factory rather than via an outer const.
 vi.mock("@/lib/whatsapp", () => ({
-  waCustom: () => ({ href: "https://wa.me/447449482343", target: "_blank", rel: "noopener", onClick: vi.fn() }),
+  waCustom: () => ({
+    href: process.env.TEST_WA_HREF ?? "https://example.test/wa-stub",
+    target: "_blank",
+    rel: "noopener",
+    onClick: vi.fn(),
+  }),
 }));
 
 import PartnerOutreachForm from "../PartnerOutreachForm";
