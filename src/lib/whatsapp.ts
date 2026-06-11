@@ -93,6 +93,14 @@ export const WA = {
   membership: () => waLink(
     "Hi Melitta, I'd like to ask which Pura Nights pass would suit me best — drop-in, bundle or monthly unlimited."
   ),
+  // /loyalty — eligibility = drop-in weekly classes + Latin Friday tickets only.
+  // Bundles + monthly unlimited + private/wedding/corporate are NOT eligible.
+  loyaltyJoin: () => waLink(
+    "Hi Melitta, I'd love to join the Pura Nights loyalty card. Could you confirm which weekly drop-in and Latin Friday sessions count toward the 9th-free reward?"
+  ),
+  loyaltyEligibility: () => waLink(
+    "Hi Melitta, quick loyalty question — do my recent drop-ins and Latin Friday tickets count toward the 8+1 reward? Could you check my current count?"
+  ),
   // Generic fallback
   general: () => waLink(
     "Hi Melitta, I'd like to ask a quick question about Pura Nights."

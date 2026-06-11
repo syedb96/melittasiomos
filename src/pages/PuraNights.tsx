@@ -48,8 +48,8 @@ const PuraNights = () => (
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Pura Nights — Salsa & Bachata Every Week in West London</h1>
           <p className="font-heading text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">Monday Chiswick · Tuesday Ealing · No partner needed · All levels</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Book a Class →</a>
-            <Link to="/prices" className="btn-cta-ghost text-sm">See Prices →</Link>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Come dance with us →</a>
+            <Link to="/prices" className="btn-cta-ghost text-sm">See drop-in & bundle prices →</Link>
           </div>
           <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
             Drop in from £10 · 7:00pm Beginners · 8:00pm Improvers · Social dancing til late
@@ -97,7 +97,7 @@ const PuraNights = () => (
               <p className="text-muted-foreground text-xs mb-5">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://maps.google.com/?q=The+George+IV,+185+Chiswick+High+Rd,+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold inline-flex items-center gap-1 hover:underline">Get Directions <ExternalLink size={11} /></a>
-                <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-5">Book Now →</a>
+                <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-5">Save me a spot →</a>
               </div>
             </div>
           </FadeInUp>
@@ -198,7 +198,7 @@ const PuraNights = () => (
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Get Tickets →</a>
+            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Grab Latin Friday tickets →</a>
             <Link to="/events" className="btn-cta-ghost text-sm">See Upcoming Dates →</Link>
           </div>
         </FadeInUp>
