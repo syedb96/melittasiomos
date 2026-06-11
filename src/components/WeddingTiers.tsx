@@ -71,9 +71,9 @@ const WeddingTiers = ({
                   {tier.features[i] ? (
                     <Check size={16} className="text-primary flex-shrink-0 mt-0.5" />
                   ) : (
-                    <Minus size={16} className={`flex-shrink-0 mt-0.5 ${tier.highlight ? "text-primary-foreground/30" : "text-muted-foreground/40"}`} />
+                    <Minus size={16} className={`flex-shrink-0 mt-0.5 ${tier.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`} />
                   )}
-                  <span className={tier.features[i] ? "" : tier.highlight ? "text-primary-foreground/40 line-through" : "text-muted-foreground/50 line-through"}>{feat}</span>
+                  <span className={tier.features[i] ? "" : tier.highlight ? "text-primary-foreground/80 line-through" : "text-muted-foreground line-through"}>{feat}</span>
                 </li>
               ))}
             </ul>
