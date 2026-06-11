@@ -173,3 +173,29 @@ export function waCta(
     onClick: () => trackWaClick(preset, { location, prefill_id: preset, ...meta }),
   };
 }
+
+// Ad-hoc WhatsApp CTA helper for one-off messages that don't warrant a
+// named preset (blog CTAs, shop product enquiries, refer-a-friend, etc).
+// Returns the same shape as waCta() so anchors can spread it:
+//   <a {...waCustom("Hi Melitta, ...", "blog:salsa-vs-bachata:bottom")}>...</a>
+// For places that only need a URL string, use `waCustom(msg, loc).href`.
+//
+// All clicks log `whatsapp_custom_click` to GA4/GTM/Supabase with the
+// supplied location + prefill_id so we can group them in analytics.
+export function waCustom(
+  message: string,
+  location?: string,
+  prefillId?: string,
+) {
+  return {
+    href: waLink(message),
+    target: "_blank" as const,
+    rel: "noopener noreferrer" as const,
+    onClick: () =>
+      trackWaClick("custom", {
+        location,
+        prefill_id: prefillId ?? location ?? "custom",
+        message_excerpt: message.slice(0, 80),
+      }),
+  };
+}
