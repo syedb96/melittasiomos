@@ -1,8 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, act } from "@testing-library/react";
-import { screen, fireEvent, waitFor } from "@testing-library/dom";
+import { render } from "@testing-library/react";
+import { fireEvent, waitFor } from "@testing-library/dom";
 
-// Capture every insert call across all tables so we can assert security_events writes.
 const inserts: Array<{ table: string; rows: unknown }> = [];
 
 vi.mock("@/integrations/supabase/client", () => ({
@@ -15,7 +14,6 @@ vi.mock("@/integrations/supabase/client", () => ({
     }),
   },
 }));
-
 vi.mock("@/lib/analytics", () => ({ trackCta: vi.fn() }));
 vi.mock("@/lib/whatsapp", () => ({
   waCustom: () => ({ href: "https://wa.me/447449482343", target: "_blank", rel: "noopener", onClick: vi.fn() }),
@@ -23,58 +21,63 @@ vi.mock("@/lib/whatsapp", () => ({
 
 import PartnerOutreachForm from "../PartnerOutreachForm";
 
-const flushTimer = async () => {
-  await act(async () => { vi.advanceTimersByTime(2000); });
-};
+const wait = (ms: number) => new Promise(r => setTimeout(r, ms));
 
-const findSecurityEvents = (type: string) =>
+const findEvents = (type: string) =>
   inserts
     .filter(i => i.table === "security_events")
     .flatMap(i => (Array.isArray(i.rows) ? i.rows : [i.rows]))
     .filter((r: any) => r.event_type === type);
 
-describe("PartnerOutreachForm security_events logging", () => {
-  beforeEach(() => {
-    inserts.length = 0;
-    vi.useFakeTimers();
-  });
+const inputByLabel = (container: HTMLElement, text: string) => {
+  const labels = Array.from(container.querySelectorAll("label"));
+  const label = labels.find(l => l.textContent?.includes(text));
+  return label?.querySelector("input, select, textarea") as HTMLInputElement | HTMLSelectElement | null;
+};
 
-  it("logs form_honeypot_tripped when honeypot field is filled", async () => {
-    render(<PartnerOutreachForm />);
-    const hp = document.querySelector('input[name="company_url"]') as HTMLInputElement;
-    fireEvent.change(hp, { target: { value: "spam" } });
-    await flushTimer();
-    fireEvent.click(screen.getByRole("button", { name: /Request a partner link/i }));
-    await waitFor(() => expect(findSecurityEvents("form_honeypot_tripped").length).toBeGreaterThan(0));
-    const ev = findSecurityEvents("form_honeypot_tripped")[0] as any;
+const submitButton = (container: HTMLElement) =>
+  container.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+describe("PartnerOutreachForm security_events logging", () => {
+  beforeEach(() => { inserts.length = 0; });
+
+  it("logs form_honeypot_tripped when the honeypot is filled", async () => {
+    const { container } = render(<PartnerOutreachForm />);
+    const hp = container.querySelector('input[name="company_url"]') as HTMLInputElement;
+    fireEvent.change(hp, { target: { value: "spam-bot" } });
+    await wait(1600);
+    fireEvent.click(submitButton(container));
+    await waitFor(() => expect(findEvents("form_honeypot_tripped").length).toBeGreaterThan(0));
+    const ev = findEvents("form_honeypot_tripped")[0] as any;
     expect(ev.source).toBe("PartnerOutreachForm");
     expect(ev.severity).toBe("warn");
-  });
+  }, 10000);
 
   it("logs form_validation_failed when required fields are missing", async () => {
-    render(<PartnerOutreachForm />);
-    await flushTimer();
-    fireEvent.click(screen.getByRole("button", { name: /Request a partner link/i }));
-    await waitFor(() => expect(findSecurityEvents("form_validation_failed").length).toBeGreaterThan(0));
-    const ev = findSecurityEvents("form_validation_failed")[0] as any;
+    const { container } = render(<PartnerOutreachForm />);
+    await wait(1600);
+    fireEvent.click(submitButton(container));
+    await waitFor(() => expect(findEvents("form_validation_failed").length).toBeGreaterThan(0));
+    const ev = findEvents("form_validation_failed")[0] as any;
     expect(ev.source).toBe("PartnerOutreachForm");
     expect(Array.isArray(ev.meta.fields)).toBe(true);
-  });
+    expect(ev.meta.fields.length).toBeGreaterThan(0);
+  }, 10000);
 
-  it("logs form_submission_success and inserts into contact_submissions when valid", async () => {
-    render(<PartnerOutreachForm />);
-    fireEvent.change(screen.getByLabelText(/Name \*/i), { target: { value: "Ada Lovelace" } });
-    fireEvent.change(screen.getByLabelText(/Email \*/i), { target: { value: "ada@example.com" } });
-    fireEvent.change(screen.getByLabelText(/Organisation/i), { target: { value: "Analytical Engines Ltd" } });
-    fireEvent.change(screen.getByLabelText(/Partner type \*/i), { target: { value: "Event venue" } });
-    fireEvent.change(screen.getByLabelText(/What do you want\? \*/i), { target: { value: "Venue partnership" } });
-    await flushTimer();
-    fireEvent.click(screen.getByRole("button", { name: /Request a partner link/i }));
-    await waitFor(() => expect(findSecurityEvents("form_submission_success").length).toBeGreaterThan(0));
+  it("logs form_submission_success and writes contact_submissions when valid", async () => {
+    const { container } = render(<PartnerOutreachForm />);
+    fireEvent.change(inputByLabel(container, "Name")!, { target: { value: "Ada Lovelace" } });
+    fireEvent.change(inputByLabel(container, "Email")!, { target: { value: "ada@example.com" } });
+    fireEvent.change(inputByLabel(container, "Organisation")!, { target: { value: "Analytical Engines Ltd" } });
+    fireEvent.change(inputByLabel(container, "Partner type")!, { target: { value: "Event venue" } });
+    fireEvent.change(inputByLabel(container, "What do you want?")!, { target: { value: "Venue partnership" } });
+    await wait(1600);
+    fireEvent.click(submitButton(container));
+    await waitFor(() => expect(findEvents("form_submission_success").length).toBeGreaterThan(0));
     const submitted = inserts.find(i => i.table === "contact_submissions");
     expect(submitted).toBeDefined();
-    const row = (submitted!.rows as any);
+    const row = submitted!.rows as any;
     expect(row.email).toBe("ada@example.com");
     expect(row.enquiry_type).toBe("Partnership / Venue Collaboration");
-  });
+  }, 10000);
 });
