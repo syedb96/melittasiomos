@@ -52,7 +52,13 @@ const PuraNights = () => {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Pura Nights — Salsa & Bachata Every Week in West London</h1>
           <p className="font-heading text-primary-foreground/80 text-lg mb-6 max-w-2xl mx-auto">Monday Chiswick · Tuesday Ealing · No partner needed · All levels</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Come dance with us →</a>
+            <a
+              href={heroPrimary.payload.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta-primary text-sm"
+              onClick={() => recordVariantClick(PURA_NIGHTS_HERO_PRIMARY.key, heroPrimary.id, "pura-nights:hero")}
+            >{heroPrimary.payload.label}</a>
             <Link to="/prices" className="btn-cta-ghost text-sm">See drop-in & bundle prices →</Link>
           </div>
           <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
