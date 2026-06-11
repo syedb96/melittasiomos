@@ -28,6 +28,8 @@ import GoldDivider from "@/components/GoldDivider";
 import ReviewWall from "@/components/ReviewWall";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
+import { useVariant, recordVariantClick } from "@/lib/ab";
+import { HOME_HERO_PRIMARY } from "@/data/ab-experiments";
 
 const homeFaqs = [
   { q: "Do I need a partner to join?", a: "No — we rotate partners throughout every class. Many of our students come solo." },
@@ -98,6 +100,7 @@ function formatCountdown(target: Date) {
 }
 
 const Index = () => {
+  const heroVariant = useVariant(HOME_HERO_PRIMARY);
   const [countdown, setCountdown] = useState(getNextClassCountdown);
   const [monCD, setMonCD] = useState(formatCountdown(countdown.monday));
   const [tueCD, setTueCD] = useState(formatCountdown(countdown.tuesday));
@@ -138,7 +141,17 @@ const Index = () => {
             West London's most vibrant Salsa & Bachata community. Weekly classes in Chiswick & Ealing — no partner, no experience needed.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.55 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">Come dance with us — from £10 →</a>
+            <a
+              href={heroVariant.payload.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => recordVariantClick(HOME_HERO_PRIMARY.key, heroVariant.id, "/ hero")}
+              data-ab-variant={heroVariant.id}
+              data-ab-experiment={HOME_HERO_PRIMARY.key}
+              className="btn-cta-primary text-sm"
+            >
+              {heroVariant.payload.label}
+            </a>
             <Link to="/schedule" className="btn-cta-ghost text-sm">See when we're dancing →</Link>
           </motion.div>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75 }} className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
