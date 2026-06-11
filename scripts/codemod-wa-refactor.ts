@@ -100,42 +100,50 @@ function processFile(file: string): Result {
   const PHONE_RE = "(?:447449482343|\\$\\{PHONE\\}|\\$\\{WA_PHONE\\})";
 
   // --- Pattern A: anchor `<a ... href="https://wa.me/PHONE?text=ENCODED" target rel ...>`
-  // Replace href + target + rel triple with `{...waCustom(...)}`. Keep all other attrs.
-  // Anchor in double quotes:
-  const anchorRe = new RegExp(
-    `<a\\b([^>]*?)\\shref=("|')https:\\/\\/wa\\.me\\/${PHONE_RE}(?:\\?text=([^"'\\s]*))?\\2([^>]*?)>`,
-    "g",
-  );
-  src = src.replace(anchorRe, (m, pre: string, _q, encText: string | undefined, post: string) => {
-    // Strip target and rel from pre/post (will be supplied by spread)
-    const stripAttrs = (s: string) =>
-      s
-        .replace(/\starget=("|')[^"']*\1/g, "")
-        .replace(/\srel=("|')[^"']*\1/g, "")
-        .replace(/\sonClick=\{[^}]*\}/g, ""); // existing onClick — superseded by tracking
-    const cleanPre = stripAttrs(pre);
-    const cleanPost = stripAttrs(post);
-    const startLine = src.slice(0, src.indexOf(m)).split("\n").length;
-    const loc = locationTag(rel, startLine);
-    const text = encText ? decodeText(encText) : "Hi Melitta, I'd like to get in touch about Pura Nights.";
-    const esc = JSON.stringify(text);
-    count++;
-    return `<a${cleanPre} {...waCustom(${esc}, ${JSON.stringify(loc)})}${cleanPost}>`;
-  });
+  // Two variants for outer quote so single-quotes inside text don't terminate.
+  for (const q of ['"', "'"]) {
+    const inner = q === '"' ? `[^"]` : `[^']`;
+    const anchorRe = new RegExp(
+      `<a\\b([^>]*?)\\shref=${q}https:\\/\\/wa\\.me\\/${PHONE_RE}(?:\\?text=(${inner}*))?${q}([^>]*?)>`,
+      "g",
+    );
+    src = src.replace(anchorRe, (m, pre: string, encText: string | undefined, post: string) => {
+      const stripAttrs = (s: string) =>
+        s
+          .replace(/\starget=("|')[^"']*\1/g, "")
+          .replace(/\srel=("|')[^"']*\1/g, "")
+          .replace(/\sonClick=\{[^}]*\}/g, "");
+      const cleanPre = stripAttrs(pre);
+      const cleanPost = stripAttrs(post);
+      const startLine = src.slice(0, src.indexOf(m)).split("\n").length;
+      const loc = locationTag(rel, startLine);
+      const text = encText ? decodeText(encText) : "Hi Melitta, I'd like to get in touch about Pura Nights.";
+      const esc = JSON.stringify(text);
+      count++;
+      return `<a${cleanPre} {...waCustom(${esc}, ${JSON.stringify(loc)})}${cleanPost}>`;
+    });
+  }
 
-  // --- Pattern B: any remaining "https://wa.me/PHONE?text=ENCODED" string literal
-  // (covers const X = "...", props like whatsappUrl="...", object literals)
-  const literalRe = new RegExp(
-    `("|')https:\\/\\/wa\\.me\\/${PHONE_RE}(?:\\?text=([^"']*))?\\1`,
-    "g",
-  );
-  src = src.replace(literalRe, (m, _q, encText: string | undefined) => {
-    const startLine = src.slice(0, src.indexOf(m)).split("\n").length;
-    const loc = locationTag(rel, startLine);
-    const text = encText ? decodeText(encText) : "Hi Melitta, I'd like to get in touch about Pura Nights.";
-    count++;
-    return `waCustom(${JSON.stringify(text)}, ${JSON.stringify(loc)}).href`;
-  });
+  // --- Pattern B: any remaining string-literal URL (per-quote-style)
+  for (const q of ['"', "'"]) {
+    const inner = q === '"' ? `[^"]` : `[^']`;
+    const literalRe = new RegExp(
+      `${q}https:\\/\\/wa\\.me\\/${PHONE_RE}(?:\\?text=(${inner}*))?${q}`,
+      "g",
+    );
+    src = src.replace(literalRe, (m, encText: string | undefined) => {
+      // Skip if inside a JSX/HTML comment line
+      const lineStart = src.lastIndexOf("\n", src.indexOf(m)) + 1;
+      const lineEnd = src.indexOf("\n", src.indexOf(m));
+      const lineText = src.slice(lineStart, lineEnd === -1 ? undefined : lineEnd);
+      if (/^\s*(\/\/|\/\*|\*|<!--)/.test(lineText)) return m;
+      const startLine = src.slice(0, src.indexOf(m)).split("\n").length;
+      const loc = locationTag(rel, startLine);
+      const text = encText ? decodeText(encText) : "Hi Melitta, I'd like to get in touch about Pura Nights.";
+      count++;
+      return `waCustom(${JSON.stringify(text)}, ${JSON.stringify(loc)}).href`;
+    });
+  }
 
   // --- Pattern C: template literals  `https://wa.me/${PHONE}?text=${encodeURIComponent(X)}`
   // Capture inner expression and rewrite.
