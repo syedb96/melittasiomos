@@ -57,19 +57,22 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
         </div>
 
         <nav className="flex-1 py-4 px-3 space-y-1">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.path;
+          {navItems.map((item, idx) => {
+            if ((item as any).divider) {
+              return <div key={`d-${idx}`} className="px-3 pt-3 pb-1 text-[10px] font-accent uppercase tracking-widest text-muted-foreground/60">{item.label.replace(/—/g, "").trim()}</div>;
+            }
+            const isActive = location.pathname === item.path || (item.path !== "/admin" && location.pathname.startsWith(item.path));
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-heading transition-colors ${
+                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-heading transition-colors ${
                   isActive
                     ? "bg-primary/10 text-primary font-semibold"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                <item.icon size={18} />
+                <item.icon size={16} />
                 {item.label}
               </Link>
             );
