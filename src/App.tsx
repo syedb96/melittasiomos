@@ -184,6 +184,13 @@ import ShopPhotoTracker from "./pages/admin/ShopPhotoTracker";
 import AnalyticsAdmin from "./pages/admin/AnalyticsAdmin";
 import TrackingQA from "./pages/admin/TrackingQA";
 import SecurityEvents from "./pages/admin/SecurityEvents";
+import CmsPagesAdmin from "./pages/admin/cms/CmsPagesAdmin";
+import CmsPageEditor from "./pages/admin/cms/CmsPageEditor";
+import CmsMediaAdmin from "./pages/admin/cms/CmsMediaAdmin";
+import CmsNavigationAdmin from "./pages/admin/cms/CmsNavigationAdmin";
+import CmsRedirectsAdmin from "./pages/admin/cms/CmsRedirectsAdmin";
+import CmsSettingsAdmin from "./pages/admin/cms/CmsSettingsAdmin";
+import CmsPageRoute from "./pages/CmsPageRoute";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -393,7 +400,16 @@ const App = () => (
             <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
             <Route path="/admin/security-events" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
 
-            <Route path="*" element={<NotFound />} />
+            {/* CMS admin */}
+            <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
+            <Route path="/admin/cms/pages/:id" element={<ProtectedRoute><CmsPageEditor /></ProtectedRoute>} />
+            <Route path="/admin/cms/media" element={<ProtectedRoute><CmsMediaAdmin /></ProtectedRoute>} />
+            <Route path="/admin/cms/navigation" element={<ProtectedRoute><CmsNavigationAdmin /></ProtectedRoute>} />
+            <Route path="/admin/cms/redirects" element={<ProtectedRoute><CmsRedirectsAdmin /></ProtectedRoute>} />
+            <Route path="/admin/cms/settings" element={<ProtectedRoute requireAdmin><CmsSettingsAdmin /></ProtectedRoute>} />
+
+            {/* Catch-all: DB-driven CMS page (falls back to NotFound if no match) */}
+            <Route path="*" element={<CmsPageRoute />} />
 
           </Routes>
         </AuthProvider>
