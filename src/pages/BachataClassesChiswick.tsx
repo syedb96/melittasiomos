@@ -34,7 +34,7 @@ const schema = {
 const BachataClassesChiswick = () => (
   <Layout>
     <SeoHead
-      title="Bachata Classes Chiswick W4 | Every Monday at The George IV | Pura Nights"
+      title="Bachata Classes Chiswick W4 | Mondays at The George IV"
       description="Bachata classes every Monday at The George IV, Chiswick W4 2DR. 3 min from Turnham Green. All levels, no partner needed. Modern social bachata taught by Melitta Siomos."
       path="/bachata-classes-chiswick"
       schema={schema}

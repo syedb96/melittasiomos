@@ -56,7 +56,7 @@ const faqCategories = [
 const FAQ = () => (
   <Layout>
     <SeoHead
-      title="FAQs — Salsa & Bachata Classes London | Pura Nights by Melitta Siomos"
+      title="Salsa & Bachata Classes FAQ London | Pura Nights"
       description="Got questions about Salsa & Bachata classes in London? Find answers about Pura Nights classes, venues, pricing, wedding dance, private lessons and more."
       path="/faq"
       schema={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqCategories.flatMap(c => c.items.map(faq => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } }))) }}
