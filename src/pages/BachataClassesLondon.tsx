@@ -200,7 +200,7 @@ const BachataClassesLondon = () => (
       { to: "/blog/what-is-bachata", label: "What is Bachata?" },
       { to: "/blog/bachata-for-beginners-london", label: "Bachata for Beginners" },
       { to: "/pura-nights", label: "Weekly Classes" },
-      { to: "/pura-ladies", label: "Pura Ladies Team" },
+      { to: "/blog/famous-bachata-dancers", label: "Famous Bachata Dancers" },
     ]} />
     <FirstTimerCallout />
   </Layout>
