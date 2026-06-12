@@ -19,7 +19,7 @@ export default function CmsPageRoute() {
         title={page.meta_title ?? page.title}
         description={page.meta_description ?? page.excerpt ?? ""}
         path={`/${slug}`}
-        image={page.og_image ?? undefined}
+        ogImage={page.og_image ?? undefined}
         noindex={page.noindex}
       />
       {page.schema_jsonld && (
