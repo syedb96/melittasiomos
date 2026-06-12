@@ -127,6 +127,7 @@ import HowManyWeddingLessons from "./pages/blog/HowManyWeddingLessons";
 import LastMinuteWeddingDance from "./pages/blog/LastMinuteWeddingDance";
 import HistoryOfSalsa from "./pages/blog/HistoryOfSalsa";
 import HistoryOfBachata from "./pages/blog/HistoryOfBachata";
+import FamousBachataDancers from "./pages/blog/FamousBachataDancers";
 import BestSalsaNightsWestLondon from "./pages/blog/BestSalsaNightsWestLondon";
 import SalsaClassesNearTurnhamGreen from "./pages/blog/SalsaClassesNearTurnhamGreen";
 import LatinDanceEventsEaling2026 from "./pages/blog/LatinDanceEventsEaling2026";
