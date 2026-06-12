@@ -238,6 +238,7 @@ const App = () => (
             <Route path="/blog/last-minute-wedding-dance" element={<LastMinuteWeddingDance />} />
             <Route path="/blog/history-of-salsa" element={<HistoryOfSalsa />} />
             <Route path="/blog/history-of-bachata" element={<HistoryOfBachata />} />
+            <Route path="/blog/famous-bachata-dancers" element={<FamousBachataDancers />} />
             <Route path="/blog/best-salsa-nights-west-london" element={<BestSalsaNightsWestLondon />} />
             <Route path="/blog/salsa-classes-near-turnham-green" element={<SalsaClassesNearTurnhamGreen />} />
             <Route path="/blog/latin-dance-events-ealing-2026" element={<LatinDanceEventsEaling2026 />} />
