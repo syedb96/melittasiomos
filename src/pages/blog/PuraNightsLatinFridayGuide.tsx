@@ -86,6 +86,7 @@ const PuraNightsLatinFridayGuide = () => (
       { to: "/events", label: "Events Calendar" },
       { to: "/blog/latin-dance-events-ealing-2026", label: "Latin Events Ealing 2026" },
       { to: "/blog/best-salsa-nights-west-london", label: "Best Salsa Nights" },
+      { to: "/blog/best-latin-dance-festivals-europe-2026", label: "Europe Festivals 2026" },
     ]} />
   </Layout>
 );

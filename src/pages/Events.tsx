@@ -233,7 +233,7 @@ const Events = () => {
         { to: "/pura-ladies", label: "Pura Ladies", desc: "Performance team" },
         { to: "/gallery", label: "Gallery", desc: "Photos & videos" },
         { to: "/prices", label: "Prices", desc: "All pricing" },
-        { to: "/locations", label: "Venues", desc: "Directions" },
+        { to: "/blog/best-latin-dance-festivals-europe-2026", label: "Europe Festivals 2026", desc: "Travel guide" },
       ]} />
     </Layout>
   );

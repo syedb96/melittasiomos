@@ -104,7 +104,7 @@ const BestLatinSocialDancingLondon = () => (
         </div>
       </section>
     </article>
-    <RelatedPages title="Related" links={[{ to: "/events", label: "Upcoming Events & Latin Friday" }, { to: "/pura-nights", label: "Weekly Schedule" }, { to: "/latin-night-out-west-london", label: "Latin Night Out — West London" }]} />
+    <RelatedPages title="Related" links={[{ to: "/events", label: "Upcoming Events & Latin Friday" }, { to: "/pura-nights", label: "Weekly Schedule" }, { to: "/latin-night-out-west-london", label: "Latin Night Out — West London" }, { to: "/blog/best-latin-dance-festivals-europe-2026", label: "Best Latin Dance Festivals in Europe 2026" }]} />
   </Layout>
 );
 
