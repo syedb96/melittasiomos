@@ -122,7 +122,7 @@ const SalsaBachataBucketListLondon = () => (
         </div>
       </section>
     </article>
-    <RelatedPages title="Related" links={[{ to: "/events", label: "Upcoming Events" }, { to: "/pura-nights", label: "Weekly Classes" }, { to: "/pura-ladies", label: "Pura Ladies Performance Team" }]} />
+    <RelatedPages title="Related" links={[{ to: "/events", label: "Upcoming Events" }, { to: "/pura-nights", label: "Weekly Classes" }, { to: "/pura-ladies", label: "Pura Ladies Performance Team" }, { to: "/blog/best-latin-dance-festivals-europe-2026", label: "Europe Festivals 2026" }]} />
   </Layout>
 );
 
