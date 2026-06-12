@@ -127,6 +127,7 @@ import HowManyWeddingLessons from "./pages/blog/HowManyWeddingLessons";
 import LastMinuteWeddingDance from "./pages/blog/LastMinuteWeddingDance";
 import HistoryOfSalsa from "./pages/blog/HistoryOfSalsa";
 import HistoryOfBachata from "./pages/blog/HistoryOfBachata";
+import FamousBachataDancers from "./pages/blog/FamousBachataDancers";
 import BestSalsaNightsWestLondon from "./pages/blog/BestSalsaNightsWestLondon";
 import SalsaClassesNearTurnhamGreen from "./pages/blog/SalsaClassesNearTurnhamGreen";
 import LatinDanceEventsEaling2026 from "./pages/blog/LatinDanceEventsEaling2026";
@@ -237,6 +238,7 @@ const App = () => (
             <Route path="/blog/last-minute-wedding-dance" element={<LastMinuteWeddingDance />} />
             <Route path="/blog/history-of-salsa" element={<HistoryOfSalsa />} />
             <Route path="/blog/history-of-bachata" element={<HistoryOfBachata />} />
+            <Route path="/blog/famous-bachata-dancers" element={<FamousBachataDancers />} />
             <Route path="/blog/best-salsa-nights-west-london" element={<BestSalsaNightsWestLondon />} />
             <Route path="/blog/salsa-classes-near-turnham-green" element={<SalsaClassesNearTurnhamGreen />} />
             <Route path="/blog/latin-dance-events-ealing-2026" element={<LatinDanceEventsEaling2026 />} />
