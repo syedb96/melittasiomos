@@ -53,6 +53,7 @@ const HistoryOfBachata = () => (
               <h3 className="font-display text-lg font-bold mb-4">Related Articles</h3>
               <ul className="space-y-2 text-sm">
                 <li><Link to="/blog/what-is-bachata" className="text-primary hover:underline font-heading">What is Bachata Dance? →</Link></li>
+                <li><Link to="/blog/famous-bachata-dancers" className="text-primary hover:underline font-heading">Famous Bachata Dancers →</Link></li>
                 <li><Link to="/blog/history-of-salsa" className="text-primary hover:underline font-heading">The History of Salsa →</Link></li>
                 <li><Link to="/blog/pura-ladies-story" className="text-primary hover:underline font-heading">The Pura Ladies Story →</Link></li>
               </ul>
