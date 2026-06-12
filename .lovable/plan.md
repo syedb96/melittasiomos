@@ -1,74 +1,108 @@
-# Pura Nights — Market Domination Buildout
+# Custom Backend CMS — Build Plan
 
-I'll execute the megaprompt as **4 sequential blocks**, each shipped as its own run so we can QA between them and Lovable doesn't hallucinate at scale. Below is the plan; I'll start Block 1 immediately on approval.
+A Wix/Squarespace-equivalent dashboard is **4–6 build phases**. Trying to ship it in one pass will break the live site (151 hard-coded pages). Below is a safe phased plan — each phase ships independently and is usable on its own.
 
-## Governance (enforced every block)
-- Canonical host stays `https://www.puranights.com`
-- No Event schema on recurring class pages (existing `RECURRING_PAGES` guard in `scripts/seo-qa.ts` extended to new pages)
-- Enquiry-only services (private, wedding, corporate, group parties) — no public pricing
-- Shop/lookbook/refer/admin remain noindex
-- Top nav stays slim; new pages reached via footer + contextual CTAs + hub pages
-- Brand voice: premium, social, adult-friendly, non-cringe
-- All new pages: SeoHead with Service/FAQPage/BreadcrumbList schema, AnswerBox, internal links to ≥3 money pages, sitemap entry, Wix mapping doc update
+## Architecture (all phases)
 
----
-
-## Block 1 — Revenue pages + CTA system (this run)
-
-**New pages**
-1. `/corporate-dance-classes-london` — Service + FAQPage schema, 9 sections, enquiry form (Supabase `enquiries` table, subject = "Corporate"), package cards (no fixed prices)
-2. `/private-group-dance-parties-london` — Hen/birthday/group, Service + FAQPage, enquiry form (subject = "Private group party")
-3. `/partner-with-pura-nights` — Venues, suppliers, media; partnership form + 5 copy/paste link snippets + brand kit block; Organization + ContactPage + FAQPage schema
-4. `/latin-night-out-west-london` — Editorial/commercial hub, Article + FAQPage schema, comparison table, venue cards, internal links to `/pura-nights`, `/prices`, `/schedule`, `/events`, `/start-here`
-
-**New components**
-- `AnswerBox.tsx` — reusable AI/GEO answer block (paragraph + bullets + CTA)
-- `CorporateCTA.tsx`, `PartnerCTA.tsx`, `FirstTimerCTA.tsx`, `EventCTA.tsx` — contextual CTA strips
-- Extend `StickyMobileCTA` with corporate/partner context detection
-
-**Wiring**
-- Routes added to `src/App.tsx`
-- Footer: new "Corporate" + "Partnerships" links under Services/Contact
-- Homepage: subtle corporate strip + partner strip (lower-fold, non-disruptive)
-- Sitemap entries added
-- Enquiry subjects extended in Contact triage
-- Add new page paths to `RECURRING_PAGES` exclusion only if they emit class times (they don't — Service schema only)
-- Update `docs/27-WIX-MIGRATION-DRY-RUN-REPORT.md` and `docs/11-SEO-PAGE-MATRIX.md` with new routes
-
-**Audit doc**
-- `docs/28-REVENUE-DOMINATION-AUDIT.md` — current money pages, gaps, P0–P3 priorities, what shipped in this sprint
+- **Editor**: TipTap with extensions (headings, images, YouTube embed, tables, links, code, callouts)
+- **Storage**: Supabase tables + existing storage buckets (`gallery`, `hero-media`, `events`, `team`)
+- **Auth**: existing role system (`owner` / `admin` / `editor` / `viewer`)
+- **Routing**: catch-all React Router routes resolve slugs from DB → fall back to hard-coded pages
+- **Sitemap**: replace `public/sitemap.xml` with `/sitemap.xml` Edge Function that queries DB live
+- **SEO**: per-record `meta_title`, `meta_description`, `og_image`, `canonical`, `noindex`, JSON-LD blocks
 
 ---
 
-## Block 2 — Local SEO + homepage polish + AI answer rollout
+## Phase 1 — Foundations + Pages CMS (this turn)
 
-- Strengthen thin local pages: `/dance-classes-hounslow`, `/salsa-classes-acton`, `/salsa-classes-hammersmith`, `/salsa-classes-fulham`, `/salsa-classes-richmond`, `/latin-dance-classes-london`, `/salsa-classes-london`, `/bachata-classes-london`, `/dance-classes-west-london` — unique intros, transit context, local FAQs, internal links
-- Homepage "Choose your path" cards (6 paths), "Why beats normal night out" section, blog strip, stronger footer CTA
-- Drop `<AnswerBox>` into 10 priority pages
-- Internal linking pass — every money page gets ≥3 contextual links
+**DB schema**
+- `cms_pages` — id, slug (unique), title, content_json (TipTap), content_html, status (draft/scheduled/published), publish_at, meta_title, meta_description, og_image, canonical, noindex, schema_jsonld, author_id, updated_at
+- `cms_page_versions` — full snapshot per save (version history)
+- `cms_redirects` — from_path, to_path, status_code (301/302)
+- `cms_media` — extends gallery_assets with `folder`, `tags`, `usage_count`
+- `cms_navigation` — menu builder (header/footer groups, ordered links)
+- `cms_site_settings` — site title, default OG, GA4 ID, robots overrides
+
+**Dashboard pages** (`/admin/cms/*`)
+- `Pages` — list (search/filter), create, edit (TipTap), preview, publish, schedule, versions, SEO panel
+- `Media Library` — grid view, folders, drag-upload, YouTube URL paste, copy-embed-code, replace, alt-text editor
+- `Navigation` — drag-reorder menu items
+- `Redirects` — CRUD with bulk import
+- `Site Settings` — global SEO + analytics
+
+**Public side**
+- Catch-all `/:slug*` route → fetch `cms_pages` → render TipTap HTML with `SeoHead`
+- Existing hard-coded routes win (no regression). New pages live alongside.
+- `/sitemap.xml` Edge Function = static routes union with `cms_pages where status='published'`
+- `cms_redirects` checked in catch-all before 404
+
+**TipTap blocks shipped**
+- Heading, Paragraph, Bold/Italic/Link, Bullet/Ordered list, Blockquote
+- Image (from media library), YouTube embed, Button/CTA, FAQ accordion, HTML block
 
 ---
 
-## Block 3 — 12 blog posts + blog CTA system
+## Phase 2 — Blog CMS
 
-12 new posts under `src/pages/blog/` covering corporate, hen party, beginners-shy, etiquette, social-making, Latin social, after-work, date night, etc. Each: 900–1,500 words, Article + FAQPage schema, mid-article + bottom CTAs (`BlogCTA`, `BlogSidebarCTA` already exist), related articles, dateModified, author Melitta Siomos. Add new categories to `Blog.tsx` index.
-
----
-
-## Block 4 — Wix docs + SEO/schema/sitemap QA + launch pack
-
-- Update docs 11, 16, 18, 20, 22, 27 with all new routes + Wix CMS mapping
-- `docs/29-PARTNER-BACKLINK-TOOLKIT.md`, `docs/30-GBP-REVIEWS-LOCAL-PACK-SYSTEM.md`
-- Run `seo-qa`, `schema-validate`, `redirect-audit`, sitemap regen
-- Final report: pages added/improved, schema added, GSC inspection list, deferred items
+- `cms_blog_posts` (extends pages schema with: excerpt, category, tags, reading_time, hero_image, related_posts[])
+- Categories/Tags taxonomy tables
+- Author profiles (reuse `team_members`)
+- Dashboard: post editor, scheduling, categories manager, related-posts picker
+- Public: `/blog` index pulls from DB; existing `/blog/:slug` hard-coded posts continue to work; new posts hit catch-all
+- RSS feed at `/rss.xml`
 
 ---
 
-## Technical notes (for the record)
-- All pages use existing `<Layout>` + `<SeoHead>` pattern — no architectural changes
-- Forms: reuse the contact enquiry pipeline (Supabase `enquiries` table) with new `subject` enum values rather than building new tables
-- All schema generated client-side via `SeoHead` `schema` prop; Wix replication keeps the JSON-LD strings as-is per existing convention
-- No new dependencies
-- Each block ends with typecheck-clean state before moving to the next
+## Phase 3 — Migration of hard-coded content
 
-Approve and I'll ship Block 1 now.
+- One-time script reads each `src/pages/blog/*.tsx`, extracts H1/body/SEO, inserts to `cms_blog_posts`
+- Same for top-level pages (FAQ, Beginners, etc.) — destructive, kept in a feature flag until verified
+- After verification: delete `.tsx` files, catch-all serves everything
+
+---
+
+## Phase 4 — Collections managers (replaces scattered admin pages)
+
+Unified UI for: Events, Testimonials, FAQs, Team, Venues, Ambassadors, Gallery Albums. Each gets the same shell: list → filter → edit form → publish toggle → SEO fields.
+
+---
+
+## Phase 5 — Visual page builder (block-based)
+
+- Sections library: Hero, Feature grid, CTA band, Testimonials carousel, FAQ, Video, Gallery, Pricing, Form embed
+- Drag-reorder, per-section settings panel, live preview
+- Replaces TipTap for landing-page-style content while TipTap stays for prose
+
+---
+
+## Phase 6 — Polish
+
+- Version diff viewer + restore
+- A/B test variants per CTA (`src/data/ab-experiments.ts` already exists — wire to dashboard)
+- Scheduled publishing via pg_cron
+- Audit log of every change
+- Multi-user presence indicators
+
+---
+
+## What ships in this turn (Phase 1)
+
+1. Migration: all Phase 1 tables + RLS + GRANTs + triggers
+2. Install TipTap (`@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-image`, `@tiptap/extension-link`, `@tiptap/extension-youtube`, `@tiptap/extension-table`)
+3. Components: `<RichTextEditor>`, `<MediaPicker>`, `<SeoPanel>`, `<VersionHistory>`
+4. Dashboard pages under `/admin/cms`: Pages list/editor, Media Library, Navigation, Redirects, Site Settings
+5. Public: catch-all route in `App.tsx` (registered LAST so hard-coded routes win), `useCmsPage` hook
+6. Sitemap: deploy `sitemap-xml` Edge Function, rewrite `vite.config.ts` dev proxy so `/sitemap.xml` hits the function; keep `public/sitemap.xml` as fallback
+7. AdminLayout: new "CMS" nav group with Pages / Media / Navigation / Redirects / Settings
+
+Estimated Phase 1 size: ~25–30 files, 1 migration, 1 edge function. **Phase 2–6 are separate turns.**
+
+---
+
+## Decisions needed before I start
+
+1. **Sitemap mechanism**: replace static `public/sitemap.xml` with a live Edge Function (`/sitemap.xml`)? This is the only way "dynamic sitemap" works without rebuilds. Existing 151-entry static file becomes a fallback.
+2. **Catch-all route precedence**: hard-coded React routes win over DB pages (safer), or DB pages can override (lets you replace any page from the dashboard but riskier)?
+3. **Confirm Phase 1 scope above is what you want first**, then we ship 2–6 in follow-up turns.
+
+Reply with any tweaks, or say "go" and I'll execute Phase 1.
