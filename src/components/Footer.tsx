@@ -231,15 +231,23 @@ const Footer = () => (
           <Link to="/website-credits" className="hover:text-primary transition-colors">Website Credits</Link>
         </div>
         <p className="text-primary-foreground/55">
-          Website design &amp; local SEO support by{" "}
           <a
-            href="https://rankmylocal.co.uk/"
+            href="https://www.rankmylocal.co.uk/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Rank My Local website"
+            aria-label="Website design and local SEO by RankMyLocal"
             className="text-primary-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-sm transition-colors font-semibold"
           >
-            Rank My Local
+            website design and local SEO – RankMyLocal
+          </a>
+          {" · "}
+          <a
+            href="https://www.rankmylocal.co.uk/partner-network"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
+            View partner network →
           </a>
         </p>
       </div>
