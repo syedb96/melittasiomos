@@ -19,13 +19,37 @@ const BestLatinDanceFestivalsEurope2026 = () => (
       title="Best Salsa & Bachata Festivals in Europe 2026 | Pura Nights"
       description="The top Salsa and Bachata festivals in Europe for 2026 — Rovinj, Berlin, Croatia Summer Salsa, BachaCharm and more. Travel guide from Melitta Siomos."
       path="/blog/best-latin-dance-festivals-europe-2026"
+      ogImage="https://www.puranights.com/og-default.jpg"
+      dateModified="2026-06-12"
       schema={{
         "@context": "https://schema.org",
-        "@type": "Article",
-        headline: "Best Salsa & Bachata Festivals in Europe 2026",
-        author: { "@type": "Person", name: "Melitta Siomos" },
-        publisher: { "@type": "Organization", name: "Pura Nights" },
-        datePublished: "2026-06-11",
+        "@graph": [
+          {
+            "@type": "Article",
+            headline: "Best Salsa & Bachata Festivals in Europe 2026",
+            description: "The top Salsa and Bachata festivals in Europe for 2026 — Rovinj, Berlin, Croatia Summer Salsa, BachaCharm and more.",
+            image: ["https://www.puranights.com/og-default.jpg"],
+            author: { "@type": "Person", name: "Melitta Siomos", url: "https://www.puranights.com/meet-the-team" },
+            publisher: {
+              "@type": "Organization",
+              name: "Pura Nights",
+              logo: { "@type": "ImageObject", url: "https://www.puranights.com/og-default.jpg" },
+            },
+            datePublished: "2026-06-11",
+            dateModified: "2026-06-12",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.puranights.com/blog/best-latin-dance-festivals-europe-2026" },
+            inLanguage: "en-GB",
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: [
+              { "@type": "Question", name: "Do I need to be advanced to enjoy a festival?", acceptedAnswer: { "@type": "Answer", text: "No — every major festival has beginner and improver tracks. If you've done 8–12 weeks of weekly classes you'll have a great time." } },
+              { "@type": "Question", name: "Should I go solo or with a partner?", acceptedAnswer: { "@type": "Answer", text: "Solo is completely normal. Festivals rotate partners constantly and the community is famously welcoming." } },
+              { "@type": "Question", name: "How much does a festival weekend cost?", acceptedAnswer: { "@type": "Answer", text: "Pass £120–£220 early-bird, plus flights and 3–4 nights' accommodation. Many festivals offer hotel-package deals." } },
+              { "@type": "Question", name: "Which festival should be my first?", acceptedAnswer: { "@type": "Answer", text: "If you're UK-based, the London Salsa Congress is the easiest stepping stone. For sun and atmosphere, Rovinj in June is unbeatable." } },
+            ],
+          },
+        ],
       }}
     />
     <ReadingProgressBar />
