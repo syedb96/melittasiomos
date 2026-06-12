@@ -73,7 +73,7 @@ const faqs = [
 const Beginners = () => (
   <Layout>
     <SeoHead
-      title="Beginner Salsa & Bachata Classes London | No Experience Needed | Pura Nights"
+      title="Beginner Salsa & Bachata Classes London | Pura Nights"
       description="Start your dance journey with London's top-rated beginner Salsa & Bachata classes. No partner needed, no experience required. Weekly in Chiswick & Ealing. From £10."
       path="/beginners"
       schema={schema}
