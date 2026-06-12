@@ -9,7 +9,7 @@ import { Upload, Youtube, Trash2, Image as ImageIcon, Copy } from "lucide-react"
 import { toast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 
-interface MediaItem { id: string; url: string; kind: string; title: string | null; alt_text: string | null; folder: string; thumbnail_url: string | null; youtube_id: string | null; }
+interface MediaItem { id: string; url: string; kind: string; title: string | null; alt_text: string | null; folder: string; thumbnail_url: string | null; youtube_id: string | null; storage_path: string | null; bucket: string | null; }
 
 const ytId = (url: string) => { const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/); return m?.[1] ?? null; };
 
