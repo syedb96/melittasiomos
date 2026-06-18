@@ -444,6 +444,7 @@ export const AUTHORITY_POSTS_LIST = AUTHORITY_POST_SLUGS.map((slug) => {
     date: new Date(p.datePublished).toLocaleString("en-GB", { month: "short", year: "numeric" }),
     excerpt: p.metaDescription,
     readTime: p.readTime,
+    featured: false as boolean | undefined,
   };
 });
 
