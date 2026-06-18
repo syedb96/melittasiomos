@@ -136,9 +136,14 @@ export default function CmsPageEditor() {
         <div className="flex items-center gap-2 shrink-0">
           {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View</a></Button>}
           <Button variant="outline" onClick={() => save(false)} disabled={saving}><Save size={14} className="mr-2" />Save draft</Button>
+          <Button variant="outline" onClick={schedule} disabled={saving}>Schedule…</Button>
           <Button onClick={() => save(true)} disabled={saving}>Publish</Button>
         </div>
       </div>
+
+      <div className="grid lg:grid-cols-[1fr_320px] gap-6">
+        <div>
+
 
       <Tabs defaultValue="content">
         <TabsList>
