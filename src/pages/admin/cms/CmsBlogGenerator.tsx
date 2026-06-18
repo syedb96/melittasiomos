@@ -57,7 +57,7 @@ const CmsBlogGenerator = () => {
       heroImageUrl: draft.heroImageUrl,
       schemaJsonld: draft.schemaJsonld,
     });
-    const { data, error } = await supabase.from("cms_pages").insert({
+    const { data, error } = await supabase.from("cms_pages").insert([{
       slug: draft.slug,
       title: draft.title,
       excerpt: draft.metaDescription,
@@ -73,7 +73,7 @@ const CmsBlogGenerator = () => {
       seo_score: score,
       seo_checklist: results,
       author_id: user?.id ?? null,
-    }).select("id").single();
+    }]).select("id").single();
     if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); return; }
     await supabase.from("cms_generation_logs").insert({
       user_id: user?.id,
