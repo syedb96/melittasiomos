@@ -71,7 +71,7 @@ const CmsBlogGenerator = () => {
       meta_description: draft.metaDescription,
       schema_jsonld: draft.schemaJsonld ?? null,
       seo_score: score,
-      seo_checklist: results,
+      seo_checklist: results as any,
       author_id: user?.id ?? null,
     }]).select("id").single();
     if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); return; }
