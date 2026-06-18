@@ -69,7 +69,7 @@ const blogPosts = [
   { slug: "build-confidence-on-dance-floor", title: "How to Build Confidence on the Dance Floor — A Real Plan", date: "May 2026", excerpt: "Stop freezing on the dance floor. A practical 6-week confidence plan for salsa and bachata beginners in London — drills, mindset, and small wins.", category: "Beginners", readTime: "8 min" },
   { slug: "salsa-bachata-bucket-list-london", title: "12 Salsa & Bachata Bucket-List Experiences in London", date: "May 2026", excerpt: "From Latin Friday at the Drayton Court to Trafalgar Square salsa — the 12 must-do salsa and bachata experiences for any dancer in London.", category: "Culture", readTime: "9 min" },
   ...AUTHORITY_POSTS_LIST,
-];
+] as Array<{ slug: string; title: string; date: string; excerpt: string; category: string; readTime: string; featured?: boolean }>;
 
 const categories = ["All", "Salsa", "Bachata", "Beginners", "Wedding Dance", "Local", "Culture", "Technique", "Events", "Lifestyle"];
 
