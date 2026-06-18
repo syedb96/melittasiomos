@@ -191,6 +191,11 @@ import CmsNavigationAdmin from "./pages/admin/cms/CmsNavigationAdmin";
 import CmsRedirectsAdmin from "./pages/admin/cms/CmsRedirectsAdmin";
 import CmsSettingsAdmin from "./pages/admin/cms/CmsSettingsAdmin";
 import CmsPageRoute from "./pages/CmsPageRoute";
+import AuthorityBlogRoute from "./pages/AuthorityBlogRoute";
+import { AUTHORITY_POST_SLUGS } from "./data/authority-posts";
+import CmsBlogGenerator from "./pages/admin/cms/CmsBlogGenerator";
+import CmsSchedule from "./pages/admin/cms/CmsSchedule";
+import CmsDashboardHome from "./pages/admin/cms/CmsDashboardHome";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -407,9 +412,18 @@ const App = () => (
             <Route path="/admin/cms/navigation" element={<ProtectedRoute><CmsNavigationAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/redirects" element={<ProtectedRoute><CmsRedirectsAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/settings" element={<ProtectedRoute requireAdmin><CmsSettingsAdmin /></ProtectedRoute>} />
+            <Route path="/admin/cms" element={<ProtectedRoute><CmsDashboardHome /></ProtectedRoute>} />
+            <Route path="/admin/cms/blog/generate" element={<ProtectedRoute><CmsBlogGenerator /></ProtectedRoute>} />
+            <Route path="/admin/cms/schedule" element={<ProtectedRoute><CmsSchedule /></ProtectedRoute>} />
+
+            {/* Authority blog posts (beyond-M25 topical authority) */}
+            {AUTHORITY_POST_SLUGS.map((slug) => (
+              <Route key={slug} path={`/blog/${slug}`} element={<AuthorityBlogRoute />} />
+            ))}
 
             {/* Catch-all: DB-driven CMS page (falls back to NotFound if no match) */}
             <Route path="*" element={<CmsPageRoute />} />
+
 
           </Routes>
         </AuthProvider>

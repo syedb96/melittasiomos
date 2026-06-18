@@ -86,6 +86,56 @@ export type Database = {
         }
         Relationships: []
       }
+      cms_generation_logs: {
+        Row: {
+          created_at: string
+          error: string | null
+          id: string
+          model: string
+          page_id: string | null
+          primary_keyword: string | null
+          prompt: string
+          status: string
+          tokens_input: number | null
+          tokens_output: number | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          error?: string | null
+          id?: string
+          model: string
+          page_id?: string | null
+          primary_keyword?: string | null
+          prompt: string
+          status?: string
+          tokens_input?: number | null
+          tokens_output?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          error?: string | null
+          id?: string
+          model?: string
+          page_id?: string | null
+          primary_keyword?: string | null
+          prompt?: string
+          status?: string
+          tokens_input?: number | null
+          tokens_output?: number | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_generation_logs_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cms_media: {
         Row: {
           alt_text: string | null
@@ -248,14 +298,18 @@ export type Database = {
           excerpt: string | null
           hero_image_url: string | null
           id: string
+          kind: string
           meta_description: string | null
           meta_title: string | null
           noindex: boolean
           og_image: string | null
           page_type: string
+          primary_keyword: string | null
           publish_at: string | null
           published_at: string | null
           schema_jsonld: Json | null
+          seo_checklist: Json | null
+          seo_score: number | null
           slug: string
           status: Database["public"]["Enums"]["cms_page_status"]
           tags: string[]
@@ -273,14 +327,18 @@ export type Database = {
           excerpt?: string | null
           hero_image_url?: string | null
           id?: string
+          kind?: string
           meta_description?: string | null
           meta_title?: string | null
           noindex?: boolean
           og_image?: string | null
           page_type?: string
+          primary_keyword?: string | null
           publish_at?: string | null
           published_at?: string | null
           schema_jsonld?: Json | null
+          seo_checklist?: Json | null
+          seo_score?: number | null
           slug: string
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]
@@ -298,14 +356,18 @@ export type Database = {
           excerpt?: string | null
           hero_image_url?: string | null
           id?: string
+          kind?: string
           meta_description?: string | null
           meta_title?: string | null
           noindex?: boolean
           og_image?: string | null
           page_type?: string
+          primary_keyword?: string | null
           publish_at?: string | null
           published_at?: string | null
           schema_jsonld?: Json | null
+          seo_checklist?: Json | null
+          seo_score?: number | null
           slug?: string
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]

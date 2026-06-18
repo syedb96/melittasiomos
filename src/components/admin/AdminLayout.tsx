@@ -5,12 +5,15 @@ import { ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import SeoHead from "@/components/SeoHead";
-import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, FileText, BookOpen, Award, BarChart3, FileEdit, Image as ImageIcon, Menu, ArrowLeftRight, Sliders } from "lucide-react";
+import { LayoutDashboard, Image, Users, Calendar, Star, MessageSquare, Settings, LogOut, FileText, BookOpen, Award, BarChart3, FileEdit, Image as ImageIcon, Menu, ArrowLeftRight, Sliders, Sparkles, CalendarClock } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
   { label: "— CMS —", path: "", icon: FileEdit, divider: true },
-  { label: "Pages", path: "/admin/cms/pages", icon: FileEdit },
+  { label: "Content Hub", path: "/admin/cms", icon: LayoutDashboard },
+  { label: "Pages & Blog", path: "/admin/cms/pages", icon: FileEdit },
+  { label: "AI Blog Generator", path: "/admin/cms/blog/generate", icon: Sparkles },
+  { label: "Publish Schedule", path: "/admin/cms/schedule", icon: CalendarClock },
   { label: "Media Library", path: "/admin/cms/media", icon: ImageIcon },
   { label: "Navigation", path: "/admin/cms/navigation", icon: Menu },
   { label: "Redirects", path: "/admin/cms/redirects", icon: ArrowLeftRight },

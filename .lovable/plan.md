@@ -1,108 +1,125 @@
-# Custom Backend CMS — Build Plan
+# Authority Content Engine + CMS Dashboard Expansion
 
-A Wix/Squarespace-equivalent dashboard is **4–6 build phases**. Trying to ship it in one pass will break the live site (151 hard-coded pages). Below is a safe phased plan — each phase ships independently and is usable on its own.
-
-## Architecture (all phases)
-
-- **Editor**: TipTap with extensions (headings, images, YouTube embed, tables, links, code, callouts)
-- **Storage**: Supabase tables + existing storage buckets (`gallery`, `hero-media`, `events`, `team`)
-- **Auth**: existing role system (`owner` / `admin` / `editor` / `viewer`)
-- **Routing**: catch-all React Router routes resolve slugs from DB → fall back to hard-coded pages
-- **Sitemap**: replace `public/sitemap.xml` with `/sitemap.xml` Edge Function that queries DB live
-- **SEO**: per-record `meta_title`, `meta_description`, `og_image`, `canonical`, `noindex`, JSON-LD blocks
+## Goal
+1. Establish Pura Nights as the UK authority for salsa/bachata "fun night out for not a lot of money" — extending reach beyond the M25 (Reading, Guildford, Watford, St Albans, Brighton, Oxford, Cambridge, Slough, Windsor, Woking, etc.).
+2. Upgrade the existing `/admin/cms/*` dashboard with: AI blog generator, scheduled auto-publishing, and an SEO checklist engine that scores every post before publish.
 
 ---
 
-## Phase 1 — Foundations + Pages CMS (this turn)
+## Part A — Topical Authority Content (beyond M25)
 
-**DB schema**
-- `cms_pages` — id, slug (unique), title, content_json (TipTap), content_html, status (draft/scheduled/published), publish_at, meta_title, meta_description, og_image, canonical, noindex, schema_jsonld, author_id, updated_at
-- `cms_page_versions` — full snapshot per save (version history)
-- `cms_redirects` — from_path, to_path, status_code (301/302)
-- `cms_media` — extends gallery_assets with `folder`, `tags`, `usage_count`
-- `cms_navigation` — menu builder (header/footer groups, ordered links)
-- `cms_site_settings` — site title, default OG, GA4 ID, robots overrides
+### Content pillars
+- **"Worth the train from…"** day/night-trip posts (commercial intent, cheap-night-out angle)
+- **Regional comparison & guides** (where to dance Salsa/Bachata outside London)
+- **Beginner reassurance for out-of-town visitors** (parking, last train, group bookings)
+- **Cheap night out** angle: under-£20 ticket, drinks, social atmosphere
 
-**Dashboard pages** (`/admin/cms/*`)
-- `Pages` — list (search/filter), create, edit (TipTap), preview, publish, schedule, versions, SEO panel
-- `Media Library` — grid view, folders, drag-upload, YouTube URL paste, copy-embed-code, replace, alt-text editor
-- `Navigation` — drag-reorder menu items
-- `Redirects` — CRUD with bulk import
-- `Site Settings` — global SEO + analytics
+### 12 new SEO posts (slug → primary keyword → money page)
+| Slug | Keyword | Money page |
+|---|---|---|
+| `/blog/salsa-night-out-from-reading` | salsa night out reading london | /pura-nights |
+| `/blog/bachata-classes-near-guildford` | bachata classes guildford | /pura-nights |
+| `/blog/salsa-night-out-from-watford` | salsa watford london | /pura-nights |
+| `/blog/latin-night-from-st-albans` | latin night st albans | /events |
+| `/blog/salsa-bachata-brighton-vs-london` | salsa brighton vs london | /pura-nights |
+| `/blog/salsa-night-out-from-oxford` | salsa oxford london trip | /events |
+| `/blog/salsa-night-out-from-cambridge` | salsa cambridge london | /events |
+| `/blog/cheap-night-out-london-salsa-under-20` | cheap night out london under £20 | /pura-nights |
+| `/blog/salsa-bachata-slough-windsor` | salsa slough windsor | /pura-nights |
+| `/blog/girls-night-out-salsa-london` | girls night out london salsa | /events |
+| `/blog/first-date-salsa-london` | first date salsa london | /pura-nights |
+| `/blog/uk-salsa-festivals-day-trip-london` | uk salsa weekend london | /events |
 
-**Public side**
-- Catch-all `/:slug*` route → fetch `cms_pages` → render TipTap HTML with `SeoHead`
-- Existing hard-coded routes win (no regression). New pages live alongside.
-- `/sitemap.xml` Edge Function = static routes union with `cms_pages where status='published'`
-- `cms_redirects` checked in catch-all before 404
+Each post follows the existing Block 3 anatomy: SeoHead with Article + FAQPage + BreadcrumbList schema, AnswerBox, mid-article `<BlogMoneyCTA>`, `<RelatedPages>` (max 6), Wix JSX comments, 800–1,400 words, H1+first 100 words contain primary keyword, LastUpdated badge, AuthorCard.
 
-**TipTap blocks shipped**
-- Heading, Paragraph, Bold/Italic/Link, Bullet/Ordered list, Blockquote
-- Image (from media library), YouTube embed, Button/CTA, FAQ accordion, HTML block
-
----
-
-## Phase 2 — Blog CMS
-
-- `cms_blog_posts` (extends pages schema with: excerpt, category, tags, reading_time, hero_image, related_posts[])
-- Categories/Tags taxonomy tables
-- Author profiles (reuse `team_members`)
-- Dashboard: post editor, scheduling, categories manager, related-posts picker
-- Public: `/blog` index pulls from DB; existing `/blog/:slug` hard-coded posts continue to work; new posts hit catch-all
-- RSS feed at `/rss.xml`
+Routes added to `src/App.tsx`, entries added to `src/pages/Blog.tsx`, sitemap regenerated.
 
 ---
 
-## Phase 3 — Migration of hard-coded content
+## Part B — CMS Dashboard Upgrades
 
-- One-time script reads each `src/pages/blog/*.tsx`, extracts H1/body/SEO, inserts to `cms_blog_posts`
-- Same for top-level pages (FAQ, Beginners, etc.) — destructive, kept in a feature flag until verified
-- After verification: delete `.tsx` files, catch-all serves everything
+### B1. AI Blog Generator (`/admin/cms/blog/generate`)
+- Form: target keyword, location, intent (beginner/event/private/wedding/corporate), tone, word count, money-page link.
+- Edge function `cms-blog-generate` calls Lovable AI (`google/gemini-2.5-pro`) with a strict system prompt enforcing: H1 with keyword, intro with keyword in first 100 words, 5–8 H2s, FAQ block (5 Qs), meta title (≤60), meta description (≤160), suggested slug, JSON-LD Article+FAQ, internal link suggestions.
+- Returns structured JSON → pre-populates a new draft in `cms_pages` (kind=`blog`) and opens the TipTap editor.
+- Streams generation progress to the UI.
 
----
+### B2. Auto-publishing (scheduler)
+- `cms_pages` already has `publish_at` + `status`. Add status value `scheduled`.
+- pg_cron job (every 5 min) calls edge function `cms-publish-scheduled` which flips `scheduled` rows with `publish_at <= now()` to `published`, writes a `cms_page_versions` snapshot, pings the sitemap function.
+- Admin UI: "Schedule" button in `CmsPageEditor` with datetime picker; calendar view at `/admin/cms/schedule` showing upcoming posts.
 
-## Phase 4 — Collections managers (replaces scattered admin pages)
+### B3. SEO Checklist Engine
+New module `src/lib/seo-checklist.ts` runs 18 checks against the draft:
+1. Title 30–60 chars
+2. Title contains primary keyword
+3. Meta description 120–160 chars
+4. Meta description contains primary keyword
+5. Slug ≤ 60 chars, hyphenated, contains keyword
+6. Canonical present, self-referencing
+7. Single H1 present
+8. H1 contains primary keyword
+9. Primary keyword in first 100 words
+10. Keyword density 0.5–2.5%
+11. ≥3 H2s, logical order
+12. ≥2 internal links to money pages
+13. ≤6 internal links in RelatedPages
+14. Hero/OG image set, alt text present
+15. Word count ≥700
+16. JSON-LD Article schema valid
+17. JSON-LD FAQ schema present
+18. Reading level ≤ Grade 9 (Flesch-Kincaid)
 
-Unified UI for: Events, Testimonials, FAQs, Team, Venues, Ambassadors, Gallery Albums. Each gets the same shell: list → filter → edit form → publish toggle → SEO fields.
+UI: live sidebar in `CmsPageEditor` with red/amber/green per check, overall score /100, **publish button disabled below 85**. Override requires owner role + reason logged to `security_events`.
 
----
-
-## Phase 5 — Visual page builder (block-based)
-
-- Sections library: Hero, Feature grid, CTA band, Testimonials carousel, FAQ, Video, Gallery, Pricing, Form embed
-- Drag-reorder, per-section settings panel, live preview
-- Replaces TipTap for landing-page-style content while TipTap stays for prose
-
----
-
-## Phase 6 — Polish
-
-- Version diff viewer + restore
-- A/B test variants per CTA (`src/data/ab-experiments.ts` already exists — wire to dashboard)
-- Scheduled publishing via pg_cron
-- Audit log of every change
-- Multi-user presence indicators
-
----
-
-## What ships in this turn (Phase 1)
-
-1. Migration: all Phase 1 tables + RLS + GRANTs + triggers
-2. Install TipTap (`@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-image`, `@tiptap/extension-link`, `@tiptap/extension-youtube`, `@tiptap/extension-table`)
-3. Components: `<RichTextEditor>`, `<MediaPicker>`, `<SeoPanel>`, `<VersionHistory>`
-4. Dashboard pages under `/admin/cms`: Pages list/editor, Media Library, Navigation, Redirects, Site Settings
-5. Public: catch-all route in `App.tsx` (registered LAST so hard-coded routes win), `useCmsPage` hook
-6. Sitemap: deploy `sitemap-xml` Edge Function, rewrite `vite.config.ts` dev proxy so `/sitemap.xml` hits the function; keep `public/sitemap.xml` as fallback
-7. AdminLayout: new "CMS" nav group with Pages / Media / Navigation / Redirects / Settings
-
-Estimated Phase 1 size: ~25–30 files, 1 migration, 1 edge function. **Phase 2–6 are separate turns.**
+### B4. Dashboard polish
+- Home dashboard `/admin` upgraded: KPI tiles (published, scheduled, drafts, avg SEO score, page views last 7d via `page_views`), recent activity feed, quick-action "Generate post".
+- Sidebar reorganised: Content (Pages/Blog/Schedule/Generator), Media, SEO (Checklist results, Redirects, Sitemap), Settings.
 
 ---
 
-## Decisions needed before I start
+## Technical Details
 
-1. **Sitemap mechanism**: replace static `public/sitemap.xml` with a live Edge Function (`/sitemap.xml`)? This is the only way "dynamic sitemap" works without rebuilds. Existing 151-entry static file becomes a fallback.
-2. **Catch-all route precedence**: hard-coded React routes win over DB pages (safer), or DB pages can override (lets you replace any page from the dashboard but riskier)?
-3. **Confirm Phase 1 scope above is what you want first**, then we ship 2–6 in follow-up turns.
+### New files
+- `src/pages/blog/SalsaNightOutFrom{Reading,Watford,Oxford,Cambridge}.tsx` and 8 siblings
+- `src/pages/admin/cms/CmsBlogGenerator.tsx`
+- `src/pages/admin/cms/CmsSchedule.tsx`
+- `src/pages/admin/cms/CmsDashboardHome.tsx`
+- `src/components/admin/cms/SeoChecklistPanel.tsx`
+- `src/lib/seo-checklist.ts`
+- `supabase/functions/cms-blog-generate/index.ts`
+- `supabase/functions/cms-publish-scheduled/index.ts`
 
-Reply with any tweaks, or say "go" and I'll execute Phase 1.
+### Database (one migration)
+- ALTER `cms_pages` ADD COLUMN `seo_score INT`, `seo_checklist JSONB`, `kind TEXT DEFAULT 'page'` (values: `page`|`blog`), `primary_keyword TEXT`.
+- New table `cms_generation_logs` (prompt, model, tokens, output_ref) — authenticated insert by editors, full read by admins, service_role all. Grants in same migration.
+- pg_cron + pg_net enabled; cron `*/5 * * * *` → `cms-publish-scheduled`.
+
+### Routes
+12 new public blog routes added to `App.tsx` ABOVE the `*` catch-all. 3 new admin routes nested under `/admin/cms/`.
+
+### Sitemap
+The existing `sitemap-xml` edge function auto-includes published `cms_pages`. Static `public/sitemap.xml` updated with 12 new blog URLs as a fallback.
+
+### Guardrails preserved
+- All posts UK English, warm + premium tone, no fake awards.
+- Max 6 internal links per RelatedPages block.
+- Article+FAQPage+BreadcrumbList only (no Event schema on posts).
+- Canonical host `https://www.puranights.com`.
+- Wix-safe (JSX `<!-- WIX SECTION -->` comments preserved).
+
+### Scope notes
+- Phase 5 visual page builder, version diff viewer, A/B testing remain deferred.
+- No changes to Auth (Google/Apple only).
+- No changes to existing money pages.
+
+---
+
+## Delivery order (single turn)
+1. Migration (schema + cron + grants)
+2. Edge functions (generate + publish-scheduled)
+3. SEO checklist lib + panel
+4. Admin pages (Generator, Schedule, Dashboard Home)
+5. 12 blog posts + route wiring + Blog.tsx entries
+6. Sitemap fallback update
+7. Doc: `docs/96-AUTHORITY-CONTENT-AND-CMS-ENGINE.md`
