@@ -57,36 +57,62 @@ export default function CmsPageEditor() {
     noindex: !!page.noindex, schema_jsonld: page.schema_jsonld ?? "",
   };
 
-  const save = async (publish?: boolean) => {
+  const seoDraft = {
+    title: page.title || "",
+    metaTitle: page.meta_title || page.title || "",
+    metaDescription: page.meta_description || page.excerpt || "",
+    slug: page.slug || "",
+    canonicalUrl: page.canonical_url || "",
+    primaryKeyword: page.primary_keyword || "",
+    contentHtml: page.content_html || "",
+    heroImageUrl: page.hero_image_url || "",
+    schemaJsonld: page.schema_jsonld || "",
+  };
+
+  const save = async (publish?: boolean, scheduleAt?: string | null) => {
     if (!page.title || !page.slug) { toast({ title: "Title and slug are required", variant: "destructive" }); return; }
+    const { score, results } = runSeoChecklist(seoDraft);
+    if (publish && score < 85) {
+      if (!confirm(`SEO score is ${score}/100 (below 85). Publish anyway?`)) return;
+    }
     setSaving(true);
     let parsedSchema: any = null;
     if (page.schema_jsonld) { try { parsedSchema = JSON.parse(page.schema_jsonld); } catch { toast({ title: "JSON-LD is not valid JSON", variant: "destructive" }); setSaving(false); return; } }
-    const status = publish ? "published" : page.status;
+    const status = publish ? "published" : scheduleAt ? "scheduled" : page.status;
     const payload: any = {
       slug: page.slug, title: page.title, excerpt: page.excerpt, content_json: page.content_json, content_html: page.content_html,
-      status, page_type: page.page_type, hero_image_url: page.hero_image_url || null,
+      status, page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
+      hero_image_url: page.hero_image_url || null,
       meta_title: page.meta_title || null, meta_description: page.meta_description || null, og_image: page.og_image || null,
       canonical_url: page.canonical_url || null, noindex: page.noindex, schema_jsonld: parsedSchema,
       category: page.category || null, tags: page.tags,
+      publish_at: scheduleAt ?? page.publish_at ?? null,
       published_at: publish ? new Date().toISOString() : page.published_at,
+      seo_score: score, seo_checklist: results as any,
       author_id: user?.id ?? null,
     };
     if (isNew) {
-      const { data, error } = await supabase.from("cms_pages").insert(payload).select("id").single();
+      const { data, error } = await supabase.from("cms_pages").insert([payload]).select("id").single();
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
-      toast({ title: publish ? "Page published" : "Draft saved" });
+      toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Draft saved", description: `SEO score ${score}/100` });
       navigate(`/admin/cms/pages/${data.id}`);
     } else {
       const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
-      // version snapshot
       const nextVersion = (versions[0]?.version_number ?? 0) + 1;
       await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
-      toast({ title: publish ? "Page published" : "Saved" });
+      toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
     }
     setSaving(false);
   };
+
+  const schedule = () => {
+    const input = prompt("Schedule publish date (YYYY-MM-DD HH:MM):", new Date(Date.now() + 864e5).toISOString().slice(0, 16).replace("T", " "));
+    if (!input) return;
+    const iso = new Date(input.replace(" ", "T")).toISOString();
+    save(false, iso);
+  };
+
 
   const remove = async () => {
     if (!confirm("Delete this page? This cannot be undone.")) return;
