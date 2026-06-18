@@ -5,6 +5,8 @@ import { supabase } from "@/integrations/supabase/client";
 import RichTextEditor from "@/components/admin/cms/RichTextEditor";
 import SeoPanel, { SeoFields } from "@/components/admin/cms/SeoPanel";
 import MediaPicker from "@/components/admin/cms/MediaPicker";
+import SeoChecklistPanel from "@/components/admin/cms/SeoChecklistPanel";
+import { runSeoChecklist } from "@/lib/seo-checklist";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
