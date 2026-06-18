@@ -215,6 +215,16 @@ export default function CmsPageEditor() {
           </TabsContent>
         )}
       </Tabs>
+        </div>
+        <aside className="space-y-4">
+          <SeoChecklistPanel draft={seoDraft} />
+          <div className="border border-border rounded-xl p-4 bg-card text-xs space-y-2">
+            <p className="font-heading font-bold text-sm">Primary keyword</p>
+            <Input value={page.primary_keyword ?? ""} onChange={(e) => set({ primary_keyword: e.target.value })} placeholder="e.g. salsa classes chiswick" />
+            <p className="text-muted-foreground">Drives the SEO checklist. Score below 85 triggers a publish warning.</p>
+          </div>
+        </aside>
+      </div>
 
       <MediaPicker open={mediaOpen} onClose={() => setMediaOpen(false)} onSelect={(url) => mediaCallback?.(url)} />
     </AdminLayout>
