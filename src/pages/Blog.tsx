@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { AUTHORITY_POSTS_LIST } from "@/data/authority-posts";
 
 /* <!-- WIX PAGE: /blog -->
    <!-- WIX: Use Wix Blog app with categories matching: Salsa, Bachata, Beginners, Wedding Dance, Local, Culture, Technique, Events, Lifestyle -->
@@ -67,6 +68,7 @@ const blogPosts = [
   { slug: "corporate-christmas-party-dance-london", title: "Corporate Christmas Party Idea — A Latin Dance Workshop in London", date: "May 2026", excerpt: "Skip the awkward corporate Christmas dinner. Book a 60–90 minute Latin dance workshop for your London team — high energy, all abilities, unforgettable.", category: "Events", readTime: "7 min" },
   { slug: "build-confidence-on-dance-floor", title: "How to Build Confidence on the Dance Floor — A Real Plan", date: "May 2026", excerpt: "Stop freezing on the dance floor. A practical 6-week confidence plan for salsa and bachata beginners in London — drills, mindset, and small wins.", category: "Beginners", readTime: "8 min" },
   { slug: "salsa-bachata-bucket-list-london", title: "12 Salsa & Bachata Bucket-List Experiences in London", date: "May 2026", excerpt: "From Latin Friday at the Drayton Court to Trafalgar Square salsa — the 12 must-do salsa and bachata experiences for any dancer in London.", category: "Culture", readTime: "9 min" },
+  ...AUTHORITY_POSTS_LIST,
 ];
 
 const categories = ["All", "Salsa", "Bachata", "Beginners", "Wedding Dance", "Local", "Culture", "Technique", "Events", "Lifestyle"];
