@@ -28,7 +28,7 @@ export interface AuthorityPostProps {
   sections: AuthorityPostSection[];
   ctaVariant: "beginner" | "classes" | "chiswick" | "ealing" | "wedding" | "corporate" | "ladies" | "online" | "events";
   faqs: AuthorityPostFAQ[];
-  related: { name: string; href: string }[]; // <=6
+  related: { label: string; to: string; desc?: string }[]; // <=6
   primaryKeyword: string;
 }
 
