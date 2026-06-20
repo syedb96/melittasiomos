@@ -6,6 +6,8 @@ import RichTextEditor from "@/components/admin/cms/RichTextEditor";
 import SeoPanel, { SeoFields } from "@/components/admin/cms/SeoPanel";
 import MediaPicker from "@/components/admin/cms/MediaPicker";
 import SeoChecklistPanel from "@/components/admin/cms/SeoChecklistPanel";
+import PostImagePanel from "@/components/admin/cms/PostImagePanel";
+import LinkSuggestionsPanel from "@/components/admin/cms/LinkSuggestionsPanel";
 import { runSeoChecklist } from "@/lib/seo-checklist";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -13,17 +15,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { ArrowLeft, Save, Eye, Trash2, History } from "lucide-react";
+import { ArrowLeft, Save, Eye, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 const blank = {
   slug: "", title: "", excerpt: "", content_json: {} as any, content_html: "",
-  status: "draft", page_type: "page", hero_image_url: "",
-  meta_title: "", meta_description: "", og_image: "", canonical_url: "", noindex: false, schema_jsonld: "",
-  category: "", tags: [] as string[],
+  status: "draft", page_type: "page", hero_image_url: "", hero_image_alt: "",
+  meta_title: "", meta_description: "", og_image: "", twitter_image: "", og_image_generated_at: null as string | null,
+  canonical_url: "", noindex: false, schema_jsonld: "",
+  category: "", tags: [] as string[], city: "", topic: "",
+  wix_auto_sync: true, wix_sync_status: "pending", wix_synced_at: null as string | null,
 };
 
 export default function CmsPageEditor() {
@@ -82,18 +88,22 @@ export default function CmsPageEditor() {
     const payload: any = {
       slug: page.slug, title: page.title, excerpt: page.excerpt, content_json: page.content_json, content_html: page.content_html,
       status, page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
-      hero_image_url: page.hero_image_url || null,
-      meta_title: page.meta_title || null, meta_description: page.meta_description || null, og_image: page.og_image || null,
+      hero_image_url: page.hero_image_url || null, hero_image_alt: page.hero_image_alt || null,
+      meta_title: page.meta_title || null, meta_description: page.meta_description || null,
+      og_image: page.og_image || null, twitter_image: page.twitter_image || page.og_image || null, og_image_generated_at: page.og_image_generated_at,
       canonical_url: page.canonical_url || null, noindex: page.noindex, schema_jsonld: parsedSchema,
-      category: page.category || null, tags: page.tags,
+      category: page.category || null, tags: page.tags, city: page.city || null, topic: page.topic || null,
+      wix_auto_sync: page.wix_auto_sync ?? true,
       publish_at: scheduleAt ?? page.publish_at ?? null,
       published_at: publish ? new Date().toISOString() : page.published_at,
       seo_score: score, seo_checklist: results as any,
       author_id: user?.id ?? null,
     };
+    let savedId = id;
     if (isNew) {
       const { data, error } = await supabase.from("cms_pages").insert([payload]).select("id").single();
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
+      savedId = data.id;
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Draft saved", description: `SEO score ${score}/100` });
       navigate(`/admin/cms/pages/${data.id}`);
     } else {
@@ -102,6 +112,10 @@ export default function CmsPageEditor() {
       const nextVersion = (versions[0]?.version_number ?? 0) + 1;
       await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
+    }
+    // Auto-push to Wix on publish
+    if (publish && savedId && (page.wix_auto_sync ?? true)) {
+      supabase.functions.invoke("cms-wix-push", { body: { page_id: savedId } }).catch(() => {});
     }
     setSaving(false);
   };
@@ -134,8 +148,19 @@ export default function CmsPageEditor() {
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          {!isNew && page.wix_sync_status === "synced" && <Badge className="bg-green-500/20 text-green-700"><CheckCircle2 size={10} className="mr-1" />Wix synced</Badge>}
+          {!isNew && page.wix_sync_status === "error" && <Badge className="bg-destructive/20 text-destructive"><AlertCircle size={10} className="mr-1" />Wix error</Badge>}
           {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View</a></Button>}
-          <Button variant="outline" onClick={() => save(false)} disabled={saving}><Save size={14} className="mr-2" />Save draft</Button>
+          {!isNew && (
+            <Button variant="outline" disabled={saving} onClick={async () => {
+              setSaving(true);
+              const { data, error } = await supabase.functions.invoke("cms-wix-push", { body: { page_id: id, force: true } });
+              setSaving(false);
+              if (error || data?.error) toast({ title: "Wix push failed", description: error?.message || data?.error, variant: "destructive" });
+              else toast({ title: "Pushed to Wix" });
+            }}><Send size={14} className="mr-2" />Push to Wix</Button>
+          )}
+          <Button variant="outline" onClick={() => save(false)} disabled={saving}>{saving ? <Loader2 size={14} className="animate-spin mr-2" /> : <Save size={14} className="mr-2" />}Save draft</Button>
           <Button variant="outline" onClick={schedule} disabled={saving}>Schedule…</Button>
           <Button onClick={() => save(true)} disabled={saving}>Publish</Button>
         </div>
@@ -158,13 +183,15 @@ export default function CmsPageEditor() {
             <Label>Excerpt / summary</Label>
             <Textarea rows={2} value={page.excerpt ?? ""} onChange={(e) => set({ excerpt: e.target.value })} placeholder="Short summary shown under the title and in social previews." />
           </div>
-          <div>
-            <Label>Hero image URL</Label>
-            <div className="flex gap-2">
-              <Input value={page.hero_image_url ?? ""} onChange={(e) => set({ hero_image_url: e.target.value })} placeholder="https://…" />
-              <Button type="button" variant="outline" onClick={() => { setMediaCallback(() => (url: string) => set({ hero_image_url: url })); setMediaOpen(true); }}>Library</Button>
-            </div>
-          </div>
+          <PostImagePanel
+            pageId={isNew ? undefined : id}
+            pageSlug={page.slug}
+            heroUrl={page.hero_image_url ?? ""}
+            heroAlt={page.hero_image_alt ?? ""}
+            ogUrl={page.og_image ?? ""}
+            ogGeneratedAt={page.og_image_generated_at}
+            onChange={(patch) => set(patch)}
+          />
           <div>
             <Label>Body</Label>
             <RichTextEditor value={page.content_json} onChange={(json, html) => set({ content_json: json, content_html: html })} onOpenMedia={(cb) => { setMediaCallback(() => cb); setMediaOpen(true); }} />
@@ -186,6 +213,17 @@ export default function CmsPageEditor() {
               </SelectContent>
             </Select>
           </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>City</Label>
+              <Input value={page.city ?? ""} onChange={(e) => set({ city: e.target.value })} placeholder="e.g. Reading" />
+            </div>
+            <div>
+              <Label>Topic</Label>
+              <Input value={page.topic ?? ""} onChange={(e) => set({ topic: e.target.value })} placeholder="e.g. beginners, friday-night" />
+            </div>
+          </div>
+          <p className="text-[11px] text-muted-foreground -mt-2">Used by the related-posts engine to suggest internal links.</p>
           <div>
             <Label>Category</Label>
             <Input value={page.category ?? ""} onChange={(e) => set({ category: e.target.value })} />
@@ -194,6 +232,14 @@ export default function CmsPageEditor() {
             <Label>Tags (comma-separated)</Label>
             <Input value={(page.tags ?? []).join(", ")} onChange={(e) => set({ tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean) })} />
           </div>
+          <div className="flex items-center justify-between border border-border rounded-lg p-3">
+            <div>
+              <Label className="text-base">Auto-push to Wix</Label>
+              <p className="text-[11px] text-muted-foreground">When on, this post mirrors to Wix on every publish.</p>
+            </div>
+            <Switch checked={page.wix_auto_sync ?? true} onCheckedChange={(v) => set({ wix_auto_sync: v })} />
+          </div>
+          {!isNew && page.wix_synced_at && <p className="text-[11px] text-muted-foreground">Last Wix sync: {new Date(page.wix_synced_at).toLocaleString()}</p>}
           {!isNew && <Button variant="destructive" onClick={remove}><Trash2 size={14} className="mr-2" />Delete page</Button>}
         </TabsContent>
 
@@ -223,6 +269,15 @@ export default function CmsPageEditor() {
             <Input value={page.primary_keyword ?? ""} onChange={(e) => set({ primary_keyword: e.target.value })} placeholder="e.g. salsa classes chiswick" />
             <p className="text-muted-foreground">Drives the SEO checklist. Score below 85 triggers a publish warning.</p>
           </div>
+          <LinkSuggestionsPanel
+            pageId={isNew ? undefined : id}
+            title={page.title}
+            city={page.city}
+            topic={page.topic}
+            tags={page.tags}
+            contentHtml={page.content_html || ""}
+            onInsert={(html) => set({ content_html: (page.content_html || "") + html })}
+          />
         </aside>
       </div>
 

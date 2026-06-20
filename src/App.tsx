@@ -196,6 +196,7 @@ import { AUTHORITY_POST_SLUGS } from "./data/authority-posts";
 import CmsBlogGenerator from "./pages/admin/cms/CmsBlogGenerator";
 import CmsSchedule from "./pages/admin/cms/CmsSchedule";
 import CmsDashboardHome from "./pages/admin/cms/CmsDashboardHome";
+import CmsWixSettings from "./pages/admin/cms/CmsWixSettings";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -413,6 +414,7 @@ const App = () => (
             <Route path="/admin/cms/redirects" element={<ProtectedRoute><CmsRedirectsAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/settings" element={<ProtectedRoute requireAdmin><CmsSettingsAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms" element={<ProtectedRoute><CmsDashboardHome /></ProtectedRoute>} />
+            <Route path="/admin/cms/wix" element={<ProtectedRoute requireAdmin><CmsWixSettings /></ProtectedRoute>} />
             <Route path="/admin/cms/blog/generate" element={<ProtectedRoute><CmsBlogGenerator /></ProtectedRoute>} />
             <Route path="/admin/cms/schedule" element={<ProtectedRoute><CmsSchedule /></ProtectedRoute>} />
 
