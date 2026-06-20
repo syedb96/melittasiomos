@@ -117,13 +117,6 @@ export default function CmsPageEditor() {
     if (publish && savedId && (page.wix_auto_sync ?? true)) {
       supabase.functions.invoke("cms-wix-push", { body: { page_id: savedId } }).catch(() => {});
     }
-    } else {
-      const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
-      if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
-      const nextVersion = (versions[0]?.version_number ?? 0) + 1;
-      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
-      toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
-    }
     setSaving(false);
   };
 
