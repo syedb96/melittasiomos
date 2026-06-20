@@ -213,6 +213,17 @@ export default function CmsPageEditor() {
               </SelectContent>
             </Select>
           </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>City</Label>
+              <Input value={page.city ?? ""} onChange={(e) => set({ city: e.target.value })} placeholder="e.g. Reading" />
+            </div>
+            <div>
+              <Label>Topic</Label>
+              <Input value={page.topic ?? ""} onChange={(e) => set({ topic: e.target.value })} placeholder="e.g. beginners, friday-night" />
+            </div>
+          </div>
+          <p className="text-[11px] text-muted-foreground -mt-2">Used by the related-posts engine to suggest internal links.</p>
           <div>
             <Label>Category</Label>
             <Input value={page.category ?? ""} onChange={(e) => set({ category: e.target.value })} />
@@ -221,6 +232,14 @@ export default function CmsPageEditor() {
             <Label>Tags (comma-separated)</Label>
             <Input value={(page.tags ?? []).join(", ")} onChange={(e) => set({ tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean) })} />
           </div>
+          <div className="flex items-center justify-between border border-border rounded-lg p-3">
+            <div>
+              <Label className="text-base">Auto-push to Wix</Label>
+              <p className="text-[11px] text-muted-foreground">When on, this post mirrors to Wix on every publish.</p>
+            </div>
+            <Switch checked={page.wix_auto_sync ?? true} onCheckedChange={(v) => set({ wix_auto_sync: v })} />
+          </div>
+          {!isNew && page.wix_synced_at && <p className="text-[11px] text-muted-foreground">Last Wix sync: {new Date(page.wix_synced_at).toLocaleString()}</p>}
           {!isNew && <Button variant="destructive" onClick={remove}><Trash2 size={14} className="mr-2" />Delete page</Button>}
         </TabsContent>
 
