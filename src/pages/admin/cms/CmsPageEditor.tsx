@@ -148,8 +148,19 @@ export default function CmsPageEditor() {
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          {!isNew && page.wix_sync_status === "synced" && <Badge className="bg-green-500/20 text-green-700"><CheckCircle2 size={10} className="mr-1" />Wix synced</Badge>}
+          {!isNew && page.wix_sync_status === "error" && <Badge className="bg-destructive/20 text-destructive"><AlertCircle size={10} className="mr-1" />Wix error</Badge>}
           {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View</a></Button>}
-          <Button variant="outline" onClick={() => save(false)} disabled={saving}><Save size={14} className="mr-2" />Save draft</Button>
+          {!isNew && (
+            <Button variant="outline" disabled={saving} onClick={async () => {
+              setSaving(true);
+              const { data, error } = await supabase.functions.invoke("cms-wix-push", { body: { page_id: id, force: true } });
+              setSaving(false);
+              if (error || data?.error) toast({ title: "Wix push failed", description: error?.message || data?.error, variant: "destructive" });
+              else toast({ title: "Pushed to Wix" });
+            }}><Send size={14} className="mr-2" />Push to Wix</Button>
+          )}
+          <Button variant="outline" onClick={() => save(false)} disabled={saving}>{saving ? <Loader2 size={14} className="animate-spin mr-2" /> : <Save size={14} className="mr-2" />}Save draft</Button>
           <Button variant="outline" onClick={schedule} disabled={saving}>Schedule…</Button>
           <Button onClick={() => save(true)} disabled={saving}>Publish</Button>
         </div>
