@@ -88,20 +88,35 @@ export default function CmsPageEditor() {
     const payload: any = {
       slug: page.slug, title: page.title, excerpt: page.excerpt, content_json: page.content_json, content_html: page.content_html,
       status, page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
-      hero_image_url: page.hero_image_url || null,
-      meta_title: page.meta_title || null, meta_description: page.meta_description || null, og_image: page.og_image || null,
+      hero_image_url: page.hero_image_url || null, hero_image_alt: page.hero_image_alt || null,
+      meta_title: page.meta_title || null, meta_description: page.meta_description || null,
+      og_image: page.og_image || null, twitter_image: page.twitter_image || page.og_image || null, og_image_generated_at: page.og_image_generated_at,
       canonical_url: page.canonical_url || null, noindex: page.noindex, schema_jsonld: parsedSchema,
-      category: page.category || null, tags: page.tags,
+      category: page.category || null, tags: page.tags, city: page.city || null, topic: page.topic || null,
+      wix_auto_sync: page.wix_auto_sync ?? true,
       publish_at: scheduleAt ?? page.publish_at ?? null,
       published_at: publish ? new Date().toISOString() : page.published_at,
       seo_score: score, seo_checklist: results as any,
       author_id: user?.id ?? null,
     };
+    let savedId = id;
     if (isNew) {
       const { data, error } = await supabase.from("cms_pages").insert([payload]).select("id").single();
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
+      savedId = data.id;
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Draft saved", description: `SEO score ${score}/100` });
       navigate(`/admin/cms/pages/${data.id}`);
+    } else {
+      const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
+      if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
+      const nextVersion = (versions[0]?.version_number ?? 0) + 1;
+      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
+      toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
+    }
+    // Auto-push to Wix on publish
+    if (publish && savedId && (page.wix_auto_sync ?? true)) {
+      supabase.functions.invoke("cms-wix-push", { body: { page_id: savedId } }).catch(() => {});
+    }
     } else {
       const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
