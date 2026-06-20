@@ -292,10 +292,12 @@ export type Database = {
           author_id: string | null
           canonical_url: string | null
           category: string | null
+          city: string | null
           content_html: string
           content_json: Json
           created_at: string
           excerpt: string | null
+          hero_image_alt: string | null
           hero_image_url: string | null
           id: string
           kind: string
@@ -303,10 +305,12 @@ export type Database = {
           meta_title: string | null
           noindex: boolean
           og_image: string | null
+          og_image_generated_at: string | null
           page_type: string
           primary_keyword: string | null
           publish_at: string | null
           published_at: string | null
+          related_slugs: string[]
           schema_jsonld: Json | null
           seo_checklist: Json | null
           seo_score: number | null
@@ -314,17 +318,27 @@ export type Database = {
           status: Database["public"]["Enums"]["cms_page_status"]
           tags: string[]
           title: string
+          topic: string | null
+          twitter_image: string | null
           updated_at: string
           view_count: number
+          wix_auto_sync: boolean
+          wix_collection_item_id: string | null
+          wix_post_id: string | null
+          wix_sync_error: string | null
+          wix_sync_status: string | null
+          wix_synced_at: string | null
         }
         Insert: {
           author_id?: string | null
           canonical_url?: string | null
           category?: string | null
+          city?: string | null
           content_html?: string
           content_json?: Json
           created_at?: string
           excerpt?: string | null
+          hero_image_alt?: string | null
           hero_image_url?: string | null
           id?: string
           kind?: string
@@ -332,10 +346,12 @@ export type Database = {
           meta_title?: string | null
           noindex?: boolean
           og_image?: string | null
+          og_image_generated_at?: string | null
           page_type?: string
           primary_keyword?: string | null
           publish_at?: string | null
           published_at?: string | null
+          related_slugs?: string[]
           schema_jsonld?: Json | null
           seo_checklist?: Json | null
           seo_score?: number | null
@@ -343,17 +359,27 @@ export type Database = {
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]
           title: string
+          topic?: string | null
+          twitter_image?: string | null
           updated_at?: string
           view_count?: number
+          wix_auto_sync?: boolean
+          wix_collection_item_id?: string | null
+          wix_post_id?: string | null
+          wix_sync_error?: string | null
+          wix_sync_status?: string | null
+          wix_synced_at?: string | null
         }
         Update: {
           author_id?: string | null
           canonical_url?: string | null
           category?: string | null
+          city?: string | null
           content_html?: string
           content_json?: Json
           created_at?: string
           excerpt?: string | null
+          hero_image_alt?: string | null
           hero_image_url?: string | null
           id?: string
           kind?: string
@@ -361,10 +387,12 @@ export type Database = {
           meta_title?: string | null
           noindex?: boolean
           og_image?: string | null
+          og_image_generated_at?: string | null
           page_type?: string
           primary_keyword?: string | null
           publish_at?: string | null
           published_at?: string | null
+          related_slugs?: string[]
           schema_jsonld?: Json | null
           seo_checklist?: Json | null
           seo_score?: number | null
@@ -372,8 +400,16 @@ export type Database = {
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]
           title?: string
+          topic?: string | null
+          twitter_image?: string | null
           updated_at?: string
           view_count?: number
+          wix_auto_sync?: boolean
+          wix_collection_item_id?: string | null
+          wix_post_id?: string | null
+          wix_sync_error?: string | null
+          wix_sync_status?: string | null
+          wix_synced_at?: string | null
         }
         Relationships: []
       }
@@ -433,6 +469,83 @@ export type Database = {
           value?: Json
         }
         Relationships: []
+      }
+      cms_wix_config: {
+        Row: {
+          auto_push_enabled: boolean
+          created_at: string
+          id: string
+          last_reconcile_at: string | null
+          updated_at: string
+          wix_blog_member_id: string | null
+          wix_collection_id: string | null
+          wix_site_id: string | null
+        }
+        Insert: {
+          auto_push_enabled?: boolean
+          created_at?: string
+          id?: string
+          last_reconcile_at?: string | null
+          updated_at?: string
+          wix_blog_member_id?: string | null
+          wix_collection_id?: string | null
+          wix_site_id?: string | null
+        }
+        Update: {
+          auto_push_enabled?: boolean
+          created_at?: string
+          id?: string
+          last_reconcile_at?: string | null
+          updated_at?: string
+          wix_blog_member_id?: string | null
+          wix_collection_id?: string | null
+          wix_site_id?: string | null
+        }
+        Relationships: []
+      }
+      cms_wix_sync_log: {
+        Row: {
+          action: string
+          created_at: string
+          error: string | null
+          id: string
+          page_id: string | null
+          request_summary: Json | null
+          response_summary: Json | null
+          status: string
+          target: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          error?: string | null
+          id?: string
+          page_id?: string | null
+          request_summary?: Json | null
+          response_summary?: Json | null
+          status: string
+          target: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          error?: string | null
+          id?: string
+          page_id?: string | null
+          request_summary?: Json | null
+          response_summary?: Json | null
+          status?: string
+          target?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_wix_sync_log_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       contact_submissions: {
         Row: {
