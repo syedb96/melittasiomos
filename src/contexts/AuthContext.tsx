@@ -31,13 +31,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [role, setRole] = useState<AppRole>(null);
   const [loading, setLoading] = useState(true);
 
-  const fetchRole = async (userId: string) => {
+  const fetchRole = async (userId: string, attempt = 0) => {
     const { data } = await supabase
       .from("profiles")
       .select("role")
       .eq("user_id", userId)
-      .single();
-    setRole((data?.role as AppRole) ?? null);
+      .maybeSingle();
+    const r = (data?.role as AppRole) ?? null;
+    // Retry on first sign-up: handle_new_user trigger may not have inserted
+    // the profile row yet when onAuthStateChange fires.
+    if (!r && attempt < 5) {
+      setTimeout(() => fetchRole(userId, attempt + 1), 600);
+      return;
+    }
+    setRole(r);
   };
 
   useEffect(() => {
