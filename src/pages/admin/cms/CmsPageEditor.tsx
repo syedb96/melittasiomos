@@ -183,13 +183,15 @@ export default function CmsPageEditor() {
             <Label>Excerpt / summary</Label>
             <Textarea rows={2} value={page.excerpt ?? ""} onChange={(e) => set({ excerpt: e.target.value })} placeholder="Short summary shown under the title and in social previews." />
           </div>
-          <div>
-            <Label>Hero image URL</Label>
-            <div className="flex gap-2">
-              <Input value={page.hero_image_url ?? ""} onChange={(e) => set({ hero_image_url: e.target.value })} placeholder="https://…" />
-              <Button type="button" variant="outline" onClick={() => { setMediaCallback(() => (url: string) => set({ hero_image_url: url })); setMediaOpen(true); }}>Library</Button>
-            </div>
-          </div>
+          <PostImagePanel
+            pageId={isNew ? undefined : id}
+            pageSlug={page.slug}
+            heroUrl={page.hero_image_url ?? ""}
+            heroAlt={page.hero_image_alt ?? ""}
+            ogUrl={page.og_image ?? ""}
+            ogGeneratedAt={page.og_image_generated_at}
+            onChange={(patch) => set(patch)}
+          />
           <div>
             <Label>Body</Label>
             <RichTextEditor value={page.content_json} onChange={(json, html) => set({ content_json: json, content_html: html })} onOpenMedia={(cb) => { setMediaCallback(() => cb); setMediaOpen(true); }} />
