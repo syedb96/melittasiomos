@@ -6,6 +6,8 @@ import RichTextEditor from "@/components/admin/cms/RichTextEditor";
 import SeoPanel, { SeoFields } from "@/components/admin/cms/SeoPanel";
 import MediaPicker from "@/components/admin/cms/MediaPicker";
 import SeoChecklistPanel from "@/components/admin/cms/SeoChecklistPanel";
+import PostImagePanel from "@/components/admin/cms/PostImagePanel";
+import LinkSuggestionsPanel from "@/components/admin/cms/LinkSuggestionsPanel";
 import { runSeoChecklist } from "@/lib/seo-checklist";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -13,17 +15,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { ArrowLeft, Save, Eye, Trash2, History } from "lucide-react";
+import { ArrowLeft, Save, Eye, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 const blank = {
   slug: "", title: "", excerpt: "", content_json: {} as any, content_html: "",
-  status: "draft", page_type: "page", hero_image_url: "",
-  meta_title: "", meta_description: "", og_image: "", canonical_url: "", noindex: false, schema_jsonld: "",
-  category: "", tags: [] as string[],
+  status: "draft", page_type: "page", hero_image_url: "", hero_image_alt: "",
+  meta_title: "", meta_description: "", og_image: "", twitter_image: "", og_image_generated_at: null as string | null,
+  canonical_url: "", noindex: false, schema_jsonld: "",
+  category: "", tags: [] as string[], city: "", topic: "",
+  wix_auto_sync: true, wix_sync_status: "pending", wix_synced_at: null as string | null,
 };
 
 export default function CmsPageEditor() {
