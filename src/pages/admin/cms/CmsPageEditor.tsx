@@ -269,6 +269,15 @@ export default function CmsPageEditor() {
             <Input value={page.primary_keyword ?? ""} onChange={(e) => set({ primary_keyword: e.target.value })} placeholder="e.g. salsa classes chiswick" />
             <p className="text-muted-foreground">Drives the SEO checklist. Score below 85 triggers a publish warning.</p>
           </div>
+          <LinkSuggestionsPanel
+            pageId={isNew ? undefined : id}
+            title={page.title}
+            city={page.city}
+            topic={page.topic}
+            tags={page.tags}
+            contentHtml={page.content_html || ""}
+            onInsert={(html) => set({ content_html: (page.content_html || "") + html })}
+          />
         </aside>
       </div>
 
