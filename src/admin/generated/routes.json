@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T00:35:43.246Z",
+  "generatedAt": "2026-06-21T07:24:41.349Z",
   "publicRoutes": [
     {
       "path": "/",
@@ -709,6 +709,26 @@
     },
     {
       "path": "/admin/pages-registry",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/booking-links",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/venues",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/prices",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/schedule",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/offers",
       "component": "ProtectedRoute"
     },
     {
