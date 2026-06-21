@@ -1,125 +1,85 @@
-# Authority Content Engine + CMS Dashboard Expansion
+## Pura Nights — 100/100 Operating System: FIRST DELIVERY
 
-## Goal
-1. Establish Pura Nights as the UK authority for salsa/bachata "fun night out for not a lot of money" — extending reach beyond the M25 (Reading, Guildford, Watford, St Albans, Brighton, Oxford, Cambridge, Slough, Windsor, Woking, etc.).
-2. Upgrade the existing `/admin/cms/*` dashboard with: AI blog generator, scheduled auto-publishing, and an SEO checklist engine that scores every post before publish.
+Your master prompt covers ~15 phases. Attempting it all in one pass would be reckless and almost certainly break working systems. I will execute exactly the "FIRST DELIVERY" block you defined at the bottom, then stop for review before moving to Phase 2 commercial controls.
 
----
-
-## Part A — Topical Authority Content (beyond M25)
-
-### Content pillars
-- **"Worth the train from…"** day/night-trip posts (commercial intent, cheap-night-out angle)
-- **Regional comparison & guides** (where to dance Salsa/Bachata outside London)
-- **Beginner reassurance for out-of-town visitors** (parking, last train, group bookings)
-- **Cheap night out** angle: under-£20 ticket, drinks, social atmosphere
-
-### 12 new SEO posts (slug → primary keyword → money page)
-| Slug | Keyword | Money page |
-|---|---|---|
-| `/blog/salsa-night-out-from-reading` | salsa night out reading london | /pura-nights |
-| `/blog/bachata-classes-near-guildford` | bachata classes guildford | /pura-nights |
-| `/blog/salsa-night-out-from-watford` | salsa watford london | /pura-nights |
-| `/blog/latin-night-from-st-albans` | latin night st albans | /events |
-| `/blog/salsa-bachata-brighton-vs-london` | salsa brighton vs london | /pura-nights |
-| `/blog/salsa-night-out-from-oxford` | salsa oxford london trip | /events |
-| `/blog/salsa-night-out-from-cambridge` | salsa cambridge london | /events |
-| `/blog/cheap-night-out-london-salsa-under-20` | cheap night out london under £20 | /pura-nights |
-| `/blog/salsa-bachata-slough-windsor` | salsa slough windsor | /pura-nights |
-| `/blog/girls-night-out-salsa-london` | girls night out london salsa | /events |
-| `/blog/first-date-salsa-london` | first date salsa london | /pura-nights |
-| `/blog/uk-salsa-festivals-day-trip-london` | uk salsa weekend london | /events |
-
-Each post follows the existing Block 3 anatomy: SeoHead with Article + FAQPage + BreadcrumbList schema, AnswerBox, mid-article `<BlogMoneyCTA>`, `<RelatedPages>` (max 6), Wix JSX comments, 800–1,400 words, H1+first 100 words contain primary keyword, LastUpdated badge, AuthorCard.
-
-Routes added to `src/App.tsx`, entries added to `src/pages/Blog.tsx`, sitemap regenerated.
+This delivery adds **no new public pages**, **no destructive migrations**, and **no duplicate admin modules**. It is foundation + audit only.
 
 ---
 
-## Part B — CMS Dashboard Upgrades
+### Scope of this delivery
 
-### B1. AI Blog Generator (`/admin/cms/blog/generate`)
-- Form: target keyword, location, intent (beginner/event/private/wedding/corporate), tone, word count, money-page link.
-- Edge function `cms-blog-generate` calls Lovable AI (`google/gemini-2.5-pro`) with a strict system prompt enforcing: H1 with keyword, intro with keyword in first 100 words, 5–8 H2s, FAQ block (5 Qs), meta title (≤60), meta description (≤160), suggested slug, JSON-LD Article+FAQ, internal link suggestions.
-- Returns structured JSON → pre-populates a new draft in `cms_pages` (kind=`blog`) and opens the TipTap editor.
-- Streams generation progress to the UI.
+**1. Phase 0 — Build stability baseline**
+- Run the full prebuild pipeline (`alt-text-lint`, `seo-qa`, `schema-validate`, `schema-qa-report`, `qa-whatsapp-tracking`, `qa-dependency-audit`, `bun run build`).
+- Fix any failures introduced since last green build (expected: none — last turn fixed alt-text).
+- Create `docs/100-COMPLETION-BASELINE.md` with real scores per category, build status, and known blockers. No fabricated numbers — any missing data shown as "Not measured".
 
-### B2. Auto-publishing (scheduler)
-- `cms_pages` already has `publish_at` + `status`. Add status value `scheduled`.
-- pg_cron job (every 5 min) calls edge function `cms-publish-scheduled` which flips `scheduled` rows with `publish_at <= now()` to `published`, writes a `cms_page_versions` snapshot, pings the sitemap function.
-- Admin UI: "Schedule" button in `CmsPageEditor` with datetime picker; calendar view at `/admin/cms/schedule` showing upcoming posts.
+**2. Phase 1 — Unified Control Centre foundation**
+- Promote `/admin/control-centre` to the default admin landing route (redirect `/admin` → `/admin/control-centre` for owners/admins).
+- Audit existing admin shell (`AdminLayout`, sidebars, existing nested CMS/SEO/enquiries routes). Reuse — do not rebuild.
+- Add only what is missing on the shell: breadcrumbs, global command palette (⌘K), environment badge, current-user/role chip, "View live" + "Preview" buttons in top bar. Mobile drawer behaviour verified.
 
-### B3. SEO Checklist Engine
-New module `src/lib/seo-checklist.ts` runs 18 checks against the draft:
-1. Title 30–60 chars
-2. Title contains primary keyword
-3. Meta description 120–160 chars
-4. Meta description contains primary keyword
-5. Slug ≤ 60 chars, hyphenated, contains keyword
-6. Canonical present, self-referencing
-7. Single H1 present
-8. H1 contains primary keyword
-9. Primary keyword in first 100 words
-10. Keyword density 0.5–2.5%
-11. ≥3 H2s, logical order
-12. ≥2 internal links to money pages
-13. ≤6 internal links in RelatedPages
-14. Hero/OG image set, alt text present
-15. Word count ≥700
-16. JSON-LD Article schema valid
-17. JSON-LD FAQ schema present
-18. Reading level ≤ Grade 9 (Flesch-Kincaid)
+**3. Admin Module Registry (single source of truth)**
+- New file `src/admin/moduleRegistry.ts` — typed array of every admin module currently in the app (CMS pages, media, navigation, redirects, Wix settings, enquiries, analytics, security events, SEO, ambassadors, team, testimonials, events, gallery, settings, etc.).
+- Each entry: `id, name, route, section, description, icon, requiredRole, status (live|partial|planned), dataSource, tableDependency, publicCritical, wixEquivalent`.
+- Sidebar, command palette, System Audit, and completion scorecard all read from this registry. No more hard-coded admin link lists.
 
-UI: live sidebar in `CmsPageEditor` with red/amber/green per check, overall score /100, **publish button disabled below 85**. Override requires owner role + reason logged to `security_events`.
+**4. Real System Audit dashboard — `/admin/system-audit`**
+- Reads the module registry + live Supabase queries to compute:
+  - Module completeness (live vs partial vs planned).
+  - Table health: row counts for `cms_pages`, `enquiries`, `testimonials`, `events`, `team_members`, `gallery_assets`, `ambassadors`, `cms_media`, `cms_redirects`.
+  - Build/SEO signals from existing `seo_alerts`, `cms_wix_sync_log`, `security_events`.
+  - Public-route inventory derived from `App.tsx` route table.
+- Categories scored: Public website, Admin, CMS, Commercial controls, CRM, SEO/GEO, Analytics, Security, Wix readiness, Recovery readiness, Overall.
+- Every metric clearly labelled "Live data" or "Not yet instrumented". No invented percentages.
 
-### B4. Dashboard polish
-- Home dashboard `/admin` upgraded: KPI tiles (published, scheduled, drafts, avg SEO score, page views last 7d via `page_views`), recent activity feed, quick-action "Generate post".
-- Sidebar reorganised: Content (Pages/Blog/Schedule/Generator), Media, SEO (Checklist results, Redirects, Sitemap), Settings.
+**5. Owner / role verification**
+- Read-only check page inside System Audit: lists `syedbiz96@gmail.com` profile row, `approved_admin_emails` entries (count + active flag only — emails masked except for the owner's own), confirms `is_admin` / `has_role` definer functions exist, and lists every admin route and the role gate it enforces (parsed from `ProtectedRoute` usage in `App.tsx`).
+- If any admin route is missing a role gate → flagged red.
 
----
+**6. Canonical-host decision**
+- Add `docs/100-CANONICAL-HOST-DECISION.md` documenting the three live hosts (`puranights.com`, `www.puranights.com`, `melittasiomos.lovable.app`) and recommending `https://puranights.com` as canonical (matches existing `head-meta` + sitemap).
+- Audit `index.html`, `react-helmet-async` usage, `public/sitemap.xml`, `public/robots.txt`, and per-route Helmet canonicals for mismatches. Report findings in the doc — **no code changes to canonicals in this delivery** (that is its own phase to avoid SEO regression).
 
-## Technical Details
+**7. Read-only Page Registry — `/admin/pages-registry`**
+- Lists every public route from `App.tsx` joined with any matching `cms_pages` row.
+- Columns: route, component, CMS-backed (yes/no), title source, has Helmet, canonical present, in sitemap, indexable, last edited (if CMS), status.
+- Read-only in this delivery. The editable structured page editor is Phase 4.
 
-### New files
-- `src/pages/blog/SalsaNightOutFrom{Reading,Watford,Oxford,Cambridge}.tsx` and 8 siblings
-- `src/pages/admin/cms/CmsBlogGenerator.tsx`
-- `src/pages/admin/cms/CmsSchedule.tsx`
-- `src/pages/admin/cms/CmsDashboardHome.tsx`
-- `src/components/admin/cms/SeoChecklistPanel.tsx`
-- `src/lib/seo-checklist.ts`
-- `supabase/functions/cms-blog-generate/index.ts`
-- `supabase/functions/cms-publish-scheduled/index.ts`
-
-### Database (one migration)
-- ALTER `cms_pages` ADD COLUMN `seo_score INT`, `seo_checklist JSONB`, `kind TEXT DEFAULT 'page'` (values: `page`|`blog`), `primary_keyword TEXT`.
-- New table `cms_generation_logs` (prompt, model, tokens, output_ref) — authenticated insert by editors, full read by admins, service_role all. Grants in same migration.
-- pg_cron + pg_net enabled; cron `*/5 * * * *` → `cms-publish-scheduled`.
-
-### Routes
-12 new public blog routes added to `App.tsx` ABOVE the `*` catch-all. 3 new admin routes nested under `/admin/cms/`.
-
-### Sitemap
-The existing `sitemap-xml` edge function auto-includes published `cms_pages`. Static `public/sitemap.xml` updated with 12 new blog URLs as a fallback.
-
-### Guardrails preserved
-- All posts UK English, warm + premium tone, no fake awards.
-- Max 6 internal links per RelatedPages block.
-- Article+FAQPage+BreadcrumbList only (no Event schema on posts).
-- Canonical host `https://www.puranights.com`.
-- Wix-safe (JSX `<!-- WIX SECTION -->` comments preserved).
-
-### Scope notes
-- Phase 5 visual page builder, version diff viewer, A/B testing remain deferred.
-- No changes to Auth (Google/Apple only).
-- No changes to existing money pages.
+**8. Phase 2 Commercial Controls — implementation map (document only)**
+- `docs/100-PHASE-2-COMMERCIAL-CONTROLS-MAP.md`: enumerates every hard-coded price, schedule slot, venue detail, booking URL, and WhatsApp message currently in the codebase (found via `rg`), grouped by proposed admin module (Prices, Offers, Schedule, Venues, Booking Links).
+- For each: file/line, current value, proposed table, migration risk, dependent components.
+- This becomes the spec for the next delivery. Nothing is migrated yet — extracting these without a plan would break the public site.
 
 ---
 
-## Delivery order (single turn)
-1. Migration (schema + cron + grants)
-2. Edge functions (generate + publish-scheduled)
-3. SEO checklist lib + panel
-4. Admin pages (Generator, Schedule, Dashboard Home)
-5. 12 blog posts + route wiring + Blog.tsx entries
-6. Sitemap fallback update
-7. Doc: `docs/96-AUTHORITY-CONTENT-AND-CMS-ENGINE.md`
+### Explicitly NOT in this delivery (require their own approved phases)
+
+- Phase 2 actual commercial-controls migration (prices/offers/schedule/venues tables + editors + public-site refactor).
+- Phases 3–15 (services/events editor, full CMS workflow, blog/resources, media manager v2, forms/CRM upgrades, partner/backlink queue, testimonial workflow, SEO intelligence engine, analytics dashboards, navigation/design tokens editor, automations, Wix export pipeline expansion, disaster recovery).
+- Any change to public URLs, canonicals, sitemap, schema output, payment flows, or RLS policies.
+- AI auto-anything.
+
+---
+
+### Tech notes (for the technical reader)
+
+- Module registry is pure TS, no migration. Sidebar (`AdminLayout`) refactored to map over registry filtered by `requiredRole` resolved against `useAuth().role`.
+- System Audit page uses existing `supabase` client with `count: 'exact', head: true` queries (cheap). No new tables, no RLS changes.
+- Page Registry parses `App.tsx` `<Route>` elements at build time via a small `scripts/extract-routes.ts` helper that emits `src/admin/generated/routes.json` (run in `predev`/`prebuild` alongside sitemap generator). Keeps the registry in sync without runtime route introspection.
+- Canonical decision doc uses `rg` audit output — no code changes.
+- All new admin routes gated by `ProtectedRoute requiredRole="admin"` (owner inherits).
+
+---
+
+### Acceptance for this delivery
+
+1. `bun run build` exits 0; all QA scripts pass.
+2. `/admin` redirects to `/admin/control-centre` for admins.
+3. Sidebar + command palette + system-audit all driven by the single module registry.
+4. `/admin/system-audit` shows real numbers (or honest "Not measured").
+5. `/admin/pages-registry` lists every public route with CMS linkage status.
+6. Three new docs exist under `docs/`: baseline, canonical-host decision, Phase 2 map.
+7. Owner `syedbiz96@gmail.com` confirmed as `owner` in audit panel.
+8. Zero changes to public pages, sitemap entries, canonical tags, schema output, prices, or RLS policies.
+
+After you approve and I ship this, I'll report the recalculated score and present Phase 2 as the next delivery.
