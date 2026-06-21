@@ -9,6 +9,7 @@ import NearMeGrid from "@/components/NearMeGrid";
 import ReviewVelocityTicker from "@/components/ReviewVelocityTicker";
 import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import { CHISWICK_NEAR } from "@/data/near-me-areas";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /latin-dance-chiswick --> */
 
@@ -62,9 +63,9 @@ const LatinDanceChiswick = () => (
         </ul>
         <h3 className="font-display text-xl font-bold mt-6 mb-3">Pricing</h3>
         <ul className="text-muted-foreground">
-          <li>£5 — Social only</li>
-          <li>£10 — One class + social</li>
-          <li>£15 — Two classes + social (best value)</li>
+          <li><Price slug="social-only" fallback="£5" showPrevious={false} /> — Social only</li>
+          <li><Price slug="drop-in-class" fallback="£10" showPrevious={false} /> — One class + social</li>
+          <li><Price slug="combined-class-social" fallback="£15" showPrevious={false} /> — Two classes + social (best value)</li>
           <li>Bundles from £42 (5 classes) — see <Link to="/prices" className="text-primary underline">/prices</Link></li>
         </ul>
       </div>

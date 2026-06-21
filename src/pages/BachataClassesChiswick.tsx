@@ -7,6 +7,7 @@ import NextEventCallout from "@/components/NextEventCallout";
 import LastUpdated from "@/components/LastUpdated";
 import AnswerBox from "@/components/AnswerBox";
 import { FadeInUp } from "@/components/animations";
+import { Price } from "@/components/commerce/CommercePrimitives";
 import heroImg from "@/assets/bachata-close.jpg";
 
 const chiswickBachataFaqs = [
@@ -120,7 +121,7 @@ const BachataClassesChiswick = () => (
               <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span className="font-heading font-semibold">8:15 PM</span> — Bachata class (level splits)</div>
               <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span className="font-heading font-semibold">9:00–11:00 PM</span> — Social dancing (50/50 mix)</div>
             </div>
-            <p className="text-sm text-muted-foreground mt-6">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+            <p className="text-sm text-muted-foreground mt-6">💷 <Price slug="combined-class-social" fallback="£15" showPrevious={false} /> (2 classes + social) · <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> (1 class) · <Price slug="social-only" fallback="£5" showPrevious={false} /> (social only)</p>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">Looking for salsa instead? <Link to="/salsa-classes-chiswick" className="text-primary hover:underline">It's taught the same evening from 7:30 PM →</Link></p>
         </FadeInUp>
