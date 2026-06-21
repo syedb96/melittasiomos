@@ -321,10 +321,12 @@ const WeddingDance = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Start Planning Your First Dance?</h2>
         <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">Book a free 15-minute consultation with Melitta to discuss your song, vision, and timeline.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:315")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
-          <a href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
-        </div>
+        <ServiceGate slug="wedding-dance" pausedFallback={WEDDING_PAUSED}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:315")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
+            <a href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
   </Layout>
