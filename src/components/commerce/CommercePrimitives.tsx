@@ -67,3 +67,13 @@ export const useVenue = (slug: string) => {
   }, [slug]);
   return row;
 };
+
+/** Hook for components that need raw price data (e.g., calculators). */
+export const usePrice = (slug: string) => {
+  const [row, setRow] = useState<{ amount_pence: number | null; previous_amount_pence: number | null; currency: string } | null>(null);
+  useEffect(() => {
+    supabase.from("commerce_prices").select("amount_pence, previous_amount_pence, currency").eq("slug", slug).eq("is_active", true).maybeSingle()
+      .then(({ data }) => setRow(data));
+  }, [slug]);
+  return row;
+};
