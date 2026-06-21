@@ -3,46 +3,29 @@ import { Link } from "react-router-dom";
 import { Sparkles, TrendingUp, Award, Crown } from "lucide-react";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import MonthlyUnlimitedDialog from "@/components/MonthlyUnlimitedDialog";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX SECTION: Membership Pathway — replicate as a 4-card Repeater bound
      to a "MembershipTier" CMS collection (icon|label|price|bestFor|note|cta).
      Heading + intro sit above as Wix Title + Paragraph. CTA strip below as
      a 3-button Strip linking to /prices, /pura-nights and the WhatsApp prefill. --> */
 
-const TIERS = [
-  {
-    key: "drop-in",
-    icon: Sparkles,
-    label: "Drop-in",
-    price: "From £10",
-    bestFor: "Best for first-timers",
-    note: "Try one class + social. Zero commitment.",
-  },
-  {
-    key: "5-class",
-    icon: TrendingUp,
-    label: "5-Class Bundle",
-    price: "From £42",
-    bestFor: "Best for building rhythm",
-    note: "Use over 5–8 weeks. Locks in the habit.",
-  },
-  {
-    key: "10-class",
-    icon: Award,
-    label: "10-Class Bundle",
-    price: "From £78",
-    bestFor: "Best value",
-    note: "Save ~30%. Most dancers' favourite.",
-  },
-  {
-    key: "monthly",
-    icon: Crown,
-    label: "Monthly Unlimited",
-    price: "Ask Melitta",
-    bestFor: "Best for regular dancers",
-    note: "Both venues, every week, plus social.",
-    highlight: true,
-  },
+type Tier = {
+  key: string;
+  icon: typeof Sparkles;
+  label: string;
+  priceSlug: string | null;
+  fallback: string;
+  bestFor: string;
+  note: string;
+  highlight?: boolean;
+};
+
+const TIERS: readonly Tier[] = [
+  { key: "drop-in", icon: Sparkles, label: "Drop-in", priceSlug: "drop-in-class", fallback: "From £10", bestFor: "Best for first-timers", note: "Try one class + social. Zero commitment." },
+  { key: "5-class", icon: TrendingUp, label: "5-Class Bundle", priceSlug: "bundle-5", fallback: "From £42", bestFor: "Best for building rhythm", note: "Use over 5–8 weeks. Locks in the habit." },
+  { key: "10-class", icon: Award, label: "10-Class Bundle", priceSlug: "bundle-10", fallback: "From £78", bestFor: "Best value", note: "Save ~30%. Most dancers' favourite." },
+  { key: "monthly", icon: Crown, label: "Monthly Unlimited", priceSlug: null, fallback: "Ask Melitta", bestFor: "Best for regular dancers", note: "Both venues, every week, plus social.", highlight: true },
 ] as const;
 
 interface Props {
@@ -127,7 +110,11 @@ const MembershipPathwayBlock = ({
                       highlight ? "text-primary" : "text-primary"
                     }`}
                   >
-                    {t.price}
+                    {t.priceSlug ? (
+                      <>From <Price slug={t.priceSlug} fallback={t.fallback.replace(/^From\s+/, "")} /></>
+                    ) : (
+                      t.fallback
+                    )}
                   </p>
                   <p
                     className={`text-xs leading-relaxed ${
