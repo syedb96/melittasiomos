@@ -13,7 +13,6 @@ const fields: FieldDef[] = [
   ]},
   { key: "url", label: "URL", type: "text", required: true, help: "For WhatsApp use https://wa.me/<number>" },
   { key: "prefilled_message", label: "Prefilled message (WhatsApp/email)", type: "textarea" },
-  { key: "owner_email", label: "Owner email", type: "text" },
   { key: "usage_notes", label: "Usage notes (where is this link used?)", type: "textarea" },
   { key: "is_active", label: "Active", type: "boolean" },
 ];
