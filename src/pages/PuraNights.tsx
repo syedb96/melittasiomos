@@ -18,6 +18,7 @@ import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { useVariant, recordVariantClick } from "@/lib/ab";
 import { PURA_NIGHTS_HERO_PRIMARY } from "@/data/ab-experiments";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /pura-nights -->
    <!-- WIX SECTION: Hero — Full-width Strip with social dancing image + dark overlay -->
@@ -62,7 +63,7 @@ const PuraNights = () => {
             <Link to="/prices" className="btn-cta-ghost text-sm">See drop-in & bundle prices →</Link>
           </div>
           <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
-            Drop in from £10 · 7:00pm Beginners · 8:00pm Improvers · Social dancing til late
+            Drop in from <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> · 7:00pm Beginners · 8:00pm Improvers · Social dancing til late
           </p>
         </div>
       </div>
@@ -104,7 +105,7 @@ const PuraNights = () => {
                 <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>8:30pm — Intermediate+ Salsa & Bachata</span></div>
                 <div className="flex items-center gap-3"><Clock size={14} className="text-primary" /><span>9:00pm–11:00pm — Social Dancing</span></div>
               </div>
-              <p className="text-muted-foreground text-xs mb-5">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+              <p className="text-muted-foreground text-xs mb-5">💷 <Price slug="combined-class-social" fallback="£15" showPrevious={false} /> (2 classes + social) · <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> (1 class) · <Price slug="social-only" fallback="£5" showPrevious={false} /> (social only)</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://maps.google.com/?q=The+George+IV,+185+Chiswick+High+Rd,+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="text-primary text-xs font-heading font-semibold inline-flex items-center gap-1 hover:underline">Get Directions <ExternalLink size={11} /></a>
                 <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-xs py-2 px-5">Save me a spot →</a>
@@ -128,7 +129,7 @@ const PuraNights = () => {
                 <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>8:30pm — Intermediate+ Salsa & Bachata</span></div>
                 <div className="flex items-center gap-3"><Clock size={14} className="text-peach" /><span>9:00pm–11:00pm — Social Dancing</span></div>
               </div>
-              <p className="text-muted-foreground text-xs mb-5">💷 £15 (2 classes + social) · £10 (1 class) · £5 (social only)</p>
+              <p className="text-muted-foreground text-xs mb-5">💷 <Price slug="combined-class-social" fallback="£15" showPrevious={false} /> (2 classes + social) · <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> (1 class) · <Price slug="social-only" fallback="£5" showPrevious={false} /> (social only)</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://maps.google.com/?q=Drayton+Court+Hotel,+2+The+Avenue,+Ealing,+London+W13+8PH" target="_blank" rel="noopener noreferrer" className="text-peach text-xs font-heading font-semibold inline-flex items-center gap-1 hover:underline">Get Directions <ExternalLink size={11} /></a>
                 <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta text-xs py-2 px-5 bg-peach text-charcoal font-semibold hover:opacity-90 rounded-xl">Book Now →</a>
@@ -202,9 +203,9 @@ const PuraNights = () => {
           <p className="text-primary-foreground/60 mb-6 leading-relaxed">Once a month, Pura Nights goes all out. Live DJ, guest workshops, Pura Ladies performances, and a packed dance floor at the Drayton Court Hotel in Ealing.</p>
           <div className="bg-charcoal-light rounded-2xl p-6 text-left mb-6 border border-primary-foreground/5">
             <div className="grid grid-cols-3 gap-4 text-xs text-primary-foreground/70">
-              <div><p className="text-primary font-heading font-bold mb-1">Early Bird</p><p>£15 class+party</p><p>£10 party only</p></div>
-              <div><p className="text-primary font-heading font-bold mb-1">Standard</p><p>£17 class+party</p><p>£12 party only</p></div>
-              <div><p className="text-primary font-heading font-bold mb-1">Door</p><p>£20 class+party</p><p>£15 party only</p></div>
+              <div><p className="text-primary font-heading font-bold mb-1">Early Bird</p><p><Price slug="latin-friday-early-bird-combined" fallback="£15" showPrevious={false} /> class+party</p><p><Price slug="latin-friday-early-bird-party" fallback="£10" showPrevious={false} /> party only</p></div>
+              <div><p className="text-primary font-heading font-bold mb-1">Standard</p><p><Price slug="latin-friday-standard-combined" fallback="£17" showPrevious={false} /> class+party</p><p><Price slug="latin-friday-standard-party" fallback="£12" showPrevious={false} /> party only</p></div>
+              <div><p className="text-primary font-heading font-bold mb-1">Door</p><p><Price slug="latin-friday-door-combined" fallback="£20" showPrevious={false} /> class+party</p><p><Price slug="latin-friday-door-party" fallback="£15" showPrevious={false} /> party only</p></div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
