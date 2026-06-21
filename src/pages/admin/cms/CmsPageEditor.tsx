@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import RichTextEditor from "@/components/admin/cms/RichTextEditor";
 import SeoPanel, { SeoFields } from "@/components/admin/cms/SeoPanel";
 import MediaPicker from "@/components/admin/cms/MediaPicker";
+import VersionDiffViewer from "@/components/admin/cms/VersionDiffViewer";
 import SeoChecklistPanel from "@/components/admin/cms/SeoChecklistPanel";
 import PostImagePanel from "@/components/admin/cms/PostImagePanel";
 import LinkSuggestionsPanel from "@/components/admin/cms/LinkSuggestionsPanel";
@@ -21,7 +22,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { ArrowLeft, Save, Eye, EyeOff, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowLeft, Save, Eye, EyeOff, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle, GitCompare } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -50,6 +51,7 @@ export default function CmsPageEditor() {
   const [mediaCallback, setMediaCallback] = useState<((url: string) => void) | null>(null);
   const [versions, setVersions] = useState<any[]>([]);
   const [restoredFromVersion, setRestoredFromVersion] = useState<number | null>(null);
+  const [diffOpen, setDiffOpen] = useState(false);
 
   useEffect(() => {
     if (isNew) return;
@@ -336,6 +338,13 @@ export default function CmsPageEditor() {
         {!isNew && (
           <TabsContent value="history" className="space-y-2">
             {restoredFromVersion && <p className="text-xs bg-amber-500/10 text-amber-700 border border-amber-500/30 rounded-md px-3 py-2">Loaded version {restoredFromVersion}. Click <strong>Save draft</strong> or <strong>Publish</strong> to apply — a new version will be recorded with the note "Restored from v{restoredFromVersion}".</p>}
+            {versions.length >= 1 && (
+              <div className="flex justify-end">
+                <Button size="sm" variant="outline" onClick={() => setDiffOpen(true)}>
+                  <GitCompare size={14} className="mr-2" />Compare versions
+                </Button>
+              </div>
+            )}
             {versions.length === 0 && <p className="text-muted-foreground text-sm">No versions yet. Each save creates a snapshot.</p>}
             {versions.map((v) => (
               <div key={v.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
@@ -378,6 +387,20 @@ export default function CmsPageEditor() {
       </div>
 
       <MediaPicker open={mediaOpen} onClose={() => setMediaOpen(false)} onSelect={(url) => mediaCallback?.(url)} />
+      {!isNew && id && (
+        <VersionDiffViewer
+          open={diffOpen}
+          onOpenChange={setDiffOpen}
+          pageId={id}
+          versions={versions}
+          currentSnapshot={page}
+          onRestore={(versionNumber, snapshot) => {
+            setPage({ ...page, ...snapshot, schema_jsonld: (snapshot as any).schema_jsonld ? JSON.stringify((snapshot as any).schema_jsonld, null, 2) : "" });
+            setRestoredFromVersion(versionNumber);
+            toast({ title: `Loaded version ${versionNumber}`, description: "Save or publish to apply." });
+          }}
+        />
+      )}
     </AdminLayout>
   );
 }

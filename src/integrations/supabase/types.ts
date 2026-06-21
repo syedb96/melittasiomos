@@ -122,6 +122,53 @@ export type Database = {
         }
         Relationships: []
       }
+      cms_freshness_alerts: {
+        Row: {
+          created_at: string
+          days_overdue: number | null
+          digest_run_id: string
+          freshness: string
+          id: string
+          page_id: string
+          published_at: string | null
+          review_date: string | null
+          slug: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          days_overdue?: number | null
+          digest_run_id: string
+          freshness: string
+          id?: string
+          page_id: string
+          published_at?: string | null
+          review_date?: string | null
+          slug: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          days_overdue?: number | null
+          digest_run_id?: string
+          freshness?: string
+          id?: string
+          page_id?: string
+          published_at?: string | null
+          review_date?: string | null
+          slug?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cms_freshness_alerts_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "cms_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cms_generation_logs: {
         Row: {
           created_at: string
