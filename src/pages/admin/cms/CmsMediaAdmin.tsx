@@ -130,7 +130,7 @@ export default function CmsMediaAdmin() {
                 alt={
                   edit.alt_text?.trim() ||
                   edit.title?.trim() ||
-                  edit.filename?.trim() ||
+                  edit.storage_path?.split("/").pop()?.trim() ||
                   "Media library image preview"
                 }
                 className="w-full max-h-64 object-contain rounded"
