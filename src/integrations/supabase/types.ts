@@ -1649,6 +1649,10 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
+      provision_my_profile: {
+        Args: never
+        Returns: Database["public"]["Enums"]["app_role"]
+      }
       purge_old_security_events: { Args: never; Returns: undefined }
     }
     Enums: {
