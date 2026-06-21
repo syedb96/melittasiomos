@@ -1,0 +1,16 @@
+{
+  "venue_file": "TheGeorgeIVChiswick.tsx",
+  "title": "The George IV Chiswick — Monday Salsa & Bachata Classes",
+  "description": "Join Pura Nights every Monday at The George IV, 185 Chiswick High Rd. Beginners & improvers salsa and bachata classes plus social dancing. 5 mins from Turnham Green Tube.",
+  "schema_keys": {
+    "name": "\"Pura Nights at The George IV\"",
+    "description": "\"Weekly salsa and bachata classes every Monday at The George IV pub in Chiswick, West London.\"",
+    "address": "{ \"@type\": \"PostalAddress\", streetAddress: \"185 Chiswick High Rd\", addressLocality: \"Chiswick\", addressRegion: \"London\", postalCode: \"W4 2DR\", addressCountry: \"GB\" }",
+    "geo": "{ \"@type\": \"GeoCoordinates\", latitude: \"51.4926\", longitude: \"-0.2583\" }",
+    "url": "\"https://www.puranights.com/venue/the-george-iv-chiswick\"",
+    "telephone": "\"+447449482343\"",
+    "offers": "{ \"@type\": \"AggregateOffer\", priceCurrency: \"GBP\", lowPrice: \"5\", highPrice: \"15\", offerCount: \"3\", url: BOOKING_URL, availability: \"https://schema.org/InStock\", }",
+    "potentialAction": "{ \"@type\": \"ReserveAction\", target: { \"@type\": \"EntryPoint\", urlTemplate: BOOKING_URL, actionPlatform: [\"http://schema.org/DesktopWebPlatform\", \"http://schema.org/MobileWebPlatform\"] }, name: \"Book Monday Class\", }"
+  },
+  "captured_at": "2026-06-21T09:27:53.859Z"
+}

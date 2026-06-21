@@ -33,5 +33,9 @@ jobs:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: bun scripts/venue-page-coverage.ts
+      - name: Schema validation (incl. venue JSON-LD contract)
+        run: bun scripts/schema-validate.ts
+      - name: Venue SEO regression snapshot
+        run: bun scripts/venue-seo-snapshot.ts
       - name: Frontend tests (venue render)
         run: bun run test

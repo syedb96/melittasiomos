@@ -32,7 +32,9 @@
     "qa:deps": "bun scripts/qa-dependency-audit.ts",
     "qa:commerce-slugs": "bun scripts/commerce-slug-lint.ts",
     "qa:venue-coverage": "bun scripts/venue-page-coverage.ts",
-    "prebuild": "bun run scripts/extract-routes.ts && bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts && bun scripts/qa-dependency-audit.ts && bun scripts/commerce-slug-lint.ts && bun scripts/venue-page-coverage.ts",
+    "qa:venue-seo-snapshot": "bun scripts/venue-seo-snapshot.ts",
+    "qa:venue-seo-snapshot:update": "UPDATE_SNAPSHOTS=1 bun scripts/venue-seo-snapshot.ts",
+    "prebuild": "bun run scripts/extract-routes.ts && bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts && bun scripts/qa-dependency-audit.ts && bun scripts/commerce-slug-lint.ts && bun scripts/venue-page-coverage.ts && bun scripts/venue-seo-snapshot.ts",
     "predev": "bun run scripts/extract-routes.ts && bun scripts/seo-qa.ts"
   },
   "dependencies": {
