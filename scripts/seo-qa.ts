@@ -8,16 +8,17 @@
  *  1. Every Event JSON-LD has startDate, endDate, location, offers.
  *  2. Recurring schedule pages (RECURRING_PAGES) NEVER emit Event schema.
  *  3. Every <SeoHead path="..."> uses a hyphenated lowercase path.
- *  4. Sitemap + SeoHead canonicals all use the single chosen host (www).
+ *  4. Sitemap + SeoHead canonicals all use the single chosen host (apex).
  *
  * Generates:
- *  - public/sitemap.xml   (regenerated from ROUTES, www host enforced)
+ *  - public/sitemap.xml   (regenerated from ROUTES, apex host enforced)
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
 
 const ROOT = process.cwd();
-const HOST = "https://www.puranights.com";
+// Canonical host per docs/100-CANONICAL-HOST-DECISION.md — apex, no www.
+const HOST = "https://puranights.com";
 const CHECK_ONLY = process.argv.includes("--check");
 
 // ---------- Pages where Event JSON-LD is FORBIDDEN ----------
@@ -161,9 +162,9 @@ function check() {
       }
     }
 
-    // 4: hardcoded non-www hosts
-    if (/https:\/\/puranights\.com/.test(src) && !/www\.puranights\.com/.test(src)) {
-      warnings.push(`[HOST] ${rel} contains apex host link; canonical host is ${HOST}.`);
+    // 4: hardcoded www hosts (canonical is apex)
+    if (/https:\/\/www\.puranights\.com/.test(src)) {
+      warnings.push(`[HOST] ${rel} contains www host link; canonical host is ${HOST}.`);
     }
   }
 
