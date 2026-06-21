@@ -1,0 +1,747 @@
+{
+  "generatedAt": "2026-06-21T00:26:18.042Z",
+  "publicRoutes": [
+    {
+      "path": "/",
+      "component": "Index"
+    },
+    {
+      "path": "/about",
+      "component": "About"
+    },
+    {
+      "path": "/pura-nights",
+      "component": "PuraNights"
+    },
+    {
+      "path": "/pura-ladies",
+      "component": "PuraLadies"
+    },
+    {
+      "path": "/prices",
+      "component": "Prices"
+    },
+    {
+      "path": "/bookings",
+      "component": "Bookings"
+    },
+    {
+      "path": "/contact",
+      "component": "Contact"
+    },
+    {
+      "path": "/faq",
+      "component": "FAQ"
+    },
+    {
+      "path": "/blog",
+      "component": "Blog"
+    },
+    {
+      "path": "/blog/what-is-salsa",
+      "component": "WhatIsSalsa"
+    },
+    {
+      "path": "/blog/what-is-bachata",
+      "component": "WhatIsBachata"
+    },
+    {
+      "path": "/blog/salsa-vs-bachata",
+      "component": "SalsaVsBachata"
+    },
+    {
+      "path": "/blog/beginners-guide-salsa-london",
+      "component": "BeginnersGuideLondon"
+    },
+    {
+      "path": "/blog/wedding-first-dance-tips",
+      "component": "WeddingFirstDanceTips"
+    },
+    {
+      "path": "/blog/pura-ladies-story",
+      "component": "PuraLadiesStory"
+    },
+    {
+      "path": "/blog/first-salsa-class-london",
+      "component": "FirstSalsaClassLondon"
+    },
+    {
+      "path": "/blog/salsa-no-partner",
+      "component": "SalsaNoPartner"
+    },
+    {
+      "path": "/blog/how-long-to-learn-salsa",
+      "component": "HowLongToLearnSalsa"
+    },
+    {
+      "path": "/blog/bachata-for-beginners-london",
+      "component": "BachataForBeginnersLondon"
+    },
+    {
+      "path": "/blog/what-to-wear-salsa-bachata",
+      "component": "WhatToWearSalsaBachata"
+    },
+    {
+      "path": "/blog/salsa-on1-vs-on2",
+      "component": "SalsaOn1VsOn2"
+    },
+    {
+      "path": "/blog/best-areas-west-london",
+      "component": "BestAreasWestLondon"
+    },
+    {
+      "path": "/blog/salsa-classes-near-chiswick",
+      "component": "SalsaClassesNearChiswick"
+    },
+    {
+      "path": "/blog/bachata-classes-near-ealing",
+      "component": "BachataClassesNearEaling"
+    },
+    {
+      "path": "/blog/dance-classes-acton-adults",
+      "component": "DanceClassesActonAdults"
+    },
+    {
+      "path": "/blog/west-london-latin-dance-guide",
+      "component": "WestLondonLatinDanceGuide"
+    },
+    {
+      "path": "/blog/salsa-south-west-london",
+      "component": "SalsaSouthWestLondon"
+    },
+    {
+      "path": "/blog/choose-wedding-first-dance-song",
+      "component": "ChooseWeddingSong"
+    },
+    {
+      "path": "/blog/salsa-vs-waltz-wedding",
+      "component": "SalsaVsWaltzWedding"
+    },
+    {
+      "path": "/blog/how-many-wedding-dance-lessons",
+      "component": "HowManyWeddingLessons"
+    },
+    {
+      "path": "/blog/last-minute-wedding-dance",
+      "component": "LastMinuteWeddingDance"
+    },
+    {
+      "path": "/blog/history-of-salsa",
+      "component": "HistoryOfSalsa"
+    },
+    {
+      "path": "/blog/history-of-bachata",
+      "component": "HistoryOfBachata"
+    },
+    {
+      "path": "/blog/famous-bachata-dancers",
+      "component": "FamousBachataDancers"
+    },
+    {
+      "path": "/blog/best-salsa-nights-west-london",
+      "component": "BestSalsaNightsWestLondon"
+    },
+    {
+      "path": "/blog/salsa-classes-near-turnham-green",
+      "component": "SalsaClassesNearTurnhamGreen"
+    },
+    {
+      "path": "/blog/latin-dance-events-ealing-2026",
+      "component": "LatinDanceEventsEaling2026"
+    },
+    {
+      "path": "/blog/bachata-sensual-guide",
+      "component": "BachataSensualGuide"
+    },
+    {
+      "path": "/blog/ladies-styling-bachata",
+      "component": "LadiesStylingBachata"
+    },
+    {
+      "path": "/blog/lead-follow-salsa-bachata",
+      "component": "LeadFollowSalsaBachata"
+    },
+    {
+      "path": "/blog/improve-social-dancing",
+      "component": "ImproveSocialDancing"
+    },
+    {
+      "path": "/blog/salsa-musicality-guide",
+      "component": "SalsaMusicality"
+    },
+    {
+      "path": "/blog/hen-party-dance-ideas-london",
+      "component": "HenPartyDanceIdeas"
+    },
+    {
+      "path": "/blog/corporate-team-building-dance-london",
+      "component": "CorporateTeamBuildingDance"
+    },
+    {
+      "path": "/blog/gift-voucher-dance-class-london",
+      "component": "GiftVoucherDanceClass"
+    },
+    {
+      "path": "/blog/new-year-start-salsa-london",
+      "component": "NewYearStartSalsa"
+    },
+    {
+      "path": "/blog/latin-dance-fitness-benefits",
+      "component": "LatinDanceFitnessBenefits"
+    },
+    {
+      "path": "/blog/joining-dance-class-alone",
+      "component": "JoiningDanceClassAlone"
+    },
+    {
+      "path": "/blog/salsa-shoes-guide",
+      "component": "SalsaShoesGuide"
+    },
+    {
+      "path": "/blog/how-to-practice-salsa-at-home",
+      "component": "HowToPracticeSalsaAtHome"
+    },
+    {
+      "path": "/blog/pura-nights-latin-friday-guide",
+      "component": "PuraNightsLatinFridayGuide"
+    },
+    {
+      "path": "/blog/dance-classes-west-london-guide",
+      "component": "DanceClassesWestLondonGuide"
+    },
+    {
+      "path": "/blog/shy-beginners-salsa-london",
+      "component": "ShyBeginnersSalsaLondon"
+    },
+    {
+      "path": "/blog/salsa-bachata-etiquette-guide",
+      "component": "SalsaBachataEtiquetteGuide"
+    },
+    {
+      "path": "/blog/how-to-make-friends-at-salsa-class",
+      "component": "HowToMakeFriendsAtSalsaClass"
+    },
+    {
+      "path": "/blog/best-latin-social-dancing-london",
+      "component": "BestLatinSocialDancingLondon"
+    },
+    {
+      "path": "/blog/after-work-dance-classes-london",
+      "component": "AfterWorkDanceClassesLondon"
+    },
+    {
+      "path": "/blog/date-night-dance-class-london",
+      "component": "DateNightDanceClassLondon"
+    },
+    {
+      "path": "/blog/dance-classes-for-couples-london",
+      "component": "DanceClassesForCouplesLondon"
+    },
+    {
+      "path": "/blog/anniversary-dance-lesson-london",
+      "component": "AnniversaryDanceLessonLondon"
+    },
+    {
+      "path": "/blog/birthday-dance-class-london",
+      "component": "BirthdayDanceClassLondon"
+    },
+    {
+      "path": "/blog/corporate-christmas-party-dance-london",
+      "component": "CorporateChristmasPartyDanceLondon"
+    },
+    {
+      "path": "/blog/build-confidence-on-dance-floor",
+      "component": "BuildConfidenceOnDanceFloor"
+    },
+    {
+      "path": "/blog/salsa-bachata-bucket-list-london",
+      "component": "SalsaBachataBucketListLondon"
+    },
+    {
+      "path": "/blog/best-latin-dance-festivals-europe-2026",
+      "component": "BestLatinDanceFestivalsEurope2026"
+    },
+    {
+      "path": "/events",
+      "component": "Events"
+    },
+    {
+      "path": "/events/:slug",
+      "component": "EventInstance"
+    },
+    {
+      "path": "/gallery",
+      "component": "Gallery"
+    },
+    {
+      "path": "/wedding-dance",
+      "component": "WeddingDance"
+    },
+    {
+      "path": "/private-lessons",
+      "component": "PrivateLessons"
+    },
+    {
+      "path": "/gift-vouchers",
+      "component": "GiftVouchers"
+    },
+    {
+      "path": "/online-classes",
+      "component": "OnlineClasses"
+    },
+    {
+      "path": "/online-salsa-bachata-coaching",
+      "component": "OnlineCoaching"
+    },
+    {
+      "path": "/online-academy",
+      "component": "OnlineAcademy"
+    },
+    {
+      "path": "/refer",
+      "component": "Refer"
+    },
+    {
+      "path": "/testimonials",
+      "component": "Testimonials"
+    },
+    {
+      "path": "/salsa-classes-london",
+      "component": "SalsaClassesLondon"
+    },
+    {
+      "path": "/bachata-classes-london",
+      "component": "BachataClassesLondon"
+    },
+    {
+      "path": "/salsa-classes-chiswick",
+      "component": "SalsaClassesChiswick"
+    },
+    {
+      "path": "/bachata-classes-chiswick",
+      "component": "BachataClassesChiswick"
+    },
+    {
+      "path": "/bachata-classes-ealing",
+      "component": "BachataClassesEaling"
+    },
+    {
+      "path": "/salsa-classes-ealing",
+      "component": "SalsaClassesEaling"
+    },
+    {
+      "path": "/salsa-classes-acton",
+      "component": "SalsaClassesActon"
+    },
+    {
+      "path": "/dance-classes-ealing",
+      "component": "DanceClassesEaling"
+    },
+    {
+      "path": "/bachata-classes-west-london",
+      "component": "BachataClassesWestLondon"
+    },
+    {
+      "path": "/wedding-dance-west-london",
+      "component": "WeddingDanceWestLondon"
+    },
+    {
+      "path": "/private-dance-lessons-west-london",
+      "component": "PrivateDanceLessonsWestLondon"
+    },
+    {
+      "path": "/dance-classes-south-west-london",
+      "component": "DanceClassesSouthWestLondon"
+    },
+    {
+      "path": "/dance-classes-west-london",
+      "component": "DanceClassesWestLondon"
+    },
+    {
+      "path": "/community",
+      "component": "Community"
+    },
+    {
+      "path": "/schedule",
+      "component": "Schedule"
+    },
+    {
+      "path": "/salsa-classes-south-west-london",
+      "component": "SalsaClassesSouthWestLondon"
+    },
+    {
+      "path": "/bachata-classes-south-west-london",
+      "component": "BachataClassesSouthWestLondon"
+    },
+    {
+      "path": "/start-here",
+      "component": "StartHere"
+    },
+    {
+      "path": "/locations",
+      "component": "Locations"
+    },
+    {
+      "path": "/privacy-policy",
+      "component": "PrivacyPolicy"
+    },
+    {
+      "path": "/terms",
+      "component": "Terms"
+    },
+    {
+      "path": "/cookie-policy",
+      "component": "CookiePolicy"
+    },
+    {
+      "path": "/latin-dance-classes-london",
+      "component": "LatinDanceClassesLondon"
+    },
+    {
+      "path": "/dance-classes-chiswick",
+      "component": "DanceClassesChiswick"
+    },
+    {
+      "path": "/wedding-dance-lessons-london",
+      "component": "WeddingDanceLessonsLondon"
+    },
+    {
+      "path": "/private-salsa-lessons-london",
+      "component": "PrivateSalsaLessonsLondon"
+    },
+    {
+      "path": "/ladies-styling-london",
+      "component": "LadiesStylingLondon"
+    },
+    {
+      "path": "/bachata-performance-team-london",
+      "component": "BachataPerformanceTeamLondon"
+    },
+    {
+      "path": "/beginners",
+      "component": "Beginners"
+    },
+    {
+      "path": "/first-class-guide",
+      "component": "FirstClassGuide"
+    },
+    {
+      "path": "/all-pages-master",
+      "component": "AllPagesMaster"
+    },
+    {
+      "path": "/proof-centre",
+      "component": "ProofCentre"
+    },
+    {
+      "path": "/meet-the-team",
+      "component": "MeetTheTeam"
+    },
+    {
+      "path": "/venue/the-george-iv-chiswick",
+      "component": "TheGeorgeIVChiswick"
+    },
+    {
+      "path": "/venue/the-drayton-court-ealing",
+      "component": "TheDraytonCourtEaling"
+    },
+    {
+      "path": "/salsa-classes-richmond",
+      "component": "SalsaClassesRichmond"
+    },
+    {
+      "path": "/salsa-classes-hammersmith",
+      "component": "SalsaClassesHammersmith"
+    },
+    {
+      "path": "/dance-classes-hounslow",
+      "component": "DanceClassesHounslow"
+    },
+    {
+      "path": "/latin-dance-ealing",
+      "component": "LatinDanceEaling"
+    },
+    {
+      "path": "/latin-dance-chiswick",
+      "component": "LatinDanceChiswick"
+    },
+    {
+      "path": "/salsa-classes-fulham",
+      "component": "SalsaClassesFulham"
+    },
+    {
+      "path": "/salsa-classes-acton-local",
+      "component": "SalsaClassesActonLocal"
+    },
+    {
+      "path": "/thank-you",
+      "component": "ThankYou"
+    },
+    {
+      "path": "/corporate-dance-classes-london",
+      "component": "CorporateDanceClassesLondon"
+    },
+    {
+      "path": "/private-group-dance-parties-london",
+      "component": "PrivateGroupDancePartiesLondon"
+    },
+    {
+      "path": "/partner-with-pura-nights",
+      "component": "PartnerWithPuraNights"
+    },
+    {
+      "path": "/latin-night-out-west-london",
+      "component": "LatinNightOutWestLondon"
+    },
+    {
+      "path": "/salsa-classes-brentford",
+      "component": "SalsaClassesBrentford"
+    },
+    {
+      "path": "/salsa-classes-kew",
+      "component": "SalsaClassesKew"
+    },
+    {
+      "path": "/salsa-classes-barnes",
+      "component": "SalsaClassesBarnes"
+    },
+    {
+      "path": "/salsa-classes-putney",
+      "component": "SalsaClassesPutney"
+    },
+    {
+      "path": "/salsa-classes-shepherds-bush",
+      "component": "SalsaClassesShepherdsBush"
+    },
+    {
+      "path": "/salsa-classes-notting-hill",
+      "component": "SalsaClassesNottingHill"
+    },
+    {
+      "path": "/salsa-bachata-classes-covent-garden",
+      "component": "SalsaBachataCoventGarden"
+    },
+    {
+      "path": "/pura-ladies-covent-garden",
+      "component": "PuraLadiesCoventGarden"
+    },
+    {
+      "path": "/best-salsa-bachata-classes-west-london",
+      "component": "BestSalsaBachataClassesWestLondon"
+    },
+    {
+      "path": "/press",
+      "component": "Press"
+    },
+    {
+      "path": "/influencers",
+      "component": "Influencers"
+    },
+    {
+      "path": "/shop",
+      "component": "Shop"
+    },
+    {
+      "path": "/size-guide",
+      "component": "SizeGuide"
+    },
+    {
+      "path": "/shipping-returns",
+      "component": "ShippingReturns"
+    },
+    {
+      "path": "/lookbook",
+      "component": "Lookbook"
+    },
+    {
+      "path": "/lookbook/:category",
+      "component": "LookbookCategory"
+    },
+    {
+      "path": "/shop/:slug",
+      "component": "ProductTemplate"
+    },
+    {
+      "path": "/learn/salsa-bachata-guide",
+      "component": "SalsaBachataGuide"
+    },
+    {
+      "path": "/learn/salsa-vs-bachata",
+      "component": "SalsaVsBachataPillar"
+    },
+    {
+      "path": "/learn/ultimate-london-salsa-bachata-guide",
+      "component": "UltimateLondonGuide"
+    },
+    {
+      "path": "/learn/best-salsa-bachata-nights-london",
+      "component": "BestSalsaBachataNightsLondon"
+    },
+    {
+      "path": "/resources",
+      "component": "Resources"
+    },
+    {
+      "path": "/glossary/salsa-bachata",
+      "component": "Glossary"
+    },
+    {
+      "path": "/partners/embed-widget",
+      "component": "PartnersEmbed"
+    },
+    {
+      "path": "/embed/class-finder",
+      "component": "EmbedClassFinder"
+    },
+    {
+      "path": "/latin-friday",
+      "component": "LatinFriday"
+    },
+    {
+      "path": "/your-first-class",
+      "component": "YourFirstClass"
+    },
+    {
+      "path": "/leave-a-review",
+      "component": "LeaveAReview"
+    },
+    {
+      "path": "/free-taster",
+      "component": "FreeTaster"
+    },
+    {
+      "path": "/why-pura-nights",
+      "component": "WhyPuraNights"
+    },
+    {
+      "path": "/credits",
+      "component": "Credits"
+    },
+    {
+      "path": "/website-credits",
+      "component": "WebsiteCredits"
+    },
+    {
+      "path": "/loyalty",
+      "component": "Loyalty"
+    },
+    {
+      "path": "/salsa-bachata-west-london",
+      "component": "SalsaBachataWestLondon"
+    },
+    {
+      "path": "/latin-dance-corporate-events-london",
+      "component": "LatinDanceCorporateEventsLondon"
+    }
+  ],
+  "adminRoutes": [
+    {
+      "path": "/login",
+      "component": "Login"
+    },
+    {
+      "path": "/admin",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/dashboard",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/gallery",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/team",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/events",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/testimonials",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/enquiries",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/ambassadors",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/settings",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/blueprint",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/site-docs",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/seo",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/shop-photo-tracker",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/analytics",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/tracking-qa",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/security-events",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/pages",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/pages/:id",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/media",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/navigation",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/redirects",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/settings",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/wix",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/blog/generate",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/schedule",
+      "component": "ProtectedRoute"
+    }
+  ]
+}
