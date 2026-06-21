@@ -11,6 +11,7 @@ import LinkSuggestionsPanel from "@/components/admin/cms/LinkSuggestionsPanel";
 import PublishGatePanel from "@/components/admin/cms/PublishGatePanel";
 import { runSeoChecklist } from "@/lib/seo-checklist";
 import { runPublishGate } from "@/lib/publish-gate";
+import { logAudit } from "@/lib/audit";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -136,6 +137,23 @@ export default function CmsPageEditor() {
       setVersions(v ?? []);
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
     }
+    // Audit log: only meaningful workflow transitions
+    if (savedId) {
+      const auditAction = restoredFromVersion
+        ? "page_restored"
+        : publish
+          ? "page_published"
+          : scheduleAt
+            ? "page_scheduled"
+            : "page_draft_saved";
+      logAudit({
+        action: auditAction,
+        entity_type: "cms_page",
+        entity_id: savedId,
+        entity_label: page.title,
+        metadata: { slug: page.slug, status, seo_score: score },
+      });
+    }
     // Auto-push to Wix on publish
     if (publish && savedId && (page.wix_auto_sync ?? true)) {
       supabase.functions.invoke("cms-wix-push", { body: { page_id: savedId } }).catch(() => {});
@@ -164,6 +182,13 @@ export default function CmsPageEditor() {
     const { data: v } = await supabase.from("cms_page_versions").select("id,version_number,note,created_at").eq("page_id", id).order("version_number", { ascending: false }).limit(20);
     setVersions(v ?? []);
     toast({ title: "Page unpublished" });
+    logAudit({
+      action: "page_unpublished",
+      entity_type: "cms_page",
+      entity_id: id,
+      entity_label: page.title,
+      metadata: { slug: page.slug },
+    });
   };
 
   const remove = async () => {
