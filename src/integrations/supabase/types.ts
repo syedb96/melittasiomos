@@ -547,6 +547,389 @@ export type Database = {
           },
         ]
       }
+      commerce_booking_links: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          kind: string
+          label: string
+          owner_email: string | null
+          prefilled_message: string | null
+          slug: string
+          updated_at: string
+          url: string
+          usage_notes: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          kind: string
+          label: string
+          owner_email?: string | null
+          prefilled_message?: string | null
+          slug: string
+          updated_at?: string
+          url: string
+          usage_notes?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          kind?: string
+          label?: string
+          owner_email?: string | null
+          prefilled_message?: string | null
+          slug?: string
+          updated_at?: string
+          url?: string
+          usage_notes?: string | null
+        }
+        Relationships: []
+      }
+      commerce_offers: {
+        Row: {
+          applicable_services: string[]
+          code: string | null
+          created_at: string
+          cta_label: string | null
+          cta_link_id: string | null
+          description: string | null
+          eligibility: string | null
+          ends_at: string | null
+          id: string
+          is_active: boolean
+          name: string
+          slug: string
+          sort_order: number
+          starts_at: string | null
+          terms: string | null
+          updated_at: string
+        }
+        Insert: {
+          applicable_services?: string[]
+          code?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_link_id?: string | null
+          description?: string | null
+          eligibility?: string | null
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          slug: string
+          sort_order?: number
+          starts_at?: string | null
+          terms?: string | null
+          updated_at?: string
+        }
+        Update: {
+          applicable_services?: string[]
+          code?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_link_id?: string | null
+          description?: string | null
+          eligibility?: string | null
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          slug?: string
+          sort_order?: number
+          starts_at?: string | null
+          terms?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commerce_offers_cta_link_id_fkey"
+            columns: ["cta_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      commerce_prices: {
+        Row: {
+          amount_pence: number | null
+          booking_link_id: string | null
+          created_at: string
+          cta_label: string | null
+          currency: string
+          description: string | null
+          ends_at: string | null
+          id: string
+          is_active: boolean
+          is_featured: boolean
+          kind: string
+          name: string
+          previous_amount_pence: number | null
+          service_slug: string | null
+          slug: string
+          sort_order: number
+          starts_at: string | null
+          terms: string | null
+          updated_at: string
+          venue_id: string | null
+        }
+        Insert: {
+          amount_pence?: number | null
+          booking_link_id?: string | null
+          created_at?: string
+          cta_label?: string | null
+          currency?: string
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          kind: string
+          name: string
+          previous_amount_pence?: number | null
+          service_slug?: string | null
+          slug: string
+          sort_order?: number
+          starts_at?: string | null
+          terms?: string | null
+          updated_at?: string
+          venue_id?: string | null
+        }
+        Update: {
+          amount_pence?: number | null
+          booking_link_id?: string | null
+          created_at?: string
+          cta_label?: string | null
+          currency?: string
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          is_featured?: boolean
+          kind?: string
+          name?: string
+          previous_amount_pence?: number | null
+          service_slug?: string | null
+          slug?: string
+          sort_order?: number
+          starts_at?: string | null
+          terms?: string | null
+          updated_at?: string
+          venue_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commerce_prices_booking_link_id_fkey"
+            columns: ["booking_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "commerce_prices_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      commerce_schedule_exceptions: {
+        Row: {
+          created_at: string
+          exception_date: string
+          exception_type: string
+          id: string
+          new_end_time: string | null
+          new_start_time: string | null
+          public_notice: string | null
+          replacement_venue_id: string | null
+          slot_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          exception_date: string
+          exception_type: string
+          id?: string
+          new_end_time?: string | null
+          new_start_time?: string | null
+          public_notice?: string | null
+          replacement_venue_id?: string | null
+          slot_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          exception_date?: string
+          exception_type?: string
+          id?: string
+          new_end_time?: string | null
+          new_start_time?: string | null
+          public_notice?: string | null
+          replacement_venue_id?: string | null
+          slot_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commerce_schedule_exceptions_replacement_venue_id_fkey"
+            columns: ["replacement_venue_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_venues"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "commerce_schedule_exceptions_slot_id_fkey"
+            columns: ["slot_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_schedule_slots"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      commerce_schedule_slots: {
+        Row: {
+          booking_link_id: string | null
+          class_style: string
+          created_at: string
+          end_time: string
+          id: string
+          instructor_id: string | null
+          is_active: boolean
+          level: string | null
+          social_end_time: string | null
+          social_start_time: string | null
+          sort_order: number
+          start_time: string
+          updated_at: string
+          venue_id: string | null
+          weekday: number
+        }
+        Insert: {
+          booking_link_id?: string | null
+          class_style: string
+          created_at?: string
+          end_time: string
+          id?: string
+          instructor_id?: string | null
+          is_active?: boolean
+          level?: string | null
+          social_end_time?: string | null
+          social_start_time?: string | null
+          sort_order?: number
+          start_time: string
+          updated_at?: string
+          venue_id?: string | null
+          weekday: number
+        }
+        Update: {
+          booking_link_id?: string | null
+          class_style?: string
+          created_at?: string
+          end_time?: string
+          id?: string
+          instructor_id?: string | null
+          is_active?: boolean
+          level?: string | null
+          social_end_time?: string | null
+          social_start_time?: string | null
+          sort_order?: number
+          start_time?: string
+          updated_at?: string
+          venue_id?: string | null
+          weekday?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commerce_schedule_slots_booking_link_id_fkey"
+            columns: ["booking_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "commerce_schedule_slots_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      commerce_venues: {
+        Row: {
+          accessibility_html: string | null
+          address_line_1: string | null
+          address_line_2: string | null
+          created_at: string
+          directions_html: string | null
+          faqs: Json
+          hero_image_url: string | null
+          id: string
+          is_active: boolean
+          map_url: string | null
+          name: string
+          parking_html: string | null
+          postcode: string | null
+          seo_description: string | null
+          seo_title: string | null
+          short_name: string | null
+          slug: string
+          sort_order: number
+          transport_html: string | null
+          updated_at: string
+        }
+        Insert: {
+          accessibility_html?: string | null
+          address_line_1?: string | null
+          address_line_2?: string | null
+          created_at?: string
+          directions_html?: string | null
+          faqs?: Json
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean
+          map_url?: string | null
+          name: string
+          parking_html?: string | null
+          postcode?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          short_name?: string | null
+          slug: string
+          sort_order?: number
+          transport_html?: string | null
+          updated_at?: string
+        }
+        Update: {
+          accessibility_html?: string | null
+          address_line_1?: string | null
+          address_line_2?: string | null
+          created_at?: string
+          directions_html?: string | null
+          faqs?: Json
+          hero_image_url?: string | null
+          id?: string
+          is_active?: boolean
+          map_url?: string | null
+          name?: string
+          parking_html?: string | null
+          postcode?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          short_name?: string | null
+          slug?: string
+          sort_order?: number
+          transport_html?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string

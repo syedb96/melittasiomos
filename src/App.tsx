@@ -199,6 +199,11 @@ import CmsDashboardHome from "./pages/admin/cms/CmsDashboardHome";
 import CmsWixSettings from "./pages/admin/cms/CmsWixSettings";
 import SystemAudit from "./pages/admin/SystemAudit";
 import PagesRegistry from "./pages/admin/PagesRegistry";
+import BookingLinksAdmin from "./pages/admin/commerce/BookingLinksAdmin";
+import VenuesAdmin from "./pages/admin/commerce/VenuesAdmin";
+import PricesAdmin from "./pages/admin/commerce/PricesAdmin";
+import ScheduleAdmin from "./pages/admin/commerce/ScheduleAdmin";
+import OffersAdmin from "./pages/admin/commerce/OffersAdmin";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -409,6 +414,11 @@ const App = () => (
             <Route path="/admin/security-events" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
             <Route path="/admin/system-audit" element={<ProtectedRoute requireAdmin><SystemAudit /></ProtectedRoute>} />
             <Route path="/admin/pages-registry" element={<ProtectedRoute requireAdmin><PagesRegistry /></ProtectedRoute>} />
+            <Route path="/admin/commerce/booking-links" element={<ProtectedRoute requireAdmin><BookingLinksAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/venues" element={<ProtectedRoute requireAdmin><VenuesAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/prices" element={<ProtectedRoute requireAdmin><PricesAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/schedule" element={<ProtectedRoute requireAdmin><ScheduleAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/offers" element={<ProtectedRoute requireAdmin><OffersAdmin /></ProtectedRoute>} />
 
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />

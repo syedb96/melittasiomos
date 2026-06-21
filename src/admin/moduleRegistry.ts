@@ -136,12 +136,12 @@ export const ADMIN_MODULES: AdminModule[] = [
   { id: "site-docs", name: "Site Docs", route: "/admin/site-docs", section: "System", description: "Internal documentation.", icon: FileText, requiredRole: "editor", status: "live", dataSource: "static", publicCritical: false },
   { id: "shop-photos", name: "Shop Photo Tracker", route: "/admin/shop-photo-tracker", section: "System", description: "Tracks shop imagery.", icon: ImageIcon, requiredRole: "editor", status: "live", dataSource: "static", publicCritical: false },
 
-  // Commerce (planned — Phase 2)
-  { id: "prices", name: "Prices", route: "/admin/commerce/prices", section: "Commerce", description: "Drop-in, bundle, voucher and event prices.", icon: Sliders, requiredRole: "admin", status: "planned", dataSource: "none", publicCritical: true, notes: "Phase 2 — see docs/100-PHASE-2-COMMERCIAL-CONTROLS-MAP.md" },
-  { id: "offers", name: "Offers", route: "/admin/commerce/offers", section: "Commerce", description: "Time-bound offers with auto-expiry.", icon: Sparkles, requiredRole: "admin", status: "planned", dataSource: "none", publicCritical: true, notes: "Phase 2" },
-  { id: "schedule", name: "Class Schedule", route: "/admin/commerce/schedule", section: "Commerce", description: "Weekly class slots, exceptions, notices.", icon: CalendarClock, requiredRole: "admin", status: "planned", dataSource: "none", publicCritical: true, notes: "Phase 2" },
-  { id: "venues", name: "Venues", route: "/admin/commerce/venues", section: "Commerce", description: "Venue facts, transport, accessibility.", icon: Image, requiredRole: "admin", status: "planned", dataSource: "none", publicCritical: true, notes: "Phase 2" },
-  { id: "booking-links", name: "Booking Links", route: "/admin/commerce/booking-links", section: "Commerce", description: "Central registry for Ticket Tailor, WhatsApp, email targets.", icon: ArrowLeftRight, requiredRole: "admin", status: "planned", dataSource: "none", publicCritical: true, notes: "Phase 2" },
+  // Commerce (Phase 2 — tables live, public-site swap in progress)
+  { id: "prices", name: "Prices", route: "/admin/commerce/prices", section: "Commerce", description: "Drop-in, bundle, voucher and event prices.", icon: Sliders, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["commerce_prices"], publicCritical: true, notes: "Public-site swap rolls out file-by-file per Phase 2 map." },
+  { id: "offers", name: "Offers", route: "/admin/commerce/offers", section: "Commerce", description: "Time-bound offers with auto-expiry.", icon: Sparkles, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["commerce_offers"], publicCritical: true },
+  { id: "schedule", name: "Class Schedule", route: "/admin/commerce/schedule", section: "Commerce", description: "Weekly class slots, exceptions, notices.", icon: CalendarClock, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["commerce_schedule_slots", "commerce_schedule_exceptions"], publicCritical: true },
+  { id: "venues", name: "Venues", route: "/admin/commerce/venues", section: "Commerce", description: "Venue facts, transport, accessibility.", icon: Image, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["commerce_venues"], publicCritical: true },
+  { id: "booking-links", name: "Booking Links", route: "/admin/commerce/booking-links", section: "Commerce", description: "Central registry for Ticket Tailor, WhatsApp, email targets.", icon: ArrowLeftRight, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["commerce_booking_links"], publicCritical: true },
 ];
 
 const ROLE_LEVEL: Record<AdminRole, number> = { viewer: 0, editor: 1, admin: 2, owner: 3 };
