@@ -205,6 +205,7 @@ import VenuesAdmin from "./pages/admin/commerce/VenuesAdmin";
 import PricesAdmin from "./pages/admin/commerce/PricesAdmin";
 import ScheduleAdmin from "./pages/admin/commerce/ScheduleAdmin";
 import OffersAdmin from "./pages/admin/commerce/OffersAdmin";
+import ServicesAdmin from "./pages/admin/commerce/ServicesAdmin";
 import SeoIntelligence from "./pages/admin/SeoIntelligence";
 import ShareYourStory from "./pages/ShareYourStory";
 
