@@ -12,8 +12,15 @@ import heroImg from "@/assets/private-lesson.jpg";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
 
 const PRIVATE_WA = waCustom("Hi Melitta, I'd like to enquire about private dance lessons", "PrivateLessons:15").href;
+
+const PRIVATE_PAUSED = (
+  <div className="bg-muted border border-border rounded-lg px-4 py-3 text-sm text-muted-foreground max-w-md mx-auto">
+    Private lessons are temporarily fully booked. Email <a className="underline" href="mailto:siomosmelitta@gmail.com">siomosmelitta@gmail.com</a> to join the waitlist.
+  </div>
+);
 
 /* <!-- WIX PAGE: /private-lessons -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay -->
