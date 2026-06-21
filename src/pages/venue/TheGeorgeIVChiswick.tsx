@@ -10,6 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 import { waCustom } from "@/lib/whatsapp";
+import { Price, BookingLink } from "@/components/commerce/CommercePrimitives";
 
 const venueFaqs = [
   { q: "Do I need to book in advance?", a: "No — just turn up! We welcome walk-ins every Monday. If it's your first time, arrive a few minutes early." },
@@ -57,9 +58,9 @@ const TheGeorgeIVChiswick = () => (
             Your Monday night home for salsa and bachata in West London. A beautiful pub with a dedicated dance space, welcoming atmosphere, and drinks at the bar afterwards.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Monday Class
-            </a>
+            </BookingLink>
             <a href="https://maps.google.com/?q=The+George+IV+185+Chiswick+High+Rd+London+W4+2DR" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               Get Directions
             </a>
@@ -167,13 +168,15 @@ const TheGeorgeIVChiswick = () => (
         </FadeInUp>
         <StaggerContainer className="grid sm:grid-cols-3 gap-6">
           {[
-            { price: "£15", label: "2 Classes + Social", note: "Best value for the full evening" },
-            { price: "£10", label: "1 Class + Social", note: "Choose Beginners or Improvers" },
-            { price: "£5", label: "Social Only", note: "Join from 9:30pm" },
+            { slug: "combined-class-social", fallback: "£15", label: "2 Classes + Social", note: "Best value for the full evening" },
+            { slug: "drop-in-class", fallback: "£10", label: "1 Class + Social", note: "Choose Beginners or Improvers" },
+            { slug: "social-only", fallback: "£5", label: "Social Only", note: "Join from 9:30pm" },
           ].map((tier, i) => (
             <StaggerItem key={i}>
               <div className="bg-card rounded-xl border border-border p-6 text-center hover:border-primary/50 transition-colors">
-                <p className="text-3xl font-bold text-primary mb-2">{tier.price}</p>
+                <p className="text-3xl font-bold text-primary mb-2">
+                  <Price slug={tier.slug} fallback={tier.fallback} showPrevious={false} />
+                </p>
                 <p className="font-semibold text-foreground mb-1">{tier.label}</p>
                 <p className="text-sm text-muted-foreground">{tier.note}</p>
               </div>
@@ -183,7 +186,9 @@ const TheGeorgeIVChiswick = () => (
         <FadeInUp delay={0.2}>
           <div className="mt-8 bg-muted/50 rounded-xl p-6 text-center">
             <p className="text-foreground font-medium mb-1">Save with bundles</p>
-            <p className="text-muted-foreground text-sm">5-class bundle: £55 · 10-class bundle: £99 · Monthly unlimited: £120</p>
+            <p className="text-muted-foreground text-sm">
+              5-class bundle: <Price slug="chiswick-bundle-5" fallback="£55" showPrevious={false} /> · 10-class bundle: <Price slug="chiswick-bundle-10" fallback="£99" showPrevious={false} /> · Monthly unlimited: <Price slug="chiswick-membership" fallback="£120" showPrevious={false} />
+            </p>
             <Link to="/prices" className="text-primary hover:underline text-sm mt-2 inline-block">View full pricing →</Link>
           </div>
         </FadeInUp>
@@ -273,9 +278,9 @@ const TheGeorgeIVChiswick = () => (
             No booking needed. No partner needed. Just come as you are.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
-            </a>
+            </BookingLink>
             <a {...waCustom("Hi Melitta, I'm interested in the Monday Chiswick class at The George IV. Is it suitable for a complete beginner coming alone?", "TheGeorgeIVChiswick:278")} className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               WhatsApp Melitta
             </a>

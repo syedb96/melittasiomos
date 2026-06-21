@@ -116,7 +116,7 @@ const Gallery = () => {
             <span className="inline-block font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">The Energy · The People · The Vibe</span>
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-5 leading-tight">This Is What Pura Nights <span className="text-primary">Looks Like</span></h1>
             <p className="text-primary-foreground/70 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">500+ students. Two venues. One community. See why West London dances with us every Monday and Tuesday.</p>
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">🎟 Join Us This Week →</a>
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="btn-cta-primary text-sm">🎟 Join Us This Week →</BookingLink>
           </FadeInUp>
         </div>
       </section>
@@ -237,9 +237,9 @@ const Gallery = () => {
       <section className="section-padding text-center" style={{ background: 'var(--gradient-gold)' }}>
         <div className="container-main">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-3">Seen enough? Come dance with us.</h2>
-          <p className="text-charcoal/70 text-sm mb-8 max-w-lg mx-auto">From £10 a class. No partner needed. Just turn up.</p>
+          <p className="text-charcoal/70 text-sm mb-8 max-w-lg mx-auto">From <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> a class. No partner needed. Just turn up.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm">🎟 Book Your First Class →</a>
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="btn-cta-dark text-sm">🎟 Book Your First Class →</BookingLink>
             <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "Gallery:242")} className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20 text-sm inline-flex items-center gap-2"><MessageCircle size={14} /> WhatsApp Melitta</a>
           </div>
         </div>
