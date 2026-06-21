@@ -81,8 +81,18 @@ export default function CmsPageEditor() {
     schemaJsonld: page.schema_jsonld || "",
   };
 
+  const gate = runPublishGate({
+    title: page.title, slug: page.slug, meta_title: page.meta_title, meta_description: page.meta_description,
+    hero_image_url: page.hero_image_url, hero_image_alt: page.hero_image_alt, content_html: page.content_html,
+    canonical_url: page.canonical_url, noindex: page.noindex, schema_jsonld: page.schema_jsonld,
+  });
+
   const save = async (publish?: boolean, scheduleAt?: string | null) => {
     if (!page.title || !page.slug) { toast({ title: "Title and slug are required", variant: "destructive" }); return; }
+    if (publish && !gate.ok) {
+      toast({ title: "Publishing blocked", description: `${gate.criticalFailures} critical check${gate.criticalFailures !== 1 ? "s" : ""} failing. See Publishing gate panel.`, variant: "destructive" });
+      return;
+    }
     const { score, results } = runSeoChecklist(seoDraft);
     if (publish && score < 85) {
       if (!confirm(`SEO score is ${score}/100 (below 85). Publish anyway?`)) return;
@@ -91,9 +101,11 @@ export default function CmsPageEditor() {
     let parsedSchema: any = null;
     if (page.schema_jsonld) { try { parsedSchema = JSON.parse(page.schema_jsonld); } catch { toast({ title: "JSON-LD is not valid JSON", variant: "destructive" }); setSaving(false); return; } }
     const status = publish ? "published" : scheduleAt ? "scheduled" : page.status;
+    const nextWorkflow = publish ? "published" : scheduleAt ? "scheduled" : (page.workflow_status || "draft");
     const payload: any = {
       slug: page.slug, title: page.title, excerpt: page.excerpt, content_json: page.content_json, content_html: page.content_html,
-      status, page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
+      status, workflow_status: nextWorkflow, review_date: page.review_date || null, author_name: page.author_name || null, sources: page.sources ?? [],
+      page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
       hero_image_url: page.hero_image_url || null, hero_image_alt: page.hero_image_alt || null,
       meta_title: page.meta_title || null, meta_description: page.meta_description || null,
       og_image: page.og_image || null, twitter_image: page.twitter_image || page.og_image || null, og_image_generated_at: page.og_image_generated_at,
@@ -102,7 +114,7 @@ export default function CmsPageEditor() {
       wix_auto_sync: page.wix_auto_sync ?? true,
       publish_at: scheduleAt ?? page.publish_at ?? null,
       published_at: publish ? new Date().toISOString() : page.published_at,
-      seo_score: score, seo_checklist: results as any,
+      seo_score: score, seo_checklist: results as any, publish_gate: gate as any,
       author_id: user?.id ?? null,
     };
     let savedId = id;
