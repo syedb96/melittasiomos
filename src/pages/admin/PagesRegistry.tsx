@@ -4,7 +4,7 @@ import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";
 import routesJson from "@/admin/generated/routes.json";
 
-interface CmsRow { slug: string; title: string | null; is_published: boolean | null; updated_at: string | null }
+interface CmsRow { slug: string; title: string | null; status: string | null; updated_at: string | null }
 
 const PagesRegistry = () => {
   const [cms, setCms] = useState<CmsRow[]>([]);
@@ -15,10 +15,10 @@ const PagesRegistry = () => {
   useEffect(() => {
     const load = async () => {
       const [{ data }, sitemapRes] = await Promise.all([
-        supabase.from("cms_pages").select("slug, title, is_published, updated_at"),
+        supabase.from("cms_pages").select("slug, title, status, updated_at"),
         fetch("/sitemap.xml").then((r) => r.text()).catch(() => ""),
       ]);
-      setCms((data ?? []) as CmsRow[]);
+      setCms(((data ?? []) as unknown) as CmsRow[]);
       const paths = new Set<string>();
       for (const m of sitemapRes.matchAll(/<loc>[^<]*?(\/[^<]*)<\/loc>/g)) {
         try { paths.add(new URL(m[0].replace(/<\/?loc>/g, ""), "https://x").pathname); } catch { /* ignore */ }
@@ -81,8 +81,8 @@ const PagesRegistry = () => {
                   <td className="px-4 py-2 font-heading">{r.component}</td>
                   <td className="px-4 py-2">
                     {cmsRow ? (
-                      <span className={cmsRow.is_published ? "text-emerald-500" : "text-peach"}>
-                        {cmsRow.is_published ? "published" : "draft"}
+                      <span className={cmsRow.status === "published" ? "text-emerald-500" : "text-peach"}>
+                        {cmsRow.status ?? "—"}
                       </span>
                     ) : <span className="text-muted-foreground">no</span>}
                   </td>
