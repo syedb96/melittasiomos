@@ -110,7 +110,11 @@ const MembershipPathwayBlock = ({
                       highlight ? "text-primary" : "text-primary"
                     }`}
                   >
-                    {t.price}
+                    {t.priceSlug ? (
+                      <>From <Price slug={t.priceSlug} fallback={t.fallback.replace(/^From\s+/, "")} /></>
+                    ) : (
+                      t.fallback
+                    )}
                   </p>
                   <p
                     className={`text-xs leading-relaxed ${
