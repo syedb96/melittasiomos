@@ -171,7 +171,9 @@ export default function CmsPageEditor() {
         <div className="flex items-center gap-2 shrink-0">
           {!isNew && page.wix_sync_status === "synced" && <Badge className="bg-green-500/20 text-green-700"><CheckCircle2 size={10} className="mr-1" />Wix synced</Badge>}
           {!isNew && page.wix_sync_status === "error" && <Badge className="bg-destructive/20 text-destructive"><AlertCircle size={10} className="mr-1" />Wix error</Badge>}
-          {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View</a></Button>}
+          {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View live</a></Button>}
+          {!isNew && <Button variant="outline" asChild><a href={`/admin/cms/preview/${id}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />Preview draft</a></Button>}
+          {!isNew && page.status === "published" && <Button variant="outline" onClick={unpublish} disabled={saving}><EyeOff size={14} className="mr-2" />Unpublish</Button>}
           {!isNew && (
             <Button variant="outline" disabled={saving} onClick={async () => {
               setSaving(true);
