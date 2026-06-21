@@ -241,17 +241,42 @@ export default function CmsPageEditor() {
         <TabsContent value="seo"><SeoPanel value={seo} onChange={(v) => set(v)} slug={page.slug} /></TabsContent>
 
         <TabsContent value="settings" className="space-y-4 max-w-xl">
-          <div>
-            <Label>Page type</Label>
-            <Select value={page.page_type} onValueChange={(v) => set({ page_type: v })}>
-              <SelectTrigger><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="page">Page</SelectItem>
-                <SelectItem value="blog">Blog post</SelectItem>
-                <SelectItem value="landing">Landing page</SelectItem>
-                <SelectItem value="legal">Legal / policy</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>Workflow status</Label>
+              <Select value={page.workflow_status || "draft"} onValueChange={(v) => set({ workflow_status: v })}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {WORKFLOW_STATUSES.map((s) => <SelectItem key={s} value={s}>{s.replace("_", " ")}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              <p className="text-[11px] text-muted-foreground mt-1">Editorial pipeline state. Independent of publish status.</p>
+            </div>
+            <div>
+              <Label>Next review date</Label>
+              <Input type="date" value={page.review_date || ""} onChange={(e) => set({ review_date: e.target.value })} />
+              <p className="text-[11px] text-muted-foreground mt-1">Drives freshness badge (outdated / review soon / fresh).</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>Author name</Label>
+              <Input value={page.author_name ?? ""} onChange={(e) => set({ author_name: e.target.value })} placeholder="e.g. Melitta Siomos" />
+            </div>
+            <div>
+              <Label>Page type</Label>
+              <Select value={page.page_type} onValueChange={(v) => set({ page_type: v })}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="page">Page</SelectItem>
+                  <SelectItem value="blog">Blog post</SelectItem>
+                  <SelectItem value="landing">Landing page</SelectItem>
+                  <SelectItem value="resource">Resource / guide</SelectItem>
+                  <SelectItem value="glossary">Glossary term</SelectItem>
+                  <SelectItem value="legal">Legal / policy</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
