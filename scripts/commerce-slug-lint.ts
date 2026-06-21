@@ -27,6 +27,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const PRICE_RE = /<Price\s+[^>]*slug=["']([^"']+)["']/g;
 const BOOKING_RE = /<BookingLink\s+[^>]*slug=["']([^"']+)["']/g;
+const VENUE_RE = /<VenueDetails\s+[^>]*slug=["']([^"']+)["']/g;
 
 interface Hit {
   slug: string;
