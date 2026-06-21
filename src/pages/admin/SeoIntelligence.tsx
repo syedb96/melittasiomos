@@ -160,7 +160,7 @@ const SeoIntelligence = () => {
               </tbody>
             </table>
           )}
-          <p className="text-[11px] text-muted-foreground italic">Positions populate when SEMrush polling is enabled. Manual entries are also welcome.</p>
+          <p className="text-[11px] text-muted-foreground italic">Click <strong>Poll positions</strong> to fetch live ranks from Semrush. The first successful poll sets the baseline; subsequent polls compute Δ and log alerts when a keyword moves ≥5 places. Requires the Semrush connector to be linked.</p>
         </TabsContent>
 
         <TabsContent value="broken" className="space-y-2 mt-4">
