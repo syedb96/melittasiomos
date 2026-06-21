@@ -267,12 +267,17 @@ export default function CmsMediaAdmin() {
           .eq("id", r.id)
           .maybeSingle();
         if (!page) continue;
-        const patch: Record<string, unknown> = {};
+        const patch: {
+          hero_image_url?: string;
+          og_image?: string;
+          twitter_image?: string;
+          content_html?: string;
+        } = {};
         if (page.hero_image_url === oldUrl) patch.hero_image_url = newUrl;
         if (page.og_image === oldUrl) patch.og_image = newUrl;
         if (page.twitter_image === oldUrl) patch.twitter_image = newUrl;
         if ((page.content_html ?? "").includes(oldUrl))
-          patch.content_html = page.content_html.split(oldUrl).join(newUrl);
+          patch.content_html = (page.content_html ?? "").split(oldUrl).join(newUrl);
         if (Object.keys(patch).length > 0)
           await supabase.from("cms_pages").update(patch).eq("id", r.id);
       }
@@ -324,7 +329,7 @@ export default function CmsMediaAdmin() {
   const applyBulk = async () => {
     const ids = Array.from(selected);
     if (ids.length === 0) return;
-    const patch: Record<string, unknown> = {};
+    const patch: { alt_text?: string; folder?: string } = {};
     if (bulk.alt_text.trim()) patch.alt_text = bulk.alt_text.trim();
     if (bulk.folder.trim()) patch.folder = bulk.folder.trim();
     if (Object.keys(patch).length > 0) {
