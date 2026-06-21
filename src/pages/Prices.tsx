@@ -14,6 +14,7 @@ import ClassMatchBlock from "@/components/ClassMatchBlock";
 import { waCustom } from "@/lib/whatsapp";
 import { useVariant, recordVariantClick } from "@/lib/ab";
 import { PRICES_GIFT_VOUCHER } from "@/data/ab-experiments";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /prices -->
    <!-- WIX SECTION: Drop-in Pricing — use Card grid -->
@@ -91,12 +92,12 @@ const Prices = () => {
           <h2 className="font-display text-2xl font-bold mb-8">Drop-In Pricing (Both Venues)</h2>
           <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
             {[
-              { price: "£15", label: "2 classes + social", note: "Best value" },
-              { price: "£10", label: "1 class + social", note: "Popular choice" },
-              { price: "£5", label: "Social only", note: "Party only, no class" },
+              { slug: "combined-class-social", fallback: "£15", label: "2 classes + social", note: "Best value" },
+              { slug: "drop-in-class", fallback: "£10", label: "1 class + social", note: "Popular choice" },
+              { slug: "social-only", fallback: "£5", label: "Social only", note: "Party only, no class" },
             ].map((p, i) => (
               <div key={i} className={`bg-card rounded-2xl p-6 card-hover ${i === 0 ? "ring-2 ring-primary" : ""}`}>
-                <p className="font-display text-3xl font-bold text-foreground mb-1">{p.price}</p>
+                <p className="font-display text-3xl font-bold text-foreground mb-1"><Price slug={p.slug} fallback={p.fallback} showPrevious={false} /></p>
                 <p className="font-heading font-semibold text-sm mb-1">{p.label}</p>
                 <p className="text-muted-foreground text-xs">{p.note}</p>
               </div>
@@ -130,10 +131,10 @@ const Prices = () => {
               <h3 className="font-heading font-bold text-lg mb-1 text-primary">Chiswick (Monday)</h3>
               <p className="text-muted-foreground text-xs mb-4">The George IV, 185 Chiswick High Rd, W4 2DR</p>
               <div className="space-y-3 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold">£55</span></div>
-                <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold">£99</span></div>
+                <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold"><Price slug="chiswick-bundle-5" fallback="£55" showPrevious={false} /></span></div>
+                <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold"><Price slug="chiswick-bundle-10" fallback="£99" showPrevious={false} /></span></div>
                 <div className="pt-2">
-                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold">£120</span></div>
+                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold"><Price slug="chiswick-membership" fallback="£120" showPrevious={false} /></span></div>
                   <p className="text-muted-foreground text-xs italic mt-1 mb-2">The most popular option — serious dancers and social regulars choose this.</p>
                   <ul className="text-xs text-muted-foreground space-y-1">
                     <li>✓ Unlimited classes at both Chiswick and Ealing</li>
@@ -148,10 +149,10 @@ const Prices = () => {
               <p className="text-muted-foreground text-xs mb-2">Drayton Court Hotel, 2 The Avenue, W13 8PH</p>
               <p className="text-xs text-primary mb-4">+ FREE Ladies Styling warm-up every Tuesday</p>
               <div className="space-y-3 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold">£42</span></div>
-                <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold">£78</span></div>
+                <div className="flex justify-between items-center py-2 border-b border-border"><span>5-Class Bundle</span><span className="font-display font-bold"><Price slug="ealing-bundle-5" fallback="£42" showPrevious={false} /></span></div>
+                <div className="flex justify-between items-center py-2 border-b border-border"><span>10-Class Bundle</span><span className="font-display font-bold"><Price slug="ealing-bundle-10" fallback="£78" showPrevious={false} /></span></div>
                 <div className="pt-2">
-                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold">£85</span></div>
+                  <div className="flex justify-between items-center"><span className="font-heading font-semibold">Monthly Membership — Dance Every Week</span><span className="font-display font-bold"><Price slug="ealing-membership" fallback="£85" showPrevious={false} /></span></div>
                   <p className="text-muted-foreground text-xs italic mt-1">The most popular option — serious dancers and social regulars choose this.</p>
                 </div>
               </div>
@@ -167,15 +168,15 @@ const Prices = () => {
             <p className="text-primary-foreground/60 text-sm mb-4">2nd Friday of every month · Drayton Court Hotel, Ealing</p>
             <div className="grid sm:grid-cols-3 gap-4 text-sm">
               {[
-                { tier: "Early Bird", color: "text-primary", price: "£15", party: "£10" },
-                { tier: "Standard", color: "text-peach", price: "£17", party: "£12" },
-                { tier: "On the Door", color: "text-secondary", price: "£20", party: "£15" },
+                { tier: "Early Bird", color: "text-primary", comboSlug: "latin-friday-early-bird-combined", comboFallback: "£15", partySlug: "latin-friday-early-bird-party", partyFallback: "£10" },
+                { tier: "Standard", color: "text-peach", comboSlug: "latin-friday-standard-combined", comboFallback: "£17", partySlug: "latin-friday-standard-party", partyFallback: "£12" },
+                { tier: "On the Door", color: "text-secondary", comboSlug: "latin-friday-door-combined", comboFallback: "£20", partySlug: "latin-friday-door-party", partyFallback: "£15" },
               ].map(t => (
                 <div key={t.tier} className="bg-charcoal-light rounded-xl p-4 text-center">
                   <p className={`${t.color} font-heading font-semibold text-xs uppercase tracking-wider mb-2`}>{t.tier}</p>
-                  <p className="text-primary-foreground font-display font-bold text-xl">{t.price}</p>
+                  <p className="text-primary-foreground font-display font-bold text-xl"><Price slug={t.comboSlug} fallback={t.comboFallback} showPrevious={false} /></p>
                   <p className="text-primary-foreground/50 text-xs">class + party</p>
-                  <p className="text-primary-foreground/40 text-xs mt-1">{t.party} party only</p>
+                  <p className="text-primary-foreground/40 text-xs mt-1"><Price slug={t.partySlug} fallback={t.partyFallback} showPrevious={false} /> party only</p>
                 </div>
               ))}
             </div>
