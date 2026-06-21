@@ -10,7 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Sparkles, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 import { waCustom } from "@/lib/whatsapp";
-import { Price, BookingLink } from "@/components/commerce/CommercePrimitives";
+import { Price, BookingLink, VenueDetails } from "@/components/commerce/CommercePrimitives";
 
 const venueFaqs = [
   { q: "Do I need to book?", a: "No — just turn up! Walk-ins welcome every Tuesday." },
@@ -90,39 +90,16 @@ const TheDraytonCourtEaling = () => (
 
           <StaggerItem>
             <FadeInUp delay={0.15}>
-              <div className="bg-card rounded-xl border border-border p-8 space-y-6">
-                <h3 className="text-xl font-semibold text-foreground">Venue Details</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Address</p>
-                      <p className="text-muted-foreground">2 The Avenue, West Ealing, London W13 8PH</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Train className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Nearest Station</p>
-                      <p className="text-muted-foreground">West Ealing (Elizabeth Line) — 10 min walk</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Car className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Parking</p>
-                      <p className="text-muted-foreground">Free car park at the venue. On-street parking also available.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Questions?</p>
-                      <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "TheDraytonCourtEaling:119")} className="text-primary hover:underline">Message Melitta on WhatsApp</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <VenueDetails
+                slug="the-drayton-court-ealing"
+                fallback={{
+                  address: "2 The Avenue, West Ealing, London W13 8PH",
+                  transport: "West Ealing (Elizabeth Line) — 10 min walk",
+                  parking: "Free car park at the venue. On-street parking also available.",
+                  accessibility: "Step-free entrance and accessible WC on site.",
+                }}
+                waSource="TheDraytonCourtEaling:VenueDetails"
+              />
             </FadeInUp>
           </StaggerItem>
         </StaggerContainer>

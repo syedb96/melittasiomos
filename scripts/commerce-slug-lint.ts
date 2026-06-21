@@ -25,8 +25,9 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const PRICE_RE = /<Price\s+[^>]*slug=["']([^"']+)["']/g;
-const BOOKING_RE = /<BookingLink\s+[^>]*slug=["']([^"']+)["']/g;
+const PRICE_RE = /<Price\b[^>]*?\bslug=["']([^"']+)["']/gs;
+const BOOKING_RE = /<BookingLink\b[^>]*?\bslug=["']([^"']+)["']/gs;
+const VENUE_RE = /<VenueDetails\b[^>]*?\bslug=["']([^"']+)["']/gs;
 
 interface Hit {
   slug: string;
@@ -48,14 +49,11 @@ const walk = (dir: string, out: string[] = []): string[] => {
 const scan = (file: string, re: RegExp): Hit[] => {
   const src = readFileSync(file, "utf8");
   const hits: Hit[] = [];
-  const lines = src.split("\n");
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const local = new RegExp(re.source, "g");
-    let m: RegExpExecArray | null;
-    while ((m = local.exec(line)) !== null) {
-      hits.push({ slug: m[1], file, line: i + 1 });
-    }
+  const local = new RegExp(re.source, re.flags);
+  let m: RegExpExecArray | null;
+  while ((m = local.exec(src)) !== null) {
+    const line = src.slice(0, m.index).split("\n").length;
+    hits.push({ slug: m[1], file, line });
   }
   return hits;
 };
@@ -64,21 +62,26 @@ const main = async () => {
   const files = walk("src");
   const priceHits: Hit[] = [];
   const bookingHits: Hit[] = [];
+  const venueHits: Hit[] = [];
   for (const f of files) {
     priceHits.push(...scan(f, PRICE_RE));
     bookingHits.push(...scan(f, BOOKING_RE));
+    venueHits.push(...scan(f, VENUE_RE));
   }
 
   const priceSlugs = [...new Set(priceHits.map((h) => h.slug))];
   const bookingSlugs = [...new Set(bookingHits.map((h) => h.slug))];
+  const venueSlugs = [...new Set(venueHits.map((h) => h.slug))];
 
-  const [{ data: prices }, { data: links }] = await Promise.all([
+  const [{ data: prices }, { data: links }, { data: venues }] = await Promise.all([
     supabase.from("commerce_prices").select("slug, is_active").in("slug", priceSlugs),
     supabase.from("commerce_booking_links").select("slug, is_active").in("slug", bookingSlugs),
+    supabase.from("commerce_venues").select("slug, is_active").in("slug", venueSlugs),
   ]);
 
   const livePrices = new Set((prices ?? []).filter((r) => r.is_active).map((r) => r.slug));
   const liveLinks = new Set((links ?? []).filter((r) => r.is_active).map((r) => r.slug));
+  const liveVenues = new Set((venues ?? []).filter((r) => r.is_active).map((r) => r.slug));
 
   const fail: string[] = [];
   for (const h of priceHits) {
@@ -87,10 +90,14 @@ const main = async () => {
   for (const h of bookingHits) {
     if (!liveLinks.has(h.slug)) fail.push(`MISSING <BookingLink slug="${h.slug}"> at ${h.file}:${h.line}`);
   }
+  for (const h of venueHits) {
+    if (!liveVenues.has(h.slug)) fail.push(`MISSING <VenueDetails slug="${h.slug}"> at ${h.file}:${h.line}`);
+  }
 
   console.log(`Scanned ${files.length} files`);
   console.log(`  ${priceHits.length} <Price> usages across ${priceSlugs.length} distinct slugs`);
   console.log(`  ${bookingHits.length} <BookingLink> usages across ${bookingSlugs.length} distinct slugs`);
+  console.log(`  ${venueHits.length} <VenueDetails> usages across ${venueSlugs.length} distinct slugs`);
 
   if (fail.length) {
     console.error(`\n✖ ${fail.length} broken reference(s):`);

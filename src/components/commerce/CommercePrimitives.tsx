@@ -3,7 +3,9 @@
  * Drop these in place of hard-coded values during the Phase 2 page-by-page swap.
  */
 import { useEffect, useState, type ReactNode } from "react";
+import { MapPin, Train, Car, Accessibility, Phone } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { waCustom } from "@/lib/whatsapp";
 
 export const formatPence = (pence: number | null | undefined, currency = "GBP") =>
   pence == null ? "" : new Intl.NumberFormat("en-GB", { style: "currency", currency, minimumFractionDigits: pence % 100 === 0 ? 0 : 2 }).format(pence / 100);
@@ -76,4 +78,76 @@ export const usePrice = (slug: string) => {
       .then(({ data }) => setRow(data));
   }, [slug]);
   return row;
+};
+
+/**
+ * Renders the "Venue Details" card straight from commerce_venues.
+ * SSR-safe via the `fallback` prop (must match current DB content for stable first paint).
+ */
+interface VenueDetailsProps {
+  slug: string;
+  fallback: {
+    address: string;
+    transport: string;
+    parking: string;
+    accessibility?: string;
+  };
+  waMessage?: string;
+  waSource?: string;
+}
+export const VenueDetails = ({ slug, fallback, waMessage = "Hi Melitta, I'd like to get in touch about Pura Nights.", waSource = "VenueDetails" }: VenueDetailsProps) => {
+  const venue = useVenue(slug);
+  const address =
+    venue
+      ? [venue.address_line_1, venue.address_line_2, venue.postcode].filter(Boolean).join(", ")
+      : fallback.address;
+  const transport = venue?.transport_html ?? fallback.transport;
+  const parking = venue?.parking_html ?? fallback.parking;
+  const accessibility = venue?.accessibility_html ?? fallback.accessibility;
+  return (
+    <div className="bg-card rounded-xl border border-border p-8 space-y-6">
+      <h3 className="text-xl font-semibold text-foreground">Venue Details</h3>
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+          <div>
+            <p className="font-medium text-foreground">Address</p>
+            <p className="text-muted-foreground">{address}</p>
+          </div>
+        </div>
+        <div className="flex items-start gap-3">
+          <Train className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+          <div>
+            <p className="font-medium text-foreground">Nearest Station</p>
+            <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: transport }} />
+          </div>
+        </div>
+        <div className="flex items-start gap-3">
+          <Car className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+          <div>
+            <p className="font-medium text-foreground">Parking</p>
+            <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: parking }} />
+          </div>
+        </div>
+        {accessibility ? (
+          <div className="flex items-start gap-3">
+            <Accessibility className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+            <div>
+              <p className="font-medium text-foreground">Accessibility</p>
+              <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: accessibility }} />
+            </div>
+          </div>
+        ) : null}
+        <div className="flex items-start gap-3">
+          <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+          <div>
+            <p className="font-medium text-foreground">Questions?</p>
+            <a {...waCustom(waMessage, waSource)} className="text-primary hover:underline">
+              Message Melitta on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
