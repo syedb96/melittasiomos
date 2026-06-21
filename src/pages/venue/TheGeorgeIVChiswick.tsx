@@ -10,7 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 import { waCustom } from "@/lib/whatsapp";
-import { Price, BookingLink } from "@/components/commerce/CommercePrimitives";
+import { Price, BookingLink, VenueDetails } from "@/components/commerce/CommercePrimitives";
 
 const venueFaqs = [
   { q: "Do I need to book in advance?", a: "No — just turn up! We welcome walk-ins every Monday. If it's your first time, arrive a few minutes early." },
