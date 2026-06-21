@@ -65,21 +65,26 @@ const main = async () => {
   const files = walk("src");
   const priceHits: Hit[] = [];
   const bookingHits: Hit[] = [];
+  const venueHits: Hit[] = [];
   for (const f of files) {
     priceHits.push(...scan(f, PRICE_RE));
     bookingHits.push(...scan(f, BOOKING_RE));
+    venueHits.push(...scan(f, VENUE_RE));
   }
 
   const priceSlugs = [...new Set(priceHits.map((h) => h.slug))];
   const bookingSlugs = [...new Set(bookingHits.map((h) => h.slug))];
+  const venueSlugs = [...new Set(venueHits.map((h) => h.slug))];
 
-  const [{ data: prices }, { data: links }] = await Promise.all([
+  const [{ data: prices }, { data: links }, { data: venues }] = await Promise.all([
     supabase.from("commerce_prices").select("slug, is_active").in("slug", priceSlugs),
     supabase.from("commerce_booking_links").select("slug, is_active").in("slug", bookingSlugs),
+    supabase.from("commerce_venues").select("slug, is_active").in("slug", venueSlugs),
   ]);
 
   const livePrices = new Set((prices ?? []).filter((r) => r.is_active).map((r) => r.slug));
   const liveLinks = new Set((links ?? []).filter((r) => r.is_active).map((r) => r.slug));
+  const liveVenues = new Set((venues ?? []).filter((r) => r.is_active).map((r) => r.slug));
 
   const fail: string[] = [];
   for (const h of priceHits) {
@@ -88,10 +93,14 @@ const main = async () => {
   for (const h of bookingHits) {
     if (!liveLinks.has(h.slug)) fail.push(`MISSING <BookingLink slug="${h.slug}"> at ${h.file}:${h.line}`);
   }
+  for (const h of venueHits) {
+    if (!liveVenues.has(h.slug)) fail.push(`MISSING <VenueDetails slug="${h.slug}"> at ${h.file}:${h.line}`);
+  }
 
   console.log(`Scanned ${files.length} files`);
   console.log(`  ${priceHits.length} <Price> usages across ${priceSlugs.length} distinct slugs`);
   console.log(`  ${bookingHits.length} <BookingLink> usages across ${bookingSlugs.length} distinct slugs`);
+  console.log(`  ${venueHits.length} <VenueDetails> usages across ${venueSlugs.length} distinct slugs`);
 
   if (fail.length) {
     console.error(`\n✖ ${fail.length} broken reference(s):`);
