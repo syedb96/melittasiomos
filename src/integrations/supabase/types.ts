@@ -554,7 +554,6 @@ export type Database = {
           is_active: boolean
           kind: string
           label: string
-          owner_email: string | null
           prefilled_message: string | null
           slug: string
           updated_at: string
@@ -567,7 +566,6 @@ export type Database = {
           is_active?: boolean
           kind: string
           label: string
-          owner_email?: string | null
           prefilled_message?: string | null
           slug: string
           updated_at?: string
@@ -580,7 +578,6 @@ export type Database = {
           is_active?: boolean
           kind?: string
           label?: string
-          owner_email?: string | null
           prefilled_message?: string | null
           slug?: string
           updated_at?: string
