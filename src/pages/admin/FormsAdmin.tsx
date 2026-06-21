@@ -23,11 +23,6 @@ export default function FormsAdmin() {
 
   return (
     <div className="container mx-auto p-6 max-w-7xl">
-      <title>Forms &amp; Notifications | Admin</title>
-      </>}
-      {/* eslint-disable-next-line */}
-      <div style={{ display: "none" }} />
-      {(() => { if (typeof document !== "undefined") document.title = "Forms & Notifications | Admin"; return null; })()}
       <div className="mb-6">
         <h1 className="text-3xl font-display font-bold">Forms &amp; Notifications</h1>
         <p className="text-muted-foreground text-sm">Submission inbox · form schemas · routing rules · test-submission harness.</p>
