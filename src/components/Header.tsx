@@ -6,6 +6,7 @@ import {
   BookOpen, Users, Clock, Image as ImageIcon, Star, HelpCircle, FileText, MapPin, ExternalLink,
 } from "lucide-react";
 import { waCustom } from "@/lib/whatsapp";
+import { BookingLink } from "@/components/commerce/CommercePrimitives";
 
 // Premium, minimal nav — high-intent only.
 // Local SEO pages live in footer + /locations + contextual links, NOT here.
@@ -217,9 +218,9 @@ const Header = () => {
               <MessageCircle size={12} /> WhatsApp
             </a>
             {/* Book Now solid */}
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="ml-2 btn-cta-primary text-[10px] py-2.5 px-5 rounded-lg">
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="ml-2 btn-cta-primary text-[10px] py-2.5 px-5 rounded-lg">
               BOOK NOW →
-            </a>
+            </BookingLink>
           </nav>
 
           {/* Mobile Toggle */}
@@ -251,9 +252,9 @@ const Header = () => {
               <a {...waCustom("Hi Melitta, I'd like to ask a quick question about Pura Nights classes.", "Header:250")} className="btn-cta-primary text-sm text-center w-full">
                 💬 WhatsApp Melitta
               </a>
-              <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-dark text-sm text-center w-full">
+              <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="btn-cta-dark text-sm text-center w-full">
                 Book a Class →
-              </a>
+              </BookingLink>
             </div>
           </div>
         )}

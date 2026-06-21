@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import testimonials, { type Testimonial } from "@/data/testimonials";
 import { FadeInUp } from "./animations";
+import { BookingLink } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX SECTION: Student Stories — Repeater connected to Testimonials CMS.
      Wix replication: bind .review-card to the Testimonials collection,
@@ -169,7 +170,7 @@ const TestimonialsCarousel = ({
       </div>
       <div className="container-main mt-10 text-center flex flex-wrap gap-3 justify-center">
         <Link to="/testimonials" className="btn-cta-primary text-sm">Read more student stories</Link>
-        <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="btn-cta-outline text-sm">Book your first class</a>
+        <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="btn-cta-outline text-sm">Book your first class</BookingLink>
       </div>
     </section>
   );

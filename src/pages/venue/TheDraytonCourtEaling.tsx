@@ -10,6 +10,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations
 import { MapPin, Train, Car, Phone, Music, Users, Wine, Sparkles, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 import { waCustom } from "@/lib/whatsapp";
+import { Price, BookingLink } from "@/components/commerce/CommercePrimitives";
 
 const venueFaqs = [
   { q: "Do I need to book?", a: "No — just turn up! Walk-ins welcome every Tuesday." },
@@ -57,9 +58,9 @@ const TheDraytonCourtEaling = () => (
             Your Tuesday night destination for salsa, bachata, and free ladies styling. A grand Edwardian hotel with a stunning ballroom, welcoming bar, and the best Latin dance community in West London.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Tuesday Class
-            </a>
+            </BookingLink>
             <a href="https://maps.google.com/?q=The+Drayton+Court+Hotel+2+The+Avenue+Ealing+London+W13+8PH" target="_blank" rel="noopener noreferrer" className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               Get Directions
             </a>
@@ -168,13 +169,15 @@ const TheDraytonCourtEaling = () => (
         </FadeInUp>
         <StaggerContainer className="grid sm:grid-cols-3 gap-6">
           {[
-            { price: "£15", label: "2 Classes + Social", note: "Best value — includes free styling warm-up" },
-            { price: "£10", label: "1 Class + Social", note: "Choose Beginners or Improvers" },
-            { price: "£5", label: "Social Only", note: "Join from 9:20pm" },
+            { slug: "combined-class-social", fallback: "£15", label: "2 Classes + Social", note: "Best value — includes free styling warm-up" },
+            { slug: "drop-in-class", fallback: "£10", label: "1 Class + Social", note: "Choose Beginners or Improvers" },
+            { slug: "social-only", fallback: "£5", label: "Social Only", note: "Join from 9:20pm" },
           ].map((tier, i) => (
             <StaggerItem key={i}>
               <div className="bg-card rounded-xl border border-border p-6 text-center hover:border-primary/50 transition-colors">
-                <p className="text-3xl font-bold text-primary mb-2">{tier.price}</p>
+                <p className="text-3xl font-bold text-primary mb-2">
+                  <Price slug={tier.slug} fallback={tier.fallback} showPrevious={false} />
+                </p>
                 <p className="font-semibold text-foreground mb-1">{tier.label}</p>
                 <p className="text-sm text-muted-foreground">{tier.note}</p>
               </div>
@@ -184,7 +187,9 @@ const TheDraytonCourtEaling = () => (
         <FadeInUp delay={0.2}>
           <div className="mt-8 bg-muted/50 rounded-xl p-6 text-center">
             <p className="text-foreground font-medium mb-1">Save with bundles</p>
-            <p className="text-muted-foreground text-sm">5-class bundle: £42 · 10-class bundle: £78 · Monthly unlimited: £85</p>
+            <p className="text-muted-foreground text-sm">
+              5-class bundle: <Price slug="ealing-bundle-5" fallback="£42" showPrevious={false} /> · 10-class bundle: <Price slug="ealing-bundle-10" fallback="£78" showPrevious={false} /> · Monthly unlimited: <Price slug="ealing-membership" fallback="£85" showPrevious={false} />
+            </p>
             <Link to="/prices" className="text-primary hover:underline text-sm mt-2 inline-block">View full pricing →</Link>
           </div>
         </FadeInUp>
@@ -290,9 +295,9 @@ const TheDraytonCourtEaling = () => (
             Free styling warm-up from 6:50pm. No booking. No partner. Just you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://www.tickettailor.com/events/puranights" target="_blank" rel="noopener noreferrer" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+            <BookingLink slug="tickettailor-puranights" fallbackHref="https://www.tickettailor.com/events/puranights" className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
               Book Now
-            </a>
+            </BookingLink>
             <a {...waCustom("Hi Melitta, I'm interested in the Tuesday Ealing class at the Drayton Court. Is the beginner slot the best place to start?", "TheDraytonCourtEaling:295")} className="border border-border text-foreground px-8 py-3 rounded-lg font-semibold hover:bg-muted transition-colors">
               WhatsApp Melitta
             </a>
