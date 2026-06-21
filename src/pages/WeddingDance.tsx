@@ -76,10 +76,12 @@ const WeddingDance = () => (
           <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">Wedding Dance Made Easy</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Your Perfect First Dance</h1>
           <p className="font-heading text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-6">Private choreography and coaching from London's award-winning instructor — elegant, fun, and completely tailored to you</p>
-          <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:71")} className="btn-cta-primary text-sm">Book Free Consultation</a>
-          <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
-            Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
-          </p>
+          <ServiceGate slug="wedding-dance" pausedFallback={WEDDING_PAUSED} showNotice={false}>
+            <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:71")} className="btn-cta-primary text-sm">Book Free Consultation</a>
+            <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
+              Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
+            </p>
+          </ServiceGate>
         </div>
       </div>
     </section>
