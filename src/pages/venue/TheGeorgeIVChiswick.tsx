@@ -21,6 +21,7 @@ const venueFaqs = [
   { q: "What if I've never danced before?", a: "The 7:30pm Beginners class assumes zero experience. We'll teach you from step one." },
 ];
 
+const BOOKING_URL = "https://www.tickettailor.com/events/puranights";
 const schema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "FAQPage"],
@@ -30,6 +31,20 @@ const schema = {
   geo: { "@type": "GeoCoordinates", latitude: "51.4926", longitude: "-0.2583" },
   url: "https://www.puranights.com/venue/the-george-iv-chiswick",
   telephone: "+447449482343",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "GBP",
+    lowPrice: "5",
+    highPrice: "15",
+    offerCount: "3",
+    url: BOOKING_URL,
+    availability: "https://schema.org/InStock",
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: { "@type": "EntryPoint", urlTemplate: BOOKING_URL, actionPlatform: ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"] },
+    name: "Book Monday Class",
+  },
   mainEntity: venueFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
