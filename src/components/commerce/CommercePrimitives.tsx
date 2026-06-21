@@ -3,7 +3,9 @@
  * Drop these in place of hard-coded values during the Phase 2 page-by-page swap.
  */
 import { useEffect, useState, type ReactNode } from "react";
+import { MapPin, Train, Car, Accessibility, Phone } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { waCustom } from "@/lib/whatsapp";
 
 export const formatPence = (pence: number | null | undefined, currency = "GBP") =>
   pence == null ? "" : new Intl.NumberFormat("en-GB", { style: "currency", currency, minimumFractionDigits: pence % 100 === 0 ? 0 : 2 }).format(pence / 100);
