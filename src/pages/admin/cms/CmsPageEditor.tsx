@@ -134,6 +134,21 @@ export default function CmsPageEditor() {
   };
 
 
+  const unpublish = async () => {
+    if (!id || isNew) return;
+    if (!confirm("Unpublish this page? It will go back to draft and be removed from the public site.")) return;
+    setSaving(true);
+    const { error } = await supabase.from("cms_pages").update({ status: "draft", published_at: null }).eq("id", id);
+    setSaving(false);
+    if (error) { toast({ title: "Unpublish failed", description: error.message, variant: "destructive" }); return; }
+    const nextVersion = (versions[0]?.version_number ?? 0) + 1;
+    await supabase.from("cms_page_versions").insert({ page_id: id, version_number: nextVersion, snapshot: { ...page, status: "draft", published_at: null }, author_id: user?.id ?? null, note: "Unpublished" });
+    set({ status: "draft", published_at: null });
+    const { data: v } = await supabase.from("cms_page_versions").select("id,version_number,note,created_at").eq("page_id", id).order("version_number", { ascending: false }).limit(20);
+    setVersions(v ?? []);
+    toast({ title: "Page unpublished" });
+  };
+
   const remove = async () => {
     if (!confirm("Delete this page? This cannot be undone.")) return;
     await supabase.from("cms_pages").delete().eq("id", id!);
