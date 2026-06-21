@@ -268,16 +268,21 @@ export default function CmsPageEditor() {
 
         {!isNew && (
           <TabsContent value="history" className="space-y-2">
+            {restoredFromVersion && <p className="text-xs bg-amber-500/10 text-amber-700 border border-amber-500/30 rounded-md px-3 py-2">Loaded version {restoredFromVersion}. Click <strong>Save draft</strong> or <strong>Publish</strong> to apply — a new version will be recorded with the note "Restored from v{restoredFromVersion}".</p>}
             {versions.length === 0 && <p className="text-muted-foreground text-sm">No versions yet. Each save creates a snapshot.</p>}
             {versions.map((v) => (
               <div key={v.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
                 <div>
-                  <p className="font-heading text-sm">Version {v.version_number}</p>
+                  <p className="font-heading text-sm">Version {v.version_number}{v.note ? <span className="ml-2 text-xs text-muted-foreground font-normal">— {v.note}</span> : null}</p>
                   <p className="text-xs text-muted-foreground">{new Date(v.created_at).toLocaleString()}</p>
                 </div>
                 <Button size="sm" variant="outline" onClick={async () => {
                   const { data } = await supabase.from("cms_page_versions").select("snapshot").eq("id", v.id).single();
-                  if (data?.snapshot) { setPage({ ...page, ...(data.snapshot as any), schema_jsonld: (data.snapshot as any).schema_jsonld ? JSON.stringify((data.snapshot as any).schema_jsonld, null, 2) : "" }); toast({ title: "Loaded version " + v.version_number + " — save to apply" }); }
+                  if (data?.snapshot) {
+                    setPage({ ...page, ...(data.snapshot as any), schema_jsonld: (data.snapshot as any).schema_jsonld ? JSON.stringify((data.snapshot as any).schema_jsonld, null, 2) : "" });
+                    setRestoredFromVersion(v.version_number);
+                    toast({ title: `Loaded version ${v.version_number}`, description: "Save or publish to apply." });
+                  }
                 }}>Restore</Button>
               </div>
             ))}
