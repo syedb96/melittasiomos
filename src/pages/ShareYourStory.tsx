@@ -1,7 +1,7 @@
 /* Public testimonial submission. Insert is anon-allowed but locked to
    moderation_status='pending' + unpublished by RLS + trigger. */
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,7 +59,7 @@ export default function ShareYourStory() {
   if (done) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center px-4">
-        <Helmet><title>Thank you — Pura Nights</title><meta name="robots" content="noindex" /></Helmet>
+        <SeoHead title="Thank you — Pura Nights" description="Thanks for sharing your story." path="/share-your-story/thank-you" noindex />
         <div className="max-w-md text-center space-y-4">
           <CheckCircle2 size={48} className="mx-auto text-primary" />
           <h1 className="font-display text-3xl font-bold">Thank you</h1>
@@ -72,11 +72,13 @@ export default function ShareYourStory() {
 
   return (
     <main className="min-h-screen bg-background py-16 px-4">
-      <Helmet>
-        <title>Share your Pura Nights story</title>
-        <meta name="description" content="Loved your class or Latin Friday? Share your story and we may feature it on our site." />
-        <meta name="robots" content="noindex" />
-      </Helmet>
+      <SeoHead
+        title="Share your story — Pura Nights"
+        description="Loved your class or Latin Friday? Share your story and we may feature it on our site."
+        path="/share-your-story"
+        noindex
+      />
+
       <div className="max-w-xl mx-auto space-y-6">
         <header className="text-center space-y-2">
           <h1 className="font-display text-4xl font-bold">Share your story</h1>
