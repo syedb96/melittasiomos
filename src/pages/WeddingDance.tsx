@@ -12,6 +12,13 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
+
+const WEDDING_PAUSED = (
+  <div className="bg-charcoal/10 border border-charcoal/20 rounded-lg px-4 py-3 text-sm text-charcoal/80 max-w-md mx-auto">
+    Wedding dance bookings are temporarily paused. Email <a className="underline" href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry">siomosmelitta@gmail.com</a> to be notified when they reopen.
+  </div>
+);
 
 /* <!-- WIX PAGE: /wedding-dance -->
    <!-- WIX SECTION: Hero — use Full-width Strip with dark overlay -->
