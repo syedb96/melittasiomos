@@ -12,6 +12,7 @@ import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
 import { waCustom } from "@/lib/whatsapp";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
    <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
