@@ -27,12 +27,15 @@ const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-"
 
 const blank = {
   slug: "", title: "", excerpt: "", content_json: {} as any, content_html: "",
-  status: "draft", page_type: "page", hero_image_url: "", hero_image_alt: "",
+  status: "draft", workflow_status: "draft", review_date: "" as string | "", author_name: "", sources: [] as any[],
+  page_type: "page", hero_image_url: "", hero_image_alt: "",
   meta_title: "", meta_description: "", og_image: "", twitter_image: "", og_image_generated_at: null as string | null,
   canonical_url: "", noindex: false, schema_jsonld: "",
   category: "", tags: [] as string[], city: "", topic: "",
   wix_auto_sync: true, wix_sync_status: "pending", wix_synced_at: null as string | null,
 };
+
+const WORKFLOW_STATUSES = ["idea","brief","draft","editing","review","scheduled","published","update_required","archived"] as const;
 
 export default function CmsPageEditor() {
   const { id } = useParams<{ id: string }>();
