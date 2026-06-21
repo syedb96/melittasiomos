@@ -85,8 +85,8 @@ const SystemAudit = () => {
     <Circle size={14} className="text-muted-foreground/50" />;
 
   const adminRoutesInApp = (routesJson as any).adminRoutes as { path: string }[];
-  const registryRoutes = new Set(ADMIN_MODULES.map((m) => m.route));
-  const missingFromRegistry = adminRoutesInApp.filter((r) => !registryRoutes.has(r.path));
+  const registryRoutes = new Set(ADMIN_MODULES.flatMap((m) => [m.route, ...(m.routeAliases ?? [])]));
+  const missingFromRegistry = adminRoutesInApp.filter((r) => r.path.startsWith("/admin") && !registryRoutes.has(r.path));
 
   return (
     <AdminLayout>

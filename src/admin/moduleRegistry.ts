@@ -50,6 +50,7 @@ export interface AdminModule {
   id: string;
   name: string;
   route: string;
+  routeAliases?: string[];
   section: ModuleSection;
   description: string;
   icon: LucideIcon;
@@ -68,6 +69,7 @@ export const ADMIN_MODULES: AdminModule[] = [
     id: "dashboard",
     name: "Dashboard",
     route: "/admin",
+    routeAliases: ["/admin/dashboard", "/admin/control-centre"],
     section: "Overview",
     description: "Live counts for gallery, team, events, testimonials, enquiries and tracking.",
     icon: LayoutDashboard,
@@ -109,7 +111,7 @@ export const ADMIN_MODULES: AdminModule[] = [
 
   // CMS
   { id: "cms-home", name: "Content Hub", route: "/admin/cms", section: "CMS", description: "CMS dashboard and quick actions.", icon: LayoutDashboard, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_pages"], publicCritical: false },
-  { id: "cms-pages", name: "Pages, Blog & Resources", route: "/admin/cms/pages", section: "CMS", description: "Pages, blog posts, guides, glossary and resources with editorial workflow, freshness tracking and publishing gate.", icon: FileEdit, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_pages", "cms_page_versions"], publicCritical: true, notes: "Phase 4 + 5 shipped: workflow status, review dates, freshness, critical-check publishing gate.", wixEquivalent: "Wix Blog + Pages" },
+  { id: "cms-pages", name: "Pages, Blog & Resources", route: "/admin/cms/pages", routeAliases: ["/admin/cms/pages/:id", "/admin/cms/preview/:id"], section: "CMS", description: "Pages, blog posts, guides, glossary and resources with editorial workflow, freshness tracking and publishing gate.", icon: FileEdit, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_pages", "cms_page_versions"], publicCritical: true, notes: "Phase 4 + 5 shipped: workflow status, review dates, freshness, critical-check publishing gate.", wixEquivalent: "Wix Blog + Pages" },
   { id: "cms-blog-gen", name: "AI Blog Generator", route: "/admin/cms/blog/generate", section: "CMS", description: "AI-assisted blog drafting (human approval required).", icon: Sparkles, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_pages", "cms_generation_logs"], publicCritical: false },
   { id: "cms-schedule", name: "Publish Schedule", route: "/admin/cms/schedule", section: "CMS", description: "Scheduled drafts and publish queue.", icon: CalendarClock, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_pages"], publicCritical: true },
   { id: "cms-media", name: "Media Library", route: "/admin/cms/media", section: "CMS", description: "Uploads, alt text, bulk tagging, usage tracking, safe replace.", icon: ImageIcon, requiredRole: "editor", status: "live", dataSource: "supabase", tableDependency: ["cms_media", "cms_pages"], publicCritical: true },
@@ -130,7 +132,7 @@ export const ADMIN_MODULES: AdminModule[] = [
   { id: "seo", name: "SEO Monitoring", route: "/admin/seo", section: "System", description: "SEO and schema health.", icon: BarChart3, requiredRole: "admin", status: "partial", dataSource: "supabase", tableDependency: ["seo_alerts", "seo_gsc_daily", "seo_sitemap_snapshot"], publicCritical: false, notes: "Opportunity engine pending Phase 10." },
   { id: "analytics", name: "Analytics", route: "/admin/analytics", section: "System", description: "Conversion events and page views.", icon: BarChart3, requiredRole: "admin", status: "partial", dataSource: "supabase", tableDependency: ["page_views", "cta_events"], publicCritical: false, notes: "Funnel + drop-off views pending Phase 11." },
   { id: "tracking-qa", name: "Tracking QA", route: "/admin/tracking-qa", section: "System", description: "Verifies analytics + WhatsApp tracking.", icon: Activity, requiredRole: "admin", status: "live", dataSource: "static", publicCritical: false },
-  { id: "security-events", name: "Security Events", route: "/admin/security-events", section: "System", description: "Auth and security event log.", icon: Shield, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["security_events"], publicCritical: false },
+  { id: "security-events", name: "Security Events", route: "/admin/security-events", routeAliases: ["/admin/security"], section: "System", description: "Auth and security event log.", icon: Shield, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["security_events"], publicCritical: false },
   { id: "settings", name: "Settings", route: "/admin/settings", section: "System", description: "Operational settings.", icon: Settings, requiredRole: "admin", status: "live", dataSource: "supabase", tableDependency: ["site_settings"], publicCritical: false },
   { id: "blueprint", name: "Wix Blueprint", route: "/admin/blueprint", section: "System", description: "Static handoff blueprint.", icon: BookOpen, requiredRole: "editor", status: "live", dataSource: "static", publicCritical: false },
   { id: "site-docs", name: "Site Docs", route: "/admin/site-docs", section: "System", description: "Internal documentation.", icon: FileText, requiredRole: "editor", status: "live", dataSource: "static", publicCritical: false },
