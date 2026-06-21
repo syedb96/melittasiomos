@@ -1,21 +1,43 @@
 import { useMemo, useState } from "react";
 import { Calculator, Sparkles } from "lucide-react";
+import { usePrice } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX: Replicate with Wix Velo custom code element OR use Wix Forms with calculation logic --> */
-const DROPIN = 10; // £ per class
-const BUNDLES: Record<number, number> = { 5: 42, 10: 80, 20: 150 };
+
+type Venue = "chiswick" | "ealing" | "both";
 
 const BundleCalculator = () => {
-  const [venue, setVenue] = useState<"chiswick" | "ealing" | "both">("both");
+  const [venue, setVenue] = useState<Venue>("both");
   const [classes, setClasses] = useState<number>(5);
 
+  // Canonical prices from commerce_prices
+  const dropIn = usePrice("drop-in-class");
+  const chi5 = usePrice("chiswick-bundle-5");
+  const chi10 = usePrice("chiswick-bundle-10");
+  const eal5 = usePrice("ealing-bundle-5");
+  const eal10 = usePrice("ealing-bundle-10");
+
+  const DROPIN = (dropIn?.amount_pence ?? 1000) / 100;
+
   const calc = useMemo(() => {
-    const bundlePrice = BUNDLES[classes] ?? classes * DROPIN;
+    const pickPence = (chi: number | null | undefined, eal: number | null | undefined) => {
+      if (venue === "chiswick") return chi ?? null;
+      if (venue === "ealing") return eal ?? null;
+      // "both" — show the higher (Chiswick) so savings don't overstate
+      return chi ?? eal ?? null;
+    };
+    const bundleMap: Record<number, number | null> = {
+      5: pickPence(chi5?.amount_pence, eal5?.amount_pence),
+      10: pickPence(chi10?.amount_pence, eal10?.amount_pence),
+      20: null, // no 20-pack in DB; fall back to per-class
+    };
+    const bundlePence = bundleMap[classes];
+    const bundlePrice = bundlePence != null ? bundlePence / 100 : classes * DROPIN;
     const dropInTotal = classes * DROPIN;
     const savings = Math.max(0, dropInTotal - bundlePrice);
     const perClass = bundlePrice / classes;
     return { bundlePrice, dropInTotal, savings, perClass };
-  }, [classes]);
+  }, [classes, venue, DROPIN, chi5, chi10, eal5, eal10]);
 
   return (
     <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto shadow-elevated">
@@ -36,7 +58,7 @@ const BundleCalculator = () => {
             ].map(opt => (
               <button
                 key={opt.v}
-                onClick={() => setVenue(opt.v as typeof venue)}
+                onClick={() => setVenue(opt.v as Venue)}
                 className={`text-xs font-heading font-semibold py-2 rounded-lg border-2 transition-all ${
                   venue === opt.v ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/50"
                 }`}
