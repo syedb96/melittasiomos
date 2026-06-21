@@ -1,0 +1,16 @@
+{
+  "venue_file": "TheDraytonCourtEaling.tsx",
+  "title": "The Drayton Court Hotel Ealing — Tuesday Salsa & Bachata",
+  "description": "Join Pura Nights every Tuesday at The Drayton Court Hotel, Ealing. Free ladies styling at 6:50pm, beginners & improvers classes, social dancing. 10 mins from West Ealing Station.",
+  "schema_keys": {
+    "name": "\"Pura Nights at The Drayton Court Hotel\"",
+    "description": "\"Weekly salsa and bachata classes every Tuesday at The Drayton Court Hotel in Ealing, West London. Free ladies styling warm-up at 6:50pm.\"",
+    "address": "{ \"@type\": \"PostalAddress\", streetAddress: \"2 The Avenue\", addressLocality: \"West Ealing\", addressRegion: \"London\", postalCode: \"W13 8PH\", addressCountry: \"GB\" }",
+    "geo": "{ \"@type\": \"GeoCoordinates\", latitude: \"51.5130\", longitude: \"-0.3190\" }",
+    "url": "\"https://www.puranights.com/venue/the-drayton-court-ealing\"",
+    "telephone": "\"+447449482343\"",
+    "offers": "{ \"@type\": \"AggregateOffer\", priceCurrency: \"GBP\", lowPrice: \"5\", highPrice: \"15\", offerCount: \"3\", url: BOOKING_URL, availability: \"https://schema.org/InStock\", }",
+    "potentialAction": "{ \"@type\": \"ReserveAction\", target: { \"@type\": \"EntryPoint\", urlTemplate: BOOKING_URL, actionPlatform: [\"http://schema.org/DesktopWebPlatform\", \"http://schema.org/MobileWebPlatform\"] }, name: \"Book Tuesday Class\", }"
+  },
+  "captured_at": "2026-06-21T09:27:53.859Z"
+}
