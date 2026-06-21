@@ -205,6 +205,9 @@ import VenuesAdmin from "./pages/admin/commerce/VenuesAdmin";
 import PricesAdmin from "./pages/admin/commerce/PricesAdmin";
 import ScheduleAdmin from "./pages/admin/commerce/ScheduleAdmin";
 import OffersAdmin from "./pages/admin/commerce/OffersAdmin";
+import SeoIntelligence from "./pages/admin/SeoIntelligence";
+import ShareYourStory from "./pages/ShareYourStory";
+
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -412,6 +415,8 @@ const App = () => (
             <Route path="/loyalty" element={<Loyalty />} />
             <Route path="/salsa-bachata-west-london" element={<SalsaBachataWestLondon />} />
             <Route path="/latin-dance-corporate-events-london" element={<LatinDanceCorporateEventsLondon />} />
+            <Route path="/share-your-story" element={<ShareYourStory />} />
+            <Route path="/admin/seo-intelligence" element={<ProtectedRoute requireAdmin><SeoIntelligence /></ProtectedRoute>} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
             <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
             <Route path="/admin/security" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
