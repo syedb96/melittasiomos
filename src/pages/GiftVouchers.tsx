@@ -12,6 +12,7 @@ import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
 import { waCustom } from "@/lib/whatsapp";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /gift-vouchers -->
    <!-- WIX SECTION: Hero — Full-width dark Strip with eyebrow + H1 + sub + CTA pair -->
@@ -229,7 +230,7 @@ const GiftVouchers = () => {
                   )}
                   <Gift size={28} className={`mb-4 ${tier.highlighted ? "text-primary" : "text-primary"}`} />
                   <p className={`font-accent text-[10px] uppercase tracking-[0.25em] mb-2 ${tier.highlighted ? "text-primary" : "text-primary"}`}>{tier.label}</p>
-                  <p className={`font-display text-4xl font-bold mb-1 ${tier.highlighted ? "text-primary-foreground" : ""}`}>£{tier.amount}</p>
+                  <p className={`font-display text-4xl font-bold mb-1 ${tier.highlighted ? "text-primary-foreground" : ""}`}><Price slug={`voucher-${tier.amount}`} fallback={`£${tier.amount}`} showPrevious={false} /></p>
                   <p className={`text-sm font-heading mb-5 ${tier.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{tier.bestFor}</p>
                   <ul className="space-y-2 mb-6 flex-1">
                     {tier.perks.map((p, i) => (
