@@ -333,6 +333,7 @@ export default function CmsPageEditor() {
       </Tabs>
         </div>
         <aside className="space-y-4">
+          <PublishGatePanel gate={gate} />
           <SeoChecklistPanel draft={seoDraft} />
           <div className="border border-border rounded-xl p-4 bg-card text-xs space-y-2">
             <p className="font-heading font-bold text-sm">Primary keyword</p>
