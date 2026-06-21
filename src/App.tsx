@@ -205,6 +205,7 @@ import VenuesAdmin from "./pages/admin/commerce/VenuesAdmin";
 import PricesAdmin from "./pages/admin/commerce/PricesAdmin";
 import ScheduleAdmin from "./pages/admin/commerce/ScheduleAdmin";
 import OffersAdmin from "./pages/admin/commerce/OffersAdmin";
+import ServicesAdmin from "./pages/admin/commerce/ServicesAdmin";
 import SeoIntelligence from "./pages/admin/SeoIntelligence";
 import ShareYourStory from "./pages/ShareYourStory";
 
@@ -428,6 +429,7 @@ const App = () => (
             <Route path="/admin/commerce/prices" element={<ProtectedRoute requireAdmin><PricesAdmin /></ProtectedRoute>} />
             <Route path="/admin/commerce/schedule" element={<ProtectedRoute requireAdmin><ScheduleAdmin /></ProtectedRoute>} />
             <Route path="/admin/commerce/offers" element={<ProtectedRoute requireAdmin><OffersAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/services" element={<ProtectedRoute requireAdmin><ServicesAdmin /></ProtectedRoute>} />
 
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
