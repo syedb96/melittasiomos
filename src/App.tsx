@@ -175,6 +175,7 @@ import TeamAdmin from "./pages/admin/TeamAdmin";
 import EventsAdmin from "./pages/admin/EventsAdmin";
 import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin";
 import EnquiriesAdmin from "./pages/admin/EnquiriesAdmin";
+import FormsAdmin from "./pages/admin/FormsAdmin";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
 import Blueprint from "./pages/admin/Blueprint";
 import AmbassadorsAdmin from "./pages/admin/AmbassadorsAdmin";
