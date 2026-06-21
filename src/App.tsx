@@ -186,6 +186,7 @@ import TrackingQA from "./pages/admin/TrackingQA";
 import SecurityEvents from "./pages/admin/SecurityEvents";
 import CmsPagesAdmin from "./pages/admin/cms/CmsPagesAdmin";
 import CmsPageEditor from "./pages/admin/cms/CmsPageEditor";
+import CmsPagePreview from "./pages/admin/cms/CmsPagePreview";
 import CmsMediaAdmin from "./pages/admin/cms/CmsMediaAdmin";
 import CmsNavigationAdmin from "./pages/admin/cms/CmsNavigationAdmin";
 import CmsRedirectsAdmin from "./pages/admin/cms/CmsRedirectsAdmin";
@@ -423,6 +424,7 @@ const App = () => (
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/pages/:id" element={<ProtectedRoute><CmsPageEditor /></ProtectedRoute>} />
+            <Route path="/admin/cms/preview/:id" element={<ProtectedRoute><CmsPagePreview /></ProtectedRoute>} />
             <Route path="/admin/cms/media" element={<ProtectedRoute><CmsMediaAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/navigation" element={<ProtectedRoute><CmsNavigationAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/redirects" element={<ProtectedRoute><CmsRedirectsAdmin /></ProtectedRoute>} />

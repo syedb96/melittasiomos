@@ -18,7 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { ArrowLeft, Save, Eye, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowLeft, Save, Eye, EyeOff, Trash2, History, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -43,6 +43,7 @@ export default function CmsPageEditor() {
   const [mediaOpen, setMediaOpen] = useState(false);
   const [mediaCallback, setMediaCallback] = useState<((url: string) => void) | null>(null);
   const [versions, setVersions] = useState<any[]>([]);
+  const [restoredFromVersion, setRestoredFromVersion] = useState<number | null>(null);
 
   useEffect(() => {
     if (isNew) return;
@@ -110,7 +111,12 @@ export default function CmsPageEditor() {
       const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
       const nextVersion = (versions[0]?.version_number ?? 0) + 1;
-      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
+      const note = restoredFromVersion ? `Restored from v${restoredFromVersion}` : (publish ? "Published" : scheduleAt ? "Scheduled" : "Draft save");
+      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null, note });
+      if (restoredFromVersion) setRestoredFromVersion(null);
+      // Refresh version list
+      const { data: v } = await supabase.from("cms_page_versions").select("id,version_number,note,created_at").eq("page_id", id!).order("version_number", { ascending: false }).limit(20);
+      setVersions(v ?? []);
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
     }
     // Auto-push to Wix on publish
@@ -127,6 +133,21 @@ export default function CmsPageEditor() {
     save(false, iso);
   };
 
+
+  const unpublish = async () => {
+    if (!id || isNew) return;
+    if (!confirm("Unpublish this page? It will go back to draft and be removed from the public site.")) return;
+    setSaving(true);
+    const { error } = await supabase.from("cms_pages").update({ status: "draft", published_at: null }).eq("id", id);
+    setSaving(false);
+    if (error) { toast({ title: "Unpublish failed", description: error.message, variant: "destructive" }); return; }
+    const nextVersion = (versions[0]?.version_number ?? 0) + 1;
+    await supabase.from("cms_page_versions").insert({ page_id: id, version_number: nextVersion, snapshot: { ...page, status: "draft", published_at: null }, author_id: user?.id ?? null, note: "Unpublished" });
+    set({ status: "draft", published_at: null });
+    const { data: v } = await supabase.from("cms_page_versions").select("id,version_number,note,created_at").eq("page_id", id).order("version_number", { ascending: false }).limit(20);
+    setVersions(v ?? []);
+    toast({ title: "Page unpublished" });
+  };
 
   const remove = async () => {
     if (!confirm("Delete this page? This cannot be undone.")) return;
@@ -150,7 +171,9 @@ export default function CmsPageEditor() {
         <div className="flex items-center gap-2 shrink-0">
           {!isNew && page.wix_sync_status === "synced" && <Badge className="bg-green-500/20 text-green-700"><CheckCircle2 size={10} className="mr-1" />Wix synced</Badge>}
           {!isNew && page.wix_sync_status === "error" && <Badge className="bg-destructive/20 text-destructive"><AlertCircle size={10} className="mr-1" />Wix error</Badge>}
-          {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View</a></Button>}
+          {!isNew && page.status === "published" && <Button variant="outline" asChild><a href={`/${page.slug}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />View live</a></Button>}
+          {!isNew && <Button variant="outline" asChild><a href={`/admin/cms/preview/${id}`} target="_blank" rel="noreferrer"><Eye size={14} className="mr-2" />Preview draft</a></Button>}
+          {!isNew && page.status === "published" && <Button variant="outline" onClick={unpublish} disabled={saving}><EyeOff size={14} className="mr-2" />Unpublish</Button>}
           {!isNew && (
             <Button variant="outline" disabled={saving} onClick={async () => {
               setSaving(true);
@@ -245,16 +268,21 @@ export default function CmsPageEditor() {
 
         {!isNew && (
           <TabsContent value="history" className="space-y-2">
+            {restoredFromVersion && <p className="text-xs bg-amber-500/10 text-amber-700 border border-amber-500/30 rounded-md px-3 py-2">Loaded version {restoredFromVersion}. Click <strong>Save draft</strong> or <strong>Publish</strong> to apply — a new version will be recorded with the note "Restored from v{restoredFromVersion}".</p>}
             {versions.length === 0 && <p className="text-muted-foreground text-sm">No versions yet. Each save creates a snapshot.</p>}
             {versions.map((v) => (
               <div key={v.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
                 <div>
-                  <p className="font-heading text-sm">Version {v.version_number}</p>
+                  <p className="font-heading text-sm">Version {v.version_number}{v.note ? <span className="ml-2 text-xs text-muted-foreground font-normal">— {v.note}</span> : null}</p>
                   <p className="text-xs text-muted-foreground">{new Date(v.created_at).toLocaleString()}</p>
                 </div>
                 <Button size="sm" variant="outline" onClick={async () => {
                   const { data } = await supabase.from("cms_page_versions").select("snapshot").eq("id", v.id).single();
-                  if (data?.snapshot) { setPage({ ...page, ...(data.snapshot as any), schema_jsonld: (data.snapshot as any).schema_jsonld ? JSON.stringify((data.snapshot as any).schema_jsonld, null, 2) : "" }); toast({ title: "Loaded version " + v.version_number + " — save to apply" }); }
+                  if (data?.snapshot) {
+                    setPage({ ...page, ...(data.snapshot as any), schema_jsonld: (data.snapshot as any).schema_jsonld ? JSON.stringify((data.snapshot as any).schema_jsonld, null, 2) : "" });
+                    setRestoredFromVersion(v.version_number);
+                    toast({ title: `Loaded version ${v.version_number}`, description: "Save or publish to apply." });
+                  }
                 }}>Restore</Button>
               </div>
             ))}
