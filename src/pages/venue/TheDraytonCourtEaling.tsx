@@ -21,6 +21,7 @@ const venueFaqs = [
   { q: "How do I get there by train?", a: "West Ealing Station (Elizabeth Line) is a 10-minute walk. Ealing Broadway is also accessible via Central and District lines." },
 ];
 
+const BOOKING_URL = "https://www.tickettailor.com/events/puranights";
 const schema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "FAQPage"],
@@ -30,6 +31,20 @@ const schema = {
   geo: { "@type": "GeoCoordinates", latitude: "51.5130", longitude: "-0.3190" },
   url: "https://www.puranights.com/venue/the-drayton-court-ealing",
   telephone: "+447449482343",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "GBP",
+    lowPrice: "5",
+    highPrice: "15",
+    offerCount: "3",
+    url: BOOKING_URL,
+    availability: "https://schema.org/InStock",
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: { "@type": "EntryPoint", urlTemplate: BOOKING_URL, actionPlatform: ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"] },
+    name: "Book Tuesday Class",
+  },
   mainEntity: venueFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 };
 
