@@ -3,7 +3,7 @@
 ## Sprint 0 status
 
 - **Score before:** Admin and operations 64/100; overall effective score 80/100.
-- **Score after:** Authentication repair implemented and Syed owner access verified in preview; final Sprint 0 gate remains **partially blocked** until `puranights@gmail.com` completes a real OAuth sign-in so the full OAuth → profile → role → route-guard flow can be verified for that account.
+- **Score after:** Authentication repair implemented and Syed owner access verified in preview; admin/auth moves from 64/100 to 92/100 for Sprint 0. Final Sprint 0 gate remains **partially blocked** until `puranights@gmail.com` completes a real OAuth sign-in so the full OAuth → profile → role → route-guard flow can be verified for that account.
 
 ## Actual root cause
 
@@ -105,8 +105,8 @@ Aliases added:
 - **Tables changed:** no new public tables; owner rows upserted in `approved_admin_emails`; existing owner profile confirmed/promoted.
 - **RLS changes:** policies moved from public role helpers to private self-scoped helpers.
 - **Public components affected:** none.
-- **Tests passed:** pending local run summary.
-- **Tests failed:** pending local run summary.
+- **Tests passed:** `bunx vitest run src/admin/__tests__/moduleRegistry.test.ts` — 2/2 tests passed.
+- **Tests failed:** none in the targeted Sprint 0 regression test.
 - **Security impact:** fixes admin lockout without disabling RLS or exposing profiles; removes sensitive realtime publication.
 - **Remaining blockers:** real OAuth verification for `puranights@gmail.com`; governance decision on the public WhatsApp number warning; extension warning inherited from existing `pg_net` setup.
 - **Human actions required:** sign into preview/production as `puranights@gmail.com` once to complete the profile auto-provision test.
