@@ -375,6 +375,7 @@ const App = () => (
             {/* Admin Routes — Protected */}
             <Route path="/admin" element={<ProtectedRoute requireAdmin><Dashboard /></ProtectedRoute>} />
             <Route path="/admin/dashboard" element={<ProtectedRoute requireAdmin><Dashboard /></ProtectedRoute>} />
+            <Route path="/admin/control-centre" element={<ProtectedRoute requireAdmin><Dashboard /></ProtectedRoute>} />
 
             <Route path="/admin/gallery" element={<ProtectedRoute><GalleryAdmin /></ProtectedRoute>} />
             <Route path="/admin/team" element={<ProtectedRoute><TeamAdmin /></ProtectedRoute>} />
@@ -413,6 +414,7 @@ const App = () => (
             <Route path="/latin-dance-corporate-events-london" element={<LatinDanceCorporateEventsLondon />} />
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
             <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
+            <Route path="/admin/security" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
             <Route path="/admin/security-events" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
             <Route path="/admin/system-audit" element={<ProtectedRoute requireAdmin><SystemAudit /></ProtectedRoute>} />
             <Route path="/admin/pages-registry" element={<ProtectedRoute requireAdmin><PagesRegistry /></ProtectedRoute>} />
