@@ -82,6 +82,7 @@ const SeoIntelligence = () => {
           <p className="text-muted-foreground text-sm font-heading">Keyword tracking, broken-link crawl, JSON-LD drift, weekly digest.</p>
         </div>
         <div className="flex gap-2 flex-wrap">
+          <Button size="sm" variant="outline" disabled={running !== null} onClick={() => runJob("seo-keyword-poll", "Keyword poll")}>{running === "seo-keyword-poll" ? <Loader2 size={14} className="mr-1 animate-spin" /> : <Play size={14} className="mr-1" />}Poll positions</Button>
           <Button size="sm" variant="outline" disabled={running !== null} onClick={() => runJob("seo-broken-link-crawl", "Broken-link crawl")}>{running === "seo-broken-link-crawl" ? <Loader2 size={14} className="mr-1 animate-spin" /> : <Play size={14} className="mr-1" />}Run crawl</Button>
           <Button size="sm" variant="outline" disabled={running !== null} onClick={() => runJob("seo-schema-drift", "Schema drift")}>{running === "seo-schema-drift" ? <Loader2 size={14} className="mr-1 animate-spin" /> : <Play size={14} className="mr-1" />}Run drift</Button>
           <Button size="sm" variant="outline" disabled={running !== null} onClick={() => runJob("seo-weekly-digest", "Weekly digest")}>{running === "seo-weekly-digest" ? <Loader2 size={14} className="mr-1 animate-spin" /> : <Play size={14} className="mr-1" />}Generate digest</Button>
