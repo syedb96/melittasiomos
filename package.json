@@ -30,8 +30,8 @@
     "qa:cta-smoke": "bun scripts/cta-smoke-test.ts",
     "qa:wa-tracking": "bun scripts/qa-whatsapp-tracking.ts",
     "qa:deps": "bun scripts/qa-dependency-audit.ts",
-    "prebuild": "bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts && bun scripts/qa-dependency-audit.ts",
-    "predev": "bun scripts/seo-qa.ts"
+    "prebuild": "bun run scripts/extract-routes.ts && bun scripts/alt-text-lint.ts && bun scripts/seo-qa.ts && bun scripts/schema-validate.ts && bun scripts/schema-qa-report.ts && bun scripts/qa-whatsapp-tracking.ts && bun scripts/qa-dependency-audit.ts",
+    "predev": "bun run scripts/extract-routes.ts && bun scripts/seo-qa.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
