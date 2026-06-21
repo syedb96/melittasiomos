@@ -111,7 +111,12 @@ export default function CmsPageEditor() {
       const { error } = await supabase.from("cms_pages").update(payload).eq("id", id!);
       if (error) { toast({ title: "Save failed", description: error.message, variant: "destructive" }); setSaving(false); return; }
       const nextVersion = (versions[0]?.version_number ?? 0) + 1;
-      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null });
+      const note = restoredFromVersion ? `Restored from v${restoredFromVersion}` : (publish ? "Published" : scheduleAt ? "Scheduled" : "Draft save");
+      await supabase.from("cms_page_versions").insert({ page_id: id!, version_number: nextVersion, snapshot: payload, author_id: user?.id ?? null, note });
+      if (restoredFromVersion) setRestoredFromVersion(null);
+      // Refresh version list
+      const { data: v } = await supabase.from("cms_page_versions").select("id,version_number,note,created_at").eq("page_id", id!).order("version_number", { ascending: false }).limit(20);
+      setVersions(v ?? []);
       toast({ title: publish ? "Page published" : scheduleAt ? "Scheduled" : "Saved", description: `SEO score ${score}/100` });
     }
     // Auto-push to Wix on publish
