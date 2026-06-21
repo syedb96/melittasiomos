@@ -30,7 +30,7 @@ type Variant =
   | "online"
   | "events";
 
-const DropIn = () => <Price slug="drop-in" fallback="£10" showPrevious={false} />;
+const DropIn = () => <Price slug="drop-in-class" fallback="£10" showPrevious={false} />;
 
 const config: Record<Variant, { title: string; sub: ReactNode; to: string; label: string; cta: string }> = {
   beginner:  { title: "Ready to dance?",              sub: "Brand new to Latin dance? Start here — no partner needed.", to: "/start-here",                       label: "Start Here Guide →",        cta: "blog_money_cta_beginner" },

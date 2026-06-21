@@ -9,7 +9,7 @@ const BlogSidebarCTA = () => (
     <div className="bg-charcoal text-primary-foreground rounded-2xl p-6 border-t-4 border-primary">
       <p className="font-accent text-[10px] tracking-[0.25em] uppercase text-primary mb-2">Ready to dance?</p>
       <h3 className="font-display text-lg font-bold mb-2 leading-tight">
-        Your first class is just <Price slug="drop-in" fallback="£10" showPrevious={false} />
+        Your first class is just <Price slug="drop-in-class" fallback="£10" showPrevious={false} />
       </h3>
       <p className="text-primary-foreground/60 text-xs font-heading mb-4">No partner. No experience. Just turn up.</p>
       <Link to="/pura-nights" className="btn-cta-primary w-full text-center block text-xs mb-2">Book a Class →</Link>

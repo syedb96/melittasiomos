@@ -59,7 +59,7 @@ const ExitIntentPopup = forwardRef<HTMLDivElement>((_, ref) => {
           <>
             <h3 className="font-display text-2xl font-bold mb-2">Wait — Don't Leave Without This</h3>
             <p className="text-peach font-heading text-sm font-semibold mb-1">First class offer for new students</p>
-            <p className="text-muted-foreground text-sm mb-5">Join your first Pura Nights class and see why we're rated 5 stars. Drop-in from <Price slug="drop-in" fallback="£10" showPrevious={false} />. No booking, no partner needed. Just turn up.</p>
+            <p className="text-muted-foreground text-sm mb-5">Join your first Pura Nights class and see why we're rated 5 stars. Drop-in from <Price slug="drop-in-class" fallback="£10" showPrevious={false} />. No booking, no partner needed. Just turn up.</p>
             <Link to="/pura-nights" onClick={() => setShow(false)} className="btn-cta-primary w-full text-center block mb-3">See Class Schedule</Link>
             <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "ExitIntentPopup:62")} onClick={() => trackCta("whatsapp_click", `exit-intent:${pathname}`)} className="text-primary text-sm font-heading text-center block hover:underline">Or WhatsApp Melitta directly</a>
           </>
