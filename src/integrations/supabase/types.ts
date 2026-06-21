@@ -290,6 +290,7 @@ export type Database = {
       cms_pages: {
         Row: {
           author_id: string | null
+          author_name: string | null
           canonical_url: string | null
           category: string | null
           city: string | null
@@ -309,12 +310,15 @@ export type Database = {
           page_type: string
           primary_keyword: string | null
           publish_at: string | null
+          publish_gate: Json | null
           published_at: string | null
           related_slugs: string[]
+          review_date: string | null
           schema_jsonld: Json | null
           seo_checklist: Json | null
           seo_score: number | null
           slug: string
+          sources: Json | null
           status: Database["public"]["Enums"]["cms_page_status"]
           tags: string[]
           title: string
@@ -328,9 +332,11 @@ export type Database = {
           wix_sync_error: string | null
           wix_sync_status: string | null
           wix_synced_at: string | null
+          workflow_status: string
         }
         Insert: {
           author_id?: string | null
+          author_name?: string | null
           canonical_url?: string | null
           category?: string | null
           city?: string | null
@@ -350,12 +356,15 @@ export type Database = {
           page_type?: string
           primary_keyword?: string | null
           publish_at?: string | null
+          publish_gate?: Json | null
           published_at?: string | null
           related_slugs?: string[]
+          review_date?: string | null
           schema_jsonld?: Json | null
           seo_checklist?: Json | null
           seo_score?: number | null
           slug: string
+          sources?: Json | null
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]
           title: string
@@ -369,9 +378,11 @@ export type Database = {
           wix_sync_error?: string | null
           wix_sync_status?: string | null
           wix_synced_at?: string | null
+          workflow_status?: string
         }
         Update: {
           author_id?: string | null
+          author_name?: string | null
           canonical_url?: string | null
           category?: string | null
           city?: string | null
@@ -391,12 +402,15 @@ export type Database = {
           page_type?: string
           primary_keyword?: string | null
           publish_at?: string | null
+          publish_gate?: Json | null
           published_at?: string | null
           related_slugs?: string[]
+          review_date?: string | null
           schema_jsonld?: Json | null
           seo_checklist?: Json | null
           seo_score?: number | null
           slug?: string
+          sources?: Json | null
           status?: Database["public"]["Enums"]["cms_page_status"]
           tags?: string[]
           title?: string
@@ -410,6 +424,7 @@ export type Database = {
           wix_sync_error?: string | null
           wix_sync_status?: string | null
           wix_synced_at?: string | null
+          workflow_status?: string
         }
         Relationships: []
       }
@@ -1586,6 +1601,10 @@ export type Database = {
     }
     Functions: {
       can_edit_content: { Args: { _user_id: string }; Returns: boolean }
+      cms_page_freshness: {
+        Args: { _published_at: string; _review_date: string }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

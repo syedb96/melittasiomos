@@ -8,7 +8,9 @@ import MediaPicker from "@/components/admin/cms/MediaPicker";
 import SeoChecklistPanel from "@/components/admin/cms/SeoChecklistPanel";
 import PostImagePanel from "@/components/admin/cms/PostImagePanel";
 import LinkSuggestionsPanel from "@/components/admin/cms/LinkSuggestionsPanel";
+import PublishGatePanel from "@/components/admin/cms/PublishGatePanel";
 import { runSeoChecklist } from "@/lib/seo-checklist";
+import { runPublishGate } from "@/lib/publish-gate";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,12 +27,15 @@ const slugify = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-"
 
 const blank = {
   slug: "", title: "", excerpt: "", content_json: {} as any, content_html: "",
-  status: "draft", page_type: "page", hero_image_url: "", hero_image_alt: "",
+  status: "draft", workflow_status: "draft", review_date: "" as string | "", author_name: "", sources: [] as any[],
+  page_type: "page", hero_image_url: "", hero_image_alt: "",
   meta_title: "", meta_description: "", og_image: "", twitter_image: "", og_image_generated_at: null as string | null,
   canonical_url: "", noindex: false, schema_jsonld: "",
   category: "", tags: [] as string[], city: "", topic: "",
   wix_auto_sync: true, wix_sync_status: "pending", wix_synced_at: null as string | null,
 };
+
+const WORKFLOW_STATUSES = ["idea","brief","draft","editing","review","scheduled","published","update_required","archived"] as const;
 
 export default function CmsPageEditor() {
   const { id } = useParams<{ id: string }>();
@@ -76,8 +81,18 @@ export default function CmsPageEditor() {
     schemaJsonld: page.schema_jsonld || "",
   };
 
+  const gate = runPublishGate({
+    title: page.title, slug: page.slug, meta_title: page.meta_title, meta_description: page.meta_description,
+    hero_image_url: page.hero_image_url, hero_image_alt: page.hero_image_alt, content_html: page.content_html,
+    canonical_url: page.canonical_url, noindex: page.noindex, schema_jsonld: page.schema_jsonld,
+  });
+
   const save = async (publish?: boolean, scheduleAt?: string | null) => {
     if (!page.title || !page.slug) { toast({ title: "Title and slug are required", variant: "destructive" }); return; }
+    if (publish && !gate.ok) {
+      toast({ title: "Publishing blocked", description: `${gate.criticalFailures} critical check${gate.criticalFailures !== 1 ? "s" : ""} failing. See Publishing gate panel.`, variant: "destructive" });
+      return;
+    }
     const { score, results } = runSeoChecklist(seoDraft);
     if (publish && score < 85) {
       if (!confirm(`SEO score is ${score}/100 (below 85). Publish anyway?`)) return;
@@ -86,9 +101,11 @@ export default function CmsPageEditor() {
     let parsedSchema: any = null;
     if (page.schema_jsonld) { try { parsedSchema = JSON.parse(page.schema_jsonld); } catch { toast({ title: "JSON-LD is not valid JSON", variant: "destructive" }); setSaving(false); return; } }
     const status = publish ? "published" : scheduleAt ? "scheduled" : page.status;
+    const nextWorkflow = publish ? "published" : scheduleAt ? "scheduled" : (page.workflow_status || "draft");
     const payload: any = {
       slug: page.slug, title: page.title, excerpt: page.excerpt, content_json: page.content_json, content_html: page.content_html,
-      status, page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
+      status, workflow_status: nextWorkflow, review_date: page.review_date || null, author_name: page.author_name || null, sources: page.sources ?? [],
+      page_type: page.page_type, kind: page.kind ?? page.page_type, primary_keyword: page.primary_keyword || null,
       hero_image_url: page.hero_image_url || null, hero_image_alt: page.hero_image_alt || null,
       meta_title: page.meta_title || null, meta_description: page.meta_description || null,
       og_image: page.og_image || null, twitter_image: page.twitter_image || page.og_image || null, og_image_generated_at: page.og_image_generated_at,
@@ -97,7 +114,7 @@ export default function CmsPageEditor() {
       wix_auto_sync: page.wix_auto_sync ?? true,
       publish_at: scheduleAt ?? page.publish_at ?? null,
       published_at: publish ? new Date().toISOString() : page.published_at,
-      seo_score: score, seo_checklist: results as any,
+      seo_score: score, seo_checklist: results as any, publish_gate: gate as any,
       author_id: user?.id ?? null,
     };
     let savedId = id;
@@ -224,17 +241,42 @@ export default function CmsPageEditor() {
         <TabsContent value="seo"><SeoPanel value={seo} onChange={(v) => set(v)} slug={page.slug} /></TabsContent>
 
         <TabsContent value="settings" className="space-y-4 max-w-xl">
-          <div>
-            <Label>Page type</Label>
-            <Select value={page.page_type} onValueChange={(v) => set({ page_type: v })}>
-              <SelectTrigger><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="page">Page</SelectItem>
-                <SelectItem value="blog">Blog post</SelectItem>
-                <SelectItem value="landing">Landing page</SelectItem>
-                <SelectItem value="legal">Legal / policy</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>Workflow status</Label>
+              <Select value={page.workflow_status || "draft"} onValueChange={(v) => set({ workflow_status: v })}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {WORKFLOW_STATUSES.map((s) => <SelectItem key={s} value={s}>{s.replace("_", " ")}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              <p className="text-[11px] text-muted-foreground mt-1">Editorial pipeline state. Independent of publish status.</p>
+            </div>
+            <div>
+              <Label>Next review date</Label>
+              <Input type="date" value={page.review_date || ""} onChange={(e) => set({ review_date: e.target.value })} />
+              <p className="text-[11px] text-muted-foreground mt-1">Drives freshness badge (outdated / review soon / fresh).</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <Label>Author name</Label>
+              <Input value={page.author_name ?? ""} onChange={(e) => set({ author_name: e.target.value })} placeholder="e.g. Melitta Siomos" />
+            </div>
+            <div>
+              <Label>Page type</Label>
+              <Select value={page.page_type} onValueChange={(v) => set({ page_type: v })}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="page">Page</SelectItem>
+                  <SelectItem value="blog">Blog post</SelectItem>
+                  <SelectItem value="landing">Landing page</SelectItem>
+                  <SelectItem value="resource">Resource / guide</SelectItem>
+                  <SelectItem value="glossary">Glossary term</SelectItem>
+                  <SelectItem value="legal">Legal / policy</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -291,6 +333,7 @@ export default function CmsPageEditor() {
       </Tabs>
         </div>
         <aside className="space-y-4">
+          <PublishGatePanel gate={gate} />
           <SeoChecklistPanel draft={seoDraft} />
           <div className="border border-border rounded-xl p-4 bg-card text-xs space-y-2">
             <p className="font-heading font-bold text-sm">Primary keyword</p>

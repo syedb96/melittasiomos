@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T07:33:04.851Z",
+  "generatedAt": "2026-06-21T08:39:36.947Z",
   "publicRoutes": [
     {
       "path": "/",
@@ -737,6 +737,10 @@
     },
     {
       "path": "/admin/cms/pages/:id",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/cms/preview/:id",
       "component": "ProtectedRoute"
     },
     {
