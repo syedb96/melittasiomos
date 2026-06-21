@@ -186,6 +186,7 @@ import TrackingQA from "./pages/admin/TrackingQA";
 import SecurityEvents from "./pages/admin/SecurityEvents";
 import CmsPagesAdmin from "./pages/admin/cms/CmsPagesAdmin";
 import CmsPageEditor from "./pages/admin/cms/CmsPageEditor";
+import CmsPagePreview from "./pages/admin/cms/CmsPagePreview";
 import CmsMediaAdmin from "./pages/admin/cms/CmsMediaAdmin";
 import CmsNavigationAdmin from "./pages/admin/cms/CmsNavigationAdmin";
 import CmsRedirectsAdmin from "./pages/admin/cms/CmsRedirectsAdmin";
