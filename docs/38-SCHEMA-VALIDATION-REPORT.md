@@ -1,9 +1,9 @@
-# Schema Validation Report — 2026-06-11
+# Schema Validation Report — 2026-06-21
 
 Source: static scan of `src/pages/**.tsx` + `src/components/SeoHead.tsx`.
 
 ## Schema coverage
-- `Article` — 38
+- `Article` — 39
 - `BreadcrumbList (auto)` — 1
 - `Course` — 3
 - `FAQPage` — 1

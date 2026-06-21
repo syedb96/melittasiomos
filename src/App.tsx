@@ -197,6 +197,8 @@ import CmsBlogGenerator from "./pages/admin/cms/CmsBlogGenerator";
 import CmsSchedule from "./pages/admin/cms/CmsSchedule";
 import CmsDashboardHome from "./pages/admin/cms/CmsDashboardHome";
 import CmsWixSettings from "./pages/admin/cms/CmsWixSettings";
+import SystemAudit from "./pages/admin/SystemAudit";
+import PagesRegistry from "./pages/admin/PagesRegistry";
 
 import FreeTaster from "./pages/FreeTaster";
 import WhyPuraNights from "./pages/WhyPuraNights";
@@ -405,6 +407,8 @@ const App = () => (
             <Route path="/admin/analytics" element={<ProtectedRoute requireAdmin><AnalyticsAdmin /></ProtectedRoute>} />
             <Route path="/admin/tracking-qa" element={<ProtectedRoute requireAdmin><TrackingQA /></ProtectedRoute>} />
             <Route path="/admin/security-events" element={<ProtectedRoute requireAdmin><SecurityEvents /></ProtectedRoute>} />
+            <Route path="/admin/system-audit" element={<ProtectedRoute requireAdmin><SystemAudit /></ProtectedRoute>} />
+            <Route path="/admin/pages-registry" element={<ProtectedRoute requireAdmin><PagesRegistry /></ProtectedRoute>} />
 
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
