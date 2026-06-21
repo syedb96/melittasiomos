@@ -25,9 +25,9 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const PRICE_RE = /<Price\s+[^>]*slug=["']([^"']+)["']/g;
-const BOOKING_RE = /<BookingLink\s+[^>]*slug=["']([^"']+)["']/g;
-const VENUE_RE = /<VenueDetails\s+[^>]*slug=["']([^"']+)["']/g;
+const PRICE_RE = /<Price\b[^>]*?\bslug=["']([^"']+)["']/gs;
+const BOOKING_RE = /<BookingLink\b[^>]*?\bslug=["']([^"']+)["']/gs;
+const VENUE_RE = /<VenueDetails\b[^>]*?\bslug=["']([^"']+)["']/gs;
 
 interface Hit {
   slug: string;
@@ -49,14 +49,11 @@ const walk = (dir: string, out: string[] = []): string[] => {
 const scan = (file: string, re: RegExp): Hit[] => {
   const src = readFileSync(file, "utf8");
   const hits: Hit[] = [];
-  const lines = src.split("\n");
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const local = new RegExp(re.source, "g");
-    let m: RegExpExecArray | null;
-    while ((m = local.exec(line)) !== null) {
-      hits.push({ slug: m[1], file, line: i + 1 });
-    }
+  const local = new RegExp(re.source, re.flags);
+  let m: RegExpExecArray | null;
+  while ((m = local.exec(src)) !== null) {
+    const line = src.slice(0, m.index).split("\n").length;
+    hits.push({ slug: m[1], file, line });
   }
   return hits;
 };
