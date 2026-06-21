@@ -120,3 +120,17 @@ New script: `scripts/commerce-slug-lint.ts` (run with `bun scripts/commerce-slug
 - Venue address, transport, parking, accessibility copy on `/venue/*` pages — content lives in `commerce_venues` rows but the page bodies still hardcode the equivalent prose. A `<VenueDetails slug="…">` primitive would close this loop.
 - Header navigation `dropdown.path` for "Book a Class" remains a literal URL because the menu is a static config consumed at module load; switching to async resolution would over-engineer a stable single reference. Acceptable.
 
+
+---
+
+## Sprint follow-up — 2026-06-21 (venue-content swap)
+
+Closed the final outstanding swap on `/venue/*` pages and flipped Commerce → Venues to **live**.
+
+- New primitive: `<VenueDetails slug=… fallback={...} waSource=…>` in `src/components/commerce/CommercePrimitives.tsx`. Renders the right-column "Venue Details" card (address, transport, parking, accessibility, WhatsApp CTA) from `commerce_venues`, with a `fallback` prop for SSR-safe first paint.
+- Populated `transport_html`, `parking_html`, `accessibility_html` on both venue rows (`the-george-iv-chiswick`, `the-drayton-court-ealing`) to match current page copy.
+- Swapped the hardcoded "Venue Details" card in `src/pages/venue/TheGeorgeIVChiswick.tsx` and `src/pages/venue/TheDraytonCourtEaling.tsx` to `<VenueDetails />`.
+- Linter extended: `scripts/commerce-slug-lint.ts` now also scans `<VenueDetails slug="…">` and queries `commerce_venues`. Regexes rewritten to be multi-line tolerant. Current run: 41 prices + 9 booking links + 2 venues = 52 slugs, 0 broken refs.
+- `src/admin/moduleRegistry.ts` — Venues marked `status: "live"` with note pointing at the primitive.
+
+Still intentionally out of scope (documented above): `SeoHead.tsx` `priceRange` JSON-LD literal, `LocalTransportBlock` row data on venue pages (rich travel breakdowns kept in-page for editorial control), and Header nav dropdown URL.
