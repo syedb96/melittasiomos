@@ -1636,19 +1636,28 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      can_edit_content: { Args: { _user_id: string }; Returns: boolean }
+      can_edit_content:
+        | { Args: never; Returns: boolean }
+        | { Args: { _user_id: string }; Returns: boolean }
       cms_page_freshness: {
         Args: { _published_at: string; _review_date: string }
         Returns: string
       }
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
-      is_admin: { Args: { _user_id: string }; Returns: boolean }
+      has_role:
+        | {
+            Args: { _role: Database["public"]["Enums"]["app_role"] }
+            Returns: boolean
+          }
+        | {
+            Args: {
+              _role: Database["public"]["Enums"]["app_role"]
+              _user_id: string
+            }
+            Returns: boolean
+          }
+      is_admin:
+        | { Args: never; Returns: boolean }
+        | { Args: { _user_id: string }; Returns: boolean }
       provision_my_profile: {
         Args: never
         Returns: Database["public"]["Enums"]["app_role"]
