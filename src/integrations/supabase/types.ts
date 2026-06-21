@@ -1305,6 +1305,45 @@ export type Database = {
         }
         Relationships: []
       }
+      forms_config: {
+        Row: {
+          created_at: string
+          description: string | null
+          fields: Json
+          id: string
+          is_active: boolean
+          name: string
+          slug: string
+          submit_label: string
+          success_message: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          fields?: Json
+          id?: string
+          is_active?: boolean
+          name: string
+          slug: string
+          submit_label?: string
+          success_message?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          fields?: Json
+          id?: string
+          is_active?: boolean
+          name?: string
+          slug?: string
+          submit_label?: string
+          success_message?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       free_taster_leads: {
         Row: {
           created_at: string
@@ -1450,6 +1489,104 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      notification_log: {
+        Row: {
+          created_at: string
+          enquiry_type: string | null
+          error_message: string | null
+          form_slug: string
+          id: string
+          is_test: boolean
+          metadata: Json
+          recipient_email: string
+          route_id: string | null
+          status: string
+          submission_id: string | null
+          template_name: string
+        }
+        Insert: {
+          created_at?: string
+          enquiry_type?: string | null
+          error_message?: string | null
+          form_slug: string
+          id?: string
+          is_test?: boolean
+          metadata?: Json
+          recipient_email: string
+          route_id?: string | null
+          status?: string
+          submission_id?: string | null
+          template_name: string
+        }
+        Update: {
+          created_at?: string
+          enquiry_type?: string | null
+          error_message?: string | null
+          form_slug?: string
+          id?: string
+          is_test?: boolean
+          metadata?: Json
+          recipient_email?: string
+          route_id?: string | null
+          status?: string
+          submission_id?: string | null
+          template_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notification_log_route_id_fkey"
+            columns: ["route_id"]
+            isOneToOne: false
+            referencedRelation: "notification_routes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notification_routes: {
+        Row: {
+          cc_emails: string[]
+          created_at: string
+          enquiry_type: string | null
+          escalation_minutes: number
+          form_slug: string
+          id: string
+          is_active: boolean
+          recipient_email: string
+          send_user_confirmation: boolean
+          template_name: string
+          updated_at: string
+          user_confirmation_template: string
+        }
+        Insert: {
+          cc_emails?: string[]
+          created_at?: string
+          enquiry_type?: string | null
+          escalation_minutes?: number
+          form_slug: string
+          id?: string
+          is_active?: boolean
+          recipient_email: string
+          send_user_confirmation?: boolean
+          template_name?: string
+          updated_at?: string
+          user_confirmation_template?: string
+        }
+        Update: {
+          cc_emails?: string[]
+          created_at?: string
+          enquiry_type?: string | null
+          escalation_minutes?: number
+          form_slug?: string
+          id?: string
+          is_active?: boolean
+          recipient_email?: string
+          send_user_confirmation?: boolean
+          template_name?: string
+          updated_at?: string
+          user_confirmation_template?: string
+        }
+        Relationships: []
       }
       page_views: {
         Row: {
