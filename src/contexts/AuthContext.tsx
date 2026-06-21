@@ -1,19 +1,36 @@
-import { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, useCallback, ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import type { User, Session } from "@supabase/supabase-js";
 import { logAudit } from "@/lib/audit";
 
-type AppRole = "owner" | "admin" | "editor" | "viewer" | null;
+export type AppRole = "owner" | "admin" | "editor" | "viewer" | null;
+
+/**
+ * Auth status discriminator — protected routes branch on this rather than
+ * inspecting flags individually, so we never show "Access Not Granted" while
+ * the profile request is still in flight.
+ */
+export type AuthStatus =
+  | "loadingSession"
+  | "unauthenticated"
+  | "loadingProfile"
+  | "provisioningError"
+  | "authorised"     // signed in + privileged role resolved
+  | "unauthorised";  // signed in + role resolved but not privileged
 
 interface AuthContextType {
   user: User | null;
   session: Session | null;
   role: AppRole;
-  loading: boolean;
+  status: AuthStatus;
+  loading: boolean;            // legacy: true while session OR profile is loading
+  profileError: string | null;
   signInWithGoogle: () => Promise<void>;
   signInWithApple: () => Promise<void>;
   signOut: () => Promise<void>;
+  retryProfile: () => Promise<void>;
+  isOwner: boolean;
   isAdmin: boolean;
   canEdit: boolean;
 }
@@ -26,26 +43,82 @@ export const useAuth = () => {
   return ctx;
 };
 
+const PRIVILEGED_ROLES: AppRole[] = ["owner", "admin"];
+const EDITOR_ROLES: AppRole[] = ["owner", "admin", "editor"];
+
+const debug = (...args: unknown[]) => {
+  if (import.meta.env.DEV) console.debug("[auth]", ...args);
+};
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [role, setRole] = useState<AppRole>(null);
-  const [loading, setLoading] = useState(true);
+  const [loadingSession, setLoadingSession] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(false);
+  const [profileError, setProfileError] = useState<string | null>(null);
   const loggedSignInFor = useRef<string | null>(null);
+  const profileRequestSeq = useRef(0);
 
-  const fetchRole = async (userId: string, attempt = 0) => {
-    const { data } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("user_id", userId)
-      .maybeSingle();
-    const r = (data?.role as AppRole) ?? null;
-    if (!r && attempt < 5) {
-      setTimeout(() => fetchRole(userId, attempt + 1), 600);
-      return;
+  /**
+   * Resolve the signed-in user's role via:
+   *   1. profiles row read
+   *   2. if missing → server-side provision_my_profile() RPC (idempotent, uses approved_admin_emails)
+   *   3. profiles row re-read
+   *
+   * Bounded retry (~6s wall clock) handles the brief window where the
+   * handle_new_user trigger has not yet committed the row.
+   */
+  const resolveProfile = useCallback(async (u: User) => {
+    const seq = ++profileRequestSeq.current;
+    setLoadingProfile(true);
+    setProfileError(null);
+
+    const readRole = async () => {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("role, email")
+        .eq("user_id", u.id)
+        .maybeSingle();
+      if (error && error.code !== "PGRST116") throw error;
+      return (data?.role as AppRole) ?? null;
+    };
+
+    try {
+      // 1) initial read with short retry loop in case the trigger is still mid-commit
+      let resolved: AppRole = null;
+      for (let attempt = 0; attempt < 4; attempt++) {
+        resolved = await readRole();
+        if (resolved) break;
+        await new Promise((r) => setTimeout(r, 300 * (attempt + 1)));
+      }
+
+      // 2) still missing → ask the server to provision based on approved_admin_emails
+      if (!resolved) {
+        debug("profile missing, calling provision_my_profile()", { uid: u.id, email: u.email });
+        const { data: rpcRole, error: rpcErr } = await supabase.rpc("provision_my_profile");
+        if (rpcErr) throw rpcErr;
+        resolved = (rpcRole as AppRole) ?? null;
+        // 3) re-read to confirm RLS-visible row
+        if (resolved) {
+          const reread = await readRole();
+          resolved = reread ?? resolved;
+        }
+      }
+
+      if (seq !== profileRequestSeq.current) return; // a newer request superseded us
+      debug("profile resolved", { uid: u.id, email: u.email, role: resolved });
+      setRole(resolved);
+    } catch (e) {
+      if (seq !== profileRequestSeq.current) return;
+      const msg = (e as Error).message ?? "Unknown profile error";
+      debug("profile error", msg);
+      setProfileError(msg);
+      setRole(null);
+    } finally {
+      if (seq === profileRequestSeq.current) setLoadingProfile(false);
     }
-    setRole(r);
-  };
+  }, []);
 
   const recordSignIn = (u: User) => {
     if (loggedSignInFor.current === u.id) return;
@@ -62,48 +135,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
+    let mounted = true;
+
     supabase.auth.getSession().then(({ data: { session: s } }) => {
+      if (!mounted) return;
       setSession(s);
       setUser(s?.user ?? null);
+      setLoadingSession(false);
       if (s?.user) {
-        fetchRole(s.user.id);
+        resolveProfile(s.user);
         recordSignIn(s.user);
       }
-      setLoading(false);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, s) => {
+      if (!mounted) return;
       setSession(s);
       setUser(s?.user ?? null);
+      setLoadingSession(false);
       if (s?.user) {
-        fetchRole(s.user.id);
+        // Fire-and-forget; resolveProfile manages its own loading state.
+        resolveProfile(s.user);
         if (event === "SIGNED_IN") recordSignIn(s.user);
       } else {
         setRole(null);
+        setProfileError(null);
         loggedSignInFor.current = null;
       }
-      setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
-  }, []);
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, [resolveProfile]);
 
   const signInWithGoogle = async () => {
-    await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: `${window.location.origin}/admin`,
-    });
+    await lovable.auth.signInWithOAuth("google", { redirect_uri: `${window.location.origin}/admin` });
   };
 
   const signInWithApple = async () => {
-    await lovable.auth.signInWithOAuth("apple", {
-      redirect_uri: `${window.location.origin}/admin`,
-    });
+    await lovable.auth.signInWithOAuth("apple", { redirect_uri: `${window.location.origin}/admin` });
   };
 
   const signOut = async () => {
-    // Best-effort audit log BEFORE we tear down the session — RLS needs auth.uid().
     if (user) {
       await logAudit({
         action: "sign_out",
@@ -116,18 +193,46 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     setSession(null);
     setRole(null);
+    setProfileError(null);
     loggedSignInFor.current = null;
   };
 
-  const isAdmin = role === "owner" || role === "admin";
-  const canEdit = role === "owner" || role === "admin" || role === "editor";
+  const retryProfile = useCallback(async () => {
+    if (user) await resolveProfile(user);
+  }, [user, resolveProfile]);
+
+  const isOwner = role === "owner";
+  const isAdmin = PRIVILEGED_ROLES.includes(role);
+  const canEdit = EDITOR_ROLES.includes(role);
+
+  let status: AuthStatus = "loadingSession";
+  if (!loadingSession) {
+    if (!user) status = "unauthenticated";
+    else if (loadingProfile) status = "loadingProfile";
+    else if (profileError) status = "provisioningError";
+    else if (isAdmin || canEdit) status = "authorised";
+    else status = "unauthorised";
+  }
 
   return (
     <AuthContext.Provider
-      value={{ user, session, role, loading, signInWithGoogle, signInWithApple, signOut, isAdmin, canEdit }}
+      value={{
+        user,
+        session,
+        role,
+        status,
+        loading: loadingSession || loadingProfile,
+        profileError,
+        signInWithGoogle,
+        signInWithApple,
+        signOut,
+        retryProfile,
+        isOwner,
+        isAdmin,
+        canEdit,
+      }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
-
