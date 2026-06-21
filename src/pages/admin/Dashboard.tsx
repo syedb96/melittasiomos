@@ -236,27 +236,6 @@ const Dashboard = () => {
     loadEnquiries();
   }, [loadEnquiries]);
 
-  // Realtime — refresh counts and respective panels when underlying rows change
-  useEffect(() => {
-    const channel = supabase
-      .channel("admin-dashboard")
-      .on("postgres_changes", { event: "*", schema: "public", table: "enquiries" }, () => {
-        loadStats();
-        loadEnquiries();
-      })
-      .on("postgres_changes", { event: "*", schema: "public", table: "cms_pages" }, () => {
-        loadStats();
-        loadPages();
-      })
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "admin_audit_log" }, () => {
-        loadStats();
-      })
-      .subscribe();
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [loadStats, loadPages, loadEnquiries]);
-
   // Reset pagination when the date window changes
   useEffect(() => {
     setPagesPage(0);
