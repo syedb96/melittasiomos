@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SeoHead from "@/components/SeoHead";
 import RelatedPages from "@/components/RelatedPages";
 import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: dance-classes-ealing -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay + hero image -->
@@ -79,7 +80,7 @@ const DanceClassesEaling = () => (
             </div>
             <div className="bg-secondary/30 rounded-lg p-4 text-sm text-muted-foreground mb-4">
               <p className="font-semibold mb-1">💷 Pricing</p>
-              <p>£15 — 2 classes + social · £10 — 1 class · £5 — social only</p>
+              <p><Price slug="combined-class-social" fallback="£15" showPrevious={false} /> — 2 classes + social · <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> — 1 class · <Price slug="social-only" fallback="£5" showPrevious={false} /> — social only</p>
             </div>
             <div className="space-y-1.5 text-xs text-muted-foreground">
               <p className="flex items-center gap-2"><Train size={12} className="text-peach" /> West Ealing (Elizabeth Line) — 3-minute walk</p>

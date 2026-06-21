@@ -15,6 +15,7 @@ import { REVIEW_VELOCITY_SNIPPETS } from "@/data/review-velocity";
 import heroImg from "@/assets/salsa-chiswick.jpg";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
 import FirstClassLeadMagnet from "@/components/FirstClassLeadMagnet";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 // Recurring class page — NO Event schema. FAQPage + DanceSchool only.
 const chiswickFaqs = [
@@ -131,7 +132,7 @@ const SalsaClassesChiswick = () => (
             <div className="flex items-center gap-3"><Clock size={16} className="text-primary" /><span className="font-heading font-semibold">9:00–11:00 PM</span> — Open social dancing (50/50 Salsa & Bachata)</div>
           </div>
           <div className="mt-6 pt-6 border-t border-border text-sm text-muted-foreground space-y-1">
-            <p>💷 From £5 (social only) · £10 (1 class) · £15 (2 classes + social)</p>
+            <p>💷 From <Price slug="social-only" fallback="£5" showPrevious={false} /> (social only) · <Price slug="drop-in-class" fallback="£10" showPrevious={false} /> (1 class) · <Price slug="combined-class-social" fallback="£15" showPrevious={false} /> (2 classes + social)</p>
             <p>👕 No dress code — wear what you can move in. Smooth-soled shoes help.</p>
             <p>💧 Bring water. The bar is open all night.</p>
           </div>
