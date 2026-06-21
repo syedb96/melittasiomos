@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import testimonials, { type Testimonial } from "@/data/testimonials";
 import { FadeInUp } from "./animations";
+import { BookingLink } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX SECTION: Student Stories — Repeater connected to Testimonials CMS.
      Wix replication: bind .review-card to the Testimonials collection,

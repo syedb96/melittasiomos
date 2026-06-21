@@ -10,6 +10,7 @@ import weddingImg from "@/assets/wedding-dance.jpg";
 import melittaImg from "@/assets/melitta-portrait-real.jpg";
 import socialImg from "@/assets/social-dancing.jpg";
 import { waCustom } from "@/lib/whatsapp";
+import { Price, BookingLink } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /gallery -->
    <!-- WIX SECTION: Hero Strip — dark with overlay -->
