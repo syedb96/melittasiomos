@@ -296,7 +296,9 @@ const CorporateDanceClassesLondon = () => (
             <p className="text-xs text-muted-foreground">Most corporate bookings confirm 4–8 weeks ahead. Hold a date with a quick enquiry — no obligation.</p>
           </div>
         </div>
-        <a href="#enquiry" className="btn-cta-primary text-xs whitespace-nowrap">Check availability →</a>
+        <ServiceGate slug="corporate" pausedFallback={null} showNotice={false}>
+          <a href="#enquiry" className="btn-cta-primary text-xs whitespace-nowrap">Check availability →</a>
+        </ServiceGate>
       </div>
     </section>
 
