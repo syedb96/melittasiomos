@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T00:26:26.108Z",
+  "generatedAt": "2026-06-21T00:29:58.089Z",
   "publicRoutes": [
     {
       "path": "/",
@@ -701,6 +701,14 @@
     },
     {
       "path": "/admin/security-events",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/system-audit",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/pages-registry",
       "component": "ProtectedRoute"
     },
     {
