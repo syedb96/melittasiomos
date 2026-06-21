@@ -90,39 +90,16 @@ const TheGeorgeIVChiswick = () => (
 
           <StaggerItem>
             <FadeInUp delay={0.15}>
-              <div className="bg-card rounded-xl border border-border p-8 space-y-6">
-                <h3 className="text-xl font-semibold text-foreground">Venue Details</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Address</p>
-                      <p className="text-muted-foreground">185 Chiswick High Rd, London W4 2DR</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Train className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Nearest Station</p>
-                      <p className="text-muted-foreground">Turnham Green (District Line) — 5 min walk</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Car className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Parking</p>
-                      <p className="text-muted-foreground">Free on-street parking after 6:30pm on surrounding roads</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-foreground">Questions?</p>
-                      <a {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "TheGeorgeIVChiswick:119")} className="text-primary hover:underline">Message Melitta on WhatsApp</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <VenueDetails
+                slug="the-george-iv-chiswick"
+                fallback={{
+                  address: "185 Chiswick High Rd, London W4 2DR",
+                  transport: "Turnham Green (District Line) — 5 min walk",
+                  parking: "Free on-street parking after 6:30pm on surrounding roads",
+                  accessibility: "Step-free from the street. Dance floor on ground level. Accessible toilet available.",
+                }}
+                waSource="TheGeorgeIVChiswick:VenueDetails"
+              />
             </FadeInUp>
           </StaggerItem>
         </StaggerContainer>
