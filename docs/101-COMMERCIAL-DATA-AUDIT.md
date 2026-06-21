@@ -82,3 +82,41 @@ The `<Price>` primitive lives in `src/components/commerce/CommercePrimitives.tsx
 2. **No mass public swap this sprint.** Will be done in a dedicated "public commerce consumption" sprint with a slug-existence linter to prevent typos.
 3. **Module registry notes updated** to reflect that public swap remains outstanding on venue pages, Header, Gallery and TestimonialsCarousel.
 4. **Security findings** for Realtime channel authorization and the public WhatsApp number have been acknowledged in `security-memory.md` with rationale (false positive + intentional respectively).
+
+---
+
+## Sprint follow-up — 2026-06-21 (public consumption swap)
+
+Closed the outstanding swaps identified above.
+
+| File | Was | Now |
+|---|---|---|
+| `src/pages/venue/TheGeorgeIVChiswick.tsx` | Literal `£15 / £10 / £5` cards, bundle line, two Ticket Tailor `<a>` CTAs | `<Price slug="combined-class-social\|drop-in-class\|social-only">`, `<Price slug="chiswick-bundle-5\|chiswick-bundle-10\|chiswick-membership">`, `<BookingLink slug="tickettailor-puranights">` |
+| `src/pages/venue/TheDraytonCourtEaling.tsx` | Same literals for Ealing pricing + bundles + Ticket Tailor `<a>` | `<Price>` (Ealing slugs) + `<BookingLink slug="tickettailor-puranights">` |
+| `src/components/Header.tsx` | Desktop + mobile Ticket Tailor `<a>` buttons | `<BookingLink slug="tickettailor-puranights">` × 2 (nav dropdown entry intentionally left as static config) |
+| `src/pages/Gallery.tsx` | "From £10 a class" literal + two Ticket Tailor `<a>` buttons | `<Price slug="drop-in-class">` + `<BookingLink slug="tickettailor-puranights">` × 2 |
+| `src/components/TestimonialsCarousel.tsx` | Footer Ticket Tailor `<a>` | `<BookingLink slug="tickettailor-puranights">` |
+
+New canonical booking link added to `commerce_booking_links`:
+- `tickettailor-puranights` (kind `ticket_tailor`) — the single source of truth for every public Book-Now CTA.
+
+Every refactored call site passes `fallbackHref="https://www.tickettailor.com/events/puranights"` so first-paint behaviour is identical to the prior hardcoded link. The DB-resolved URL takes over within the same tick.
+
+### Slug-existence linter
+
+New script: `scripts/commerce-slug-lint.ts` (run with `bun scripts/commerce-slug-lint.ts`).
+
+- Scans every `.ts/.tsx/.js/.jsx/.mdx` file under `src/` for `<Price slug="…">` and `<BookingLink slug="…">` occurrences.
+- Queries `commerce_prices` and `commerce_booking_links` and asserts every referenced slug exists with `is_active = true`.
+- Exits non-zero on any miss — wire into CI alongside the existing alt-text, SEO and schema linters.
+
+### Module registry
+
+`src/admin/moduleRegistry.ts` Commerce section: Prices, Offers, Schedule, Booking Links → **live**. Venues remains **partial** (admin live, but venue-page address/transport/accessibility blocks are still hardcoded — separate venue-content swap planned, intentionally out of scope this sprint).
+
+### Out of scope (logged for a future sprint)
+
+- `SeoHead.tsx` line 55 — `priceRange: "£5–£120"` JSON-LD literal. Will be derived from `commerce_prices` min/max once an SSR-safe pattern is in place.
+- Venue address, transport, parking, accessibility copy on `/venue/*` pages — content lives in `commerce_venues` rows but the page bodies still hardcode the equivalent prose. A `<VenueDetails slug="…">` primitive would close this loop.
+- Header navigation `dropdown.path` for "Book a Class" remains a literal URL because the menu is a static config consumed at module load; switching to async resolution would over-engineer a stable single reference. Acceptable.
+
