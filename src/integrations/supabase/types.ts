@@ -1088,13 +1088,18 @@ export type Database = {
       enquiries: {
         Row: {
           assigned_to: string | null
+          closed_at: string | null
           created_at: string
+          due_at: string | null
           email: string
+          first_response_at: string | null
           id: string
           message: string
           name: string
           notes: string | null
           phone: string | null
+          priority: string
+          replied_at: string | null
           source_page: string | null
           status: string
           subject: string
@@ -1102,13 +1107,18 @@ export type Database = {
         }
         Insert: {
           assigned_to?: string | null
+          closed_at?: string | null
           created_at?: string
+          due_at?: string | null
           email: string
+          first_response_at?: string | null
           id?: string
           message: string
           name: string
           notes?: string | null
           phone?: string | null
+          priority?: string
+          replied_at?: string | null
           source_page?: string | null
           status?: string
           subject: string
@@ -1116,19 +1126,65 @@ export type Database = {
         }
         Update: {
           assigned_to?: string | null
+          closed_at?: string | null
           created_at?: string
+          due_at?: string | null
           email?: string
+          first_response_at?: string | null
           id?: string
           message?: string
           name?: string
           notes?: string | null
           phone?: string | null
+          priority?: string
+          replied_at?: string | null
           source_page?: string | null
           status?: string
           subject?: string
           updated_at?: string
         }
         Relationships: []
+      }
+      enquiry_notes: {
+        Row: {
+          author_email: string | null
+          author_id: string | null
+          content: string
+          created_at: string
+          enquiry_id: string
+          id: string
+          kind: string
+          pinned: boolean
+        }
+        Insert: {
+          author_email?: string | null
+          author_id?: string | null
+          content: string
+          created_at?: string
+          enquiry_id: string
+          id?: string
+          kind?: string
+          pinned?: boolean
+        }
+        Update: {
+          author_email?: string | null
+          author_id?: string | null
+          content?: string
+          created_at?: string
+          enquiry_id?: string
+          id?: string
+          kind?: string
+          pinned?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "enquiry_notes_enquiry_id_fkey"
+            columns: ["enquiry_id"]
+            isOneToOne: false
+            referencedRelation: "enquiries"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       events: {
         Row: {
@@ -1477,6 +1533,39 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_broken_links: {
+        Row: {
+          error_type: string | null
+          first_seen_at: string
+          found_on: string | null
+          id: string
+          last_checked_at: string
+          resolved_at: string | null
+          status_code: number | null
+          url: string
+        }
+        Insert: {
+          error_type?: string | null
+          first_seen_at?: string
+          found_on?: string | null
+          id?: string
+          last_checked_at?: string
+          resolved_at?: string | null
+          status_code?: number | null
+          url: string
+        }
+        Update: {
+          error_type?: string | null
+          first_seen_at?: string
+          found_on?: string | null
+          id?: string
+          last_checked_at?: string
+          resolved_at?: string | null
+          status_code?: number | null
+          url?: string
+        }
+        Relationships: []
+      }
       seo_gsc_daily: {
         Row: {
           captured_at: string
@@ -1513,6 +1602,75 @@ export type Database = {
           position?: number
           site?: string
           submitted_pages?: number | null
+        }
+        Relationships: []
+      }
+      seo_keyword_tracking: {
+        Row: {
+          baseline_position: number | null
+          created_at: string
+          current_position: number | null
+          database: string
+          id: string
+          is_active: boolean
+          keyword: string
+          last_checked_at: string | null
+          notes: string | null
+          target_url: string
+          updated_at: string
+        }
+        Insert: {
+          baseline_position?: number | null
+          created_at?: string
+          current_position?: number | null
+          database?: string
+          id?: string
+          is_active?: boolean
+          keyword: string
+          last_checked_at?: string | null
+          notes?: string | null
+          target_url: string
+          updated_at?: string
+        }
+        Update: {
+          baseline_position?: number | null
+          created_at?: string
+          current_position?: number | null
+          database?: string
+          id?: string
+          is_active?: boolean
+          keyword?: string
+          last_checked_at?: string | null
+          notes?: string | null
+          target_url?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      seo_schema_snapshots: {
+        Row: {
+          changed_from_previous: boolean
+          checked_at: string
+          id: string
+          schema_hash: string
+          schema_json: Json | null
+          url: string
+        }
+        Insert: {
+          changed_from_previous?: boolean
+          checked_at?: string
+          id?: string
+          schema_hash: string
+          schema_json?: Json | null
+          url: string
+        }
+        Update: {
+          changed_from_previous?: boolean
+          checked_at?: string
+          id?: string
+          schema_hash?: string
+          schema_json?: Json | null
+          url?: string
         }
         Relationships: []
       }
@@ -1558,6 +1716,39 @@ export type Database = {
           submitted?: number | null
           urls?: Json
           warnings?: number | null
+        }
+        Relationships: []
+      }
+      seo_weekly_digests: {
+        Row: {
+          alerts_count: number
+          broken_links_count: number
+          freshness_outdated_count: number
+          generated_at: string
+          id: string
+          metrics: Json
+          schema_drift_count: number
+          week_start: string
+        }
+        Insert: {
+          alerts_count?: number
+          broken_links_count?: number
+          freshness_outdated_count?: number
+          generated_at?: string
+          id?: string
+          metrics?: Json
+          schema_drift_count?: number
+          week_start: string
+        }
+        Update: {
+          alerts_count?: number
+          broken_links_count?: number
+          freshness_outdated_count?: number
+          generated_at?: string
+          id?: string
+          metrics?: Json
+          schema_drift_count?: number
+          week_start?: string
         }
         Relationships: []
       }
@@ -1638,13 +1829,22 @@ export type Database = {
           image_url: string | null
           is_featured: boolean
           is_published: boolean
+          moderated_at: string | null
+          moderated_by: string | null
+          moderation_note: string | null
+          moderation_status: string
           person_name: string
           platform: string
           quote: string
           rating: number | null
+          rotation_rank: number
           source_type: string | null
           source_url: string | null
+          submitted_at: string | null
+          submitted_by_email: string | null
+          submitted_by_name: string | null
           updated_at: string
+          verified_at: string | null
         }
         Insert: {
           context_label?: string | null
@@ -1653,13 +1853,22 @@ export type Database = {
           image_url?: string | null
           is_featured?: boolean
           is_published?: boolean
+          moderated_at?: string | null
+          moderated_by?: string | null
+          moderation_note?: string | null
+          moderation_status?: string
           person_name: string
           platform?: string
           quote: string
           rating?: number | null
+          rotation_rank?: number
           source_type?: string | null
           source_url?: string | null
+          submitted_at?: string | null
+          submitted_by_email?: string | null
+          submitted_by_name?: string | null
           updated_at?: string
+          verified_at?: string | null
         }
         Update: {
           context_label?: string | null
@@ -1668,13 +1877,22 @@ export type Database = {
           image_url?: string | null
           is_featured?: boolean
           is_published?: boolean
+          moderated_at?: string | null
+          moderated_by?: string | null
+          moderation_note?: string | null
+          moderation_status?: string
           person_name?: string
           platform?: string
           quote?: string
           rating?: number | null
+          rotation_rank?: number
           source_type?: string | null
           source_url?: string | null
+          submitted_at?: string | null
+          submitted_by_email?: string | null
+          submitted_by_name?: string | null
           updated_at?: string
+          verified_at?: string | null
         }
         Relationships: []
       }
@@ -1688,6 +1906,10 @@ export type Database = {
         | { Args: { _user_id: string }; Returns: boolean }
       cms_page_freshness: {
         Args: { _published_at: string; _review_date: string }
+        Returns: string
+      }
+      compute_enquiry_due_at: {
+        Args: { _priority: string; _subject: string }
         Returns: string
       }
       has_role:
