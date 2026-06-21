@@ -12,7 +12,7 @@ import {
 import routesJson from "@/admin/generated/routes.json";
 import { CheckCircle2, AlertCircle, Circle, ShieldCheck, ShieldAlert } from "lucide-react";
 
-const OWNER_EMAIL = "syedbiz96@gmail.com";
+const OWNER_EMAILS = ["syedbiz96@gmail.com", "puranights@gmail.com"];
 
 interface TableHealth { table: string; count: number | null; error?: string }
 
@@ -21,7 +21,7 @@ const STATUS_WEIGHT: Record<ModuleStatus, number> = { live: 1, partial: 0.5, pla
 const SystemAudit = () => {
   const { user, role } = useAuth();
   const [tableHealth, setTableHealth] = useState<TableHealth[]>([]);
-  const [ownerCheck, setOwnerCheck] = useState<{ found: boolean; role?: string; approved?: boolean } | null>(null);
+  const [ownerChecks, setOwnerChecks] = useState<Array<{ email: string; found: boolean; role?: string; approved?: boolean }>>([]);
   const [approvedCount, setApprovedCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -36,21 +36,25 @@ const SystemAudit = () => {
       );
       setTableHealth(counts);
 
-      const { data: prof } = await supabase
-        .from("profiles")
-        .select("role, email")
-        .eq("email", OWNER_EMAIL)
-        .maybeSingle();
-      const { data: approved } = await supabase
-        .from("approved_admin_emails")
-        .select("default_role, is_active")
-        .eq("email", OWNER_EMAIL)
-        .maybeSingle();
-      setOwnerCheck({
-        found: !!prof,
-        role: prof?.role,
-        approved: !!approved && approved.is_active,
-      });
+      const checks = await Promise.all(OWNER_EMAILS.map(async (email) => {
+        const { data: prof } = await supabase
+          .from("profiles")
+          .select("role, email")
+          .eq("email", email)
+          .maybeSingle();
+        const { data: approved } = await supabase
+          .from("approved_admin_emails")
+          .select("default_role, is_active")
+          .eq("email", email)
+          .maybeSingle();
+        return {
+          email,
+          found: !!prof,
+          role: prof?.role,
+          approved: !!approved && approved.is_active && approved.default_role === "owner",
+        };
+      }));
+      setOwnerChecks(checks);
 
       const { count: ac } = await supabase
         .from("approved_admin_emails")
@@ -114,18 +118,20 @@ const SystemAudit = () => {
       <section className="mb-8">
         <h2 className="font-display text-xl font-bold mb-3">Owner & role verification</h2>
         <div className="bg-card border border-border rounded-xl p-5 space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            {ownerCheck?.found && ownerCheck.role === "owner" ? (
-              <ShieldCheck className="text-emerald-500" size={16} />
-            ) : (
-              <ShieldAlert className="text-destructive" size={16} />
-            )}
-            <span className="font-heading">
-              {OWNER_EMAIL} →{" "}
-              <strong>{ownerCheck?.found ? ownerCheck.role : "not found"}</strong>
-              {ownerCheck?.approved ? " (approved & active)" : ""}
-            </span>
-          </div>
+          {ownerChecks.map((ownerCheck) => (
+            <div key={ownerCheck.email} className="flex items-center gap-2">
+              {ownerCheck.found && ownerCheck.role === "owner" && ownerCheck.approved ? (
+                <ShieldCheck className="text-emerald-500" size={16} />
+              ) : (
+                <ShieldAlert className="text-destructive" size={16} />
+              )}
+              <span className="font-heading">
+                {ownerCheck.email} →{" "}
+                <strong>{ownerCheck.found ? ownerCheck.role : "profile pending first sign-in"}</strong>
+                {ownerCheck.approved ? " (approved owner)" : ""}
+              </span>
+            </div>
+          ))}
           <div className="text-xs text-muted-foreground">
             Approved admin emails on file: <strong>{approvedCount ?? "—"}</strong>
           </div>
