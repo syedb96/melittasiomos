@@ -12,8 +12,15 @@ import heroImg from "@/assets/private-lesson.jpg";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
 
 const PRIVATE_WA = waCustom("Hi Melitta, I'd like to enquire about private dance lessons", "PrivateLessons:15").href;
+
+const PRIVATE_PAUSED = (
+  <div className="bg-muted border border-border rounded-lg px-4 py-3 text-sm text-muted-foreground max-w-md mx-auto">
+    Private lessons are temporarily fully booked. Email <a className="underline" href="mailto:siomosmelitta@gmail.com">siomosmelitta@gmail.com</a> to join the waitlist.
+  </div>
+);
 
 /* <!-- WIX PAGE: /private-lessons -->
    <!-- WIX SECTION: Hero — Full-width Strip with dark overlay -->
@@ -202,10 +209,12 @@ const PrivateLessons = () => (
         <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">No obligation · Free consultation</p>
         <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">Most students book after a 10-minute call</h3>
         <p className="text-muted-foreground text-sm mb-6 max-w-xl mx-auto">Melitta will ask about your goal, level and timeline, then send a tailored plan and quote. No pressure, no upsell.</p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={PRIVATE_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 WhatsApp Melitta</a>
-          <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-ghost text-sm">📧 Email instead</a>
-        </div>
+        <ServiceGate slug="private-lessons" pausedFallback={PRIVATE_PAUSED}>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={PRIVATE_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 WhatsApp Melitta</a>
+            <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-ghost text-sm">📧 Email instead</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
 
@@ -290,10 +299,12 @@ const PrivateLessons = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Fast-Track Your Dance Journey?</h2>
         <p className="text-charcoal/70 mb-8 max-w-xl mx-auto">Contact Melitta directly to discuss availability and rates. First consultation is always free.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a {...waCustom("Hi Melitta, I'd like to enquire about private dance lessons", "PrivateLessons:293")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
-          <a href="mailto:siomosmelitta@gmail.com" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
-        </div>
+        <ServiceGate slug="private-lessons" pausedFallback={PRIVATE_PAUSED}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a {...waCustom("Hi Melitta, I'd like to enquire about private dance lessons", "PrivateLessons:293")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
+            <a href="mailto:siomosmelitta@gmail.com" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
+          </div>
+        </ServiceGate>
         <p className="text-charcoal/60 text-sm mt-4 font-heading"><Phone size={14} className="inline mr-1" />Or call: 07449 482 343</p>
       </div>
     </section>

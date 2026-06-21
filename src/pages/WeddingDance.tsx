@@ -12,6 +12,13 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
+
+const WEDDING_PAUSED = (
+  <div className="bg-charcoal/10 border border-charcoal/20 rounded-lg px-4 py-3 text-sm text-charcoal/80 max-w-md mx-auto">
+    Wedding dance bookings are temporarily paused. Email <a className="underline" href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry">siomosmelitta@gmail.com</a> to be notified when they reopen.
+  </div>
+);
 
 /* <!-- WIX PAGE: /wedding-dance -->
    <!-- WIX SECTION: Hero — use Full-width Strip with dark overlay -->
@@ -69,10 +76,12 @@ const WeddingDance = () => (
           <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-4">Wedding Dance Made Easy</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">Your Perfect First Dance</h1>
           <p className="font-heading text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-6">Private choreography and coaching from London's award-winning instructor — elegant, fun, and completely tailored to you</p>
-          <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:71")} className="btn-cta-primary text-sm">Book Free Consultation</a>
-          <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
-            Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
-          </p>
+          <ServiceGate slug="wedding-dance" pausedFallback={WEDDING_PAUSED} showNotice={false}>
+            <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:71")} className="btn-cta-primary text-sm">Book Free Consultation</a>
+            <p className="mt-4 text-[11px] tracking-wide text-primary-foreground/70 font-accent">
+              Reply within 24h · Bookings open 12 weeks before your wedding · 100+ couples coached
+            </p>
+          </ServiceGate>
         </div>
       </div>
     </section>
@@ -312,10 +321,12 @@ const WeddingDance = () => (
       <div className="container-main">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Ready to Start Planning Your First Dance?</h2>
         <p className="text-charcoal/70 mb-8 max-w-lg mx-auto">Book a free 15-minute consultation with Melitta to discuss your song, vision, and timeline.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:315")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
-          <a href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
-        </div>
+        <ServiceGate slug="wedding-dance" pausedFallback={WEDDING_PAUSED}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a {...waCustom("Hi Melitta, I'd love to enquire about Wedding Dance coaching", "WeddingDance:315")} className="btn-cta-dark">💬 WhatsApp Melitta</a>
+            <a href="mailto:siomosmelitta@gmail.com?subject=Wedding%20Dance%20Enquiry" className="btn-cta bg-charcoal/10 text-charcoal border-2 border-charcoal/20 hover:bg-charcoal/20">📧 Email Melitta</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
   </Layout>

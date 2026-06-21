@@ -13,6 +13,13 @@ import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
+
+const CORPORATE_PAUSED = (
+  <div className="bg-charcoal/10 border border-charcoal/20 rounded-lg px-4 py-3 text-sm text-charcoal/80 max-w-md mx-auto">
+    Corporate bookings are temporarily paused. Email <a className="underline" href="mailto:siomosmelitta@gmail.com">siomosmelitta@gmail.com</a> with your date and team size and we'll be in touch.
+  </div>
+);
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
@@ -77,10 +84,12 @@ const CorporateDanceClassesLondon = () => (
             Team-building that gets people laughing, moving and connecting — without awkward icebreakers.
             Beginner-friendly Latin dance sessions led by Bachata UK Champion Melitta Siomos.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#enquiry" className="btn-cta-primary text-sm">Enquire for your team →</a>
-            <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:81")} className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
-          </div>
+          <ServiceGate slug="corporate" pausedFallback={CORPORATE_PAUSED}>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="#enquiry" className="btn-cta-primary text-sm">Enquire for your team →</a>
+              <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:81")} className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
+            </div>
+          </ServiceGate>
         </FadeInUp>
       </div>
     </section>
@@ -156,9 +165,11 @@ const CorporateDanceClassesLondon = () => (
         <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary">
           People Lead · 60-person tech offsite · Central London
         </p>
-        <div className="mt-8">
-          <a href="#enquiry" className="btn-cta-primary text-sm">Get a quote for your team →</a>
-        </div>
+        <ServiceGate slug="corporate" pausedFallback={CORPORATE_PAUSED} showNotice={false}>
+          <div className="mt-8">
+            <a href="#enquiry" className="btn-cta-primary text-sm">Get a quote for your team →</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
 
@@ -285,7 +296,9 @@ const CorporateDanceClassesLondon = () => (
             <p className="text-xs text-muted-foreground">Most corporate bookings confirm 4–8 weeks ahead. Hold a date with a quick enquiry — no obligation.</p>
           </div>
         </div>
-        <a href="#enquiry" className="btn-cta-primary text-xs whitespace-nowrap">Check availability →</a>
+        <ServiceGate slug="corporate" pausedFallback={null} showNotice={false}>
+          <a href="#enquiry" className="btn-cta-primary text-xs whitespace-nowrap">Check availability →</a>
+        </ServiceGate>
       </div>
     </section>
 
