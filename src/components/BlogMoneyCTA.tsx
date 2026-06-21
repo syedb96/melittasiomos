@@ -1,6 +1,8 @@
+import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { trackCta } from "@/lib/analytics";
 import { waCustom } from "@/lib/whatsapp";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /**
  * Reusable bottom-of-article money CTA for blog posts.
@@ -28,11 +30,13 @@ type Variant =
   | "online"
   | "events";
 
-const config: Record<Variant, { title: string; sub: string; to: string; label: string; cta: string }> = {
+const DropIn = () => <Price slug="drop-in" fallback="£10" showPrevious={false} />;
+
+const config: Record<Variant, { title: string; sub: ReactNode; to: string; label: string; cta: string }> = {
   beginner:  { title: "Ready to dance?",              sub: "Brand new to Latin dance? Start here — no partner needed.", to: "/start-here",                       label: "Start Here Guide →",        cta: "blog_money_cta_beginner" },
   classes:   { title: "Ready to dance?",              sub: "Drop in to Monday Chiswick or Tuesday Ealing. Beginners welcome every week.", to: "/pura-nights",        label: "See This Week's Classes →", cta: "blog_money_cta_classes" },
-  chiswick:  { title: "Dance in Chiswick this week",  sub: "Monday nights at The George IV. £10 drop-in. No booking, no partner.",       to: "/salsa-classes-chiswick", label: "See Chiswick Classes →", cta: "blog_money_cta_chiswick" },
-  ealing:    { title: "Dance in Ealing this week",    sub: "Tuesday nights at The Drayton Court. £10 drop-in. No booking, no partner.",  to: "/bachata-classes-ealing", label: "See Ealing Classes →",   cta: "blog_money_cta_ealing" },
+  chiswick:  { title: "Dance in Chiswick this week",  sub: <>Monday nights at The George IV. <DropIn /> drop-in. No booking, no partner.</>,       to: "/salsa-classes-chiswick", label: "See Chiswick Classes →", cta: "blog_money_cta_chiswick" },
+  ealing:    { title: "Dance in Ealing this week",    sub: <>Tuesday nights at The Drayton Court. <DropIn /> drop-in. No booking, no partner.</>,  to: "/bachata-classes-ealing", label: "See Ealing Classes →",   cta: "blog_money_cta_ealing" },
   wedding:   { title: "Planning your first dance?",   sub: "Free 15-min consultation with Melitta. Tailored to your song, venue and timeline.", to: "/wedding-dance",  label: "Wedding Dance Info →",   cta: "blog_money_cta_wedding" },
   corporate: { title: "Plan a team dance session",    sub: "Corporate workshops, Christmas parties and away days across London.",          to: "/corporate-dance-classes-london", label: "Corporate Enquiry →", cta: "blog_money_cta_corporate" },
   ladies:    { title: "Join Pura Ladies",             sub: "London's ladies styling and performance team. Auditions twice a year.",        to: "/pura-ladies",          label: "Pura Ladies Info →",     cta: "blog_money_cta_ladies" },
@@ -52,8 +56,6 @@ const BlogMoneyCTA = ({ variant = "classes" }: { variant?: Variant }) => {
         <Link to={c.to} onClick={() => trackCta(c.cta, `blog-money-cta:${variant}`)} className="btn-cta-primary text-sm">{c.label}</Link>
         <a
           {...waCustom("Hi Melitta, I'd like to get in touch about Pura Nights.", "BlogMoneyCTA:52")}
-         
-         
           onClick={() => trackCta("whatsapp_click", `blog-money-cta:${variant}`)}
           className="inline-flex items-center text-sm font-heading text-primary hover:underline px-4 py-2"
         >
