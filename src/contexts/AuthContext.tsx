@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       action: "sign_in",
       entity_type: "auth",
       entity_id: u.id,
-      entity_label: u.email ?? null ?? undefined,
+      entity_label: u.email ?? undefined,
       metadata: {
         provider: (u.app_metadata as { provider?: string } | undefined)?.provider ?? "email",
       },
