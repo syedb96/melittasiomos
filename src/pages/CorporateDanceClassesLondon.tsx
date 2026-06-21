@@ -165,9 +165,11 @@ const CorporateDanceClassesLondon = () => (
         <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary">
           People Lead · 60-person tech offsite · Central London
         </p>
-        <div className="mt-8">
-          <a href="#enquiry" className="btn-cta-primary text-sm">Get a quote for your team →</a>
-        </div>
+        <ServiceGate slug="corporate" pausedFallback={CORPORATE_PAUSED} showNotice={false}>
+          <div className="mt-8">
+            <a href="#enquiry" className="btn-cta-primary text-sm">Get a quote for your team →</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
 
