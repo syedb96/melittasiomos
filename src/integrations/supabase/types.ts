@@ -652,6 +652,13 @@ export type Database = {
             referencedRelation: "commerce_booking_links"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "commerce_offers_cta_link_id_fkey"
+            columns: ["cta_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links_public"
+            referencedColumns: ["id"]
+          },
         ]
       }
       commerce_prices: {
@@ -727,6 +734,13 @@ export type Database = {
             columns: ["booking_link_id"]
             isOneToOne: false
             referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "commerce_prices_booking_link_id_fkey"
+            columns: ["booking_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links_public"
             referencedColumns: ["id"]
           },
           {
@@ -850,6 +864,13 @@ export type Database = {
             columns: ["booking_link_id"]
             isOneToOne: false
             referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "commerce_schedule_slots_booking_link_id_fkey"
+            columns: ["booking_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links_public"
             referencedColumns: ["id"]
           },
           {
@@ -1585,9 +1606,51 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      commerce_booking_links_public: {
+        Row: {
+          created_at: string | null
+          id: string | null
+          is_active: boolean | null
+          kind: string | null
+          label: string | null
+          prefilled_message: string | null
+          slug: string | null
+          updated_at: string | null
+          url: string | null
+          usage_notes: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          kind?: string | null
+          label?: string | null
+          prefilled_message?: string | null
+          slug?: string | null
+          updated_at?: string | null
+          url?: string | null
+          usage_notes?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string | null
+          is_active?: boolean | null
+          kind?: string | null
+          label?: string | null
+          prefilled_message?: string | null
+          slug?: string | null
+          updated_at?: string | null
+          url?: string | null
+          usage_notes?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
+      admin_get_booking_link_owner_email: {
+        Args: { _id: string }
+        Returns: string
+      }
       can_edit_content: { Args: { _user_id: string }; Returns: boolean }
       has_role: {
         Args: {
