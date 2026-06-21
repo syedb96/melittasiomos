@@ -424,6 +424,7 @@ const App = () => (
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/pages/:id" element={<ProtectedRoute><CmsPageEditor /></ProtectedRoute>} />
+            <Route path="/admin/cms/preview/:id" element={<ProtectedRoute><CmsPagePreview /></ProtectedRoute>} />
             <Route path="/admin/cms/media" element={<ProtectedRoute><CmsMediaAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/navigation" element={<ProtectedRoute><CmsNavigationAdmin /></ProtectedRoute>} />
             <Route path="/admin/cms/redirects" element={<ProtectedRoute><CmsRedirectsAdmin /></ProtectedRoute>} />
