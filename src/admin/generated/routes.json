@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T09:28:05.216Z",
+  "generatedAt": "2026-06-21T09:55:09.430Z",
   "publicRoutes": [
     {
       "path": "/",
@@ -648,6 +648,10 @@
       "component": "ProtectedRoute"
     },
     {
+      "path": "/admin/control-centre",
+      "component": "ProtectedRoute"
+    },
+    {
       "path": "/admin/gallery",
       "component": "ProtectedRoute"
     },
@@ -697,6 +701,10 @@
     },
     {
       "path": "/admin/tracking-qa",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/security",
       "component": "ProtectedRoute"
     },
     {
