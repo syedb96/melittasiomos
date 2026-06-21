@@ -429,6 +429,7 @@ const App = () => (
             <Route path="/admin/commerce/prices" element={<ProtectedRoute requireAdmin><PricesAdmin /></ProtectedRoute>} />
             <Route path="/admin/commerce/schedule" element={<ProtectedRoute requireAdmin><ScheduleAdmin /></ProtectedRoute>} />
             <Route path="/admin/commerce/offers" element={<ProtectedRoute requireAdmin><OffersAdmin /></ProtectedRoute>} />
+            <Route path="/admin/commerce/services" element={<ProtectedRoute requireAdmin><ServicesAdmin /></ProtectedRoute>} />
 
             {/* CMS admin */}
             <Route path="/admin/cms/pages" element={<ProtectedRoute><CmsPagesAdmin /></ProtectedRoute>} />
