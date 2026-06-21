@@ -9,6 +9,7 @@ import NextEventCallout from "@/components/NextEventCallout";
 import { FadeInUp } from "@/components/animations";
 import { WA, trackWaClick } from "@/lib/whatsapp";
 import MembershipPathwayBlock from "@/components/MembershipPathwayBlock";
+import { Price } from "@/components/commerce/CommercePrimitives";
 
 /* <!-- WIX PAGE: /schedule -->
    <!-- WIX: Use Repeater or Table connected to Classes/Schedule CMS collection -->
@@ -156,12 +157,12 @@ const Schedule = () => (
           <h2 className="font-display text-3xl font-bold text-center mb-8">Quick Pricing</h2>
           <div className="grid sm:grid-cols-3 gap-6 text-center">
             {[
-              { price: "£15", label: "2 Classes + Social", note: "Best value" },
-              { price: "£10", label: "1 Class + Social", note: "Great for a taster" },
-              { price: "£5", label: "Social Only", note: "Dance all night" },
+              { slug: "combined-class-social", fallback: "£15", label: "2 Classes + Social", note: "Best value" },
+              { slug: "drop-in-class", fallback: "£10", label: "1 Class + Social", note: "Great for a taster" },
+              { slug: "social-only", fallback: "£5", label: "Social Only", note: "Dance all night" },
             ].map((p, i) => (
               <div key={i} className="bg-background rounded-xl p-6 border border-border">
-                <p className="font-display text-3xl font-bold text-primary mb-1">{p.price}</p>
+                <p className="font-display text-3xl font-bold text-primary mb-1"><Price slug={p.slug} fallback={p.fallback} showPrevious={false} /></p>
                 <p className="font-heading font-semibold text-sm mb-1">{p.label}</p>
                 <p className="text-xs text-muted-foreground">{p.note}</p>
               </div>
