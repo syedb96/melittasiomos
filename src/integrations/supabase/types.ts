@@ -956,6 +956,65 @@ export type Database = {
           },
         ]
       }
+      commerce_services: {
+        Row: {
+          availability: string
+          category: string
+          created_at: string
+          cta_label: string | null
+          default_booking_link_id: string | null
+          id: string
+          is_listed: boolean
+          name: string
+          pause_reason: string | null
+          public_notice: string | null
+          slug: string
+          sort_order: number
+          summary: string | null
+          updated_at: string
+        }
+        Insert: {
+          availability?: string
+          category?: string
+          created_at?: string
+          cta_label?: string | null
+          default_booking_link_id?: string | null
+          id?: string
+          is_listed?: boolean
+          name: string
+          pause_reason?: string | null
+          public_notice?: string | null
+          slug: string
+          sort_order?: number
+          summary?: string | null
+          updated_at?: string
+        }
+        Update: {
+          availability?: string
+          category?: string
+          created_at?: string
+          cta_label?: string | null
+          default_booking_link_id?: string | null
+          id?: string
+          is_listed?: boolean
+          name?: string
+          pause_reason?: string | null
+          public_notice?: string | null
+          slug?: string
+          sort_order?: number
+          summary?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "commerce_services_default_booking_link_id_fkey"
+            columns: ["default_booking_link_id"]
+            isOneToOne: false
+            referencedRelation: "commerce_booking_links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       commerce_venues: {
         Row: {
           accessibility_html: string | null
