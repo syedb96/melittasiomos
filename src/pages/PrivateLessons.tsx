@@ -209,10 +209,12 @@ const PrivateLessons = () => (
         <p className="font-accent text-[10px] tracking-[0.3em] uppercase text-primary mb-3">No obligation · Free consultation</p>
         <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">Most students book after a 10-minute call</h3>
         <p className="text-muted-foreground text-sm mb-6 max-w-xl mx-auto">Melitta will ask about your goal, level and timeline, then send a tailored plan and quote. No pressure, no upsell.</p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={PRIVATE_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 WhatsApp Melitta</a>
-          <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-ghost text-sm">📧 Email instead</a>
-        </div>
+        <ServiceGate slug="private-lessons" pausedFallback={PRIVATE_PAUSED}>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={PRIVATE_WA} target="_blank" rel="noopener noreferrer" className="btn-cta-primary text-sm">💬 WhatsApp Melitta</a>
+            <a href="mailto:siomosmelitta@gmail.com" className="btn-cta-ghost text-sm">📧 Email instead</a>
+          </div>
+        </ServiceGate>
       </div>
     </section>
 
