@@ -13,6 +13,13 @@ import WhoThisIsForBlock from "@/components/WhoThisIsForBlock";
 import NextStepServiceGrid from "@/components/NextStepServiceGrid";
 import ProofNudge from "@/components/ProofNudge";
 import { waCustom } from "@/lib/whatsapp";
+import { ServiceGate } from "@/components/commerce/CommercePrimitives";
+
+const CORPORATE_PAUSED = (
+  <div className="bg-charcoal/10 border border-charcoal/20 rounded-lg px-4 py-3 text-sm text-charcoal/80 max-w-md mx-auto">
+    Corporate bookings are temporarily paused. Email <a className="underline" href="mailto:siomosmelitta@gmail.com">siomosmelitta@gmail.com</a> with your date and team size and we'll be in touch.
+  </div>
+);
 
 const corporateFaqs = [
   { q: "Do people need any dance experience?", a: "No — every session is built for total beginners. Mixed-ability teams work best because the room laughs together and learns together." },
