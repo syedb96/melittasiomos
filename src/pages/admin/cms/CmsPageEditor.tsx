@@ -43,6 +43,7 @@ export default function CmsPageEditor() {
   const [mediaOpen, setMediaOpen] = useState(false);
   const [mediaCallback, setMediaCallback] = useState<((url: string) => void) | null>(null);
   const [versions, setVersions] = useState<any[]>([]);
+  const [restoredFromVersion, setRestoredFromVersion] = useState<number | null>(null);
 
   useEffect(() => {
     if (isNew) return;
