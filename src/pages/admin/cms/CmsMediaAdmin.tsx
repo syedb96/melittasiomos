@@ -125,7 +125,16 @@ export default function CmsMediaAdmin() {
           <DialogHeader><DialogTitle>Edit media</DialogTitle></DialogHeader>
           {edit && (
             <div className="space-y-3">
-              <img src={edit.thumbnail_url ?? edit.url} alt="" className="w-full max-h-64 object-contain rounded" />
+              <img
+                src={edit.thumbnail_url ?? edit.url}
+                alt={
+                  edit.alt_text?.trim() ||
+                  edit.title?.trim() ||
+                  edit.storage_path?.split("/").pop()?.trim() ||
+                  "Media library image preview"
+                }
+                className="w-full max-h-64 object-contain rounded"
+              />
               <div><Label>Title</Label><Input value={edit.title ?? ""} onChange={(e) => setEdit({ ...edit, title: e.target.value })} /></div>
               <div><Label>Alt text (for SEO & accessibility)</Label><Input value={edit.alt_text ?? ""} onChange={(e) => setEdit({ ...edit, alt_text: e.target.value })} /></div>
               <div><Label>Folder</Label><Input value={edit.folder} onChange={(e) => setEdit({ ...edit, folder: e.target.value })} /></div>
