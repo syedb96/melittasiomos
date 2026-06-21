@@ -84,10 +84,12 @@ const CorporateDanceClassesLondon = () => (
             Team-building that gets people laughing, moving and connecting — without awkward icebreakers.
             Beginner-friendly Latin dance sessions led by Bachata UK Champion Melitta Siomos.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#enquiry" className="btn-cta-primary text-sm">Enquire for your team →</a>
-            <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:81")} className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
-          </div>
+          <ServiceGate slug="corporate" pausedFallback={CORPORATE_PAUSED}>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="#enquiry" className="btn-cta-primary text-sm">Enquire for your team →</a>
+              <a {...waCustom("Hi Melitta, I'd like to enquire about a corporate Salsa/Bachata session", "CorporateDanceClassesLondon:81")} className="btn-cta-ghost text-sm">💬 WhatsApp Melitta</a>
+            </div>
+          </ServiceGate>
         </FadeInUp>
       </div>
     </section>
