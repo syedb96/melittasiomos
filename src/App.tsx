@@ -176,6 +176,7 @@ import EventsAdmin from "./pages/admin/EventsAdmin";
 import TestimonialsAdmin from "./pages/admin/TestimonialsAdmin";
 import EnquiriesAdmin from "./pages/admin/EnquiriesAdmin";
 import FormsAdmin from "./pages/admin/FormsAdmin";
+import NotificationsDashboard from "./pages/admin/NotificationsDashboard";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
 import Blueprint from "./pages/admin/Blueprint";
 import AmbassadorsAdmin from "./pages/admin/AmbassadorsAdmin";
@@ -388,6 +389,7 @@ const App = () => (
             <Route path="/admin/testimonials" element={<ProtectedRoute><TestimonialsAdmin /></ProtectedRoute>} />
             <Route path="/admin/enquiries" element={<ProtectedRoute requireAdmin><EnquiriesAdmin /></ProtectedRoute>} />
             <Route path="/admin/forms" element={<ProtectedRoute requireAdmin><FormsAdmin /></ProtectedRoute>} />
+            <Route path="/admin/notifications" element={<ProtectedRoute requireAdmin><NotificationsDashboard /></ProtectedRoute>} />
             <Route path="/admin/ambassadors" element={<ProtectedRoute><AmbassadorsAdmin /></ProtectedRoute>} />
             <Route path="/admin/settings" element={<ProtectedRoute><SettingsAdmin /></ProtectedRoute>} />
             <Route path="/admin/blueprint" element={<ProtectedRoute><Blueprint /></ProtectedRoute>} />

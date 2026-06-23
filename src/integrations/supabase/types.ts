@@ -1144,6 +1144,48 @@ export type Database = {
         }
         Relationships: []
       }
+      email_templates: {
+        Row: {
+          body_html: string
+          body_text: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          merge_fields: Json
+          name: string
+          slug: string
+          subject: string
+          updated_at: string
+        }
+        Insert: {
+          body_html: string
+          body_text?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          merge_fields?: Json
+          name: string
+          slug: string
+          subject: string
+          updated_at?: string
+        }
+        Update: {
+          body_html?: string
+          body_text?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          merge_fields?: Json
+          name?: string
+          slug?: string
+          subject?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       enquiries: {
         Row: {
           assigned_to: string | null
@@ -1302,6 +1344,51 @@ export type Database = {
           updated_at?: string
           venue_address?: string | null
           venue_name?: string | null
+        }
+        Relationships: []
+      }
+      form_rate_limits: {
+        Row: {
+          bucket_key: string
+          count: number
+          form_slug: string
+          id: string
+          last_seen_at: string
+          window_started_at: string
+        }
+        Insert: {
+          bucket_key: string
+          count?: number
+          form_slug: string
+          id?: string
+          last_seen_at?: string
+          window_started_at?: string
+        }
+        Update: {
+          bucket_key?: string
+          count?: number
+          form_slug?: string
+          id?: string
+          last_seen_at?: string
+          window_started_at?: string
+        }
+        Relationships: []
+      }
+      form_submission_hashes: {
+        Row: {
+          created_at: string
+          form_slug: string
+          hash: string
+        }
+        Insert: {
+          created_at?: string
+          form_slug: string
+          hash: string
+        }
+        Update: {
+          created_at?: string
+          form_slug?: string
+          hash?: string
         }
         Relationships: []
       }
@@ -1551,12 +1638,14 @@ export type Database = {
           escalation_minutes: number
           form_slug: string
           id: string
+          internal_template_id: string | null
           is_active: boolean
           recipient_email: string
           send_user_confirmation: boolean
           template_name: string
           updated_at: string
           user_confirmation_template: string
+          user_template_id: string | null
         }
         Insert: {
           cc_emails?: string[]
@@ -1565,12 +1654,14 @@ export type Database = {
           escalation_minutes?: number
           form_slug: string
           id?: string
+          internal_template_id?: string | null
           is_active?: boolean
           recipient_email: string
           send_user_confirmation?: boolean
           template_name?: string
           updated_at?: string
           user_confirmation_template?: string
+          user_template_id?: string | null
         }
         Update: {
           cc_emails?: string[]
@@ -1579,14 +1670,31 @@ export type Database = {
           escalation_minutes?: number
           form_slug?: string
           id?: string
+          internal_template_id?: string | null
           is_active?: boolean
           recipient_email?: string
           send_user_confirmation?: boolean
           template_name?: string
           updated_at?: string
           user_confirmation_template?: string
+          user_template_id?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "notification_routes_internal_template_id_fkey"
+            columns: ["internal_template_id"]
+            isOneToOne: false
+            referencedRelation: "email_templates"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "notification_routes_user_template_id_fkey"
+            columns: ["user_template_id"]
+            isOneToOne: false
+            referencedRelation: "email_templates"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       page_views: {
         Row: {
