@@ -1,85 +1,60 @@
-## Pura Nights — 100/100 Operating System: FIRST DELIVERY
 
-Your master prompt covers ~15 phases. Attempting it all in one pass would be reckless and almost certainly break working systems. I will execute exactly the "FIRST DELIVERY" block you defined at the bottom, then stop for review before moving to Phase 2 commercial controls.
+# Pura Nights — Final 100/100 Launch Programme
 
-This delivery adds **no new public pages**, **no destructive migrations**, and **no duplicate admin modules**. It is foundation + audit only.
+This is a 13-track programme touching commercial controls, email, auth, analytics, governance, recovery and platform choice. It cannot be executed as one mega-turn — each track has its own stop-gate, evidence requirement and (in several cases) a hard human blocker that no amount of code can resolve. Below is the realistic sequencing, what I will do on each turn, and what only you can do.
 
----
+## Human blockers (no code can complete these)
 
-### Scope of this delivery
+These need **you** before the corresponding track can finish:
 
-**1. Phase 0 — Build stability baseline**
-- Run the full prebuild pipeline (`alt-text-lint`, `seo-qa`, `schema-validate`, `schema-qa-report`, `qa-whatsapp-tracking`, `qa-dependency-audit`, `bun run build`).
-- Fix any failures introduced since last green build (expected: none — last turn fixed alt-text).
-- Create `docs/100-COMPLETION-BASELINE.md` with real scores per category, build status, and known blockers. No fabricated numbers — any missing data shown as "Not measured".
+1. **Production email delivery** — needs a verified sender domain (DNS records on `puranights.com`). Until DNS verifies, every send will keep logging `skipped_no_email_infra`. I can scaffold infra, templates, and a recipient list, but cannot make real mail flow.
+2. **Second owner verification** — `puranights@gmail.com` must complete a real Google sign-in on the live site once. I can prepare and test the role path, but cannot "verify" the account on their behalf.
+3. **Real photography / video** — I will produce an asset tracker; replacement files must come from you.
+4. **AggregateRating evidence** — I will suppress unsupported ratings by default and only re-enable when you supply the source (Google profile URL + count + date).
+5. **Disputed commercial values** — any price/schedule/venue where the existing site disagrees with itself needs your single source of truth before I migrate it.
+6. **Platform decision (Wix vs Lovable/Supabase)** — I will produce the decision doc with trade-offs, but the final call is yours.
+7. **Canonical host** — `puranights.com` vs `www.puranights.com` vs `melittasiomos.lovable.app`. I'll recommend, you confirm.
 
-**2. Phase 1 — Unified Control Centre foundation**
-- Promote `/admin/control-centre` to the default admin landing route (redirect `/admin` → `/admin/control-centre` for owners/admins).
-- Audit existing admin shell (`AdminLayout`, sidebars, existing nested CMS/SEO/enquiries routes). Reuse — do not rebuild.
-- Add only what is missing on the shell: breadcrumbs, global command palette (⌘K), environment badge, current-user/role chip, "View live" + "Preview" buttons in top bar. Mobile drawer behaviour verified.
+## Execution order (one track per turn, with stop-gate)
 
-**3. Admin Module Registry (single source of truth)**
-- New file `src/admin/moduleRegistry.ts` — typed array of every admin module currently in the app (CMS pages, media, navigation, redirects, Wix settings, enquiries, analytics, security events, SEO, ambassadors, team, testimonials, events, gallery, settings, etc.).
-- Each entry: `id, name, route, section, description, icon, requiredRole, status (live|partial|planned), dataSource, tableDependency, publicCritical, wixEquivalent`.
-- Sidebar, command palette, System Audit, and completion scorecard all read from this registry. No more hard-coded admin link lists.
+```text
+Turn  Track  Deliverable                                        Stop-gate
+----  -----  -------------------------------------------------  -------------------------
+ 1     0     Forensic gap + duplication audit                   You approve scope
+ 2     1     Commercial source of truth (prices + offers)       Migration map signed off
+ 3     2     Schedule / venues / booking links                  Public surfaces still pass
+ 4     3     Service operations console                         Enquiry-only services intact
+ 5     4     Email infra + real per-route test                  DNS verified by you
+ 6     5     Owner + role + auth verification                   Owner 2 signed in
+ 7     6     Production analytics + A/B evidence                Real events captured
+ 8     7     Nav / footer / design / settings                   No design regression
+ 9     8     Media + reviews + claims truth gate                You supply assets/ratings
+10     9     Canonical host + search-engine evidence            You confirm host
+11    10     Cron + automation + jobs console                   Real runs observed
+12    11     Backup / restore / runbooks                        One restore test passes
+13    12     Wix vs Lovable decision document                   You decide
+14    13     Final lockdown + Launch Readiness scoring          Score computed from checks
+```
 
-**4. Real System Audit dashboard — `/admin/system-audit`**
-- Reads the module registry + live Supabase queries to compute:
-  - Module completeness (live vs partial vs planned).
-  - Table health: row counts for `cms_pages`, `enquiries`, `testimonials`, `events`, `team_members`, `gallery_assets`, `ambassadors`, `cms_media`, `cms_redirects`.
-  - Build/SEO signals from existing `seo_alerts`, `cms_wix_sync_log`, `security_events`.
-  - Public-route inventory derived from `App.tsx` route table.
-- Categories scored: Public website, Admin, CMS, Commercial controls, CRM, SEO/GEO, Analytics, Security, Wix readiness, Recovery readiness, Overall.
-- Every metric clearly labelled "Live data" or "Not yet instrumented". No invented percentages.
+## Rules I will hold to
 
-**5. Owner / role verification**
-- Read-only check page inside System Audit: lists `syedbiz96@gmail.com` profile row, `approved_admin_emails` entries (count + active flag only — emails masked except for the owner's own), confirms `is_admin` / `has_role` definer functions exist, and lists every admin route and the role gate it enforces (parsed from `ProtectedRoute` usage in `App.tsx`).
-- If any admin route is missing a role gate → flagged red.
+- No new public pages, blog posts, or SEO landing routes.
+- No invented prices, schedules, venues, reviews, partners, awards or rating numbers.
+- No weakening of RLS; admin routes stay protected.
+- No second CMS/CRM/analytics/security system — I extend the existing tables and modules.
+- No payment provider added.
+- "Complete" is reserved for: UI works + backend works + data persists + RLS holds + validation + loading/empty/error + production evidence + tests + docs.
+- The Launch Readiness score is computed from genuine checks. I will not hard-code 100/100.
 
-**6. Canonical-host decision**
-- Add `docs/100-CANONICAL-HOST-DECISION.md` documenting the three live hosts (`puranights.com`, `www.puranights.com`, `melittasiomos.lovable.app`) and recommending `https://puranights.com` as canonical (matches existing `head-meta` + sitemap).
-- Audit `index.html`, `react-helmet-async` usage, `public/sitemap.xml`, `public/robots.txt`, and per-route Helmet canonicals for mismatches. Report findings in the doc — **no code changes to canonicals in this delivery** (that is its own phase to avoid SEO regression).
+## What I need from you to start Track 0
 
-**7. Read-only Page Registry — `/admin/pages-registry`**
-- Lists every public route from `App.tsx` joined with any matching `cms_pages` row.
-- Columns: route, component, CMS-backed (yes/no), title source, has Helmet, canonical present, in sitemap, indexable, last edited (if CMS), status.
-- Read-only in this delivery. The editable structured page editor is Phase 4.
+Just **GO** and I will run Track 0: read every relevant route, table, function, cron job, edge function, form route, notification route, email template, storage bucket, and the existing `/admin/system-audit`, then write `docs/130-FINAL-LAUNCH-GAP-AND-DUPLICATION-AUDIT.md` and update System Audit. No schema or public-surface changes on that turn.
 
-**8. Phase 2 Commercial Controls — implementation map (document only)**
-- `docs/100-PHASE-2-COMMERCIAL-CONTROLS-MAP.md`: enumerates every hard-coded price, schedule slot, venue detail, booking URL, and WhatsApp message currently in the codebase (found via `rg`), grouped by proposed admin module (Prices, Offers, Schedule, Venues, Booking Links).
-- For each: file/line, current value, proposed table, migration risk, dependent components.
-- This becomes the spec for the next delivery. Nothing is migrated yet — extracting these without a plan would break the public site.
+If you'd rather skip ahead because a track is more urgent (e.g. email DNS or owner-2 sign-in), tell me which track number and I'll go there first.
 
----
+## Technical notes (for reference)
 
-### Explicitly NOT in this delivery (require their own approved phases)
-
-- Phase 2 actual commercial-controls migration (prices/offers/schedule/venues tables + editors + public-site refactor).
-- Phases 3–15 (services/events editor, full CMS workflow, blog/resources, media manager v2, forms/CRM upgrades, partner/backlink queue, testimonial workflow, SEO intelligence engine, analytics dashboards, navigation/design tokens editor, automations, Wix export pipeline expansion, disaster recovery).
-- Any change to public URLs, canonicals, sitemap, schema output, payment flows, or RLS policies.
-- AI auto-anything.
-
----
-
-### Tech notes (for the technical reader)
-
-- Module registry is pure TS, no migration. Sidebar (`AdminLayout`) refactored to map over registry filtered by `requiredRole` resolved against `useAuth().role`.
-- System Audit page uses existing `supabase` client with `count: 'exact', head: true` queries (cheap). No new tables, no RLS changes.
-- Page Registry parses `App.tsx` `<Route>` elements at build time via a small `scripts/extract-routes.ts` helper that emits `src/admin/generated/routes.json` (run in `predev`/`prebuild` alongside sitemap generator). Keeps the registry in sync without runtime route introspection.
-- Canonical decision doc uses `rg` audit output — no code changes.
-- All new admin routes gated by `ProtectedRoute requiredRole="admin"` (owner inherits).
-
----
-
-### Acceptance for this delivery
-
-1. `bun run build` exits 0; all QA scripts pass.
-2. `/admin` redirects to `/admin/control-centre` for admins.
-3. Sidebar + command palette + system-audit all driven by the single module registry.
-4. `/admin/system-audit` shows real numbers (or honest "Not measured").
-5. `/admin/pages-registry` lists every public route with CMS linkage status.
-6. Three new docs exist under `docs/`: baseline, canonical-host decision, Phase 2 map.
-7. Owner `syedbiz96@gmail.com` confirmed as `owner` in audit panel.
-8. Zero changes to public pages, sitemap entries, canonical tags, schema output, prices, or RLS policies.
-
-After you approve and I ship this, I'll report the recalculated score and present Phase 2 as the next delivery.
+- Commercial truth will reuse existing `commerce_prices`, `commerce_offers`, `commerce_schedule_slots`, `commerce_schedule_exceptions`, `commerce_venues`, `commerce_booking_links`, `commerce_services` from Sprint 1 — no new parallel tables.
+- Forms/email will reuse `forms_config`, `notification_routes`, `notification_log`, `email_templates`, `form_rate_limits`, `form_submission_hashes` and the `forms-notify` edge function — no parallel system.
+- Email production will use Lovable's built-in email infrastructure (`email_domain--setup_email_infra` + `scaffold_transactional_email`), not a third-party SDK, unless you explicitly choose otherwise.
+- `/admin/launch-readiness` will be a read-only dashboard that queries: build status, `notification_log` (sent vs skipped), `cta_events`, `cron.job_run_details`, `security_events`, RLS linter, and the Track 0 audit table.
