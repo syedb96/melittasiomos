@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T10:48:45.261Z",
+  "generatedAt": "2026-06-24T17:16:22.826Z",
   "publicRoutes": [
     {
       "path": "/",
@@ -632,6 +632,10 @@
     {
       "path": "/latin-dance-corporate-events-london",
       "component": "LatinDanceCorporateEventsLondon"
+    },
+    {
+      "path": "/share-your-story",
+      "component": "ShareYourStory"
     }
   ],
   "adminRoutes": [
@@ -672,6 +676,14 @@
       "component": "ProtectedRoute"
     },
     {
+      "path": "/admin/forms",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/notifications",
+      "component": "ProtectedRoute"
+    },
+    {
       "path": "/admin/ambassadors",
       "component": "ProtectedRoute"
     },
@@ -693,6 +705,10 @@
     },
     {
       "path": "/admin/shop-photo-tracker",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/seo-intelligence",
       "component": "ProtectedRoute"
     },
     {
@@ -737,6 +753,10 @@
     },
     {
       "path": "/admin/commerce/offers",
+      "component": "ProtectedRoute"
+    },
+    {
+      "path": "/admin/commerce/services",
       "component": "ProtectedRoute"
     },
     {
